@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentification208
+     : IIsoXmlSerilizable<PartyIdentification208>
 {
     #nullable enable
     
     /// <summary>
     /// Type of identification.
     /// </summary>
-    [DataMember]
     public required IsoMax4Text Type { get; init; } 
     /// <summary>
     /// Other type of identification.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Identification of the party.
     /// </summary>
-    [DataMember]
     public required IsoMax70Text Identification { get; init; } 
     /// <summary>
     /// Entity in charge of assigning an identification to a party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Assigner { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4Text(Type)); // data type Max4Text System.String
+        writer.WriteEndElement();
+        if (OtherType is IsoMax35Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(Identification)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        if (Assigner is IsoMax35Text AssignerValue)
+        {
+            writer.WriteStartElement(null, "Assgnr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AssignerValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyIdentification208 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

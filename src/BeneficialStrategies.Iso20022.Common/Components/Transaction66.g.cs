@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the payment transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Transaction66
+     : IIsoXmlSerilizable<Transaction66>
 {
     #nullable enable
     
     /// <summary>
     /// Destination of the payment (be it a member or a system or both).
     /// </summary>
-    [DataMember]
     public System2? PaymentTo { get; init; } 
     /// <summary>
     /// Origin of the payment (be it a member or a system or both).
     /// </summary>
-    [DataMember]
     public System2? PaymentFrom { get; init; } 
     /// <summary>
     /// Indicates whether the payment transaction is a debit or credit transaction. |.
     /// </summary>
-    [DataMember]
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Instruction to pay an amount of money to an ultimate beneficiary, on behalf of an originator. This instruction may have to be forwarded several times to complete the settlement chain.|.
     /// </summary>
-    [DataMember]
     public PaymentInstruction32? Payment { get; init; } 
     /// <summary>
     /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
     /// </summary>
-    [DataMember]
     public CashAccountAndEntry3? AccountEntry { get; init; } 
     /// <summary>
     /// Provides the references of the underlying securities transaction.
     /// </summary>
-    [DataMember]
     public SecuritiesTransactionReferences1? SecuritiesTransactionReferences { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PaymentTo is System2 PaymentToValue)
+        {
+            writer.WriteStartElement(null, "PmtTo", xmlNamespace );
+            PaymentToValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentFrom is System2 PaymentFromValue)
+        {
+            writer.WriteStartElement(null, "PmtFr", xmlNamespace );
+            PaymentFromValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditDebitIndicator is CreditDebitCode CreditDebitIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+            writer.WriteValue(CreditDebitIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Payment is PaymentInstruction32 PaymentValue)
+        {
+            writer.WriteStartElement(null, "Pmt", xmlNamespace );
+            PaymentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountEntry is CashAccountAndEntry3 AccountEntryValue)
+        {
+            writer.WriteStartElement(null, "AcctNtry", xmlNamespace );
+            AccountEntryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesTransactionReferences is SecuritiesTransactionReferences1 SecuritiesTransactionReferencesValue)
+        {
+            writer.WriteStartElement(null, "SctiesTxRefs", xmlNamespace );
+            SecuritiesTransactionReferencesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Transaction66 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

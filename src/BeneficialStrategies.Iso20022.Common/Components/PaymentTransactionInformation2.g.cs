@@ -7,103 +7,203 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reference and status information concerning the original transactions, included in the original instruction, to which the return message applies.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentTransactionInformation2
+     : IIsoXmlSerilizable<PaymentTransactionInformation2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification as assigned by an instructing party for an instructed party to unambiguously identify the returned transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReturnIdentification { get; init; } 
     /// <summary>
     /// Information concerning the original group of transactions, to which the message refers.
     /// </summary>
-    [DataMember]
     public OriginalGroupInformation3? OriginalGroupInformation { get; init; } 
     /// <summary>
     /// Original unique instruction identification as assigned by an instructing party for an instructed party to unambiguously identify the original instruction.||Usage: the original instruction identification is the original point to point reference used between the instructing party and the instructed party to refer to the original instruction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalInstructionIdentification { get; init; } 
     /// <summary>
     /// Original unique identification assigned by the initiating party to unambiguously identify the original transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalEndToEndIdentification { get; init; } 
     /// <summary>
     /// Original identification of a transaction, as assigned by the first instructing agent and passed on, unchanged, throughout the entire interbank chain.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalTransactionIdentification { get; init; } 
     /// <summary>
     /// Original amount of money as moved between the instructing agent and the instructed agent in the original transaction.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? OriginalInterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Returned amount of money moved between the instructing agent and the instructed agent in the return transaction.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount ReturnedInterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.||Usage: the InterbankSettlementDate is the interbank settlement date of the return message, and not of the original instruction.
     /// </summary>
-    [DataMember]
     public IsoISODate? InterbankSettlementDate { get; init; } 
     /// <summary>
     /// Amount of money to be moved between the debtor and the creditor, before deduction of charges, in the returned transaction.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? ReturnedInstructedAmount { get; init; } 
     /// <summary>
     /// The factor used for conversion of an amount from one currency into another. This reflects the price at which one currency was bought with another currency.
     /// </summary>
-    [DataMember]
     public IsoBaseOneRate? ExchangeRate { get; init; } 
     /// <summary>
     /// Amount of money asked or paid as compensation for the processing of the instruction.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? CompensationAmount { get; init; } 
     /// <summary>
     /// Specifies which party/parties will bear the charges associated with the processing of the payment transaction.||Usage: The ChargeBearer applies to the return message, not to the original instruction.
     /// </summary>
-    [DataMember]
     public ChargeBearerType1Code? ChargeBearer { get; init; } 
     /// <summary>
     /// Transaction charges to be paid by the charge bearer for the return transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<ChargesInformation1> ChargesInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public ChargesInformation1? ChargesInformation { get; init; } 
     /// <summary>
     /// Agent that instructs the next party in the chain to carry out the (set of) instruction(s).
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? InstructingAgent { get; init; } 
     /// <summary>
     /// Agent that is instructed by the previous party in the chain to carry out the (set of) instruction(s).
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? InstructedAgent { get; init; } 
     /// <summary>
     /// Detailed information on the return reason.
     /// </summary>
-    [DataMember]
-    public ValueList<ReturnReasonInformation1> ReturnReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public ReturnReasonInformation1? ReturnReasonInformation { get; init; } 
     /// <summary>
     /// Set of key elements of the original transaction being referred to.
     /// </summary>
-    [DataMember]
     public OriginalTransactionReference1? OriginalTransactionReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReturnIdentification is IsoMax35Text ReturnIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RtrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReturnIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalGroupInformation is OriginalGroupInformation3 OriginalGroupInformationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlGrpInf", xmlNamespace );
+            OriginalGroupInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalInstructionIdentification is IsoMax35Text OriginalInstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlInstrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalInstructionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalEndToEndIdentification is IsoMax35Text OriginalEndToEndIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlEndToEndId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalEndToEndIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalTransactionIdentification is IsoMax35Text OriginalTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalInterbankSettlementAmount is IsoCurrencyAndAmount OriginalInterbankSettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "OrgnlIntrBkSttlmAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(OriginalInterbankSettlementAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RtrdIntrBkSttlmAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(ReturnedInterbankSettlementAmount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (InterbankSettlementDate is IsoISODate InterbankSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "IntrBkSttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(InterbankSettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ReturnedInstructedAmount is IsoCurrencyAndAmount ReturnedInstructedAmountValue)
+        {
+            writer.WriteStartElement(null, "RtrdInstdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(ReturnedInstructedAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExchangeRate is IsoBaseOneRate ExchangeRateValue)
+        {
+            writer.WriteStartElement(null, "XchgRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ExchangeRateValue)); // data type BaseOneRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CompensationAmount is IsoCurrencyAndAmount CompensationAmountValue)
+        {
+            writer.WriteStartElement(null, "CompstnAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(CompensationAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ChargeBearer is ChargeBearerType1Code ChargeBearerValue)
+        {
+            writer.WriteStartElement(null, "ChrgBr", xmlNamespace );
+            writer.WriteValue(ChargeBearerValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ChargesInformation is ChargesInformation1 ChargesInformationValue)
+        {
+            writer.WriteStartElement(null, "ChrgsInf", xmlNamespace );
+            ChargesInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructingAgent is BranchAndFinancialInstitutionIdentification3 InstructingAgentValue)
+        {
+            writer.WriteStartElement(null, "InstgAgt", xmlNamespace );
+            InstructingAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructedAgent is BranchAndFinancialInstitutionIdentification3 InstructedAgentValue)
+        {
+            writer.WriteStartElement(null, "InstdAgt", xmlNamespace );
+            InstructedAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReturnReasonInformation is ReturnReasonInformation1 ReturnReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "RtrRsnInf", xmlNamespace );
+            ReturnReasonInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalTransactionReference is OriginalTransactionReference1 OriginalTransactionReferenceValue)
+        {
+            writer.WriteStartElement(null, "OrgnlTxRef", xmlNamespace );
+            OriginalTransactionReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentTransactionInformation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

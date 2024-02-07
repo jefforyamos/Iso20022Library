@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters to be used by the various cryptographic key commands.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMConfigurationParameter2
+     : IIsoXmlSerilizable<ATMConfigurationParameter2>
 {
     #nullable enable
     
     /// <summary>
     /// Category of the cryptographic key.
     /// </summary>
-    [DataMember]
     public CryptographicKeyType4Code? KeyCategory { get; init; } 
     /// <summary>
     /// Random value from the host provided during a previous exchange.
     /// </summary>
-    [DataMember]
     public IsoMax140Binary? HostChallenge { get; init; } 
     /// <summary>
     /// Ordered certificate chain of the asymmetric key encryption key, starting with the host certificate.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax5000Binary> Certificate { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax5000Binary? Certificate { get; init; } 
     /// <summary>
     /// Cryptographic key involved in the security command.
     /// </summary>
-    [DataMember]
-    public ValueList<KEKIdentifier4> KeyProperties { get; init; } = []; // Warning: Don't know multiplicity.
+    public KEKIdentifier4? KeyProperties { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (KeyCategory is CryptographicKeyType4Code KeyCategoryValue)
+        {
+            writer.WriteStartElement(null, "KeyCtgy", xmlNamespace );
+            writer.WriteValue(KeyCategoryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (HostChallenge is IsoMax140Binary HostChallengeValue)
+        {
+            writer.WriteStartElement(null, "HstChllng", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Binary(HostChallengeValue)); // data type Max140Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (Certificate is IsoMax5000Binary CertificateValue)
+        {
+            writer.WriteStartElement(null, "Cert", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax5000Binary(CertificateValue)); // data type Max5000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (KeyProperties is KEKIdentifier4 KeyPropertiesValue)
+        {
+            writer.WriteStartElement(null, "KeyProps", xmlNamespace );
+            KeyPropertiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMConfigurationParameter2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

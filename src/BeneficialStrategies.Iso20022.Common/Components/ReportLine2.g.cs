@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a payment against a purchase order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReportLine2
+     : IIsoXmlSerilizable<ReportLine2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the purchase order, assigned by the buyer.
     /// </summary>
-    [DataMember]
     public required DocumentIdentification7 PurchaseOrderReference { get; init; } 
     /// <summary>
     /// Specifies the adjustments applied to obtain the net amount.
     /// </summary>
-    [DataMember]
-    public ValueList<Adjustment4> Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
+    public Adjustment4? Adjustment { get; init; } 
     /// <summary>
     /// Net amount, after adjustments, intended to be paid.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount NetAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PurchsOrdrRef", xmlNamespace );
+        PurchaseOrderReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Adjustment is Adjustment4 AdjustmentValue)
+        {
+            writer.WriteStartElement(null, "Adjstmnt", xmlNamespace );
+            AdjustmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "NetAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(NetAmount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static ReportLine2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

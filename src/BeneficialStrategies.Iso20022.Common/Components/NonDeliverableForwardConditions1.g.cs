@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the opening and valuation conditions for the non deliverable forward.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NonDeliverableForwardConditions1
+     : IIsoXmlSerilizable<NonDeliverableForwardConditions1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the instruction is an NDF opening or fixing.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator OpeningIndicator { get; init; } 
     /// <summary>
     /// Specifies either the conditions for an NDF oepning or an NDF fixing confirmation.
     /// </summary>
-    [DataMember]
     public required NDFOpeningFixing1Choice_ OpeningFixingConditions { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OpngInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OpeningIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OpngFxgConds", xmlNamespace );
+        OpeningFixingConditions.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static NonDeliverableForwardConditions1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

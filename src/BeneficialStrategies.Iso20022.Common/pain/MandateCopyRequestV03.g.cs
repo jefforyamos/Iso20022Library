@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.pain.MandateCopyRequestV03>;
 
 namespace BeneficialStrategies.Iso20022.pain;
 
@@ -30,10 +33,9 @@ namespace BeneficialStrategies.Iso20022.pain;
 /// 
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The MandateCopyRequest message is sent by the initiator of the request to his agent. The initiator can either be the debtor or the creditor.|The MandateCopyRequest message is forwarded by the agent of the initiator to the agent of the counterparty.|A MandateCopyRequest message is used to request a copy of an existing mandate. If accepted, the mandate copy can be sent using the MandateAcceptanceReport message.|Usage|The MandateCopyRequest message can contain one or more copy requests.|The messages can be exchanged between creditor and creditor agent or debtor and debtor agent and between creditor agent and debtor agent.|The message can also be used by an initiating party that has authority to send the message on behalf of the creditor or debtor.|The MandateCopyRequest message can be used in domestic and cross-border scenarios.|")]
-public partial record MandateCopyRequestV03 : IOuterRecord
+public partial record MandateCopyRequestV03 : IOuterRecord<MandateCopyRequestV03,MandateCopyRequestV03Document>
+    ,IIsoXmlSerilizable<MandateCopyRequestV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -45,6 +47,11 @@ public partial record MandateCopyRequestV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MndtCpyReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => MandateCopyRequestV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -85,6 +92,35 @@ public partial record MandateCopyRequestV03 : IOuterRecord
     {
         return new MandateCopyRequestV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MndtCpyReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
+        GroupHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UndrlygCpyReqDtls", xmlNamespace );
+        UnderlyingCopyRequestDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MandateCopyRequestV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -92,9 +128,7 @@ public partial record MandateCopyRequestV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MandateCopyRequestV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record MandateCopyRequestV03Document : IOuterDocument<MandateCopyRequestV03>
+public partial record MandateCopyRequestV03Document : IOuterDocument<MandateCopyRequestV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -110,5 +144,22 @@ public partial record MandateCopyRequestV03Document : IOuterDocument<MandateCopy
     /// <summary>
     /// The instance of <seealso cref="MandateCopyRequestV03"/> is required.
     /// </summary>
+    [DataMember(Name=MandateCopyRequestV03.XmlTag)]
     public required MandateCopyRequestV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(MandateCopyRequestV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

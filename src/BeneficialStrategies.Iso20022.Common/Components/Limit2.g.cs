@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the minimum value of entries to be reported in the requested message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Limit2
+     : IIsoXmlSerilizable<Limit2>
 {
     #nullable enable
     
     /// <summary>
     /// Minimum transaction amount to be reported in the requested message.
     /// </summary>
-    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether the floor limit applies to credit, to debit or to both credit and debit entries.
     /// </summary>
-    [DataMember]
     public required FloorLimitType1Code CreditDebitIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(Amount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static Limit2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

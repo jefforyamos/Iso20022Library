@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsmt.InitialBaselineSubmissionV03>;
 
 namespace BeneficialStrategies.Iso20022.tsmt;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// The InitialBaselineSubmission message consists of data which relates to the purchasing agreement covered by the transaction, for example line item details, shipping details.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The InitialBaselineSubmission message is sent by the initiator of a transaction to the matching application.|This message is used to initiate a transaction.|Usage|The InitialBaselineSubmission message can be sent by a party to register a transaction in the matching application. The message can be submitted with either lodge or push-through instruction.|When the push-through instruction is present, the matching application acknowledges the receipt of the message to the sender by sending an Acknowledgement message, stores the submitted information and informs the counterparty about the registration of the transaction by sending a FullPushThroughReport message. With the BaselineReSubmission message the counterparty responds with matching baseline information in order to establish the transaction (baseline).|When the lodge instruction is present, the matching application acknowledges the receipt of the message to the sender by sending an Acknowledgement message and stores the submitted information. No matching of the submitted baseline data with other baseline information will take place. For example the submission of an InitialBaselineSubmission message containing a lodge instruction establishes the transaction (baseline) in the matching application.|The InitialBaselineSubmission message consists of data which relates to the purchasing agreement covered by the transaction, for example line item details, shipping details.")]
-public partial record InitialBaselineSubmissionV03 : IOuterRecord
+public partial record InitialBaselineSubmissionV03 : IOuterRecord<InitialBaselineSubmissionV03,InitialBaselineSubmissionV03Document>
+    ,IIsoXmlSerilizable<InitialBaselineSubmissionV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record InitialBaselineSubmissionV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "InitlBaselnSubmissn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => InitialBaselineSubmissionV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -141,6 +148,59 @@ public partial record InitialBaselineSubmissionV03 : IOuterRecord
     {
         return new InitialBaselineSubmissionV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("InitlBaselnSubmissn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SubmissnId", xmlNamespace );
+        SubmissionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SubmitrTxRef", xmlNamespace );
+        SubmitterTransactionReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Instr", xmlNamespace );
+        Instruction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Baseln", xmlNamespace );
+        Baseline.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BuyerContactPerson is ContactIdentification1 BuyerContactPersonValue)
+        {
+            writer.WriteStartElement(null, "BuyrCtctPrsn", xmlNamespace );
+            BuyerContactPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SellerContactPerson is ContactIdentification1 SellerContactPersonValue)
+        {
+            writer.WriteStartElement(null, "SellrCtctPrsn", xmlNamespace );
+            SellerContactPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "BuyrBkCtctPrsn", xmlNamespace );
+        BuyerBankContactPerson.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SellrBkCtctPrsn", xmlNamespace );
+        SellerBankContactPerson.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OtherBankContactPerson is ContactIdentification3 OtherBankContactPersonValue)
+        {
+            writer.WriteStartElement(null, "OthrBkCtctPrsn", xmlNamespace );
+            OtherBankContactPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InitialBaselineSubmissionV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -148,9 +208,7 @@ public partial record InitialBaselineSubmissionV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InitialBaselineSubmissionV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record InitialBaselineSubmissionV03Document : IOuterDocument<InitialBaselineSubmissionV03>
+public partial record InitialBaselineSubmissionV03Document : IOuterDocument<InitialBaselineSubmissionV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -166,5 +224,22 @@ public partial record InitialBaselineSubmissionV03Document : IOuterDocument<Init
     /// <summary>
     /// The instance of <seealso cref="InitialBaselineSubmissionV03"/> is required.
     /// </summary>
+    [DataMember(Name=InitialBaselineSubmissionV03.XmlTag)]
     public required InitialBaselineSubmissionV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(InitialBaselineSubmissionV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

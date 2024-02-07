@@ -7,140 +7,278 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to report on the payment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentReturnCriteria4
+     : IIsoXmlSerilizable<PaymentReturnCriteria4>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the original payment transaction message identification is requested.|Usage: this is the former TransactionReference.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? MessageIdentificationIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the requested execution date is requested.|Usage: this is the former TransferValueDate.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? RequestedExecutionDateIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the instruction is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? InstructionIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the instruction status is requested.
     /// </summary>
-    [DataMember]
     public InstructionStatusReturnCriteria1? InstructionStatusReturnCriteria { get; init; } 
     /// <summary>
     /// Indicates whether the instructed amount is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? InstructedAmountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the credit debit indicator is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the interbank settlement amount is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? InterbankSettlementAmountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the payment priority is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? PriorityIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the processing validity time is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? ProcessingValidityTimeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the transfer reason is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? PurposeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the instruction copy is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? InstructionCopyIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the payment message type is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? PaymentMessageTypeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the payment type is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? PaymentTypeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the transaction identification is requested.|Usage: this is the former PaymentInstructionReference.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? TransactionIdentificationIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the interbank settlement date is requested.|Usage: this is the former InterbankValueDate.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? InterbankSettlementDateIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the end-to-end identification is requested.|Usage: this is the former RelatedReference.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? EndToEndIdentificationIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the payment method is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? PaymentMethodIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the debtor is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? DebtorIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the debtor agent is requested.|Usage: this is the former FirstAgent.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? DebtorAgentIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the instructing reimbursement agent is requested.
     /// Usage: this is the former InstructingAgentCorrespondent.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? InstructingReimbursementAgentIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the instructed reimbursement agent is requested.
     /// Usage: this is the former InstructedAgentCorrespondent.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? InstructedReimbursementAgentIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the intermediary is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? IntermediaryIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the creditor agent is requested.|Usage: this is the former FinalAgent.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? CreditorAgentIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the creditor is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? CreditorIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MessageIdentificationIndicator is IsoRequestedIndicator MessageIdentificationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "MsgIdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(MessageIdentificationIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (RequestedExecutionDateIndicator is IsoRequestedIndicator RequestedExecutionDateIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ReqdExctnDtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(RequestedExecutionDateIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (InstructionIndicator is IsoRequestedIndicator InstructionIndicatorValue)
+        {
+            writer.WriteStartElement(null, "InstrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(InstructionIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (InstructionStatusReturnCriteria is InstructionStatusReturnCriteria1 InstructionStatusReturnCriteriaValue)
+        {
+            writer.WriteStartElement(null, "InstrStsRtrCrit", xmlNamespace );
+            InstructionStatusReturnCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructedAmountIndicator is IsoRequestedIndicator InstructedAmountIndicatorValue)
+        {
+            writer.WriteStartElement(null, "InstdAmtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(InstructedAmountIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CreditDebitIndicator is IsoRequestedIndicator CreditDebitIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(CreditDebitIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (InterbankSettlementAmountIndicator is IsoRequestedIndicator InterbankSettlementAmountIndicatorValue)
+        {
+            writer.WriteStartElement(null, "IntrBkSttlmAmtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(InterbankSettlementAmountIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PriorityIndicator is IsoRequestedIndicator PriorityIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PrtyInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(PriorityIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ProcessingValidityTimeIndicator is IsoRequestedIndicator ProcessingValidityTimeIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PrcgVldtyTmInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(ProcessingValidityTimeIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PurposeIndicator is IsoRequestedIndicator PurposeIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PurpInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(PurposeIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (InstructionCopyIndicator is IsoRequestedIndicator InstructionCopyIndicatorValue)
+        {
+            writer.WriteStartElement(null, "InstrCpyInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(InstructionCopyIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PaymentMessageTypeIndicator is IsoRequestedIndicator PaymentMessageTypeIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PmtMTInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(PaymentMessageTypeIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PaymentTypeIndicator is IsoRequestedIndicator PaymentTypeIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PmtTpInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(PaymentTypeIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionIdentificationIndicator is IsoRequestedIndicator TransactionIdentificationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "TxIdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(TransactionIdentificationIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (InterbankSettlementDateIndicator is IsoRequestedIndicator InterbankSettlementDateIndicatorValue)
+        {
+            writer.WriteStartElement(null, "IntrBkSttlmDtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(InterbankSettlementDateIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (EndToEndIdentificationIndicator is IsoRequestedIndicator EndToEndIdentificationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "EndToEndIdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(EndToEndIdentificationIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PaymentMethodIndicator is IsoRequestedIndicator PaymentMethodIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PmtMtdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(PaymentMethodIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (DebtorIndicator is IsoRequestedIndicator DebtorIndicatorValue)
+        {
+            writer.WriteStartElement(null, "DbtrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(DebtorIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (DebtorAgentIndicator is IsoRequestedIndicator DebtorAgentIndicatorValue)
+        {
+            writer.WriteStartElement(null, "DbtrAgtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(DebtorAgentIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (InstructingReimbursementAgentIndicator is IsoRequestedIndicator InstructingReimbursementAgentIndicatorValue)
+        {
+            writer.WriteStartElement(null, "InstgRmbrsmntAgtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(InstructingReimbursementAgentIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (InstructedReimbursementAgentIndicator is IsoRequestedIndicator InstructedReimbursementAgentIndicatorValue)
+        {
+            writer.WriteStartElement(null, "InstdRmbrsmntAgtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(InstructedReimbursementAgentIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (IntermediaryIndicator is IsoRequestedIndicator IntermediaryIndicatorValue)
+        {
+            writer.WriteStartElement(null, "IntrmyInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(IntermediaryIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CreditorAgentIndicator is IsoRequestedIndicator CreditorAgentIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CdtrAgtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(CreditorAgentIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CreditorIndicator is IsoRequestedIndicator CreditorIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CdtrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(CreditorIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentReturnCriteria4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

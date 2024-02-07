@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// The discount amount that is attached to an item as a rebate.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SaleItemRebate1
+     : IIsoXmlSerilizable<SaleItemRebate1>
 {
     #nullable enable
     
     /// <summary>
     /// Data of the Sale item.
     /// </summary>
-    [DataMember]
     public required Product6 SaleItem { get; init; } 
     /// <summary>
     /// Short text to qualify a rebate on an line item.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RebateLabel { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SaleItm", xmlNamespace );
+        SaleItem.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RebateLabel is IsoMax35Text RebateLabelValue)
+        {
+            writer.WriteStartElement(null, "RbtLabl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RebateLabelValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SaleItemRebate1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

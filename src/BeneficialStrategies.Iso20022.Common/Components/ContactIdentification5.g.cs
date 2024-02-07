@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information needed to contact a physical person.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ContactIdentification5
+     : IIsoXmlSerilizable<ContactIdentification5>
 {
     #nullable enable
     
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Name { get; init; } 
     /// <summary>
     /// Collection of information that identifies a phone number, as defined by telecom services.
     /// </summary>
-    [DataMember]
     public required IsoPhoneNumber PhoneNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Name)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PhneNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPhoneNumber(PhoneNumber)); // data type PhoneNumber System.String
+        writer.WriteEndElement();
+    }
+    public static ContactIdentification5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the vote methods to be used.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record VoteMethods5
+     : IIsoXmlSerilizable<VoteMethods5>
 {
     #nullable enable
     
     /// <summary>
     /// Network address through which a voting party can cast its vote via a structured message.
     /// </summary>
-    [DataMember]
     public VoteThroughNetwork1Choice_? VoteThroughNetwork { get; init; } 
     /// <summary>
     /// Address where the voting ballot can be sent.
     /// </summary>
-    [DataMember]
     public MailAddress1? VoteByMail { get; init; } 
     /// <summary>
     /// Electronic address, e-mail or web site, where a security holder can vote.
     /// </summary>
-    [DataMember]
     public ValueList<CommunicationAddress12> ElectronicVote { get; init; } = [];
     /// <summary>
     /// Telephone number providing access to an automated voting system.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> VoteByTelephone { get; init; } = [];
+    public SimpleValueList<IsoMax35Text> VoteByTelephone { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (VoteThroughNetwork is VoteThroughNetwork1Choice_ VoteThroughNetworkValue)
+        {
+            writer.WriteStartElement(null, "VoteThrghNtwk", xmlNamespace );
+            VoteThroughNetworkValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (VoteByMail is MailAddress1 VoteByMailValue)
+        {
+            writer.WriteStartElement(null, "VoteByMail", xmlNamespace );
+            VoteByMailValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ElctrncVote", xmlNamespace );
+        ElectronicVote.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "VoteByTel", xmlNamespace );
+        VoteByTelephone.Serialize(writer, xmlNamespace, "Max35Text", SerializationFormatter.IsoMax35Text );
+        writer.WriteEndElement();
+    }
+    public static VoteMethods5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

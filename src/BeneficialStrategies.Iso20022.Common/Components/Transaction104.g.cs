@@ -7,70 +7,132 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Settlement report transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Transaction104
+     : IIsoXmlSerilizable<Transaction104>
 {
     #nullable enable
     
     /// <summary>
     /// Type of settlement report.
     /// </summary>
-    [DataMember]
     public required SettlementReportType1Code SettlementReportType { get; init; } 
     /// <summary>
     /// Other type of settlement report in free text.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherSettlementReportType { get; init; } 
     /// <summary>
     /// Reason to send the message.
     /// ISO 8583:93/2003 bit 25.
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoExact4NumericText> MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoExact4NumericText? MessageReason { get; init; } 
     /// <summary>
     /// Supports message reason codes that are not defined in external code list. 
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? AlternateMessageReason { get; init; } 
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
-    [DataMember]
     public required TransactionIdentification12 TransactionIdentification { get; init; } 
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalFee1> AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalFee1? AdditionalFees { get; init; } 
     /// <summary>
     /// Settlement totals of the report.
     /// </summary>
-    [DataMember]
     public SettlementTotals1? SettlementTotals { get; init; } 
     /// <summary>
     /// Contains the net funds transfer amount.
     /// </summary>
-    [DataMember]
     public Amount14? FundsTransferAmount { get; init; } 
     /// <summary>
     /// Transaction data related to programmes and services, content and format based on bilateral agreements.
     /// </summary>
-    [DataMember]
     public IsoMax1000Text? TransactionDescription { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttlmRptTp", xmlNamespace );
+        writer.WriteValue(SettlementReportType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherSettlementReportType is IsoMax35Text OtherSettlementReportTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrSttlmRptTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherSettlementReportTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MessageReason is IsoExact4NumericText MessageReasonValue)
+        {
+            writer.WriteStartElement(null, "MsgRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact4NumericText(MessageReasonValue)); // data type Exact4NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (AlternateMessageReason is IsoMax35Text AlternateMessageReasonValue)
+        {
+            writer.WriteStartElement(null, "AltrnMsgRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AlternateMessageReasonValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalFees is AdditionalFee1 AdditionalFeesValue)
+        {
+            writer.WriteStartElement(null, "AddtlFees", xmlNamespace );
+            AdditionalFeesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementTotals is SettlementTotals1 SettlementTotalsValue)
+        {
+            writer.WriteStartElement(null, "SttlmTtls", xmlNamespace );
+            SettlementTotalsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FundsTransferAmount is Amount14 FundsTransferAmountValue)
+        {
+            writer.WriteStartElement(null, "FndsTrfAmt", xmlNamespace );
+            FundsTransferAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionDescription is IsoMax1000Text TransactionDescriptionValue)
+        {
+            writer.WriteStartElement(null, "TxDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1000Text(TransactionDescriptionValue)); // data type Max1000Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Transaction104 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

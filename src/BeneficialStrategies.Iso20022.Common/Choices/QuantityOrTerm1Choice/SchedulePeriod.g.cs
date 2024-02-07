@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.QuantityOrTerm1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityOrTerm1Choice;
 /// Specifies the effective date and end date of the schedule for derivative transactions negotiated in non-monetary amounts with a notional quantity varying throughout the life of the transaction.
 /// </summary>
 public partial record SchedulePeriod : QuantityOrTerm1Choice_
+     , IIsoXmlSerilizable<SchedulePeriod>
 {
     #nullable enable
+    
     /// <summary>
     /// Number of units of the financial instrument, that is, the nominal value.
     /// </summary>
@@ -31,5 +35,41 @@ public partial record SchedulePeriod : QuantityOrTerm1Choice_
     /// Indicates the end date agreed in the derivative transaction without adjustment.
     /// </summary>
     public IsoISODate? UnadjustedEndDate { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLongFraction19DecimalNumber(Quantity)); // data type LongFraction19DecimalNumber System.UInt64
+        writer.WriteEndElement();
+        if (UnitOfMeasure is UnitOfMeasure8Choice_ UnitOfMeasureValue)
+        {
+            writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
+            UnitOfMeasureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "UadjstdFctvDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(UnadjustedEffectiveDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (UnadjustedEndDate is IsoISODate UnadjustedEndDateValue)
+        {
+            writer.WriteStartElement(null, "UadjstdEndDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(UnadjustedEndDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static new SchedulePeriod Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

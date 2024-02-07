@@ -7,73 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique and unambiguous way to identify a person.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PersonIdentification3
+     : IIsoXmlSerilizable<PersonIdentification3>
 {
     #nullable enable
     
     /// <summary>
     /// Number assigned by a license authority to a driver's license.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text DriversLicenseNumber { get; init; } 
     /// <summary>
     /// Number assigned by an agent to identify its customer.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text CustomerNumber { get; init; } 
     /// <summary>
     /// Number assigned by a social security agency.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text SocialSecurityNumber { get; init; } 
     /// <summary>
     /// Number assigned by a government agency to identify foreign nationals.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text AlienRegistrationNumber { get; init; } 
     /// <summary>
     /// Number assigned by a passport authority to a passport.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text PassportNumber { get; init; } 
     /// <summary>
     /// Number assigned by a tax authority to an entity.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TaxIdentificationNumber { get; init; } 
     /// <summary>
     /// Number assigned by a national authority to an identity card.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text IdentityCardNumber { get; init; } 
     /// <summary>
     /// Number assigned to an employer by a registration authority.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text EmployerIdentificationNumber { get; init; } 
     /// <summary>
     /// Date and place of birth of a person.
     /// </summary>
-    [DataMember]
     public required DateAndPlaceOfBirth DateAndPlaceOfBirth { get; init; } 
     /// <summary>
     /// Identifier issued to a person for which no specific identifier has been defined.
     /// </summary>
-    [DataMember]
     public required GenericIdentification4 OtherIdentification { get; init; } 
     /// <summary>
     /// Entity that assigns the identifier.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DrvrsLicNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(DriversLicenseNumber)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CstmrNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(CustomerNumber)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SclSctyNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(SocialSecurityNumber)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AlnRegnNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(AlienRegistrationNumber)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PsptNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(PassportNumber)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TaxIdNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TaxIdentificationNumber)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IdntyCardNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentityCardNumber)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MplyrIdNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(EmployerIdentificationNumber)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DtAndPlcOfBirth", xmlNamespace );
+        DateAndPlaceOfBirth.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrId", xmlNamespace );
+        OtherIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Issuer is IsoMax35Text IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PersonIdentification3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

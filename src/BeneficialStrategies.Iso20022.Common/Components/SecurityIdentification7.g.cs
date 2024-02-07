@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Choice between ISIN and an alternative format for the identification of a security. ISIN is the preferred format.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityIdentification7
+     : IIsoXmlSerilizable<SecurityIdentification7>
 {
     #nullable enable
     
     /// <summary>
     /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation's International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
     /// </summary>
-    [DataMember]
     public required IsoISINIdentifier ISIN { get; init; } 
     /// <summary>
     /// Proprietary identification of a security assigned by an institution or organisation.
     /// </summary>
-    [DataMember]
     public required AlternateSecurityIdentification3 OtherIdentification { get; init; } 
     /// <summary>
     /// Textual description of a security instrument.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ISIN", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISINIdentifier(ISIN)); // data type ISINIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrId", xmlNamespace );
+        OtherIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Description is IsoMax140Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(DescriptionValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SecurityIdentification7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed information about the outstanding derivatives for which no valuation or outdated valuation has been reported.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MissingValuationsTransactionData2
+     : IIsoXmlSerilizable<MissingValuationsTransactionData2>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a transaction.
     /// </summary>
-    [DataMember]
     public required TradeTransactionIdentification24 TransactionIdentification { get; init; } 
     /// <summary>
     /// Mark-to-market valuation of the contract, or mark-to-model valuation
     /// </summary>
-    [DataMember]
     public AmountAndDirection106? ValuationAmount { get; init; } 
     /// <summary>
     /// Date and time of the valuation.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? ValuationTimeStamp { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ValuationAmount is AmountAndDirection106 ValuationAmountValue)
+        {
+            writer.WriteStartElement(null, "ValtnAmt", xmlNamespace );
+            ValuationAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValuationTimeStamp is DateAndDateTime2Choice_ ValuationTimeStampValue)
+        {
+            writer.WriteStartElement(null, "ValtnTmStmp", xmlNamespace );
+            ValuationTimeStampValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MissingValuationsTransactionData2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

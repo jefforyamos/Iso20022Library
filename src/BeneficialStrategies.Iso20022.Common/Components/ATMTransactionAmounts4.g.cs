@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Withdrawal limits for the account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMTransactionAmounts4
+     : IIsoXmlSerilizable<ATMTransactionAmounts4>
 {
     #nullable enable
     
     /// <summary>
     /// True if limits may be displayed on the ATM to the customer.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? DisplayFlag { get; init; } 
     /// <summary>
     /// Amount available for withdrawal on the account.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? AvailableAmount { get; init; } 
     /// <summary>
     /// Remaining daily amount of the customer totals for withdrawals on the account.
     /// </summary>
-    [DataMember]
     public DetailedAmount4? DailyBalance { get; init; } 
     /// <summary>
     /// Remaining weekly amount of the customer totals for withdrawals on the account.
     /// </summary>
-    [DataMember]
     public DetailedAmount4? WeeklyBalance { get; init; } 
     /// <summary>
     /// Remaining monthly amount of the customer totals for withdrawals on the account.
     /// </summary>
-    [DataMember]
     public DetailedAmount4? MonthlyBalance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DisplayFlag is IsoTrueFalseIndicator DisplayFlagValue)
+        {
+            writer.WriteStartElement(null, "DispFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DisplayFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AvailableAmount is IsoImpliedCurrencyAndAmount AvailableAmountValue)
+        {
+            writer.WriteStartElement(null, "AvlblAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(AvailableAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (DailyBalance is DetailedAmount4 DailyBalanceValue)
+        {
+            writer.WriteStartElement(null, "DalyBal", xmlNamespace );
+            DailyBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (WeeklyBalance is DetailedAmount4 WeeklyBalanceValue)
+        {
+            writer.WriteStartElement(null, "WklyBal", xmlNamespace );
+            WeeklyBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MonthlyBalance is DetailedAmount4 MonthlyBalanceValue)
+        {
+            writer.WriteStartElement(null, "MnthlyBal", xmlNamespace );
+            MonthlyBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMTransactionAmounts4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

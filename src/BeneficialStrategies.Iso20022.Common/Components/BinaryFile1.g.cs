@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Computer file stored in a binary format.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BinaryFile1
+     : IIsoXmlSerilizable<BinaryFile1>
 {
     #nullable enable
     
     /// <summary>
     /// Code specifying the Multipurpose Internet Mail Extensions (MIME) type for this attached binary file. Reference IANA (Internet Assigned Numbers Authority) - MIME Media Types (www.iana.org/assignments/media-types).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MIMEType { get; init; } 
     /// <summary>
     /// Specifies the encoding algorithm used for this attached binary file. Reference IANA (Internet Assigned Numbers Authority) - Transfer Encodings (www.iana.org/assignments/transfer-encodings).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? EncodingType { get; init; } 
     /// <summary>
     /// Specifies a code signifying the particular character set used for this attached binary file. Reference IANA (Internet Assigned Numbers Authority) - Character Sets (www.iana.org/assignments/character-sets).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CharacterSet { get; init; } 
     /// <summary>
     /// Binary object included in this attached binary file.
     /// </summary>
-    [DataMember]
     public IsoMax100KBinary? IncludedBinaryObject { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MIMEType is IsoMax35Text MIMETypeValue)
+        {
+            writer.WriteStartElement(null, "MIMETp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MIMETypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (EncodingType is IsoMax35Text EncodingTypeValue)
+        {
+            writer.WriteStartElement(null, "NcodgTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(EncodingTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CharacterSet is IsoMax35Text CharacterSetValue)
+        {
+            writer.WriteStartElement(null, "CharSet", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CharacterSetValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (IncludedBinaryObject is IsoMax100KBinary IncludedBinaryObjectValue)
+        {
+            writer.WriteStartElement(null, "InclBinryObjct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax100KBinary(IncludedBinaryObjectValue)); // data type Max100KBinary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static BinaryFile1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.pacs.PaymentReturnV12>;
 
 namespace BeneficialStrategies.Iso20022.pacs;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.pacs;
 /// The PaymentReturn message refers to the original instruction(s) by means of references only or by means of references and a set of elements from the original instruction.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The PaymentReturn message is sent by an agent to the previous agent in the payment chain to undo a payment previously settled.|Usage|The PaymentReturn message is exchanged between agents to return funds after settlement of credit transfer instructions (that is FIToFICustomerCreditTransfer message and FinancialInstitutionCreditTransfer message) or direct debit instructions (FIToFICustomerDirectDebit message).|The PaymentReturn message should not be used between agents and non-financial institution customers. Non-financial institution customers will be informed about a debit or a credit on their account(s) through a BankToCustomerDebitCreditNotification message ('notification') and/or BankToCustomerAccountReport/BankToCustomerStatement message ('statement').|The PaymentReturn message can be used to return single instructions or multiple instructions from one or different files.|The PaymentReturn message can be used in domestic and cross-border scenarios.|The PaymentReturn message refers to the original instruction(s) by means of references only or by means of references and a set of elements from the original instruction.")]
-public partial record PaymentReturnV12 : IOuterRecord
+public partial record PaymentReturnV12 : IOuterRecord<PaymentReturnV12,PaymentReturnV12Document>
+    ,IIsoXmlSerilizable<PaymentReturnV12>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record PaymentReturnV12 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "PmtRtr";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => PaymentReturnV12Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -91,6 +98,44 @@ public partial record PaymentReturnV12 : IOuterRecord
     {
         return new PaymentReturnV12Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("PmtRtr");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
+        GroupHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OriginalGroupInformation is OriginalGroupHeader18 OriginalGroupInformationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlGrpInf", xmlNamespace );
+            OriginalGroupInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionInformation is PaymentTransaction146 TransactionInformationValue)
+        {
+            writer.WriteStartElement(null, "TxInf", xmlNamespace );
+            TransactionInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentReturnV12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -98,9 +143,7 @@ public partial record PaymentReturnV12 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PaymentReturnV12"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record PaymentReturnV12Document : IOuterDocument<PaymentReturnV12>
+public partial record PaymentReturnV12Document : IOuterDocument<PaymentReturnV12>, IXmlSerializable
 {
     
     /// <summary>
@@ -116,5 +159,22 @@ public partial record PaymentReturnV12Document : IOuterDocument<PaymentReturnV12
     /// <summary>
     /// The instance of <seealso cref="PaymentReturnV12"/> is required.
     /// </summary>
+    [DataMember(Name=PaymentReturnV12.XmlTag)]
     public required PaymentReturnV12 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(PaymentReturnV12.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

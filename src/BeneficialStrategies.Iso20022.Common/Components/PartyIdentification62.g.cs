@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentification62
+     : IIsoXmlSerilizable<PartyIdentification62>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the financial institution expressed as a BIC.
     /// </summary>
-    [DataMember]
     public IsoBICFIIdentifier? BICFI { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier, as assigned to a financial institution using a proprietary identification scheme.
     /// </summary>
-    [DataMember]
     public GenericIdentification1? ProprietaryIdentification { get; init; } 
     /// <summary>
     /// Name and address of the party.
     /// </summary>
-    [DataMember]
     public NameAndAddress5? NameAndAddress { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (BICFI is IsoBICFIIdentifier BICFIValue)
+        {
+            writer.WriteStartElement(null, "BICFI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBICFIIdentifier(BICFIValue)); // data type BICFIIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (ProprietaryIdentification is GenericIdentification1 ProprietaryIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrtryId", xmlNamespace );
+            ProprietaryIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NameAndAddress is NameAndAddress5 NameAndAddressValue)
+        {
+            writer.WriteStartElement(null, "NmAndAdr", xmlNamespace );
+            NameAndAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyIdentification62 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

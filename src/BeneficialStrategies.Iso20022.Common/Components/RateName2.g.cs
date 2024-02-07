@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Rate name specifies the reference rate or basis rate on which a variable rate is based (ex: EONIA, EURIBOR, LIBOR, FEFUND, EURREPO).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RateName2
+     : IIsoXmlSerilizable<RateName2>
 {
     #nullable enable
     
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax8Text? Issuer { get; init; } 
     /// <summary>
     /// Rate Name specifies the reference rate or basis rate on which a variable rate is based (ex: EONIA, EURIBOR, LIBOR, FEFUND, EURREPO).
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINXMax24Text RateName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Issuer is IsoRestrictedFINXMax8Text IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax8Text(IssuerValue)); // data type RestrictedFINXMax8Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RateNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax24Text(RateName)); // data type RestrictedFINXMax24Text System.String
+        writer.WriteEndElement();
+    }
+    public static RateName2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

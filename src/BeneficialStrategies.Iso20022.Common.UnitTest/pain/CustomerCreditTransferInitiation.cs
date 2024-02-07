@@ -114,11 +114,11 @@ public class CustomerCreditTransferInitiation : TestPublishedOuterRecordSample<I
                     },
                     RemittanceInformation = new()
                     {
-                        Structured = [
+                        Structured = 
                             new()
                             {
                                 ReferredDocumentInformation =
-                                [
+                                
                                     new()
                                     {
                                         Type = new()
@@ -131,9 +131,9 @@ public class CustomerCreditTransferInitiation : TestPublishedOuterRecordSample<I
                                         Number = "4562",
                                         RelatedDate = new DateOnly(2012,09,08),
                                     }
-                                ],
+                                ,
                             }
-                        ],
+                        ,
                     },
                 },
                 // Last transaction

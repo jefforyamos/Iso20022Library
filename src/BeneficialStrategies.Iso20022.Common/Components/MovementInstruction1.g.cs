@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the movement instructions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MovementInstruction1
+     : IIsoXmlSerilizable<MovementInstruction1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides general information about the movement.
     /// </summary>
-    [DataMember]
     public required CorporateActionMovement1 MovementGeneralInformation { get; init; } 
     /// <summary>
     /// Provides information about the underlying securities movement.
     /// </summary>
-    [DataMember]
-    public ValueList<UnderlyingSecurityMovement1> UnderlyingSecuritiesMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public UnderlyingSecurityMovement1? UnderlyingSecuritiesMovementDetails { get; init; } 
     /// <summary>
     /// Provides information about the underlying cash movement.
     /// </summary>
-    [DataMember]
-    public ValueList<CashMovement2> UnderlyingCashMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashMovement2? UnderlyingCashMovementDetails { get; init; } 
     /// <summary>
     /// Provides information about the proceeds, ie, outturned resources.
     /// </summary>
-    [DataMember]
-    public ValueList<ProceedsMovement1> ProceedsMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProceedsMovement1? ProceedsMovementDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MvmntGnlInf", xmlNamespace );
+        MovementGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (UnderlyingSecuritiesMovementDetails is UnderlyingSecurityMovement1 UnderlyingSecuritiesMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "UndrlygSctiesMvmntDtls", xmlNamespace );
+            UnderlyingSecuritiesMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnderlyingCashMovementDetails is CashMovement2 UnderlyingCashMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "UndrlygCshMvmntDtls", xmlNamespace );
+            UnderlyingCashMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProceedsMovementDetails is ProceedsMovement1 ProceedsMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "PrcdsMvmntDtls", xmlNamespace );
+            ProceedsMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MovementInstruction1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

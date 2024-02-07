@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.AgentCAInformationAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// This message can also be used in the case of a corporate action event with election when the election details and the additional information cannot be provided in the same message. In this case, the Agent Corporate Action Election Advice Identification must be used to link this message to the election advice for which additional information is provided.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|This message is sent by a CSD to an issuer (or its agent) to provide information about the certification and/or the delivery details to the issuer (or its agent).|Usage|This message can be used in the case of a corporate action event without an election.|This message can also be used in the case of a corporate action event with election when the election details and the additional information cannot be provided in the same message. In this case, the Agent Corporate Action Election Advice Identification must be used to link this message to the election advice for which additional information is provided.")]
-public partial record AgentCAInformationAdviceV01 : IOuterRecord
+public partial record AgentCAInformationAdviceV01 : IOuterRecord<AgentCAInformationAdviceV01,AgentCAInformationAdviceV01Document>
+    ,IIsoXmlSerilizable<AgentCAInformationAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record AgentCAInformationAdviceV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AgtCAInfAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AgentCAInformationAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -109,6 +116,47 @@ public partial record AgentCAInformationAdviceV01 : IOuterRecord
     {
         return new AgentCAInformationAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AgtCAInfAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AgentCAElectionAdviceIdentification is DocumentIdentification8 AgentCAElectionAdviceIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AgtCAElctnAdvcId", xmlNamespace );
+            AgentCAElectionAdviceIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+        CorporateActionGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
+        AccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CorpActnAddtlInf", xmlNamespace );
+        CorporateActionAdditionalInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ContactDetails is ContactPerson1 ContactDetailsValue)
+        {
+            writer.WriteStartElement(null, "CtctDtls", xmlNamespace );
+            ContactDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AgentCAInformationAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -116,9 +164,7 @@ public partial record AgentCAInformationAdviceV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAInformationAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AgentCAInformationAdviceV01Document : IOuterDocument<AgentCAInformationAdviceV01>
+public partial record AgentCAInformationAdviceV01Document : IOuterDocument<AgentCAInformationAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -134,5 +180,22 @@ public partial record AgentCAInformationAdviceV01Document : IOuterDocument<Agent
     /// <summary>
     /// The instance of <seealso cref="AgentCAInformationAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=AgentCAInformationAdviceV01.XmlTag)]
     public required AgentCAInformationAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AgentCAInformationAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

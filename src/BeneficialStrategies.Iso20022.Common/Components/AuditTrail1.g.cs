@@ -7,48 +7,81 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes information needed to identify a change for a static data, the time when it was performed and the user requesting the change and approving it.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AuditTrail1
+     : IIsoXmlSerilizable<AuditTrail1>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the field whose value has been changed.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text FieldName { get; init; } 
     /// <summary>
     /// Value of the field before the change.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text OldFieldValue { get; init; } 
     /// <summary>
     /// Value of the field after the change.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text NewFieldValue { get; init; } 
     /// <summary>
     /// Timestamp of the change.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime OperationTimeStamp { get; init; } 
     /// <summary>
     /// User who instructed the change.
     /// </summary>
-    [DataMember]
     public required IsoMax256Text InstructingUser { get; init; } 
     /// <summary>
     /// User who approved the change instructed by the instructing user.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? ApprovingUser { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FldNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(FieldName)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OdFldVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(OldFieldValue)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NewFldVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(NewFieldValue)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OprTmStmp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(OperationTimeStamp)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InstgUsr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax256Text(InstructingUser)); // data type Max256Text System.String
+        writer.WriteEndElement();
+        if (ApprovingUser is IsoMax256Text ApprovingUserValue)
+        {
+            writer.WriteStartElement(null, "ApprvgUsr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(ApprovingUserValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AuditTrail1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

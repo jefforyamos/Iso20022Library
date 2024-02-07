@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ReconciliationMatchedStatus9Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.ReconciliationMatchedStatus9Choi
 /// Indication that the reports subject of reconciliation do not match.
 /// </summary>
 public partial record NotMatched : ReconciliationMatchedStatus9Choice_
+     , IIsoXmlSerilizable<NotMatched>
 {
     #nullable enable
+    
     /// <summary>
     /// First side of the contract that needs to be matched.
     /// </summary>
@@ -27,5 +31,32 @@ public partial record NotMatched : ReconciliationMatchedStatus9Choice_
     /// Criteria used to match the sides of the contract.
     /// </summary>
     public required MatchingCriteria10 MatchingCriteria { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CtrPty1", xmlNamespace );
+        Counterparty1.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CtrPty2", xmlNamespace );
+        Counterparty2.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MtchgCrit", xmlNamespace );
+        MatchingCriteria.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new NotMatched Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.cain.AcquirerReversalResponse>;
 
 namespace BeneficialStrategies.Iso20022.cain;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// The AcquirerReversalResponse message is sent by an issuer or an agent to answer to an AcquirerReversalInitiation message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The AcquirerReversalResponse message is sent by an issuer or an agent to answer to an AcquirerReversalInitiation message.")]
-public partial record AcquirerReversalResponse : IOuterRecord
+public partial record AcquirerReversalResponse : IOuterRecord<AcquirerReversalResponse,AcquirerReversalResponseDocument>
+    ,IIsoXmlSerilizable<AcquirerReversalResponse>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record AcquirerReversalResponse : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AcqrrRvslRspn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AcquirerReversalResponseDocument.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -76,6 +83,35 @@ public partial record AcquirerReversalResponse : IOuterRecord
     {
         return new AcquirerReversalResponseDocument { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AcqrrRvslRspn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RvslRspn", xmlNamespace );
+        ReversalResponse.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecurityTrailer is ContentInformationType15 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AcquirerReversalResponse Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -83,9 +119,7 @@ public partial record AcquirerReversalResponse : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcquirerReversalResponse"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AcquirerReversalResponseDocument : IOuterDocument<AcquirerReversalResponse>
+public partial record AcquirerReversalResponseDocument : IOuterDocument<AcquirerReversalResponse>, IXmlSerializable
 {
     
     /// <summary>
@@ -101,5 +135,22 @@ public partial record AcquirerReversalResponseDocument : IOuterDocument<Acquirer
     /// <summary>
     /// The instance of <seealso cref="AcquirerReversalResponse"/> is required.
     /// </summary>
+    [DataMember(Name=AcquirerReversalResponse.XmlTag)]
     public required AcquirerReversalResponse Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AcquirerReversalResponse.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

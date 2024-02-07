@@ -7,63 +7,99 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Statement of the financial performance of a legal entity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IncomeStatement1
+     : IIsoXmlSerilizable<IncomeStatement1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the clearing fees recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount ClearingFees { get; init; } 
     /// <summary>
     /// Other operating revenue recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount OtherOperatingRevenue { get; init; } 
     /// <summary>
     /// Operating expenses recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount OperatingExpenses { get; init; } 
     /// <summary>
     /// Indicates the operating profit (true) or loss (false) recorded in the month-end management reporting for the financial year-to-date.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection102 OperatingProfitOrLoss { get; init; } 
     /// <summary>
     /// Net interest income recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount NetInterestIncome { get; init; } 
     /// <summary>
     /// Other non-operating revenue recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount OtherNonOperatingRevenue { get; init; } 
     /// <summary>
     /// Non-operating expenses recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount NonOperatingExpenses { get; init; } 
     /// <summary>
     /// Indicates the pre-tax profit (true) or loss (false) recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection102 PreTaxProfitOrLoss { get; init; } 
     /// <summary>
     /// Indicates the post-tax profit (true) or loss (false) recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection102 PostTaxProfitOrLoss { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ClrFees", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ClearingFees)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrOprgRvn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(OtherOperatingRevenue)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OprgExpnss", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(OperatingExpenses)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OprgPrftOrLoss", xmlNamespace );
+        OperatingProfitOrLoss.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NetIntrstIncm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(NetInterestIncome)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrNonOprgRvn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(OtherNonOperatingRevenue)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NonOprgExpnss", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(NonOperatingExpenses)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PreTaxPrftOrLoss", xmlNamespace );
+        PreTaxProfitOrLoss.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PstTaxPrftOrLoss", xmlNamespace );
+        PostTaxProfitOrLoss.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static IncomeStatement1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

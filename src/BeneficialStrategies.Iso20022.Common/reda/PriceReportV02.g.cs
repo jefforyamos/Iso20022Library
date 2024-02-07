@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.reda.PriceReportV02>;
 
 namespace BeneficialStrategies.Iso20022.reda;
 
@@ -29,10 +32,9 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// - report prices that are used for other purposes than the execution of investment funds orders.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The PriceReport message is sent by a report provider, eg, a fund accountant, transfer agent, market data provider, or any other interested party, to a report user, eg, a fund management company, a transfer agent, market data provider, regulator or any other interested party.|This message is used to provide net asset value and price information for financial instruments on given trade dates and, optionally, to quote price variation information.|Usage|The PriceReport message can be used to:|- report prices for one or several different financial instruments for one or several different trade dates,|- report statistical information about the valuation of a financial instrument,|- inform another party that the quotation of a financial instrument is suspended,|- report prices that are used for other purposes than the execution of investment funds orders.")]
-public partial record PriceReportV02 : IOuterRecord
+public partial record PriceReportV02 : IOuterRecord<PriceReportV02,PriceReportV02Document>
+    ,IIsoXmlSerilizable<PriceReportV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -44,6 +46,11 @@ public partial record PriceReportV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "reda.001.001.02";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => PriceReportV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -101,6 +108,50 @@ public partial record PriceReportV02 : IOuterRecord
     {
         return new PriceReportV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("reda.001.001.02");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PoolReference is AdditionalReference3 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousReference is AdditionalReference3 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference3 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PricValtnDtls", xmlNamespace );
+        PriceValuationDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PriceReportV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -108,9 +159,7 @@ public partial record PriceReportV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PriceReportV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record PriceReportV02Document : IOuterDocument<PriceReportV02>
+public partial record PriceReportV02Document : IOuterDocument<PriceReportV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -126,5 +175,22 @@ public partial record PriceReportV02Document : IOuterDocument<PriceReportV02>
     /// <summary>
     /// The instance of <seealso cref="PriceReportV02"/> is required.
     /// </summary>
+    [DataMember(Name=PriceReportV02.XmlTag)]
     public required PriceReportV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(PriceReportV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,73 +7,146 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to the authentication of the cardholder.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardholderAuthentication14
+     : IIsoXmlSerilizable<CardholderAuthentication14>
 {
     #nullable enable
     
     /// <summary>
     /// Method and data intended to be used for this transaction to authenticate the cardholder or its card.
     /// </summary>
-    [DataMember]
     public AuthenticationMethod8Code? AuthenticationMethod { get; init; } 
     /// <summary>
     /// If Strong Customer Authentication is not mandated to process the transaction, this message element must identify the reason of exemption.
     /// </summary>
-    [DataMember]
     public Exemption1Code? AuthenticationExemption { get; init; } 
     /// <summary>
     /// Value used to authenticate the cardholder.
     /// </summary>
-    [DataMember]
     public IsoMax5000Binary? AuthenticationValue { get; init; } 
     /// <summary>
     /// Protection of the authentication value.
     /// </summary>
-    [DataMember]
     public ContentInformationType28? ProtectedAuthenticationValue { get; init; } 
     /// <summary>
     /// Encrypted personal identification number (PIN) and related information.
     /// </summary>
-    [DataMember]
     public OnLinePIN8? CardholderOnLinePIN { get; init; } 
     /// <summary>
     /// Identification of the cardholder to verify.
     /// </summary>
-    [DataMember]
     public PersonIdentification15? CardholderIdentification { get; init; } 
     /// <summary>
     /// Numeric characters of the cardholder's billing or shipping address for verification.
     /// </summary>
-    [DataMember]
     public AddressVerification1? AddressVerification { get; init; } 
     /// <summary>
     /// Type of authentication for a given method - e.g. three-domain authentication, scheme-proprietary authentication, etc.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AuthenticationType { get; init; } 
     /// <summary>
     /// Level of authentication for a given type – e.g. value assigned by scheme rules or by bilateral agreements.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AuthenticationLevel { get; init; } 
     /// <summary>
     /// Result of authentication.
     /// </summary>
-    [DataMember]
     public AuthenticationResult1Code? AuthenticationResult { get; init; } 
     /// <summary>
     /// Additional information related to the result of the authentication.
     /// </summary>
-    [DataMember]
     public ExternallyDefinedData2? AuthenticationAdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AuthenticationMethod is AuthenticationMethod8Code AuthenticationMethodValue)
+        {
+            writer.WriteStartElement(null, "AuthntcnMtd", xmlNamespace );
+            writer.WriteValue(AuthenticationMethodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AuthenticationExemption is Exemption1Code AuthenticationExemptionValue)
+        {
+            writer.WriteStartElement(null, "AuthntcnXmptn", xmlNamespace );
+            writer.WriteValue(AuthenticationExemptionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AuthenticationValue is IsoMax5000Binary AuthenticationValueValue)
+        {
+            writer.WriteStartElement(null, "AuthntcnVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax5000Binary(AuthenticationValueValue)); // data type Max5000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (ProtectedAuthenticationValue is ContentInformationType28 ProtectedAuthenticationValueValue)
+        {
+            writer.WriteStartElement(null, "PrtctdAuthntcnVal", xmlNamespace );
+            ProtectedAuthenticationValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CardholderOnLinePIN is OnLinePIN8 CardholderOnLinePINValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrOnLinePIN", xmlNamespace );
+            CardholderOnLinePINValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CardholderIdentification is PersonIdentification15 CardholderIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrId", xmlNamespace );
+            CardholderIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AddressVerification is AddressVerification1 AddressVerificationValue)
+        {
+            writer.WriteStartElement(null, "AdrVrfctn", xmlNamespace );
+            AddressVerificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AuthenticationType is IsoMax35Text AuthenticationTypeValue)
+        {
+            writer.WriteStartElement(null, "AuthntcnTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AuthenticationTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AuthenticationLevel is IsoMax35Text AuthenticationLevelValue)
+        {
+            writer.WriteStartElement(null, "AuthntcnLvl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AuthenticationLevelValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AuthenticationResult is AuthenticationResult1Code AuthenticationResultValue)
+        {
+            writer.WriteStartElement(null, "AuthntcnRslt", xmlNamespace );
+            writer.WriteValue(AuthenticationResultValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AuthenticationAdditionalInformation is ExternallyDefinedData2 AuthenticationAdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AuthntcnAddtlInf", xmlNamespace );
+            AuthenticationAdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardholderAuthentication14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

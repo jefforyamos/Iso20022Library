@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Elements characterising a financial instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrumentAttributes88
+     : IIsoXmlSerilizable<FinancialInstrumentAttributes88>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies fixed contract term, or the maximum contract term cleared.
     /// </summary>
-    [DataMember]
     public InterestRateContractTerm1? ContractTerm { get; init; } 
     /// <summary>
     /// Indicates whether certain terms of the derivative are defined purely according to exchange specifications or can be user defined.
     /// </summary>
-    [DataMember]
-    public ValueList<Standardisation1Code> Standardisation { get; init; } = [];
+    public SimpleValueList<Standardisation1Code> Standardisation { get; init; } = [];
     /// <summary>
     /// Schedule for leg payments.
     /// </summary>
-    [DataMember]
     public required Frequency11Code PaymentFrequency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ContractTerm is InterestRateContractTerm1 ContractTermValue)
+        {
+            writer.WriteStartElement(null, "CtrctTerm", xmlNamespace );
+            ContractTermValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Stdstn", xmlNamespace );
+        writer.WriteValue(Standardisation.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PmtFrqcy", xmlNamespace );
+        writer.WriteValue(PaymentFrequency.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static FinancialInstrumentAttributes88 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains the requested modifications.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionModification6
+     : IIsoXmlSerilizable<TransactionModification6>
 {
     #nullable enable
     
     /// <summary>
     /// Reference to the instruction related to the payment for which a modification is requested.
     /// </summary>
-    [DataMember]
     public required PaymentIdentification7Choice_ PaymentIdentification { get; init; } 
     /// <summary>
     /// New payment values.
     /// </summary>
-    [DataMember]
     public required PaymentInstruction33 NewPaymentValueSet { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PmtId", xmlNamespace );
+        PaymentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NewPmtValSet", xmlNamespace );
+        NewPaymentValueSet.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static TransactionModification6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

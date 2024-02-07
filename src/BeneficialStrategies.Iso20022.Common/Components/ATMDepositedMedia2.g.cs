@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Media item that are deposited.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMDepositedMedia2
+     : IIsoXmlSerilizable<ATMDepositedMedia2>
 {
     #nullable enable
     
     /// <summary>
     /// Number of deposit media.
     /// </summary>
-    [DataMember]
     public IsoNumber? Count { get; init; } 
     /// <summary>
     /// Amount or denomination of one media item, if the media type is valued or entered by the customer.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? UnitValue { get; init; } 
     /// <summary>
     /// Currency of media items, if valued and different from base currency.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Format of the check code line.
     /// </summary>
-    [DataMember]
     public CheckCodeLine1Code? CodeLineFormat { get; init; } 
     /// <summary>
     /// Check code line.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? CodeLine { get; init; } 
     /// <summary>
     /// Check amount scanned by the check reader.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? ScannedValue { get; init; } 
     /// <summary>
     /// Percentage of the confidence in the check amount.
     /// </summary>
-    [DataMember]
     public IsoPercentage? ConfidenceLevel { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Count is IsoNumber CountValue)
+        {
+            writer.WriteStartElement(null, "Cnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(CountValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (UnitValue is IsoImpliedCurrencyAndAmount UnitValueValue)
+        {
+            writer.WriteStartElement(null, "UnitVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(UnitValueValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CodeLineFormat is CheckCodeLine1Code CodeLineFormatValue)
+        {
+            writer.WriteStartElement(null, "CdLineFrmt", xmlNamespace );
+            writer.WriteValue(CodeLineFormatValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CodeLine is IsoMax70Text CodeLineValue)
+        {
+            writer.WriteStartElement(null, "CdLine", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(CodeLineValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (ScannedValue is IsoImpliedCurrencyAndAmount ScannedValueValue)
+        {
+            writer.WriteStartElement(null, "ScnndVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ScannedValueValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ConfidenceLevel is IsoPercentage ConfidenceLevelValue)
+        {
+            writer.WriteStartElement(null, "CnfdncLvl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentage(ConfidenceLevelValue)); // data type Percentage System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMDepositedMedia2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

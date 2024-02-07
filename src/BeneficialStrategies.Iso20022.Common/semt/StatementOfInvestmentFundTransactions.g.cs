@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.semt.StatementOfInvestmentFundTransactions>;
 
 namespace BeneficialStrategies.Iso20022.semt;
 
@@ -33,10 +36,9 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// Since a SWIFT message as sent is restricted to the maximum input message length, several messages may be needed to accommodate all the information.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The StatementOfInvestmentFundTransactions is sent by an account servicer to the account owner or the account owner's designated agent. The account servicer may be a fund administrator or fund intermediary, trustee or registrar.|This message provides the details of increases and decreases of holdings which occurred during a specified period.|This message can also be used for information purposes, eg, tax information.|Usage|The StatementOfInvestmentFundTransactions message can be sent:|- At a frequency agreed bi-laterally between the Sender and the Receiver and/or|- As a response to a request for statement sent by the account owner.|The StatementOfInvestmentFundTransactions message can only be used to list the transactions of a single (master) account. However, it is possible to break down these transactions into one or several sub-accounts. Therefore, the message can be used to either specify transactions at|- the main account level, or|- the sub-account level.|This message must not be used in place of confirmation messages.|Since a SWIFT message as sent is restricted to the maximum input message length, several messages may be needed to accommodate all the information.")]
-public partial record StatementOfInvestmentFundTransactions : IOuterRecord
+public partial record StatementOfInvestmentFundTransactions : IOuterRecord<StatementOfInvestmentFundTransactions,StatementOfInvestmentFundTransactionsDocument>
+    ,IIsoXmlSerilizable<StatementOfInvestmentFundTransactions>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -48,6 +50,11 @@ public partial record StatementOfInvestmentFundTransactions : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "semt.006.001.01";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => StatementOfInvestmentFundTransactionsDocument.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -134,6 +141,62 @@ public partial record StatementOfInvestmentFundTransactions : IOuterRecord
     {
         return new StatementOfInvestmentFundTransactionsDocument { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("semt.006.001.01");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PreviousReference is AdditionalReference2 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference2 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MsgPgntn", xmlNamespace );
+        MessagePagination.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StmtGnlDtls", xmlNamespace );
+        StatementGeneralDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InvstmtAcctDtls", xmlNamespace );
+        InvestmentAccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionOnAccount is InvestmentFundTransactionsByFund1 TransactionOnAccountValue)
+        {
+            writer.WriteStartElement(null, "TxOnAcct", xmlNamespace );
+            TransactionOnAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SubAccountDetails is SubAccountIdentification4 SubAccountDetailsValue)
+        {
+            writer.WriteStartElement(null, "SubAcctDtls", xmlNamespace );
+            SubAccountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static StatementOfInvestmentFundTransactions Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -141,9 +204,7 @@ public partial record StatementOfInvestmentFundTransactions : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatementOfInvestmentFundTransactions"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record StatementOfInvestmentFundTransactionsDocument : IOuterDocument<StatementOfInvestmentFundTransactions>
+public partial record StatementOfInvestmentFundTransactionsDocument : IOuterDocument<StatementOfInvestmentFundTransactions>, IXmlSerializable
 {
     
     /// <summary>
@@ -159,5 +220,22 @@ public partial record StatementOfInvestmentFundTransactionsDocument : IOuterDocu
     /// <summary>
     /// The instance of <seealso cref="StatementOfInvestmentFundTransactions"/> is required.
     /// </summary>
+    [DataMember(Name=StatementOfInvestmentFundTransactions.XmlTag)]
     public required StatementOfInvestmentFundTransactions Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(StatementOfInvestmentFundTransactions.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the cash option.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashOption1
+     : IIsoXmlSerilizable<CashOption1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates wether it is a debit or a credit.
     /// </summary>
-    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Currency of the option.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Provides information about the dates related to a cash movement.
     /// </summary>
-    [DataMember]
     public CorporateActionDate5? DateDetails { get; init; } 
     /// <summary>
     /// Provides information about the amounts related to a cash movement.
     /// </summary>
-    [DataMember]
     public CorporateActionAmounts1? AmountDetails { get; init; } 
     /// <summary>
     /// Provides information about a foreign exchange.
     /// </summary>
-    [DataMember]
     public ForeignExchangeTerms8? ExchangeRate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DateDetails is CorporateActionDate5 DateDetailsValue)
+        {
+            writer.WriteStartElement(null, "DtDtls", xmlNamespace );
+            DateDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AmountDetails is CorporateActionAmounts1 AmountDetailsValue)
+        {
+            writer.WriteStartElement(null, "AmtDtls", xmlNamespace );
+            AmountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExchangeRate is ForeignExchangeTerms8 ExchangeRateValue)
+        {
+            writer.WriteStartElement(null, "XchgRate", xmlNamespace );
+            ExchangeRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CashOption1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

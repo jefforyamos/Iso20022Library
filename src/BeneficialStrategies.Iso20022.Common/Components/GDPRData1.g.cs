@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about an individual's consent to use personal data under the General Protection Regulation (GDPR) 2016/679 regulation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GDPRData1
+     : IIsoXmlSerilizable<GDPRData1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of consent.
     /// </summary>
-    [DataMember]
     public required GDPRDataConsent1Choice_ ConsentType { get; init; } 
     /// <summary>
     /// Indicates whether consent has been given.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ConsentIndicator { get; init; } 
     /// <summary>
     /// Date of the consent.
     /// </summary>
-    [DataMember]
     public required IsoISODate ConsentDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CnsntTp", xmlNamespace );
+        ConsentType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CnsntInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ConsentIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CnsntDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ConsentDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+    }
+    public static GDPRData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

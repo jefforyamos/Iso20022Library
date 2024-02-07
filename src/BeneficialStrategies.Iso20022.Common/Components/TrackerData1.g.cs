@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the detailed information as provided by a payment tracking system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TrackerData1
+     : IIsoXmlSerilizable<TrackerData1>
 {
     #nullable enable
     
@@ -24,18 +25,40 @@ public partial record TrackerData1
     /// Usage: 
     /// This date can be the point in time when an agent provides a pending status update to the tracking system or when the creditor has been credited and can use the amount of money (as confirmed to the tracking system by the creditor agent).
     /// </summary>
-    [DataMember]
     public required DateAndDateTime2Choice_ ConfirmedDate { get; init; } 
     /// <summary>
     /// Amount of money confirmed to the tracking system by the agent.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount ConfirmedAmount { get; init; } 
     /// <summary>
     /// Provides tracker transaction information for a specific agent involved in the transaction chain. 
     /// </summary>
-    [DataMember]
-    public ValueList<TrackerRecord1> TrackerRecord { get; init; } = []; // Warning: Don't know multiplicity.
+    public TrackerRecord1? TrackerRecord { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _x5xmwIW5EeiDBOVr6AJAFA
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ConfdDt", xmlNamespace );
+        ConfirmedDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ConfdAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ConfirmedAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        // Not sure how to serialize TrackerRecord, multiplicity Unknown
+    }
+    public static TrackerData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

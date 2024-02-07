@@ -7,73 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment wire instruction details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record WireInstructionSD3
+     : IIsoXmlSerilizable<WireInstructionSD3>
 {
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Quantity of securities concerned in this wire.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity15Choice_ WireQuantity { get; init; } 
     /// <summary>
     /// Name of the recipient bank for the wire.
     /// </summary>
-    [DataMember]
     public required IsoMax30Text BankName { get; init; } 
     /// <summary>
     /// Street address of the recipient bank for the wire.
     /// </summary>
-    [DataMember]
     public required IsoMax30Text BankAddress { get; init; } 
     /// <summary>
     /// City of the recipient bank for the wire.
     /// </summary>
-    [DataMember]
     public required IsoMax30Text BankCity { get; init; } 
     /// <summary>
     /// Country of the recipient bank for the wire.
     /// </summary>
-    [DataMember]
     public required CountryCode BankCountry { get; init; } 
     /// <summary>
     /// Responsible person in the recipient back for the wire.
     /// </summary>
-    [DataMember]
     public required IsoMax30Text BankAttentionTo { get; init; } 
     /// <summary>
     /// Notes or comments for the recipient bank for the wire.
     /// </summary>
-    [DataMember]
     public required IsoMax60Text BankComments { get; init; } 
     /// <summary>
     /// Account type at the recipient bank for the wire.
     /// </summary>
-    [DataMember]
     public required IsoMax30Text BeneficiaryAccount { get; init; } 
     /// <summary>
     /// Account identification at the recipient bank for the wire.
     /// </summary>
-    [DataMember]
     public required IsoMax30Text BeneficiaryAccountIdentification { get; init; } 
     /// <summary>
     /// Notes or comments for the beneficiary account at the recipient bank for the wire.
     /// </summary>
-    [DataMember]
     public required IsoMax30Text BeneficiaryAccountComments { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "WireQty", xmlNamespace );
+        WireQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BkNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax30Text(BankName)); // data type Max30Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BkAdr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax30Text(BankAddress)); // data type Max30Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BkCity", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax30Text(BankCity)); // data type Max30Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BkCtry", xmlNamespace );
+        writer.WriteValue(BankCountry.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BkAttnTo", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax30Text(BankAttentionTo)); // data type Max30Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BkCmnts", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax60Text(BankComments)); // data type Max60Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BnfcryAcct", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax30Text(BeneficiaryAccount)); // data type Max30Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BnfcryAcctId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax30Text(BeneficiaryAccountIdentification)); // data type Max30Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BnfcryAcctCmnts", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax30Text(BeneficiaryAccountComments)); // data type Max30Text System.String
+        writer.WriteEndElement();
+    }
+    public static WireInstructionSD3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

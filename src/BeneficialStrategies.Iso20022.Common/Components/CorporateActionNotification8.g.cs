@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Corporate action event notification status and contents.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionNotification8
+     : IIsoXmlSerilizable<CorporateActionNotification8>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of notification.
     /// </summary>
-    [DataMember]
     public required CorporateActionNotificationType1Code NotificationType { get; init; } 
     /// <summary>
     /// Specifies the status of the details of the corporate action event.
     /// </summary>
-    [DataMember]
     public required CorporateActionProcessingStatus6Choice_ ProcessingStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NtfctnTp", xmlNamespace );
+        writer.WriteValue(NotificationType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PrcgSts", xmlNamespace );
+        ProcessingStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CorporateActionNotification8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

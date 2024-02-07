@@ -26,11 +26,19 @@ public partial record PrivateIdentification : Party38Choice_
     /// <summary>
     /// Unique identification of a person, as assigned by an institution, using an identification scheme.
     /// </summary>
-    public GenericPersonIdentification1? Other { get; init;  } // Warning: Don't know multiplicity.
+    public GenericPersonIdentification1? Other { get; init; } 
     
     #nullable disable
     
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
     public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
     public override void Serialize(XmlWriter writer, string xmlNamespace)
     {
         if (DateAndPlaceOfBirth is DateAndPlaceOfBirth1 DateAndPlaceOfBirthValue)
@@ -39,7 +47,12 @@ public partial record PrivateIdentification : Party38Choice_
             DateAndPlaceOfBirthValue.Serialize(writer, xmlNamespace);
             writer.WriteEndElement();
         }
-        // Not sure how to serialize Other, multiplicity Unknown
+        if (Other is GenericPersonIdentification1 OtherValue)
+        {
+            writer.WriteStartElement(null, "Othr", xmlNamespace );
+            OtherValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
     }
     public static new PrivateIdentification Deserialize(XElement element)
     {

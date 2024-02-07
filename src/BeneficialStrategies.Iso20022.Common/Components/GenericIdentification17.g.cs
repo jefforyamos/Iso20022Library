@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to an identification, eg, party identification or account identification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GenericIdentification17
+     : IIsoXmlSerilizable<GenericIdentification17>
 {
     #nullable enable
     
     /// <summary>
     /// Identification assigned by an institution.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINMax34Text Identification { get; init; } 
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>
-    [DataMember]
     public required IsoMax8Text Issuer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINMax34Text(Identification)); // data type RestrictedFINMax34Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Issr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax8Text(Issuer)); // data type Max8Text System.String
+        writer.WriteEndElement();
+    }
+    public static GenericIdentification17 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

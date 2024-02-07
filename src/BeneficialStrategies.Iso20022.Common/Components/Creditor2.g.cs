@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the creditor.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Creditor2
+     : IIsoXmlSerilizable<Creditor2>
 {
     #nullable enable
     
     /// <summary>
     /// Party that receives an amount of money from the debtor. In the context of the payment model, the creditor is also the credit account owner.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? Creditor { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public required AccountIdentificationAndName3 AccountIdentification { get; init; } 
     /// <summary>
     /// Party that is the ultimate beneficiary of the credit transfer. The final party is mentioned when different from the creditor, whose account will be credited by the final agent.
     /// </summary>
-    [DataMember]
     public required FinancialInstitutionIdentification3Choice_ FinalAgent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Creditor is PartyIdentification2Choice_ CreditorValue)
+        {
+            writer.WriteStartElement(null, "Cdtr", xmlNamespace );
+            CreditorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AcctId", xmlNamespace );
+        AccountIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FnlAgt", xmlNamespace );
+        FinalAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static Creditor2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

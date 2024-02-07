@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details on a quantity, account and other related information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record QuantityAndAccount111
+     : IIsoXmlSerilizable<QuantityAndAccount111>
 {
     #nullable enable
     
     /// <summary>
     /// Denomination of the security to be received or delivered.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax210Text? DenominationChoice { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification156? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    [DataMember]
     public CashAccountIdentification6Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    [DataMember]
     public SafeKeepingPlace4? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Breakdown of a quantity into lots such as tax lots, instrument series.
     /// </summary>
-    [DataMember]
-    public ValueList<QuantityBreakdown69> QuantityBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
+    public QuantityBreakdown69? QuantityBreakdown { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DenominationChoice is IsoRestrictedFINXMax210Text DenominationChoiceValue)
+        {
+            writer.WriteStartElement(null, "DnmtnChc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax210Text(DenominationChoiceValue)); // data type RestrictedFINXMax210Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountOwner is PartyIdentification156 AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccount is CashAccountIdentification6Choice_ CashAccountValue)
+        {
+            writer.WriteStartElement(null, "CshAcct", xmlNamespace );
+            CashAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingPlace is SafeKeepingPlace4 SafekeepingPlaceValue)
+        {
+            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
+            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (QuantityBreakdown is QuantityBreakdown69 QuantityBreakdownValue)
+        {
+            writer.WriteStartElement(null, "QtyBrkdwn", xmlNamespace );
+            QuantityBreakdownValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static QuantityAndAccount111 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

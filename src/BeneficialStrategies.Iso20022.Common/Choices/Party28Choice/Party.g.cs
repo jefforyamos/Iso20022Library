@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Party28Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Party28Choice;
 /// Identification of a person or an organisation.
 /// </summary>
 public partial record Party : Party28Choice_
+     , IIsoXmlSerilizable<Party>
 {
     #nullable enable
+    
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
@@ -35,5 +39,53 @@ public partial record Party : Party28Choice_
     /// Set of elements used to indicate how to contact the party.
     /// </summary>
     public ContactDetails2? ContactDetails { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax140Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(NameValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (PostalAddress is PostalAddress19 PostalAddressValue)
+        {
+            writer.WriteStartElement(null, "PstlAdr", xmlNamespace );
+            PostalAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Identification is Party11Choice_ IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CountryOfResidence is CountryCode CountryOfResidenceValue)
+        {
+            writer.WriteStartElement(null, "CtryOfRes", xmlNamespace );
+            writer.WriteValue(CountryOfResidenceValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ContactDetails is ContactDetails2 ContactDetailsValue)
+        {
+            writer.WriteStartElement(null, "CtctDtls", xmlNamespace );
+            ContactDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Party Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

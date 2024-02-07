@@ -7,28 +7,52 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the data for the pending intra-balance movements.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IntraBalancePending5
+     : IIsoXmlSerilizable<IntraBalancePending5>
 {
     #nullable enable
     
     /// <summary>
     /// Status and status reason of the transaction.
     /// </summary>
-    [DataMember]
     public PendingStatusAndReason2? StatusAndReason { get; init; } 
     /// <summary>
     /// Further details on the individual intrabalance movement transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<IntraBalancePending6> Movement { get; init; } = []; // Warning: Don't know multiplicity.
+    public IntraBalancePending6? Movement { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _Y3sq1TneEem7JZMuWtwtsg
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (StatusAndReason is PendingStatusAndReason2 StatusAndReasonValue)
+        {
+            writer.WriteStartElement(null, "StsAndRsn", xmlNamespace );
+            StatusAndReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize Movement, multiplicity Unknown
+    }
+    public static IntraBalancePending5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

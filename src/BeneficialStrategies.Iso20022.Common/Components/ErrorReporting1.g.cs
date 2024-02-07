@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed description of an error.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ErrorReporting1
+     : IIsoXmlSerilizable<ErrorReporting1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of error.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Detailed description of the error.
     /// </summary>
-    [DataMember]
     public required IsoMax500Text Description { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Type)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Desc", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax500Text(Description)); // data type Max500Text System.String
+        writer.WriteEndElement();
+    }
+    public static ErrorReporting1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

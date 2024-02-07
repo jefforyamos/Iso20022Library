@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information of a single instalment related to an invoice settlement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Instalment1
+     : IIsoXmlSerilizable<Instalment1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the progressive number of the single instalment related to an invoice.
     /// </summary>
-    [DataMember]
     public required IsoMax70Text SequenceIdentification { get; init; } 
     /// <summary>
     /// Due date for the payment of the invoice instalment.
     /// </summary>
-    [DataMember]
     public required IsoISODate PaymentDueDate { get; init; } 
     /// <summary>
     /// Amount of a single instalment related to an invoice.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SeqId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(SequenceIdentification)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PmtDueDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(PaymentDueDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static Instalment1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,88 +7,167 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// This component define the environment, the context and the services to be used with this message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DeviceRequest2
+     : IIsoXmlSerilizable<DeviceRequest2>
 {
     #nullable enable
     
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
-    [DataMember]
     public required CardPaymentEnvironment73 Environment { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
-    [DataMember]
     public required CardPaymentContext27 Context { get; init; } 
     /// <summary>
     /// Define the type of service requested.
     /// </summary>
-    [DataMember]
     public required RetailerService8Code ServiceContent { get; init; } 
     /// <summary>
     /// Content of the Display Request message.
     /// </summary>
-    [DataMember]
     public DeviceDisplayRequest1? DisplayRequest { get; init; } 
     /// <summary>
     /// Content of the Input Request message.
     /// </summary>
-    [DataMember]
     public DeviceInputRequest1? InputRequest { get; init; } 
     /// <summary>
     /// Content of the Print Request message.
     /// </summary>
-    [DataMember]
     public DevicePrintRequest1? PrintRequest { get; init; } 
     /// <summary>
     /// Content of the Sound Request message.
     /// </summary>
-    [DataMember]
     public DevicePlaySoundRequest1? PlaySoundRequest { get; init; } 
     /// <summary>
     /// Request a secure input for a PIN.
     /// </summary>
-    [DataMember]
     public DeviceSecureInputRequest1? SecureInputRequest { get; init; } 
     /// <summary>
     /// A service to send parameters to Card Reader to initialize a new communication with a card.
     /// </summary>
-    [DataMember]
     public DeviceInitialisationCardReaderRequest1? InitialisationCardReaderRequest { get; init; } 
     /// <summary>
     /// Content of the APDU (Application Protocol Data Unit) to send to the Card.
     /// </summary>
-    [DataMember]
     public DeviceSendApplicationProtocolDataUnitCardReaderRequest1? CardReaderAPDURequest { get; init; } 
     /// <summary>
     /// Content of the Power Off Card Reader Request message.
     /// </summary>
-    [DataMember]
     public DevicePoweroffCardReaderRequest1? PowerOffCardReaderRequest { get; init; } 
     /// <summary>
     /// Content of the Request message to transmit.
     /// </summary>
-    [DataMember]
     public DeviceTransmitMessageRequest1? TransmissionRequest { get; init; } 
     /// <summary>
     /// Content of the Input notification message.
     /// </summary>
-    [DataMember]
     public DeviceInputNotification1? InputNotification { get; init; } 
     /// <summary>
     /// Additional information incorporated as an extension to the message.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Envt", xmlNamespace );
+        Environment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Cntxt", xmlNamespace );
+        Context.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SvcCntt", xmlNamespace );
+        writer.WriteValue(ServiceContent.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (DisplayRequest is DeviceDisplayRequest1 DisplayRequestValue)
+        {
+            writer.WriteStartElement(null, "DispReq", xmlNamespace );
+            DisplayRequestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InputRequest is DeviceInputRequest1 InputRequestValue)
+        {
+            writer.WriteStartElement(null, "InptReq", xmlNamespace );
+            InputRequestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PrintRequest is DevicePrintRequest1 PrintRequestValue)
+        {
+            writer.WriteStartElement(null, "PrtReq", xmlNamespace );
+            PrintRequestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PlaySoundRequest is DevicePlaySoundRequest1 PlaySoundRequestValue)
+        {
+            writer.WriteStartElement(null, "PlaySoundReq", xmlNamespace );
+            PlaySoundRequestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecureInputRequest is DeviceSecureInputRequest1 SecureInputRequestValue)
+        {
+            writer.WriteStartElement(null, "ScrInptReq", xmlNamespace );
+            SecureInputRequestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InitialisationCardReaderRequest is DeviceInitialisationCardReaderRequest1 InitialisationCardReaderRequestValue)
+        {
+            writer.WriteStartElement(null, "InitlstnCardRdrReq", xmlNamespace );
+            InitialisationCardReaderRequestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CardReaderAPDURequest is DeviceSendApplicationProtocolDataUnitCardReaderRequest1 CardReaderAPDURequestValue)
+        {
+            writer.WriteStartElement(null, "CardRdrAPDUReq", xmlNamespace );
+            CardReaderAPDURequestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PowerOffCardReaderRequest is DevicePoweroffCardReaderRequest1 PowerOffCardReaderRequestValue)
+        {
+            writer.WriteStartElement(null, "PwrOffCardRdrReq", xmlNamespace );
+            PowerOffCardReaderRequestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransmissionRequest is DeviceTransmitMessageRequest1 TransmissionRequestValue)
+        {
+            writer.WriteStartElement(null, "TrnsmssnReq", xmlNamespace );
+            TransmissionRequestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InputNotification is DeviceInputNotification1 InputNotificationValue)
+        {
+            writer.WriteStartElement(null, "InptNtfctn", xmlNamespace );
+            InputNotificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DeviceRequest2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

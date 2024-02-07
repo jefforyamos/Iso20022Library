@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements that further details the information related to the type of payment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentTypeInformation5
+     : IIsoXmlSerilizable<PaymentTypeInformation5>
 {
     #nullable enable
     
     /// <summary>
     /// Indicator of the urgency or order of importance that the instructing party would like the instructed party to apply to the processing of the instruction.
     /// </summary>
-    [DataMember]
     public Priority2Code? InstructionPriority { get; init; } 
     /// <summary>
     /// Agreement under which or rules under which the transaction should be processed.
     /// </summary>
-    [DataMember]
     public RestrictedProprietaryChoice_? ServiceLevel { get; init; } 
     /// <summary>
     /// Specifies the clearing channel to be used for the instruction.
     /// </summary>
-    [DataMember]
     public ClearingChannel2Code? ClearingChannel { get; init; } 
     /// <summary>
     /// User community specific instrument required for use within that user community.||Usage: When available, codes provided by local authorities should be used.
     /// </summary>
-    [DataMember]
     public RestrictedProprietaryChoice_? LocalInstrument { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (InstructionPriority is Priority2Code InstructionPriorityValue)
+        {
+            writer.WriteStartElement(null, "InstrPrty", xmlNamespace );
+            writer.WriteValue(InstructionPriorityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ServiceLevel is RestrictedProprietaryChoice_ ServiceLevelValue)
+        {
+            writer.WriteStartElement(null, "SvcLvl", xmlNamespace );
+            ServiceLevelValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingChannel is ClearingChannel2Code ClearingChannelValue)
+        {
+            writer.WriteStartElement(null, "ClrChanl", xmlNamespace );
+            writer.WriteValue(ClearingChannelValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (LocalInstrument is RestrictedProprietaryChoice_ LocalInstrumentValue)
+        {
+            writer.WriteStartElement(null, "LclInstrm", xmlNamespace );
+            LocalInstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentTypeInformation5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

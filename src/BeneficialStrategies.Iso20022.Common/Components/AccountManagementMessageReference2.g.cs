@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the message reference of the account management instruction message for which the status is requested.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountManagementMessageReference2
+     : IIsoXmlSerilizable<AccountManagementMessageReference2>
 {
     #nullable enable
     
     /// <summary>
     /// Reference to a linked message.
     /// </summary>
-    [DataMember]
     public LinkedMessage2Choice_? LinkedReference { get; init; } 
     /// <summary>
     /// Specifies if the status request refers to an earlier account opening or modification instruction message.
     /// </summary>
-    [DataMember]
     public required AccountManagementType1Code StatusRequestType { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of the account opening or account modification instruction at application level.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountApplicationIdentification { get; init; } 
     /// <summary>
     /// Account information for which the status of an account management instruction is requested.
     /// </summary>
-    [DataMember]
     public InvestmentAccount45? InvestmentAccount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (LinkedReference is LinkedMessage2Choice_ LinkedReferenceValue)
+        {
+            writer.WriteStartElement(null, "LkdRef", xmlNamespace );
+            LinkedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "StsReqTp", xmlNamespace );
+        writer.WriteValue(StatusRequestType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AccountApplicationIdentification is IsoMax35Text AccountApplicationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctApplId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountApplicationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (InvestmentAccount is InvestmentAccount45 InvestmentAccountValue)
+        {
+            writer.WriteStartElement(null, "InvstmtAcct", xmlNamespace );
+            InvestmentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountManagementMessageReference2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

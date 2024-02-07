@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Proprietary status and reason of an instruction or an instruction cancellation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProprietaryStatusAndReason5
+     : IIsoXmlSerilizable<ProprietaryStatusAndReason5>
 {
     #nullable enable
     
     /// <summary>
     /// Proprietary identification of the status of the instruction.
     /// </summary>
-    [DataMember]
     public required GenericIdentification36 Status { get; init; } 
     /// <summary>
     /// Proprietary identification of the reason for the status.
     /// </summary>
-    [DataMember]
     public required ProprietaryReason1Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the processed instruction.
     /// </summary>
-    [DataMember]
     public IsoMax210Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        Status.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rsn", xmlNamespace );
+        Reason.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalReasonInformation is IsoMax210Text AdditionalReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlRsnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax210Text(AdditionalReasonInformationValue)); // data type Max210Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ProprietaryStatusAndReason5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

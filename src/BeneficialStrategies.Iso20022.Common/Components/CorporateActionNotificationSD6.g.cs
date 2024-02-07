@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding notification general information details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionNotificationSD6
+     : IIsoXmlSerilizable<CorporateActionNotificationSD6>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Workflow status of the event.
     /// </summary>
-    [DataMember]
     public EventWorkflowStatus1Code? EventStatus { get; init; } 
     /// <summary>
     /// Date by which the announcement is set to approve event status.
     /// </summary>
-    [DataMember]
     public IsoISODate? ApprovedDate { get; init; } 
     /// <summary>
     /// Date used to match records from multiple vendors to the same event. It is typically the first key date on the event.
     /// </summary>
-    [DataMember]
     public IsoISODate? MatchDate { get; init; } 
     /// <summary>
     /// Date until which the event will remain in an active status on DTCC (The Depository Trust and Clearing Corporation) system.
     /// </summary>
-    [DataMember]
     public IsoISODate? ActiveUntilDate { get; init; } 
     /// <summary>
     /// Start date and end date of the service level agreement.
     /// </summary>
-    [DataMember]
     public Period3? ServiceLevelAgreementPeriod { get; init; } 
     /// <summary>
     /// Specifies a reason why a corporate action will not be supported by the validation service. This is usually due to the event type or the product (security) type. The list of values will be provided externally to the schema.
     /// </summary>
-    [DataMember]
     public IsoMax4AlphaNumericText? ValidationNotSupportedReason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (EventStatus is EventWorkflowStatus1Code EventStatusValue)
+        {
+            writer.WriteStartElement(null, "EvtSts", xmlNamespace );
+            writer.WriteValue(EventStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ApprovedDate is IsoISODate ApprovedDateValue)
+        {
+            writer.WriteStartElement(null, "ApprvdDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ApprovedDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (MatchDate is IsoISODate MatchDateValue)
+        {
+            writer.WriteStartElement(null, "MtchDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(MatchDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ActiveUntilDate is IsoISODate ActiveUntilDateValue)
+        {
+            writer.WriteStartElement(null, "ActvUntilDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ActiveUntilDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ServiceLevelAgreementPeriod is Period3 ServiceLevelAgreementPeriodValue)
+        {
+            writer.WriteStartElement(null, "SvcLvlAgrmtPrd", xmlNamespace );
+            ServiceLevelAgreementPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValidationNotSupportedReason is IsoMax4AlphaNumericText ValidationNotSupportedReasonValue)
+        {
+            writer.WriteStartElement(null, "VldtnNotSpprtdRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(ValidationNotSupportedReasonValue)); // data type Max4AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionNotificationSD6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

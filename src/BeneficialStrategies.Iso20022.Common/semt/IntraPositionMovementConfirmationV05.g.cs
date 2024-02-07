@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.semt.IntraPositionMovementConfirmationV05>;
 
 namespace BeneficialStrategies.Iso20022.semt;
 
@@ -33,10 +36,9 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// using the relevant elements in the Business Application Header.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account servicer sends a IntraPositionMovementConfirmation to an account owner to confirm the movement of securities within its holding from one sub-balance to another, for example, blocking of securities. |The account servicer/owner relationship may be:|- a central securities depository or another settlement market infrastructure acting on behalf of their participants|- an agent (sub-custodian) acting on behalf of their global custodian customer, or |- a custodian acting on behalf of an investment management institution or a broker/dealer.||Usage|The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information|using the relevant elements in the Business Application Header.")]
-public partial record IntraPositionMovementConfirmationV05 : IOuterRecord
+public partial record IntraPositionMovementConfirmationV05 : IOuterRecord<IntraPositionMovementConfirmationV05,IntraPositionMovementConfirmationV05Document>
+    ,IIsoXmlSerilizable<IntraPositionMovementConfirmationV05>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -48,6 +50,11 @@ public partial record IntraPositionMovementConfirmationV05 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "IntraPosMvmntConf";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => IntraPositionMovementConfirmationV05Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -134,6 +141,62 @@ public partial record IntraPositionMovementConfirmationV05 : IOuterRecord
     {
         return new IntraPositionMovementConfirmationV05Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("IntraPosMvmntConf");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AdditionalParameters is AdditionalParameters21 AdditionalParametersValue)
+        {
+            writer.WriteStartElement(null, "AddtlParams", xmlNamespace );
+            AdditionalParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountOwner is PartyIdentification92Choice_ AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+        SafekeepingAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SafekeepingPlace is SafekeepingPlaceFormat10Choice_ SafekeepingPlaceValue)
+        {
+            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
+            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FinancialInstrumentAttributes is FinancialInstrumentAttributes63 FinancialInstrumentAttributesValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmAttrbts", xmlNamespace );
+            FinancialInstrumentAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "IntraPosDtls", xmlNamespace );
+        IntraPositionDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IntraPositionMovementConfirmationV05 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -141,9 +204,7 @@ public partial record IntraPositionMovementConfirmationV05 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IntraPositionMovementConfirmationV05"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record IntraPositionMovementConfirmationV05Document : IOuterDocument<IntraPositionMovementConfirmationV05>
+public partial record IntraPositionMovementConfirmationV05Document : IOuterDocument<IntraPositionMovementConfirmationV05>, IXmlSerializable
 {
     
     /// <summary>
@@ -159,5 +220,22 @@ public partial record IntraPositionMovementConfirmationV05Document : IOuterDocum
     /// <summary>
     /// The instance of <seealso cref="IntraPositionMovementConfirmationV05"/> is required.
     /// </summary>
+    [DataMember(Name=IntraPositionMovementConfirmationV05.XmlTag)]
     public required IntraPositionMovementConfirmationV05 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(IntraPositionMovementConfirmationV05.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

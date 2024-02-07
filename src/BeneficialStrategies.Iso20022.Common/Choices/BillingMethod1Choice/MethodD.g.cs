@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.BillingMethod1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.BillingMethod1Choice;
 /// Tax values are based on tax calculation method D.
 /// </summary>
 public partial record MethodD : BillingMethod1Choice_
+     , IIsoXmlSerilizable<MethodD>
 {
     #nullable enable
+    
     /// <summary>
     /// Equivalent amount to the service tax host amount but allows the sender to optionally express the value in the pricing currency.
     /// </summary>
@@ -23,6 +27,30 @@ public partial record MethodD : BillingMethod1Choice_
     /// Provides for the specific tax identification within the same tax region. 
     /// Usage: This element allows for a maximum of three regional taxes on the same service.
     /// </summary>
-    public IReadOnlyCollection<BillingServicesTax2> TaxIdentification { get; init; } = [];
+    public ValueList<BillingServicesTax2> TaxIdentification { get; init; } = [];
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SvcTaxPricAmt", xmlNamespace );
+        ServiceTaxPriceAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TaxId", xmlNamespace );
+        TaxIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new MethodD Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Card transaction information to be transferred.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionData1
+     : IIsoXmlSerilizable<TransactionData1>
 {
     #nullable enable
     
     /// <summary>
     /// Brand name of the card.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CardBrand { get; init; } 
     /// <summary>
     /// Card data associated with the card performing the transaction.
     /// </summary>
-    [DataMember]
     public PlainCardData3? CardData { get; init; } 
     /// <summary>
     /// Point of interaction (POI) performing the transaction.
     /// </summary>
-    [DataMember]
     public PointOfInteraction1? PointOfInteraction { get; init; } 
     /// <summary>
     /// Details of the transaction.
     /// </summary>
-    [DataMember]
     public CardPaymentTransactionDetails8? TransactionDetails { get; init; } 
     /// <summary>
     /// PrePaid Account for funds transfer or loading.
     /// </summary>
-    [DataMember]
     public CashAccount24? PrePaidAccount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CardBrand is IsoMax35Text CardBrandValue)
+        {
+            writer.WriteStartElement(null, "CardBrnd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CardBrandValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CardData is PlainCardData3 CardDataValue)
+        {
+            writer.WriteStartElement(null, "CardData", xmlNamespace );
+            CardDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PointOfInteraction is PointOfInteraction1 PointOfInteractionValue)
+        {
+            writer.WriteStartElement(null, "PtOfIntractn", xmlNamespace );
+            PointOfInteractionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionDetails is CardPaymentTransactionDetails8 TransactionDetailsValue)
+        {
+            writer.WriteStartElement(null, "TxDtls", xmlNamespace );
+            TransactionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PrePaidAccount is CashAccount24 PrePaidAccountValue)
+        {
+            writer.WriteStartElement(null, "PrePdAcct", xmlNamespace );
+            PrePaidAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Trade settlement monetary summation specified for this supply chain trade settlement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LineItemMonetarySummation1
+     : IIsoXmlSerilizable<LineItemMonetarySummation1>
 {
     #nullable enable
     
     /// <summary>
     /// Monetary value of the line amount total being reported in this trade settlement monetary summation.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoCurrencyAndAmount> LineTotalAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount? LineTotalAmount { get; init; } 
     /// <summary>
     /// Monetary value of the total of all allowance amounts being reported in this line item monetary summation.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoCurrencyAndAmount> AllowanceTotalAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount? AllowanceTotalAmount { get; init; } 
     /// <summary>
     /// Monetary value of the total of all charge amounts being reported in this line item monetary summation.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoCurrencyAndAmount> ChargeTotalAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount? ChargeTotalAmount { get; init; } 
     /// <summary>
     /// Monetary value of the total of all tax amounts being reported in this line item monetary summation.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoCurrencyAndAmount> TaxTotalAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount? TaxTotalAmount { get; init; } 
     /// <summary>
     /// Monetary value of the total of all tax basis amounts being reported in this line item monetary summation.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoCurrencyAndAmount> TaxBasisTotalAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount? TaxBasisTotalAmount { get; init; } 
     /// <summary>
     /// Monetary value of an amount being reported for information in this line item monetary summation.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoCurrencyAndAmount> InformationAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount? InformationAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (LineTotalAmount is IsoCurrencyAndAmount LineTotalAmountValue)
+        {
+            writer.WriteStartElement(null, "LineTtlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(LineTotalAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (AllowanceTotalAmount is IsoCurrencyAndAmount AllowanceTotalAmountValue)
+        {
+            writer.WriteStartElement(null, "AllwncTtlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(AllowanceTotalAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ChargeTotalAmount is IsoCurrencyAndAmount ChargeTotalAmountValue)
+        {
+            writer.WriteStartElement(null, "ChrgTtlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(ChargeTotalAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TaxTotalAmount is IsoCurrencyAndAmount TaxTotalAmountValue)
+        {
+            writer.WriteStartElement(null, "TaxTtlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(TaxTotalAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TaxBasisTotalAmount is IsoCurrencyAndAmount TaxBasisTotalAmountValue)
+        {
+            writer.WriteStartElement(null, "TaxBsisTtlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(TaxBasisTotalAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (InformationAmount is IsoCurrencyAndAmount InformationAmountValue)
+        {
+            writer.WriteStartElement(null, "InfAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(InformationAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static LineItemMonetarySummation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

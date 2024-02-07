@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ReferenceValue1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.ReferenceValue1Choice;
 /// Internationalized Resource Identifier (IRI) address.
 /// </summary>
 public partial record IRI : ReferenceValue1Choice_
+     , IIsoXmlSerilizable<IRI>
 {
-    public required IsoMax2048Text Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a character string with a maximum length of 2048 characters.
+    /// </summary>
+    public required IsoMax2048Text Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IRI", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax2048Text(Value)); // data type Max2048Text System.String
+        writer.WriteEndElement();
+    }
+    public static new IRI Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

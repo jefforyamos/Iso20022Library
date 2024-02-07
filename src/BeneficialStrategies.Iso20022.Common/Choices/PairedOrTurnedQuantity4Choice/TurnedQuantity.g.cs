@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PairedOrTurnedQuantity4Choice;
 
@@ -13,7 +15,27 @@ namespace BeneficialStrategies.Iso20022.Choices.PairedOrTurnedQuantity4Choice;
 /// Quantity of financial instruments of the linked transaction to be turned.
 /// </summary>
 public partial record TurnedQuantity : PairedOrTurnedQuantity4Choice_
+     , IIsoXmlSerilizable<TurnedQuantity>
 {
     #nullable enable
+    
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+    }
+    public static new TurnedQuantity Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

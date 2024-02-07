@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the identification of a party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GenericIdentification82
+     : IIsoXmlSerilizable<GenericIdentification82>
 {
     #nullable enable
     
     /// <summary>
     /// Name or number assigned by an entity to enable recognition of that entity.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Type of identification.
     /// </summary>
-    [DataMember]
     public required OtherIdentification3Choice_ Type { get; init; } 
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     /// <summary>
     /// Date at which the identification was issued.
     /// </summary>
-    [DataMember]
     public IsoISODate? IssueDate { get; init; } 
     /// <summary>
     /// Date at which the identification expires.
     /// </summary>
-    [DataMember]
     public IsoISODate? ExpiryDate { get; init; } 
     /// <summary>
     /// Name of the state, county or country sub-division that issued the identification document.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? State { get; init; } 
     /// <summary>
     /// Country that issued the identification document.
     /// </summary>
-    [DataMember]
     public CountryCode? IssuerCountry { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Issuer is IsoMax35Text IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (IssueDate is IsoISODate IssueDateValue)
+        {
+            writer.WriteStartElement(null, "IsseDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(IssueDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ExpiryDate is IsoISODate ExpiryDateValue)
+        {
+            writer.WriteStartElement(null, "XpryDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExpiryDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (State is IsoMax70Text StateValue)
+        {
+            writer.WriteStartElement(null, "Stat", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(StateValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (IssuerCountry is CountryCode IssuerCountryValue)
+        {
+            writer.WriteStartElement(null, "IssrCtry", xmlNamespace );
+            writer.WriteValue(IssuerCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static GenericIdentification82 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

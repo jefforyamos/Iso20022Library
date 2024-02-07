@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes the details of the currency exchange.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CurrencyExchange10
+     : IIsoXmlSerilizable<CurrencyExchange10>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the cross currency, if different from the currency of delivery.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? DeliverableCrossCurrency { get; init; } 
     /// <summary>
     /// Factor used to convert an amount from one currency into another. This reflects the price at which one currency was bought with another currency.
     /// </summary>
-    [DataMember]
     public IsoBaseOneRate? ExchangeRate { get; init; } 
     /// <summary>
     /// Forward exchange rate as agreed between the counterparties in the contractual agreement, expressed as a price of base currency in the quoted currency.
     /// </summary>
-    [DataMember]
     public IsoBaseOneRate? ForwardExchangeRate { get; init; } 
     /// <summary>
     /// Indicates the quote base for the exchange rate.
     /// </summary>
-    [DataMember]
     public ExchangeRateBasis1Choice_? ExchangeRateBasis { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DeliverableCrossCurrency is ActiveOrHistoricCurrencyCode DeliverableCrossCurrencyValue)
+        {
+            writer.WriteStartElement(null, "DlvrblCrossCcy", xmlNamespace );
+            writer.WriteValue(DeliverableCrossCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExchangeRate is IsoBaseOneRate ExchangeRateValue)
+        {
+            writer.WriteStartElement(null, "XchgRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ExchangeRateValue)); // data type BaseOneRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ForwardExchangeRate is IsoBaseOneRate ForwardExchangeRateValue)
+        {
+            writer.WriteStartElement(null, "FwdXchgRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ForwardExchangeRateValue)); // data type BaseOneRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExchangeRateBasis is ExchangeRateBasis1Choice_ ExchangeRateBasisValue)
+        {
+            writer.WriteStartElement(null, "XchgRateBsis", xmlNamespace );
+            ExchangeRateBasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CurrencyExchange10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
 /// Specifies the opening date of the party.
 /// </summary>
 public partial record OpeningDate : UpdateLogPartyRecord1Choice_
+     , IIsoXmlSerilizable<OpeningDate>
 {
     #nullable enable
+    
     /// <summary>
     /// Old value before the update.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record OpeningDate : UpdateLogPartyRecord1Choice_
     /// New value after the update.
     /// </summary>
     public required IsoISODate New { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Od", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(Old)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "New", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(New)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+    }
+    public static new OpeningDate Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

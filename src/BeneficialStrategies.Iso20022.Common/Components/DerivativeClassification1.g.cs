@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Hierarchy of classification of a derivative.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DerivativeClassification1
+     : IIsoXmlSerilizable<DerivativeClassification1>
 {
     #nullable enable
     
     /// <summary>
     /// Highest level classification of a derivative.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text AssetClass { get; init; } 
     /// <summary>
     /// Second level classification of a derivative.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? BaseProduct { get; init; } 
     /// <summary>
     /// Third level classification of a derivative.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SubProduct { get; init; } 
     /// <summary>
     /// Low level classification of commodity derivatives.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SubCommodity { get; init; } 
     /// <summary>
     /// Low level classification of a derivative.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TransactionType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AsstClss", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(AssetClass)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (BaseProduct is IsoMax35Text BaseProductValue)
+        {
+            writer.WriteStartElement(null, "BasePdct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(BaseProductValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SubProduct is IsoMax35Text SubProductValue)
+        {
+            writer.WriteStartElement(null, "SubPdct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SubProductValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SubCommodity is IsoMax35Text SubCommodityValue)
+        {
+            writer.WriteStartElement(null, "SubCmmdty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SubCommodityValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionType is IsoMax35Text TransactionTypeValue)
+        {
+            writer.WriteStartElement(null, "TxTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static DerivativeClassification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

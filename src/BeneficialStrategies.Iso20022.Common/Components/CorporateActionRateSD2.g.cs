@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Ratio of the American or Global Depository Receipt(s) per ordinary share(s).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionRateSD2
+     : IIsoXmlSerilizable<CorporateActionRateSD2>
 {
     #nullable enable
     
     /// <summary>
     /// Receipts quantity (base) of the American or Global Depository Receipt(s) per ordinary share(s) ratio.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? ReceiptBaseQuantity { get; init; } 
     /// <summary>
     ///  Ordinary shares quantity of the American or Global Depository Receipt(s) per ordinary share(s) ratio.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? OrdinaryShare { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReceiptBaseQuantity is IsoDecimalNumber ReceiptBaseQuantityValue)
+        {
+            writer.WriteStartElement(null, "RctBaseQty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(ReceiptBaseQuantityValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (OrdinaryShare is IsoDecimalNumber OrdinaryShareValue)
+        {
+            writer.WriteStartElement(null, "OrdnryShr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(OrdinaryShareValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionRateSD2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

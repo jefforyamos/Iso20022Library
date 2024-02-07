@@ -7,63 +7,114 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the intra-position movement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IntraPositionDetails31
+     : IIsoXmlSerilizable<IntraPositionDetails31>
 {
     #nullable enable
     
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PoolIdentification { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification92Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
-    [DataMember]
     public required SecuritiesAccount19 SafekeepingAccount { get; init; } 
     /// <summary>
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ SettlementQuantity { get; init; } 
     /// <summary>
     /// Number identifying a lot constituting the financial instrument.
     /// </summary>
-    [DataMember]
     public GenericIdentification37? LotNumber { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be moved.
     /// </summary>
-    [DataMember]
     public required DateAndDateTimeChoice_ SettlementDate { get; init; } 
     /// <summary>
     /// Balance from which the securities are moving.
     /// </summary>
-    [DataMember]
     public SecuritiesBalanceType7Choice_? BalanceFrom { get; init; } 
     /// <summary>
     /// Balance to which the securities are moving.
     /// </summary>
-    [DataMember]
     public SecuritiesBalanceType7Choice_? BalanceTo { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PoolIdentification is IsoMax35Text PoolIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PoolId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PoolIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountOwner is PartyIdentification92Choice_ AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+        SafekeepingAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmQty", xmlNamespace );
+        SettlementQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LotNumber is GenericIdentification37 LotNumberValue)
+        {
+            writer.WriteStartElement(null, "LotNb", xmlNamespace );
+            LotNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
+        SettlementDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BalanceFrom is SecuritiesBalanceType7Choice_ BalanceFromValue)
+        {
+            writer.WriteStartElement(null, "BalFr", xmlNamespace );
+            BalanceFromValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BalanceTo is SecuritiesBalanceType7Choice_ BalanceToValue)
+        {
+            writer.WriteStartElement(null, "BalTo", xmlNamespace );
+            BalanceToValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IntraPositionDetails31 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

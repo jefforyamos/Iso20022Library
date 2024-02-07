@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related specifically to counterparty.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CounterpartyData61
+     : IIsoXmlSerilizable<CounterpartyData61>
 {
     #nullable enable
     
     /// <summary>
     /// Information describing the reporting counterparty.
     /// </summary>
-    [DataMember]
     public required CounterpartyIdentification4 ReportingCounterparty { get; init; } 
     /// <summary>
     /// Data specific to other counterparties and related fields.
     /// </summary>
-    [DataMember]
     public required CounterpartyIdentification2 OtherCounterparty { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptgCtrPty", xmlNamespace );
+        ReportingCounterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrCtrPty", xmlNamespace );
+        OtherCounterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CounterpartyData61 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

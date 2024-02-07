@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies rates related to a corporate action option.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionRate8
+     : IIsoXmlSerilizable<CorporateActionRate8>
 {
     #nullable enable
     
     /// <summary>
     /// Rate proposed in a remarketing of variable rate notes.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? ProposedRate { get; init; } 
     /// <summary>
     /// Rate of allowed over-subscription.
     /// </summary>
-    [DataMember]
     public RateAndAmountFormat12Choice_? OversubscriptionRate { get; init; } 
     /// <summary>
     /// Requested tax rate in case of breakdown of tax rate, for example, used for adjustment of tax rate. This is the new requested applicable rate.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? RequestedTaxationRate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ProposedRate is IsoPercentageRate ProposedRateValue)
+        {
+            writer.WriteStartElement(null, "PropsdRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(ProposedRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (OversubscriptionRate is RateAndAmountFormat12Choice_ OversubscriptionRateValue)
+        {
+            writer.WriteStartElement(null, "OvrsbcptRate", xmlNamespace );
+            OversubscriptionRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequestedTaxationRate is IsoPercentageRate RequestedTaxationRateValue)
+        {
+            writer.WriteStartElement(null, "ReqdTaxtnRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RequestedTaxationRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionRate8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

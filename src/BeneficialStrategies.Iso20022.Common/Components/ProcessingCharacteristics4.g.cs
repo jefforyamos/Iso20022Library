@@ -7,98 +7,196 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Processing characteristics linked to a subscription to an investment fund or alternative/hedge fund.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProcessingCharacteristics4
+     : IIsoXmlSerilizable<ProcessingCharacteristics4>
 {
     #nullable enable
     
     /// <summary>
     /// Currency in which a subscription is accepted.
     /// </summary>
-    [DataMember]
-    public ValueList<ActiveCurrencyCode> DealingCurrencyAccepted { get; init; } = []; // Warning: Don't know multiplicity.
+    public ActiveCurrencyCode? DealingCurrencyAccepted { get; init; } 
     /// <summary>
     /// Specifies whether an application form is required for the initial investment.
     /// </summary>
-    [DataMember]
     public Forms1? InitialInvestmentApplication { get; init; } 
     /// <summary>
     /// Specifies whether an application form is required for the subsequent investments.
     /// </summary>
-    [DataMember]
     public Forms1? SubsequentInvestmentApplication { get; init; } 
     /// <summary>
     /// Indicates whether a subscription can be instructed by amount.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? AmountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether a subscription can be instructed as a number of units.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? UnitsIndicator { get; init; } 
     /// <summary>
     /// Indicates the rounding direction applied to nearest unit.
     /// </summary>
-    [DataMember]
     public RoundingDirection2Code? Rounding { get; init; } 
     /// <summary>
     /// Location of the main fund order desk.
     /// </summary>
-    [DataMember]
     public MainFundOrderDeskLocation1? MainFundOrderDeskLocation { get; init; } 
     /// <summary>
     /// Frequency at which the subscriptions are done.
     /// </summary>
-    [DataMember]
     public EventFrequency5Code? DealingFrequency { get; init; } 
     /// <summary>
     /// Description of frequency at which the subscription is done.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? DealingFrequencyDescription { get; init; } 
     /// <summary>
     /// Latest time at which an order to subscribe can be given.
     /// </summary>
-    [DataMember]
     public IsoISOTime? DealingCutOffTime { get; init; } 
     /// <summary>
     /// Dealing cut-off timeframe.
     /// </summary>
-    [DataMember]
     public TimeFrame4? DealingCutOffTimeFrame { get; init; } 
     /// <summary>
     /// Time at which the deal confirmation is issued.
     /// </summary>
-    [DataMember]
     public IsoISOTime? DealConfirmationTime { get; init; } 
     /// <summary>
     /// Time frame within which the deal confirmation is issued.
     /// </summary>
-    [DataMember]
     public TimeFrame5? DealConfirmationTimeFrame { get; init; } 
     /// <summary>
     /// Specific period, for example, for some guaranteed funds, during which the units/shares may be subscribed.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? LimitedPeriod { get; init; } 
     /// <summary>
     /// Settlement timing.
     /// </summary>
-    [DataMember]
     public TimeFrame7Choice_? SettlementCycle { get; init; } 
     /// <summary>
     /// Additional information about the subscription processing characteristics.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DealingCurrencyAccepted is ActiveCurrencyCode DealingCurrencyAcceptedValue)
+        {
+            writer.WriteStartElement(null, "DealgCcyAccptd", xmlNamespace );
+            writer.WriteValue(DealingCurrencyAcceptedValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (InitialInvestmentApplication is Forms1 InitialInvestmentApplicationValue)
+        {
+            writer.WriteStartElement(null, "InitlInvstmtAppl", xmlNamespace );
+            InitialInvestmentApplicationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SubsequentInvestmentApplication is Forms1 SubsequentInvestmentApplicationValue)
+        {
+            writer.WriteStartElement(null, "SbsqntInvstmtAppl", xmlNamespace );
+            SubsequentInvestmentApplicationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AmountIndicator is IsoYesNoIndicator AmountIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AmtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AmountIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (UnitsIndicator is IsoYesNoIndicator UnitsIndicatorValue)
+        {
+            writer.WriteStartElement(null, "UnitsInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(UnitsIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Rounding is RoundingDirection2Code RoundingValue)
+        {
+            writer.WriteStartElement(null, "Rndg", xmlNamespace );
+            writer.WriteValue(RoundingValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MainFundOrderDeskLocation is MainFundOrderDeskLocation1 MainFundOrderDeskLocationValue)
+        {
+            writer.WriteStartElement(null, "MainFndOrdrDskLctn", xmlNamespace );
+            MainFundOrderDeskLocationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DealingFrequency is EventFrequency5Code DealingFrequencyValue)
+        {
+            writer.WriteStartElement(null, "DealgFrqcy", xmlNamespace );
+            writer.WriteValue(DealingFrequencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DealingFrequencyDescription is IsoMax350Text DealingFrequencyDescriptionValue)
+        {
+            writer.WriteStartElement(null, "DealgFrqcyDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(DealingFrequencyDescriptionValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (DealingCutOffTime is IsoISOTime DealingCutOffTimeValue)
+        {
+            writer.WriteStartElement(null, "DealgCutOffTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(DealingCutOffTimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+        if (DealingCutOffTimeFrame is TimeFrame4 DealingCutOffTimeFrameValue)
+        {
+            writer.WriteStartElement(null, "DealgCutOffTmFrame", xmlNamespace );
+            DealingCutOffTimeFrameValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DealConfirmationTime is IsoISOTime DealConfirmationTimeValue)
+        {
+            writer.WriteStartElement(null, "DealConfTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(DealConfirmationTimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+        if (DealConfirmationTimeFrame is TimeFrame5 DealConfirmationTimeFrameValue)
+        {
+            writer.WriteStartElement(null, "DealConfTmFrame", xmlNamespace );
+            DealConfirmationTimeFrameValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LimitedPeriod is IsoMax350Text LimitedPeriodValue)
+        {
+            writer.WriteStartElement(null, "LtdPrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(LimitedPeriodValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (SettlementCycle is TimeFrame7Choice_ SettlementCycleValue)
+        {
+            writer.WriteStartElement(null, "SttlmCycl", xmlNamespace );
+            SettlementCycleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ProcessingCharacteristics4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

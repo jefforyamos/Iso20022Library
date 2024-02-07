@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the query criteria related to securities.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeSecurityIdentificationQueryCriteria2
+     : IIsoXmlSerilizable<TradeSecurityIdentificationQueryCriteria2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the AND/OR operators as query criteria.
     /// </summary>
-    [DataMember]
     public required Operation3Code Operator { get; init; } 
     /// <summary>
     /// Identification of the product through ISIN or AII.
     /// </summary>
-    [DataMember]
-    public ValueList<SecurityIdentificationQueryCriteria1> Identification { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecurityIdentificationQueryCriteria1? Identification { get; init; } 
     /// <summary>
     /// Unique identification to identify the direct underlying instrument based on its type. 
     /// </summary>
-    [DataMember]
-    public ValueList<SecurityIdentificationQuery3Choice_> UnderlyingInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecurityIdentificationQuery3Choice_? UnderlyingInstrumentIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Oprtr", xmlNamespace );
+        writer.WriteValue(Operator.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Identification is SecurityIdentificationQueryCriteria1 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnderlyingInstrumentIdentification is SecurityIdentificationQuery3Choice_ UnderlyingInstrumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "UndrlygInstrmId", xmlNamespace );
+            UnderlyingInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeSecurityIdentificationQueryCriteria2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

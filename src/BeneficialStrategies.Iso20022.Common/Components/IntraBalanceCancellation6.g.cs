@@ -7,58 +7,113 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details of the cancellation requests.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IntraBalanceCancellation6
+     : IIsoXmlSerilizable<IntraBalanceCancellation6>
 {
     #nullable enable
     
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    [DataMember]
     public CashAccount38? CashAccount { get; init; } 
     /// <summary>
     /// Party that owns the account.
     /// </summary>
-    [DataMember]
     public SystemPartyIdentification8? CashAccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the cash account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; } 
     /// <summary>
     /// Status and status reason of the transaction.
     /// </summary>
-    [DataMember]
     public ProcessingStatus69Choice_? ProcessingStatus { get; init; } 
     /// <summary>
     /// Unambiguous identification of the cancellation request.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text RequestReference { get; init; } 
     /// <summary>
     /// Date and time at which the status was assigned.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? StatusDate { get; init; } 
     /// <summary>
     /// References of the transaction for which the intra-balance modification is requested.
     /// </summary>
-    [DataMember]
     public References14? TransactionIdentification { get; init; } 
     /// <summary>
     /// Identifies additional details of the transaction.
     /// </summary>
-    [DataMember]
     public IntraBalance5? UnderlyingIntraBalance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CashAccount is CashAccount38 CashAccountValue)
+        {
+            writer.WriteStartElement(null, "CshAcct", xmlNamespace );
+            CashAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccountOwner is SystemPartyIdentification8 CashAccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "CshAcctOwnr", xmlNamespace );
+            CashAccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccountServicer is BranchAndFinancialInstitutionIdentification6 CashAccountServicerValue)
+        {
+            writer.WriteStartElement(null, "CshAcctSvcr", xmlNamespace );
+            CashAccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProcessingStatus is ProcessingStatus69Choice_ ProcessingStatusValue)
+        {
+            writer.WriteStartElement(null, "PrcgSts", xmlNamespace );
+            ProcessingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ReqRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(RequestReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (StatusDate is IsoISODateTime StatusDateValue)
+        {
+            writer.WriteStartElement(null, "StsDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(StatusDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (TransactionIdentification is References14 TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            TransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnderlyingIntraBalance is IntraBalance5 UnderlyingIntraBalanceValue)
+        {
+            writer.WriteStartElement(null, "UndrlygIntraBal", xmlNamespace );
+            UnderlyingIntraBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IntraBalanceCancellation6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

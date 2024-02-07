@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.auth.SettlementInternaliserReportV01>;
 
 namespace BeneficialStrategies.Iso20022.auth;
 
@@ -24,10 +27,9 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// This report may be used by settlement internalisers to provide aggregated information (volume and value) on internalised settlement instructions (settled and failed) to their competent authorities.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The SettlementInternaliserReport message is sent by the settlement internalisers to the relevant competent authority to report aggregated information on all securities transactions that they settle outside securities settlement systems, on a quarterly basis. The report contains aggregated information on the value and volume of all internalised settlement instructions (settled and failed) that have been performed during the period covered by the report, for financial instruments, types of transactions, types of clients and cash transfers.||Usage: |This report may be used by settlement internalisers to provide aggregated information (volume and value) on internalised settlement instructions (settled and failed) to their competent authorities.")]
-public partial record SettlementInternaliserReportV01 : IOuterRecord
+public partial record SettlementInternaliserReportV01 : IOuterRecord<SettlementInternaliserReportV01,SettlementInternaliserReportV01Document>
+    ,IIsoXmlSerilizable<SettlementInternaliserReportV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -39,6 +41,11 @@ public partial record SettlementInternaliserReportV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SttlmIntlrRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SettlementInternaliserReportV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -89,6 +96,38 @@ public partial record SettlementInternaliserReportV01 : IOuterRecord
     {
         return new SettlementInternaliserReportV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SttlmIntlrRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptHdr", xmlNamespace );
+        ReportHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmIntlr", xmlNamespace );
+        SettlementInternaliser.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IssrCSD", xmlNamespace );
+        IssuerCSD.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementInternaliserReportV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -96,9 +135,7 @@ public partial record SettlementInternaliserReportV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SettlementInternaliserReportV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SettlementInternaliserReportV01Document : IOuterDocument<SettlementInternaliserReportV01>
+public partial record SettlementInternaliserReportV01Document : IOuterDocument<SettlementInternaliserReportV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -114,5 +151,22 @@ public partial record SettlementInternaliserReportV01Document : IOuterDocument<S
     /// <summary>
     /// The instance of <seealso cref="SettlementInternaliserReportV01"/> is required.
     /// </summary>
+    [DataMember(Name=SettlementInternaliserReportV01.XmlTag)]
     public required SettlementInternaliserReportV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SettlementInternaliserReportV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

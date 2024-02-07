@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification expressed as a proprietary type and narrative description.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GenericIdentification58
+     : IIsoXmlSerilizable<GenericIdentification58>
 {
     #nullable enable
     
     /// <summary>
     /// Name or number assigned by an entity to enable recognition of that entity.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Proprietary information, often a code, issued by the data source scheme issuer.
     /// </summary>
-    [DataMember]
     public required GenericIdentification40 Type { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is IsoMax35Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static GenericIdentification58 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

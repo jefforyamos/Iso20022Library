@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Reconciliation Request message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReconciliationRequestData1
+     : IIsoXmlSerilizable<ReconciliationRequestData1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of Reconciliation requested by the Sale to the POI.
     /// </summary>
-    [DataMember]
     public required ReconciliationType1Code ReconciliationType { get; init; } 
     /// <summary>
     /// Identification of the Acquirer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AcquirerIdentification { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period between Sale and POI.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? POIReconciliationIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RcncltnTp", xmlNamespace );
+        writer.WriteValue(ReconciliationType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AcquirerIdentification is IsoMax35Text AcquirerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcqrrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AcquirerIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (POIReconciliationIdentification is IsoMax35Text POIReconciliationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "POIRcncltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(POIReconciliationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ReconciliationRequestData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TradeReportQuery10Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReportQuery10Choice;
 /// Query criteria specifically applied to ad-hoc queries.
 /// </summary>
 public partial record AdHocQuery : TradeReportQuery10Choice_
+     , IIsoXmlSerilizable<AdHocQuery>
 {
     #nullable enable
+    
     /// <summary>
     /// Field to define whether the query response file will include all reports submitted for a trade [true]or only the current state of the trade [false].
     /// If false is selected, the reporting timestamp field cannot be used.
@@ -40,5 +44,53 @@ public partial record AdHocQuery : TradeReportQuery10Choice_
     /// Query criteria related to other fields.
     /// </summary>
     public TradeAdditionalQueryCriteria3? OtherCriteria { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TradLifeCyclHstry", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TradeLifeCycleHistory)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OutsdngTradInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(OutstandingTradeIndicator)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        if (TradePartyCriteria is TradePartyQueryCriteria3 TradePartyCriteriaValue)
+        {
+            writer.WriteStartElement(null, "TradPtyCrit", xmlNamespace );
+            TradePartyCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentCriteria is TradeSecurityIdentificationQueryCriteria2 FinancialInstrumentCriteriaValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmCrit", xmlNamespace );
+            FinancialInstrumentCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TimeCriteria is TradeDateTimeQueryCriteria2 TimeCriteriaValue)
+        {
+            writer.WriteStartElement(null, "TmCrit", xmlNamespace );
+            TimeCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherCriteria is TradeAdditionalQueryCriteria3 OtherCriteriaValue)
+        {
+            writer.WriteStartElement(null, "OthrCrit", xmlNamespace );
+            OtherCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new AdHocQuery Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

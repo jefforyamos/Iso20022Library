@@ -7,35 +7,68 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of a bank account
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountDetails3
+     : IIsoXmlSerilizable<AccountDetails3>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the account as assigned by the account servicing institution in an agreement with the account owner in order to provide an additional means of identification of the account.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? AccountName { get; init; } 
     /// <summary>
     /// Type of cardholder account used for the transaction.
     /// Conforms to ISO 8583, Account type codes, which are maintained by the ISO 8583/MA (Maintenance Agency).
     /// </summary>
-    [DataMember]
     public ISO8583AccountTypeCode? AccountType { get; init; } 
     /// <summary>
     /// Identification of an account.
     /// ISO 8583 bit 102 or bit 103
     /// </summary>
-    [DataMember]
     public IsoMax70Text? AccountIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountName is IsoMax70Text AccountNameValue)
+        {
+            writer.WriteStartElement(null, "AcctNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AccountNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountType is ISO8583AccountTypeCode AccountTypeValue)
+        {
+            writer.WriteStartElement(null, "AcctTp", xmlNamespace );
+            writer.WriteValue(AccountTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AccountIdentification is IsoMax70Text AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AccountIdentificationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountDetails3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

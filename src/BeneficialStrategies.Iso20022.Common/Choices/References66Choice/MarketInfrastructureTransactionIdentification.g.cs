@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.References66Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.References66Choice;
 /// Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
 /// </summary>
 public partial record MarketInfrastructureTransactionIdentification : References66Choice_
+     , IIsoXmlSerilizable<MarketInfrastructureTransactionIdentification>
 {
-    public required IsoRestrictedFINXMax16Text Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a character string with a maximum length of 16 characters. It has a pattern that disables the use of characters that is not part of the character set X, that is, that is not a-z A-Z / - ? : ( ) . , ‘ + , and disable the use of slash "/" at the beginning and end of line and double slash "//" within the line.
+    /// </summary>
+    public required IsoRestrictedFINXMax16Text Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MktInfrstrctrTxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(Value)); // data type RestrictedFINXMax16Text System.String
+        writer.WriteEndElement();
+    }
+    public static new MarketInfrastructureTransactionIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

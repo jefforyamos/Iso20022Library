@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.reda.NettingCutOffReferenceDataReportV01>;
 
 namespace BeneficialStrategies.Iso20022.reda;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// The Netting Cut Off Reference Data Report message is sent to a participant by a central system to provide details of scheduled, changed, existing and previous netting cut off data held at a central system.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The Netting Cut Off Reference Data Report message is sent to a participant by a central system to provide details of scheduled, changed, existing and previous netting cut off data held at a central system.")]
-public partial record NettingCutOffReferenceDataReportV01 : IOuterRecord
+public partial record NettingCutOffReferenceDataReportV01 : IOuterRecord<NettingCutOffReferenceDataReportV01,NettingCutOffReferenceDataReportV01Document>
+    ,IIsoXmlSerilizable<NettingCutOffReferenceDataReportV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record NettingCutOffReferenceDataReportV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "NetgCutOffRefDataRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => NettingCutOffReferenceDataReportV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -76,6 +83,35 @@ public partial record NettingCutOffReferenceDataReportV01 : IOuterRecord
     {
         return new NettingCutOffReferenceDataReportV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("NetgCutOffRefDataRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptData", xmlNamespace );
+        ReportData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PtcptNetgCutOffData", xmlNamespace );
+        ParticipantNettingCutOffData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static NettingCutOffReferenceDataReportV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -83,9 +119,7 @@ public partial record NettingCutOffReferenceDataReportV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NettingCutOffReferenceDataReportV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record NettingCutOffReferenceDataReportV01Document : IOuterDocument<NettingCutOffReferenceDataReportV01>
+public partial record NettingCutOffReferenceDataReportV01Document : IOuterDocument<NettingCutOffReferenceDataReportV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -101,5 +135,22 @@ public partial record NettingCutOffReferenceDataReportV01Document : IOuterDocume
     /// <summary>
     /// The instance of <seealso cref="NettingCutOffReferenceDataReportV01"/> is required.
     /// </summary>
+    [DataMember(Name=NettingCutOffReferenceDataReportV01.XmlTag)]
     public required NettingCutOffReferenceDataReportV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(NettingCutOffReferenceDataReportV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

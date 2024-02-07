@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies individually each leg of a transport of goods.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SingleTransport7
+     : IIsoXmlSerilizable<SingleTransport7>
 {
     #nullable enable
     
     /// <summary>
     /// Moving of goods or people from one place to another by vehicle.
     /// </summary>
-    [DataMember]
-    public ValueList<TransportByAir5> TransportByAir { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransportByAir5? TransportByAir { get; init; } 
     /// <summary>
     /// Information related for the transportation of goods by sea.
     /// </summary>
-    [DataMember]
-    public ValueList<TransportBySea6> TransportBySea { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransportBySea6? TransportBySea { get; init; } 
     /// <summary>
     /// Information related to the transportation of goods by road.
     /// </summary>
-    [DataMember]
-    public ValueList<TransportByRoad5> TransportByRoad { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransportByRoad5? TransportByRoad { get; init; } 
     /// <summary>
     /// Information related to the transportation of goods by rail.
     /// </summary>
-    [DataMember]
-    public ValueList<TransportByRail5> TransportByRail { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransportByRail5? TransportByRail { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TransportByAir is TransportByAir5 TransportByAirValue)
+        {
+            writer.WriteStartElement(null, "TrnsprtByAir", xmlNamespace );
+            TransportByAirValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransportBySea is TransportBySea6 TransportBySeaValue)
+        {
+            writer.WriteStartElement(null, "TrnsprtBySea", xmlNamespace );
+            TransportBySeaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransportByRoad is TransportByRoad5 TransportByRoadValue)
+        {
+            writer.WriteStartElement(null, "TrnsprtByRoad", xmlNamespace );
+            TransportByRoadValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransportByRail is TransportByRail5 TransportByRailValue)
+        {
+            writer.WriteStartElement(null, "TrnsprtByRail", xmlNamespace );
+            TransportByRailValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SingleTransport7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

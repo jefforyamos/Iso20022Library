@@ -7,68 +7,133 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information used with financial types of messages when third-party clearing is involved.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ClearingRecordData1
+     : IIsoXmlSerilizable<ClearingRecordData1>
 {
     #nullable enable
     
     /// <summary>
     /// Originator of the batch.
     /// </summary>
-    [DataMember]
     public Originator1? Originator { get; init; } 
     /// <summary>
     /// Institution, final destination of the batch.
     /// </summary>
-    [DataMember]
     public Destination1? Destination { get; init; } 
     /// <summary>
     /// Type of clearing of the transaction.
     /// </summary>
-    [DataMember]
     public required ClearingMethod2Code ClearingMethod { get; init; } 
     /// <summary>
     /// Other type of clearing method.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherClearingMethod { get; init; } 
     /// <summary>
     /// Level of priority of clearing.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClearingPriority { get; init; } 
     /// <summary>
     /// Date of clearing.
     /// </summary>
-    [DataMember]
     public IsoISODate? ClearingDate { get; init; } 
     /// <summary>
     /// Net amount of clearing.
     /// </summary>
-    [DataMember]
     public Amount14? ClearingAmount { get; init; } 
     /// <summary>
     /// Interchange reimbursement fee.
     /// </summary>
-    [DataMember]
     public Amount14? InterchangeFee { get; init; } 
     /// <summary>
     /// Fee pertaining to the agent.
     /// </summary>
-    [DataMember]
     public Amount14? AgentFee { get; init; } 
     /// <summary>
     /// Other amounts involved in clearing.
     /// </summary>
-    [DataMember]
     public OtherAmount2? OtherAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Originator is Originator1 OriginatorValue)
+        {
+            writer.WriteStartElement(null, "Orgtr", xmlNamespace );
+            OriginatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Destination is Destination1 DestinationValue)
+        {
+            writer.WriteStartElement(null, "Dstn", xmlNamespace );
+            DestinationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ClrMtd", xmlNamespace );
+        writer.WriteValue(ClearingMethod.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherClearingMethod is IsoMax35Text OtherClearingMethodValue)
+        {
+            writer.WriteStartElement(null, "OthrClrMtd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherClearingMethodValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClearingPriority is IsoMax35Text ClearingPriorityValue)
+        {
+            writer.WriteStartElement(null, "ClrPrty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClearingPriorityValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClearingDate is IsoISODate ClearingDateValue)
+        {
+            writer.WriteStartElement(null, "ClrDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ClearingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ClearingAmount is Amount14 ClearingAmountValue)
+        {
+            writer.WriteStartElement(null, "ClrAmt", xmlNamespace );
+            ClearingAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterchangeFee is Amount14 InterchangeFeeValue)
+        {
+            writer.WriteStartElement(null, "IntrchngFee", xmlNamespace );
+            InterchangeFeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AgentFee is Amount14 AgentFeeValue)
+        {
+            writer.WriteStartElement(null, "AgtFee", xmlNamespace );
+            AgentFeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherAmount is OtherAmount2 OtherAmountValue)
+        {
+            writer.WriteStartElement(null, "OthrAmt", xmlNamespace );
+            OtherAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ClearingRecordData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

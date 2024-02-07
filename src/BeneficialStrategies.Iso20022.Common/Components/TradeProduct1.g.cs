@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Tangible output or service produced by human or mechanical effort, or by a natural process for purposes of specifying a product.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeProduct1
+     : IIsoXmlSerilizable<TradeProduct1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the product.
     /// </summary>
-    [DataMember]
-    public ValueList<ProductIdentifier2Choice_> Identification { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProductIdentifier2Choice_? Identification { get; init; } 
     /// <summary>
     /// Name of a product.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     /// <summary>
     /// Information about the goods and/or services of a trade transaction.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     /// <summary>
     /// Country of origin of the product.
     /// </summary>
-    [DataMember]
-    public ValueList<CountryCodeAndName1> CountryOfOrigin { get; init; } = []; // Warning: Don't know multiplicity.
+    public CountryCodeAndName1? CountryOfOrigin { get; init; } 
     /// <summary>
     /// Identifies the characteristic of a product.
     /// </summary>
-    [DataMember]
-    public ValueList<ProductCharacteristics2> ProductCharacteristics { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProductCharacteristics2? ProductCharacteristics { get; init; } 
     /// <summary>
     /// Category of the product.
     /// </summary>
-    [DataMember]
-    public ValueList<ProductCategory1Choice_> ProductCategory { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProductCategory1Choice_? ProductCategory { get; init; } 
     /// <summary>
     /// Unique global serial identifier for this product instance.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> GlobalSerialIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? GlobalSerialIdentifier { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is ProductIdentifier2Choice_ IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Name is IsoMax35Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Description is IsoMax140Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(DescriptionValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (CountryOfOrigin is CountryCodeAndName1 CountryOfOriginValue)
+        {
+            writer.WriteStartElement(null, "CtryOfOrgn", xmlNamespace );
+            CountryOfOriginValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProductCharacteristics is ProductCharacteristics2 ProductCharacteristicsValue)
+        {
+            writer.WriteStartElement(null, "PdctChrtcs", xmlNamespace );
+            ProductCharacteristicsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProductCategory is ProductCategory1Choice_ ProductCategoryValue)
+        {
+            writer.WriteStartElement(null, "PdctCtgy", xmlNamespace );
+            ProductCategoryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GlobalSerialIdentifier is IsoMax35Text GlobalSerialIdentifierValue)
+        {
+            writer.WriteStartElement(null, "GblSrlIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(GlobalSerialIdentifierValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeProduct1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

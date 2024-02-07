@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.RejectCaseAssignment>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -32,10 +35,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// The Reject Case Assignment message must not be used in place of a Resolution Of Investigation or Case Status Report message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The Reject Case Assignment message is sent by a case assignee to a case creator or case assigner to reject a case given to him.|Usage|The Reject Case Assignment message is used to notify the case creator or case assigner the rejection of an assignment by the case assignee in a:|- request to cancel payment case|- request to modify payment case|- unable to apply case|- claim non receipt case|Rejecting a case assignment occurs when the case assignee is unable to trace the original payment instruction or when the case assignee is unable, or does not have authority, to process the assigned case.|The Reject Case Assignment message covers one and only one case at a time. If the case assignee needs to reject several case assignments, then multiple Reject Case Assignment messages must be sent.|The Reject Case Assignment message must be forwarded by all subsequent case assignee(s) until it reaches the case assigner.|The Reject Case Assignment message must not be used in place of a Resolution Of Investigation or Case Status Report message.")]
-public partial record RejectCaseAssignment : IOuterRecord
+public partial record RejectCaseAssignment : IOuterRecord<RejectCaseAssignment,RejectCaseAssignmentDocument>
+    ,IIsoXmlSerilizable<RejectCaseAssignment>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -47,6 +49,11 @@ public partial record RejectCaseAssignment : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "camt.031.001.01";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => RejectCaseAssignmentDocument.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -88,6 +95,32 @@ public partial record RejectCaseAssignment : IOuterRecord
     {
         return new RejectCaseAssignmentDocument { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("camt.031.001.01");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Assgnmt", xmlNamespace );
+        Assignment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Case", xmlNamespace );
+        Case.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Justfn", xmlNamespace );
+        Justification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static RejectCaseAssignment Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -95,9 +128,7 @@ public partial record RejectCaseAssignment : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RejectCaseAssignment"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record RejectCaseAssignmentDocument : IOuterDocument<RejectCaseAssignment>
+public partial record RejectCaseAssignmentDocument : IOuterDocument<RejectCaseAssignment>, IXmlSerializable
 {
     
     /// <summary>
@@ -113,5 +144,22 @@ public partial record RejectCaseAssignmentDocument : IOuterDocument<RejectCaseAs
     /// <summary>
     /// The instance of <seealso cref="RejectCaseAssignment"/> is required.
     /// </summary>
+    [DataMember(Name=RejectCaseAssignment.XmlTag)]
     public required RejectCaseAssignment Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(RejectCaseAssignment.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

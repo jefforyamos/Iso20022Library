@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reference of a transfer and of a transfer confirmation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransferReference16
+     : IIsoXmlSerilizable<TransferReference16>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for the transfer instruction for which the confirmation reversal is sent, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransferReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
-    [DataMember]
     public AdditionalReference10? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the transfer execution for which the confirmation reversal is sent, as assigned by the confirming party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TransferConfirmationReference { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transfer allocated by the counterparty.
     /// </summary>
-    [DataMember]
     public AdditionalReference10? CounterpartyReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the reversal as assigned by the confirming party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// Reason for the reversal of confirmation.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReversalReason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TrfRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ClientReference is AdditionalReference10 ClientReferenceValue)
+        {
+            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
+            ClientReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransferConfirmationReference is IsoMax35Text TransferConfirmationReferenceValue)
+        {
+            writer.WriteStartElement(null, "TrfConfRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferConfirmationReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CounterpartyReference is AdditionalReference10 CounterpartyReferenceValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyRef", xmlNamespace );
+            CounterpartyReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CancellationReference is IsoMax35Text CancellationReferenceValue)
+        {
+            writer.WriteStartElement(null, "CxlRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CancellationReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ReversalReason is IsoMax35Text ReversalReasonValue)
+        {
+            writer.WriteStartElement(null, "RvslRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReversalReasonValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TransferReference16 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements qualifying the interest rate.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Rate2
+     : IIsoXmlSerilizable<Rate2>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the sign of the rate.
     /// </summary>
-    [DataMember]
     public IsoPlusOrMinusIndicator? Sign { get; init; } 
     /// <summary>
     /// Percentage charged for the use of an amount of money, usually expressed at an annual rate. The interest rate is the ratio of the amount of interest paid during a certain period of time compared to the principal amount of the interest bearing financial instrument.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate Rate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Sign is IsoPlusOrMinusIndicator SignValue)
+        {
+            writer.WriteStartElement(null, "Sgn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPlusOrMinusIndicator(SignValue)); // data type PlusOrMinusIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Rate", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(Rate)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+    }
+    public static Rate2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

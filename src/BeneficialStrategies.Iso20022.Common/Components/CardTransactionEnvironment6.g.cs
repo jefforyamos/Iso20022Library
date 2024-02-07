@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardTransactionEnvironment6
+     : IIsoXmlSerilizable<CardTransactionEnvironment6>
 {
     #nullable enable
     
     /// <summary>
     /// Institution initiator of the reconciliation (correspond to the ISO 8583 field 94).
     /// </summary>
-    [DataMember]
     public required GenericIdentification73 SendingInstitution { get; init; } 
     /// <summary>
     /// Institution destination of the reconciliation (correspond to the ISO 8583 field 93).
     /// </summary>
-    [DataMember]
     public required GenericIdentification73 ReceivingInstitution { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SndgInstn", xmlNamespace );
+        SendingInstitution.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RcvgInstn", xmlNamespace );
+        ReceivingInstitution.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CardTransactionEnvironment6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

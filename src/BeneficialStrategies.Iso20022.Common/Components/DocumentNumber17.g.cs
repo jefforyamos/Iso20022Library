@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the status being requested.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DocumentNumber17
+     : IIsoXmlSerilizable<DocumentNumber17>
 {
     #nullable enable
     
     /// <summary>
     /// Number used to identify a message or document.
     /// </summary>
-    [DataMember]
     public required DocumentNumber6Choice_ Number { get; init; } 
     /// <summary>
     /// References of transaction for which the status is requested.
     /// </summary>
-    [DataMember]
-    public ValueList<Identification27> References { get; init; } = []; // Warning: Don't know multiplicity.
+    public Identification27? References { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _LSk47_fZEeiNZp_PtLohLw
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nb", xmlNamespace );
+        Number.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize References, multiplicity Unknown
+    }
+    public static DocumentNumber17 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

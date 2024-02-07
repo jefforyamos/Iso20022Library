@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Percentage of ownership or of beneficial ownership of the shares/units in the account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OwnershipBeneficiaryRate1
+     : IIsoXmlSerilizable<OwnershipBeneficiaryRate1>
 {
     #nullable enable
     
     /// <summary>
     /// Ownership or beneficial ownership expressed as a percentage.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     /// <summary>
     /// Ownership or beneficial ownership expressed as a fraction or another form.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Fraction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Rate is IsoPercentageRate RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Fraction is IsoMax35Text FractionValue)
+        {
+            writer.WriteStartElement(null, "Frctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(FractionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static OwnershipBeneficiaryRate1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

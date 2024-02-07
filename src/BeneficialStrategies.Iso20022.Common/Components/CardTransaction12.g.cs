@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Network management transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardTransaction12
+     : IIsoXmlSerilizable<CardTransaction12>
 {
     #nullable enable
     
     /// <summary>
     /// Type of network management service (correspond to the ISO 8583 field 24).
     /// </summary>
-    [DataMember]
     public required CardServiceType2Code NetworkManagementType { get; init; } 
     /// <summary>
     /// Date and time of the transaction.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? InitiatorDateTime { get; init; } 
     /// <summary>
     /// Number of messages in the store and forward queue.
     /// </summary>
-    [DataMember]
     public IsoNumber? NumberOfMessages { get; init; } 
     /// <summary>
     /// Maximum number of messages in the store and forward queue.
     /// </summary>
-    [DataMember]
     public IsoNumber? MaximumNumberOfMessages { get; init; } 
     /// <summary>
     /// Response to the network management request.
     /// </summary>
-    [DataMember]
     public required ResponseType2 TransactionResponse { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NtwkMgmtTp", xmlNamespace );
+        writer.WriteValue(NetworkManagementType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (InitiatorDateTime is IsoISODateTime InitiatorDateTimeValue)
+        {
+            writer.WriteStartElement(null, "InitrDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(InitiatorDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (NumberOfMessages is IsoNumber NumberOfMessagesValue)
+        {
+            writer.WriteStartElement(null, "NbOfMsgs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfMessagesValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (MaximumNumberOfMessages is IsoNumber MaximumNumberOfMessagesValue)
+        {
+            writer.WriteStartElement(null, "MaxNbOfMsgs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumNumberOfMessagesValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxRspn", xmlNamespace );
+        TransactionResponse.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CardTransaction12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

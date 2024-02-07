@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.InterestRateDerivative2Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRateDerivative2Choice;
 /// Underlying interest rate type is a swap, swaption, a future on a swap or a forward on a swap with regard to the underlying swap.
 /// </summary>
 public partial record SwapRelated : InterestRateDerivative2Choice_
+     , IIsoXmlSerilizable<SwapRelated>
 {
-    public required SwapType1Code Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies the type of an interest rate derivative when the contract type is a swap, a swaption, a future on a swap and / or a forward on a swap.
+    /// </summary>
+    public required SwapType1Code Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SwpRltd", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new SwapRelated Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Context of the ATM for the key download.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMSecurityContext2
+     : IIsoXmlSerilizable<ATMSecurityContext2>
 {
     #nullable enable
     
     /// <summary>
     /// Key exchange security scheme in activation on the ATM for the host manager.
     /// </summary>
-    [DataMember]
     public required ATMSecurityScheme1Code CurrentSecurityScheme { get; init; } 
     /// <summary>
     /// Hardware security module information, so called EPP for Encrypted PIN Pad.
     /// </summary>
-    [DataMember]
     public ATMEquipment3? DeviceProperty { get; init; } 
     /// <summary>
     /// Configuration parameters in use by the security device.
     /// </summary>
-    [DataMember]
     public ATMSecurityConfiguration1? CurrentConfiguration { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CurSctySchme", xmlNamespace );
+        writer.WriteValue(CurrentSecurityScheme.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (DeviceProperty is ATMEquipment3 DevicePropertyValue)
+        {
+            writer.WriteStartElement(null, "DvcPrprty", xmlNamespace );
+            DevicePropertyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CurrentConfiguration is ATMSecurityConfiguration1 CurrentConfigurationValue)
+        {
+            writer.WriteStartElement(null, "CurCfgtn", xmlNamespace );
+            CurrentConfigurationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMSecurityContext2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

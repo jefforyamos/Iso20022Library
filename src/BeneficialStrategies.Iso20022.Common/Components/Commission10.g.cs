@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money due to a party as compensation for a service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Commission10
+     : IIsoXmlSerilizable<Commission10>
 {
     #nullable enable
     
     /// <summary>
     /// Service for which the commission is asked or paid.
     /// </summary>
-    [DataMember]
     public CommissionType6Code? Type { get; init; } 
     /// <summary>
     /// Service for which the commission is asked or paid.
     /// </summary>
-    [DataMember]
     public IsoExtended350Code? ExtendedType { get; init; } 
     /// <summary>
     /// Basis upon which a commission is charged, eg, flat fee.
     /// </summary>
-    [DataMember]
     public TaxationBasis4Code? Basis { get; init; } 
     /// <summary>
     /// Basis upon which a commission is charged, eg, flat fee.
     /// </summary>
-    [DataMember]
     public IsoExtended350Code? ExtendedBasis { get; init; } 
     /// <summary>
     /// Commission expressed as an amount of money.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? Amount { get; init; } 
     /// <summary>
     /// Commission expressed as a percentage.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     /// <summary>
     /// Party entitled to the amount of money resulting from a commission.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? RecipientIdentification { get; init; } 
     /// <summary>
     /// Reference to the agreement established between the fund and another party. This element, amongst others, defines the conditions of the commissions.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CommercialAgreementReference { get; init; } 
     /// <summary>
     /// Voluntary non-enforcement of the right to all or part of a commission.
     /// </summary>
-    [DataMember]
     public CommissionWaiver3? WaivingDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is CommissionType6Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExtendedType is IsoExtended350Code ExtendedTypeValue)
+        {
+            writer.WriteStartElement(null, "XtndedTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedTypeValue)); // data type Extended350Code System.String
+            writer.WriteEndElement();
+        }
+        if (Basis is TaxationBasis4Code BasisValue)
+        {
+            writer.WriteStartElement(null, "Bsis", xmlNamespace );
+            writer.WriteValue(BasisValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExtendedBasis is IsoExtended350Code ExtendedBasisValue)
+        {
+            writer.WriteStartElement(null, "XtndedBsis", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedBasisValue)); // data type Extended350Code System.String
+            writer.WriteEndElement();
+        }
+        if (Amount is IsoActiveCurrencyAnd13DecimalAmount AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(AmountValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Rate is IsoPercentageRate RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (RecipientIdentification is PartyIdentification2Choice_ RecipientIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcptId", xmlNamespace );
+            RecipientIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CommercialAgreementReference is IsoMax35Text CommercialAgreementReferenceValue)
+        {
+            writer.WriteStartElement(null, "ComrclAgrmtRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CommercialAgreementReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (WaivingDetails is CommissionWaiver3 WaivingDetailsValue)
+        {
+            writer.WriteStartElement(null, "WvgDtls", xmlNamespace );
+            WaivingDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Commission10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

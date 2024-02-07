@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Funds related service such as a payment or a transfer related to the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FundingService2
+     : IIsoXmlSerilizable<FundingService2>
 {
     #nullable enable
     
     /// <summary>
     /// Funding service details.
     /// </summary>
-    [DataMember]
     public TransferService2? FundingService { get; init; } 
     /// <summary>
     /// Source of funding.
     /// </summary>
-    [DataMember]
-    public ValueList<FundingSource2> FundingSource { get; init; } = []; // Warning: Don't know multiplicity.
+    public FundingSource2? FundingSource { get; init; } 
     /// <summary>
     /// Information for claiming funds.
     /// </summary>
-    [DataMember]
     public ClaimInformation1? ClaimInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FundingService is TransferService2 FundingServiceValue)
+        {
+            writer.WriteStartElement(null, "FndgSvc", xmlNamespace );
+            FundingServiceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FundingSource is FundingSource2 FundingSourceValue)
+        {
+            writer.WriteStartElement(null, "FndgSrc", xmlNamespace );
+            FundingSourceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClaimInformation is ClaimInformation1 ClaimInformationValue)
+        {
+            writer.WriteStartElement(null, "ClmInf", xmlNamespace );
+            ClaimInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FundingService2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

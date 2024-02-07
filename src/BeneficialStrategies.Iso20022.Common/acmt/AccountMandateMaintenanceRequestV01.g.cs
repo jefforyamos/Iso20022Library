@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.acmt.AccountMandateMaintenanceRequestV01>;
 
 namespace BeneficialStrategies.Iso20022.acmt;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// This message could be sent together with other related documents.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The AccountMandateMaintenanceRequest message is sent from an organisation to a financial institution as part of the account maintenance process. It is the initial request message to update an account. This update is only about mandate information.|Usage|This message should only be used for initiating the maintenance process of mandate information. This update is only about mandate information. The organisation will specify under the Mandate tag the complete information as it should be in the financial institutions records after processing the update request. It is not possible to update the account characteristics or organisation information with this message.|It is possible to request to update the mandate information of several accounts, if these accounts must have exactly the same mandates.|This message could be sent together with other related documents.")]
-public partial record AccountMandateMaintenanceRequestV01 : IOuterRecord
+public partial record AccountMandateMaintenanceRequestV01 : IOuterRecord<AccountMandateMaintenanceRequestV01,AccountMandateMaintenanceRequestV01Document>
+    ,IIsoXmlSerilizable<AccountMandateMaintenanceRequestV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record AccountMandateMaintenanceRequestV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AcctMndtMntncReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AccountMandateMaintenanceRequestV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -138,6 +145,62 @@ public partial record AccountMandateMaintenanceRequestV01 : IOuterRecord
     {
         return new AccountMandateMaintenanceRequestV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AcctMndtMntncReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Refs", xmlNamespace );
+        References.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ContractDates is AccountContract2 ContractDatesValue)
+        {
+            writer.WriteStartElement(null, "CtrctDts", xmlNamespace );
+            ContractDatesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnderlyingMasterAgreement is ContractDocument1 UnderlyingMasterAgreementValue)
+        {
+            writer.WriteStartElement(null, "UndrlygMstrAgrmt", xmlNamespace );
+            UnderlyingMasterAgreementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AcctId", xmlNamespace );
+        AccountIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctSvcrId", xmlNamespace );
+        AccountServicerIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgId", xmlNamespace );
+        OrganisationIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Mndt", xmlNamespace );
+        Mandate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalMessageInformation is AdditionalInformation5 AdditionalMessageInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlMsgInf", xmlNamespace );
+            AdditionalMessageInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DigitalSignature is PartyAndSignature1 DigitalSignatureValue)
+        {
+            writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
+            DigitalSignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountMandateMaintenanceRequestV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -145,9 +208,7 @@ public partial record AccountMandateMaintenanceRequestV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountMandateMaintenanceRequestV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AccountMandateMaintenanceRequestV01Document : IOuterDocument<AccountMandateMaintenanceRequestV01>
+public partial record AccountMandateMaintenanceRequestV01Document : IOuterDocument<AccountMandateMaintenanceRequestV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -163,5 +224,22 @@ public partial record AccountMandateMaintenanceRequestV01Document : IOuterDocume
     /// <summary>
     /// The instance of <seealso cref="AccountMandateMaintenanceRequestV01"/> is required.
     /// </summary>
+    [DataMember(Name=AccountMandateMaintenanceRequestV01.XmlTag)]
     public required AccountMandateMaintenanceRequestV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AccountMandateMaintenanceRequestV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

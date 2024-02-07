@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Further details on clearing exceptions or exemptions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ClearingExceptionOrExemption2
+     : IIsoXmlSerilizable<ClearingExceptionOrExemption2>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the type of clearing exemption or exception that the reporting counterparty has elected.
     /// </summary>
-    [DataMember]
     public required NonClearingReason2 ReportingCounterparty { get; init; } 
     /// <summary>
     /// Identifies the type of clearing exemption or exception that the other counterparty has elected.
     /// </summary>
-    [DataMember]
     public NonClearingReason2? OtherCounterparty { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptgCtrPty", xmlNamespace );
+        ReportingCounterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OtherCounterparty is NonClearingReason2 OtherCounterpartyValue)
+        {
+            writer.WriteStartElement(null, "OthrCtrPty", xmlNamespace );
+            OtherCounterpartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ClearingExceptionOrExemption2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

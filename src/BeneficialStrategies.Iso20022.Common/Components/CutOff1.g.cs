@@ -7,38 +7,64 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information that describes a netting cut off held at a central system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CutOff1
+     : IIsoXmlSerilizable<CutOff1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification for the updated netting cut off.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text CutOffUpdateIdentification { get; init; } 
     /// <summary>
     /// Currency linked to the netting cut off.
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Cut off time value for the netting cut off.
     /// </summary>
-    [DataMember]
     public required IsoISOTime CutOffTime { get; init; } 
     /// <summary>
     /// Specifies the offset in business days from the value date from which the netting cut off is to be applied.
     /// </summary>
-    [DataMember]
     public required IsoDateOffsetText ValueDateOffset { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CutOffUpdId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(CutOffUpdateIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Ccy", xmlNamespace );
+        writer.WriteValue(Currency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CutOffTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISOTime(CutOffTime)); // data type ISOTime System.TimeOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ValDtOffset", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoDateOffsetText(ValueDateOffset)); // data type DateOffsetText System.String
+        writer.WriteEndElement();
+    }
+    public static CutOff1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

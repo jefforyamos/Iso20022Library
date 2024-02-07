@@ -7,28 +7,52 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the classification of a financial institution.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialPartyClassification1
+     : IIsoXmlSerilizable<FinancialPartyClassification1>
 {
     #nullable enable
     
     /// <summary>
     /// Classification of the business activities of the reporting counterparty.
     /// </summary>
-    [DataMember]
-    public ValueList<FinancialPartySectorType2Code> Classification { get; init; } = []; // Warning: Don't know multiplicity.
+    public FinancialPartySectorType2Code? Classification { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _1VoPYan9EemdLtwzt4CWxg
     /// <summary>
     /// Nature business activities of the reporting counterparty as an investment fund.
     /// </summary>
-    [DataMember]
     public FundType2Code? InvestmentFundClassification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize Classification, multiplicity Unknown
+        if (InvestmentFundClassification is FundType2Code InvestmentFundClassificationValue)
+        {
+            writer.WriteStartElement(null, "InvstmtFndClssfctn", xmlNamespace );
+            writer.WriteValue(InvestmentFundClassificationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialPartyClassification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

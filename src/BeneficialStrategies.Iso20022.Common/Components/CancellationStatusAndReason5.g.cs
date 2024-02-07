@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status of a transfer cancellation instruction and reason for the status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CancellationStatusAndReason5
+     : IIsoXmlSerilizable<CancellationStatusAndReason5>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the transfer, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransferReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
-    [DataMember]
     public AdditionalReference10? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a transfer cancellation, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// Status of the transfer cancellation.
     /// </summary>
-    [DataMember]
     public required Status31Choice_ Status { get; init; } 
     /// <summary>
     /// Party that initiates the status.
     /// </summary>
-    [DataMember]
     public PartyIdentification139? StatusInitiator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TrfRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ClientReference is AdditionalReference10 ClientReferenceValue)
+        {
+            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
+            ClientReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CancellationReference is IsoMax35Text CancellationReferenceValue)
+        {
+            writer.WriteStartElement(null, "CxlRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CancellationReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        Status.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (StatusInitiator is PartyIdentification139 StatusInitiatorValue)
+        {
+            writer.WriteStartElement(null, "StsInitr", xmlNamespace );
+            StatusInitiatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CancellationStatusAndReason5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

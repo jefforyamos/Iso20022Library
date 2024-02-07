@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Investor for which a financial instrument is targeted.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestorType2
+     : IIsoXmlSerilizable<InvestorType2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the product is aimed at the retail investor. If neutral, the manufacturer estimates that there is neither a negative nor a positive target market. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 01010.
     /// </summary>
-    [DataMember]
     public TargetMarket1Code? InvestorTypeRetail { get; init; } 
     /// <summary>
     /// Specifies how the product is aimed at the professional investor. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 01020.
     /// </summary>
-    [DataMember]
     public TargetMarket5Choice_? InvestorTypeProfessional { get; init; } 
     /// <summary>
     /// Specifies whether the product is aimed at the eligible counterparty. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 01030.
     /// </summary>
-    [DataMember]
     public TargetMarket3Code? InvestorTypeEligibleCounterparty { get; init; } 
     /// <summary>
     /// Specifies another investor type.
     /// </summary>
-    [DataMember]
-    public ValueList<OtherTargetMarketInvestor1> Other { get; init; } = []; // Warning: Don't know multiplicity.
+    public OtherTargetMarketInvestor1? Other { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (InvestorTypeRetail is TargetMarket1Code InvestorTypeRetailValue)
+        {
+            writer.WriteStartElement(null, "InvstrTpRtl", xmlNamespace );
+            writer.WriteValue(InvestorTypeRetailValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (InvestorTypeProfessional is TargetMarket5Choice_ InvestorTypeProfessionalValue)
+        {
+            writer.WriteStartElement(null, "InvstrTpPrfssnl", xmlNamespace );
+            InvestorTypeProfessionalValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestorTypeEligibleCounterparty is TargetMarket3Code InvestorTypeEligibleCounterpartyValue)
+        {
+            writer.WriteStartElement(null, "InvstrTpElgblCtrPty", xmlNamespace );
+            writer.WriteValue(InvestorTypeEligibleCounterpartyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Other is OtherTargetMarketInvestor1 OtherValue)
+        {
+            writer.WriteStartElement(null, "Othr", xmlNamespace );
+            OtherValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InvestorType2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

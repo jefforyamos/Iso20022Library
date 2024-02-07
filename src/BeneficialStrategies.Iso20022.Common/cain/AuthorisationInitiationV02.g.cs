@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.cain.AuthorisationInitiationV02>;
 
 namespace BeneficialStrategies.Iso20022.cain;
 
@@ -23,10 +26,9 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// 
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"AuthorisationInitiation message is sent by an acquirer or an agent to an issuer to request approval of a card transaction by the issuer or to inform the issuer about the completion of the authorisation. It can also be sent by an issuer to an acquirer or agent to advise about the result of an authorisation already performed.||")]
-public partial record AuthorisationInitiationV02 : IOuterRecord
+public partial record AuthorisationInitiationV02 : IOuterRecord<AuthorisationInitiationV02,AuthorisationInitiationV02Document>
+    ,IIsoXmlSerilizable<AuthorisationInitiationV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -38,6 +40,11 @@ public partial record AuthorisationInitiationV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AuthstnInitn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AuthorisationInitiationV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -78,6 +85,35 @@ public partial record AuthorisationInitiationV02 : IOuterRecord
     {
         return new AuthorisationInitiationV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AuthstnInitn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Body", xmlNamespace );
+        Body.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecurityTrailer is ContentInformationType20 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AuthorisationInitiationV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -85,9 +121,7 @@ public partial record AuthorisationInitiationV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AuthorisationInitiationV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AuthorisationInitiationV02Document : IOuterDocument<AuthorisationInitiationV02>
+public partial record AuthorisationInitiationV02Document : IOuterDocument<AuthorisationInitiationV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -103,5 +137,22 @@ public partial record AuthorisationInitiationV02Document : IOuterDocument<Author
     /// <summary>
     /// The instance of <seealso cref="AuthorisationInitiationV02"/> is required.
     /// </summary>
+    [DataMember(Name=AuthorisationInitiationV02.XmlTag)]
     public required AuthorisationInitiationV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AuthorisationInitiationV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,6 +7,8 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -14,58 +16,49 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the Business Application Header of the Business Message.
 /// Can be used when replying to a query; can also be used when canceling or amending.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BusinessApplicationHeader5
+     : IIsoXmlSerilizable<BusinessApplicationHeader5>
 {
     #nullable enable
     
     /// <summary>
     /// Contains the character set of the text-based elements used in the Business Message.
     /// </summary>
-    [DataMember]
     public UnicodeChartsCode? CharacterSet { get; init; } 
     /// <summary>
     /// The sending MessagingEndpoint that has created this Business Message for the receiving MessagingEndpoint that will process this Business Message.
     /// Note	the sending MessagingEndpoint might be different from the sending address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
-    [DataMember]
     public required Party44Choice_ From { get; init; } 
     /// <summary>
     /// The MessagingEndpoint designated by the sending MessagingEndpoint to be the recipient who will ultimately process this Business Message.
     /// Note the receiving MessagingEndpoint might be different from the receiving address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
-    [DataMember]
     public required Party44Choice_ To { get; init; } 
     /// <summary>
     /// Unambiguously identifies the Business Message to the MessagingEndpoint that has created the Business Message.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text BusinessMessageIdentifier { get; init; } 
     /// <summary>
     /// Contains the MessageIdentifier that defines the BusinessMessage.
     /// It must contain a MessageIdentifier published on the ISO 20022 website.
     /// example	camt.001.001.03.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MessageDefinitionIdentifier { get; init; } 
     /// <summary>
     /// Specifies the business service agreed between the two MessagingEndpoints under which rules this Business Message is exchanged.
     ///  To be used when there is a choice of processing services or processing service levels.
     /// Example: E&I.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? BusinessService { get; init; } 
     /// <summary>
     /// Date and time when this Business Message (header) was created.
     /// Note Times must be normalized, using the "Z" annotation.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime CreationDate { get; init; } 
     /// <summary>
     /// Indicates whether the message is a Copy, a Duplicate or a copy of a duplicate of a previously sent ISO 20022 Message.
     /// </summary>
-    [DataMember]
     public CopyDuplicate1Code? CopyDuplicate { get; init; } 
     /// <summary>
     /// Flag indicating if the Business Message exchanged between the MessagingEndpoints is possibly a duplicate. 
@@ -74,18 +67,83 @@ public partial record BusinessApplicationHeader5
     /// This will guarantee business idempotent behaviour.
     /// NOTE: this is named "PossResend" in FIX - this is an application level resend not a network level retransmission.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? PossibleDuplicate { get; init; } 
     /// <summary>
     /// Relative indication of the processing precedence of the message over a (set of) Business Messages with assigned priorities.
     /// </summary>
-    [DataMember]
     public BusinessMessagePriorityCode? Priority { get; init; } 
     /// <summary>
     /// Contains the digital signature of the Business Entity authorised to sign this Business Message.
     /// </summary>
-    [DataMember]
     public SignatureEnvelope? Signature { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CharacterSet is UnicodeChartsCode CharacterSetValue)
+        {
+            writer.WriteStartElement(null, "CharSet", xmlNamespace );
+            writer.WriteValue(CharacterSetValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Fr", xmlNamespace );
+        From.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "To", xmlNamespace );
+        To.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BizMsgIdr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(BusinessMessageIdentifier)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MsgDefIdr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageDefinitionIdentifier)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (BusinessService is IsoMax35Text BusinessServiceValue)
+        {
+            writer.WriteStartElement(null, "BizSvc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(BusinessServiceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CreDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDate)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (CopyDuplicate is CopyDuplicate1Code CopyDuplicateValue)
+        {
+            writer.WriteStartElement(null, "CpyDplct", xmlNamespace );
+            writer.WriteValue(CopyDuplicateValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PossibleDuplicate is IsoYesNoIndicator PossibleDuplicateValue)
+        {
+            writer.WriteStartElement(null, "PssblDplct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PossibleDuplicateValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Priority is BusinessMessagePriorityCode PriorityValue)
+        {
+            writer.WriteStartElement(null, "Prty", xmlNamespace );
+            writer.WriteValue(PriorityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Signature is SignatureEnvelope SignatureValue)
+        {
+            writer.WriteStartElement(null, "Sgntr", xmlNamespace );
+            SignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BusinessApplicationHeader5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

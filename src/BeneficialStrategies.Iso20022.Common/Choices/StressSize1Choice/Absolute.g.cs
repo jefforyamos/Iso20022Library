@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.StressSize1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.StressSize1Choice;
 /// Absolute shift if the shift is defined as an absolute move.
 /// </summary>
 public partial record Absolute : StressSize1Choice_
+     , IIsoXmlSerilizable<Absolute>
 {
     #nullable enable
+    
     /// <summary>
     /// Unit of measure for the absolute stress.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record Absolute : StressSize1Choice_
     /// Number of units of measure shifted.
     /// </summary>
     public required IsoNumber Quantity { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Unit", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Unit)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(Quantity)); // data type Number System.UInt64
+        writer.WriteEndElement();
+    }
+    public static new Absolute Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

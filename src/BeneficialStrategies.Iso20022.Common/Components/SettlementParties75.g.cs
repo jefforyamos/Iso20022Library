@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies settlement parties (delivering/receiving).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementParties75
+     : IIsoXmlSerilizable<SettlementParties75>
 {
     #nullable enable
     
     /// <summary>
     /// First receiving party in the settlement chain. In a plain vanilla settlement, it is the central securities depository where the receiving side of the transaction requests to receive the financial instrument.
     /// </summary>
-    [DataMember]
     public PartyIdentification143? Depository { get; init; } 
     /// <summary>
     /// Party that interacts with the depository.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount163? Party1 { get; init; } 
     /// <summary>
     /// Party that interacts with the party1.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount163? Party2 { get; init; } 
     /// <summary>
     /// Party that interacts with the party2.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount163? Party3 { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Depository is PartyIdentification143 DepositoryValue)
+        {
+            writer.WriteStartElement(null, "Dpstry", xmlNamespace );
+            DepositoryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Party1 is PartyIdentificationAndAccount163 Party1Value)
+        {
+            writer.WriteStartElement(null, "Pty1", xmlNamespace );
+            Party1Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Party2 is PartyIdentificationAndAccount163 Party2Value)
+        {
+            writer.WriteStartElement(null, "Pty2", xmlNamespace );
+            Party2Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Party3 is PartyIdentificationAndAccount163 Party3Value)
+        {
+            writer.WriteStartElement(null, "Pty3", xmlNamespace );
+            Party3Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementParties75 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.supl.DTCCCACSSD1V01>;
 
 namespace BeneficialStrategies.Iso20022.supl;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// The DTCCCACSSD1 message extends ISO corporate action Instruction Cancellation Request Status Advice (CACS) message with DTCC corporate action elements not covered in the standard message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The DTCCCACSSD1 message extends ISO corporate action Instruction Cancellation Request Status Advice (CACS) message with DTCC corporate action elements not covered in the standard message.")]
-public partial record DTCCCACSSD1V01 : IOuterRecord
+public partial record DTCCCACSSD1V01 : IOuterRecord<DTCCCACSSD1V01,DTCCCACSSD1V01Document>
+    ,IIsoXmlSerilizable<DTCCCACSSD1V01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -37,6 +39,11 @@ public partial record DTCCCACSSD1V01 : IOuterRecord
     /// </summary>
     public const string XmlTag = "DTCCCACSSD1";
     
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => DTCCCACSSD1V01Document.DocumentNamespace;
+    
     #nullable enable
     /// <summary>
     /// Supplementary data extending corporate action instruction cancellation request status advice message with corporate action reorganisation elements not covered in the standard message.
@@ -45,7 +52,7 @@ public partial record DTCCCACSSD1V01 : IOuterRecord
     [Description(@"Supplementary data extending corporate action instruction cancellation request status advice message with corporate action reorganisation elements not covered in the standard message.")]
     [DataMember(Name="ReorgInstrCxlDtls")]
     [XmlElement(ElementName="ReorgInstrCxlDtls")]
-    public required IReadOnlyCollection<ReorganisationInstructionDetailsSD4> ReorganisationInstructionCancellationDetails { get; init; } = []; // Min=0, Max=12
+    public required ValueList<ReorganisationInstructionDetailsSD4> ReorganisationInstructionCancellationDetails { get; init; } = []; // Min=0, Max=12
     
     #nullable disable
     
@@ -56,6 +63,26 @@ public partial record DTCCCACSSD1V01 : IOuterRecord
     {
         return new DTCCCACSSD1V01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("DTCCCACSSD1");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ReorgInstrCxlDtls", xmlNamespace );
+        ReorganisationInstructionCancellationDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static DTCCCACSSD1V01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -63,9 +90,7 @@ public partial record DTCCCACSSD1V01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCACSSD1V01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record DTCCCACSSD1V01Document : IOuterDocument<DTCCCACSSD1V01>
+public partial record DTCCCACSSD1V01Document : IOuterDocument<DTCCCACSSD1V01>, IXmlSerializable
 {
     
     /// <summary>
@@ -81,5 +106,22 @@ public partial record DTCCCACSSD1V01Document : IOuterDocument<DTCCCACSSD1V01>
     /// <summary>
     /// The instance of <seealso cref="DTCCCACSSD1V01"/> is required.
     /// </summary>
+    [DataMember(Name=DTCCCACSSD1V01.XmlTag)]
     public required DTCCCACSSD1V01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(DTCCCACSSD1V01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Choice of the intra-balance movement status type.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PendingStatusAndReason2
+     : IIsoXmlSerilizable<PendingStatusAndReason2>
 {
     #nullable enable
     
     /// <summary>
     /// Provides details on the processing status of the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<ProcessingStatus66Choice_> ProcessingStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProcessingStatus66Choice_? ProcessingStatus { get; init; } 
     /// <summary>
     /// Provides the settlement status of a transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<SettlementStatus16Choice_> SettlementStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    public SettlementStatus16Choice_? SettlementStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ProcessingStatus is ProcessingStatus66Choice_ ProcessingStatusValue)
+        {
+            writer.WriteStartElement(null, "PrcgSts", xmlNamespace );
+            ProcessingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementStatus is SettlementStatus16Choice_ SettlementStatusValue)
+        {
+            writer.WriteStartElement(null, "SttlmSts", xmlNamespace );
+            SettlementStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PendingStatusAndReason2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

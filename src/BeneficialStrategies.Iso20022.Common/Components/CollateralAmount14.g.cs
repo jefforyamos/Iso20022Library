@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Deal amount details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralAmount14
+     : IIsoXmlSerilizable<CollateralAmount14>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of the principal. 
     /// </summary>
-    [DataMember]
     public AmountAndDirection49? Transaction { get; init; } 
     /// <summary>
     /// Amount of principal plus interests at termination.
     /// </summary>
-    [DataMember]
     public AmountAndDirection49? Termination { get; init; } 
     /// <summary>
     /// Specifies the accrued interest on the value of the principal trade, in the currency of the principal trade.
     /// </summary>
-    [DataMember]
     public AmountAndDirection49? Accrued { get; init; } 
     /// <summary>
     /// Value of collateral offered or sought. 
     /// </summary>
-    [DataMember]
     public AmountAndDirection49? ValueSought { get; init; } 
     /// <summary>
     /// Transaction amount effectively processed by the TPA taking into account the matching tolerance threshold.
     /// </summary>
-    [DataMember]
     public AmountAndDirection49? UndisputedTransaction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Transaction is AmountAndDirection49 TransactionValue)
+        {
+            writer.WriteStartElement(null, "Tx", xmlNamespace );
+            TransactionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Termination is AmountAndDirection49 TerminationValue)
+        {
+            writer.WriteStartElement(null, "Termntn", xmlNamespace );
+            TerminationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Accrued is AmountAndDirection49 AccruedValue)
+        {
+            writer.WriteStartElement(null, "Acrd", xmlNamespace );
+            AccruedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValueSought is AmountAndDirection49 ValueSoughtValue)
+        {
+            writer.WriteStartElement(null, "ValSght", xmlNamespace );
+            ValueSoughtValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UndisputedTransaction is AmountAndDirection49 UndisputedTransactionValue)
+        {
+            writer.WriteStartElement(null, "UdsptdTx", xmlNamespace );
+            UndisputedTransactionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralAmount14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

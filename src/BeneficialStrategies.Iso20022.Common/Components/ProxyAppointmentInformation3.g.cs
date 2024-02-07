@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates how a proxy is registered.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProxyAppointmentInformation3
+     : IIsoXmlSerilizable<ProxyAppointmentInformation3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies how to register the proxy.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? RegistrationMethod { get; init; } 
     /// <summary>
     /// Date by which the information on the proxy assignment must be received by the intermediary.
     /// </summary>
-    [DataMember]
     public DateFormat29Choice_? Deadline { get; init; } 
     /// <summary>
     /// Date by which the information on the proxy assignment must be received by the intermediary (STP mode).
     /// </summary>
-    [DataMember]
     public DateFormat29Choice_? STPDeadline { get; init; } 
     /// <summary>
     /// Date by which the information on the proxy assignment must be received by the issuer.
     /// </summary>
-    [DataMember]
     public DateFormat29Choice_? MarketDeadline { get; init; } 
     /// <summary>
     /// Specifies the proxy person that is authorised by the issuer.
     /// </summary>
-    [DataMember]
     public ValueList<Proxy5> AuthorisedProxy { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (RegistrationMethod is IsoMax350Text RegistrationMethodValue)
+        {
+            writer.WriteStartElement(null, "RegnMtd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(RegistrationMethodValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (Deadline is DateFormat29Choice_ DeadlineValue)
+        {
+            writer.WriteStartElement(null, "Ddln", xmlNamespace );
+            DeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (STPDeadline is DateFormat29Choice_ STPDeadlineValue)
+        {
+            writer.WriteStartElement(null, "STPDdln", xmlNamespace );
+            STPDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarketDeadline is DateFormat29Choice_ MarketDeadlineValue)
+        {
+            writer.WriteStartElement(null, "MktDdln", xmlNamespace );
+            MarketDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AuthrsdPrxy", xmlNamespace );
+        AuthorisedProxy.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ProxyAppointmentInformation3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

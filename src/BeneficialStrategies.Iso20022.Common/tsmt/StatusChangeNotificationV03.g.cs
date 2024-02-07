@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsmt.StatusChangeNotificationV03>;
 
 namespace BeneficialStrategies.Iso20022.tsmt;
 
@@ -29,10 +32,9 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// - to either party involved in a transaction to inform about the change of the status of the transaction as announced in a TimeOutNotification message sent by the matching application prior to the StatusChangeNotification message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The StatusChangeNotification message is sent by the matching application to the parties involved in the change of the status of a transaction.|This message is used to inform about the change of a status.|Usage|The StatusChangeNotification message can be sent by the matching application|- to the submitter of the request to change the status of a transaction to pass on the information about the acceptance of the request that it has obtained through the receipt of an StatusChangeRequestAcceptance message.|- to the accepter of a request to change the status of a transaction inform about the actual status of the transaction in response to a StatusChangeRequestAcceptance message.|- to either party involved in the establishment of a transaction to inform about the change of the status of the transaction to the status close. This can be done when the limit of possible attempts to establish the transaction has been reached or when unilaterally requested by one of the parties involved in the not yet established transaction.|- to either party involved in a transaction to inform about the change of the status of the transaction as announced in a TimeOutNotification message sent by the matching application prior to the StatusChangeNotification message.")]
-public partial record StatusChangeNotificationV03 : IOuterRecord
+public partial record StatusChangeNotificationV03 : IOuterRecord<StatusChangeNotificationV03,StatusChangeNotificationV03Document>
+    ,IIsoXmlSerilizable<StatusChangeNotificationV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -44,6 +46,11 @@ public partial record StatusChangeNotificationV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "StsChngNtfctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => StatusChangeNotificationV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -92,7 +99,7 @@ public partial record StatusChangeNotificationV03 : IOuterRecord
     [Description(@"Reference to the transaction for each financial institution which is a party to the transaction.")]
     [DataMember(Name="UsrTxRef")]
     [XmlElement(ElementName="UsrTxRef")]
-    public required IReadOnlyCollection<DocumentIdentification5> UserTransactionReference { get; init; } = []; // Min=0, Max=2
+    public required ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = []; // Min=0, Max=2
     
     /// <summary>
     /// Information on the next processing step required.
@@ -112,6 +119,47 @@ public partial record StatusChangeNotificationV03 : IOuterRecord
     {
         return new StatusChangeNotificationV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("StsChngNtfctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NtfctnId", xmlNamespace );
+        NotificationIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (EstablishedBaselineIdentification is DocumentIdentification3 EstablishedBaselineIdentificationValue)
+        {
+            writer.WriteStartElement(null, "EstblishdBaselnId", xmlNamespace );
+            EstablishedBaselineIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxSts", xmlNamespace );
+        TransactionStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UsrTxRef", xmlNamespace );
+        UserTransactionReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RequestForAction is PendingActivity2 RequestForActionValue)
+        {
+            writer.WriteStartElement(null, "ReqForActn", xmlNamespace );
+            RequestForActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static StatusChangeNotificationV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -119,9 +167,7 @@ public partial record StatusChangeNotificationV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatusChangeNotificationV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record StatusChangeNotificationV03Document : IOuterDocument<StatusChangeNotificationV03>
+public partial record StatusChangeNotificationV03Document : IOuterDocument<StatusChangeNotificationV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -137,5 +183,22 @@ public partial record StatusChangeNotificationV03Document : IOuterDocument<Statu
     /// <summary>
     /// The instance of <seealso cref="StatusChangeNotificationV03"/> is required.
     /// </summary>
+    [DataMember(Name=StatusChangeNotificationV03.XmlTag)]
     public required StatusChangeNotificationV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(StatusChangeNotificationV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

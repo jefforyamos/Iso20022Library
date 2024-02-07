@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data to be present in a dispute.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DisputeData3
+     : IIsoXmlSerilizable<DisputeData3>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the cycle of presentment or of the chargeback  (1= first cycle for chargeback, 2= second cycle of presentment or chargeback, etc.).
     /// </summary>
-    [DataMember]
     public IsoExact1NumericText? PresentmentCycle { get; init; } 
     /// <summary>
     /// Condition of the dispute.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DisputeCondition { get; init; } 
     /// <summary>
     /// Status of dispute.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DisputeStatus { get; init; } 
     /// <summary>
     /// Partial dispute indicator.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? PartialDispute { get; init; } 
     /// <summary>
     /// Reference for the dispute.
     /// </summary>
-    [DataMember]
-    public ValueList<DisputeReference1> DisputeReference { get; init; } = []; // Warning: Don't know multiplicity.
+    public DisputeReference1? DisputeReference { get; init; } 
     /// <summary>
     /// Status of the dispute documentation.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DocumentationStatus { get; init; } 
     /// <summary>
     /// Additional information related to the dispute.
     /// </summary>
-    [DataMember]
     public AdditionalData1? AdditionalDisputeData { get; init; } 
     /// <summary>
     /// Reason for rejecting a dispute.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> DisputeRejectReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? DisputeRejectReason { get; init; } 
     /// <summary>
     /// Provides transaction chargeback eligibility conditions.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ChargebackEligibility { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PresentmentCycle is IsoExact1NumericText PresentmentCycleValue)
+        {
+            writer.WriteStartElement(null, "PresntmntCycl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact1NumericText(PresentmentCycleValue)); // data type Exact1NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (DisputeCondition is IsoMax35Text DisputeConditionValue)
+        {
+            writer.WriteStartElement(null, "DsptCond", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DisputeConditionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DisputeStatus is IsoMax35Text DisputeStatusValue)
+        {
+            writer.WriteStartElement(null, "DsptSts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DisputeStatusValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PartialDispute is IsoYesNoIndicator PartialDisputeValue)
+        {
+            writer.WriteStartElement(null, "PrtlDspt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PartialDisputeValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (DisputeReference is DisputeReference1 DisputeReferenceValue)
+        {
+            writer.WriteStartElement(null, "DsptRef", xmlNamespace );
+            DisputeReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DocumentationStatus is IsoMax35Text DocumentationStatusValue)
+        {
+            writer.WriteStartElement(null, "DcmnttnSts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DocumentationStatusValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalDisputeData is AdditionalData1 AdditionalDisputeDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlDsptData", xmlNamespace );
+            AdditionalDisputeDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DisputeRejectReason is IsoMax35Text DisputeRejectReasonValue)
+        {
+            writer.WriteStartElement(null, "DsptRjctRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DisputeRejectReasonValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ChargebackEligibility is IsoMax35Text ChargebackEligibilityValue)
+        {
+            writer.WriteStartElement(null, "ChrgbckElgblty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ChargebackEligibilityValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static DisputeData3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

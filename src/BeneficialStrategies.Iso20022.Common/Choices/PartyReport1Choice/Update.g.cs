@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PartyReport1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyReport1Choice;
 /// Creation or update of a party.
 /// </summary>
 public partial record Update : PartyReport1Choice_
+     , IIsoXmlSerilizable<Update>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice messages.
     /// </summary>
@@ -35,6 +39,7 @@ public partial record Update : PartyReport1Choice_
     /// Information about decision taken by a relevant institution concerning the party.
     /// </summary>
     public StatusDetail1? Status { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _IffBgPH3Eeaz_YGUGLjP6A
     /// <summary>
     /// Period of time when the associated record is technically valid.
     /// </summary>
@@ -42,6 +47,55 @@ public partial record Update : PartyReport1Choice_
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TechnicalRecordIdentification is IsoMax35Text TechnicalRecordIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TechnicalRecordIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PreviousIdentification is PartyIdentification136 PreviousIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrvsId", xmlNamespace );
+            PreviousIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Othr", xmlNamespace );
+        Other.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize Status, multiplicity Unknown
+        if (TechnicalValidityPeriod is Period4Choice_ TechnicalValidityPeriodValue)
+        {
+            writer.WriteStartElement(null, "TechVldtyPrd", xmlNamespace );
+            TechnicalValidityPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Update Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

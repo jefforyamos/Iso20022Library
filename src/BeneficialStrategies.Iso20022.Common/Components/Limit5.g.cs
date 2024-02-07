@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details on the limits.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Limit5
+     : IIsoXmlSerilizable<Limit5>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
-    [DataMember]
     public required Amount2Choice_ Amount { get; init; } 
     /// <summary>
     /// Specifies if a limit is a debit limit or a credit limit.
     /// </summary>
-    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        Amount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static Limit5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

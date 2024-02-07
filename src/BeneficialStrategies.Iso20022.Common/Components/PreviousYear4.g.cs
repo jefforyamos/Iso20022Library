@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about investment plans issued during previous years.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PreviousYear4
+     : IIsoXmlSerilizable<PreviousYear4>
 {
     #nullable enable
     
     /// <summary>
     /// Investment plans issued during previous years.
     /// </summary>
-    [DataMember]
     public required PreviousYear1Choice_ PreviousYears { get; init; } 
     /// <summary>
     /// Indicates whether the product contains a cash asset for transfer from previous years.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? CashComponentIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrvsYrs", xmlNamespace );
+        PreviousYears.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CashComponentIndicator is IsoYesNoIndicator CashComponentIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CshCmpntInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CashComponentIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PreviousYear4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

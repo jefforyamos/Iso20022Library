@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Quantity expressed as a number and its details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Unit4
+     : IIsoXmlSerilizable<Unit4>
 {
     #nullable enable
     
     /// <summary>
     /// Quantity expressed as a number, for example, a number of shares.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1 TotalUnitsNumber { get; init; } 
     /// <summary>
     /// Information about the units to be transferred.
     /// </summary>
-    [DataMember]
     public ValueList<Unit5> UnitDetails { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TtlUnitsNb", xmlNamespace );
+        TotalUnitsNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UnitDtls", xmlNamespace );
+        UnitDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static Unit4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

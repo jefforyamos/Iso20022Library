@@ -7,33 +7,62 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains dispute reference details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DisputeReference1
+     : IIsoXmlSerilizable<DisputeReference1>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the entity assigning the dispute reference.
     /// </summary>
-    [DataMember]
     public PartyType32Code? AssignerEntity { get; init; } 
     /// <summary>
     /// Other assigner entity.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherAssignerEntity { get; init; } 
     /// <summary>
     /// Identification of the dispute.
     /// </summary>
-    [DataMember]
-    public ValueList<DisputeIdentification1> DisputeIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public DisputeIdentification1? DisputeIdentification { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _NvLt4OCnEee9RadpHmUgYw
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AssignerEntity is PartyType32Code AssignerEntityValue)
+        {
+            writer.WriteStartElement(null, "AssgnrNtty", xmlNamespace );
+            writer.WriteValue(AssignerEntityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherAssignerEntity is IsoMax35Text OtherAssignerEntityValue)
+        {
+            writer.WriteStartElement(null, "OthrAssgnrNtty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherAssignerEntityValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize DisputeIdentification, multiplicity Unknown
+    }
+    public static DisputeReference1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

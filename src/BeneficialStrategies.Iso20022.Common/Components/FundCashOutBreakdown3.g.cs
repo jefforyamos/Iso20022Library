@@ -7,58 +7,110 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Breakdown of cash movements out of a fund as a result of investment funds transactions, eg, redemptions or switch-out.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FundCashOutBreakdown3
+     : IIsoXmlSerilizable<FundCashOutBreakdown3>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of cash flow out, expressed as an amount of money.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Amount of the cash flow out, expressed as a number of units.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1? UnitsNumber { get; init; } 
     /// <summary>
     /// Indicates whether the cash flow is an item that did not appear on the previously sent report, for example, because it was received close to cut-off time.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? NewAmountIndicator { get; init; } 
     /// <summary>
     /// Type of transaction that resulted in the cash-out movement, for example, redemption, switch-out.
     /// </summary>
-    [DataMember]
     public required InvestmentFundTransactionOutType1Choice_ InvestmentFundTransactionOutType { get; init; } 
     /// <summary>
     /// Specifies how the original order was expressed that resulted in the cash-out movement, that is cash or units.
     /// </summary>
-    [DataMember]
     public required QuantityType1Choice_ OriginalOrderQuantityType { get; init; } 
     /// <summary>
     /// Charge for the placement of an order.
     /// </summary>
-    [DataMember]
-    public ValueList<Charge26> ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Charge26? ChargeDetails { get; init; } 
     /// <summary>
     /// Information related to the commission applied to an order, for example, back-end or front-end commission.
     /// </summary>
-    [DataMember]
-    public ValueList<Commission21> CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Commission21? CommissionDetails { get; init; } 
     /// <summary>
     /// Settlement currency for the transaction.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? SettlementCurrency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Amount is IsoActiveOrHistoricCurrencyAndAmount AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(AmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (UnitsNumber is FinancialInstrumentQuantity1 UnitsNumberValue)
+        {
+            writer.WriteStartElement(null, "UnitsNb", xmlNamespace );
+            UnitsNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewAmountIndicator is IsoYesNoIndicator NewAmountIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NewAmtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(NewAmountIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InvstmtFndTxOutTp", xmlNamespace );
+        InvestmentFundTransactionOutType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgnlOrdrQtyTp", xmlNamespace );
+        OriginalOrderQuantityType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ChargeDetails is Charge26 ChargeDetailsValue)
+        {
+            writer.WriteStartElement(null, "ChrgDtls", xmlNamespace );
+            ChargeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CommissionDetails is Commission21 CommissionDetailsValue)
+        {
+            writer.WriteStartElement(null, "ComssnDtls", xmlNamespace );
+            CommissionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementCurrency is ActiveCurrencyCode SettlementCurrencyValue)
+        {
+            writer.WriteStartElement(null, "SttlmCcy", xmlNamespace );
+            writer.WriteValue(SettlementCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static FundCashOutBreakdown3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

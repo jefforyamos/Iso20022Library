@@ -7,38 +7,72 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Costs and charges associated with the distribution or selling of a financial instrument. These may be one-off or recurring charges. These may be intended (ex ante) or actual (ex post).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CostsAndCharges1
+     : IIsoXmlSerilizable<CostsAndCharges1>
 {
     #nullable enable
     
     /// <summary>
     /// Reference date applicable to all ex ante cost and charge disclosures. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07160.
     /// </summary>
-    [DataMember]
     public IsoISODate? ExAnteReferenceDate { get; init; } 
     /// <summary>
     /// Reference date applicable to all ex post cost and charge disclosures. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 08120.
     /// </summary>
-    [DataMember]
     public IsoISODate? ExPostReferenceDate { get; init; } 
     /// <summary>
     /// Individual cost or charge associated with the distribution of selling of the financial instrument. This may be one-off or recurring. This may be ex ante (intended) or post ante (actual).
     /// </summary>
-    [DataMember]
-    public ValueList<IndividualCostOrCharge1> IndividualCostOrCharge { get; init; } = []; // Warning: Don't know multiplicity.
+    public IndividualCostOrCharge1? IndividualCostOrCharge { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _6VRRcIwREeicrr-UkGlMQA
     /// <summary>
     /// Additional information about costs and charges.
     /// </summary>
-    [DataMember]
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ExAnteReferenceDate is IsoISODate ExAnteReferenceDateValue)
+        {
+            writer.WriteStartElement(null, "ExAnteRefDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExAnteReferenceDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ExPostReferenceDate is IsoISODate ExPostReferenceDateValue)
+        {
+            writer.WriteStartElement(null, "ExPstRefDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExPostReferenceDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize IndividualCostOrCharge, multiplicity Unknown
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CostsAndCharges1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

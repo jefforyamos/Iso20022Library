@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide information on the corrective interbank transaction, to which the resolution message refers.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorrectiveInterbankTransaction1
+     : IIsoXmlSerilizable<CorrectiveInterbankTransaction1>
 {
     #nullable enable
     
     /// <summary>
     /// Set of elements used to provide corrective information for the group header of the message under investigation.
     /// </summary>
-    [DataMember]
     public CorrectiveGroupInformation1? GroupHeader { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by an instructing party for an instructed party, to unambiguously identify the instruction.||Usage: The instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? InstructionIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the initiating party, to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain.||Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction. It can be included in several messages related to the transaction.||Usage: In case there are technical limitations to pass on multiple references, the end-to-end identification must be passed on throughout the entire end-to-end chain.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? EndToEndIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain. |Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. |Usage: The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TransactionIdentification { get; init; } 
     /// <summary>
     /// Amount of money moved between the instructing agent and the instructed agent.
     /// </summary>
-    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount InterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
-    [DataMember]
     public required IsoISODate InterbankSettlementDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (GroupHeader is CorrectiveGroupInformation1 GroupHeaderValue)
+        {
+            writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
+            GroupHeaderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructionIdentification is IsoMax35Text InstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "InstrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(InstructionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (EndToEndIdentification is IsoMax35Text EndToEndIdentificationValue)
+        {
+            writer.WriteStartElement(null, "EndToEndId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(EndToEndIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionIdentification is IsoMax35Text TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "IntrBkSttlmAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(InterbankSettlementAmount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IntrBkSttlmDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(InterbankSettlementDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+    }
+    public static CorrectiveInterbankTransaction1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

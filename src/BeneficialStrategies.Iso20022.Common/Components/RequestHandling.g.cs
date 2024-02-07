@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Explains the status of the related request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RequestHandling
+     : IIsoXmlSerilizable<RequestHandling>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the status of the request.
     /// </summary>
-    [DataMember]
     public required IsoMax4AlphaNumericText StatusCode { get; init; } 
     /// <summary>
     /// Description of the status, in free format text.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "StsCd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(StatusCode)); // data type Max4AlphaNumericText System.String
+        writer.WriteEndElement();
+        if (Description is IsoMax140Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(DescriptionValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static RequestHandling Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Restriction information details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RestrictionDetailsSD1
+     : IIsoXmlSerilizable<RestrictionDetailsSD1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of restriction.
     /// </summary>
-    [DataMember]
     public required GenericIdentification36 RestrictionType { get; init; } 
     /// <summary>
     /// Country in which the account owner has one's fiscal domicile.
     /// </summary>
-    [DataMember]
     public required CountryCode FiscalDomicile { get; init; } 
     /// <summary>
     /// Reference to the applicable restriction.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RstrctnTp", xmlNamespace );
+        RestrictionType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FsclDmcl", xmlNamespace );
+        writer.WriteValue(FiscalDomicile.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static RestrictionDetailsSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

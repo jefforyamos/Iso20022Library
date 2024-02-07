@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the transportation of goods by rail.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransportByRail2
+     : IIsoXmlSerilizable<TransportByRail2>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the location where the goods are received for transportation.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text PlaceOfReceipt { get; init; } 
     /// <summary>
     /// Identifies the location of delivery of the goods.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text PlaceOfDelivery { get; init; } 
     /// <summary>
     /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RailCarrierName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcOfRct", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(PlaceOfReceipt)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PlcOfDlvry", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(PlaceOfDelivery)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (RailCarrierName is IsoMax35Text RailCarrierNameValue)
+        {
+            writer.WriteStartElement(null, "RailCrrierNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RailCarrierNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TransportByRail2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

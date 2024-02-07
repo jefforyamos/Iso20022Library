@@ -7,58 +7,113 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the beneficial owner of the securities.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BeneficialOwner2
+     : IIsoXmlSerilizable<BeneficialOwner2>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the party that is the beneficial owner of the specified financial instrument.
     /// </summary>
-    [DataMember]
     public required PartyIdentification100 BeneficialOwnerIdentification { get; init; } 
     /// <summary>
     /// Additional identification of the party that is the beneficial owner of the specified financial instrument.
     /// </summary>
-    [DataMember]
     public AlternateIdentification4? AdditionalIdentification { get; init; } 
     /// <summary>
     /// Nationality of the beneficial owner.
     /// </summary>
-    [DataMember]
     public CountryCode? Nationality { get; init; } 
     /// <summary>
     /// Country in which the person is permanently domiciled (the place of a person's permanent home).
     /// </summary>
-    [DataMember]
     public CountryCode? DomicileCountry { get; init; } 
     /// <summary>
     /// Country for which the holder of the financial instrument must specify that it is not domiciled. (The holder must certify, in line with the terms of the corporate action, that it is not domiciled in the country indicated.).
     /// </summary>
-    [DataMember]
     public CountryCode? NonDomicileCountry { get; init; } 
     /// <summary>
     /// Indicates whether certification is required from the account owner. (Yes means that certification is required. No means certification is not required.).
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? CertificationIndicator { get; init; } 
     /// <summary>
     /// Type of beneficial owner certification that is required.
     /// </summary>
-    [DataMember]
     public BeneficiaryCertificationType9Choice_? CertificationType { get; init; } 
     /// <summary>
     /// Declaration details related to the financial instrument, for example, beneficial ownership.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? DeclarationDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BnfclOwnrId", xmlNamespace );
+        BeneficialOwnerIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalIdentification is AlternateIdentification4 AdditionalIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AddtlId", xmlNamespace );
+            AdditionalIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Nationality is CountryCode NationalityValue)
+        {
+            writer.WriteStartElement(null, "Ntlty", xmlNamespace );
+            writer.WriteValue(NationalityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DomicileCountry is CountryCode DomicileCountryValue)
+        {
+            writer.WriteStartElement(null, "DmclCtry", xmlNamespace );
+            writer.WriteValue(DomicileCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (NonDomicileCountry is CountryCode NonDomicileCountryValue)
+        {
+            writer.WriteStartElement(null, "NonDmclCtry", xmlNamespace );
+            writer.WriteValue(NonDomicileCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CertificationIndicator is IsoYesNoIndicator CertificationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CertfctnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CertificationIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CertificationType is BeneficiaryCertificationType9Choice_ CertificationTypeValue)
+        {
+            writer.WriteStartElement(null, "CertfctnTp", xmlNamespace );
+            CertificationTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeclarationDetails is IsoMax350Text DeclarationDetailsValue)
+        {
+            writer.WriteStartElement(null, "DclrtnDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(DeclarationDetailsValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static BeneficialOwner2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

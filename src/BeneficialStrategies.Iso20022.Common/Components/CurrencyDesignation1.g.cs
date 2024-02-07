@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the designation of a currency.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CurrencyDesignation1
+     : IIsoXmlSerilizable<CurrencyDesignation1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the currency is settled offshore or onshore.
     /// </summary>
-    [DataMember]
     public CurrencyDesignation1Code? CurrencyDesignation { get; init; } 
     /// <summary>
     /// Offshore location of the currency.
     /// </summary>
-    [DataMember]
     public CountryCode? Location { get; init; } 
     /// <summary>
     /// Additional information about the off-shore currency.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CurrencyDesignation is CurrencyDesignation1Code CurrencyDesignationValue)
+        {
+            writer.WriteStartElement(null, "CcyDsgnt", xmlNamespace );
+            writer.WriteValue(CurrencyDesignationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Location is CountryCode LocationValue)
+        {
+            writer.WriteStartElement(null, "Lctn", xmlNamespace );
+            writer.WriteValue(LocationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CurrencyDesignation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

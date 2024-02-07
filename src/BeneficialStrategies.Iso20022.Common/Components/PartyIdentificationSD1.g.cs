@@ -7,53 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding the new agent component.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentificationSD1
+     : IIsoXmlSerilizable<PartyIdentificationSD1>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Function the agent is performing.
     /// </summary>
-    [DataMember]
     public required AgentType1Code AgentType { get; init; } 
     /// <summary>
     /// DTC agent identification number.
     /// </summary>
-    [DataMember]
     public IsoMax8Text? AgentIdentification { get; init; } 
     /// <summary>
     /// Name and address of the agent.
     /// </summary>
-    [DataMember]
     public required NameAndAddress5 AgentNameAndAddress { get; init; } 
     /// <summary>
     /// Telephone number of the agent.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? AgentTelephoneNumber { get; init; } 
     /// <summary>
     /// Email address of the event agent.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? AgentEmailAddress { get; init; } 
     /// <summary>
     /// Agent designated contact Information details.
     /// </summary>
-    [DataMember]
     public PartyIdentificationSD4? ContactInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AgtTp", xmlNamespace );
+        writer.WriteValue(AgentType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AgentIdentification is IsoMax8Text AgentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AgtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax8Text(AgentIdentificationValue)); // data type Max8Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AgtNmAndAdr", xmlNamespace );
+        AgentNameAndAddress.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AgentTelephoneNumber is IsoPhoneNumber AgentTelephoneNumberValue)
+        {
+            writer.WriteStartElement(null, "AgtTelNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(AgentTelephoneNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (AgentEmailAddress is IsoMax256Text AgentEmailAddressValue)
+        {
+            writer.WriteStartElement(null, "AgtEmailAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(AgentEmailAddressValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (ContactInformation is PartyIdentificationSD4 ContactInformationValue)
+        {
+            writer.WriteStartElement(null, "CtctInf", xmlNamespace );
+            ContactInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyIdentificationSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

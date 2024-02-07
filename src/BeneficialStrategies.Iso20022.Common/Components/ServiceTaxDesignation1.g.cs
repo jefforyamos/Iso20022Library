@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Designates the tax calculation to be applied on a service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ServiceTaxDesignation1
+     : IIsoXmlSerilizable<ServiceTaxDesignation1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the taxable status of the service.
     /// </summary>
-    [DataMember]
     public required ServiceTaxDesignation1Code Code { get; init; } 
     /// <summary>
     /// Defines the tax region associated with the service. This element must be present if taxes are involved with any portion of the statement.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Region { get; init; } 
     /// <summary>
     /// Provides free form explanations of the various tax codes used within the statement.
     /// </summary>
-    [DataMember]
-    public ValueList<TaxReason1> TaxReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public TaxReason1? TaxReason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Region is IsoMax35Text RegionValue)
+        {
+            writer.WriteStartElement(null, "Rgn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RegionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TaxReason is TaxReason1 TaxReasonValue)
+        {
+            writer.WriteStartElement(null, "TaxRsn", xmlNamespace );
+            TaxReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ServiceTaxDesignation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

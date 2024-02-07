@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the securities index request operations for national competent authorities.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesIndexReport1
+     : IIsoXmlSerilizable<SecuritiesIndexReport1>
 {
     #nullable enable
     
@@ -24,23 +25,57 @@ public partial record SecuritiesIndexReport1
     /// Usage:
     /// This identification will be used in the status advice sent back.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Country code of the entity that wishes to express an interest in receiving transaction reports for the requested indexes.
     /// </summary>
-    [DataMember]
     public CountryCode? RequestingEntity { get; init; } 
     /// <summary>
     /// Details the index that is being requested.
     /// </summary>
-    [DataMember]
     public required FinancialInstrument46Choice_ Index { get; init; } 
     /// <summary>
     /// Date when the national competent authority last expressed its interest in this index.
     /// </summary>
-    [DataMember]
     public Period4Choice_? ValidityPeriod { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TechnicalRecordIdentification is IsoMax35Text TechnicalRecordIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TechnicalRecordIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RequestingEntity is CountryCode RequestingEntityValue)
+        {
+            writer.WriteStartElement(null, "RqstngNtty", xmlNamespace );
+            writer.WriteValue(RequestingEntityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Indx", xmlNamespace );
+        Index.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ValidityPeriod is Period4Choice_ ValidityPeriodValue)
+        {
+            writer.WriteStartElement(null, "VldtyPrd", xmlNamespace );
+            ValidityPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesIndexReport1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

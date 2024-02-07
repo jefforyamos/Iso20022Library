@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides detailed information on the transaction status to be updated in the tracker.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TrackerStatus3
+     : IIsoXmlSerilizable<TrackerStatus3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the status of a transaction, in a coded form.
     /// </summary>
-    [DataMember]
     public required TrackerPaymentStatus1Code Status { get; init; } 
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
-    [DataMember]
     public PaymentStatusReason2? StatusReason { get; init; } 
     /// <summary>
     /// Provides detailed information on the reject or return reason.
     /// </summary>
-    [DataMember]
     public PaymentRejectReturnReason2? RejectReturnReason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (StatusReason is PaymentStatusReason2 StatusReasonValue)
+        {
+            writer.WriteStartElement(null, "StsRsn", xmlNamespace );
+            StatusReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RejectReturnReason is PaymentRejectReturnReason2 RejectReturnReasonValue)
+        {
+            writer.WriteStartElement(null, "RjctRtrRsn", xmlNamespace );
+            RejectReturnReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TrackerStatus3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

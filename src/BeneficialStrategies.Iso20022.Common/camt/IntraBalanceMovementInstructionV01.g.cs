@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.IntraBalanceMovementInstructionV01>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// - re-send to a third party a copy of a message for information (the sub-function of the message is "CopyDuplicate").
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The IntraBalanceMovementInstruction message is sent from an account owner/requestor to a settlement infrastructure to instruct the movement of an amount of money within its holdings from one sub-balance to another.||Usage: |The message may be used to:|- re-send a message previously sent (the sub-function of the message is ""Duplicate"")|- provide a third party with a copy of a message for information (the sub-function of the message is ""Copy"")|- re-send to a third party a copy of a message for information (the sub-function of the message is ""CopyDuplicate"").")]
-public partial record IntraBalanceMovementInstructionV01 : IOuterRecord
+public partial record IntraBalanceMovementInstructionV01 : IOuterRecord<IntraBalanceMovementInstructionV01,IntraBalanceMovementInstructionV01Document>
+    ,IIsoXmlSerilizable<IntraBalanceMovementInstructionV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "IntraBalMvmntInstr";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => IntraBalanceMovementInstructionV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -136,6 +143,71 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord
     {
         return new IntraBalanceMovementInstructionV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("IntraBalMvmntInstr");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is TransactionAndDocumentIdentification6 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CorporateActionEventIdentification is Identification14 CorporateActionEventIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CorpActnEvtId", xmlNamespace );
+            CorporateActionEventIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NumberCounts is NumberCount1Choice_ NumberCountsValue)
+        {
+            writer.WriteStartElement(null, "NbCounts", xmlNamespace );
+            NumberCountsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Linkages is Linkages57 LinkagesValue)
+        {
+            writer.WriteStartElement(null, "Lnkgs", xmlNamespace );
+            LinkagesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CshAcct", xmlNamespace );
+        CashAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CashAccountOwner is SystemPartyIdentification8 CashAccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "CshAcctOwnr", xmlNamespace );
+            CashAccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccountServicer is BranchAndFinancialInstitutionIdentification6 CashAccountServicerValue)
+        {
+            writer.WriteStartElement(null, "CshAcctSvcr", xmlNamespace );
+            CashAccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "IntraBal", xmlNamespace );
+        IntraBalance.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IntraBalanceMovementInstructionV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -143,9 +215,7 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IntraBalanceMovementInstructionV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record IntraBalanceMovementInstructionV01Document : IOuterDocument<IntraBalanceMovementInstructionV01>
+public partial record IntraBalanceMovementInstructionV01Document : IOuterDocument<IntraBalanceMovementInstructionV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -161,5 +231,22 @@ public partial record IntraBalanceMovementInstructionV01Document : IOuterDocumen
     /// <summary>
     /// The instance of <seealso cref="IntraBalanceMovementInstructionV01"/> is required.
     /// </summary>
+    [DataMember(Name=IntraBalanceMovementInstructionV01.XmlTag)]
     public required IntraBalanceMovementInstructionV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(IntraBalanceMovementInstructionV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

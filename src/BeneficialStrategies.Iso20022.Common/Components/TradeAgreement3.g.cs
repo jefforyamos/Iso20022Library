@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Date and identification of a trade.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeAgreement3
+     : IIsoXmlSerilizable<TradeAgreement3>
 {
     #nullable enable
     
     /// <summary>
     /// Date on which the trading parties agree on the trade.
     /// </summary>
-    [DataMember]
     public required IsoISODate TradeDate { get; init; } 
     /// <summary>
     /// Identification of the notification.This identification must be unique amongst all notifications of same type confirmed by the same party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text NotificationIdentification { get; init; } 
     /// <summary>
     /// Reference common to both parties of the trade.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CommonReference { get; init; } 
     /// <summary>
     /// Specifies the type of underlying transaction, for example, option.
     /// </summary>
-    [DataMember]
     public IsoMax4Text? OperationType { get; init; } 
     /// <summary>
     /// Specifies the business role between the submitter and the trade party, for example Agent (AGNT).
     /// </summary>
-    [DataMember]
     public IsoMax4Text? OperationScope { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TradDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(TradeDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NtfctnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(NotificationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (CommonReference is IsoMax35Text CommonReferenceValue)
+        {
+            writer.WriteStartElement(null, "CmonRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CommonReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OperationType is IsoMax4Text OperationTypeValue)
+        {
+            writer.WriteStartElement(null, "OprTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4Text(OperationTypeValue)); // data type Max4Text System.String
+            writer.WriteEndElement();
+        }
+        if (OperationScope is IsoMax4Text OperationScopeValue)
+        {
+            writer.WriteStartElement(null, "OprScp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4Text(OperationScopeValue)); // data type Max4Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeAgreement3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies rates related to a corporate action option.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionRate15
+     : IIsoXmlSerilizable<CorporateActionRate15>
 {
     #nullable enable
     
     /// <summary>
     /// Rate used for additional tax that cannot be categorised.
     /// </summary>
-    [DataMember]
     public RateAndAmountFormat14Choice_? AdditionalTax { get; init; } 
     /// <summary>
     /// Cash dividend amount per equity before deductions or allowances have been made.
     /// </summary>
-    [DataMember]
-    public ValueList<GrossDividendRateFormat5Choice_> GrossDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
+    public GrossDividendRateFormat5Choice_? GrossDividendRate { get; init; } 
     /// <summary>
     /// Public index rate applied to the amount paid to adjust it to inflation.
     /// </summary>
-    [DataMember]
     public RateAndAmountFormat14Choice_? IndexFactor { get; init; } 
     /// <summary>
     /// The actual interest rate used for the payment of the interest for the specified interest period. |Usage guideline: It is used to provide the applicable rate for the current payment, after all calculations have been performed, that is, application of period and method of interest computation.
     /// </summary>
-    [DataMember]
-    public ValueList<InterestRateUsedForPaymentFormat5Choice_> InterestRateUsedForPayment { get; init; } = []; // Warning: Don't know multiplicity.
+    public InterestRateUsedForPaymentFormat5Choice_? InterestRateUsedForPayment { get; init; } 
     /// <summary>
     /// Maximum percentage of shares available through the over subscription privilege, usually a percentage of the basic subscription shares, for example, an account owner subscribing to 100 shares may over subscribe to a maximum of 50 additional shares when the over subscription maximum is 50 percent.
     /// </summary>
-    [DataMember]
     public RateFormat6Choice_? MaximumAllowedOversubscriptionRate { get; init; } 
     /// <summary>
     /// Proportionate allocation used for the offer.
     /// </summary>
-    [DataMember]
     public RateFormat6Choice_? ProrationRate { get; init; } 
     /// <summary>
     /// Percentage of a cash distribution that will be withheld by a tax authority.
     /// </summary>
-    [DataMember]
     public RateFormat6Choice_? WithholdingTaxRate { get; init; } 
     /// <summary>
     /// Percentage of the gross dividend rate on which tax must be paid.
     /// </summary>
-    [DataMember]
-    public ValueList<RateTypeAndAmountAndStatus6> TaxRelatedRate { get; init; } = []; // Warning: Don't know multiplicity.
+    public RateTypeAndAmountAndStatus6? TaxRelatedRate { get; init; } 
     /// <summary>
     /// Amount included in the dividend/NAV that is identified as gains directly or indirectly derived from interest payments within the scope of the EU Savings directive.
     /// </summary>
-    [DataMember]
-    public ValueList<RateTypeAndAmountAndStatus11> TaxableIncomePerDividendShare { get; init; } = []; // Warning: Don't know multiplicity.
+    public RateTypeAndAmountAndStatus11? TaxableIncomePerDividendShare { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AdditionalTax is RateAndAmountFormat14Choice_ AdditionalTaxValue)
+        {
+            writer.WriteStartElement(null, "AddtlTax", xmlNamespace );
+            AdditionalTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GrossDividendRate is GrossDividendRateFormat5Choice_ GrossDividendRateValue)
+        {
+            writer.WriteStartElement(null, "GrssDvddRate", xmlNamespace );
+            GrossDividendRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IndexFactor is RateAndAmountFormat14Choice_ IndexFactorValue)
+        {
+            writer.WriteStartElement(null, "IndxFctr", xmlNamespace );
+            IndexFactorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestRateUsedForPayment is InterestRateUsedForPaymentFormat5Choice_ InterestRateUsedForPaymentValue)
+        {
+            writer.WriteStartElement(null, "IntrstRateUsdForPmt", xmlNamespace );
+            InterestRateUsedForPaymentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MaximumAllowedOversubscriptionRate is RateFormat6Choice_ MaximumAllowedOversubscriptionRateValue)
+        {
+            writer.WriteStartElement(null, "MaxAllwdOvrsbcptRate", xmlNamespace );
+            MaximumAllowedOversubscriptionRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProrationRate is RateFormat6Choice_ ProrationRateValue)
+        {
+            writer.WriteStartElement(null, "PrratnRate", xmlNamespace );
+            ProrationRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (WithholdingTaxRate is RateFormat6Choice_ WithholdingTaxRateValue)
+        {
+            writer.WriteStartElement(null, "WhldgTaxRate", xmlNamespace );
+            WithholdingTaxRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxRelatedRate is RateTypeAndAmountAndStatus6 TaxRelatedRateValue)
+        {
+            writer.WriteStartElement(null, "TaxRltdRate", xmlNamespace );
+            TaxRelatedRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxableIncomePerDividendShare is RateTypeAndAmountAndStatus11 TaxableIncomePerDividendShareValue)
+        {
+            writer.WriteStartElement(null, "TaxblIncmPerDvddShr", xmlNamespace );
+            TaxableIncomePerDividendShareValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionRate15 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

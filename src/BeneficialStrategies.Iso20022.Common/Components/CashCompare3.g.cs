@@ -7,30 +7,58 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data specific to cash and related informations used as a collateral.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashCompare3
+     : IIsoXmlSerilizable<CashCompare3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
-    [DataMember]
     public CompareAmountAndDirection2? Value { get; init; } 
     /// <summary>
     /// Collateral haircut, a risk control measure applied to underlying collateral whereby the value of that underlying collateral is calculated as the market value of the assets reduced by a certain percentage. 
     /// In the case of margin lending, collateral haircut or margin requirement, a risk control measure applied to the entire collateral portfolio whereby the value of that underlying collateral is calculated as the market value of the assets reduced by a certain percentage. 
     /// Only actual values, as opposed to estimated or default values are to be reported for this attribute.
     /// </summary>
-    [DataMember]
     public ComparePercentageRate3? HaircutOrMargin { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Value is CompareAmountAndDirection2 ValueValue)
+        {
+            writer.WriteStartElement(null, "Val", xmlNamespace );
+            ValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (HaircutOrMargin is ComparePercentageRate3 HaircutOrMarginValue)
+        {
+            writer.WriteStartElement(null, "HrcutOrMrgn", xmlNamespace );
+            HaircutOrMarginValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CashCompare3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

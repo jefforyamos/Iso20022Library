@@ -7,88 +7,170 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Purchased item.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Product3
+     : IIsoXmlSerilizable<Product3>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the item inside the purchase transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ItemIdentification { get; init; } 
     /// <summary>
     /// Product code of the item.
     /// </summary>
-    [DataMember]
     public required IsoMax70Text ProductCode { get; init; } 
     /// <summary>
     /// Additional product code related to the product.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? AdditionalProductCode { get; init; } 
     /// <summary>
     /// Unit of measure of the item purchased.
     /// </summary>
-    [DataMember]
     public UnitOfMeasure6Code? UnitOfMeasure { get; init; } 
     /// <summary>
     /// Product quantity.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? ProductQuantity { get; init; } 
     /// <summary>
     /// Price per unit of product.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? UnitPrice { get; init; } 
     /// <summary>
     /// Sign of the unit price.
     /// </summary>
-    [DataMember]
     public IsoPlusOrMinusIndicator? UnitPriceSign { get; init; } 
     /// <summary>
     /// Monetary value of purchased product.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount ProductAmount { get; init; } 
     /// <summary>
     /// Sign of the product amount.
     /// </summary>
-    [DataMember]
     public IsoPlusOrMinusIndicator? ProductAmountSign { get; init; } 
     /// <summary>
     /// Value added tax amount of the item included in the product amount.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? ValueAddedTax { get; init; } 
     /// <summary>
     /// Information on tax paid on the product.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TaxType { get; init; } 
     /// <summary>
     /// Description of the product or item.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? ProductDescription { get; init; } 
     /// <summary>
     /// Location of the delivery of the item, for instance pump number or parking bay.
     /// </summary>
-    [DataMember]
     public IsoMax10Text? DeliveryLocation { get; init; } 
     /// <summary>
     /// Identify the method of delivery or distribution of the item.
     /// </summary>
-    [DataMember]
     public AttendanceContext2Code? DeliveryService { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ItemIdentification is IsoMax35Text ItemIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ItmId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ItemIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PdctCd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(ProductCode)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        if (AdditionalProductCode is IsoMax70Text AdditionalProductCodeValue)
+        {
+            writer.WriteStartElement(null, "AddtlPdctCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AdditionalProductCodeValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (UnitOfMeasure is UnitOfMeasure6Code UnitOfMeasureValue)
+        {
+            writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
+            writer.WriteValue(UnitOfMeasureValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ProductQuantity is IsoDecimalNumber ProductQuantityValue)
+        {
+            writer.WriteStartElement(null, "PdctQty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(ProductQuantityValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (UnitPrice is IsoImpliedCurrencyAndAmount UnitPriceValue)
+        {
+            writer.WriteStartElement(null, "UnitPric", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(UnitPriceValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (UnitPriceSign is IsoPlusOrMinusIndicator UnitPriceSignValue)
+        {
+            writer.WriteStartElement(null, "UnitPricSgn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPlusOrMinusIndicator(UnitPriceSignValue)); // data type PlusOrMinusIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PdctAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ProductAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (ProductAmountSign is IsoPlusOrMinusIndicator ProductAmountSignValue)
+        {
+            writer.WriteStartElement(null, "PdctAmtSgn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPlusOrMinusIndicator(ProductAmountSignValue)); // data type PlusOrMinusIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ValueAddedTax is IsoImpliedCurrencyAndAmount ValueAddedTaxValue)
+        {
+            writer.WriteStartElement(null, "ValAddedTax", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ValueAddedTaxValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TaxType is IsoMax35Text TaxTypeValue)
+        {
+            writer.WriteStartElement(null, "TaxTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TaxTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProductDescription is IsoMax140Text ProductDescriptionValue)
+        {
+            writer.WriteStartElement(null, "PdctDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(ProductDescriptionValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (DeliveryLocation is IsoMax10Text DeliveryLocationValue)
+        {
+            writer.WriteStartElement(null, "DlvryLctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10Text(DeliveryLocationValue)); // data type Max10Text System.String
+            writer.WriteEndElement();
+        }
+        if (DeliveryService is AttendanceContext2Code DeliveryServiceValue)
+        {
+            writer.WriteStartElement(null, "DlvrySvc", xmlNamespace );
+            writer.WriteValue(DeliveryServiceValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static Product3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.TransferOutConfirmationV08>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// The reference of the transfer confirmation is identified in TransferConfirmationReference. The reference of the original transfer instruction is specified in TransferReference. The message identification of the TransferOutInstruction message in which the transfer instruction was conveyed may also be quoted in RelatedReference but this is not recommended.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The TransferOutConfirmation message is sent by an executing party, for example, a transfer agent, to the instructing party, for example, an investment manager or its authorised representative, to confirm the delivery of a financial instrument, free of payment, on a given date, to a specified party.|This message may also be used to confirm the delivery of a financial instrument, free of payment, to another of the instructing parties own accounts or to a third party.|Usage|The TransferOutConfirmation message is used to confirm the withdrawal of a financial instrument from the owner's account and its delivery to another own account, or to a third party, has taken place.|The reference of the transfer confirmation is identified in TransferConfirmationReference. The reference of the original transfer instruction is specified in TransferReference. The message identification of the TransferOutInstruction message in which the transfer instruction was conveyed may also be quoted in RelatedReference but this is not recommended.")]
-public partial record TransferOutConfirmationV08 : IOuterRecord
+public partial record TransferOutConfirmationV08 : IOuterRecord<TransferOutConfirmationV08,TransferOutConfirmationV08Document>
+    ,IIsoXmlSerilizable<TransferOutConfirmationV08>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record TransferOutConfirmationV08 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "TrfOutConf";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => TransferOutConfirmationV08Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -153,6 +160,80 @@ public partial record TransferOutConfirmationV08 : IOuterRecord
     {
         return new TransferOutConfirmationV08Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("TrfOutConf");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PoolReference is AdditionalReference9 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousReference is AdditionalReference8 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference8 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TrfDtls", xmlNamespace );
+        TransferDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
+        AccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SettlementDetails is ReceiveInformation18 SettlementDetailsValue)
+        {
+            writer.WriteStartElement(null, "SttlmDtls", xmlNamespace );
+            SettlementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarketPracticeVersion is MarketPracticeVersion1 MarketPracticeVersionValue)
+        {
+            writer.WriteStartElement(null, "MktPrctcVrsn", xmlNamespace );
+            MarketPracticeVersionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CopyDetails is CopyInformation4 CopyDetailsValue)
+        {
+            writer.WriteStartElement(null, "CpyDtls", xmlNamespace );
+            CopyDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransferOutConfirmationV08 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -160,9 +241,7 @@ public partial record TransferOutConfirmationV08 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransferOutConfirmationV08"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record TransferOutConfirmationV08Document : IOuterDocument<TransferOutConfirmationV08>
+public partial record TransferOutConfirmationV08Document : IOuterDocument<TransferOutConfirmationV08>, IXmlSerializable
 {
     
     /// <summary>
@@ -178,5 +257,22 @@ public partial record TransferOutConfirmationV08Document : IOuterDocument<Transf
     /// <summary>
     /// The instance of <seealso cref="TransferOutConfirmationV08"/> is required.
     /// </summary>
+    [DataMember(Name=TransferOutConfirmationV08.XmlTag)]
     public required TransferOutConfirmationV08 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(TransferOutConfirmationV08.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

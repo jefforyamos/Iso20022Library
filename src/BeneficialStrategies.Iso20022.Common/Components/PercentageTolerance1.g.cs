@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Variance allowed on a quantity or on a price.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PercentageTolerance1
+     : IIsoXmlSerilizable<PercentageTolerance1>
 {
     #nullable enable
     
     /// <summary>
     /// Variance in percentage allowed over the agreed dimension. For example, plus 10 percent.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate PlusPercent { get; init; } 
     /// <summary>
     /// Variance in percentage allowed below the agreed dimension. For example, minus 10 percent.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate MinusPercent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlusPct", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(PlusPercent)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MnsPct", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(MinusPercent)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+    }
+    public static PercentageTolerance1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

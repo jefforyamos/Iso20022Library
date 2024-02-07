@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.semt.IntraPositionMovementPostingReportV09>;
 
 namespace BeneficialStrategies.Iso20022.semt;
 
@@ -30,10 +33,9 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information |using the relevant elements in the Business Application Header.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The IntraPositionMovementPostingReport is sent by an account servicer to an account owner to provide the details of increases and decreases in securities with a given status within a holding, that is, intra-position transfers, which occurred during a specified period, for all or selected securities in a specified safekeeping account which the account servicer holds for the account owner. |||The account servicer/owner relationship may be:|- a central securities depository or another settlement market infrastructure acting on behalf of its participant|- an agent (sub-custodian) acting on behalf of its global custodian customer, or |- a custodian acting on behalf of an investment management institution or a broker/dealer.||Usage|:|The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information |using the relevant elements in the Business Application Header.")]
-public partial record IntraPositionMovementPostingReportV09 : IOuterRecord
+public partial record IntraPositionMovementPostingReportV09 : IOuterRecord<IntraPositionMovementPostingReportV09,IntraPositionMovementPostingReportV09Document>
+    ,IIsoXmlSerilizable<IntraPositionMovementPostingReportV09>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -45,6 +47,11 @@ public partial record IntraPositionMovementPostingReportV09 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "IntraPosMvmntPstngRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => IntraPositionMovementPostingReportV09Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -112,6 +119,53 @@ public partial record IntraPositionMovementPostingReportV09 : IOuterRecord
     {
         return new IntraPositionMovementPostingReportV09Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("IntraPosMvmntPstngRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Pgntn", xmlNamespace );
+        Pagination.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StmtGnlDtls", xmlNamespace );
+        StatementGeneralDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountOwner is PartyIdentification127Choice_ AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingAccount is SecuritiesAccount19 SafekeepingAccountValue)
+        {
+            writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+            SafekeepingAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BlockChainAddressOrWallet is BlockChainAddressWallet3 BlockChainAddressOrWalletValue)
+        {
+            writer.WriteStartElement(null, "BlckChainAdrOrWllt", xmlNamespace );
+            BlockChainAddressOrWalletValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrument is FinancialInstrumentDetails40 FinancialInstrumentValue)
+        {
+            writer.WriteStartElement(null, "FinInstrm", xmlNamespace );
+            FinancialInstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IntraPositionMovementPostingReportV09 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -119,9 +173,7 @@ public partial record IntraPositionMovementPostingReportV09 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IntraPositionMovementPostingReportV09"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record IntraPositionMovementPostingReportV09Document : IOuterDocument<IntraPositionMovementPostingReportV09>
+public partial record IntraPositionMovementPostingReportV09Document : IOuterDocument<IntraPositionMovementPostingReportV09>, IXmlSerializable
 {
     
     /// <summary>
@@ -137,5 +189,22 @@ public partial record IntraPositionMovementPostingReportV09Document : IOuterDocu
     /// <summary>
     /// The instance of <seealso cref="IntraPositionMovementPostingReportV09"/> is required.
     /// </summary>
+    [DataMember(Name=IntraPositionMovementPostingReportV09.XmlTag)]
     public required IntraPositionMovementPostingReportV09 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(IntraPositionMovementPostingReportV09.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

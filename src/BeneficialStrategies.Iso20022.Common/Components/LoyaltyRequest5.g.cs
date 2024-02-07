@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data to request a loyalty service. A loyalty request contents : the loyalty transaction request and the loyalty data if any.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LoyaltyRequest5
+     : IIsoXmlSerilizable<LoyaltyRequest5>
 {
     #nullable enable
     
     /// <summary>
     /// To retrieve Card Acquisition Data.
     /// </summary>
-    [DataMember]
     public CustomerOrder1? CustomerOrder { get; init; } 
     /// <summary>
     /// Data related to the loyalty transaction.
     /// </summary>
-    [DataMember]
     public required LoyaltyTransaction5 Transaction { get; init; } 
     /// <summary>
     /// Data related to a Loyalty program or account.
     /// </summary>
-    [DataMember]
-    public ValueList<LoyaltyRequestData3> Data { get; init; } = []; // Warning: Don't know multiplicity.
+    public LoyaltyRequestData3? Data { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CustomerOrder is CustomerOrder1 CustomerOrderValue)
+        {
+            writer.WriteStartElement(null, "CstmrOrdr", xmlNamespace );
+            CustomerOrderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Tx", xmlNamespace );
+        Transaction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Data is LoyaltyRequestData3 DataValue)
+        {
+            writer.WriteStartElement(null, "Data", xmlNamespace );
+            DataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LoyaltyRequest5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

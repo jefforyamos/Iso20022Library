@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Global status of the ATM.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMStatus1
+     : IIsoXmlSerilizable<ATMStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Actual status of the ATM.
     /// </summary>
-    [DataMember]
     public required ATMStatus1Code CurrentStatus { get; init; } 
     /// <summary>
     /// Present if the status required by the ATM manager is different from the current status.
     /// </summary>
-    [DataMember]
     public ATMStatus1Code? DemandedStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CurSts", xmlNamespace );
+        writer.WriteValue(CurrentStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (DemandedStatus is ATMStatus1Code DemandedStatusValue)
+        {
+            writer.WriteStartElement(null, "DmnddSts", xmlNamespace );
+            writer.WriteValue(DemandedStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

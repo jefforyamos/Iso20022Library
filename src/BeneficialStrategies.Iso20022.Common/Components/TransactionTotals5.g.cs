@@ -7,53 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Total of credit or debit transactions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionTotals5
+     : IIsoXmlSerilizable<TransactionTotals5>
 {
     #nullable enable
     
     /// <summary>
     /// Cumulative amount of all financial transactions.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Number of all financial transactions.
     /// </summary>
-    [DataMember]
     public required IsoNumber Number { get; init; } 
     /// <summary>
     /// Cumulative amount of all chargeback transactions exclusive of any fees.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount ChargeBackAmount { get; init; } 
     /// <summary>
     /// Total number of chargeback transactions.
     /// </summary>
-    [DataMember]
     public required IsoNumber ChargeBackNumber { get; init; } 
     /// <summary>
     /// Cumulative amount of all reversal transactions exclusive of any fees.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount ReversalAmount { get; init; } 
     /// <summary>
     /// Total number of reversal transactions.
     /// </summary>
-    [DataMember]
     public required IsoNumber ReversalNumber { get; init; } 
     /// <summary>
     /// Sum amount of all fees.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? FeeAmounts { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(Amount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Nb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(Number)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ChrgBckAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ChargeBackAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ChrgBckNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(ChargeBackNumber)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RvslAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ReversalAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RvslNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(ReversalNumber)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        if (FeeAmounts is IsoImpliedCurrencyAndAmount FeeAmountsValue)
+        {
+            writer.WriteStartElement(null, "FeeAmts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(FeeAmountsValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionTotals5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

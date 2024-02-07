@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Instrument used to process a payment instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentInstrument17
+     : IIsoXmlSerilizable<PaymentInstrument17>
 {
     #nullable enable
     
     /// <summary>
     /// Currency associated with the payment instrument.
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode SettlementCurrency { get; init; } 
     /// <summary>
     /// Percentage of the dividend payment not to be reinvested, that is, to be paid in cash.
     /// </summary>
-    [DataMember]
     public IsoPercentageBoundedRate? DividendPercentage { get; init; } 
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a subscription payment.
     /// </summary>
-    [DataMember]
     public PaymentInstrument24Choice_? SubscriptionPaymentInstrument { get; init; } 
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a redemption payment.
     /// </summary>
-    [DataMember]
     public PaymentInstrument19Choice_? RedemptionPaymentInstrument { get; init; } 
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a dividend payment.
     /// </summary>
-    [DataMember]
     public PaymentInstrument19Choice_? DividendPaymentInstrument { get; init; } 
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a savings plan payment.
     /// </summary>
-    [DataMember]
     public PaymentInstrument24Choice_? SavingsPlanPaymentInstrument { get; init; } 
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for an interest payment.
     /// </summary>
-    [DataMember]
     public PaymentInstrument19Choice_? InterestPaymentInstrument { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttlmCcy", xmlNamespace );
+        writer.WriteValue(SettlementCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (DividendPercentage is IsoPercentageBoundedRate DividendPercentageValue)
+        {
+            writer.WriteStartElement(null, "DvddPctg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageBoundedRate(DividendPercentageValue)); // data type PercentageBoundedRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (SubscriptionPaymentInstrument is PaymentInstrument24Choice_ SubscriptionPaymentInstrumentValue)
+        {
+            writer.WriteStartElement(null, "SbcptPmtInstrm", xmlNamespace );
+            SubscriptionPaymentInstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RedemptionPaymentInstrument is PaymentInstrument19Choice_ RedemptionPaymentInstrumentValue)
+        {
+            writer.WriteStartElement(null, "RedPmtInstrm", xmlNamespace );
+            RedemptionPaymentInstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DividendPaymentInstrument is PaymentInstrument19Choice_ DividendPaymentInstrumentValue)
+        {
+            writer.WriteStartElement(null, "DvddPmtInstrm", xmlNamespace );
+            DividendPaymentInstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SavingsPlanPaymentInstrument is PaymentInstrument24Choice_ SavingsPlanPaymentInstrumentValue)
+        {
+            writer.WriteStartElement(null, "SvgsPlanPmtInstrm", xmlNamespace );
+            SavingsPlanPaymentInstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestPaymentInstrument is PaymentInstrument19Choice_ InterestPaymentInstrumentValue)
+        {
+            writer.WriteStartElement(null, "IntrstPmtInstrm", xmlNamespace );
+            InterestPaymentInstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentInstrument17 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

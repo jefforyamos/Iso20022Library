@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information used for identifying an account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashAccount11
+     : IIsoXmlSerilizable<CashAccount11>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public required CashAccountIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    [DataMember]
     public FinancialInstitutionIdentification3Choice_? AccountServicer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountServicer is FinancialInstitutionIdentification3Choice_ AccountServicerValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+            AccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CashAccount11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

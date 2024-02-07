@@ -7,28 +7,48 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of the participants with the highest volume and value ranking for settlement fails.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementFailsParticipantRange1
+     : IIsoXmlSerilizable<SettlementFailsParticipantRange1>
 {
     #nullable enable
     
     /// <summary>
     /// Participant with the highest volume of settlement fails.
     /// </summary>
-    [DataMember]
-    public ValueList<SettlementFailsParticipant1> HighestInVolume { get; init; } = []; // Warning: Don't know multiplicity.
+    public SettlementFailsParticipant1? HighestInVolume { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _acReUI0UEemUAO64Q252gQ
     /// <summary>
     /// Participant with the highest value of settlement fails.
     /// </summary>
-    [DataMember]
-    public ValueList<SettlementFailsParticipant1> HighestInValue { get; init; } = []; // Warning: Don't know multiplicity.
+    public SettlementFailsParticipant1? HighestInValue { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _cDRRUI0UEemUAO64Q252gQ
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize HighestInVolume, multiplicity Unknown
+        // Not sure how to serialize HighestInValue, multiplicity Unknown
+    }
+    public static SettlementFailsParticipantRange1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

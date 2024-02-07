@@ -7,48 +7,89 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reporting per financial instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrumentDetails23
+     : IIsoXmlSerilizable<FinancialInstrumentDetails23>
 {
     #nullable enable
     
     /// <summary>
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification20 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Information regarding the price of the instrument.
     /// </summary>
-    [DataMember]
     public PriceInformation16? PriceDetails { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    [DataMember]
     public SafeKeepingPlace2? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Opening balance for the statement period (first opening balance) or of this page (intermediary opening balance).
     /// </summary>
-    [DataMember]
     public OpeningBalance4? OpeningBalance { get; init; } 
     /// <summary>
     /// Closing balance for the statement period (final closing balance) or of this page (intermediary closing balance).
     /// </summary>
-    [DataMember]
     public ClosingBalance4? ClosingBalance { get; init; } 
     /// <summary>
     /// Transaction details.
     /// </summary>
-    [DataMember]
-    public ValueList<Transaction50> Transaction { get; init; } = []; // Warning: Don't know multiplicity.
+    public Transaction50? Transaction { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _8bgP75NLEeWGlc8L7oPDIg
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PriceDetails is PriceInformation16 PriceDetailsValue)
+        {
+            writer.WriteStartElement(null, "PricDtls", xmlNamespace );
+            PriceDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingPlace is SafeKeepingPlace2 SafekeepingPlaceValue)
+        {
+            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
+            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OpeningBalance is OpeningBalance4 OpeningBalanceValue)
+        {
+            writer.WriteStartElement(null, "OpngBal", xmlNamespace );
+            OpeningBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClosingBalance is ClosingBalance4 ClosingBalanceValue)
+        {
+            writer.WriteStartElement(null, "ClsgBal", xmlNamespace );
+            ClosingBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize Transaction, multiplicity Unknown
+    }
+    public static FinancialInstrumentDetails23 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

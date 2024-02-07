@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Includes a set of dates (e.g. credit date) related to settlement of the financing amount.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancingDateDetails1
+     : IIsoXmlSerilizable<FinancingDateDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Date on which the financing transaction has been booked in an account.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoISODate> BookDate { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoISODate? BookDate { get; init; } 
     /// <summary>
     /// Date on which a financed amount has been credited.
     /// </summary>
-    [DataMember]
     public required IsoISODate CreditDate { get; init; } 
     /// <summary>
     /// Date on which a financed amount has been debited.
     /// </summary>
-    [DataMember]
     public IsoISODate? DebitDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (BookDate is IsoISODate BookDateValue)
+        {
+            writer.WriteStartElement(null, "BookDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(BookDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CdtDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(CreditDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (DebitDate is IsoISODate DebitDateValue)
+        {
+            writer.WriteStartElement(null, "DbtDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DebitDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancingDateDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,54 +7,98 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the currency control group status details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CurrencyControlGroupStatus2
+     : IIsoXmlSerilizable<CurrencyControlGroupStatus2>
 {
     #nullable enable
     
     /// <summary>
     /// Original underlying message references for which the status advice is provided.
     /// </summary>
-    [DataMember]
     public required OriginalMessage5 OriginalReferences { get; init; } 
     /// <summary>
     /// Party registering the currency control contract.
     /// </summary>
-    [DataMember]
     public required TradeParty5 ReportingParty { get; init; } 
     /// <summary>
     /// Agent which registers the currency control contract.
     /// </summary>
-    [DataMember]
     public required BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; init; } 
     /// <summary>
     /// For daily reporting this is the day to which the transaction data in the status message refers to.
     /// For periodic reporting this is the first and the last day to which the transaction data in the status message refers.
     /// </summary>
-    [DataMember]
     public Period4Choice_? ReportingPeriod { get; init; } 
     /// <summary>
     /// Provides the status for the full report.
     /// </summary>
-    [DataMember]
     public StatisticalReportingStatus1Code? Status { get; init; } 
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
-    [DataMember]
-    public ValueList<ValidationStatusReason2> StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public ValidationStatusReason2? StatusReason { get; init; } 
     /// <summary>
     /// Provides the date and time when the status was issued.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? StatusDateTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OrgnlRefs", xmlNamespace );
+        OriginalReferences.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptgPty", xmlNamespace );
+        ReportingParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RegnAgt", xmlNamespace );
+        RegistrationAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ReportingPeriod is Period4Choice_ ReportingPeriodValue)
+        {
+            writer.WriteStartElement(null, "RptgPrd", xmlNamespace );
+            ReportingPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Status is StatisticalReportingStatus1Code StatusValue)
+        {
+            writer.WriteStartElement(null, "Sts", xmlNamespace );
+            writer.WriteValue(StatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (StatusReason is ValidationStatusReason2 StatusReasonValue)
+        {
+            writer.WriteStartElement(null, "StsRsn", xmlNamespace );
+            StatusReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StatusDateTime is IsoISODateTime StatusDateTimeValue)
+        {
+            writer.WriteStartElement(null, "StsDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(StatusDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static CurrencyControlGroupStatus2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.SecuritiesSettlementTransactionStatusAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -32,10 +35,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate).|ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account servicer sends a SecuritiesSettlementTransactionStatusAdvice to an account owner to advise the status of a securities settlement transaction instruction previously sent by the account owner or the status of a settlement transaction existing in the books of the servicer for the account of the owner. The status may be a processing, pending processing, internal matching, matching and/or settlement status.|The status advice may be sent as a response to the request of the account owner or not.|The account servicer/owner relationship may be:|- a central securities depository or another settlement market infrastructure acting on behalf of their participants|- an agent (sub-custodian) acting on behalf of their global custodian customer, or|- a custodian acting on behalf of an investment management institution or a broker/dealer.|Usage|The message may also be used to:|- re-send a message previously sent (the sub-function of the message is Duplicate),|- provide a third party with a copy of a message for information (the sub-function of the message is Copy),|- re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate).|ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.")]
-public partial record SecuritiesSettlementTransactionStatusAdviceV01 : IOuterRecord
+public partial record SecuritiesSettlementTransactionStatusAdviceV01 : IOuterRecord<SecuritiesSettlementTransactionStatusAdviceV01,SecuritiesSettlementTransactionStatusAdviceV01Document>
+    ,IIsoXmlSerilizable<SecuritiesSettlementTransactionStatusAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -47,6 +49,11 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV01 : IOuterRec
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesSttlmTxStsAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesSettlementTransactionStatusAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -150,6 +157,77 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV01 : IOuterRec
     {
         return new SecuritiesSettlementTransactionStatusAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesSttlmTxStsAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ProcessingStatus is ProcessingStatus1Choice_ ProcessingStatusValue)
+        {
+            writer.WriteStartElement(null, "PrcgSts", xmlNamespace );
+            ProcessingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InferredMatchingStatus is MatchingStatus2Choice_ InferredMatchingStatusValue)
+        {
+            writer.WriteStartElement(null, "IfrrdMtchgSts", xmlNamespace );
+            InferredMatchingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MatchingStatus is MatchingStatus2Choice_ MatchingStatusValue)
+        {
+            writer.WriteStartElement(null, "MtchgSts", xmlNamespace );
+            MatchingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementStatus is SettlementStatus2Choice_ SettlementStatusValue)
+        {
+            writer.WriteStartElement(null, "SttlmSts", xmlNamespace );
+            SettlementStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionDetails is TransactionDetails5 TransactionDetailsValue)
+        {
+            writer.WriteStartElement(null, "TxDtls", xmlNamespace );
+            TransactionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageOriginator is PartyIdentification10Choice_ MessageOriginatorValue)
+        {
+            writer.WriteStartElement(null, "MsgOrgtr", xmlNamespace );
+            MessageOriginatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageRecipient is PartyIdentification10Choice_ MessageRecipientValue)
+        {
+            writer.WriteStartElement(null, "MsgRcpt", xmlNamespace );
+            MessageRecipientValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension2 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesSettlementTransactionStatusAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -157,9 +235,7 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV01 : IOuterRec
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementTransactionStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesSettlementTransactionStatusAdviceV01Document : IOuterDocument<SecuritiesSettlementTransactionStatusAdviceV01>
+public partial record SecuritiesSettlementTransactionStatusAdviceV01Document : IOuterDocument<SecuritiesSettlementTransactionStatusAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -175,5 +251,22 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV01Document : I
     /// <summary>
     /// The instance of <seealso cref="SecuritiesSettlementTransactionStatusAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesSettlementTransactionStatusAdviceV01.XmlTag)]
     public required SecuritiesSettlementTransactionStatusAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesSettlementTransactionStatusAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

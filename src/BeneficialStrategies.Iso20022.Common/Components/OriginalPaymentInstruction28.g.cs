@@ -7,58 +7,113 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the original transactions, to which the status report message refers.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OriginalPaymentInstruction28
+     : IIsoXmlSerilizable<OriginalPaymentInstruction28>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by an instructing party for an instructed party, to unambiguously identify the reversed payment information group.|Usage: The instructing party is the party sending the reversal message and not the party that sent the original instruction that is being reversed.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReversalPaymentInformationIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original sending party, to unambiguously identify the original payment information group.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OriginalPaymentInformationIdentification { get; init; } 
     /// <summary>
     /// Number of individual transactions contained in the original payment information group.
     /// </summary>
-    [DataMember]
     public IsoMax15NumericText? OriginalNumberOfTransactions { get; init; } 
     /// <summary>
     /// Total of all individual amounts included in the original payment information group, irrespective of currencies.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? OriginalControlSum { get; init; } 
     /// <summary>
     /// Identifies whether a single entry per individual transaction or a batch entry for the sum of the amounts of all transactions within the group of a message is requested.|Usage: Batch booking is used to request and not order a possible batch booking.
     /// </summary>
-    [DataMember]
     public IsoBatchBookingIndicator? BatchBooking { get; init; } 
     /// <summary>
     /// Indicates whether or not the reversal applies to the complete original payment information group or to individual transactions within that group.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? PaymentInformationReversal { get; init; } 
     /// <summary>
     /// Provides detailed information on the reversal reason.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentReversalReason8> ReversalReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentReversalReason8? ReversalReasonInformation { get; init; } 
     /// <summary>
     /// Provides information on the original transactions to which the reversal message refers.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentTransaction93> TransactionInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentTransaction93? TransactionInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReversalPaymentInformationIdentification is IsoMax35Text ReversalPaymentInformationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RvslPmtInfId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReversalPaymentInformationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OrgnlPmtInfId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalPaymentInformationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (OriginalNumberOfTransactions is IsoMax15NumericText OriginalNumberOfTransactionsValue)
+        {
+            writer.WriteStartElement(null, "OrgnlNbOfTxs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(OriginalNumberOfTransactionsValue)); // data type Max15NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalControlSum is IsoDecimalNumber OriginalControlSumValue)
+        {
+            writer.WriteStartElement(null, "OrgnlCtrlSum", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(OriginalControlSumValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (BatchBooking is IsoBatchBookingIndicator BatchBookingValue)
+        {
+            writer.WriteStartElement(null, "BtchBookg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBatchBookingIndicator(BatchBookingValue)); // data type BatchBookingIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PaymentInformationReversal is IsoTrueFalseIndicator PaymentInformationReversalValue)
+        {
+            writer.WriteStartElement(null, "PmtInfRvsl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(PaymentInformationReversalValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ReversalReasonInformation is PaymentReversalReason8 ReversalReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "RvslRsnInf", xmlNamespace );
+            ReversalReasonInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionInformation is PaymentTransaction93 TransactionInformationValue)
+        {
+            writer.WriteStartElement(null, "TxInf", xmlNamespace );
+            TransactionInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OriginalPaymentInstruction28 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

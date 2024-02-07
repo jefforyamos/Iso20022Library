@@ -9,15 +9,12 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
 using System.Xml;
 using System.Xml.Linq;
-using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Components.PaymentInitiationSource1>;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the source used to initiate the payment (such as an application or a software).
 /// </summary>
-[DataContract(Namespace = "")]
-[XmlType]
 public partial record PaymentInitiationSource1
      : IIsoXmlSerilizable<PaymentInitiationSource1>
 {
@@ -26,21 +23,27 @@ public partial record PaymentInitiationSource1
     /// <summary>
     /// Name of the application or software used to initiate the payment.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text Name { get; init; } 
     /// <summary>
     /// Provider of the application or software used to initiate the payment.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Provider { get; init; } 
     /// <summary>
     /// Version of the application or software used to initiate the payment.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Version { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
     public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
     public void Serialize(XmlWriter writer, string xmlNamespace)
     {
         writer.WriteStartElement(null, "Nm", xmlNamespace );

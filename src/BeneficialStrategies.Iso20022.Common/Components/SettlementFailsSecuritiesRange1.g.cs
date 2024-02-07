@@ -7,28 +7,48 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the highest volume and value of settlement fails with a ranking by financial instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementFailsSecuritiesRange1
+     : IIsoXmlSerilizable<SettlementFailsSecuritiesRange1>
 {
     #nullable enable
     
     /// <summary>
     /// Securities with the highest volume of settlement fails.
     /// </summary>
-    [DataMember]
-    public ValueList<SettlementFailsSecurities1> HighestInVolume { get; init; } = []; // Warning: Don't know multiplicity.
+    public SettlementFailsSecurities1? HighestInVolume { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _BnlYhY0bEemUAO64Q252gQ
     /// <summary>
     /// Securities with the highest value of settlement fails.
     /// </summary>
-    [DataMember]
-    public ValueList<SettlementFailsSecurities1> HighestInValue { get; init; } = []; // Warning: Don't know multiplicity.
+    public SettlementFailsSecurities1? HighestInValue { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _BnlYhI0bEemUAO64Q252gQ
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize HighestInVolume, multiplicity Unknown
+        // Not sure how to serialize HighestInValue, multiplicity Unknown
+    }
+    public static SettlementFailsSecuritiesRange1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

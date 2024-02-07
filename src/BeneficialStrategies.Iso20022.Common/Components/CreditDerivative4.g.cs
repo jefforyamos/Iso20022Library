@@ -7,59 +7,117 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related specifically to credit derivatives attributes.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CreditDerivative4
+     : IIsoXmlSerilizable<CreditDerivative4>
 {
     #nullable enable
     
     /// <summary>
     /// Classification of seniority in case of contract on index or on a single name entity.
     /// </summary>
-    [DataMember]
     public DebtInstrumentSeniorityType2Code? Seniority { get; init; } 
     /// <summary>
     /// Designation of the underlying reference obligation.
     /// </summary>
-    [DataMember]
     public DerivativePartyIdentification1Choice_? ReferenceParty { get; init; } 
     /// <summary>
     /// Specifies the time unit associated with the frequency of payments.
     /// </summary>
-    [DataMember]
     public Frequency13Code? PaymentFrequency { get; init; } 
     /// <summary>
     /// Calculation basis of the interest rate, such as Act/360.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CalculationBasis { get; init; } 
     /// <summary>
     /// Indicates the series number of the composition of the index if applicable.
     /// </summary>
-    [DataMember]
     public IsoNumber? Series { get; init; } 
     /// <summary>
     /// New version of a series is issued if one of the constituents defaults and the index has to be re-weighted to account for the new number of total constituents within the index.
     /// </summary>
-    [DataMember]
     public IsoNumber? Version { get; init; } 
     /// <summary>
     /// Factor to apply to the actual notional to adjust it to all the previous credit events in the index series. 
     /// Usage: The figure varies between 0 and 100.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? IndexFactor { get; init; } 
     /// <summary>
     /// Indicates whether the derivative contract is tranched or not.
     /// </summary>
-    [DataMember]
     public TrancheIndicator3Choice_? Tranche { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Seniority is DebtInstrumentSeniorityType2Code SeniorityValue)
+        {
+            writer.WriteStartElement(null, "Snrty", xmlNamespace );
+            writer.WriteValue(SeniorityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ReferenceParty is DerivativePartyIdentification1Choice_ ReferencePartyValue)
+        {
+            writer.WriteStartElement(null, "RefPty", xmlNamespace );
+            ReferencePartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentFrequency is Frequency13Code PaymentFrequencyValue)
+        {
+            writer.WriteStartElement(null, "PmtFrqcy", xmlNamespace );
+            writer.WriteValue(PaymentFrequencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CalculationBasis is IsoMax35Text CalculationBasisValue)
+        {
+            writer.WriteStartElement(null, "ClctnBsis", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CalculationBasisValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Series is IsoNumber SeriesValue)
+        {
+            writer.WriteStartElement(null, "Srs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(SeriesValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Version is IsoNumber VersionValue)
+        {
+            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(VersionValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (IndexFactor is IsoPercentageRate IndexFactorValue)
+        {
+            writer.WriteStartElement(null, "IndxFctr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(IndexFactorValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Tranche is TrancheIndicator3Choice_ TrancheValue)
+        {
+            writer.WriteStartElement(null, "Trch", xmlNamespace );
+            TrancheValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CreditDerivative4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

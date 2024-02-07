@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CancellationReason39Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationReason39Choice;
 /// Specifies the reason of the CancellationPending Status.
 /// </summary>
 public partial record Reason : CancellationReason39Choice_
+     , IIsoXmlSerilizable<Reason>
 {
     #nullable enable
+    
     /// <summary>
     /// Specifies the reason why the trade is wainting the cancellation.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record Reason : CancellationReason39Choice_
     /// Provides additional information about the reason in narrative form.
     /// </summary>
     public IsoMax210Text? AdditionalReasonInformation { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        Code.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalReasonInformation is IsoMax210Text AdditionalReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlRsnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax210Text(AdditionalReasonInformationValue)); // data type Max210Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new Reason Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

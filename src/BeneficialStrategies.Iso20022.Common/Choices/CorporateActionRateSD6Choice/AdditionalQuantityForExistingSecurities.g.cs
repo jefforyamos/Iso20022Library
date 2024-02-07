@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CorporateActionRateSD6Choice;
 
@@ -13,7 +15,27 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionRateSD6Choice;
 /// Quantity of additional securities for a given quantity of underlying securities where underlying securities are not exchanged or debited, for example, 1 for 1: 1 new equity credited for every 1 underlying equity = 2 resulting equities.
 /// </summary>
 public partial record AdditionalQuantityForExistingSecurities : CorporateActionRateSD6Choice_
+     , IIsoXmlSerilizable<AdditionalQuantityForExistingSecurities>
 {
     #nullable enable
+    
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+    }
+    public static new AdditionalQuantityForExistingSecurities Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

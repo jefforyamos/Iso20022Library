@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Variables related to derivatives that are used to group derivatives together into positions for collateral position sets and currency collateral position sets reports. 
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PositionSetCollateralDimensions2
+     : IIsoXmlSerilizable<PositionSetCollateralDimensions2>
 {
     #nullable enable
     
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
-    [DataMember]
     public TradeCounterpartyReport9? CounterpartyIdentification { get; init; } 
     /// <summary>
     /// Information indicating the type of collateral agreement existing between counterparties.
     /// </summary>
-    [DataMember]
     public CollateralisationType1Code? Collateralisation { get; init; } 
     /// <summary>
     /// A unique code determined by the reporting counterparty to identify the portfolio if collateral is reported on a portfolio basis.
     /// </summary>
-    [DataMember]
     public IsoMax52Text? Portfolio { get; init; } 
     /// <summary>
     /// Currency of the initial margin posted by the reporting counterparty to the other counterparty.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? InitialMarginPostedCurrency { get; init; } 
     /// <summary>
     /// Currency of the variation margin posted, including cash settled, by the reporting counterparty to the other counterparty.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? VariationMarginPostedCurrency { get; init; } 
     /// <summary>
     /// Currency of the initial margin received by the reporting counterparty from the other counterparty.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? InitialMarginReceivedCurrency { get; init; } 
     /// <summary>
     /// Currency of the variation margin received, including cash settled, by the reporting counterparty from the other counterparty.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? VariationMarginReceivedCurrency { get; init; } 
     /// <summary>
     /// Currency of collateral posted in excess of the required collateral.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? ExcessCollateralPostedCurrency { get; init; } 
     /// <summary>
     /// Currency of collateral received in excess of the required collateral.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? ExcessCollateralReceivedCurrency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CounterpartyIdentification is TradeCounterpartyReport9 CounterpartyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
+            CounterpartyIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Collateralisation is CollateralisationType1Code CollateralisationValue)
+        {
+            writer.WriteStartElement(null, "Collstn", xmlNamespace );
+            writer.WriteValue(CollateralisationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Portfolio is IsoMax52Text PortfolioValue)
+        {
+            writer.WriteStartElement(null, "Prtfl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(PortfolioValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+        if (InitialMarginPostedCurrency is ActiveOrHistoricCurrencyCode InitialMarginPostedCurrencyValue)
+        {
+            writer.WriteStartElement(null, "InitlMrgnPstdCcy", xmlNamespace );
+            writer.WriteValue(InitialMarginPostedCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (VariationMarginPostedCurrency is ActiveOrHistoricCurrencyCode VariationMarginPostedCurrencyValue)
+        {
+            writer.WriteStartElement(null, "VartnMrgnPstdCcy", xmlNamespace );
+            writer.WriteValue(VariationMarginPostedCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (InitialMarginReceivedCurrency is ActiveOrHistoricCurrencyCode InitialMarginReceivedCurrencyValue)
+        {
+            writer.WriteStartElement(null, "InitlMrgnRcvdCcy", xmlNamespace );
+            writer.WriteValue(InitialMarginReceivedCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (VariationMarginReceivedCurrency is ActiveOrHistoricCurrencyCode VariationMarginReceivedCurrencyValue)
+        {
+            writer.WriteStartElement(null, "VartnMrgnRcvdCcy", xmlNamespace );
+            writer.WriteValue(VariationMarginReceivedCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExcessCollateralPostedCurrency is ActiveOrHistoricCurrencyCode ExcessCollateralPostedCurrencyValue)
+        {
+            writer.WriteStartElement(null, "XcssCollPstdCcy", xmlNamespace );
+            writer.WriteValue(ExcessCollateralPostedCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExcessCollateralReceivedCurrency is ActiveOrHistoricCurrencyCode ExcessCollateralReceivedCurrencyValue)
+        {
+            writer.WriteStartElement(null, "XcssCollRcvdCcy", xmlNamespace );
+            writer.WriteValue(ExcessCollateralReceivedCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static PositionSetCollateralDimensions2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

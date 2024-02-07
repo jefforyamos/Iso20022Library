@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Product1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Product1Choice;
 /// Attributes relating to repurchase agreement cleared by the CCP.
 /// </summary>
 public partial record SecuritiesFinancingTransaction : Product1Choice_
+     , IIsoXmlSerilizable<SecuritiesFinancingTransaction>
 {
     #nullable enable
+    
     /// <summary>
     /// Specifies attributes of a derivative based on Final ISDA Taxonomy v1.0 and Final ISDA Taxonomy v2.0.
     /// </summary>
@@ -27,5 +31,35 @@ public partial record SecuritiesFinancingTransaction : Product1Choice_
     /// Identifier for triparty agent if applicable.
     /// </summary>
     public IsoLEIIdentifier? TripartyAgent { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PdctClssfctn", xmlNamespace );
+        ProductClassification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RpAgrmtTp", xmlNamespace );
+        RepurchaseAgreementType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TripartyAgent is IsoLEIIdentifier TripartyAgentValue)
+        {
+            writer.WriteStartElement(null, "TrptyAgt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(TripartyAgentValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new SecuritiesFinancingTransaction Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

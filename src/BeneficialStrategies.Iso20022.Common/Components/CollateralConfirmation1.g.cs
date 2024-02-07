@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the status details about the collateral substitution.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralConfirmation1
+     : IIsoXmlSerilizable<CollateralConfirmation1>
 {
     #nullable enable
     
     /// <summary>
     /// Reference to the collateral substitution request identification.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text CollateralSubstitutionRequestIdentification { get; init; } 
     /// <summary>
     /// Reference to the collateral substitution response identification.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CollateralSubstitutionResponseIdentification { get; init; } 
     /// <summary>
     /// Provides details about the status of the collateral substitution, either released or returned.
     /// </summary>
-    [DataMember]
     public required CollateralSubstitutionConfirmation1Code ConfirmationType { get; init; } 
     /// <summary>
     /// Allows to provides additional comments on the collateral substitution status.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Comment { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CollSbstitnReqId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(CollateralSubstitutionRequestIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (CollateralSubstitutionResponseIdentification is IsoMax35Text CollateralSubstitutionResponseIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CollSbstitnRspnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CollateralSubstitutionResponseIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ConfTp", xmlNamespace );
+        writer.WriteValue(ConfirmationType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Comment is IsoMax140Text CommentValue)
+        {
+            writer.WriteStartElement(null, "Cmnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(CommentValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralConfirmation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique and unambiguous identification of the original message references.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OriginalMessage5
+     : IIsoXmlSerilizable<OriginalMessage5>
 {
     #nullable enable
     
     /// <summary>
     /// Original message sender used to identify the message.
     /// </summary>
-    [DataMember]
     public Party40Choice_? OriginalSender { get; init; } 
     /// <summary>
     /// Point to point reference assigned by the original instructing party to unambiguously identify the original group of individual transactions.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OriginalMessageIdentification { get; init; } 
     /// <summary>
     /// Specifies the original message name identifier to which the message refers, such as pacs.003.001.01 or MT103.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OriginalMessageNameIdentification { get; init; } 
     /// <summary>
     /// Original date and time at which the message was created.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? OriginalCreationDateTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OriginalSender is Party40Choice_ OriginalSenderValue)
+        {
+            writer.WriteStartElement(null, "OrgnlSndr", xmlNamespace );
+            OriginalSenderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OrgnlMsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalMessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgnlMsgNmId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalMessageNameIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (OriginalCreationDateTime is IsoISODateTime OriginalCreationDateTimeValue)
+        {
+            writer.WriteStartElement(null, "OrgnlCreDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(OriginalCreationDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static OriginalMessage5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

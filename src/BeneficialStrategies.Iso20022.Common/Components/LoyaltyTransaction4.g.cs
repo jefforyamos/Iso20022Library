@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to the Loyalty Transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LoyaltyTransaction4
+     : IIsoXmlSerilizable<LoyaltyTransaction4>
 {
     #nullable enable
     
     /// <summary>
     /// Sale System identification of the transaction in an unambiguous way.
     /// </summary>
-    [DataMember]
     public TransactionIdentifier1? SaleTransactionIdentification { get; init; } 
     /// <summary>
     /// Data related to the loyalty transaction.
     /// </summary>
-    [DataMember]
     public required LoyaltyTransactionType1Code LoyaltyTransactionType { get; init; } 
     /// <summary>
     /// Currency of the loyalty transaction.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Amount of the payment transaction related to the Loyalty.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalAmount { get; init; } 
     /// <summary>
     /// Data of a previous POI payment transaction.
     /// </summary>
-    [DataMember]
     public CardPaymentTransaction120? OriginalPOITransaction { get; init; } 
     /// <summary>
     /// Item purchased with the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<Product6> SaleItem { get; init; } = []; // Warning: Don't know multiplicity.
+    public Product6? SaleItem { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SaleTransactionIdentification is TransactionIdentifier1 SaleTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleTxId", xmlNamespace );
+            SaleTransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "LltyTxTp", xmlNamespace );
+        writer.WriteValue(LoyaltyTransactionType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TotalAmount is IsoImpliedCurrencyAndAmount TotalAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(TotalAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (OriginalPOITransaction is CardPaymentTransaction120 OriginalPOITransactionValue)
+        {
+            writer.WriteStartElement(null, "OrgnlPOITx", xmlNamespace );
+            OriginalPOITransactionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SaleItem is Product6 SaleItemValue)
+        {
+            writer.WriteStartElement(null, "SaleItm", xmlNamespace );
+            SaleItemValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LoyaltyTransaction4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

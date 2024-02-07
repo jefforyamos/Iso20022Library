@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.supl.TSEJASDECCorporateActionNotificationSubsetSD1V03>;
 
 namespace BeneficialStrategies.Iso20022.supl;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// This message is an extension used by TSE/JASDEC and its community to provide supplementary data to the CorporateActionNotification 002, which is the restricted version that supports the coexistence of ISO messages.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"This message is an extension used by TSE/JASDEC and its community to provide supplementary data to the CorporateActionNotification 002, which is the restricted version that supports the coexistence of ISO messages.")]
-public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterRecord
+public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterRecord<TSEJASDECCorporateActionNotificationSubsetSD1V03,TSEJASDECCorporateActionNotificationSubsetSD1V03Document>
+    ,IIsoXmlSerilizable<TSEJASDECCorporateActionNotificationSubsetSD1V03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterR
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "TSEJASDECCorpActnNtfctnSubsetSD1";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => TSEJASDECCorporateActionNotificationSubsetSD1V03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -209,6 +216,131 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterR
     {
         return new TSEJASDECCorporateActionNotificationSubsetSD1V03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("TSEJASDECCorpActnNtfctnSubsetSD1");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OtherIdentification is OtherIdentification2SD1 OtherIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OthrId", xmlNamespace );
+            OtherIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RateAndAmountDetails is DividendSD1 RateAndAmountDetailsValue)
+        {
+            writer.WriteStartElement(null, "RateAndAmtDtls", xmlNamespace );
+            RateAndAmountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnderlyingSecurity is FinancialInstrumentAttributes23SD1 UnderlyingSecurityValue)
+        {
+            writer.WriteStartElement(null, "UndrlygScty", xmlNamespace );
+            UnderlyingSecurityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesQuantity is CorporateActionQuantity4SD2 SecuritiesQuantityValue)
+        {
+            writer.WriteStartElement(null, "SctiesQty", xmlNamespace );
+            SecuritiesQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DividendType is DividendTypeFormat4SD1 DividendTypeValue)
+        {
+            writer.WriteStartElement(null, "DvddTp", xmlNamespace );
+            DividendTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CorporateActionDetails is CorporateAction6SD1 CorporateActionDetailsValue)
+        {
+            writer.WriteStartElement(null, "CorpActnDtls", xmlNamespace );
+            CorporateActionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Offeror is UpdatedAdditionalInformation6SD3 OfferorValue)
+        {
+            writer.WriteStartElement(null, "Offerr", xmlNamespace );
+            OfferorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RateDetails is CorporateActionRate19SD1 RateDetailsValue)
+        {
+            writer.WriteStartElement(null, "RateDtls", xmlNamespace );
+            RateDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EventStage is CorporateActionEventStageFormat4SD1 EventStageValue)
+        {
+            writer.WriteStartElement(null, "EvtStag", xmlNamespace );
+            EventStageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionFeatures is OptionFeaturesFormat8SD1 OptionFeaturesValue)
+        {
+            writer.WriteStartElement(null, "OptnFeatrs", xmlNamespace );
+            OptionFeaturesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DateDetails is CorporateActionDate21SD1 DateDetailsValue)
+        {
+            writer.WriteStartElement(null, "DtDtls", xmlNamespace );
+            DateDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GrossDividendRate is GrossDividendRateFormat6SD1 GrossDividendRateValue)
+        {
+            writer.WriteStartElement(null, "GrssDvddRate", xmlNamespace );
+            GrossDividendRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesMovementDateDetails is SecurityDate8SD1 SecuritiesMovementDateDetailsValue)
+        {
+            writer.WriteStartElement(null, "SctiesMvmntDtDtls", xmlNamespace );
+            SecuritiesMovementDateDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesMovementDetails is SecuritiesOption22SD1 SecuritiesMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "SctiesMvmntDtls", xmlNamespace );
+            SecuritiesMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewCompanyName is UpdatedAdditionalInformation6SD2 NewCompanyNameValue)
+        {
+            writer.WriteStartElement(null, "NewCpnyNm", xmlNamespace );
+            NewCompanyNameValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssuerAgent is OrganisationIdentificationSD1 IssuerAgentValue)
+        {
+            writer.WriteStartElement(null, "IssrAgt", xmlNamespace );
+            IssuerAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxationConditions is UpdatedAdditionalInformation5SD3 TaxationConditionsValue)
+        {
+            writer.WriteStartElement(null, "TaxtnConds", xmlNamespace );
+            TaxationConditionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is CorporateActionNarrative17SD1 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TSEJASDECCorporateActionNotificationSubsetSD1V03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -216,9 +348,7 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03 : IOuterR
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TSEJASDECCorporateActionNotificationSubsetSD1V03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03Document : IOuterDocument<TSEJASDECCorporateActionNotificationSubsetSD1V03>
+public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03Document : IOuterDocument<TSEJASDECCorporateActionNotificationSubsetSD1V03>, IXmlSerializable
 {
     
     /// <summary>
@@ -234,5 +364,22 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V03Document :
     /// <summary>
     /// The instance of <seealso cref="TSEJASDECCorporateActionNotificationSubsetSD1V03"/> is required.
     /// </summary>
+    [DataMember(Name=TSEJASDECCorporateActionNotificationSubsetSD1V03.XmlTag)]
     public required TSEJASDECCorporateActionNotificationSubsetSD1V03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(TSEJASDECCorporateActionNotificationSubsetSD1V03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Further details on the shipment conditions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ShipmentAttribute2
+     : IIsoXmlSerilizable<ShipmentAttribute2>
 {
     #nullable enable
     
     /// <summary>
     /// Shipment conditions.
     /// </summary>
-    [DataMember]
     public ShipmentCondition1Choice_? Conditions { get; init; } 
     /// <summary>
     /// Expected shipment date.
     /// </summary>
-    [DataMember]
     public IsoISODate? ExpectedDate { get; init; } 
     /// <summary>
     /// Country in which the counter party is located.
     /// </summary>
-    [DataMember]
     public CountryCode? CountryOfCounterParty { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Conditions is ShipmentCondition1Choice_ ConditionsValue)
+        {
+            writer.WriteStartElement(null, "Conds", xmlNamespace );
+            ConditionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExpectedDate is IsoISODate ExpectedDateValue)
+        {
+            writer.WriteStartElement(null, "XpctdDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExpectedDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (CountryOfCounterParty is CountryCode CountryOfCounterPartyValue)
+        {
+            writer.WriteStartElement(null, "CtryOfCntrPty", xmlNamespace );
+            writer.WriteValue(CountryOfCounterPartyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static ShipmentAttribute2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

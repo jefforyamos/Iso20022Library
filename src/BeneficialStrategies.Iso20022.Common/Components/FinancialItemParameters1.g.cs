@@ -7,103 +7,200 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Regroups identification parameters for trade items.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialItemParameters1
+     : IIsoXmlSerilizable<FinancialItemParameters1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification of this item relative to the issuing party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identifier { get; init; } 
     /// <summary>
     /// Date of creation of the item.
     /// </summary>
-    [DataMember]
     public required IsoISODate IssueDate { get; init; } 
     /// <summary>
     /// Identifier of related items, for example an assignment or an advice.
     /// </summary>
-    [DataMember]
-    public ValueList<QualifiedDocumentInformation1> RelatedItem { get; init; } = []; // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1? RelatedItem { get; init; } 
     /// <summary>
     /// Specifies the function of the document related to the item.
     /// </summary>
-    [DataMember]
     public ExternalDocumentPurpose1Code? DocumentPurpose { get; init; } 
     /// <summary>
     /// Language used for textual information in item.
     /// </summary>
-    [DataMember]
     public LanguageCode? LanguageCode { get; init; } 
     /// <summary>
     /// Party that issued this list of items.
     /// </summary>
-    [DataMember]
     public QualifiedPartyIdentification1? Issuer { get; init; } 
     /// <summary>
     /// Receiving party of this list of items.
     /// </summary>
-    [DataMember]
     public QualifiedPartyIdentification1? Recipient { get; init; } 
     /// <summary>
     /// Party that acts as buyer of the goods or services referred to by the financial item.
     /// </summary>
-    [DataMember]
     public QualifiedPartyIdentification1? Buyer { get; init; } 
     /// <summary>
     /// Party that acts as seller of the goods or services referred to by the financial item.
     /// </summary>
-    [DataMember]
     public QualifiedPartyIdentification1? Seller { get; init; } 
     /// <summary>
     /// Financial agent for the seller.
     /// </summary>
-    [DataMember]
     public QualifiedPartyIdentification1? SellerFinancialAgent { get; init; } 
     /// <summary>
     /// Financial agent for the buyer.
     /// </summary>
-    [DataMember]
     public QualifiedPartyIdentification1? BuyerFinancialAgent { get; init; } 
     /// <summary>
     /// Reference to contract that governs the exchange of the message.
     /// </summary>
-    [DataMember]
-    public ValueList<QualifiedDocumentInformation1> GoverningContract { get; init; } = []; // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1? GoverningContract { get; init; } 
     /// <summary>
     /// Rules and laws governing the item.
     /// </summary>
-    [DataMember]
     public GovernanceRules2? LegalContext { get; init; } 
     /// <summary>
     /// Currency of the item.
     /// </summary>
-    [DataMember]
     public CurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Defines the account debited for charges (or credited for reimbursement).
     /// </summary>
-    [DataMember]
     public AccountIdentification4Choice_? DebitAccount { get; init; } 
     /// <summary>
     /// Defines the account credited for charges (or debited for reimbursement).
     /// </summary>
-    [DataMember]
     public AccountIdentification4Choice_? CreditAccount { get; init; } 
     /// <summary>
     /// Identification of the geographical environment of the trade market.
     /// </summary>
-    [DataMember]
     public TradeMarket1Choice_? TradeMarket { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Idr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identifier)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IsseDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(IssueDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (RelatedItem is QualifiedDocumentInformation1 RelatedItemValue)
+        {
+            writer.WriteStartElement(null, "RltdItm", xmlNamespace );
+            RelatedItemValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DocumentPurpose is ExternalDocumentPurpose1Code DocumentPurposeValue)
+        {
+            writer.WriteStartElement(null, "DocPurp", xmlNamespace );
+            writer.WriteValue(DocumentPurposeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (LanguageCode is LanguageCode LanguageCodeValue)
+        {
+            writer.WriteStartElement(null, "LangCd", xmlNamespace );
+            writer.WriteValue(LanguageCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Issuer is QualifiedPartyIdentification1 IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            IssuerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Recipient is QualifiedPartyIdentification1 RecipientValue)
+        {
+            writer.WriteStartElement(null, "Rcpt", xmlNamespace );
+            RecipientValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Buyer is QualifiedPartyIdentification1 BuyerValue)
+        {
+            writer.WriteStartElement(null, "Buyr", xmlNamespace );
+            BuyerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Seller is QualifiedPartyIdentification1 SellerValue)
+        {
+            writer.WriteStartElement(null, "Sellr", xmlNamespace );
+            SellerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SellerFinancialAgent is QualifiedPartyIdentification1 SellerFinancialAgentValue)
+        {
+            writer.WriteStartElement(null, "SellrFinAgt", xmlNamespace );
+            SellerFinancialAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BuyerFinancialAgent is QualifiedPartyIdentification1 BuyerFinancialAgentValue)
+        {
+            writer.WriteStartElement(null, "BuyrFinAgt", xmlNamespace );
+            BuyerFinancialAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GoverningContract is QualifiedDocumentInformation1 GoverningContractValue)
+        {
+            writer.WriteStartElement(null, "GovngCtrct", xmlNamespace );
+            GoverningContractValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LegalContext is GovernanceRules2 LegalContextValue)
+        {
+            writer.WriteStartElement(null, "LglCntxt", xmlNamespace );
+            LegalContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Currency is CurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DebitAccount is AccountIdentification4Choice_ DebitAccountValue)
+        {
+            writer.WriteStartElement(null, "DbtAcct", xmlNamespace );
+            DebitAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditAccount is AccountIdentification4Choice_ CreditAccountValue)
+        {
+            writer.WriteStartElement(null, "CdtAcct", xmlNamespace );
+            CreditAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeMarket is TradeMarket1Choice_ TradeMarketValue)
+        {
+            writer.WriteStartElement(null, "TradMkt", xmlNamespace );
+            TradeMarketValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialItemParameters1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

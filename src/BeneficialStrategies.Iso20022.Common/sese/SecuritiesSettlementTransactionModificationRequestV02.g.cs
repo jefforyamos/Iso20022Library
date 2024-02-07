@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.SecuritiesSettlementTransactionModificationRequestV02>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// Scope|This message is sent by an account owner to an account servicer. ||The account owner will generally be:||- a central securities depository participant which has an account with a central securities depository or a market infrastructure||- an investment manager which has an account with a custodian acting as accounting and/or settlement agent.||It is used to request the modification of non core business data (matching or non-matching) information in a pending or settled instruction. It can also be used for the enrichment of an incomplete transaction.|||Usage|The modification must only contain the data to be modified.|The message may also be used to:|- re-send a message sent by the account owner to the account servicer,|- provide a third party with a copy of a message being sent by the account owner for information,|- re-send to a third party a copy of a message being sent by the account owner for information|using the relevant elements in the Business Application Header.||ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|This message is sent by an account owner to an account servicer. ||The account owner will generally be:||- a central securities depository participant which has an account with a central securities depository or a market infrastructure||- an investment manager which has an account with a custodian acting as accounting and/or settlement agent.||It is used to request the modification of non core business data (matching or non-matching) information in a pending or settled instruction. It can also be used for the enrichment of an incomplete transaction.|||Usage|The modification must only contain the data to be modified.|The message may also be used to:|- re-send a message sent by the account owner to the account servicer,|- provide a third party with a copy of a message being sent by the account owner for information,|- re-send to a third party a copy of a message being sent by the account owner for information|using the relevant elements in the Business Application Header.||ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.")]
-public partial record SecuritiesSettlementTransactionModificationRequestV02 : IOuterRecord
+public partial record SecuritiesSettlementTransactionModificationRequestV02 : IOuterRecord<SecuritiesSettlementTransactionModificationRequestV02,SecuritiesSettlementTransactionModificationRequestV02Document>
+    ,IIsoXmlSerilizable<SecuritiesSettlementTransactionModificationRequestV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record SecuritiesSettlementTransactionModificationRequestV02 : IO
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesSttlmTxModReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesSettlementTransactionModificationRequestV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -55,7 +62,7 @@ public partial record SecuritiesSettlementTransactionModificationRequestV02 : IO
     [Description(@"Specifies the type of update requested.")]
     [DataMember(Name="UpdTp")]
     [XmlElement(ElementName="UpdTp")]
-    public required IReadOnlyCollection<UpdateType9Choice_> UpdateType { get; init; } = []; // Min=1, Max=3
+    public required ValueList<UpdateType9Choice_> UpdateType { get; init; } = []; // Min=1, Max=3
     
     #nullable disable
     
@@ -66,6 +73,29 @@ public partial record SecuritiesSettlementTransactionModificationRequestV02 : IO
     {
         return new SecuritiesSettlementTransactionModificationRequestV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesSttlmTxModReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ModfdTxDtls", xmlNamespace );
+        ModifiedTransactionDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UpdTp", xmlNamespace );
+        UpdateType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SecuritiesSettlementTransactionModificationRequestV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -73,9 +103,7 @@ public partial record SecuritiesSettlementTransactionModificationRequestV02 : IO
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementTransactionModificationRequestV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesSettlementTransactionModificationRequestV02Document : IOuterDocument<SecuritiesSettlementTransactionModificationRequestV02>
+public partial record SecuritiesSettlementTransactionModificationRequestV02Document : IOuterDocument<SecuritiesSettlementTransactionModificationRequestV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -91,5 +119,22 @@ public partial record SecuritiesSettlementTransactionModificationRequestV02Docum
     /// <summary>
     /// The instance of <seealso cref="SecuritiesSettlementTransactionModificationRequestV02"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesSettlementTransactionModificationRequestV02.XmlTag)]
     public required SecuritiesSettlementTransactionModificationRequestV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesSettlementTransactionModificationRequestV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details of the header for a trade transaction query message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeReportHeader4
+     : IIsoXmlSerilizable<TradeReportHeader4>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the as-at day for which the report was produced.
     /// </summary>
-    [DataMember]
     public IsoISODate? ReportExecutionDate { get; init; } 
     /// <summary>
     /// Page number of the message (within the report) and continuation indicator to indicate that the report is to continue or that the message is the last page of the report.
     /// </summary>
-    [DataMember]
     public Pagination1? MessagePagination { get; init; } 
     /// <summary>
     /// Indicates the number of records in the page.
     /// </summary>
-    [DataMember]
     public required IsoNumber NumberRecords { get; init; } 
     /// <summary>
     /// Specifies the competent authority that requires reporting of the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax100Text> CompetentAuthority { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax100Text? CompetentAuthority { get; init; } 
     /// <summary>
     /// Identifies the new trade repository to which the derivative is transfered to.
     /// </summary>
-    [DataMember]
     public OrganisationIdentification15Choice_? NewTradeRepositoryIdentifier { get; init; } 
     /// <summary>
     /// Underlying reason for reporting the derivative transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax100Text> ReportingPurpose { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax100Text? ReportingPurpose { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReportExecutionDate is IsoISODate ReportExecutionDateValue)
+        {
+            writer.WriteStartElement(null, "RptExctnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ReportExecutionDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (MessagePagination is Pagination1 MessagePaginationValue)
+        {
+            writer.WriteStartElement(null, "MsgPgntn", xmlNamespace );
+            MessagePaginationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "NbRcrds", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(NumberRecords)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        if (CompetentAuthority is IsoMax100Text CompetentAuthorityValue)
+        {
+            writer.WriteStartElement(null, "CmptntAuthrty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax100Text(CompetentAuthorityValue)); // data type Max100Text System.String
+            writer.WriteEndElement();
+        }
+        if (NewTradeRepositoryIdentifier is OrganisationIdentification15Choice_ NewTradeRepositoryIdentifierValue)
+        {
+            writer.WriteStartElement(null, "NewTradRpstryIdr", xmlNamespace );
+            NewTradeRepositoryIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReportingPurpose is IsoMax100Text ReportingPurposeValue)
+        {
+            writer.WriteStartElement(null, "RptgPurp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax100Text(ReportingPurposeValue)); // data type Max100Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeReportHeader4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

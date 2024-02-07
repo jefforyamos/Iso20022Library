@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PartyAdditionalIdentification2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyAdditionalIdentification2Ch
 /// Official identification of an organisation in a specific register.
 /// </summary>
 public partial record RegistrationIdentification : PartyAdditionalIdentification2Choice_
+     , IIsoXmlSerilizable<RegistrationIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Name of the register of legal entities.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record RegistrationIdentification : PartyAdditionalIdentification
     /// Name of the register managed by a registration authority.
     /// </summary>
     public IsoMax35Text? RegisterName { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RegnNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(RegistrationNumber)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (RegisterName is IsoMax35Text RegisterNameValue)
+        {
+            writer.WriteStartElement(null, "RegrNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RegisterNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new RegistrationIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

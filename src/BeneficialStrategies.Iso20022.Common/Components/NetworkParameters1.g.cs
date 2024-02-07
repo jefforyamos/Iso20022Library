@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Configuration parameters to communicate with a host.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NetworkParameters1
+     : IIsoXmlSerilizable<NetworkParameters1>
 {
     #nullable enable
     
     /// <summary>
     /// IP address or host name of the primary host.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text PrimaryAddress { get; init; } 
     /// <summary>
     /// Port number of the primary host.
     /// </summary>
-    [DataMember]
     public required IsoNumber PrimaryPortNumber { get; init; } 
     /// <summary>
     /// IP address or host name of the secondary host.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SecondaryAddress { get; init; } 
     /// <summary>
     /// Port number of the secondary host.
     /// </summary>
-    [DataMember]
     public IsoNumber? SecondaryPortNumber { get; init; } 
     /// <summary>
     /// User name identifying the client.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? UserName { get; init; } 
     /// <summary>
     /// Password authenticating the client.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccessCode { get; init; } 
     /// <summary>
     /// Client certificate chain.
     /// </summary>
-    [DataMember]
     public IsoMax3000Binary? ClientCertificate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PmryAdr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(PrimaryAddress)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PmryPortNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(PrimaryPortNumber)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        if (SecondaryAddress is IsoMax35Text SecondaryAddressValue)
+        {
+            writer.WriteStartElement(null, "ScndryAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SecondaryAddressValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SecondaryPortNumber is IsoNumber SecondaryPortNumberValue)
+        {
+            writer.WriteStartElement(null, "ScndryPortNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(SecondaryPortNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (UserName is IsoMax35Text UserNameValue)
+        {
+            writer.WriteStartElement(null, "UsrNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(UserNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccessCode is IsoMax35Text AccessCodeValue)
+        {
+            writer.WriteStartElement(null, "AccsCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccessCodeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClientCertificate is IsoMax3000Binary ClientCertificateValue)
+        {
+            writer.WriteStartElement(null, "ClntCert", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3000Binary(ClientCertificateValue)); // data type Max3000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static NetworkParameters1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

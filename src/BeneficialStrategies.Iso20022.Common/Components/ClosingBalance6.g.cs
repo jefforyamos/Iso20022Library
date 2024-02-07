@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Closing balance for the statement period (final closing balance) or of this page (intermediary closing balance).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ClosingBalance6
+     : IIsoXmlSerilizable<ClosingBalance6>
 {
     #nullable enable
     
     /// <summary>
     /// Indication that the position is short or long.
     /// </summary>
-    [DataMember]
     public required ShortLong1Code ShortLongIndicator { get; init; } 
     /// <summary>
     /// Closing balance for the statement period (final closing balance) or of this page (intermediary closing balance).
     /// </summary>
-    [DataMember]
     public required ClosingBalance7Choice_ ClosingBalance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ShrtLngInd", xmlNamespace );
+        writer.WriteValue(ShortLongIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClsgBal", xmlNamespace );
+        ClosingBalance.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ClosingBalance6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

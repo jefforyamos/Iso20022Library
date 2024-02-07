@@ -7,158 +7,301 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account between an investor(s) and a fund manager or a fund. The account can contain holdings in any investment fund or investment fund class managed (or distributed) by the fund manager, within the same fund family.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestmentAccount38
+     : IIsoXmlSerilizable<InvestmentAccount38>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public required AccountIdentification1 Identification { get; init; } 
     /// <summary>
     /// Specifies the current state of an account, eg, enabled or deleted.
     /// </summary>
-    [DataMember]
     public required AccountStatus2Code Status { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     /// <summary>
     /// Supplementary registration information applying to a specific block of units for dealing and reporting purposes. The supplementary registration information may be used when all the units are registered, for example, to a funds supermarket, but holdings for each investor have to reconciled individually.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Designation { get; init; } 
     /// <summary>
     /// Purpose of the account/source fund type. This is typically linked to an investment product, for example, wrapper, ISA.
     /// </summary>
-    [DataMember]
     public AccountType1Choice_? Type { get; init; } 
     /// <summary>
     /// Ownership status of the account, for example, joint owners.
     /// </summary>
-    [DataMember]
     public required OwnershipType1Choice_ OwnershipType { get; init; } 
     /// <summary>
     /// Tax advantage specific to the account.
     /// </summary>
-    [DataMember]
     public TaxExemptionReason1Choice_? TaxExemption { get; init; } 
     /// <summary>
     /// Frequency at which a statement is issued.
     /// </summary>
-    [DataMember]
     public StatementFrequencyReason1Choice_? StatementFrequency { get; init; } 
     /// <summary>
     /// Currency chosen for reporting purposes by the account owner in agreement with the account servicer.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? ReferenceCurrency { get; init; } 
     /// <summary>
     /// Language for all communication concerning the account.
     /// </summary>
-    [DataMember]
     public LanguageCode? Language { get; init; } 
     /// <summary>
     /// Dividend option chosen by the account owner based on the options offered in the prospectus.
     /// </summary>
-    [DataMember]
     public IncomePreference1Code? IncomePreference { get; init; } 
     /// <summary>
     /// Specifies, for income on the fund that is to be reinvested, parameters for the reinvestment. If the reinvestment percentage is less than one hundred percent, the remaining percentage will be invested according to the investor’s subsequent instructions.
     /// </summary>
-    [DataMember]
-    public ValueList<Reinvestment1> ReinvestmentDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Reinvestment1? ReinvestmentDetails { get; init; } 
     /// <summary>
     /// Method by which the tax (withholding tax) is to be processed i.e. either withheld at source or tax information reported to tax authorities or tax information is reported due to the provision of a tax certificate.
     /// </summary>
-    [DataMember]
     public TaxWithholdingMethod2Code? TaxWithholdingMethod { get; init; } 
     /// <summary>
     /// Details of the letter of intent.
     /// </summary>
-    [DataMember]
     public LetterIntent1? LetterIntentDetails { get; init; } 
     /// <summary>
     /// Reference of an accumulation rights program, in which sales commissions are based on a customer's present purchases of shares and the aggregate quantity previously purchased by the customer. An accumulation rights program is mainly used in the US market.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccumulationRightReference { get; init; } 
     /// <summary>
     /// Number of account owners or related parties required to authorise transactions on the account.
     /// </summary>
-    [DataMember]
     public IsoNumber? RequiredSignatoriesNumber { get; init; } 
     /// <summary>
     /// Name of the investment fund family.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? FundFamilyName { get; init; } 
     /// <summary>
     /// Parameters to be applied on deal amount for orders when the amount is a fractional number.
     /// </summary>
-    [DataMember]
     public RoundingParameters1? RoundingDetails { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? AccountServicer { get; init; } 
     /// <summary>
     /// Detailed information about the investment fund associated to the account.
     /// </summary>
-    [DataMember]
-    public ValueList<FinancialInstrument29> FundsDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public FinancialInstrument29? FundsDetails { get; init; } 
     /// <summary>
     /// Part of the investment account to or from which cash entries are made.
     /// </summary>
-    [DataMember]
     public ValueList<CashAccount12> CashAccount { get; init; } = [];
     /// <summary>
     /// Part of the investment account to or from which securities entries are made.
     /// </summary>
-    [DataMember]
     public ValueList<SecuritiesAccount4> SecuritiesAccount { get; init; } = [];
     /// <summary>
     /// Specifies information about blocked accounts.
     /// </summary>
-    [DataMember]
     public Blocked1? BlockedStatus { get; init; } 
     /// <summary>
     /// Specifies the type of usage of the account.
     /// </summary>
-    [DataMember]
     public AccountUsageType1Choice_? AccountUsageType { get; init; } 
     /// <summary>
     /// Specifies if documentary evidence has been provided for the foreign resident.
     /// </summary>
-    [DataMember]
     public Provided1Code? ForeignStatusCertification { get; init; } 
     /// <summary>
     /// Date the investor signs the open account form.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeChoice_? AccountSignatureDateTime { get; init; } 
     /// <summary>
     /// Specifies the means by which the investor submits the open account form.
     /// </summary>
-    [DataMember]
     public TransactionChannelType1Choice_? TransactionChannelType { get; init; } 
     /// <summary>
     /// Specifies the category of the investment account.
     /// </summary>
-    [DataMember]
     public InvestmentAccountCategory1Choice_? InvestmentAccountCategory { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Name is IsoMax35Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Designation is IsoMax35Text DesignationValue)
+        {
+            writer.WriteStartElement(null, "Dsgnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DesignationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Type is AccountType1Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OwnrshTp", xmlNamespace );
+        OwnershipType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TaxExemption is TaxExemptionReason1Choice_ TaxExemptionValue)
+        {
+            writer.WriteStartElement(null, "TaxXmptn", xmlNamespace );
+            TaxExemptionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StatementFrequency is StatementFrequencyReason1Choice_ StatementFrequencyValue)
+        {
+            writer.WriteStartElement(null, "StmtFrqcy", xmlNamespace );
+            StatementFrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReferenceCurrency is ActiveCurrencyCode ReferenceCurrencyValue)
+        {
+            writer.WriteStartElement(null, "RefCcy", xmlNamespace );
+            writer.WriteValue(ReferenceCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Language is LanguageCode LanguageValue)
+        {
+            writer.WriteStartElement(null, "Lang", xmlNamespace );
+            writer.WriteValue(LanguageValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (IncomePreference is IncomePreference1Code IncomePreferenceValue)
+        {
+            writer.WriteStartElement(null, "IncmPref", xmlNamespace );
+            writer.WriteValue(IncomePreferenceValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ReinvestmentDetails is Reinvestment1 ReinvestmentDetailsValue)
+        {
+            writer.WriteStartElement(null, "RinvstmtDtls", xmlNamespace );
+            ReinvestmentDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxWithholdingMethod is TaxWithholdingMethod2Code TaxWithholdingMethodValue)
+        {
+            writer.WriteStartElement(null, "TaxWhldgMtd", xmlNamespace );
+            writer.WriteValue(TaxWithholdingMethodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (LetterIntentDetails is LetterIntent1 LetterIntentDetailsValue)
+        {
+            writer.WriteStartElement(null, "LttrInttDtls", xmlNamespace );
+            LetterIntentDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccumulationRightReference is IsoMax35Text AccumulationRightReferenceValue)
+        {
+            writer.WriteStartElement(null, "AcmltnRghtRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccumulationRightReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RequiredSignatoriesNumber is IsoNumber RequiredSignatoriesNumberValue)
+        {
+            writer.WriteStartElement(null, "ReqrdSgntriesNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(RequiredSignatoriesNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (FundFamilyName is IsoMax350Text FundFamilyNameValue)
+        {
+            writer.WriteStartElement(null, "FndFmlyNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(FundFamilyNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (RoundingDetails is RoundingParameters1 RoundingDetailsValue)
+        {
+            writer.WriteStartElement(null, "RndgDtls", xmlNamespace );
+            RoundingDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountServicer is PartyIdentification2Choice_ AccountServicerValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+            AccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FundsDetails is FinancialInstrument29 FundsDetailsValue)
+        {
+            writer.WriteStartElement(null, "FndsDtls", xmlNamespace );
+            FundsDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CshAcct", xmlNamespace );
+        CashAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctiesAcct", xmlNamespace );
+        SecuritiesAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BlockedStatus is Blocked1 BlockedStatusValue)
+        {
+            writer.WriteStartElement(null, "BlckdSts", xmlNamespace );
+            BlockedStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountUsageType is AccountUsageType1Choice_ AccountUsageTypeValue)
+        {
+            writer.WriteStartElement(null, "AcctUsgTp", xmlNamespace );
+            AccountUsageTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ForeignStatusCertification is Provided1Code ForeignStatusCertificationValue)
+        {
+            writer.WriteStartElement(null, "FrgnStsCertfctn", xmlNamespace );
+            writer.WriteValue(ForeignStatusCertificationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AccountSignatureDateTime is DateAndDateTimeChoice_ AccountSignatureDateTimeValue)
+        {
+            writer.WriteStartElement(null, "AcctSgntrDtTm", xmlNamespace );
+            AccountSignatureDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionChannelType is TransactionChannelType1Choice_ TransactionChannelTypeValue)
+        {
+            writer.WriteStartElement(null, "TxChanlTp", xmlNamespace );
+            TransactionChannelTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestmentAccountCategory is InvestmentAccountCategory1Choice_ InvestmentAccountCategoryValue)
+        {
+            writer.WriteStartElement(null, "InvstmtAcctCtgy", xmlNamespace );
+            InvestmentAccountCategoryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InvestmentAccount38 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

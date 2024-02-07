@@ -7,48 +7,78 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Exchange rate and calculated amount to be presented to the customer when the dispense currency or the deposit currency (target currency) is different to account currency (source currency).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CurrencyConversion5
+     : IIsoXmlSerilizable<CurrencyConversion5>
 {
     #nullable enable
     
     /// <summary>
     /// Currency from which the amount is converted (ISO 4217, 3 alphanumeric characters).
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode SourceCurrency { get; init; } 
     /// <summary>
     /// Currency from which the amount is converted (ISO 4217, 3 numeric characters).
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode SourceCurrencyNumeric { get; init; } 
     /// <summary>
     /// Currency into which the amount is converted (ISO 4217, 3 alphanumeric characters).
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode TargetCurrency { get; init; } 
     /// <summary>
     /// Currency into which the amount is converted (ISO 4217, 3 numeric characters).
     /// </summary>
-    [DataMember]
     public required IsoExact3NumericText TargetCurrencyNumeric { get; init; } 
     /// <summary>
     /// Currency exchange rate.
     /// </summary>
-    [DataMember]
     public required IsoBaseOneRate Rate { get; init; } 
     /// <summary>
     /// Resulting calculated amount is in target currency.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount CalculatedAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SrcCcy", xmlNamespace );
+        writer.WriteValue(SourceCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SrcCcyNmrc", xmlNamespace );
+        writer.WriteValue(SourceCurrencyNumeric.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TrgtCcy", xmlNamespace );
+        writer.WriteValue(TargetCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TrgtCcyNmrc", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact3NumericText(TargetCurrencyNumeric)); // data type Exact3NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rate", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBaseOneRate(Rate)); // data type BaseOneRate System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClctdAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(CalculatedAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static CurrencyConversion5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

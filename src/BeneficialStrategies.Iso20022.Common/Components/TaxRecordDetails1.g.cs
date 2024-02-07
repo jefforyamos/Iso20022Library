@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information on the individual tax amount(s) per period of the tax record.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxRecordDetails1
+     : IIsoXmlSerilizable<TaxRecordDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Set of elements used to provide details on the period of time related to the tax payment.
     /// </summary>
-    [DataMember]
     public TaxPeriod1? Period { get; init; } 
     /// <summary>
     /// Underlying tax amount related to the specified period.
     /// </summary>
-    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Period is TaxPeriod1 PeriodValue)
+        {
+            writer.WriteStartElement(null, "Prd", xmlNamespace );
+            PeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(Amount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static TaxRecordDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

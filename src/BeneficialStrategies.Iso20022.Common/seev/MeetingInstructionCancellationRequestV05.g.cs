@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.MeetingInstructionCancellationRequestV05>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// This message definition is intended for use with the Business Application Header.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The MeetingInstructionCancellationRequest message is sent by the same party that sent the MeetingInstruction message. It is sent to request the cancellation of all instructions included in the original the MeetingInstruction message.|Usage|This message must be answered by a MeetingInstructionStatus message. Some instructions in the previously sent MeetingInstruction message may have already been executed and cannot be cancelled. This information should appear clearly in the status message.|This message definition is intended for use with the Business Application Header.")]
-public partial record MeetingInstructionCancellationRequestV05 : IOuterRecord
+public partial record MeetingInstructionCancellationRequestV05 : IOuterRecord<MeetingInstructionCancellationRequestV05,MeetingInstructionCancellationRequestV05Document>
+    ,IIsoXmlSerilizable<MeetingInstructionCancellationRequestV05>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record MeetingInstructionCancellationRequestV05 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MtgInstrCxlReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => MeetingInstructionCancellationRequestV05Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -97,6 +104,50 @@ public partial record MeetingInstructionCancellationRequestV05 : IOuterRecord
     {
         return new MeetingInstructionCancellationRequestV05Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MtgInstrCxlReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+        PreviousReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MeetingReference is MeetingReference7 MeetingReferenceValue)
+        {
+            writer.WriteStartElement(null, "MtgRef", xmlNamespace );
+            MeetingReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentIdentification is SecurityIdentification14 FinancialInstrumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+            FinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructedPosition is SafekeepingAccount6 InstructedPositionValue)
+        {
+            writer.WriteStartElement(null, "InstdPos", xmlNamespace );
+            InstructedPositionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MeetingInstructionCancellationRequestV05 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -104,9 +155,7 @@ public partial record MeetingInstructionCancellationRequestV05 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingInstructionCancellationRequestV05"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record MeetingInstructionCancellationRequestV05Document : IOuterDocument<MeetingInstructionCancellationRequestV05>
+public partial record MeetingInstructionCancellationRequestV05Document : IOuterDocument<MeetingInstructionCancellationRequestV05>, IXmlSerializable
 {
     
     /// <summary>
@@ -122,5 +171,22 @@ public partial record MeetingInstructionCancellationRequestV05Document : IOuterD
     /// <summary>
     /// The instance of <seealso cref="MeetingInstructionCancellationRequestV05"/> is required.
     /// </summary>
+    [DataMember(Name=MeetingInstructionCancellationRequestV05.XmlTag)]
     public required MeetingInstructionCancellationRequestV05 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(MeetingInstructionCancellationRequestV05.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

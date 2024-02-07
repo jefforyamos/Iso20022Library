@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the exchange rate.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ExchangeRateDetail1
+     : IIsoXmlSerilizable<ExchangeRateDetail1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the party to which this detail applies.
     /// </summary>
-    [DataMember]
     public Endpoint1Code? EndPoint { get; init; } 
     /// <summary>
     /// Other nationally or privately defined endpoint.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherEndPoint { get; init; } 
     /// <summary>
     /// Identifies the counter currency used for currency conversion for the transaction party.
     /// </summary>
-    [DataMember]
     public ISO3NumericCurrencyCode? CounterCurrencyCode { get; init; } 
     /// <summary>
     /// Identifies the base currency used for currency conversion for the transaction party.
     /// </summary>
-    [DataMember]
     public ISO3NumericCurrencyCode? BaseCurrencyCode { get; init; } 
     /// <summary>
     /// Contains the exchange rate.
     /// </summary>
-    [DataMember]
     public IsoBaseOne25Rate? Rate { get; init; } 
     /// <summary>
     /// Identifies the type of rate.
     /// </summary>
-    [DataMember]
     public ExchangeRateType2Code? RateType { get; init; } 
     /// <summary>
     /// Other type of rate defined privately or at national level.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherRateType { get; init; } 
     /// <summary>
     /// Type of exchange rate agreement.
     /// </summary>
-    [DataMember]
     public ExchangeRateAgreementType1Code? AgreementType { get; init; } 
     /// <summary>
     /// Other type of exchange rate agreement.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherAgreementType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (EndPoint is Endpoint1Code EndPointValue)
+        {
+            writer.WriteStartElement(null, "EndPt", xmlNamespace );
+            writer.WriteValue(EndPointValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherEndPoint is IsoMax35Text OtherEndPointValue)
+        {
+            writer.WriteStartElement(null, "OthrEndPt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherEndPointValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CounterCurrencyCode is ISO3NumericCurrencyCode CounterCurrencyCodeValue)
+        {
+            writer.WriteStartElement(null, "CntrCcyCd", xmlNamespace );
+            writer.WriteValue(CounterCurrencyCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (BaseCurrencyCode is ISO3NumericCurrencyCode BaseCurrencyCodeValue)
+        {
+            writer.WriteStartElement(null, "BaseCcyCd", xmlNamespace );
+            writer.WriteValue(BaseCurrencyCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Rate is IsoBaseOne25Rate RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOne25Rate(RateValue)); // data type BaseOne25Rate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (RateType is ExchangeRateType2Code RateTypeValue)
+        {
+            writer.WriteStartElement(null, "RateTp", xmlNamespace );
+            writer.WriteValue(RateTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherRateType is IsoMax35Text OtherRateTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrRateTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherRateTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AgreementType is ExchangeRateAgreementType1Code AgreementTypeValue)
+        {
+            writer.WriteStartElement(null, "AgrmtTp", xmlNamespace );
+            writer.WriteValue(AgreementTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherAgreementType is IsoMax35Text OtherAgreementTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrAgrmtTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherAgreementTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ExchangeRateDetail1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

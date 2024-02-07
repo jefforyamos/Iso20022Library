@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.QuantityNominalValue2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityNominalValue2Choice;
 /// Total nominal amount of bonds (number of bonds multiplied by the face value).
 /// </summary>
 public partial record NominalValue : QuantityNominalValue2Choice_
+     , IIsoXmlSerilizable<NominalValue>
 {
     #nullable enable
+    
     /// <summary>
     /// Amount of money that results in an increase (positively signed) or decrease (negatively signed), with specification of the currency.
     /// </summary>
@@ -24,5 +28,32 @@ public partial record NominalValue : QuantityNominalValue2Choice_
     /// Usage: When absent, the amount is positive.
     /// </summary>
     public IsoPlusOrMinusIndicator? Sign { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(Amount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (Sign is IsoPlusOrMinusIndicator SignValue)
+        {
+            writer.WriteStartElement(null, "Sgn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPlusOrMinusIndicator(SignValue)); // data type PlusOrMinusIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new NominalValue Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

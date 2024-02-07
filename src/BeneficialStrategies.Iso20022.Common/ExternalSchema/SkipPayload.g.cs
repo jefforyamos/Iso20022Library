@@ -5,6 +5,8 @@
 //
 
 using BeneficialStrategies.Iso20022.Components;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.ExternalSchema;
 
@@ -12,11 +14,13 @@ namespace BeneficialStrategies.Iso20022.ExternalSchema;
 /// Specifies a data structure that allows to include any valid XML Structure (e.g. through an XML Schema). The property namespace is set to 'any'.
 /// The processContents value is 'skip' which according to the above specification and to Iso20022: 2013 means that the application will not perform further validation processing.
 /// </summary>
-[DataContract]
-public partial record SkipPayload
+[DataContract(Namespace = "")]
+public partial record SkipPayload // : IIsoXmlSerilizable<SkipPayload>
 {
     #nullable enable
     
     
     #nullable disable
+    
+    public void Serialize(XmlWriter writer, string xmlNamespace) {} 
 }

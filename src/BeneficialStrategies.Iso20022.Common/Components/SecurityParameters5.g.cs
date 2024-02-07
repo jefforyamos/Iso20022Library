@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Security parameters of the host downloading the key.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityParameters5
+     : IIsoXmlSerilizable<SecurityParameters5>
 {
     #nullable enable
     
     /// <summary>
     /// Random value from the host.
     /// </summary>
-    [DataMember]
     public IsoMax140Binary? HostChallenge { get; init; } 
     /// <summary>
     /// Cryptographic key used to store in the ATM.
     /// </summary>
-    [DataMember]
-    public ValueList<CryptographicKey8> Key { get; init; } = []; // Warning: Don't know multiplicity.
+    public CryptographicKey8? Key { get; init; } 
     /// <summary>
     /// Digital signature of implicit data depending on the security scheme download procedure.
     /// </summary>
-    [DataMember]
     public ContentInformationType14? DigitalSignature { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (HostChallenge is IsoMax140Binary HostChallengeValue)
+        {
+            writer.WriteStartElement(null, "HstChllng", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Binary(HostChallengeValue)); // data type Max140Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (Key is CryptographicKey8 KeyValue)
+        {
+            writer.WriteStartElement(null, "Key", xmlNamespace );
+            KeyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DigitalSignature is ContentInformationType14 DigitalSignatureValue)
+        {
+            writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
+            DigitalSignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecurityParameters5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

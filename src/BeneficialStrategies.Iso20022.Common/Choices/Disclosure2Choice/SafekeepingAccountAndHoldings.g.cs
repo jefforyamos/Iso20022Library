@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Disclosure2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Disclosure2Choice;
 /// Details of the account, account sub-levels and holdings.
 /// </summary>
 public partial record SafekeepingAccountAndHoldings : Disclosure2Choice_
+     , IIsoXmlSerilizable<SafekeepingAccountAndHoldings>
 {
     #nullable enable
+    
     /// <summary>
     /// Account where financial instruments are maintained. Account held by the responding intermediary with its account servicer.
     /// </summary>
@@ -39,5 +43,44 @@ public partial record SafekeepingAccountAndHoldings : Disclosure2Choice_
     /// Shareholdings information at account sub level.
     /// </summary>
     public AccountSubLevel22? AccountSubLevel { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(SafekeepingAccount)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+        AccountServicer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ShrhldgBalOnOwnAcct", xmlNamespace );
+        ShareholdingBalanceOnOwnAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ShrhldgBalOnClntAcct", xmlNamespace );
+        ShareholdingBalanceOnClientAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlShrhldgBal", xmlNamespace );
+        TotalShareholdingBalance.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountSubLevel is AccountSubLevel22 AccountSubLevelValue)
+        {
+            writer.WriteStartElement(null, "AcctSubLvl", xmlNamespace );
+            AccountSubLevelValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new SafekeepingAccountAndHoldings Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

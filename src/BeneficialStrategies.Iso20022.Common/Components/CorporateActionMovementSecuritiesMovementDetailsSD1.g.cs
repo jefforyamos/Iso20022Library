@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action movement securities movement rate details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionMovementSecuritiesMovementDetailsSD1
+     : IIsoXmlSerilizable<CorporateActionMovementSecuritiesMovementDetailsSD1>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Indicates whether the value is a debit or a credit.
     /// </summary>
-    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Resulting quantity of securities concerned in this transaction.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity15Choice_? TransactionQuantity { get; init; } 
     /// <summary>
     /// Transaction reason.
     /// </summary>
-    [DataMember]
     public DTCAdjustmentPaymentType1Code? ReasonCode { get; init; } 
     /// <summary>
     /// Transaction contra participant identification when shares are distributed / delivered to / from another participant.
     /// </summary>
-    [DataMember]
     public IsoMax8Text? ContraParticipantNumber { get; init; } 
     /// <summary>
     /// Date/Time on which the posting / draft of the securities is scheduled to take place for a transaction.
     /// </summary>
-    [DataMember]
     public DateFormat22Choice_? EarliestPaymentDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (TransactionQuantity is FinancialInstrumentQuantity15Choice_ TransactionQuantityValue)
+        {
+            writer.WriteStartElement(null, "TxQty", xmlNamespace );
+            TransactionQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReasonCode is DTCAdjustmentPaymentType1Code ReasonCodeValue)
+        {
+            writer.WriteStartElement(null, "RsnCd", xmlNamespace );
+            writer.WriteValue(ReasonCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ContraParticipantNumber is IsoMax8Text ContraParticipantNumberValue)
+        {
+            writer.WriteStartElement(null, "ContraPtcptNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax8Text(ContraParticipantNumberValue)); // data type Max8Text System.String
+            writer.WriteEndElement();
+        }
+        if (EarliestPaymentDate is DateFormat22Choice_ EarliestPaymentDateValue)
+        {
+            writer.WriteStartElement(null, "EarlstPmtDt", xmlNamespace );
+            EarliestPaymentDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionMovementSecuritiesMovementDetailsSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.reda.InvestmentFundReportRequestV03>;
 
 namespace BeneficialStrategies.Iso20022.reda;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// If the InvestmentFundReportRequest message is used to request a fund reference data report then the request can specify the financial instrument for which the report is requested. Other appropriate parameters can also be included. It is also possible to indicate that the request is an open request, that is, there is no specific criteria for the report requested. For example, a request for a fund reference data report that is specified as "no criteria" means that the request is a request for a reference data report messages for all funds.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The InvestmentFundReportRequest message is sent by a report user, for example, a professional investor, investment fund distributor, market data provider, regulator or other interested party to the report provider, for example, a fund promoter, fund management company, transfer agent, or market data provider to request a report.|The Investment Fund Report Request message can be used to request one or many fund reference data report messages.|Usage|If the InvestmentFundReportRequest message is used to request a fund reference data report then the request can specify the financial instrument for which the report is requested. Other appropriate parameters can also be included. It is also possible to indicate that the request is an open request, that is, there is no specific criteria for the report requested. For example, a request for a fund reference data report that is specified as ""no criteria"" means that the request is a request for a reference data report messages for all funds.")]
-public partial record InvestmentFundReportRequestV03 : IOuterRecord
+public partial record InvestmentFundReportRequestV03 : IOuterRecord<InvestmentFundReportRequestV03,InvestmentFundReportRequestV03Document>
+    ,IIsoXmlSerilizable<InvestmentFundReportRequestV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record InvestmentFundReportRequestV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "InvstmtFndRptReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => InvestmentFundReportRequestV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -89,6 +96,41 @@ public partial record InvestmentFundReportRequestV03 : IOuterRecord
     {
         return new InvestmentFundReportRequestV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("InvstmtFndRptReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PreviousReference is AdditionalReference10 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference10 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RptReq", xmlNamespace );
+        ReportRequest.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static InvestmentFundReportRequestV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -96,9 +138,7 @@ public partial record InvestmentFundReportRequestV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvestmentFundReportRequestV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record InvestmentFundReportRequestV03Document : IOuterDocument<InvestmentFundReportRequestV03>
+public partial record InvestmentFundReportRequestV03Document : IOuterDocument<InvestmentFundReportRequestV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -114,5 +154,22 @@ public partial record InvestmentFundReportRequestV03Document : IOuterDocument<In
     /// <summary>
     /// The instance of <seealso cref="InvestmentFundReportRequestV03"/> is required.
     /// </summary>
+    [DataMember(Name=InvestmentFundReportRequestV03.XmlTag)]
     public required InvestmentFundReportRequestV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(InvestmentFundReportRequestV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

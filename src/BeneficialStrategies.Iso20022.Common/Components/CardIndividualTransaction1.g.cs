@@ -7,64 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Individual card transaction entry details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardIndividualTransaction1
+     : IIsoXmlSerilizable<CardIndividualTransaction1>
 {
     #nullable enable
     
     /// <summary>
     /// Service in addition to the main service.
     /// </summary>
-    [DataMember]
     public CardPaymentServiceType2Code? AdditionalService { get; init; } 
     /// <summary>
     /// Category code conform to ISO 18245, related to the type of services or goods the merchant provides for the transaction.
     /// </summary>
-    [DataMember]
     public ExternalCardTransactionCategory1Code? TransactionCategory { get; init; } 
     /// <summary>
     /// Unique identification of the sales reconciliation period between the acceptor and the acquirer. This identification might be linked to the identification of the settlement for further verification by the merchant.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SaleReconciliationIdentification { get; init; } 
     /// <summary>
     /// Unique reference of the sales as provided by the merchant.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SaleReferenceNumber { get; init; } 
     /// <summary>
     /// Sequential number of the card transaction, as assigned by the POI (Point of Interaction). |Usage: The sequential number is increased incrementally for each transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SequenceNumber { get; init; } 
     /// <summary>
     /// Identification of the transaction assigned by the POI (Point Of Interaction).
     /// </summary>
-    [DataMember]
     public TransactionIdentifier1? TransactionIdentification { get; init; } 
     /// <summary>
     /// Product purchased with the transaction.
     /// </summary>
-    [DataMember]
     public Product2? Product { get; init; } 
     /// <summary>
     /// Date when the deposit was validated by the financial institution that collected the cash.
     /// </summary>
-    [DataMember]
     public IsoISODate? ValidationDate { get; init; } 
     /// <summary>
     /// Sequential number of the validation of the cash deposit.
     /// Usage: The sequential number is increased incrementally for each transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ValidationSequenceNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AdditionalService is CardPaymentServiceType2Code AdditionalServiceValue)
+        {
+            writer.WriteStartElement(null, "AddtlSvc", xmlNamespace );
+            writer.WriteValue(AdditionalServiceValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TransactionCategory is ExternalCardTransactionCategory1Code TransactionCategoryValue)
+        {
+            writer.WriteStartElement(null, "TxCtgy", xmlNamespace );
+            writer.WriteValue(TransactionCategoryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SaleReconciliationIdentification is IsoMax35Text SaleReconciliationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleRcncltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReconciliationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SaleReferenceNumber is IsoMax35Text SaleReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "SaleRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReferenceNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SequenceNumber is IsoMax35Text SequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "SeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SequenceNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionIdentification is TransactionIdentifier1 TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            TransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Product is Product2 ProductValue)
+        {
+            writer.WriteStartElement(null, "Pdct", xmlNamespace );
+            ProductValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValidationDate is IsoISODate ValidationDateValue)
+        {
+            writer.WriteStartElement(null, "VldtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ValidationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ValidationSequenceNumber is IsoMax35Text ValidationSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "VldtnSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ValidationSequenceNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CardIndividualTransaction1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

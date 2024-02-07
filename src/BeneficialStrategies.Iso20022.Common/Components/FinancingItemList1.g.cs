@@ -7,103 +7,191 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies a list of financing items exchanged between two parties, for example invoice, credit, financing request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancingItemList1
+     : IIsoXmlSerilizable<FinancingItemList1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification assigned to unambiguously identify the financing item list.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identifier { get; init; } 
     /// <summary>
     /// Date of creation of this document.
     /// </summary>
-    [DataMember]
     public required IsoISODate IssueDate { get; init; } 
     /// <summary>
     /// Reference to related documents for example to original assignment in a status response or retry.
     /// </summary>
-    [DataMember]
-    public ValueList<QualifiedDocumentInformation1> RelatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1? RelatedDocument { get; init; } 
     /// <summary>
     /// Cut off date for items used to establish the total request amount.
     /// </summary>
-    [DataMember]
     public IsoISODate? AmountCutOffDate { get; init; } 
     /// <summary>
     /// Party to which the list is assigned.
     /// </summary>
-    [DataMember]
     public required QualifiedPartyIdentification1 Assignee { get; init; } 
     /// <summary>
     /// Party assigning the list.
     /// </summary>
-    [DataMember]
     public required QualifiedPartyIdentification1 Assigner { get; init; } 
     /// <summary>
     /// Identifies parties that notify the assignment(s) and the notified parties.
     /// </summary>
-    [DataMember]
-    public ValueList<FinancingNotificationParties1> NotificationInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public FinancingNotificationParties1? NotificationInformation { get; init; } 
     /// <summary>
     /// List of items/transactions.
     /// </summary>
-    [DataMember]
-    public ValueList<FinancialItem1> FinancialItem { get; init; } = []; // Warning: Don't know multiplicity.
+    public FinancialItem1? FinancialItem { get; init; } 
     /// <summary>
     /// Number of individual items contained in the list.
     /// </summary>
-    [DataMember]
     public required IsoMax15NumericText ItemCount { get; init; } 
     /// <summary>
     /// Total of all individual amounts included in the list, irrespective of currencies.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? ControlSum { get; init; } 
     /// <summary>
     /// Total amount in all items. Requires same currency, necessary when financing request is in percentage.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalRequestAmount { get; init; } 
     /// <summary>
     /// Total amount requested.
     /// </summary>
-    [DataMember]
     public FinancingRateOrAmountChoice_? TotalRequestFinancing { get; init; } 
     /// <summary>
     /// Acceptable exchange rate for financing by different currency.
     /// </summary>
-    [DataMember]
     public AgreedRate1? AgreedRate { get; init; } 
     /// <summary>
     /// Instalment for the financing.
     /// </summary>
-    [DataMember]
-    public ValueList<Instalment2> FinancingInstalment { get; init; } = []; // Warning: Don't know multiplicity.
+    public Instalment2? FinancingInstalment { get; init; } 
     /// <summary>
     /// Additional free form information concerning the list.
     /// </summary>
-    [DataMember]
     public IsoMax2000Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Validation status of the list.
     /// </summary>
-    [DataMember]
     public ValidationStatusInformation1? ValidationStatusInformation { get; init; } 
     /// <summary>
     /// Financing status if applicable to the nature of the items.
     /// </summary>
-    [DataMember]
     public FinancingInformationAndStatus1? FinancingStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Idr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identifier)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IsseDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(IssueDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (RelatedDocument is QualifiedDocumentInformation1 RelatedDocumentValue)
+        {
+            writer.WriteStartElement(null, "RltdDoc", xmlNamespace );
+            RelatedDocumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AmountCutOffDate is IsoISODate AmountCutOffDateValue)
+        {
+            writer.WriteStartElement(null, "AmtCutOffDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(AmountCutOffDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Assgne", xmlNamespace );
+        Assignee.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Assgnr", xmlNamespace );
+        Assigner.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (NotificationInformation is FinancingNotificationParties1 NotificationInformationValue)
+        {
+            writer.WriteStartElement(null, "NtfctnInf", xmlNamespace );
+            NotificationInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialItem is FinancialItem1 FinancialItemValue)
+        {
+            writer.WriteStartElement(null, "FinItm", xmlNamespace );
+            FinancialItemValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ItmCnt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(ItemCount)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+        if (ControlSum is IsoDecimalNumber ControlSumValue)
+        {
+            writer.WriteStartElement(null, "CtrlSum", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(ControlSumValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (TotalRequestAmount is IsoActiveCurrencyAndAmount TotalRequestAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlReqAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalRequestAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TotalRequestFinancing is FinancingRateOrAmountChoice_ TotalRequestFinancingValue)
+        {
+            writer.WriteStartElement(null, "TtlReqFincg", xmlNamespace );
+            TotalRequestFinancingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AgreedRate is AgreedRate1 AgreedRateValue)
+        {
+            writer.WriteStartElement(null, "AgrdRate", xmlNamespace );
+            AgreedRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancingInstalment is Instalment2 FinancingInstalmentValue)
+        {
+            writer.WriteStartElement(null, "FincgInstlmt", xmlNamespace );
+            FinancingInstalmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax2000Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2000Text(AdditionalInformationValue)); // data type Max2000Text System.String
+            writer.WriteEndElement();
+        }
+        if (ValidationStatusInformation is ValidationStatusInformation1 ValidationStatusInformationValue)
+        {
+            writer.WriteStartElement(null, "VldtnStsInf", xmlNamespace );
+            ValidationStatusInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancingStatus is FinancingInformationAndStatus1 FinancingStatusValue)
+        {
+            writer.WriteStartElement(null, "FincgSts", xmlNamespace );
+            FinancingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancingItemList1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

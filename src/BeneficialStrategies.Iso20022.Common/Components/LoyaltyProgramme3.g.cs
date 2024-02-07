@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Loyalty programme used for partial payment in loyalty value (debit) and computation of loyalty value gained on the monetary value paid by the customer (credit).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LoyaltyProgramme3
+     : IIsoXmlSerilizable<LoyaltyProgramme3>
 {
     #nullable enable
     
@@ -25,18 +26,50 @@ public partial record LoyaltyProgramme3
     /// False: Not eligible for loyalty
     /// Default: False.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoTrueFalseIndicator> ProgrammeEligibilityIndicator { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoTrueFalseIndicator? ProgrammeEligibilityIndicator { get; init; } 
     /// <summary>
     /// Entity issuing the loyalty programme.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ProgrammeIssuer { get; init; } 
     /// <summary>
     /// Details about the member of the loyalty programme
     /// </summary>
-    [DataMember]
     public LoyaltyMember2? LoyaltyMember { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ProgrammeEligibilityIndicator is IsoTrueFalseIndicator ProgrammeEligibilityIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PrgrmmElgbltyInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ProgrammeEligibilityIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ProgrammeIssuer is IsoMax35Text ProgrammeIssuerValue)
+        {
+            writer.WriteStartElement(null, "PrgrmmIssr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProgrammeIssuerValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (LoyaltyMember is LoyaltyMember2 LoyaltyMemberValue)
+        {
+            writer.WriteStartElement(null, "LltyMmb", xmlNamespace );
+            LoyaltyMemberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LoyaltyProgramme3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

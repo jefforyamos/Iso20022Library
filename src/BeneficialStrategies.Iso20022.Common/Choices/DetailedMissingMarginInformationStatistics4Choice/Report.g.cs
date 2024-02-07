@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.DetailedMissingMarginInformationStatistics4Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.DetailedMissingMarginInformation
 /// Detailed information on statistics per combination of counterparties.
 /// </summary>
 public partial record Report : DetailedMissingMarginInformationStatistics4Choice_
+     , IIsoXmlSerilizable<Report>
 {
     #nullable enable
+    
     /// <summary>
     /// Number of outstanding derivatives. 
     /// </summary>
@@ -31,5 +35,34 @@ public partial record Report : DetailedMissingMarginInformationStatistics4Choice
     /// Details of the outstanding derivatives for which no margin information has been reported, or the margin information that was reported is dated more than fourteen calendar days earlier than the day.
     /// </summary>
     public MissingMarginData2? Warnings { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _rtPOh1owEe23K4GXSpBSeg
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NbOfOutsdngDerivs", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfOutstandingDerivatives)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NbOfOutsdngDerivsWthNoMrgnInf", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfOutstandingDerivativesWithNoMarginInformation)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NbOfOutsdngDerivsWthOutdtdMrgnInf", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfOutstandingDerivativesWithOutdatedMarginInformation)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        // Not sure how to serialize Warnings, multiplicity Unknown
+    }
+    public static new Report Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

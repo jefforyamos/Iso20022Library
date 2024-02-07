@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TransactionReportOrError4Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionReportOrError4Choice;
 /// Reports on payment transactions.
 /// </summary>
 public partial record BusinessReport : TransactionReportOrError4Choice_
+     , IIsoXmlSerilizable<BusinessReport>
 {
     #nullable enable
+    
     /// <summary>
     /// Common detailed payment instruction information.
     /// </summary>
@@ -27,5 +31,37 @@ public partial record BusinessReport : TransactionReportOrError4Choice_
     /// Reports either on the transaction information or on a business error.
     /// </summary>
     public TransactionReport5? TransactionReport { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _WxDT3W49EeiU9cctagi5ow
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PaymentCommonInformation is PaymentCommon4 PaymentCommonInformationValue)
+        {
+            writer.WriteStartElement(null, "PmtCmonInf", xmlNamespace );
+            PaymentCommonInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionsSummary is NumberAndSumOfTransactions2 TransactionsSummaryValue)
+        {
+            writer.WriteStartElement(null, "TxsSummry", xmlNamespace );
+            TransactionsSummaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize TransactionReport, multiplicity Unknown
+    }
+    public static new BusinessReport Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

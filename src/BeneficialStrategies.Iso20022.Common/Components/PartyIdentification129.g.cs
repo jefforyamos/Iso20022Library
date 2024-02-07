@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to identify a person or an organisation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentification129
+     : IIsoXmlSerilizable<PartyIdentification129>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by an organisation, to unambiguously identify a party.
     /// </summary>
-    [DataMember]
     public Party36Choice_? Identification { get; init; } 
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address.
     /// </summary>
-    [DataMember]
     public PostalAddress6? PostalAddress { get; init; } 
     /// <summary>
     /// Country in which a person resides (the place of a person's home). In the case of a company, it is the country from which the affairs of that company are directed.
     /// </summary>
-    [DataMember]
     public CountryCode? CountryOfResidence { get; init; } 
     /// <summary>
     /// Contact defined for this party.
     /// </summary>
-    [DataMember]
-    public ValueList<Contacts3> ContactDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Contacts3? ContactDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is Party36Choice_ IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Name is IsoMax35Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PostalAddress is PostalAddress6 PostalAddressValue)
+        {
+            writer.WriteStartElement(null, "PstlAdr", xmlNamespace );
+            PostalAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CountryOfResidence is CountryCode CountryOfResidenceValue)
+        {
+            writer.WriteStartElement(null, "CtryOfRes", xmlNamespace );
+            writer.WriteValue(CountryOfResidenceValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ContactDetails is Contacts3 ContactDetailsValue)
+        {
+            writer.WriteStartElement(null, "CtctDtls", xmlNamespace );
+            ContactDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyIdentification129 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

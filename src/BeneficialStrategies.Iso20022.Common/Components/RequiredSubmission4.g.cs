@@ -7,63 +7,107 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details relative to the submission of the certificate data set.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RequiredSubmission4
+     : IIsoXmlSerilizable<RequiredSubmission4>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies with party(ies) is authorised to submit the data set as part of the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<BICIdentification1> Submitter { get; init; } = []; // Warning: Don't know multiplicity.
+    public BICIdentification1? Submitter { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _TnmW19p-Ed-ak6NoX_4Aeg_-1858308280
     /// <summary>
     /// Specifies the type of the certificate.
     /// </summary>
-    [DataMember]
     public required TradeCertificateType1Code CertificateType { get; init; } 
     /// <summary>
     /// Specifies if the issuer must be matched as part of the validation of the data set.
     /// </summary>
-    [DataMember]
     public PartyIdentification27? MatchIssuer { get; init; } 
     /// <summary>
     /// Specifies if the issue date must be matched as part of the validation of the data set.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator MatchIssueDate { get; init; } 
     /// <summary>
     /// Specifies if the inspection date must be matched as part of the validation of the data set.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator MatchInspectionDate { get; init; } 
     /// <summary>
     /// Specifies if the indication of an authorised inspector must be present as part of the validation of the data set.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator AuthorisedInspectorIndicator { get; init; } 
     /// <summary>
     /// Specifies if the consignee must be matched as part of the validation of the data set.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator MatchConsignee { get; init; } 
     /// <summary>
     /// Specifies if the manufacturer must be matched as part of the validation of the data set.
     /// </summary>
-    [DataMember]
     public PartyIdentification27? MatchManufacturer { get; init; } 
     /// <summary>
     /// Specifies if the certificate data set is required in relation to specific line items, and which line items.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax70Text> LineItemIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax70Text? LineItemIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize Submitter, multiplicity Unknown
+        writer.WriteStartElement(null, "CertTp", xmlNamespace );
+        writer.WriteValue(CertificateType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (MatchIssuer is PartyIdentification27 MatchIssuerValue)
+        {
+            writer.WriteStartElement(null, "MtchIssr", xmlNamespace );
+            MatchIssuerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MtchIsseDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MatchIssueDate)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MtchInspctnDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MatchInspectionDate)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AuthrsdInspctrInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AuthorisedInspectorIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MtchConsgn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MatchConsignee)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (MatchManufacturer is PartyIdentification27 MatchManufacturerValue)
+        {
+            writer.WriteStartElement(null, "MtchManfctr", xmlNamespace );
+            MatchManufacturerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LineItemIdentification is IsoMax70Text LineItemIdentificationValue)
+        {
+            writer.WriteStartElement(null, "LineItmId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(LineItemIdentificationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static RequiredSubmission4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

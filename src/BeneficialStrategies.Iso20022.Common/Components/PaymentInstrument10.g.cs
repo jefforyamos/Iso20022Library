@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Instrument that has or represents monetary value and is used to process a payment instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentInstrument10
+     : IIsoXmlSerilizable<PaymentInstrument10>
 {
     #nullable enable
     
     /// <summary>
     /// Currency associated with the payment instrument.
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode SettlementCurrency { get; init; } 
     /// <summary>
     /// Choice of payment instruments.
     /// </summary>
-    [DataMember]
     public required PaymentInstrument16Choice_ PaymentInstrument { get; init; } 
     /// <summary>
     /// Percentage of the dividend payment not to be reinvested.
     /// </summary>
-    [DataMember]
     public IsoPercentageBoundedRate? DividendPercentage { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttlmCcy", xmlNamespace );
+        writer.WriteValue(SettlementCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PmtInstrm", xmlNamespace );
+        PaymentInstrument.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DividendPercentage is IsoPercentageBoundedRate DividendPercentageValue)
+        {
+            writer.WriteStartElement(null, "DvddPctg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageBoundedRate(DividendPercentageValue)); // data type PercentageBoundedRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentInstrument10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

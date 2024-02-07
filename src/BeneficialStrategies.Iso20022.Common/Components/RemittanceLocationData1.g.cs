@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional details on the remittance advice.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RemittanceLocationData1
+     : IIsoXmlSerilizable<RemittanceLocationData1>
 {
     #nullable enable
     
     /// <summary>
     /// Method used to deliver the remittance advice information.
     /// </summary>
-    [DataMember]
     public required RemittanceLocationMethod2Code Method { get; init; } 
     /// <summary>
     /// Electronic address to which an agent is to send the remittance information.
     /// </summary>
-    [DataMember]
     public IsoMax2048Text? ElectronicAddress { get; init; } 
     /// <summary>
     /// Postal address to which an agent is to send the remittance information.
     /// </summary>
-    [DataMember]
     public NameAndAddress16? PostalAddress { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Mtd", xmlNamespace );
+        writer.WriteValue(Method.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ElectronicAddress is IsoMax2048Text ElectronicAddressValue)
+        {
+            writer.WriteStartElement(null, "ElctrncAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2048Text(ElectronicAddressValue)); // data type Max2048Text System.String
+            writer.WriteEndElement();
+        }
+        if (PostalAddress is NameAndAddress16 PostalAddressValue)
+        {
+            writer.WriteStartElement(null, "PstlAdr", xmlNamespace );
+            PostalAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RemittanceLocationData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information regarding the total amount of taxes.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TotalTaxes5
+     : IIsoXmlSerilizable<TotalTaxes5>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether capital gain is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
-    [DataMember]
     public EUCapitalGain2Code? EUCapitalGain { get; init; } 
     /// <summary>
     /// Percentage of the underlying assets of the funds that represents a debt and is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June).
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? PercentageOfDebtClaim { get; init; } 
     /// <summary>
     /// Information related to a specific tax.
     /// </summary>
-    [DataMember]
     public ValueList<Tax20> TaxDetails { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (EUCapitalGain is EUCapitalGain2Code EUCapitalGainValue)
+        {
+            writer.WriteStartElement(null, "EUCptlGn", xmlNamespace );
+            writer.WriteValue(EUCapitalGainValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PercentageOfDebtClaim is IsoPercentageRate PercentageOfDebtClaimValue)
+        {
+            writer.WriteStartElement(null, "PctgOfDebtClm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PercentageOfDebtClaimValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TaxDtls", xmlNamespace );
+        TaxDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static TotalTaxes5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

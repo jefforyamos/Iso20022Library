@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of characteristics shared by all individual transactions included in the message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TrackerHeader8
+     : IIsoXmlSerilizable<TrackerHeader8>
 {
     #nullable enable
     
     /// <summary>
     /// Point to point reference, as assigned by the tracker informing party and sent by the tracker to unambiguously identify the message.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? CreationDateTime { get; init; } 
     /// <summary>
     /// Number of individual transactions contained in the message.
     /// </summary>
-    [DataMember]
     public IsoMax15NumericText? NumberOfTransactions { get; init; } 
     /// <summary>
     /// Party that provides information on the status and related details of an investigation.
     /// </summary>
-    [DataMember]
     public TrackerPartyIdentification2? TrackerInformingParty { get; init; } 
     /// <summary>
     /// Party that is updated on the status and related details of an investigation.
     /// </summary>
-    [DataMember]
     public TrackerPartyIdentification2? TrackerInformedParty { get; init; } 
     /// <summary>
     /// Agreement under which or rules under which the request should be processed.
     /// </summary>
-    [DataMember]
     public ServiceLevel8Choice_? ServiceLevel { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (CreationDateTime is IsoISODateTime CreationDateTimeValue)
+        {
+            writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (NumberOfTransactions is IsoMax15NumericText NumberOfTransactionsValue)
+        {
+            writer.WriteStartElement(null, "NbOfTxs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(NumberOfTransactionsValue)); // data type Max15NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (TrackerInformingParty is TrackerPartyIdentification2 TrackerInformingPartyValue)
+        {
+            writer.WriteStartElement(null, "TrckrInfrmgPty", xmlNamespace );
+            TrackerInformingPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TrackerInformedParty is TrackerPartyIdentification2 TrackerInformedPartyValue)
+        {
+            writer.WriteStartElement(null, "TrckrInfrmdPty", xmlNamespace );
+            TrackerInformedPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ServiceLevel is ServiceLevel8Choice_ ServiceLevelValue)
+        {
+            writer.WriteStartElement(null, "SvcLvl", xmlNamespace );
+            ServiceLevelValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TrackerHeader8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

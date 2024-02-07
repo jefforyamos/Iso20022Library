@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.pacs.FIToFIPaymentReversalV07>;
 
 namespace BeneficialStrategies.Iso20022.pacs;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.pacs;
 /// The FIToFIPaymentReversal message can be used in domestic and cross-border scenarios.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The FinancialInstitutionToFinancialInstitutionPaymentReversal message is sent by an agent to the next party in the payment chain. It is used to reverse a payment previously executed.|Usage|The FIToFIPaymentReversal message is exchanged between agents to reverse a payment message that has been settled. The result will be a credit on the debtor account (when the reversed payment was a Direct Debit) or a debit on the creditor account (when the reversed payment was a Credit Transfer).|The FIToFIPaymentReversal message may or may not be the follow-up of a payment message.|The FIToFIPaymentReversal message refers to the original payment message by means of references only or by means of references and a set of elements from the original instruction.|The FIToFIPaymentReversal message can be used in domestic and cross-border scenarios.")]
-public partial record FIToFIPaymentReversalV07 : IOuterRecord
+public partial record FIToFIPaymentReversalV07 : IOuterRecord<FIToFIPaymentReversalV07,FIToFIPaymentReversalV07Document>
+    ,IIsoXmlSerilizable<FIToFIPaymentReversalV07>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record FIToFIPaymentReversalV07 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "FIToFIPmtRvsl";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => FIToFIPaymentReversalV07Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -90,6 +97,44 @@ public partial record FIToFIPaymentReversalV07 : IOuterRecord
     {
         return new FIToFIPaymentReversalV07Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("FIToFIPmtRvsl");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
+        GroupHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OriginalGroupInformation is OriginalGroupHeader3 OriginalGroupInformationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlGrpInf", xmlNamespace );
+            OriginalGroupInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionInformation is PaymentTransaction81 TransactionInformationValue)
+        {
+            writer.WriteStartElement(null, "TxInf", xmlNamespace );
+            TransactionInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FIToFIPaymentReversalV07 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -97,9 +142,7 @@ public partial record FIToFIPaymentReversalV07 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FIToFIPaymentReversalV07"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record FIToFIPaymentReversalV07Document : IOuterDocument<FIToFIPaymentReversalV07>
+public partial record FIToFIPaymentReversalV07Document : IOuterDocument<FIToFIPaymentReversalV07>, IXmlSerializable
 {
     
     /// <summary>
@@ -115,5 +158,22 @@ public partial record FIToFIPaymentReversalV07Document : IOuterDocument<FIToFIPa
     /// <summary>
     /// The instance of <seealso cref="FIToFIPaymentReversalV07"/> is required.
     /// </summary>
+    [DataMember(Name=FIToFIPaymentReversalV07.XmlTag)]
     public required FIToFIPaymentReversalV07 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(FIToFIPaymentReversalV07.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.caam.ATMDeviceControlV02>;
 
 namespace BeneficialStrategies.Iso20022.caam;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.caam;
 /// The ATMDeviceControl message is sent by a maintenance host to an ATM in response to an ATMDeviceReport message. The message contains a sequence of maintenance commands the ATM must perform.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The ATMDeviceControl message is sent by a maintenance host to an ATM in response to an ATMDeviceReport message. The message contains a sequence of maintenance commands the ATM must perform.")]
-public partial record ATMDeviceControlV02 : IOuterRecord
+public partial record ATMDeviceControlV02 : IOuterRecord<ATMDeviceControlV02,ATMDeviceControlV02Document>
+    ,IIsoXmlSerilizable<ATMDeviceControlV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record ATMDeviceControlV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "ATMDvcCtrl";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ATMDeviceControlV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -84,6 +91,44 @@ public partial record ATMDeviceControlV02 : IOuterRecord
     {
         return new ATMDeviceControlV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("ATMDvcCtrl");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ProtectedATMDeviceControl is ContentInformationType10 ProtectedATMDeviceControlValue)
+        {
+            writer.WriteStartElement(null, "PrtctdATMDvcCtrl", xmlNamespace );
+            ProtectedATMDeviceControlValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ATMDeviceControl is ATMDeviceControl1 ATMDeviceControlValue)
+        {
+            writer.WriteStartElement(null, "ATMDvcCtrl", xmlNamespace );
+            ATMDeviceControlValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecurityTrailer is ContentInformationType13 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMDeviceControlV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -91,9 +136,7 @@ public partial record ATMDeviceControlV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMDeviceControlV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ATMDeviceControlV02Document : IOuterDocument<ATMDeviceControlV02>
+public partial record ATMDeviceControlV02Document : IOuterDocument<ATMDeviceControlV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -109,5 +152,22 @@ public partial record ATMDeviceControlV02Document : IOuterDocument<ATMDeviceCont
     /// <summary>
     /// The instance of <seealso cref="ATMDeviceControlV02"/> is required.
     /// </summary>
+    [DataMember(Name=ATMDeviceControlV02.XmlTag)]
     public required ATMDeviceControlV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ATMDeviceControlV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

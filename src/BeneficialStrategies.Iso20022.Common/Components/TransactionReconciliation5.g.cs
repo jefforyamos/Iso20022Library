@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reconciliation transaction between an acceptor and an acquirer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionReconciliation5
+     : IIsoXmlSerilizable<TransactionReconciliation5>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates if the transaction requires a closure of the reconciliation period.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ClosePeriod { get; init; } 
     /// <summary>
     /// Unique identification of a reconciliation transaction.
     /// </summary>
-    [DataMember]
     public required TransactionIdentifier1 ReconciliationTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the reconciliation period between the acceptor and the acquirer.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ReconciliationIdentification { get; init; } 
     /// <summary>
     /// Transaction totals during the reconciliation period for a certain type of transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<TransactionTotals12> TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransactionTotals12? TransactionTotals { get; init; } 
     /// <summary>
     /// Additional information related to the reconciliation transaction.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? AdditionalTransactionData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ClosePeriod is IsoTrueFalseIndicator ClosePeriodValue)
+        {
+            writer.WriteStartElement(null, "ClsPrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ClosePeriodValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RcncltnTxId", xmlNamespace );
+        ReconciliationTransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RcncltnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ReconciliationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (TransactionTotals is TransactionTotals12 TransactionTotalsValue)
+        {
+            writer.WriteStartElement(null, "TxTtls", xmlNamespace );
+            TransactionTotalsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalTransactionData is IsoMax70Text AdditionalTransactionDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlTxData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AdditionalTransactionDataValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionReconciliation5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

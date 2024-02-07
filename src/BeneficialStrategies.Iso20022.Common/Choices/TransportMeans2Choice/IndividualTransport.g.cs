@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TransportMeans2Choice;
 
@@ -13,23 +15,67 @@ namespace BeneficialStrategies.Iso20022.Choices.TransportMeans2Choice;
 /// Moving of goods or people from one place to another by vehicle.
 /// </summary>
 public partial record IndividualTransport : TransportMeans2Choice_
+     , IIsoXmlSerilizable<IndividualTransport>
 {
     #nullable enable
+    
     /// <summary>
     /// Information related to the transportation of goods by air.
     /// </summary>
-    public TransportByAir2? TransportByAir { get; init;  } // Warning: Don't know multiplicity.
+    public TransportByAir2? TransportByAir { get; init; } 
     /// <summary>
     /// Information related for the transportation of goods by sea.
     /// </summary>
-    public TransportBySea2? TransportBySea { get; init;  } // Warning: Don't know multiplicity.
+    public TransportBySea2? TransportBySea { get; init; } 
     /// <summary>
     /// Moving of goods or people from one place to another by vehicle.
     /// </summary>
-    public TransportByRoad2? TransportByRoad { get; init;  } // Warning: Don't know multiplicity.
+    public TransportByRoad2? TransportByRoad { get; init; } 
     /// <summary>
     /// Information related to the transportation of goods by rail.
     /// </summary>
-    public TransportByRail2? TransportByRail { get; init;  } // Warning: Don't know multiplicity.
+    public TransportByRail2? TransportByRail { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TransportByAir is TransportByAir2 TransportByAirValue)
+        {
+            writer.WriteStartElement(null, "TrnsprtByAir", xmlNamespace );
+            TransportByAirValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransportBySea is TransportBySea2 TransportBySeaValue)
+        {
+            writer.WriteStartElement(null, "TrnsprtBySea", xmlNamespace );
+            TransportBySeaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransportByRoad is TransportByRoad2 TransportByRoadValue)
+        {
+            writer.WriteStartElement(null, "TrnsprtByRoad", xmlNamespace );
+            TransportByRoadValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransportByRail is TransportByRail2 TransportByRailValue)
+        {
+            writer.WriteStartElement(null, "TrnsprtByRail", xmlNamespace );
+            TransportByRailValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new IndividualTransport Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

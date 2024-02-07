@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines proprietary reason to reject a transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProprietaryStatusJustification2
+     : IIsoXmlSerilizable<ProprietaryStatusJustification2>
 {
     #nullable enable
     
     /// <summary>
     /// Defines the reason why the system has rejected the transaction.
     /// </summary>
-    [DataMember]
     public required IsoMax4AlphaNumericText ProprietaryStatusReason { get; init; } 
     /// <summary>
     /// Provides detailed information about the reason why the  system has rejected the transaction.
     /// </summary>
-    [DataMember]
     public required IsoMax256Text Reason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrtryStsRsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(ProprietaryStatusReason)); // data type Max4AlphaNumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax256Text(Reason)); // data type Max256Text System.String
+        writer.WriteEndElement();
+    }
+    public static ProprietaryStatusJustification2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

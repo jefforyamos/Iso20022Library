@@ -7,34 +7,32 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Batch management transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Transaction141
+     : IIsoXmlSerilizable<Transaction141>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the batch management transaction.
     /// </summary>
-    [DataMember]
     public TransactionIdentification12? TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of a batch.
     /// All the messages included within the batch will have the same batch identification value.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? BatchIdentification { get; init; } 
     /// <summary>
     /// Identification of the original batch to answer.
     /// Mandatory when the batch response has not the same identification as the batch initiation.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? OriginalBatchIdentification { get; init; } 
     /// <summary>
     /// Number of messages.
@@ -46,45 +44,120 @@ public partial record Transaction141
     /// For an end of batch this is the last message sequence number sent in the closing batch, equal to the number of messages sent in the batch.
     /// For an end of batch acknowledgement, this is the last sequence number received in the sequence.
     /// </summary>
-    [DataMember]
     public IsoNumber? NumberOfMessages { get; init; } 
     /// <summary>
     /// Checksum of the series of messages received in the batch or until a checkpoint.
     /// </summary>
-    [DataMember]
     public IsoMax35Binary? BatchChecksum { get; init; } 
     /// <summary>
     /// Indicator to request acknowledgement.
     /// True: Acknowledgement requested
     /// False: Acknowledgement not requested.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? RequestAcknowledgement { get; init; } 
     /// <summary>
     /// Clearing data at batch level allowing clearing in different currencies.
     /// </summary>
-    [DataMember]
-    public ValueList<ClearingBatchData2> ClearingBatchData { get; init; } = []; // Warning: Don't know multiplicity.
+    public ClearingBatchData2? ClearingBatchData { get; init; } 
     /// <summary>
     /// Gross amount clearing totals.
     /// </summary>
-    [DataMember]
     public ClearingControlTotals2? ClearingControlTotals { get; init; } 
     /// <summary>
     /// Information or instructions relevant for the agent in charge of the clearing.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation21> AgentData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation21? AgentData { get; init; } 
     /// <summary>
     /// Record in batch.
     /// </summary>
-    [DataMember]
-    public ValueList<Record2> Record { get; init; } = []; // Warning: Don't know multiplicity.
+    public Record2? Record { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TransactionIdentification is TransactionIdentification12 TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            TransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BatchIdentification is IsoMax70Text BatchIdentificationValue)
+        {
+            writer.WriteStartElement(null, "BtchId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(BatchIdentificationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalBatchIdentification is IsoMax70Text OriginalBatchIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlBtchId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(OriginalBatchIdentificationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (NumberOfMessages is IsoNumber NumberOfMessagesValue)
+        {
+            writer.WriteStartElement(null, "NbOfMsgs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfMessagesValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (BatchChecksum is IsoMax35Binary BatchChecksumValue)
+        {
+            writer.WriteStartElement(null, "BtchChcksm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Binary(BatchChecksumValue)); // data type Max35Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (RequestAcknowledgement is IsoTrueFalseIndicator RequestAcknowledgementValue)
+        {
+            writer.WriteStartElement(null, "ReqAck", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(RequestAcknowledgementValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ClearingBatchData is ClearingBatchData2 ClearingBatchDataValue)
+        {
+            writer.WriteStartElement(null, "ClrBtchData", xmlNamespace );
+            ClearingBatchDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingControlTotals is ClearingControlTotals2 ClearingControlTotalsValue)
+        {
+            writer.WriteStartElement(null, "ClrCtrlTtls", xmlNamespace );
+            ClearingControlTotalsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AgentData is AdditionalInformation21 AgentDataValue)
+        {
+            writer.WriteStartElement(null, "AgtData", xmlNamespace );
+            AgentDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Record is Record2 RecordValue)
+        {
+            writer.WriteStartElement(null, "Rcrd", xmlNamespace );
+            RecordValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Transaction141 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

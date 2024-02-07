@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the processing request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RequestDetails19
+     : IIsoXmlSerilizable<RequestDetails19>
 {
     #nullable enable
     
     /// <summary>
     /// Type of data being requested, for example, a sub-member BIC.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Identificates the requestor.
     /// </summary>
-    [DataMember]
     public PartyIdentification73Choice_? RequestorIdentification { get; init; } 
     /// <summary>
     /// Additional information to support the processing request.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> AdditionalRequestInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? AdditionalRequestInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Type)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (RequestorIdentification is PartyIdentification73Choice_ RequestorIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RqstrId", xmlNamespace );
+            RequestorIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalRequestInformation is IsoMax35Text AdditionalRequestInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlReqInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdditionalRequestInformationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static RequestDetails19 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

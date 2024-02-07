@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.RequestType3Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.RequestType3Choice;
 /// Liquidity transfer request type, in a coded form.
 /// </summary>
 public partial record Code : RequestType3Choice_
+     , IIsoXmlSerilizable<Code>
 {
-    public required StandingOrderQueryType1Code Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Defines the query type for standing orders queries, that identifies the predefined key attributes expected in the response to the query.
+    /// </summary>
+    public required StandingOrderQueryType1Code Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new Code Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

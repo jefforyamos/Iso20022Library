@@ -7,33 +7,59 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acceptor configuration to be downloaded from the terminal management system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AcceptorConfiguration10
+     : IIsoXmlSerilizable<AcceptorConfiguration10>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the terminal management system (TMS) sending the acceptor parameters.
     /// </summary>
-    [DataMember]
     public required GenericIdentification176 TerminalManagerIdentification { get; init; } 
     /// <summary>
     /// Identifier assigned to a set of POI terminals performing some categories of transactions.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> POIGroupIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? POIGroupIdentification { get; init; } 
     /// <summary>
     /// Data set containing the acceptor parameters of a point of interaction (POI).
     /// </summary>
-    [DataMember]
-    public ValueList<AcceptorConfigurationDataSet2> DataSet { get; init; } = []; // Warning: Don't know multiplicity.
+    public AcceptorConfigurationDataSet2? DataSet { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _uKs1oy1vEeuZtpnZJ4v-5Q
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TermnlMgrId", xmlNamespace );
+        TerminalManagerIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (POIGroupIdentification is IsoMax35Text POIGroupIdentificationValue)
+        {
+            writer.WriteStartElement(null, "POIGrpId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(POIGroupIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize DataSet, multiplicity Unknown
+    }
+    public static AcceptorConfiguration10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money debited or credited on the books of an account servicer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AmountAndDirection4
+     : IIsoXmlSerilizable<AmountAndDirection4>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of money in the cash entry.
     /// </summary>
-    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether an entry is a credit or a debit.
     /// </summary>
-    [DataMember]
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(Amount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (CreditDebitIndicator is CreditDebitCode CreditDebitIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+            writer.WriteValue(CreditDebitIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static AmountAndDirection4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

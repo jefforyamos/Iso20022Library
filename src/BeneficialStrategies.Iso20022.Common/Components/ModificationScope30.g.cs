@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Scope of the modification to be applied on an identified set of information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ModificationScope30
+     : IIsoXmlSerilizable<ModificationScope30>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of modification to be applied.
     /// </summary>
-    [DataMember]
     public required DataModification1Code ModificationScopeIndication { get; init; } 
     /// <summary>
     /// Additional information concerning limitations and restrictions on the account.
     /// </summary>
-    [DataMember]
-    public ValueList<AccountRestrictions1> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AccountRestrictions1? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _xKBm8SFoEeW9XJWqfgXIIA
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ModScpIndctn", xmlNamespace );
+        writer.WriteValue(ModificationScopeIndication.ToString()); // Enum value
+        writer.WriteEndElement();
+        // Not sure how to serialize AdditionalInformation, multiplicity Unknown
+    }
+    public static ModificationScope30 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

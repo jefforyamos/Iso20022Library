@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Method of voting participation to a general meeting.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ParticipationMethod1
+     : IIsoXmlSerilizable<ParticipationMethod1>
 {
     #nullable enable
     
     /// <summary>
     /// Method of voting participation to the general meeting.
     /// </summary>
-    [DataMember]
     public required ParticipationMethod1Choice_ ParticipationMethod { get; init; } 
     /// <summary>
     /// Deadline for voting on agenda resolutions at the general meeting.
     /// </summary>
-    [DataMember]
     public required DateFormat58Choice_ IssuerDeadlineForVoting { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrtcptnMtd", xmlNamespace );
+        ParticipationMethod.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IssrDdlnForVtng", xmlNamespace );
+        IssuerDeadlineForVoting.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ParticipationMethod1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

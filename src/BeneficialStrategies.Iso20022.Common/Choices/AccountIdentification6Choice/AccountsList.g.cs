@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification6Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification6Choice;
 /// Selected safekeeping accounts list to which the corporate action event applies.
 /// </summary>
 public partial record AccountsList : AccountIdentification6Choice_
+     , IIsoXmlSerilizable<AccountsList>
 {
     #nullable enable
+    
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
@@ -27,5 +31,38 @@ public partial record AccountsList : AccountIdentification6Choice_
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
     public SafekeepingPlaceFormat2Choice_? SafekeepingPlace { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(SafekeepingAccount)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (AccountOwner is PartyIdentification13Choice_ AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingPlace is SafekeepingPlaceFormat2Choice_ SafekeepingPlaceValue)
+        {
+            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
+            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new AccountsList Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

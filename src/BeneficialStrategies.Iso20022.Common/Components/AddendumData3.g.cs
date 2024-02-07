@@ -7,103 +7,206 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Component contains data structures applicable to certain merchant verticals that require industry-specific data within transaction messages. 
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AddendumData3
+     : IIsoXmlSerilizable<AddendumData3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of identifier present in the message.
     /// </summary>
-    [DataMember]
     public PurchaseIdentifierType1Code? PurchaseIdentifierType { get; init; } 
     /// <summary>
     /// Used when Purchase Identifier Type is Other National or Other Private. 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherPurchaseIdentifierType { get; init; } 
     /// <summary>
     /// Contains a value identifying Invoice Data or Purchase Request Data.
     /// </summary>
-    [DataMember]
     public IsoMax99Text? PurchaseIdentifier { get; init; } 
     /// <summary>
     /// Contains additional card acceptor data. 
     /// </summary>
-    [DataMember]
     public AdditionalAcceptorData1? AdditionalAcceptorData { get; init; } 
     /// <summary>
     /// Information about the customer.
     /// </summary>
-    [DataMember]
     public Customer4? Customer { get; init; } 
     /// <summary>
     /// Details of good and services included in the sale.
     /// </summary>
-    [DataMember]
     public Sale2? Sale { get; init; } 
     /// <summary>
     /// Fleet data pertaining to the payment transaction.
     /// </summary>
-    [DataMember]
     public FleetData4? Fleet { get; init; } 
     /// <summary>
     /// Invoice data pertaining to the payment transaction.
     /// </summary>
-    [DataMember]
     public Invoice2? Invoice { get; init; } 
     /// <summary>
     /// Component supports corporate transactions for travel agency, airline, or railway transactions. Acquirers may submit multiple occurrences of this component. Each occurrence provides detailed travel agency fee data associated with a travel agency, airline, or railway transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<TravelAgency3> TravelAgency { get; init; } = []; // Warning: Don't know multiplicity.
+    public TravelAgency3? TravelAgency { get; init; } 
     /// <summary>
     /// Component supports ticketing transactions for airline, railway, and travel agency transactions to provide passenger ticket information for the cardholder. 
     /// </summary>
-    [DataMember]
     public PassengerTransport2? PassengerTransport { get; init; } 
     /// <summary>
     /// Component provides detailed vehicle rental information. One occurrence of this component provides rental agreement data reporting for a single vehicle rental transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<VehicleRentalService2> VehicleRental { get; init; } = []; // Warning: Don't know multiplicity.
+    public VehicleRentalService2? VehicleRental { get; init; } 
     /// <summary>
     /// Component provides detailed information about lodging accommodations and related expenses for the cardholder. Acquirers can submit multiple occurrences of this component for each lodging transaction, to provide details of one or more folios.
     /// </summary>
-    [DataMember]
-    public ValueList<Lodging3> Lodging { get; init; } = []; // Warning: Don't know multiplicity.
+    public Lodging3? Lodging { get; init; } 
     /// <summary>
     /// Shipping or Courier Service detail component provides detailed information regarding delivery or courier services. 
     /// </summary>
-    [DataMember]
     public ShippingData2? ShippingData { get; init; } 
     /// <summary>
     /// Telecommunication services component is designed to carry telephony billing data and to enable issuers to supply more transaction information to their consumer and corporate clients pertaining to telecommunications services and related billing information. 
     /// </summary>
-    [DataMember]
     public TelecomServices2? TelecommunicationServices { get; init; } 
     /// <summary>
     /// Temporary Services component provides detailed information regarding the billing for services rendered on a temporary or contract basis. The component provides information such as the employee job performed, timekeeping, and billing rates.
     /// </summary>
-    [DataMember]
-    public ValueList<TemporaryServices2> TemporaryServices { get; init; } = []; // Warning: Don't know multiplicity.
+    public TemporaryServices2? TemporaryServices { get; init; } 
     /// <summary>
     /// Data exclusively related to a card issuer financial loan of the payment transaction, or instalment.
     /// </summary>
-    [DataMember]
     public Instalment4? Instalment { get; init; } 
     /// <summary>
     /// Contains additional data for the addendum.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PurchaseIdentifierType is PurchaseIdentifierType1Code PurchaseIdentifierTypeValue)
+        {
+            writer.WriteStartElement(null, "PurchsIdrTp", xmlNamespace );
+            writer.WriteValue(PurchaseIdentifierTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherPurchaseIdentifierType is IsoMax35Text OtherPurchaseIdentifierTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrPurchsIdrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherPurchaseIdentifierTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PurchaseIdentifier is IsoMax99Text PurchaseIdentifierValue)
+        {
+            writer.WriteStartElement(null, "PurchsIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax99Text(PurchaseIdentifierValue)); // data type Max99Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalAcceptorData is AdditionalAcceptorData1 AdditionalAcceptorDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlAccptrData", xmlNamespace );
+            AdditionalAcceptorDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Customer is Customer4 CustomerValue)
+        {
+            writer.WriteStartElement(null, "Cstmr", xmlNamespace );
+            CustomerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Sale is Sale2 SaleValue)
+        {
+            writer.WriteStartElement(null, "Sale", xmlNamespace );
+            SaleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Fleet is FleetData4 FleetValue)
+        {
+            writer.WriteStartElement(null, "Fleet", xmlNamespace );
+            FleetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Invoice is Invoice2 InvoiceValue)
+        {
+            writer.WriteStartElement(null, "Invc", xmlNamespace );
+            InvoiceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TravelAgency is TravelAgency3 TravelAgencyValue)
+        {
+            writer.WriteStartElement(null, "TrvlAgcy", xmlNamespace );
+            TravelAgencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PassengerTransport is PassengerTransport2 PassengerTransportValue)
+        {
+            writer.WriteStartElement(null, "PssngrTrnsprt", xmlNamespace );
+            PassengerTransportValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (VehicleRental is VehicleRentalService2 VehicleRentalValue)
+        {
+            writer.WriteStartElement(null, "VhclRntl", xmlNamespace );
+            VehicleRentalValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Lodging is Lodging3 LodgingValue)
+        {
+            writer.WriteStartElement(null, "Ldgg", xmlNamespace );
+            LodgingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ShippingData is ShippingData2 ShippingDataValue)
+        {
+            writer.WriteStartElement(null, "ShppgData", xmlNamespace );
+            ShippingDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TelecommunicationServices is TelecomServices2 TelecommunicationServicesValue)
+        {
+            writer.WriteStartElement(null, "TelecomSvcs", xmlNamespace );
+            TelecommunicationServicesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TemporaryServices is TemporaryServices2 TemporaryServicesValue)
+        {
+            writer.WriteStartElement(null, "TempSvcs", xmlNamespace );
+            TemporaryServicesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Instalment is Instalment4 InstalmentValue)
+        {
+            writer.WriteStartElement(null, "Instlmt", xmlNamespace );
+            InstalmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AddendumData3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

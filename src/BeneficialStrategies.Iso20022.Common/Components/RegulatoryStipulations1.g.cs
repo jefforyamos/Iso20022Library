@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies regulatory stipulations that financial institutions must be compliant with in the country, region, and/or area they conduct business.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RegulatoryStipulations1
+     : IIsoXmlSerilizable<RegulatoryStipulations1>
 {
     #nullable enable
     
     /// <summary>
     /// Nation with its own government, occupying a particular territory.
     /// </summary>
-    [DataMember]
     public required CountryCode Country { get; init; } 
     /// <summary>
     /// Specifies regulatory stipulations that financial institutions must be compliant with in the country, region, and/or where they conduct business.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax350Text> Stipulations { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax350Text? Stipulations { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _Amhp8dokEeC60axPepSq7g_1275857359
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ctry", xmlNamespace );
+        writer.WriteValue(Country.ToString()); // Enum value
+        writer.WriteEndElement();
+        // Not sure how to serialize Stipulations, multiplicity Unknown
+    }
+    public static RegulatoryStipulations1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

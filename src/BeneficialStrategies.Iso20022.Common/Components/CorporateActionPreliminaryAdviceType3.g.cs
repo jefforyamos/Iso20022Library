@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Type of movement preliminary advice document.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionPreliminaryAdviceType3
+     : IIsoXmlSerilizable<CorporateActionPreliminaryAdviceType3>
 {
     #nullable enable
     
     /// <summary>
     /// Type of movement preliminary advice, for example. new or replacement.
     /// </summary>
-    [DataMember]
     public required CorporateActionPreliminaryAdviceType1Code Type { get; init; } 
     /// <summary>
     /// Specifies whether the message advises about the final eligible balance and entitlements or about an upcoming posting or reversal of securities and/or cash postings.
     /// </summary>
-    [DataMember]
     public required CorporateActionMovementPreliminaryAdviceFunction1Code Function { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Fctn", xmlNamespace );
+        writer.WriteValue(Function.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static CorporateActionPreliminaryAdviceType3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

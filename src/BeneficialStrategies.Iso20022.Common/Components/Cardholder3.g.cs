@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to the cardholder.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Cardholder3
+     : IIsoXmlSerilizable<Cardholder3>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the cardholder involved in a transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<CardholderIdentification1> Identification { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardholderIdentification1? Identification { get; init; } 
     /// <summary>
     /// Cardholder name associated with the card.
     /// </summary>
-    [DataMember]
     public IsoMax45Text? Name { get; init; } 
     /// <summary>
     /// Language selected for the cardholder interface during the transaction.
     /// </summary>
-    [DataMember]
     public ISO2ALanguageCode? Language { get; init; } 
     /// <summary>
     /// Data related to the authentication of the cardholder.
     /// </summary>
-    [DataMember]
-    public ValueList<CardholderAuthentication3> Authentication { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardholderAuthentication3? Authentication { get; init; } 
     /// <summary>
     /// Numeric characters of the cardholder's address for verification.
     /// </summary>
-    [DataMember]
     public AddressVerification1? AddressVerification { get; init; } 
     /// <summary>
     /// Identifies personal data related to the cardholder.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? PersonalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is CardholderIdentification1 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Name is IsoMax45Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax45Text(NameValue)); // data type Max45Text System.String
+            writer.WriteEndElement();
+        }
+        if (Language is ISO2ALanguageCode LanguageValue)
+        {
+            writer.WriteStartElement(null, "Lang", xmlNamespace );
+            writer.WriteValue(LanguageValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Authentication is CardholderAuthentication3 AuthenticationValue)
+        {
+            writer.WriteStartElement(null, "Authntcn", xmlNamespace );
+            AuthenticationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AddressVerification is AddressVerification1 AddressVerificationValue)
+        {
+            writer.WriteStartElement(null, "AdrVrfctn", xmlNamespace );
+            AddressVerificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PersonalData is IsoMax70Text PersonalDataValue)
+        {
+            writer.WriteStartElement(null, "PrsnlData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(PersonalDataValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Cardholder3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

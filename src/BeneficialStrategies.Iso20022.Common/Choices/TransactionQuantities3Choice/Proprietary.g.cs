@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TransactionQuantities3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionQuantities3Choice;
 /// Proprietary quantities specification defined in the underlying transaction.
 /// </summary>
 public partial record Proprietary : TransactionQuantities3Choice_
+     , IIsoXmlSerilizable<Proprietary>
 {
     #nullable enable
+    
     /// <summary>
     /// Identifies the type of proprietary quantity reported.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record Proprietary : TransactionQuantities3Choice_
     /// Provides the proprietary quantity in free format.
     /// </summary>
     public required IsoMax35Text Quantity { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Type)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Quantity)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static new Proprietary Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

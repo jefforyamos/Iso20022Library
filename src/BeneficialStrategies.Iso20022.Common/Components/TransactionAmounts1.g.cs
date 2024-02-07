@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amounts of the card transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionAmounts1
+     : IIsoXmlSerilizable<TransactionAmounts1>
 {
     #nullable enable
     
@@ -23,36 +24,83 @@ public partial record TransactionAmounts1
     /// Qualifier or type of amount.
     /// ISO 8583:93/2003 bit 24
     /// </summary>
-    [DataMember]
     public TypeOfAmount11Code? AmountQualifier { get; init; } 
     /// <summary>
     /// Actual amount of the transaction.
     /// </summary>
-    [DataMember]
     public TransactionAmount1? TransactionAmount { get; init; } 
     /// <summary>
     /// Present when the cardholder billing currency differs from the transaction currency expressed in the amount of the transaction. It may be populated by the card scheme or an intermediary processor as normally the acceptor does not know the billing currency for which the cardholder will be debited.
     /// </summary>
-    [DataMember]
     public Amount4? CardholderBillingAmount { get; init; } 
     /// <summary>
     /// Amount used for reconciliation. 
     /// Calculated based on the transaction amount, except when the transaction amount is absent. When transaction amount is absent, the reconciliation amount is calculated on the detailed amount field 
     /// </summary>
-    [DataMember]
     public Amount4? ReconciliationAmount { get; init; } 
     /// <summary>
     /// Further details of some or all amounts in the transaction amount. 
     /// </summary>
-    [DataMember]
-    public ValueList<DetailedAmount19> DetailedAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public DetailedAmount19? DetailedAmount { get; init; } 
     /// <summary>
     /// Amount related to the original transaction.
     /// ISO 8583:87 bit 95
     /// ISO 8583:93/2003 bit 30
     /// </summary>
-    [DataMember]
     public OriginalTransactionAmount1? OriginalTransactionAmounts { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AmountQualifier is TypeOfAmount11Code AmountQualifierValue)
+        {
+            writer.WriteStartElement(null, "AmtQlfr", xmlNamespace );
+            writer.WriteValue(AmountQualifierValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TransactionAmount is TransactionAmount1 TransactionAmountValue)
+        {
+            writer.WriteStartElement(null, "TxAmt", xmlNamespace );
+            TransactionAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CardholderBillingAmount is Amount4 CardholderBillingAmountValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrBllgAmt", xmlNamespace );
+            CardholderBillingAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReconciliationAmount is Amount4 ReconciliationAmountValue)
+        {
+            writer.WriteStartElement(null, "RcncltnAmt", xmlNamespace );
+            ReconciliationAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DetailedAmount is DetailedAmount19 DetailedAmountValue)
+        {
+            writer.WriteStartElement(null, "DtldAmt", xmlNamespace );
+            DetailedAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalTransactionAmounts is OriginalTransactionAmount1 OriginalTransactionAmountsValue)
+        {
+            writer.WriteStartElement(null, "OrgnlTxAmts", xmlNamespace );
+            OriginalTransactionAmountsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionAmounts1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

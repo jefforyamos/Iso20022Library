@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.trea.CancelNonDeliverableForwardOpeningV02>;
 
 namespace BeneficialStrategies.Iso20022.trea;
 
@@ -24,10 +27,9 @@ namespace BeneficialStrategies.Iso20022.trea;
 /// The message will contain a Related Reference to link it to the previously sent notification. It may contain a reason for cancellation.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The CancelNonDeliverableForwardOpening message is sent by a participant to a central system or to a counterparty to notify the cancellation of the opening of a non deliverable trade previously confirmed by the sender.|Usage|The message will contain a Related Reference to link it to the previously sent notification. It may contain a reason for cancellation.")]
-public partial record CancelNonDeliverableForwardOpeningV02 : IOuterRecord
+public partial record CancelNonDeliverableForwardOpeningV02 : IOuterRecord<CancelNonDeliverableForwardOpeningV02,CancelNonDeliverableForwardOpeningV02Document>
+    ,IIsoXmlSerilizable<CancelNonDeliverableForwardOpeningV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -39,6 +41,11 @@ public partial record CancelNonDeliverableForwardOpeningV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "CclNDFOpngV02";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CancelNonDeliverableForwardOpeningV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -105,6 +112,56 @@ public partial record CancelNonDeliverableForwardOpeningV02 : IOuterRecord
     {
         return new CancelNonDeliverableForwardOpeningV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("CclNDFOpngV02");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TradInf", xmlNamespace );
+        TradeInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TradingSideIdentification is TradePartyIdentification3 TradingSideIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TradgSdId", xmlNamespace );
+            TradingSideIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CounterpartySideIdentification is TradePartyIdentification3 CounterpartySideIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CtrPtySdId", xmlNamespace );
+            CounterpartySideIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeAmounts is AmountsAndValueDate1 TradeAmountsValue)
+        {
+            writer.WriteStartElement(null, "TradAmts", xmlNamespace );
+            TradeAmountsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AgreedRate is AgreedRate1 AgreedRateValue)
+        {
+            writer.WriteStartElement(null, "AgrdRate", xmlNamespace );
+            AgreedRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValuationConditions is NonDeliverableForwardValuationConditions2 ValuationConditionsValue)
+        {
+            writer.WriteStartElement(null, "ValtnConds", xmlNamespace );
+            ValuationConditionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CancelNonDeliverableForwardOpeningV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -112,9 +169,7 @@ public partial record CancelNonDeliverableForwardOpeningV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CancelNonDeliverableForwardOpeningV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CancelNonDeliverableForwardOpeningV02Document : IOuterDocument<CancelNonDeliverableForwardOpeningV02>
+public partial record CancelNonDeliverableForwardOpeningV02Document : IOuterDocument<CancelNonDeliverableForwardOpeningV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -130,5 +185,22 @@ public partial record CancelNonDeliverableForwardOpeningV02Document : IOuterDocu
     /// <summary>
     /// The instance of <seealso cref="CancelNonDeliverableForwardOpeningV02"/> is required.
     /// </summary>
+    [DataMember(Name=CancelNonDeliverableForwardOpeningV02.XmlTag)]
     public required CancelNonDeliverableForwardOpeningV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CancelNonDeliverableForwardOpeningV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

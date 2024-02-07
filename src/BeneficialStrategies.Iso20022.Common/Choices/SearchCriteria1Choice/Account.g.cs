@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SearchCriteria1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SearchCriteria1Choice;
 /// Identifies the account as the search criteria for the financial institution to do the investigation.
 /// </summary>
 public partial record Account : SearchCriteria1Choice_
+     , IIsoXmlSerilizable<Account>
 {
     #nullable enable
+    
     /// <summary>
     /// Specifies the account for the investigation.
     /// </summary>
@@ -27,5 +31,31 @@ public partial record Account : SearchCriteria1Choice_
     /// Identifies the authority request type as a code.
     /// </summary>
     public AuthorityRequestType1? AuthorityRequestType { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _EcwSUUyvEeGcV5yVhSZuNw
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InvstgtdPties", xmlNamespace );
+        InvestigatedParties.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize AuthorityRequestType, multiplicity Unknown
+    }
+    public static new Account Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

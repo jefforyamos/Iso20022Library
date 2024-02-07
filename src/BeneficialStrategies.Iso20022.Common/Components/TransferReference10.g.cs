@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reference of a transfer and of a transfer confirmation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransferReference10
+     : IIsoXmlSerilizable<TransferReference10>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a transfer instruction, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TransferReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of a transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
-    [DataMember]
     public AdditionalReference7? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a transfer execution, as assigned by a confirming party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TransferConfirmationReference { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transfer allocated by the counterparty.
     /// </summary>
-    [DataMember]
     public AdditionalReference7? CounterpartyReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TransferReference is IsoMax35Text TransferReferenceValue)
+        {
+            writer.WriteStartElement(null, "TrfRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClientReference is AdditionalReference7 ClientReferenceValue)
+        {
+            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
+            ClientReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransferConfirmationReference is IsoMax35Text TransferConfirmationReferenceValue)
+        {
+            writer.WriteStartElement(null, "TrfConfRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferConfirmationReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CounterpartyReference is AdditionalReference7 CounterpartyReferenceValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyRef", xmlNamespace );
+            CounterpartyReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransferReference10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

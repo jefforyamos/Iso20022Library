@@ -9,15 +9,12 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
 using System.Xml;
 using System.Xml.Linq;
-using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Components.GenericFinancialIdentification1>;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to an identification of a financial institution.
 /// </summary>
-[DataContract(Namespace = "")]
-[XmlType]
 public partial record GenericFinancialIdentification1
      : IIsoXmlSerilizable<GenericFinancialIdentification1>
 {
@@ -26,21 +23,27 @@ public partial record GenericFinancialIdentification1
     /// <summary>
     /// Unique and unambiguous identification of a person.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
-    [DataMember]
     public FinancialIdentificationSchemeName1Choice_? SchemeName { get; init; } 
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
     public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
     public void Serialize(XmlWriter writer, string xmlNamespace)
     {
         writer.WriteStartElement(null, "Id", xmlNamespace );

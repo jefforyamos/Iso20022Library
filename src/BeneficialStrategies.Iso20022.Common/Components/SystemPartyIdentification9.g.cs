@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique and unambiguous identification of a party within a system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SystemPartyIdentification9
+     : IIsoXmlSerilizable<SystemPartyIdentification9>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification of the party.
     /// </summary>
-    [DataMember]
     public required PartyIdentification136 Identification { get; init; } 
     /// <summary>
     /// Unique identification of the responsible party.
     /// </summary>
-    [DataMember]
     public PartyIdentification136? ResponsiblePartyIdentification { get; init; } 
     /// <summary>
     /// Starting date from which the identification is valid.
     /// </summary>
-    [DataMember]
     public IsoISODate? ValidFrom { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ResponsiblePartyIdentification is PartyIdentification136 ResponsiblePartyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RspnsblPtyId", xmlNamespace );
+            ResponsiblePartyIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValidFrom is IsoISODate ValidFromValue)
+        {
+            writer.WriteStartElement(null, "VldFr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ValidFromValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static SystemPartyIdentification9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

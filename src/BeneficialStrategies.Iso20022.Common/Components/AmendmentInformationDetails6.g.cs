@@ -7,68 +7,136 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide the list of direct debit mandate elements that have been modified when the amendment indicator has been set.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AmendmentInformationDetails6
+     : IIsoXmlSerilizable<AmendmentInformationDetails6>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by the creditor, to unambiguously identify the original mandate.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalMandateIdentification { get; init; } 
     /// <summary>
     /// Original creditor scheme identification that has been modified.
     /// </summary>
-    [DataMember]
     public PartyIdentification32? OriginalCreditorSchemeIdentification { get; init; } 
     /// <summary>
     /// Original creditor agent that has been modified.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? OriginalCreditorAgent { get; init; } 
     /// <summary>
     /// Original creditor agent acount that has been modified.
     /// </summary>
-    [DataMember]
     public CashAccount16? OriginalCreditorAgentAccount { get; init; } 
     /// <summary>
     /// Original debtor that has been modified.
     /// </summary>
-    [DataMember]
     public PartyIdentification32? OriginalDebtor { get; init; } 
     /// <summary>
     /// Original debtor account that has been modified.
     /// </summary>
-    [DataMember]
     public CashAccount16? OriginalDebtorAccount { get; init; } 
     /// <summary>
     /// Original debtor agent that has been modified.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? OriginalDebtorAgent { get; init; } 
     /// <summary>
     /// Original debtor agent account that has been modified.
     /// </summary>
-    [DataMember]
     public CashAccount16? OriginalDebtorAgentAccount { get; init; } 
     /// <summary>
     /// Original final collection date that has been modified.
     /// </summary>
-    [DataMember]
     public IsoISODate? OriginalFinalCollectionDate { get; init; } 
     /// <summary>
     /// Original frequency that has been modified.
     /// </summary>
-    [DataMember]
     public Frequency1Code? OriginalFrequency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OriginalMandateIdentification is IsoMax35Text OriginalMandateIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlMndtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalMandateIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalCreditorSchemeIdentification is PartyIdentification32 OriginalCreditorSchemeIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlCdtrSchmeId", xmlNamespace );
+            OriginalCreditorSchemeIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalCreditorAgent is BranchAndFinancialInstitutionIdentification4 OriginalCreditorAgentValue)
+        {
+            writer.WriteStartElement(null, "OrgnlCdtrAgt", xmlNamespace );
+            OriginalCreditorAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalCreditorAgentAccount is CashAccount16 OriginalCreditorAgentAccountValue)
+        {
+            writer.WriteStartElement(null, "OrgnlCdtrAgtAcct", xmlNamespace );
+            OriginalCreditorAgentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalDebtor is PartyIdentification32 OriginalDebtorValue)
+        {
+            writer.WriteStartElement(null, "OrgnlDbtr", xmlNamespace );
+            OriginalDebtorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalDebtorAccount is CashAccount16 OriginalDebtorAccountValue)
+        {
+            writer.WriteStartElement(null, "OrgnlDbtrAcct", xmlNamespace );
+            OriginalDebtorAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalDebtorAgent is BranchAndFinancialInstitutionIdentification4 OriginalDebtorAgentValue)
+        {
+            writer.WriteStartElement(null, "OrgnlDbtrAgt", xmlNamespace );
+            OriginalDebtorAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalDebtorAgentAccount is CashAccount16 OriginalDebtorAgentAccountValue)
+        {
+            writer.WriteStartElement(null, "OrgnlDbtrAgtAcct", xmlNamespace );
+            OriginalDebtorAgentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalFinalCollectionDate is IsoISODate OriginalFinalCollectionDateValue)
+        {
+            writer.WriteStartElement(null, "OrgnlFnlColltnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(OriginalFinalCollectionDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (OriginalFrequency is Frequency1Code OriginalFrequencyValue)
+        {
+            writer.WriteStartElement(null, "OrgnlFrqcy", xmlNamespace );
+            writer.WriteValue(OriginalFrequencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static AmendmentInformationDetails6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

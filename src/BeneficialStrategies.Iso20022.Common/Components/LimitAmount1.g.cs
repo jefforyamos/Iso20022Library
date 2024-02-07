@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money characterics used to specify a limit.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LimitAmount1
+     : IIsoXmlSerilizable<LimitAmount1>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
-    [DataMember]
     public required CreditDebitAmount1 Amount { get; init; } 
     /// <summary>
     /// Utilised amount of money of the limit expressed in an eligible currency.
     /// </summary>
-    [DataMember]
     public required CreditDebitAmount1 UtilisationAmount { get; init; } 
     /// <summary>
     /// Remaining amount of money of the limit expressed in an eligible currency.
     /// </summary>
-    [DataMember]
     public required CreditDebitAmount1 AvailableAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        Amount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UtlstnAmt", xmlNamespace );
+        UtilisationAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AvlblAmt", xmlNamespace );
+        AvailableAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static LimitAmount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

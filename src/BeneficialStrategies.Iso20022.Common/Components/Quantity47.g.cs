@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Quantity of assets.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Quantity47
+     : IIsoXmlSerilizable<Quantity47>
 {
     #nullable enable
     
     /// <summary>
     /// Quantity of security to be transferred.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? Unit { get; init; } 
     /// <summary>
     /// Percentage rate of assets to be transferred.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? PercentageRate { get; init; } 
     /// <summary>
     /// Quantity expressed as an amount representing the face amount, that is, the principal, of a debt instrument.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? FaceAmount { get; init; } 
     /// <summary>
     /// Quantity expressed as an amount representing the current amortised face amount of a bond, for example, a periodic reduction/increase of a bond's principal amount.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? AmortisedValue { get; init; } 
     /// <summary>
     /// Cash amount to be transferred.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? CashAmount { get; init; } 
     /// <summary>
     /// Quantity of asset to be transferred.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherAsset { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Unit is IsoDecimalNumber UnitValue)
+        {
+            writer.WriteStartElement(null, "Unit", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(UnitValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (PercentageRate is IsoPercentageRate PercentageRateValue)
+        {
+            writer.WriteStartElement(null, "PctgRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PercentageRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (FaceAmount is IsoImpliedCurrencyAndAmount FaceAmountValue)
+        {
+            writer.WriteStartElement(null, "FaceAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(FaceAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (AmortisedValue is IsoImpliedCurrencyAndAmount AmortisedValueValue)
+        {
+            writer.WriteStartElement(null, "AmtsdVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(AmortisedValueValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CashAmount is IsoActiveCurrencyAnd13DecimalAmount CashAmountValue)
+        {
+            writer.WriteStartElement(null, "CshAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(CashAmountValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (OtherAsset is IsoMax35Text OtherAssetValue)
+        {
+            writer.WriteStartElement(null, "OthrAsst", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherAssetValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Quantity47 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

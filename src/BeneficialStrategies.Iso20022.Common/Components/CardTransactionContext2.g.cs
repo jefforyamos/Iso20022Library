@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Context of the card transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardTransactionContext2
+     : IIsoXmlSerilizable<CardTransactionContext2>
 {
     #nullable enable
     
@@ -23,69 +24,143 @@ public partial record CardTransactionContext2
     /// Indicates whether the transaction has been initiated by a card physically present or not. 
     /// It correspond to the ISO 8583: 1993 field number 22-6.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CardPresent { get; init; } 
     /// <summary>
     /// Indicates whether the transaction has been initiated in presence of the cardholder or not. 
     /// It correspond to the ISO 8583: 1993 field number 22-5.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CardholderPresent { get; init; } 
     /// <summary>
     /// Location category of the place where the transaction is actually performed. 
     /// It correspond partially to the ISO 8583: 1993 field number 22-4.
     /// </summary>
-    [DataMember]
     public LocationCategory2Code? LocationCategory { get; init; } 
     /// <summary>
     /// Human attendance at the terminal location during the transaction. 
     /// It correspond partially to the ISO 8583: 1993 field number 22-4.
     /// </summary>
-    [DataMember]
     public AttendanceContext1Code? AttendanceContext { get; init; } 
     /// <summary>
     /// Indicates the environment of the transaction.
     /// </summary>
-    [DataMember]
     public TransactionEnvironment2Code? TransactionEnvironment { get; init; } 
     /// <summary>
     /// Indicates the entity hosting the terminal performing the transaction. 
     /// It correspond partially to the ISO 8583: 1993 field number 22-4.
     /// </summary>
-    [DataMember]
     public TransactionEnvironment3Code? HostingCategory { get; init; } 
     /// <summary>
     /// Identifies the type of the communication channels used by the cardholder to the acceptor system. 
     /// It correspond to the ISO 8583: 1993 field number 22-5.
     /// </summary>
-    [DataMember]
     public TransactionChannel3Code? TransactionChannel { get; init; } 
     /// <summary>
     /// Entry mode of the card data. 
     /// It correspond to the ISO 8583 field number 25 for the version 87 (partially), field number 22-7 for the version 93, and field number 22-1 for the version 2003.
     /// </summary>
-    [DataMember]
     public required CardDataReading2Code CardDataEntryMode { get; init; } 
     /// <summary>
     /// Indicator of a card entry mode fall-back. It correspond to the ISO 8583: 2003 field number 22-1.
     /// </summary>
-    [DataMember]
     public CardFallback1Code? FallbackIndicator { get; init; } 
     /// <summary>
     /// Payment options the card acceptor can support.
     /// </summary>
-    [DataMember]
-    public ValueList<SupportedPaymentOption1Code> SupportedOption { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupportedPaymentOption1Code? SupportedOption { get; init; } 
     /// <summary>
     /// Data used to assign specific condition such as liability shift or preferential interchange fees.
     /// </summary>
-    [DataMember]
-    public ValueList<CardTransactionCondition1> SpecialConditions { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardTransactionCondition1? SpecialConditions { get; init; } 
     /// <summary>
     /// Indicates to the issuer the level of risk of the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<CardTransactionRiskIndicator1> RiskIndicator { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardTransactionRiskIndicator1? RiskIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CardPresent is IsoTrueFalseIndicator CardPresentValue)
+        {
+            writer.WriteStartElement(null, "CardPres", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CardPresentValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CardholderPresent is IsoTrueFalseIndicator CardholderPresentValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrPres", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CardholderPresentValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (LocationCategory is LocationCategory2Code LocationCategoryValue)
+        {
+            writer.WriteStartElement(null, "LctnCtgy", xmlNamespace );
+            writer.WriteValue(LocationCategoryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AttendanceContext is AttendanceContext1Code AttendanceContextValue)
+        {
+            writer.WriteStartElement(null, "AttndncCntxt", xmlNamespace );
+            writer.WriteValue(AttendanceContextValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TransactionEnvironment is TransactionEnvironment2Code TransactionEnvironmentValue)
+        {
+            writer.WriteStartElement(null, "TxEnvt", xmlNamespace );
+            writer.WriteValue(TransactionEnvironmentValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (HostingCategory is TransactionEnvironment3Code HostingCategoryValue)
+        {
+            writer.WriteStartElement(null, "HstgCtgy", xmlNamespace );
+            writer.WriteValue(HostingCategoryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TransactionChannel is TransactionChannel3Code TransactionChannelValue)
+        {
+            writer.WriteStartElement(null, "TxChanl", xmlNamespace );
+            writer.WriteValue(TransactionChannelValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CardDataNtryMd", xmlNamespace );
+        writer.WriteValue(CardDataEntryMode.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (FallbackIndicator is CardFallback1Code FallbackIndicatorValue)
+        {
+            writer.WriteStartElement(null, "FllbckInd", xmlNamespace );
+            writer.WriteValue(FallbackIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SupportedOption is SupportedPaymentOption1Code SupportedOptionValue)
+        {
+            writer.WriteStartElement(null, "SpprtdOptn", xmlNamespace );
+            writer.WriteValue(SupportedOptionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SpecialConditions is CardTransactionCondition1 SpecialConditionsValue)
+        {
+            writer.WriteStartElement(null, "SpclConds", xmlNamespace );
+            SpecialConditionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RiskIndicator is CardTransactionRiskIndicator1 RiskIndicatorValue)
+        {
+            writer.WriteStartElement(null, "RskInd", xmlNamespace );
+            RiskIndicatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardTransactionContext2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

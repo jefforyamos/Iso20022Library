@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.semt.IntraPositionMovementStatusAdvice002V05>;
 
 namespace BeneficialStrategies.Iso20022.semt;
 
@@ -33,10 +36,9 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// using the relevant elements in the Business Application Header.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account servicer sends a IntraPositionMovementStatusAdvice to an account owner to advise the status of a intra-position movement instruction previously sent by the account owner.|The account servicer/owner relationship may be:|- a central securities depository or another settlement market infrastructure acting on behalf of their participants|- an agent (sub-custodian) acting on behalf of their global custodian customer, or|- a custodian acting on behalf of an investment management institution or a broker/dealer.||Usage|The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information.|using the relevant elements in the Business Application Header.")]
-public partial record IntraPositionMovementStatusAdvice002V05 : IOuterRecord
+public partial record IntraPositionMovementStatusAdvice002V05 : IOuterRecord<IntraPositionMovementStatusAdvice002V05,IntraPositionMovementStatusAdvice002V05Document>
+    ,IIsoXmlSerilizable<IntraPositionMovementStatusAdvice002V05>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -48,6 +50,11 @@ public partial record IntraPositionMovementStatusAdvice002V05 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "IntraPosMvmntStsAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => IntraPositionMovementStatusAdvice002V05Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -105,6 +112,50 @@ public partial record IntraPositionMovementStatusAdvice002V05 : IOuterRecord
     {
         return new IntraPositionMovementStatusAdvice002V05Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("IntraPosMvmntStsAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ProcessingStatus is IntraPositionProcessingStatus6Choice_ ProcessingStatusValue)
+        {
+            writer.WriteStartElement(null, "PrcgSts", xmlNamespace );
+            ProcessingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementStatus is SettlementStatus20Choice_ SettlementStatusValue)
+        {
+            writer.WriteStartElement(null, "SttlmSts", xmlNamespace );
+            SettlementStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionDetails is IntraPositionDetails42 TransactionDetailsValue)
+        {
+            writer.WriteStartElement(null, "TxDtls", xmlNamespace );
+            TransactionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IntraPositionMovementStatusAdvice002V05 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -112,9 +163,7 @@ public partial record IntraPositionMovementStatusAdvice002V05 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IntraPositionMovementStatusAdvice002V05"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record IntraPositionMovementStatusAdvice002V05Document : IOuterDocument<IntraPositionMovementStatusAdvice002V05>
+public partial record IntraPositionMovementStatusAdvice002V05Document : IOuterDocument<IntraPositionMovementStatusAdvice002V05>, IXmlSerializable
 {
     
     /// <summary>
@@ -130,5 +179,22 @@ public partial record IntraPositionMovementStatusAdvice002V05Document : IOuterDo
     /// <summary>
     /// The instance of <seealso cref="IntraPositionMovementStatusAdvice002V05"/> is required.
     /// </summary>
+    [DataMember(Name=IntraPositionMovementStatusAdvice002V05.XmlTag)]
     public required IntraPositionMovementStatusAdvice002V05 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(IntraPositionMovementStatusAdvice002V05.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

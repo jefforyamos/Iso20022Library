@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data exclusively related to a card issuer financial loan of the payment transaction, or instalment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Instalment3
+     : IIsoXmlSerilizable<Instalment3>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the occurrence of a single instalment payment within a series of instalment payments. 
     /// </summary>
-    [DataMember]
     public IsoNumber? PaymentSequenceNumber { get; init; } 
     /// <summary>
     /// Attributes of the instalment plan.
     /// </summary>
-    [DataMember]
-    public ValueList<Plan1> Plan { get; init; } = []; // Warning: Don't know multiplicity.
+    public Plan1? Plan { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PaymentSequenceNumber is IsoNumber PaymentSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "PmtSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(PaymentSequenceNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Plan is Plan1 PlanValue)
+        {
+            writer.WriteStartElement(null, "Plan", xmlNamespace );
+            PlanValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Instalment3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

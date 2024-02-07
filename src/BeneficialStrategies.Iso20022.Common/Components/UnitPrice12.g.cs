@@ -7,53 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UnitPrice12
+     : IIsoXmlSerilizable<UnitPrice12>
 {
     #nullable enable
     
     /// <summary>
     /// Type and information about a price.
     /// </summary>
-    [DataMember]
     public required TypeOfPrice12Code Type { get; init; } 
     /// <summary>
     /// Type and information about a price.
     /// </summary>
-    [DataMember]
     public required IsoExtended350Code ExtendedType { get; init; } 
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
-    [DataMember]
     public required PriceValue1 Value { get; init; } 
     /// <summary>
     /// Type of pricing calculation method.
     /// </summary>
-    [DataMember]
     public PriceMethod1Code? PriceMethod { get; init; } 
     /// <summary>
     /// Interest that has accumulated between the most recent payment of interest and the sale of the financial instrument.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? AccruedInterestNAV { get; init; } 
     /// <summary>
     /// Specifies the number of days used for calculating the accrued interest amount.
     /// </summary>
-    [DataMember]
     public IsoNumber? NumberOfDaysAccrued { get; init; } 
     /// <summary>
     /// Amount included in the NAV that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? TaxableIncomePerShare { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtndedTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedType)); // data type Extended350Code System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        Value.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PriceMethod is PriceMethod1Code PriceMethodValue)
+        {
+            writer.WriteStartElement(null, "PricMtd", xmlNamespace );
+            writer.WriteValue(PriceMethodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AccruedInterestNAV is IsoActiveOrHistoricCurrencyAndAmount AccruedInterestNAVValue)
+        {
+            writer.WriteStartElement(null, "AcrdIntrstNAV", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(AccruedInterestNAVValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (NumberOfDaysAccrued is IsoNumber NumberOfDaysAccruedValue)
+        {
+            writer.WriteStartElement(null, "NbOfDaysAcrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfDaysAccruedValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (TaxableIncomePerShare is IsoActiveCurrencyAnd13DecimalAmount TaxableIncomePerShareValue)
+        {
+            writer.WriteStartElement(null, "TaxblIncmPerShr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(TaxableIncomePerShareValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static UnitPrice12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

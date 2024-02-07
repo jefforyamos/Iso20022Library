@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsmt.StatusExtensionNotificationV03>;
 
 namespace BeneficialStrategies.Iso20022.tsmt;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// In order to pass on information about the rejection of a request to extend the status of a transaction the matching application sends a StatusExtensionRejectionNotification message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The StatusExtensionNotification message is sent by the matching application to the parties involved in a request to extend the status of a transaction.|This message is used to inform about the acceptance of a request to extend the status of a transaction.|Usage|The StatusExtensionNotification message can be sent by the matching application|- to the submitter of a request to extend the status of a transaction to pass on information about the acceptance of the request that it has obtained through the receipt of an StatusExtensionAcceptance message.|- to the accepter of a request to extend the status of a transaction to inform about the actual status of the transaction in response to a StatusExtensionAcceptance message.|In order to pass on information about the rejection of a request to extend the status of a transaction the matching application sends a StatusExtensionRejectionNotification message.")]
-public partial record StatusExtensionNotificationV03 : IOuterRecord
+public partial record StatusExtensionNotificationV03 : IOuterRecord<StatusExtensionNotificationV03,StatusExtensionNotificationV03Document>
+    ,IIsoXmlSerilizable<StatusExtensionNotificationV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record StatusExtensionNotificationV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "StsXtnsnNtfctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => StatusExtensionNotificationV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -81,7 +88,7 @@ public partial record StatusExtensionNotificationV03 : IOuterRecord
     [Description(@"Reference to the transaction for each financial institution which is a party to the transaction.")]
     [DataMember(Name="UsrTxRef")]
     [XmlElement(ElementName="UsrTxRef")]
-    public required IReadOnlyCollection<DocumentIdentification5> UserTransactionReference { get; init; } = []; // Min=0, Max=2
+    public required ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = []; // Min=0, Max=2
     
     /// <summary>
     /// Identifies the status that is being rolled over.
@@ -111,6 +118,47 @@ public partial record StatusExtensionNotificationV03 : IOuterRecord
     {
         return new StatusExtensionNotificationV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("StsXtnsnNtfctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NtfctnId", xmlNamespace );
+        NotificationIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (EstablishedBaselineIdentification is DocumentIdentification3 EstablishedBaselineIdentificationValue)
+        {
+            writer.WriteStartElement(null, "EstblishdBaselnId", xmlNamespace );
+            EstablishedBaselineIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "UsrTxRef", xmlNamespace );
+        UserTransactionReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtndedSts", xmlNamespace );
+        ExtendedStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RequestForAction is PendingActivity2 RequestForActionValue)
+        {
+            writer.WriteStartElement(null, "ReqForActn", xmlNamespace );
+            RequestForActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static StatusExtensionNotificationV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -118,9 +166,7 @@ public partial record StatusExtensionNotificationV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatusExtensionNotificationV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record StatusExtensionNotificationV03Document : IOuterDocument<StatusExtensionNotificationV03>
+public partial record StatusExtensionNotificationV03Document : IOuterDocument<StatusExtensionNotificationV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -136,5 +182,22 @@ public partial record StatusExtensionNotificationV03Document : IOuterDocument<St
     /// <summary>
     /// The instance of <seealso cref="StatusExtensionNotificationV03"/> is required.
     /// </summary>
+    [DataMember(Name=StatusExtensionNotificationV03.XmlTag)]
     public required StatusExtensionNotificationV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(StatusExtensionNotificationV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

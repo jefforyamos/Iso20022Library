@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding the corporate action event.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionUnallocatedDetailsSD2
+     : IIsoXmlSerilizable<CorporateActionUnallocatedDetailsSD2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of Participants positions balance concerned in unallocated payment.
     /// </summary>
-    [DataMember]
     public CorporateActionUnallocatedBalanceSD1Choice_? UnallocatedBalance { get; init; } 
     /// <summary>
     /// Details of the securities transactions concerned in unallocated payment.
     /// </summary>
-    [DataMember]
-    public ValueList<CorporateActionUnallocatedSecuritiesTransactionDetailsSD2> UnallocatedSecuritiesTransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CorporateActionUnallocatedSecuritiesTransactionDetailsSD2? UnallocatedSecuritiesTransactionDetails { get; init; } 
     /// <summary>
     /// Details of the cash transactions concerned in unallocated payment.
     /// </summary>
-    [DataMember]
-    public ValueList<CorporateActionUnallocatedCashTransactionDetailsSD2> UnallocatedCashTransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CorporateActionUnallocatedCashTransactionDetailsSD2? UnallocatedCashTransactionDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (UnallocatedBalance is CorporateActionUnallocatedBalanceSD1Choice_ UnallocatedBalanceValue)
+        {
+            writer.WriteStartElement(null, "UallctdBal", xmlNamespace );
+            UnallocatedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnallocatedSecuritiesTransactionDetails is CorporateActionUnallocatedSecuritiesTransactionDetailsSD2 UnallocatedSecuritiesTransactionDetailsValue)
+        {
+            writer.WriteStartElement(null, "UallctdSctiesTxDtls", xmlNamespace );
+            UnallocatedSecuritiesTransactionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnallocatedCashTransactionDetails is CorporateActionUnallocatedCashTransactionDetailsSD2 UnallocatedCashTransactionDetailsValue)
+        {
+            writer.WriteStartElement(null, "UallctdCshTxDtls", xmlNamespace );
+            UnallocatedCashTransactionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionUnallocatedDetailsSD2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.InvestmentFundRole2Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestmentFundRole2Choice;
 /// Role expressed as a code.
 /// </summary>
 public partial record Code : InvestmentFundRole2Choice_
+     , IIsoXmlSerilizable<Code>
 {
-    public required InvestmentFundRole2Code Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies the role played by an actor in an investment fund transaction.
+    /// </summary>
+    public required InvestmentFundRole2Code Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new Code Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

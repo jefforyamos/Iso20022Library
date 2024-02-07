@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Variables related to derivatives that are used to group derivatives together into positions for position sets.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PositionSetDimensions12
+     : IIsoXmlSerilizable<PositionSetDimensions12>
 {
     #nullable enable
     
     /// <summary>
     /// Information describing the reporting counterparty.
     /// </summary>
-    [DataMember]
     public OrganisationIdentification15Choice_? ReportingCounterparty { get; init; } 
     /// <summary>
     /// Provides the details of the collateral used in the transaction.
     /// </summary>
-    [DataMember]
     public CollateralData33? CollateralData { get; init; } 
     /// <summary>
     /// Flag to identify whether the reported Securities Financing Transaction position contains abnormal values.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? OutliersIncluded { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReportingCounterparty is OrganisationIdentification15Choice_ ReportingCounterpartyValue)
+        {
+            writer.WriteStartElement(null, "RptgCtrPty", xmlNamespace );
+            ReportingCounterpartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollateralData is CollateralData33 CollateralDataValue)
+        {
+            writer.WriteStartElement(null, "CollData", xmlNamespace );
+            CollateralDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OutliersIncluded is IsoTrueFalseIndicator OutliersIncludedValue)
+        {
+            writer.WriteStartElement(null, "OtlrsIncl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(OutliersIncludedValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PositionSetDimensions12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

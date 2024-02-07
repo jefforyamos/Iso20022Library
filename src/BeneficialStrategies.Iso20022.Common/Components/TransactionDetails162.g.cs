@@ -7,73 +7,137 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the details of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionDetails162
+     : IIsoXmlSerilizable<TransactionDetails162>
 {
     #nullable enable
     
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification156? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
-    [DataMember]
     public SecuritiesAccount30? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
-    [DataMember]
     public BlockChainAddressWallet7? BlockChainAddressOrWallet { get; init; } 
     /// <summary>
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification20 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
-    [DataMember]
     public required Quantity54Choice_ SettlementQuantity { get; init; } 
     /// <summary>
     /// Total amount of money to be paid or received in exchange for the securities.
     /// </summary>
-    [DataMember]
     public AmountAndDirection67? SettlementAmount { get; init; } 
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    [DataMember]
     public TradeDate9Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    [DataMember]
     public required SettlementDate32Choice_ SettlementDate { get; init; } 
     /// <summary>
     /// Identifies the chain of delivering settlement parties.
     /// </summary>
-    [DataMember]
     public SettlementParties109? DeliveringSettlementParties { get; init; } 
     /// <summary>
     /// Identifies the chain of receiving settlement parties.
     /// </summary>
-    [DataMember]
     public SettlementParties109? ReceivingSettlementParties { get; init; } 
     /// <summary>
     /// Party, either an individual or organisation, whose assets are being invested.
     /// </summary>
-    [DataMember]
     public PartyIdentification170? Investor { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountOwner is PartyIdentification156 AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingAccount is SecuritiesAccount30 SafekeepingAccountValue)
+        {
+            writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+            SafekeepingAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BlockChainAddressOrWallet is BlockChainAddressWallet7 BlockChainAddressOrWalletValue)
+        {
+            writer.WriteStartElement(null, "BlckChainAdrOrWllt", xmlNamespace );
+            BlockChainAddressOrWalletValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmQty", xmlNamespace );
+        SettlementQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SettlementAmount is AmountAndDirection67 SettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
+            SettlementAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeDate is TradeDate9Choice_ TradeDateValue)
+        {
+            writer.WriteStartElement(null, "TradDt", xmlNamespace );
+            TradeDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
+        SettlementDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DeliveringSettlementParties is SettlementParties109 DeliveringSettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "DlvrgSttlmPties", xmlNamespace );
+            DeliveringSettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReceivingSettlementParties is SettlementParties109 ReceivingSettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "RcvgSttlmPties", xmlNamespace );
+            ReceivingSettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Investor is PartyIdentification170 InvestorValue)
+        {
+            writer.WriteStartElement(null, "Invstr", xmlNamespace );
+            InvestorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionDetails162 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

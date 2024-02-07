@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Numerical representation of the net increases and decreases in an account at a specific point in time. A cash balance is calculated from a sum of cash credits minus a sum of cash debits.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BalanceStatus2
+     : IIsoXmlSerilizable<BalanceStatus2>
 {
     #nullable enable
     
     /// <summary>
     /// Balance in each currency calculated at the value date and time indicated in the report.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Balance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Bal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Balance)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static BalanceStatus2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

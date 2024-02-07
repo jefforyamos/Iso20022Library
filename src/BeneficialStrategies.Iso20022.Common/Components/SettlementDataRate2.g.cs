@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the volume and value percentage rates of settlement instructions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementDataRate2
+     : IIsoXmlSerilizable<SettlementDataRate2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the rate, in terms of volume, of the failed settlement instructions compared to the total volume, of settlement instructions performed (settled and failed) during the period covered by the report.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate Volume { get; init; } 
     /// <summary>
     /// Specifies the rate, in terms of value, of the failed settlement instructions compared to the total value of settlement instructions performed (settled and failed) during the period covered by the report.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate Value { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Vol", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(Volume)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(Value)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+    }
+    public static SettlementDataRate2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

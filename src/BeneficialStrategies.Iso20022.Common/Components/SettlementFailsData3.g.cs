@@ -7,58 +7,110 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the aggregated data of settlement fails instructions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementFailsData3
+     : IIsoXmlSerilizable<SettlementFailsData3>
 {
     #nullable enable
     
     /// <summary>
     /// Total of all types of settlement transactions.
     /// </summary>
-    [DataMember]
     public required SettlementTotalData1 Total { get; init; } 
     /// <summary>
     /// Further details on the central securities depositories participants with the highest rates of settlement fails.
     /// </summary>
-    [DataMember]
     public SettlementFailsParticipantRange1? ParticipantInFail { get; init; } 
     /// <summary>
     /// Further details on the settlement fails per currency.
     /// </summary>
-    [DataMember]
-    public ValueList<SettlementFailsCurrency2> FailsPerCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    public SettlementFailsCurrency2? FailsPerCurrency { get; init; } 
     /// <summary>
     /// Further details on the settlement fails per financial instrument type.
     /// </summary>
-    [DataMember]
     public SettlementFailsInstrument2? FailsPerFinancialInstrumentType { get; init; } 
     /// <summary>
     /// Further details on the securities with the highest rates of settlement fails.
     /// </summary>
-    [DataMember]
     public SettlementFailsSecuritiesRange1? SecuritiesInFail { get; init; } 
     /// <summary>
     /// Further details on the settlement fails per transaction type.
     /// </summary>
-    [DataMember]
     public SettlementFailsTransactionType2? FailsPerTransactionType { get; init; } 
     /// <summary>
     /// Total of all types of settlement penalties (such as total of late matching and settlement fails).
     /// </summary>
-    [DataMember]
     public SettlementDataVolume2? TotalSettlementPenalties { get; init; } 
     /// <summary>
     /// Further details on the reason for the settlement fails.
     /// </summary>
-    [DataMember]
     public required SettlementFailureReason3 FailureReason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ttl", xmlNamespace );
+        Total.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ParticipantInFail is SettlementFailsParticipantRange1 ParticipantInFailValue)
+        {
+            writer.WriteStartElement(null, "PtcptInFail", xmlNamespace );
+            ParticipantInFailValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FailsPerCurrency is SettlementFailsCurrency2 FailsPerCurrencyValue)
+        {
+            writer.WriteStartElement(null, "FlsPerCcy", xmlNamespace );
+            FailsPerCurrencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FailsPerFinancialInstrumentType is SettlementFailsInstrument2 FailsPerFinancialInstrumentTypeValue)
+        {
+            writer.WriteStartElement(null, "FlsPerFinInstrmTp", xmlNamespace );
+            FailsPerFinancialInstrumentTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesInFail is SettlementFailsSecuritiesRange1 SecuritiesInFailValue)
+        {
+            writer.WriteStartElement(null, "SctiesInFail", xmlNamespace );
+            SecuritiesInFailValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FailsPerTransactionType is SettlementFailsTransactionType2 FailsPerTransactionTypeValue)
+        {
+            writer.WriteStartElement(null, "FlsPerTxTp", xmlNamespace );
+            FailsPerTransactionTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalSettlementPenalties is SettlementDataVolume2 TotalSettlementPenaltiesValue)
+        {
+            writer.WriteStartElement(null, "TtlSttlmPnlties", xmlNamespace );
+            TotalSettlementPenaltiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FailrRsn", xmlNamespace );
+        FailureReason.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SettlementFailsData3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

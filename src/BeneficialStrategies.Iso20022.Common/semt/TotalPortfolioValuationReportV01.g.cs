@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.semt.TotalPortfolioValuationReportV01>;
 
 namespace BeneficialStrategies.Iso20022.semt;
 
@@ -29,10 +32,9 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// - re-send to a third party a copy of a message for information (the CopyDuplicate value is CODU).
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account servicer sends a TotalPortfolioValuationReport to an account owner to provide detailed valuation information for a portfolio.|Usage|The TotalPortfolioValuationReport will be sent by the account servicer to the account owner on an agreed basis. The report may also be requested using a SecuritiesStatementQuery.|The TotalPortfolioValuationReport is used to report on a portfolio without Investment Funds; or to report on a portfolio when an investment fund is regarded as a portfolio containing, only one or multiple investment funds|The TotalPortfolioValuationReport may also be used to:|- re-send a message previously sent (the CopyDuplicate value is DUPL),|- provide a third party with a copy of a message for information (the CopyDuplicate value is COPY),|- re-send to a third party a copy of a message for information (the CopyDuplicate value is CODU).")]
-public partial record TotalPortfolioValuationReportV01 : IOuterRecord
+public partial record TotalPortfolioValuationReportV01 : IOuterRecord<TotalPortfolioValuationReportV01,TotalPortfolioValuationReportV01Document>
+    ,IIsoXmlSerilizable<TotalPortfolioValuationReportV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -44,6 +46,11 @@ public partial record TotalPortfolioValuationReportV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "TtlPrtflValtnRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => TotalPortfolioValuationReportV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -113,6 +120,47 @@ public partial record TotalPortfolioValuationReportV01 : IOuterRecord
     {
         return new TotalPortfolioValuationReportV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("TtlPrtflValtnRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Pgntn", xmlNamespace );
+        Pagination.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptGnlDtls", xmlNamespace );
+        ReportGeneralDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
+        AccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlPrtflValtn", xmlNamespace );
+        TotalPortfolioValuation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Balance is PortfolioBalance1 BalanceValue)
+        {
+            writer.WriteStartElement(null, "Bal", xmlNamespace );
+            BalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TotalPortfolioValuationReportV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -120,9 +168,7 @@ public partial record TotalPortfolioValuationReportV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TotalPortfolioValuationReportV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record TotalPortfolioValuationReportV01Document : IOuterDocument<TotalPortfolioValuationReportV01>
+public partial record TotalPortfolioValuationReportV01Document : IOuterDocument<TotalPortfolioValuationReportV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -138,5 +184,22 @@ public partial record TotalPortfolioValuationReportV01Document : IOuterDocument<
     /// <summary>
     /// The instance of <seealso cref="TotalPortfolioValuationReportV01"/> is required.
     /// </summary>
+    [DataMember(Name=TotalPortfolioValuationReportV01.XmlTag)]
     public required TotalPortfolioValuationReportV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(TotalPortfolioValuationReportV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

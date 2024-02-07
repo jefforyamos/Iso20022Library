@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information and conditions provided for the physical attendance to the meeting.  
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Attendance2
+     : IIsoXmlSerilizable<Attendance2>
 {
     #nullable enable
     
     /// <summary>
     /// Conditions for physical admittance to the general meeting.
     /// </summary>
-    [DataMember]
     public ValueList<AttendanceAdmissionConditions2> AdmissionConditions { get; init; } = [];
     /// <summary>
     /// Specifies how to order the attendance card or to give notice of attendance.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? ConfirmationInformation { get; init; } 
     /// <summary>
     /// Date and time by which the beneficial owner or agent must provide notification of its intention to participate in the meeting. This deadline is set by an intermediary.
     /// </summary>
-    [DataMember]
     public DateFormat58Choice_? ConfirmationDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the attendance to the meeting should be confirmed. This deadline is set by the issuer.
     /// </summary>
-    [DataMember]
     public DateFormat58Choice_? ConfirmationMarketDeadline { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AdmssnConds", xmlNamespace );
+        AdmissionConditions.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ConfirmationInformation is IsoMax350Text ConfirmationInformationValue)
+        {
+            writer.WriteStartElement(null, "ConfInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(ConfirmationInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (ConfirmationDeadline is DateFormat58Choice_ ConfirmationDeadlineValue)
+        {
+            writer.WriteStartElement(null, "ConfDdln", xmlNamespace );
+            ConfirmationDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ConfirmationMarketDeadline is DateFormat58Choice_ ConfirmationMarketDeadlineValue)
+        {
+            writer.WriteStartElement(null, "ConfMktDdln", xmlNamespace );
+            ConfirmationMarketDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Attendance2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

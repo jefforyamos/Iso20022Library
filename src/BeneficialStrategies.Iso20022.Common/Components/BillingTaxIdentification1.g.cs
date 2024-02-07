@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the tax identification related to a service to be billed.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BillingTaxIdentification1
+     : IIsoXmlSerilizable<BillingTaxIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Value added tax (VAT) registration number as provided by the region’s local taxing authority.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? VATRegistrationNumber { get; init; } 
     /// <summary>
     /// Tax registration number (TRN) as provided by the tax region’s local taxing authority.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TaxRegistrationNumber { get; init; } 
     /// <summary>
     /// Specifies financial institution's contact details for the tax region. This contact works for the financial institution, not the tax region.
     /// </summary>
-    [DataMember]
     public ContactDetails3? TaxContact { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (VATRegistrationNumber is IsoMax35Text VATRegistrationNumberValue)
+        {
+            writer.WriteStartElement(null, "VATRegnNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(VATRegistrationNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TaxRegistrationNumber is IsoMax35Text TaxRegistrationNumberValue)
+        {
+            writer.WriteStartElement(null, "TaxRegnNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TaxRegistrationNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TaxContact is ContactDetails3 TaxContactValue)
+        {
+            writer.WriteStartElement(null, "TaxCtct", xmlNamespace );
+            TaxContactValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BillingTaxIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

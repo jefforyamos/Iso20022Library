@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Response to the PIN management transaction. request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMTransaction10
+     : IIsoXmlSerilizable<ATMTransaction10>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
-    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period assigned by the ATM.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     /// <summary>
     /// True if a completion advice has to be sent after the end of the transaction.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CompletionRequired { get; init; } 
     /// <summary>
     /// Result of the PIN service.
     /// </summary>
-    [DataMember]
     public required ResponseType3 TransactionResponse { get; init; } 
     /// <summary>
     /// Sequence of actions to be performed by the ATM to complete the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<Action5> Action { get; init; } = []; // Warning: Don't know multiplicity.
+    public Action5? Action { get; init; } 
     /// <summary>
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
-    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMCommand1> Command { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMCommand1? Command { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ReconciliationIdentification is IsoMax35Text ReconciliationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcncltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReconciliationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CompletionRequired is IsoTrueFalseIndicator CompletionRequiredValue)
+        {
+            writer.WriteStartElement(null, "CmpltnReqrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CompletionRequiredValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxRspn", xmlNamespace );
+        TransactionResponse.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Action is Action5 ActionValue)
+        {
+            writer.WriteStartElement(null, "Actn", xmlNamespace );
+            ActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ICCRelatedData is IsoMax10000Binary ICCRelatedDataValue)
+        {
+            writer.WriteStartElement(null, "ICCRltdData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(ICCRelatedDataValue)); // data type Max10000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (Command is ATMCommand1 CommandValue)
+        {
+            writer.WriteStartElement(null, "Cmd", xmlNamespace );
+            CommandValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMTransaction10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

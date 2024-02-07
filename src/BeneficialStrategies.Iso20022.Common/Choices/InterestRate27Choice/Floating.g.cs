@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.InterestRate27Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate27Choice;
 /// Details about the variable rate.
 /// </summary>
 public partial record Floating : InterestRate27Choice_
+     , IIsoXmlSerilizable<Floating>
 {
     #nullable enable
+    
     /// <summary>
     /// Identifies the reference index for the debt instrument.
     /// </summary>
@@ -38,10 +42,70 @@ public partial record Floating : InterestRate27Choice_
     /// <summary>
     /// Specifies the rate adjustments as determined by the rate schedule.
     /// </summary>
-    public RateAdjustment1? RateAdjustment { get; init;  } // Warning: Don't know multiplicity.
+    public RateAdjustment1? RateAdjustment { get; init; } 
     /// <summary>
     /// Method for calculating the accrued interest on the principal amount for a fixed rate.
     /// </summary>
     public InterestComputationMethodFormat6Choice_? DayCountBasis { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReferenceRate is BenchmarkCurveName10Choice_ ReferenceRateValue)
+        {
+            writer.WriteStartElement(null, "RefRate", xmlNamespace );
+            ReferenceRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Term is InterestRateContractTerm2 TermValue)
+        {
+            writer.WriteStartElement(null, "Term", xmlNamespace );
+            TermValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentFrequency is InterestRateContractTerm2 PaymentFrequencyValue)
+        {
+            writer.WriteStartElement(null, "PmtFrqcy", xmlNamespace );
+            PaymentFrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ResetFrequency is InterestRateContractTerm2 ResetFrequencyValue)
+        {
+            writer.WriteStartElement(null, "RstFrqcy", xmlNamespace );
+            ResetFrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Spread is SecuritiesTransactionPrice18Choice_ SpreadValue)
+        {
+            writer.WriteStartElement(null, "Sprd", xmlNamespace );
+            SpreadValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RateAdjustment is RateAdjustment1 RateAdjustmentValue)
+        {
+            writer.WriteStartElement(null, "RateAdjstmnt", xmlNamespace );
+            RateAdjustmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DayCountBasis is InterestComputationMethodFormat6Choice_ DayCountBasisValue)
+        {
+            writer.WriteStartElement(null, "DayCntBsis", xmlNamespace );
+            DayCountBasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Floating Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Limit of amounts for the customer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMTransactionAmounts3
+     : IIsoXmlSerilizable<ATMTransactionAmounts3>
 {
     #nullable enable
     
     /// <summary>
     /// Type of limit.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Label of the limit to display or print.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Label { get; init; } 
     /// <summary>
     /// Currency of the limit amount.
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Minimum amount value in the currency of the limit.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? MinimumAmount { get; init; } 
     /// <summary>
     /// Maximum amount value in the currency of the limit.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? MaximumAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Type)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Label is IsoMax35Text LabelValue)
+        {
+            writer.WriteStartElement(null, "Labl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(LabelValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Ccy", xmlNamespace );
+        writer.WriteValue(Currency.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (MinimumAmount is IsoImpliedCurrencyAndAmount MinimumAmountValue)
+        {
+            writer.WriteStartElement(null, "MinAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MinimumAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MaximumAmount is IsoImpliedCurrencyAndAmount MaximumAmountValue)
+        {
+            writer.WriteStartElement(null, "MaxAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MaximumAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMTransactionAmounts3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the amendment of the information that serves as a basis to debit an account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DebtorActivationAmendment4
+     : IIsoXmlSerilizable<DebtorActivationAmendment4>
 {
     #nullable enable
     
     /// <summary>
     /// Specific attributes provided the debtor, as requested by the creditor, for the activation request.
     /// </summary>
-    [DataMember]
     public DebtorActivation4? DebtorActivation { get; init; } 
     /// <summary>
     /// Further data related to the electronic invoice (e-invoice).
     /// </summary>
-    [DataMember]
     public ElectronicInvoice1? ElectronicInvoiceData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DebtorActivation is DebtorActivation4 DebtorActivationValue)
+        {
+            writer.WriteStartElement(null, "DbtrActvtn", xmlNamespace );
+            DebtorActivationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ElectronicInvoiceData is ElectronicInvoice1 ElectronicInvoiceDataValue)
+        {
+            writer.WriteStartElement(null, "ElctrncInvcData", xmlNamespace );
+            ElectronicInvoiceDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DebtorActivationAmendment4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

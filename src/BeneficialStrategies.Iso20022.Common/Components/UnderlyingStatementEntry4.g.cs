@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides further details on the underlying statement entry, to which the investigation message refers.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UnderlyingStatementEntry4
+     : IIsoXmlSerilizable<UnderlyingStatementEntry4>
 {
     #nullable enable
     
     /// <summary>
     /// Provides details of the account, for which the original statement was generated.
     /// </summary>
-    [DataMember]
     public CashAccount40? OriginalAccount { get; init; } 
     /// <summary>
     /// Provides information on the original message.
     /// </summary>
-    [DataMember]
     public OriginalGroupInformation29? OriginalGroupInformation { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the account servicer, to unambiguously identify the original statement.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalStatementIdentification { get; init; } 
     /// <summary>
     /// Original unique identification, as assigned by the account servicer, to unambiguously identify the original entry.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalEntryIdentification { get; init; } 
     /// <summary>
     /// Universally unique identifier to provide the original end-to-end reference of a payment transaction.
     /// </summary>
-    [DataMember]
     public IsoUUIDv4Identifier? OriginalUETR { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OriginalAccount is CashAccount40 OriginalAccountValue)
+        {
+            writer.WriteStartElement(null, "OrgnlAcct", xmlNamespace );
+            OriginalAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalGroupInformation is OriginalGroupInformation29 OriginalGroupInformationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlGrpInf", xmlNamespace );
+            OriginalGroupInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalStatementIdentification is IsoMax35Text OriginalStatementIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlStmtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalStatementIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalEntryIdentification is IsoMax35Text OriginalEntryIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlNtryId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalEntryIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalUETR is IsoUUIDv4Identifier OriginalUETRValue)
+        {
+            writer.WriteStartElement(null, "OrgnlUETR", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoUUIDv4Identifier(OriginalUETRValue)); // data type UUIDv4Identifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static UnderlyingStatementEntry4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

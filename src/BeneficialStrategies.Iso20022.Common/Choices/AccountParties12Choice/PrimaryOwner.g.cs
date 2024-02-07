@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AccountParties12Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountParties12Choice;
 /// Single owner of the account or, when the ownership is split among several owners, the primary owner is the one giving its address and account details for the registration.
 /// </summary>
 public partial record PrimaryOwner : AccountParties12Choice_
+     , IIsoXmlSerilizable<PrimaryOwner>
 {
     #nullable enable
+    
     /// <summary>
     /// Information about the organisation or individual person.
     /// </summary>
@@ -26,7 +30,7 @@ public partial record PrimaryOwner : AccountParties12Choice_
     /// <summary>
     /// Information to support Know Your Customer (KYC) processes.
     /// </summary>
-    public PartyProfileInformation5? InvestorProfileValidation { get; init;  } // Warning: Don't know multiplicity.
+    public PartyProfileInformation5? InvestorProfileValidation { get; init; } 
     /// <summary>
     /// Percentage of ownership or of beneficial ownership of the shares/units in the account. All subsequent subscriptions or purchases and or redemptions or sells will be allocated using the same percentage.
     /// </summary>
@@ -50,15 +54,15 @@ public partial record PrimaryOwner : AccountParties12Choice_
     /// <summary>
     /// Type of information that must be provided to the account holder.
     /// </summary>
-    public Notification2? Notification { get; init;  } // Warning: Don't know multiplicity.
+    public Notification2? Notification { get; init; } 
     /// <summary>
     /// Type of Foreign Account Tax Compliance Act (FATCA) form submitted by the investor or account owner.
     /// </summary>
-    public FATCAForm1Choice_? FATCAFormType { get; init;  } // Warning: Don't know multiplicity.
+    public FATCAForm1Choice_? FATCAFormType { get; init; } 
     /// <summary>
     /// Foreign Account Tax Compliance Act (FATCA) status of the investor or account owner.
     /// </summary>
-    public FATCAStatus2? FATCAStatus { get; init;  } // Warning: Don't know multiplicity.
+    public FATCAStatus2? FATCAStatus { get; init; } 
     /// <summary>
     /// Date provided by the account owner to inform the account servicer of the date on which the holdings must be reported before the account is subsequently closed.
     /// </summary>
@@ -66,11 +70,11 @@ public partial record PrimaryOwner : AccountParties12Choice_
     /// <summary>
     /// Type of Common Reporting Standard (CRS) form submitted by the investor or account owner.
     /// </summary>
-    public CRSForm1Choice_? CRSFormType { get; init;  } // Warning: Don't know multiplicity.
+    public CRSForm1Choice_? CRSFormType { get; init; } 
     /// <summary>
     /// Common Reporting Standard (CRS) status of the investor or account owner.
     /// </summary>
-    public CRSStatus4? CRSStatus { get; init;  } // Warning: Don't know multiplicity.
+    public CRSStatus4? CRSStatus { get; init; } 
     /// <summary>
     /// Date provided by the account owner to inform the account servicer of the date on which the holdings must be reported before the account is subsequently closed.
     /// </summary>
@@ -78,7 +82,7 @@ public partial record PrimaryOwner : AccountParties12Choice_
     /// <summary>
     /// Alternative identification, for example, national registration identification number, passport number, tax identification number. This may be an account number used to further identify the beneficial owner, for example, a Central Provident Fund (CFP) account as required for Singapore.
     /// </summary>
-    public GenericIdentification82? OtherIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification82? OtherIdentification { get; init; } 
     /// <summary>
     /// Tax advantage specific to the account party.
     /// </summary>
@@ -86,7 +90,7 @@ public partial record PrimaryOwner : AccountParties12Choice_
     /// <summary>
     /// Details for the reporting of tax, for example, the country of taxation.
     /// </summary>
-    public TaxReporting3? TaxReporting { get; init;  } // Warning: Don't know multiplicity.
+    public TaxReporting3? TaxReporting { get; init; } 
     /// <summary>
     /// Language in which the organisation or person communicates.
     /// </summary>
@@ -122,11 +126,11 @@ public partial record PrimaryOwner : AccountParties12Choice_
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
-    public CommunicationAddress6? PrimaryCommunicationAddress { get; init;  } // Warning: Don't know multiplicity.
+    public CommunicationAddress6? PrimaryCommunicationAddress { get; init; } 
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
-    public CommunicationAddress6? SecondaryCommunicationAddress { get; init;  } // Warning: Don't know multiplicity.
+    public CommunicationAddress6? SecondaryCommunicationAddress { get; init; } 
     /// <summary>
     /// Additional regulatory information about the investor or account owner that is required in some markets to support anti-money laundering laws.
     /// </summary>
@@ -138,11 +142,218 @@ public partial record PrimaryOwner : AccountParties12Choice_
     /// <summary>
     /// Additional information such as remarks or notes that must be conveyed about the party and or limitations and restrictions.
     /// </summary>
-    public AdditiononalInformation13? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditiononalInformation13? AdditionalInformation { get; init; } 
     /// <summary>
     /// Party is the controlling person. 
     /// (For an Entity that is a legal person, the term “Controlling Persons” means the natural person(s) who exercises control over the Entity. “Control” over an Entity is generally exercised by the natural person(s) who ultimately has a controlling ownership interest in the Entity. A “control ownership interest” depends on the ownership structure of the legal person and is usually identified on the basis of a threshold applying a risk-based approach (e.g. any person(s) owning more than a certain percentage of the legal person, such as 25%). Where no natural person(s) exercises control through ownership interests, the Controlling Person(s) of the Entity will be the natural person(s) who exercises control of the Entity through other means. Where no natural person(s) is identified as exercising control of the Entity, the Controlling Person(s) of the Entity will be the natural person(s) who holds the position of senior managing official.).
     /// </summary>
     public IsoYesNoIndicator? ControllingParty { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Pty", xmlNamespace );
+        Party.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MoneyLaunderingCheck is MoneyLaunderingCheck1Choice_ MoneyLaunderingCheckValue)
+        {
+            writer.WriteStartElement(null, "MnyLndrgChck", xmlNamespace );
+            MoneyLaunderingCheckValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestorProfileValidation is PartyProfileInformation5 InvestorProfileValidationValue)
+        {
+            writer.WriteStartElement(null, "InvstrPrflVldtn", xmlNamespace );
+            InvestorProfileValidationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OwnershipBeneficiaryRate is OwnershipBeneficiaryRate1 OwnershipBeneficiaryRateValue)
+        {
+            writer.WriteStartElement(null, "OwnrshBnfcryRate", xmlNamespace );
+            OwnershipBeneficiaryRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClientIdentification is IsoMax35Text ClientIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClntId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (FiscalExemption is IsoYesNoIndicator FiscalExemptionValue)
+        {
+            writer.WriteStartElement(null, "FsclXmptn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(FiscalExemptionValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SignatoryRightIndicator is IsoYesNoIndicator SignatoryRightIndicatorValue)
+        {
+            writer.WriteStartElement(null, "SgntryRghtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SignatoryRightIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (MiFIDClassification is MiFIDClassification1 MiFIDClassificationValue)
+        {
+            writer.WriteStartElement(null, "MiFIDClssfctn", xmlNamespace );
+            MiFIDClassificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Notification is Notification2 NotificationValue)
+        {
+            writer.WriteStartElement(null, "Ntfctn", xmlNamespace );
+            NotificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FATCAFormType is FATCAForm1Choice_ FATCAFormTypeValue)
+        {
+            writer.WriteStartElement(null, "FATCAFormTp", xmlNamespace );
+            FATCAFormTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FATCAStatus is FATCAStatus2 FATCAStatusValue)
+        {
+            writer.WriteStartElement(null, "FATCASts", xmlNamespace );
+            FATCAStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FATCAReportingDate is IsoISODate FATCAReportingDateValue)
+        {
+            writer.WriteStartElement(null, "FATCARptgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(FATCAReportingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (CRSFormType is CRSForm1Choice_ CRSFormTypeValue)
+        {
+            writer.WriteStartElement(null, "CRSFormTp", xmlNamespace );
+            CRSFormTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CRSStatus is CRSStatus4 CRSStatusValue)
+        {
+            writer.WriteStartElement(null, "CRSSts", xmlNamespace );
+            CRSStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CRSReportingDate is IsoISODate CRSReportingDateValue)
+        {
+            writer.WriteStartElement(null, "CRSRptgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(CRSReportingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (OtherIdentification is GenericIdentification82 OtherIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OthrId", xmlNamespace );
+            OtherIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxExemption is TaxExemptionReason2Choice_ TaxExemptionValue)
+        {
+            writer.WriteStartElement(null, "TaxXmptn", xmlNamespace );
+            TaxExemptionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxReporting is TaxReporting3 TaxReportingValue)
+        {
+            writer.WriteStartElement(null, "TaxRptg", xmlNamespace );
+            TaxReportingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Language is LanguageCode LanguageValue)
+        {
+            writer.WriteStartElement(null, "Lang", xmlNamespace );
+            writer.WriteValue(LanguageValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MailType is MailType1Choice_ MailTypeValue)
+        {
+            writer.WriteStartElement(null, "MailTp", xmlNamespace );
+            MailTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CountryAndResidentialStatus is CountryAndResidentialStatusType2 CountryAndResidentialStatusValue)
+        {
+            writer.WriteStartElement(null, "CtryAndResdtlSts", xmlNamespace );
+            CountryAndResidentialStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MonetaryWealth is DateAndAmount1 MonetaryWealthValue)
+        {
+            writer.WriteStartElement(null, "MntryWlth", xmlNamespace );
+            MonetaryWealthValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EquityValue is DateAndAmount1 EquityValueValue)
+        {
+            writer.WriteStartElement(null, "EqtyVal", xmlNamespace );
+            EquityValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (WorkingCapital is DateAndAmount1 WorkingCapitalValue)
+        {
+            writer.WriteStartElement(null, "WorkgCptl", xmlNamespace );
+            WorkingCapitalValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CompanyLink is CompanyLink1Choice_ CompanyLinkValue)
+        {
+            writer.WriteStartElement(null, "CpnyLk", xmlNamespace );
+            CompanyLinkValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ElectronicMailingServiceReference is IsoMax350Text ElectronicMailingServiceReferenceValue)
+        {
+            writer.WriteStartElement(null, "ElctrncMlngSvcRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(ElectronicMailingServiceReferenceValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (PrimaryCommunicationAddress is CommunicationAddress6 PrimaryCommunicationAddressValue)
+        {
+            writer.WriteStartElement(null, "PmryComAdr", xmlNamespace );
+            PrimaryCommunicationAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecondaryCommunicationAddress is CommunicationAddress6 SecondaryCommunicationAddressValue)
+        {
+            writer.WriteStartElement(null, "ScndryComAdr", xmlNamespace );
+            SecondaryCommunicationAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalRegulatoryInformation is RegulatoryInformation1 AdditionalRegulatoryInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlRgltryInf", xmlNamespace );
+            AdditionalRegulatoryInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountingStatus is AccountingStatus1Choice_ AccountingStatusValue)
+        {
+            writer.WriteStartElement(null, "AcctgSts", xmlNamespace );
+            AccountingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditiononalInformation13 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ControllingParty is IsoYesNoIndicator ControllingPartyValue)
+        {
+            writer.WriteStartElement(null, "CtrlgPty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ControllingPartyValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new PrimaryOwner Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

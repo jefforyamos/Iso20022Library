@@ -7,126 +7,249 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Variables related to derivatives that are used to group derivatives together into positions for position sets and currency position sets reports. 
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PositionSetDimensions3
+     : IIsoXmlSerilizable<PositionSetDimensions3>
 {
     #nullable enable
     
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
-    [DataMember]
     public TradeCounterpartyReport9? CounterpartyIdentification { get; init; } 
     /// <summary>
     /// Currency used for the valuation of the contract.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? ValueCurrency { get; init; } 
     /// <summary>
     /// Type of collateral agreement existing between counterparties.
     /// </summary>
-    [DataMember]
     public CollateralisationType1Code? Collateralisation { get; init; } 
     /// <summary>
     /// Identifies the portfolio if collateral is reported on a portfolio basis, as defined by the reporting counterparty.
     /// </summary>
-    [DataMember]
     public IsoMax52Text? Portfolio { get; init; } 
     /// <summary>
     /// Classification according to the contract type.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentContractType2Code? ContractType { get; init; } 
     /// <summary>
     /// Classification according to the asset class of the contract.
     /// </summary>
-    [DataMember]
     public ProductType4Code? AssetClass { get; init; } 
     /// <summary>
     /// Unique identification of the direct underlying instrument based on its type.
     /// </summary>
-    [DataMember]
     public SecurityIdentification34Choice_? UnderlyingInstrument { get; init; } 
     /// <summary>
     /// Currency of the notional amount. 
     /// Usage: In the case of an interest rate or currency derivative contract, this will be the notional currency of first leg.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? FirstLegNotionalCurrency { get; init; } 
     /// <summary>
     /// Other currency of the notional amount. 
     /// Usage: In the case of an interest rate or currency derivative contract, this will be the notional currency of the second leg.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? SecondLegNotionalCurrency { get; init; } 
     /// <summary>
     /// Specifies the currency of delivery.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? DeliverableCurrency { get; init; } 
     /// <summary>
     /// Indicates the cross currency, if different from the currency of delivery.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? DeliverableCrossCurrency { get; init; } 
     /// <summary>
     /// Details related to the master agreement.
     /// </summary>
-    [DataMember]
     public MasterAgreement2? MasterAgreement { get; init; } 
     /// <summary>
     /// Indicates whether clearing of contract has taken place.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ClearingStatus { get; init; } 
     /// <summary>
     /// Indicates whether the contract was entered into as an intragroup transaction.
     /// Usage: When absent, default value is false.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? IntraGroup { get; init; } 
     /// <summary>
     /// Indicates the quote base for the exchange rate.
     /// </summary>
-    [DataMember]
     public ExchangeRateBasis1Choice_? ExchangeRateBasis { get; init; } 
     /// <summary>
     /// Specifies the type of the option whether it is a call option (right to purchase a specific underlying asset) or a put option (right to sell a specific underlying asset).
     /// </summary>
-    [DataMember]
     public OptionType2Code? OptionType { get; init; } 
     /// <summary>
     /// Difference between a maturity date of a derivative and the reference date, based on a Gregorian calendar.
     /// </summary>
-    [DataMember]
     public TimeToMaturity1Choice_? TimeToMaturity { get; init; } 
     /// <summary>
     /// Groups of IRS (Internal Revenue Service) derivatives with reference to whether leg 1 and leg 2 are fixed or floating.
     /// </summary>
-    [DataMember]
     public IsoMax52Text? IRSType { get; init; } 
     /// <summary>
     /// Classification of seniority in case of contract on index or on a single name entity.
     /// </summary>
-    [DataMember]
     public DebtInstrumentSeniorityType2Code? Seniority { get; init; } 
     /// <summary>
     /// Indicates whether the derivative contract is tranched or not.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? Tranche { get; init; } 
     /// <summary>
     /// Details on the commodity asset class type.
     /// </summary>
-    [DataMember]
     public IsoMax52Text? Commodity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CounterpartyIdentification is TradeCounterpartyReport9 CounterpartyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
+            CounterpartyIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValueCurrency is ActiveOrHistoricCurrencyCode ValueCurrencyValue)
+        {
+            writer.WriteStartElement(null, "ValCcy", xmlNamespace );
+            writer.WriteValue(ValueCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Collateralisation is CollateralisationType1Code CollateralisationValue)
+        {
+            writer.WriteStartElement(null, "Collstn", xmlNamespace );
+            writer.WriteValue(CollateralisationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Portfolio is IsoMax52Text PortfolioValue)
+        {
+            writer.WriteStartElement(null, "Prtfl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(PortfolioValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+        if (ContractType is FinancialInstrumentContractType2Code ContractTypeValue)
+        {
+            writer.WriteStartElement(null, "CtrctTp", xmlNamespace );
+            writer.WriteValue(ContractTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AssetClass is ProductType4Code AssetClassValue)
+        {
+            writer.WriteStartElement(null, "AsstClss", xmlNamespace );
+            writer.WriteValue(AssetClassValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (UnderlyingInstrument is SecurityIdentification34Choice_ UnderlyingInstrumentValue)
+        {
+            writer.WriteStartElement(null, "UndrlygInstrm", xmlNamespace );
+            UnderlyingInstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FirstLegNotionalCurrency is ActiveCurrencyCode FirstLegNotionalCurrencyValue)
+        {
+            writer.WriteStartElement(null, "FrstLegNtnlCcy", xmlNamespace );
+            writer.WriteValue(FirstLegNotionalCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SecondLegNotionalCurrency is ActiveCurrencyCode SecondLegNotionalCurrencyValue)
+        {
+            writer.WriteStartElement(null, "ScndLegNtnlCcy", xmlNamespace );
+            writer.WriteValue(SecondLegNotionalCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DeliverableCurrency is ActiveCurrencyCode DeliverableCurrencyValue)
+        {
+            writer.WriteStartElement(null, "DlvrblCcy", xmlNamespace );
+            writer.WriteValue(DeliverableCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DeliverableCrossCurrency is ActiveOrHistoricCurrencyCode DeliverableCrossCurrencyValue)
+        {
+            writer.WriteStartElement(null, "DlvrblCrossCcy", xmlNamespace );
+            writer.WriteValue(DeliverableCrossCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MasterAgreement is MasterAgreement2 MasterAgreementValue)
+        {
+            writer.WriteStartElement(null, "MstrAgrmt", xmlNamespace );
+            MasterAgreementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingStatus is IsoTrueFalseIndicator ClearingStatusValue)
+        {
+            writer.WriteStartElement(null, "ClrSts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ClearingStatusValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (IntraGroup is IsoTrueFalseIndicator IntraGroupValue)
+        {
+            writer.WriteStartElement(null, "IntraGrp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(IntraGroupValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ExchangeRateBasis is ExchangeRateBasis1Choice_ ExchangeRateBasisValue)
+        {
+            writer.WriteStartElement(null, "XchgRateBsis", xmlNamespace );
+            ExchangeRateBasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionType is OptionType2Code OptionTypeValue)
+        {
+            writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+            writer.WriteValue(OptionTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TimeToMaturity is TimeToMaturity1Choice_ TimeToMaturityValue)
+        {
+            writer.WriteStartElement(null, "TmToMtrty", xmlNamespace );
+            TimeToMaturityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IRSType is IsoMax52Text IRSTypeValue)
+        {
+            writer.WriteStartElement(null, "IRSTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(IRSTypeValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+        if (Seniority is DebtInstrumentSeniorityType2Code SeniorityValue)
+        {
+            writer.WriteStartElement(null, "Snrty", xmlNamespace );
+            writer.WriteValue(SeniorityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Tranche is IsoTrueFalseIndicator TrancheValue)
+        {
+            writer.WriteStartElement(null, "Trch", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TrancheValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Commodity is IsoMax52Text CommodityValue)
+        {
+            writer.WriteStartElement(null, "Cmmdty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(CommodityValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PositionSetDimensions3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

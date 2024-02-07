@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the central counterparty clearing time.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ClearingPartyAndTime10
+     : IIsoXmlSerilizable<ClearingPartyAndTime10>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates that the contract is intended to be cleared.
     /// </summary>
-    [DataMember]
     public NoReasonCode? Reason { get; init; } 
     /// <summary>
     /// Identifies the central counterparty (CCP) that cleared the transaction.
     /// </summary>
-    [DataMember]
     public OrganisationIdentification10Choice_? CCP { get; init; } 
     /// <summary>
     /// Time and date when clearing took place.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ClearingDateTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Reason is NoReasonCode ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            writer.WriteValue(ReasonValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CCP is OrganisationIdentification10Choice_ CCPValue)
+        {
+            writer.WriteStartElement(null, "CCP", xmlNamespace );
+            CCPValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingDateTime is IsoISODateTime ClearingDateTimeValue)
+        {
+            writer.WriteStartElement(null, "ClrDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ClearingDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static ClearingPartyAndTime10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

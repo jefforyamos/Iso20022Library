@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.SecuritiesSettlementTransactionCounterpartyResponseV02>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -36,10 +39,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// using the relevant elements in the Business Application Header.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account owner sends a SecuritiesSettlementTransactionCounterpartyResponse to advise the account servicer that:|- the allegement received is either rejected (that is counterparty's transaction is unknown) or accepted (i.e. either the allegement was passed to the client or the transaction is know with or without mismatches)|- the modification or cancellation request sent by the counterparty for a matched transaction is affirmed or not. The account servicer will therefore proceed or not with the counterparty's request to modify or cancel the transaction.|The account servicer may be a central securities depository or another settlement market infrastructure acting on behalf of their participants|The account owner may be:|- a central securities depository participant which has an account with a central securities depository or a market infrastructure|- an agent (sub-custodian) acting on behalf of their global custodian customer, or|- a custodian acting on behalf of an investment management institution or a broker/dealer.||Usage|The message may also be used to:|- re-send a message sent by the account owner to the account servicer,|- provide a third party with a copy of a message being sent by the account owner for information,|- re-send to a third party a copy of a message being sent by the account owner for information|using the relevant elements in the Business Application Header.")]
-public partial record SecuritiesSettlementTransactionCounterpartyResponseV02 : IOuterRecord
+public partial record SecuritiesSettlementTransactionCounterpartyResponseV02 : IOuterRecord<SecuritiesSettlementTransactionCounterpartyResponseV02,SecuritiesSettlementTransactionCounterpartyResponseV02Document>
+    ,IIsoXmlSerilizable<SecuritiesSettlementTransactionCounterpartyResponseV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -51,6 +53,11 @@ public partial record SecuritiesSettlementTransactionCounterpartyResponseV02 : I
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesSttlmTxCtrPtyRspn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesSettlementTransactionCounterpartyResponseV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -100,6 +107,41 @@ public partial record SecuritiesSettlementTransactionCounterpartyResponseV02 : I
     {
         return new SecuritiesSettlementTransactionCounterpartyResponseV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesSttlmTxCtrPtyRspn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RspnSts", xmlNamespace );
+        ResponseStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionDetails is TransactionDetails82 TransactionDetailsValue)
+        {
+            writer.WriteStartElement(null, "TxDtls", xmlNamespace );
+            TransactionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesSettlementTransactionCounterpartyResponseV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -107,9 +149,7 @@ public partial record SecuritiesSettlementTransactionCounterpartyResponseV02 : I
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementTransactionCounterpartyResponseV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesSettlementTransactionCounterpartyResponseV02Document : IOuterDocument<SecuritiesSettlementTransactionCounterpartyResponseV02>
+public partial record SecuritiesSettlementTransactionCounterpartyResponseV02Document : IOuterDocument<SecuritiesSettlementTransactionCounterpartyResponseV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -125,5 +165,22 @@ public partial record SecuritiesSettlementTransactionCounterpartyResponseV02Docu
     /// <summary>
     /// The instance of <seealso cref="SecuritiesSettlementTransactionCounterpartyResponseV02"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesSettlementTransactionCounterpartyResponseV02.XmlTag)]
     public required SecuritiesSettlementTransactionCounterpartyResponseV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesSettlementTransactionCounterpartyResponseV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

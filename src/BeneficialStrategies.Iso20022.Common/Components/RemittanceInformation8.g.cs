@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RemittanceInformation8
+     : IIsoXmlSerilizable<RemittanceInformation8>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification, assigned by the originator, to unambiguously identify the remittance information within the message.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RemittanceIdentification { get; init; } 
     /// <summary>
     /// Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in an unstructured form.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax140Text> Unstructured { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax140Text? Unstructured { get; init; } 
     /// <summary>
     /// Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in a structured form.
     /// </summary>
-    [DataMember]
-    public ValueList<StructuredRemittanceInformation10> Structured { get; init; } = []; // Warning: Don't know multiplicity.
+    public StructuredRemittanceInformation10? Structured { get; init; } 
     /// <summary>
     /// Set of elements used to provide information on the original transactions, to which the remittance message refers.
     /// </summary>
-    [DataMember]
     public required OriginalPaymentInformation6 OriginalPaymentInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (RemittanceIdentification is IsoMax35Text RemittanceIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RmtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RemittanceIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Unstructured is IsoMax140Text UnstructuredValue)
+        {
+            writer.WriteStartElement(null, "Ustrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(UnstructuredValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (Structured is StructuredRemittanceInformation10 StructuredValue)
+        {
+            writer.WriteStartElement(null, "Strd", xmlNamespace );
+            StructuredValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OrgnlPmtInf", xmlNamespace );
+        OriginalPaymentInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static RemittanceInformation8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

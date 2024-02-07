@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.catm.AcceptorConfigurationUpdateV01>;
 
 namespace BeneficialStrategies.Iso20022.catm;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.catm;
 /// - the merchant parameters needed for the retailer protocol settings of the POI system.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The AcceptorConfigurationUpdate message is sent by the master terminal manager or delegated terminal manager to the acceptor system for the update of acquirer parameters, merchant parameters, vendor parameters or cryptographic keys of the acquirer.|Usage|The AcceptorConfigurationUpdate message may embed the information required by the acceptor system for the configuration of:|- the application parameters necessary for software applications processed by the POI system,|- the acquirer protocol parameters for the message content and message exchange behaviour of the acquirer protocol supported by the POI system,|- the host communication parameters to define the addresses of the connected acquirer hosts, and|- the merchant parameters needed for the retailer protocol settings of the POI system.")]
-public partial record AcceptorConfigurationUpdateV01 : IOuterRecord
+public partial record AcceptorConfigurationUpdateV01 : IOuterRecord<AcceptorConfigurationUpdateV01,AcceptorConfigurationUpdateV01Document>
+    ,IIsoXmlSerilizable<AcceptorConfigurationUpdateV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record AcceptorConfigurationUpdateV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AccptrCfgtnUpd";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AcceptorConfigurationUpdateV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -84,6 +91,32 @@ public partial record AcceptorConfigurationUpdateV01 : IOuterRecord
     {
         return new AcceptorConfigurationUpdateV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AccptrCfgtnUpd");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AccptrCfgtn", xmlNamespace );
+        AcceptorConfiguration.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+        SecurityTrailer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static AcceptorConfigurationUpdateV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -91,9 +124,7 @@ public partial record AcceptorConfigurationUpdateV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorConfigurationUpdateV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AcceptorConfigurationUpdateV01Document : IOuterDocument<AcceptorConfigurationUpdateV01>
+public partial record AcceptorConfigurationUpdateV01Document : IOuterDocument<AcceptorConfigurationUpdateV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -109,5 +140,22 @@ public partial record AcceptorConfigurationUpdateV01Document : IOuterDocument<Ac
     /// <summary>
     /// The instance of <seealso cref="AcceptorConfigurationUpdateV01"/> is required.
     /// </summary>
+    [DataMember(Name=AcceptorConfigurationUpdateV01.XmlTag)]
     public required AcceptorConfigurationUpdateV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AcceptorConfigurationUpdateV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

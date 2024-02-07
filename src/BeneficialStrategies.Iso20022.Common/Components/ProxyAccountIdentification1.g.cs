@@ -9,15 +9,12 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
 using System.Xml;
 using System.Xml.Linq;
-using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Components.ProxyAccountIdentification1>;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to a proxy  identification of the account.
 /// </summary>
-[DataContract(Namespace = "")]
-[XmlType]
 public partial record ProxyAccountIdentification1
      : IIsoXmlSerilizable<ProxyAccountIdentification1>
 {
@@ -26,16 +23,23 @@ public partial record ProxyAccountIdentification1
     /// <summary>
     /// Type of the proxy identification.
     /// </summary>
-    [DataMember]
     public ProxyAccountType1Choice_? Type { get; init; } 
     /// <summary>
     /// Identification used to indicate the account identification under another specified name.
     /// </summary>
-    [DataMember]
     public required IsoMax2048Text Identification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
     public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
     public void Serialize(XmlWriter writer, string xmlNamespace)
     {
         if (Type is ProxyAccountType1Choice_ TypeValue)

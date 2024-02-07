@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ReconciliationStatus8Choice;
 
@@ -13,7 +15,27 @@ namespace BeneficialStrategies.Iso20022.Choices.ReconciliationStatus8Choice;
 /// Data to be reconciled.
 /// </summary>
 public partial record ReportingData : ReconciliationStatus8Choice_
+     , IIsoXmlSerilizable<ReportingData>
 {
     #nullable enable
+    
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+    }
+    public static new ReportingData Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

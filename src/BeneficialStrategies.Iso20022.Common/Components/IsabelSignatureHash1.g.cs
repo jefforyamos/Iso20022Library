@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the hash data for the file signature.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IsabelSignatureHash1
+     : IIsoXmlSerilizable<IsabelSignatureHash1>
 {
     #nullable enable
     
     /// <summary>
     /// Arbitrary block of data defined as a fixed-size bit string, the (cryptographic) hash value, that allows the detection of an accidental or intentional change to the data.
     /// </summary>
-    [DataMember]
     public required IsoMax50Binary Hash { get; init; } 
     /// <summary>
     /// Effective method for calculating the signature hash using a finite sequence of instructions.
     /// </summary>
-    [DataMember]
     public required IsoMax105Text Algorithm { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hash", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax50Binary(Hash)); // data type Max50Binary System.Byte[]
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Algo", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax105Text(Algorithm)); // data type Max105Text System.String
+        writer.WriteEndElement();
+    }
+    public static IsabelSignatureHash1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

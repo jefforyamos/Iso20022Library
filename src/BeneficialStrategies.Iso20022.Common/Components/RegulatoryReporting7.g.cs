@@ -7,6 +7,8 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -14,153 +16,309 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Includes data elements that can be used for reporting to trade repositories.
 /// Usage: It is not to be used on regular trade confirmations. Although some fields, for example, unique transaction identifier and prior unique transaction identifier, might be used on regular trade confirmations.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RegulatoryReporting7
+     : IIsoXmlSerilizable<RegulatoryReporting7>
 {
     #nullable enable
     
     /// <summary>
     /// Regulatory transaction reporting information from the Trading Side party.
     /// </summary>
-    [DataMember]
-    public ValueList<TradingSideTransactionReporting2> TradingSideTransactionReporting { get; init; } = []; // Warning: Don't know multiplicity.
+    public TradingSideTransactionReporting2? TradingSideTransactionReporting { get; init; } 
     /// <summary>
     /// Regulatory transaction reporting information from the Counterparty Side party.
     /// </summary>
-    [DataMember]
-    public ValueList<CounterpartySideTransactionReporting2> CounterpartySideTransactionReporting { get; init; } = []; // Warning: Don't know multiplicity.
+    public CounterpartySideTransactionReporting2? CounterpartySideTransactionReporting { get; init; } 
     /// <summary>
     /// Identifies an agency or separate corporation of a futures exchange responsible for settling and
     /// clearing trades, collecting and maintaining margins, regulating delivery and reporting trade data. This can also be known as a Central Counterparty (CCP).
     /// </summary>
-    [DataMember]
     public PartyIdentification242Choice_? CentralCounterpartyClearingHouse { get; init; } 
     /// <summary>
     /// Identifies the party that is a member of the clearing house and that acts as a liaison between the investor and the Central Counterparty (CCP).
     /// </summary>
-    [DataMember]
     public PartyIdentification242Choice_? ClearingBroker { get; init; } 
     /// <summary>
     /// Identifies the party that is exempt from a clearing obligation.
     /// </summary>
-    [DataMember]
     public PartyIdentification242Choice_? ClearingExceptionParty { get; init; } 
     /// <summary>
     /// Specifies the reference number assigned by the clearing broker. A distinction can be made between the reference for the Central Counterparty (CCP) leg and the reference for the client leg of the transaction.
     /// </summary>
-    [DataMember]
     public ClearingBrokerIdentification1? ClearingBrokerIdentification { get; init; } 
     /// <summary>
     /// Specifies whether the contract is above or below the clearing threshold. Where No indicates the contract is below the clearing threshold and Yes indicates the contract is above the clearing threshold.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ClearingThresholdIndicator { get; init; } 
     /// <summary>
     /// Specifies the reference number assigned by the Central Counterparty (CCP).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClearedProductIdentification { get; init; } 
     /// <summary>
     /// Specifies the underlying product type.
     /// </summary>
-    [DataMember]
     public UnderlyingProductIdentifier1Code? UnderlyingProductIdentifier { get; init; } 
     /// <summary>
     /// Specifies whether the trade is a pre-allocation or a post-allocation trade, or whether the trade is unallocated.
     /// </summary>
-    [DataMember]
     public AllocationIndicator1Code? AllocationIndicator { get; init; } 
     /// <summary>
     /// Specifies whether the transaction is collateralised.
     /// </summary>
-    [DataMember]
     public CollateralisationIndicator1Code? CollateralisationIndicator { get; init; } 
     /// <summary>
     /// Specifies the trading venue of the transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ExecutionVenue { get; init; } 
     /// <summary>
     /// Specifies the date and time of the execution of the transaction in Coordinated Universal Time (UTC).
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? ExecutionTimestamp { get; init; } 
     /// <summary>
     /// Specifies whether the reportable transaction has one or more additional terms or provisions, other than those listed in the required real-time data fields, that materially affects the price of the reportable transaction.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? NonStandardFlag { get; init; } 
     /// <summary>
     /// Specifies the common reference or correlation identification for a swap transaction where the near and far leg are confirmed separately.
     /// </summary>
-    [DataMember]
     public IsoExact42Text? LinkSwapIdentification { get; init; } 
     /// <summary>
     /// Specifies the financial nature of the reporting counterparty.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? FinancialNatureOfTheCounterpartyIndicator { get; init; } 
     /// <summary>
     /// Specifies if the collateral is posted on a portfolio basis.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? CollateralPortfolioIndicator { get; init; } 
     /// <summary>
     /// Identifies the portfolio code to which the trade belongs if the collateral is posted on a portfolio basis (and not trade by trade).
     /// </summary>
-    [DataMember]
     public IsoMax10Text? CollateralPortfolioCode { get; init; } 
     /// <summary>
     /// Indicates if the trade results from portfolio compression.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? PortfolioCompressionIndicator { get; init; } 
     /// <summary>
     /// Specifies the corporate sector of the counterparty.
     /// </summary>
-    [DataMember]
     public CorporateSectorIdentifier1Code? CorporateSectorIndicator { get; init; } 
     /// <summary>
     /// Specifies whether the counterparty has entered into a trade with a non-European Economic Area (EEA) counterparty that is not subject to the reporting obligation.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? TradeWithNonEEACounterpartyIndicator { get; init; } 
     /// <summary>
     /// Indicate if a reported trade falls under the definition of intragroup transaction, as defined by European Securities and Markets Authority (ESMA) in the Technical Standards.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? IntragroupTradeIndicator { get; init; } 
     /// <summary>
     /// Specifies whether the contract is objectively measurable as directly linked to the non-financial counterparty's commercial or treasury financing activity.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? CommercialOrTreasuryFinancingIndicator { get; init; } 
     /// <summary>
     /// Identification of a security, as assigned under a formal or proprietary identification scheme.
     /// </summary>
-    [DataMember]
     public SecurityIdentification19? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Specifies the date and time of the confirmation of the trade in Universal Time Coordinated (UTC).
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ConfirmationDateAndTimestamp { get; init; } 
     /// <summary>
     /// Specifies the time at which the Central Counterparty (CCP) has legally taken on the clearing of the trade in Universal Time Coordinated (UTC).
     /// </summary>
-    [DataMember]
     public IsoISOTime? ClearingTimestamp { get; init; } 
     /// <summary>
     /// Provides the commission and fee type anf amout or rate.
     /// </summary>
-    [DataMember]
-    public ValueList<FXCommissionOrFee1> CommissionsAndFees { get; init; } = []; // Warning: Don't know multiplicity.
+    public FXCommissionOrFee1? CommissionsAndFees { get; init; } 
     /// <summary>
     /// Specifies additional information that might be required by the regulator.
     /// </summary>
-    [DataMember]
     public IsoMax210Text? AdditionalReportingInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TradingSideTransactionReporting is TradingSideTransactionReporting2 TradingSideTransactionReportingValue)
+        {
+            writer.WriteStartElement(null, "TradgSdTxRptg", xmlNamespace );
+            TradingSideTransactionReportingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CounterpartySideTransactionReporting is CounterpartySideTransactionReporting2 CounterpartySideTransactionReportingValue)
+        {
+            writer.WriteStartElement(null, "CtrPtySdTxRptg", xmlNamespace );
+            CounterpartySideTransactionReportingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CentralCounterpartyClearingHouse is PartyIdentification242Choice_ CentralCounterpartyClearingHouseValue)
+        {
+            writer.WriteStartElement(null, "CntrlCtrPtyClrHs", xmlNamespace );
+            CentralCounterpartyClearingHouseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingBroker is PartyIdentification242Choice_ ClearingBrokerValue)
+        {
+            writer.WriteStartElement(null, "ClrBrkr", xmlNamespace );
+            ClearingBrokerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingExceptionParty is PartyIdentification242Choice_ ClearingExceptionPartyValue)
+        {
+            writer.WriteStartElement(null, "ClrXcptnPty", xmlNamespace );
+            ClearingExceptionPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingBrokerIdentification is ClearingBrokerIdentification1 ClearingBrokerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClrBrkrId", xmlNamespace );
+            ClearingBrokerIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingThresholdIndicator is IsoYesNoIndicator ClearingThresholdIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ClrThrshldInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ClearingThresholdIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ClearedProductIdentification is IsoMax35Text ClearedProductIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClrdPdctId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClearedProductIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (UnderlyingProductIdentifier is UnderlyingProductIdentifier1Code UnderlyingProductIdentifierValue)
+        {
+            writer.WriteStartElement(null, "UndrlygPdctIdr", xmlNamespace );
+            writer.WriteValue(UnderlyingProductIdentifierValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AllocationIndicator is AllocationIndicator1Code AllocationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AllcnInd", xmlNamespace );
+            writer.WriteValue(AllocationIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CollateralisationIndicator is CollateralisationIndicator1Code CollateralisationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CollstnInd", xmlNamespace );
+            writer.WriteValue(CollateralisationIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExecutionVenue is IsoMax35Text ExecutionVenueValue)
+        {
+            writer.WriteStartElement(null, "ExctnVn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ExecutionVenueValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ExecutionTimestamp is DateAndDateTime2Choice_ ExecutionTimestampValue)
+        {
+            writer.WriteStartElement(null, "ExctnTmstmp", xmlNamespace );
+            ExecutionTimestampValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NonStandardFlag is IsoYesNoIndicator NonStandardFlagValue)
+        {
+            writer.WriteStartElement(null, "NonStdFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(NonStandardFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (LinkSwapIdentification is IsoExact42Text LinkSwapIdentificationValue)
+        {
+            writer.WriteStartElement(null, "LkSwpId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact42Text(LinkSwapIdentificationValue)); // data type Exact42Text System.String
+            writer.WriteEndElement();
+        }
+        if (FinancialNatureOfTheCounterpartyIndicator is IsoYesNoIndicator FinancialNatureOfTheCounterpartyIndicatorValue)
+        {
+            writer.WriteStartElement(null, "FinNtrOfTheCtrPtyInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(FinancialNatureOfTheCounterpartyIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CollateralPortfolioIndicator is IsoYesNoIndicator CollateralPortfolioIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CollPrtflInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CollateralPortfolioIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CollateralPortfolioCode is IsoMax10Text CollateralPortfolioCodeValue)
+        {
+            writer.WriteStartElement(null, "CollPrtflCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10Text(CollateralPortfolioCodeValue)); // data type Max10Text System.String
+            writer.WriteEndElement();
+        }
+        if (PortfolioCompressionIndicator is IsoYesNoIndicator PortfolioCompressionIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PrtflCmprssnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PortfolioCompressionIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CorporateSectorIndicator is CorporateSectorIdentifier1Code CorporateSectorIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CorpSctrInd", xmlNamespace );
+            writer.WriteValue(CorporateSectorIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TradeWithNonEEACounterpartyIndicator is IsoYesNoIndicator TradeWithNonEEACounterpartyIndicatorValue)
+        {
+            writer.WriteStartElement(null, "TradWthNonEEACtrPtyInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(TradeWithNonEEACounterpartyIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (IntragroupTradeIndicator is IsoYesNoIndicator IntragroupTradeIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NtrgrpTradInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(IntragroupTradeIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CommercialOrTreasuryFinancingIndicator is IsoYesNoIndicator CommercialOrTreasuryFinancingIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ComrclOrTrsrFincgInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CommercialOrTreasuryFinancingIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentIdentification is SecurityIdentification19 FinancialInstrumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+            FinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ConfirmationDateAndTimestamp is IsoISODateTime ConfirmationDateAndTimestampValue)
+        {
+            writer.WriteStartElement(null, "ConfDtAndTmstmp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ConfirmationDateAndTimestampValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ClearingTimestamp is IsoISOTime ClearingTimestampValue)
+        {
+            writer.WriteStartElement(null, "ClrTmstmp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(ClearingTimestampValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+        if (CommissionsAndFees is FXCommissionOrFee1 CommissionsAndFeesValue)
+        {
+            writer.WriteStartElement(null, "ComssnsAndFees", xmlNamespace );
+            CommissionsAndFeesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalReportingInformation is IsoMax210Text AdditionalReportingInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlRptgInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax210Text(AdditionalReportingInformationValue)); // data type Max210Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static RegulatoryReporting7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

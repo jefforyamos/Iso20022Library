@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Total eligible balance for the corporate action and full and part way period units.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TotalEligibleBalanceFormat8
+     : IIsoXmlSerilizable<TotalEligibleBalanceFormat8>
 {
     #nullable enable
     
     /// <summary>
     /// Provides information about balance related to a corporate action.
     /// </summary>
-    [DataMember]
     public Quantity17Choice_? Balance { get; init; } 
     /// <summary>
     /// Number of units of a fund that were purchased in a previous distribution period and/or held at the beginning of a distribution period, for example Group I Units in the UK.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat6? FullPeriodUnits { get; init; } 
     /// <summary>
     /// Number of units of a fund that were purchased part way throughout a distribution period, for example Group II Units in the U.K.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat6? PartWayPeriodUnits { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Balance is Quantity17Choice_ BalanceValue)
+        {
+            writer.WriteStartElement(null, "Bal", xmlNamespace );
+            BalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FullPeriodUnits is SignedQuantityFormat6 FullPeriodUnitsValue)
+        {
+            writer.WriteStartElement(null, "FullPrdUnits", xmlNamespace );
+            FullPeriodUnitsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PartWayPeriodUnits is SignedQuantityFormat6 PartWayPeriodUnitsValue)
+        {
+            writer.WriteStartElement(null, "PartWayPrdUnits", xmlNamespace );
+            PartWayPeriodUnitsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TotalEligibleBalanceFormat8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

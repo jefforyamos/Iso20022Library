@@ -7,28 +7,52 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to identify an account owner and the associated decision maker.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentification79
+     : IIsoXmlSerilizable<PartyIdentification79>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the account which is used to acquire or sell financial instruments.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyIdentification76> AccountOwner { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyIdentification76? AccountOwner { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _O_0QQFCjEeWdp9NcseTlOw
     /// <summary>
     /// Identifies the person who makes the decision on the financial instrument, acquire in case the of a buyer or to sell in case of the seller.
     /// </summary>
-    [DataMember]
-    public ValueList<PersonOrOrganisation2Choice_> DecisionMaker { get; init; } = []; // Warning: Don't know multiplicity.
+    public PersonOrOrganisation2Choice_? DecisionMaker { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize AccountOwner, multiplicity Unknown
+        if (DecisionMaker is PersonOrOrganisation2Choice_ DecisionMakerValue)
+        {
+            writer.WriteStartElement(null, "DcsnMakr", xmlNamespace );
+            DecisionMakerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyIdentification79 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

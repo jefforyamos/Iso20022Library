@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsin.InvoiceAssignmentStatusV01>;
 
 namespace BeneficialStrategies.Iso20022.tsin;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.tsin;
 /// The message can carry digital signatures if required by context.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The message InvoiceAssignmentStatus is sent by a factoring service provider to a factoring client and, optionally, to an interested party as a response to assignments requests.|The factoring service provider returns a copy of items of corresponding requests together with an information about the status of treatment, for example acceptance, rejection or treatment not yet finished. A rejection can be the result of bad message syntax, but also for other motives such as risk, compliance or covenants.|For each reported financial item, the factoring service provider includes a reference to the corresponding item of the InvoiceFinancingRequest message and may include the referenced item as well as data from other related and referenced messages.|The message contains information about other parties to be notified and whether these parties are required to acknowledge the assignment.|The message can carry digital signatures if required by context.")]
-public partial record InvoiceAssignmentStatusV01 : IOuterRecord
+public partial record InvoiceAssignmentStatusV01 : IOuterRecord<InvoiceAssignmentStatusV01,InvoiceAssignmentStatusV01Document>
+    ,IIsoXmlSerilizable<InvoiceAssignmentStatusV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record InvoiceAssignmentStatusV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "InvcAssgnmtSts";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => InvoiceAssignmentStatusV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -107,6 +114,53 @@ public partial record InvoiceAssignmentStatusV01 : IOuterRecord
     {
         return new InvoiceAssignmentStatusV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("InvcAssgnmtSts");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AssgnmtList", xmlNamespace );
+        AssignmentList.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AssignmentCount is IsoMax15NumericText AssignmentCountValue)
+        {
+            writer.WriteStartElement(null, "AssgnmtCnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(AssignmentCountValue)); // data type Max15NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (ItemCount is IsoMax15NumericText ItemCountValue)
+        {
+            writer.WriteStartElement(null, "ItmCnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(ItemCountValue)); // data type Max15NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (ControlSum is IsoDecimalNumber ControlSumValue)
+        {
+            writer.WriteStartElement(null, "CtrlSum", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(ControlSumValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (AttachedMessage is EncapsulatedBusinessMessage1 AttachedMessageValue)
+        {
+            writer.WriteStartElement(null, "AttchdMsg", xmlNamespace );
+            AttachedMessageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InvoiceAssignmentStatusV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -114,9 +168,7 @@ public partial record InvoiceAssignmentStatusV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvoiceAssignmentStatusV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record InvoiceAssignmentStatusV01Document : IOuterDocument<InvoiceAssignmentStatusV01>
+public partial record InvoiceAssignmentStatusV01Document : IOuterDocument<InvoiceAssignmentStatusV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -132,5 +184,22 @@ public partial record InvoiceAssignmentStatusV01Document : IOuterDocument<Invoic
     /// <summary>
     /// The instance of <seealso cref="InvoiceAssignmentStatusV01"/> is required.
     /// </summary>
+    [DataMember(Name=InvoiceAssignmentStatusV01.XmlTag)]
     public required InvoiceAssignmentStatusV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(InvoiceAssignmentStatusV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

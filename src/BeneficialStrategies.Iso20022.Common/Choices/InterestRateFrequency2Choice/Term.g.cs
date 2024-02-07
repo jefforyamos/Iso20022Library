@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.InterestRateFrequency2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRateFrequency2Choice;
 /// Frequency expressed in tenor notation.
 /// </summary>
 public partial record Term : InterestRateFrequency2Choice_
+     , IIsoXmlSerilizable<Term>
 {
     #nullable enable
+    
     /// <summary>
     /// Unit for the rate basis.
     /// </summary>
@@ -23,5 +27,35 @@ public partial record Term : InterestRateFrequency2Choice_
     /// Value of the contract term in number of units.
     /// </summary>
     public IsoMax3Number? Value { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Unit is RateBasis1Code UnitValue)
+        {
+            writer.WriteStartElement(null, "Unit", xmlNamespace );
+            writer.WriteValue(UnitValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Value is IsoMax3Number ValueValue)
+        {
+            writer.WriteStartElement(null, "Val", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3Number(ValueValue)); // data type Max3Number System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static new Term Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

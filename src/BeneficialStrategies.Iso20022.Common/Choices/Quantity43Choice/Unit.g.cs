@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Quantity43Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity43Choice;
 /// Total quantity of securities to be settled.
 /// </summary>
 public partial record Unit : Quantity43Choice_
+     , IIsoXmlSerilizable<Unit>
 {
     #nullable enable
+    
     /// <summary>
     /// Quantity expressed as a number, for example, a number of shares.
     /// </summary>
@@ -22,6 +26,30 @@ public partial record Unit : Quantity43Choice_
     /// <summary>
     /// Information about the units to be transferred.
     /// </summary>
-    public IReadOnlyCollection<Unit10> UnitDetails { get; init; } = [];
+    public ValueList<Unit10> UnitDetails { get; init; } = [];
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TtlUnitsNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(TotalUnitsNumber)); // data type DecimalNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UnitDtls", xmlNamespace );
+        UnitDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new Unit Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the type of election advice and linked messages.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ElectionAdviceFunction1
+     : IIsoXmlSerilizable<ElectionAdviceFunction1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of election advice.
     /// </summary>
-    [DataMember]
     public required ElectionType1Code ElectionType { get; init; } 
     /// <summary>
     /// Identification of the previous Agent Corporate Action Election Advice that is being amended.
     /// </summary>
-    [DataMember]
     public DocumentIdentification8? PreviousAgentCAElectionAdviceIdentification { get; init; } 
     /// <summary>
     /// Identification of the Agent Corporate Action Election Status Advice by which the issuer (agent) accepts the election amendment request.
     /// </summary>
-    [DataMember]
     public DocumentIdentification8? AgentCAElectionStatusAdviceIdentification { get; init; } 
     /// <summary>
     /// Identification of the Agent Corporate Action Election Amendment Request by which the CSD request the authorisation to amend an election.
     /// </summary>
-    [DataMember]
     public DocumentIdentification8? AgentCAElectionAmendmentRequestIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ElctnTp", xmlNamespace );
+        writer.WriteValue(ElectionType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (PreviousAgentCAElectionAdviceIdentification is DocumentIdentification8 PreviousAgentCAElectionAdviceIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrvsAgtCAElctnAdvcId", xmlNamespace );
+            PreviousAgentCAElectionAdviceIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AgentCAElectionStatusAdviceIdentification is DocumentIdentification8 AgentCAElectionStatusAdviceIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AgtCAElctnStsAdvcId", xmlNamespace );
+            AgentCAElectionStatusAdviceIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AgentCAElectionAmendmentRequestIdentification is DocumentIdentification8 AgentCAElectionAmendmentRequestIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AgtCAElctnAmdmntReqId", xmlNamespace );
+            AgentCAElectionAmendmentRequestIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ElectionAdviceFunction1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

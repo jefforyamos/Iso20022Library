@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the applicable Incoterm and associated location.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Incoterms2
+     : IIsoXmlSerilizable<Incoterms2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the applicable Incoterm by means of a code.
     /// </summary>
-    [DataMember]
     public required Incoterms1Code Code { get; init; } 
     /// <summary>
     /// Specifies Incoterm not present in code list.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Other { get; init; } 
     /// <summary>
     /// Location where the Incoterms are actioned.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Location { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Othr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Other)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Lctn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Location)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static Incoterms2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the identification of the system and its currency.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SystemAndCurrency1
+     : IIsoXmlSerilizable<SystemAndCurrency1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the system, as assigned by the system administrator.
     /// </summary>
-    [DataMember]
     public required SystemIdentification2Choice_ SystemIdentification { get; init; } 
     /// <summary>
     /// Currency which may be processed by the system. A system may process transactions in a single currency or in multiple currencies.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? SystemCurrency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SysId", xmlNamespace );
+        SystemIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SystemCurrency is ActiveCurrencyCode SystemCurrencyValue)
+        {
+            writer.WriteStartElement(null, "SysCcy", xmlNamespace );
+            writer.WriteValue(SystemCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static SystemAndCurrency1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

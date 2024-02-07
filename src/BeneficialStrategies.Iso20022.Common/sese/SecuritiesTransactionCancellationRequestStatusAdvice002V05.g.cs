@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.SecuritiesTransactionCancellationRequestStatusAdvice002V05>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -33,10 +36,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// using the relevant elements in the Business Application Header.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account servicer sends an SecuritiesTransactionCancellationRequestStatusAdvice to an account owner to advise the status of a securities transaction cancellation request previously sent by the account owner.|The account servicer/owner relationship may be:|- a central securities depository or another settlement market infrastructure acting on behalf of their participants|- an agent (sub-custodian) acting on behalf of their global custodian customer, or|- a custodian acting on behalf of an investment management institution or a broker/dealer.||Usage|The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information|using the relevant elements in the Business Application Header.")]
-public partial record SecuritiesTransactionCancellationRequestStatusAdvice002V05 : IOuterRecord
+public partial record SecuritiesTransactionCancellationRequestStatusAdvice002V05 : IOuterRecord<SecuritiesTransactionCancellationRequestStatusAdvice002V05,SecuritiesTransactionCancellationRequestStatusAdvice002V05Document>
+    ,IIsoXmlSerilizable<SecuritiesTransactionCancellationRequestStatusAdvice002V05>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -48,6 +50,11 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdvice002V05
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesTxCxlReqStsAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesTransactionCancellationRequestStatusAdvice002V05Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -106,6 +113,47 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdvice002V05
     {
         return new SecuritiesTransactionCancellationRequestStatusAdvice002V05Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesTxCxlReqStsAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CxlReqRef", xmlNamespace );
+        CancellationRequestReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionIdentification is TransactionIdentifications39 TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            TransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PrcgSts", xmlNamespace );
+        ProcessingStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionDetails is TransactionDetails88 TransactionDetailsValue)
+        {
+            writer.WriteStartElement(null, "TxDtls", xmlNamespace );
+            TransactionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesTransactionCancellationRequestStatusAdvice002V05 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -113,9 +161,7 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdvice002V05
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesTransactionCancellationRequestStatusAdvice002V05"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesTransactionCancellationRequestStatusAdvice002V05Document : IOuterDocument<SecuritiesTransactionCancellationRequestStatusAdvice002V05>
+public partial record SecuritiesTransactionCancellationRequestStatusAdvice002V05Document : IOuterDocument<SecuritiesTransactionCancellationRequestStatusAdvice002V05>, IXmlSerializable
 {
     
     /// <summary>
@@ -131,5 +177,22 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdvice002V05
     /// <summary>
     /// The instance of <seealso cref="SecuritiesTransactionCancellationRequestStatusAdvice002V05"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesTransactionCancellationRequestStatusAdvice002V05.XmlTag)]
     public required SecuritiesTransactionCancellationRequestStatusAdvice002V05 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesTransactionCancellationRequestStatusAdvice002V05.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

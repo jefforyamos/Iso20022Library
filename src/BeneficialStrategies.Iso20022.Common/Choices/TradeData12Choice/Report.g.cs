@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TradeData12Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData12Choice;
 /// Information concerning the reporting at transaction level.
 /// </summary>
 public partial record Report : TradeData12Choice_
+     , IIsoXmlSerilizable<Report>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
@@ -38,7 +42,7 @@ public partial record Report : TradeData12Choice_
     /// <summary>
     /// Information on funding sources used to finance margin loans.
     /// </summary>
-    public FundingSource1? FundingSource { get; init;  } // Warning: Don't know multiplicity.
+    public FundingSource1? FundingSource { get; init; } 
     /// <summary>
     /// List of possible values for TRs reconciliation purposes.
     /// </summary>
@@ -50,6 +54,63 @@ public partial record Report : TradeData12Choice_
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TechnicalRecordIdentification is IsoMax140Text TechnicalRecordIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(TechnicalRecordIdentificationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CtrPtyData", xmlNamespace );
+        CounterpartyData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CollCmpnt", xmlNamespace );
+        CollateralComponent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EvtDay", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(EventDay)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptgDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(ReportingDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (FundingSource is FundingSource1 FundingSourceValue)
+        {
+            writer.WriteStartElement(null, "FndgSrc", xmlNamespace );
+            FundingSourceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReconciliationFlag is ReconciliationFlag1 ReconciliationFlagValue)
+        {
+            writer.WriteStartElement(null, "RcncltnFlg", xmlNamespace );
+            ReconciliationFlagValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CtrctMod", xmlNamespace );
+        ContractModification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Report Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

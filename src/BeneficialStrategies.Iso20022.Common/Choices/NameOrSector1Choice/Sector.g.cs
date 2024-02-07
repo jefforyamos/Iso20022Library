@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.NameOrSector1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.NameOrSector1Choice;
 /// Represents the counterparty institutional section (such as non-financial corporation, central bank.).
 /// </summary>
 public partial record Sector : NameOrSector1Choice_
+     , IIsoXmlSerilizable<Sector>
 {
-    public required IsoSNA2008SectorIdentifier Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// System of National Accounts (SNA) Sector. Hierarchical classification of the sectors, as defined in the System of National Accounts 2008, as published by the United Nations.
+    /// </summary>
+    public required IsoSNA2008SectorIdentifier Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sctr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoSNA2008SectorIdentifier(Value)); // data type SNA2008SectorIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static new Sector Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

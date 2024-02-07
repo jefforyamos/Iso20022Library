@@ -7,33 +7,58 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the reported trade transactions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeData29
+     : IIsoXmlSerilizable<TradeData29>
 {
     #nullable enable
     
     /// <summary>
     /// Information about accepted and rejected reports and the reasons of rejection.
     /// </summary>
-    [DataMember]
-    public ValueList<DetailedReportStatistics5> ReportStatistics { get; init; } = []; // Warning: Don't know multiplicity.
+    public DetailedReportStatistics5? ReportStatistics { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _hTXSAcK4EeuFNp8LZAnorg
     /// <summary>
     /// Information about accepted and rejected transactions and the reasons of rejection.
     /// </summary>
-    [DataMember]
-    public ValueList<DetailedTransactionStatistics2Choice_> TransactionStatistics { get; init; } = []; // Warning: Don't know multiplicity.
+    public DetailedTransactionStatistics2Choice_? TransactionStatistics { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _hTXSA8K4EeuFNp8LZAnorg
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize ReportStatistics, multiplicity Unknown
+        // Not sure how to serialize TransactionStatistics, multiplicity Unknown
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeData29 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Variables used to quantify the different calculations for position sets and currency position sets reports.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PositionSetTotal1
+     : IIsoXmlSerilizable<PositionSetTotal1>
 {
     #nullable enable
     
     /// <summary>
     /// Refers to the number of trades contained in the position set.
     /// </summary>
-    [DataMember]
     public IsoMax20PositiveNumber? NumberOfTrades { get; init; } 
     /// <summary>
     /// Aggregations of all positive values of the derivative for all derivatives pertaining to a position set.
     /// </summary>
-    [DataMember]
     public PositionSetValueAndNotional1? Positive { get; init; } 
     /// <summary>
     /// Aggregations of all negative values of the derivative for all derivatives pertaining to a position set.
     /// </summary>
-    [DataMember]
     public PositionSetValueAndNotional1? Negative { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NumberOfTrades is IsoMax20PositiveNumber NumberOfTradesValue)
+        {
+            writer.WriteStartElement(null, "NbOfTrds", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax20PositiveNumber(NumberOfTradesValue)); // data type Max20PositiveNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Positive is PositionSetValueAndNotional1 PositiveValue)
+        {
+            writer.WriteStartElement(null, "Postv", xmlNamespace );
+            PositiveValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Negative is PositionSetValueAndNotional1 NegativeValue)
+        {
+            writer.WriteStartElement(null, "Neg", xmlNamespace );
+            NegativeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PositionSetTotal1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

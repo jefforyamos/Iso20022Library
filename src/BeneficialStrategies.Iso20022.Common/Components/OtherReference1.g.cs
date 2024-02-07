@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Other option to express a reference.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OtherReference1
+     : IIsoXmlSerilizable<OtherReference1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of reference
     /// </summary>
-    [DataMember]
     public required ReferenceType1Choice_ Type { get; init; } 
     /// <summary>
     /// Value of the reference
     /// </summary>
-    [DataMember]
     public required IsoMax256Text Value { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax256Text(Value)); // data type Max256Text System.String
+        writer.WriteEndElement();
+    }
+    public static OtherReference1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Other type of party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ExtendedParty13
+     : IIsoXmlSerilizable<ExtendedParty13>
 {
     #nullable enable
     
     /// <summary>
     /// Role of the party.
     /// </summary>
-    [DataMember]
     public required GenericIdentification36 PartyRole { get; init; } 
     /// <summary>
     /// Identification and communication information about the party.
     /// </summary>
-    [DataMember]
     public required ContactAttributes5 OtherPartyDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PtyRole", xmlNamespace );
+        PartyRole.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrPtyDtls", xmlNamespace );
+        OtherPartyDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ExtendedParty13 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Number24Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.Number24Choice;
 /// Number of maximum 4 numeric text.
 /// </summary>
 public partial record NumberIdentification : Number24Choice_
+     , IIsoXmlSerilizable<NumberIdentification>
 {
-    public required IsoMax4NumericText Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a numeric string with a maximum length of 4 digits.
+    /// </summary>
+    public required IsoMax4NumericText Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NbId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4NumericText(Value)); // data type Max4NumericText System.String
+        writer.WriteEndElement();
+    }
+    public static new NumberIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

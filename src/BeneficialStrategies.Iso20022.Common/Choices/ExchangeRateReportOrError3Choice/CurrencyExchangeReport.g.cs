@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ExchangeRateReportOrError3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.ExchangeRateReportOrError3Choice
 /// Reports on currency exchange information.
 /// </summary>
 public partial record CurrencyExchangeReport : ExchangeRateReportOrError3Choice_
+     , IIsoXmlSerilizable<CurrencyExchangeReport>
 {
     #nullable enable
+    
     /// <summary>
     /// Source and target currencies for which information is request.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record CurrencyExchangeReport : ExchangeRateReportOrError3Choice_
     /// Reports either on currency exchange information or on a business error.
     /// </summary>
     public required ExchangeRateReportOrError4Choice_ CurrencyExchangeOrError { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CcyRef", xmlNamespace );
+        CurrencyReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CcyXchgOrErr", xmlNamespace );
+        CurrencyExchangeOrError.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new CurrencyExchangeReport Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

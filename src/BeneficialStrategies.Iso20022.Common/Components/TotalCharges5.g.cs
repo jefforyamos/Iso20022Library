@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Total amount of charges.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TotalCharges5
+     : IIsoXmlSerilizable<TotalCharges5>
 {
     #nullable enable
     
     /// <summary>
     /// Information related to a specific charge.
     /// </summary>
-    [DataMember]
     public ValueList<Charge23> ChargeDetails { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ChrgDtls", xmlNamespace );
+        ChargeDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static TotalCharges5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.auth.MoneyMarketStatisticalReportStatusAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.auth;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// The MoneyMarketStatisticalReportStatusAdvice message is sent by the relevant competent authority to the reporting agents to provide the status on the reported transactions.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The MoneyMarketStatisticalReportStatusAdvice message is sent by the relevant competent authority to the reporting agents to provide the status on the reported transactions.")]
-public partial record MoneyMarketStatisticalReportStatusAdviceV01 : IOuterRecord
+public partial record MoneyMarketStatisticalReportStatusAdviceV01 : IOuterRecord<MoneyMarketStatisticalReportStatusAdviceV01,MoneyMarketStatisticalReportStatusAdviceV01Document>
+    ,IIsoXmlSerilizable<MoneyMarketStatisticalReportStatusAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record MoneyMarketStatisticalReportStatusAdviceV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MnyMktSttstclRptStsAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => MoneyMarketStatisticalReportStatusAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -75,6 +82,38 @@ public partial record MoneyMarketStatisticalReportStatusAdviceV01 : IOuterRecord
     {
         return new MoneyMarketStatisticalReportStatusAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MnyMktSttstclRptStsAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "StsRptHdr", xmlNamespace );
+        StatusReportHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionStatus is MoneyMarketTransactionStatus2 TransactionStatusValue)
+        {
+            writer.WriteStartElement(null, "TxSts", xmlNamespace );
+            TransactionStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MoneyMarketStatisticalReportStatusAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -82,9 +121,7 @@ public partial record MoneyMarketStatisticalReportStatusAdviceV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MoneyMarketStatisticalReportStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record MoneyMarketStatisticalReportStatusAdviceV01Document : IOuterDocument<MoneyMarketStatisticalReportStatusAdviceV01>
+public partial record MoneyMarketStatisticalReportStatusAdviceV01Document : IOuterDocument<MoneyMarketStatisticalReportStatusAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -100,5 +137,22 @@ public partial record MoneyMarketStatisticalReportStatusAdviceV01Document : IOut
     /// <summary>
     /// The instance of <seealso cref="MoneyMarketStatisticalReportStatusAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=MoneyMarketStatisticalReportStatusAdviceV01.XmlTag)]
     public required MoneyMarketStatisticalReportStatusAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(MoneyMarketStatisticalReportStatusAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

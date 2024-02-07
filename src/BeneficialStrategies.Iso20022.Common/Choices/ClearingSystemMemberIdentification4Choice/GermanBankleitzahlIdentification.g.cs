@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentification4Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// German Bankleitzahl - identifies German financial institutions on the German national clearing systems.
 /// </summary>
 public partial record GermanBankleitzahlIdentification : ClearingSystemMemberIdentification4Choice_
+     , IIsoXmlSerilizable<GermanBankleitzahlIdentification>
 {
-    public required IsoGermanBankleitzahlIdentifier Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// German Bankleitzahl. Identifies German financial institutions on the German national clearing systems.
+    /// </summary>
+    public required IsoGermanBankleitzahlIdentifier Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DEBLZ", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoGermanBankleitzahlIdentifier(Value)); // data type GermanBankleitzahlIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static new GermanBankleitzahlIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

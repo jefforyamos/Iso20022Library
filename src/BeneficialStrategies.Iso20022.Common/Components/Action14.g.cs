@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of actions to be performed by the POI (Point Of Interaction) system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Action14
+     : IIsoXmlSerilizable<Action14>
 {
     #nullable enable
     
     /// <summary>
     /// Type of action to be performed by the POI (Point Of Interaction) system.
     /// </summary>
-    [DataMember]
     public required ActionType13Code ActionType { get; init; } 
     /// <summary>
     /// Message to be displayed to the cardholder or the cashier.
     /// </summary>
-    [DataMember]
     public ActionMessage10? MessageToPresent { get; init; } 
     /// <summary>
     /// Access information to reach the target host.
     /// </summary>
-    [DataMember]
     public NetworkParameters7? RemoteAccess { get; init; } 
     /// <summary>
     /// Definition of retry process if activation of an action fails.
     /// </summary>
-    [DataMember]
     public ProcessRetry3? Retry { get; init; } 
     /// <summary>
     /// Timing condition for periodic exchanges.
     /// </summary>
-    [DataMember]
     public ProcessTiming6? TimeCondition { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ActnTp", xmlNamespace );
+        writer.WriteValue(ActionType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (MessageToPresent is ActionMessage10 MessageToPresentValue)
+        {
+            writer.WriteStartElement(null, "MsgToPres", xmlNamespace );
+            MessageToPresentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RemoteAccess is NetworkParameters7 RemoteAccessValue)
+        {
+            writer.WriteStartElement(null, "RmotAccs", xmlNamespace );
+            RemoteAccessValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Retry is ProcessRetry3 RetryValue)
+        {
+            writer.WriteStartElement(null, "Rtry", xmlNamespace );
+            RetryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TimeCondition is ProcessTiming6 TimeConditionValue)
+        {
+            writer.WriteStartElement(null, "TmCond", xmlNamespace );
+            TimeConditionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Action14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

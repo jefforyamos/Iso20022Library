@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.BankToCustomerDebitCreditNotificationV09>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// Scope|The BankToCustomerDebitCreditNotification message is sent by the account servicer to an account owner or to a party authorised by the account owner to receive the message. It can be used to inform the account owner, or authorised party, of single or multiple debit and/or credit entries reported to the account.|Usage|The BankToCustomerDebitCreditNotification message can contain reports for more than one account. It provides information for cash management and/or reconciliation.|The BankToCustomerDebitCreditNotification message can be used to: |- report pending and booked items;|- notify one or more debit entries;|- notify one or more credit entries;|- notify a combination of debit and credit entries.|It can include underlying details of transactions that have been included in the entry.|It is possible that the receiver of the message is not the account owner, but a party entitled by the account owner to receive the account information (also known as recipient).|It does not contain balance information.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The BankToCustomerDebitCreditNotification message is sent by the account servicer to an account owner or to a party authorised by the account owner to receive the message. It can be used to inform the account owner, or authorised party, of single or multiple debit and/or credit entries reported to the account.|Usage|The BankToCustomerDebitCreditNotification message can contain reports for more than one account. It provides information for cash management and/or reconciliation.|The BankToCustomerDebitCreditNotification message can be used to: |- report pending and booked items;|- notify one or more debit entries;|- notify one or more credit entries;|- notify a combination of debit and credit entries.|It can include underlying details of transactions that have been included in the entry.|It is possible that the receiver of the message is not the account owner, but a party entitled by the account owner to receive the account information (also known as recipient).|It does not contain balance information.")]
-public partial record BankToCustomerDebitCreditNotificationV09 : IOuterRecord
+public partial record BankToCustomerDebitCreditNotificationV09 : IOuterRecord<BankToCustomerDebitCreditNotificationV09,BankToCustomerDebitCreditNotificationV09Document>
+    ,IIsoXmlSerilizable<BankToCustomerDebitCreditNotificationV09>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record BankToCustomerDebitCreditNotificationV09 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "BkToCstmrDbtCdtNtfctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => BankToCustomerDebitCreditNotificationV09Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -76,6 +83,35 @@ public partial record BankToCustomerDebitCreditNotificationV09 : IOuterRecord
     {
         return new BankToCustomerDebitCreditNotificationV09Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("BkToCstmrDbtCdtNtfctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
+        GroupHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Ntfctn", xmlNamespace );
+        Notification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BankToCustomerDebitCreditNotificationV09 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -83,9 +119,7 @@ public partial record BankToCustomerDebitCreditNotificationV09 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BankToCustomerDebitCreditNotificationV09"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record BankToCustomerDebitCreditNotificationV09Document : IOuterDocument<BankToCustomerDebitCreditNotificationV09>
+public partial record BankToCustomerDebitCreditNotificationV09Document : IOuterDocument<BankToCustomerDebitCreditNotificationV09>, IXmlSerializable
 {
     
     /// <summary>
@@ -101,5 +135,22 @@ public partial record BankToCustomerDebitCreditNotificationV09Document : IOuterD
     /// <summary>
     /// The instance of <seealso cref="BankToCustomerDebitCreditNotificationV09"/> is required.
     /// </summary>
+    [DataMember(Name=BankToCustomerDebitCreditNotificationV09.XmlTag)]
     public required BankToCustomerDebitCreditNotificationV09 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(BankToCustomerDebitCreditNotificationV09.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the type of customer identification requested.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CustomerTypeRequest2
+     : IIsoXmlSerilizable<CustomerTypeRequest2>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the customer identification is required by the creditor or not.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator Requested { get; init; } 
     /// <summary>
     /// Specifies which type of customer identification is requested for an organisation.
     /// </summary>
-    [DataMember]
     public OrganisationType2? OrganisationType { get; init; } 
     /// <summary>
     /// Specifies which type of customer identification is requested for a person.
     /// </summary>
-    [DataMember]
     public PersonType2? PrivateType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Reqd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(Requested)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        if (OrganisationType is OrganisationType2 OrganisationTypeValue)
+        {
+            writer.WriteStartElement(null, "OrgTp", xmlNamespace );
+            OrganisationTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PrivateType is PersonType2 PrivateTypeValue)
+        {
+            writer.WriteStartElement(null, "PrvtTp", xmlNamespace );
+            PrivateTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CustomerTypeRequest2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

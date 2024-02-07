@@ -7,83 +7,157 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements providing further details on the account report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountReport9
+     : IIsoXmlSerilizable<AccountReport9>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the account report, assigned by the account servicer.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Sequential number of the report, assigned by the account servicer. It is increased incrementally for each report sent electronically.
     /// </summary>
-    [DataMember]
     public IsoNumber? ElectronicSequenceNumber { get; init; } 
     /// <summary>
     /// Legal sequential number of the report, assigned by the account servicer. It is increased incrementally for each report sent.||Usage: in those scenarios where eg a paper statement is a legal requirement, the paper statement may have a different numbering than the electronic sequential number. Paper statements can for instance only be sent if movement on the account has taken place, whereas electronic statements can be sent eg each day, regardless of whether movements have taken place or not.
     /// </summary>
-    [DataMember]
     public IsoNumber? LegalSequenceNumber { get; init; } 
     /// <summary>
     /// Date and time at which the report was created.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Range of time between the start date and the end date for which the account report is issued.
     /// </summary>
-    [DataMember]
     public DateTimePeriodDetails? FromToDate { get; init; } 
     /// <summary>
     /// Specifies if this document is a copy, a duplicate, or a duplicate of a copy.
     /// </summary>
-    [DataMember]
     public CopyDuplicate1Code? CopyDuplicateIndicator { get; init; } 
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>
-    [DataMember]
     public required CashAccount13 Account { get; init; } 
     /// <summary>
     /// Identifies the parent account of the reported account.
     /// </summary>
-    [DataMember]
     public CashAccount7? RelatedAccount { get; init; } 
     /// <summary>
     /// Provides general interest information that applies to the account at a particular moment in time.
     /// </summary>
-    [DataMember]
-    public ValueList<AccountInterest1> Interest { get; init; } = []; // Warning: Don't know multiplicity.
+    public AccountInterest1? Interest { get; init; } 
     /// <summary>
     /// Set of elements defining the balance(s).
     /// </summary>
-    [DataMember]
-    public ValueList<CashBalance1> Balance { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashBalance1? Balance { get; init; } 
     /// <summary>
     /// Set of element providing summary information on entries.
     /// </summary>
-    [DataMember]
     public TotalTransactions1? TransactionsSummary { get; init; } 
     /// <summary>
     /// Specifies the elements of an entry in the report.||Usage: At least one reference must be provided to identify the entry and its underlying transaction(s).
     /// </summary>
-    [DataMember]
-    public ValueList<ReportEntry1> Entry { get; init; } = []; // Warning: Don't know multiplicity.
+    public ReportEntry1? Entry { get; init; } 
     /// <summary>
     /// Further details on the account report.
     /// </summary>
-    [DataMember]
     public IsoMax500Text? AdditionalReportInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ElectronicSequenceNumber is IsoNumber ElectronicSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "ElctrncSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(ElectronicSequenceNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (LegalSequenceNumber is IsoNumber LegalSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "LglSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(LegalSequenceNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (FromToDate is DateTimePeriodDetails FromToDateValue)
+        {
+            writer.WriteStartElement(null, "FrToDt", xmlNamespace );
+            FromToDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CopyDuplicateIndicator is CopyDuplicate1Code CopyDuplicateIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CpyDplctInd", xmlNamespace );
+            writer.WriteValue(CopyDuplicateIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Acct", xmlNamespace );
+        Account.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RelatedAccount is CashAccount7 RelatedAccountValue)
+        {
+            writer.WriteStartElement(null, "RltdAcct", xmlNamespace );
+            RelatedAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Interest is AccountInterest1 InterestValue)
+        {
+            writer.WriteStartElement(null, "Intrst", xmlNamespace );
+            InterestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Balance is CashBalance1 BalanceValue)
+        {
+            writer.WriteStartElement(null, "Bal", xmlNamespace );
+            BalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionsSummary is TotalTransactions1 TransactionsSummaryValue)
+        {
+            writer.WriteStartElement(null, "TxsSummry", xmlNamespace );
+            TransactionsSummaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Entry is ReportEntry1 EntryValue)
+        {
+            writer.WriteStartElement(null, "Ntry", xmlNamespace );
+            EntryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalReportInformation is IsoMax500Text AdditionalReportInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlRptInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Text(AdditionalReportInformationValue)); // data type Max500Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountReport9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

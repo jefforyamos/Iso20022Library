@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentification2Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// Polish National Clearing Code - identifies Polish financial institutions on the Polish national clearing system.
 /// </summary>
 public partial record PolishNationalClearingCode : ClearingSystemMemberIdentification2Choice_
+     , IIsoXmlSerilizable<PolishNationalClearingCode>
 {
-    public required IsoPolishNationalClearingCodeIdentifier Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Polish National Clearing Code Identifier. Identifies Polish financial institutions on the Polish national clearing system.
+    /// </summary>
+    public required IsoPolishNationalClearingCodeIdentifier Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PLKNR", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPolishNationalClearingCodeIdentifier(Value)); // data type PolishNationalClearingCodeIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static new PolishNationalClearingCode Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

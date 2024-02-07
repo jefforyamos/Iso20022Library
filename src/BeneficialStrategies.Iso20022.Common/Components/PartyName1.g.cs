@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the party name entity through the valid short and long names of the party within the system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyName1
+     : IIsoXmlSerilizable<PartyName1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the date from which the party name is valid.
     /// </summary>
-    [DataMember]
     public required IsoISODate ValidFrom { get; init; } 
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text Name { get; init; } 
     /// <summary>
     /// Specifies the short name of the organisation.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ShortName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "VldFr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ValidFrom)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(Name)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ShrtNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ShortName)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static PartyName1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

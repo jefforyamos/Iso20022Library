@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TradeQueryExecutionFrequency1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeQueryExecutionFrequency1Cho
 /// Query is executed on a monthly basis. The day of the month of the query execution should be specified.
 /// </summary>
 public partial record Monthly : TradeQueryExecutionFrequency1Choice_
+     , IIsoXmlSerilizable<Monthly>
 {
-    public required IsoMax3Number Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Number (max 999) of objects represented as an integer.
+    /// </summary>
+    public required IsoMax3Number Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Mnthly", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax3Number(Value)); // data type Max3Number System.UInt64
+        writer.WriteEndElement();
+    }
+    public static new Monthly Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

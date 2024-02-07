@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the status of a trade in a central settlement system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeStatus1
+     : IIsoXmlSerilizable<TradeStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether a trade is alleged or not.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? AllegedTrade { get; init; } 
     /// <summary>
     /// Reference to the unique identification assigned to a trade by a central matching system.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MatchingSystemUniqueReference { get; init; } 
     /// <summary>
     /// Specifies the status of a trade.
     /// </summary>
-    [DataMember]
     public TradeStatus1Code? Status { get; init; } 
     /// <summary>
     /// Description of the status of a trade when no coded form is available.
     /// </summary>
-    [DataMember]
     public IsoExtended350Code? ExtendedStatus { get; init; } 
     /// <summary>
     /// Additional information on the status of a trade in a central system.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? StatusSubType { get; init; } 
     /// <summary>
     /// Specifies the time at which a status was assigned.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? StatusTime { get; init; } 
     /// <summary>
     /// Identifies the party which assigned a status to a treasury trade.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? StatusOriginator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AllegedTrade is IsoYesNoIndicator AllegedTradeValue)
+        {
+            writer.WriteStartElement(null, "AllgdTrad", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AllegedTradeValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MtchgSysUnqRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MatchingSystemUniqueReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Status is TradeStatus1Code StatusValue)
+        {
+            writer.WriteStartElement(null, "Sts", xmlNamespace );
+            writer.WriteValue(StatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExtendedStatus is IsoExtended350Code ExtendedStatusValue)
+        {
+            writer.WriteStartElement(null, "XtndedSts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedStatusValue)); // data type Extended350Code System.String
+            writer.WriteEndElement();
+        }
+        if (StatusSubType is IsoMax70Text StatusSubTypeValue)
+        {
+            writer.WriteStartElement(null, "StsSubTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(StatusSubTypeValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (StatusTime is IsoISODateTime StatusTimeValue)
+        {
+            writer.WriteStartElement(null, "StsTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(StatusTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (StatusOriginator is IsoMax35Text StatusOriginatorValue)
+        {
+            writer.WriteStartElement(null, "StsOrgtr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(StatusOriginatorValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

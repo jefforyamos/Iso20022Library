@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Common details for all payment instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentCommon3
+     : IIsoXmlSerilizable<PaymentCommon3>
 {
     #nullable enable
     
     /// <summary>
     /// Origin of the payment (be it a member or a system or both).
     /// </summary>
-    [DataMember]
     public System1? PaymentFrom { get; init; } 
     /// <summary>
     /// Destination of the payment (be it a member or a system or both).
     /// </summary>
-    [DataMember]
     public System1? PaymentTo { get; init; } 
     /// <summary>
     /// Status of a transfer.|.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentStatus3> CommonStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentStatus3? CommonStatus { get; init; } 
     /// <summary>
     /// Date and time at which the cash is at the disposal of the credit account owner, or ceases to be at the disposal of the debit account owner.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? RequestedExecutionDate { get; init; } 
     /// <summary>
     /// Date and time at which an entry is posted to an account on the account servicer's books.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? EntryDate { get; init; } 
     /// <summary>
     /// Indicates whether the payment instruction is a debit or a credit.|.
     /// </summary>
-    [DataMember]
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Indicates the message or event from which an instruction has been initiated.
     /// </summary>
-    [DataMember]
     public PaymentOrigin1Choice_? PaymentMethod { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PaymentFrom is System1 PaymentFromValue)
+        {
+            writer.WriteStartElement(null, "PmtFr", xmlNamespace );
+            PaymentFromValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentTo is System1 PaymentToValue)
+        {
+            writer.WriteStartElement(null, "PmtTo", xmlNamespace );
+            PaymentToValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CommonStatus is PaymentStatus3 CommonStatusValue)
+        {
+            writer.WriteStartElement(null, "CmonSts", xmlNamespace );
+            CommonStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequestedExecutionDate is DateAndDateTime2Choice_ RequestedExecutionDateValue)
+        {
+            writer.WriteStartElement(null, "ReqdExctnDt", xmlNamespace );
+            RequestedExecutionDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EntryDate is DateAndDateTime2Choice_ EntryDateValue)
+        {
+            writer.WriteStartElement(null, "NtryDt", xmlNamespace );
+            EntryDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditDebitIndicator is CreditDebitCode CreditDebitIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+            writer.WriteValue(CreditDebitIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PaymentMethod is PaymentOrigin1Choice_ PaymentMethodValue)
+        {
+            writer.WriteStartElement(null, "PmtMtd", xmlNamespace );
+            PaymentMethodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentCommon3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

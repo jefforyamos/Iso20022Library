@@ -7,43 +7,82 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters to communicate with a host.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NetworkParameters3
+     : IIsoXmlSerilizable<NetworkParameters3>
 {
     #nullable enable
     
     /// <summary>
     /// Network addresses of the host.
     /// </summary>
-    [DataMember]
-    public ValueList<NetworkParameters4> Address { get; init; } = []; // Warning: Don't know multiplicity.
+    public NetworkParameters4? Address { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _hbhpkGpUEeSR-ZWLvO-1dg
     /// <summary>
     /// User name identifying the client.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? UserName { get; init; } 
     /// <summary>
     /// Password authenticating the client.
     /// </summary>
-    [DataMember]
     public IsoMax35Binary? AccessCode { get; init; } 
     /// <summary>
     /// X.509 Certificate required to authenticate the server.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax3000Binary> ServerCertificate { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax3000Binary? ServerCertificate { get; init; } 
     /// <summary>
     /// Identification of the X.509 Certificate required to authenticate the server, for instance a digest of the certificate.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax140Binary> ServerCertificateIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax140Binary? ServerCertificateIdentifier { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize Address, multiplicity Unknown
+        if (UserName is IsoMax35Text UserNameValue)
+        {
+            writer.WriteStartElement(null, "UsrNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(UserNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccessCode is IsoMax35Binary AccessCodeValue)
+        {
+            writer.WriteStartElement(null, "AccsCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Binary(AccessCodeValue)); // data type Max35Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (ServerCertificate is IsoMax3000Binary ServerCertificateValue)
+        {
+            writer.WriteStartElement(null, "SvrCert", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3000Binary(ServerCertificateValue)); // data type Max3000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (ServerCertificateIdentifier is IsoMax140Binary ServerCertificateIdentifierValue)
+        {
+            writer.WriteStartElement(null, "SvrCertIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Binary(ServerCertificateIdentifierValue)); // data type Max140Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static NetworkParameters3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

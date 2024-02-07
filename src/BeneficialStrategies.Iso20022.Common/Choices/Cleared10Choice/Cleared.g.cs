@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Cleared10Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Cleared10Choice;
 /// Indicates that the contract has been cleared.
 /// </summary>
 public partial record Cleared : Cleared10Choice_
+     , IIsoXmlSerilizable<Cleared>
 {
     #nullable enable
+    
     /// <summary>
     /// In the case of a contract that has been cleared, the unique code for the clearing counterparty that has cleared the contract.
     /// </summary>
@@ -31,5 +35,47 @@ public partial record Cleared : Cleared10Choice_
     /// If the transaction is cleared and is included in a portfolio of transactions for which margins are exchanged, this portfolio should be identified by a unique code determined by the reporting counterparty.
     /// </summary>
     public IsoMax52Text? PortfolioCode { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CCP is OrganisationIdentification9Choice_ CCPValue)
+        {
+            writer.WriteStartElement(null, "CCP", xmlNamespace );
+            CCPValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingDateTime is IsoISODateTime ClearingDateTimeValue)
+        {
+            writer.WriteStartElement(null, "ClrDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ClearingDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ReportTrackingNumber is IsoMax52Text ReportTrackingNumberValue)
+        {
+            writer.WriteStartElement(null, "RptTrckgNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(ReportTrackingNumberValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+        if (PortfolioCode is IsoMax52Text PortfolioCodeValue)
+        {
+            writer.WriteStartElement(null, "PrtflCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(PortfolioCodeValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new Cleared Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

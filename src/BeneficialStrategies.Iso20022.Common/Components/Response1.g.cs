@@ -7,28 +7,52 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the margin call, that is a description and a response type.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Response1
+     : IIsoXmlSerilizable<Response1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides details about the response type.
     /// </summary>
-    [DataMember]
-    public ValueList<ResponseType1Choice_> ResponseTypeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public ResponseType1Choice_? ResponseTypeDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _QnYHEtp-Ed-ak6NoX_4Aeg_-119884462
     /// <summary>
     /// Provides additional details related to the margin call response.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize ResponseTypeDetails, multiplicity Unknown
+        if (Description is IsoMax140Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(DescriptionValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Response1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

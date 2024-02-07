@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.reda.SecuritiesAccountAuditTrailQueryV01>;
 
 namespace BeneficialStrategies.Iso20022.reda;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// The SecuritiesAccountAuditTrailQuery message is sent by an instructing party to the executing party to query for the securities account audit trail recorded in the system.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The SecuritiesAccountAuditTrailQuery message is sent by an instructing party to the executing party to query for the securities account audit trail recorded in the system.")]
-public partial record SecuritiesAccountAuditTrailQueryV01 : IOuterRecord
+public partial record SecuritiesAccountAuditTrailQueryV01 : IOuterRecord<SecuritiesAccountAuditTrailQueryV01,SecuritiesAccountAuditTrailQueryV01Document>
+    ,IIsoXmlSerilizable<SecuritiesAccountAuditTrailQueryV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record SecuritiesAccountAuditTrailQueryV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesAcctAudtTrlQry";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesAccountAuditTrailQueryV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -75,6 +82,38 @@ public partial record SecuritiesAccountAuditTrailQueryV01 : IOuterRecord
     {
         return new SecuritiesAccountAuditTrailQueryV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesAcctAudtTrlQry");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MessageHeader is MessageHeader1 MessageHeaderValue)
+        {
+            writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+            MessageHeaderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SchCrit", xmlNamespace );
+        SearchCriteria.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesAccountAuditTrailQueryV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -82,9 +121,7 @@ public partial record SecuritiesAccountAuditTrailQueryV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesAccountAuditTrailQueryV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesAccountAuditTrailQueryV01Document : IOuterDocument<SecuritiesAccountAuditTrailQueryV01>
+public partial record SecuritiesAccountAuditTrailQueryV01Document : IOuterDocument<SecuritiesAccountAuditTrailQueryV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -100,5 +137,22 @@ public partial record SecuritiesAccountAuditTrailQueryV01Document : IOuterDocume
     /// <summary>
     /// The instance of <seealso cref="SecuritiesAccountAuditTrailQueryV01"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesAccountAuditTrailQueryV01.XmlTag)]
     public required SecuritiesAccountAuditTrailQueryV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesAccountAuditTrailQueryV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

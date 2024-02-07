@@ -7,33 +7,59 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Login Response message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LoginResponse1
+     : IIsoXmlSerilizable<LoginResponse1>
 {
     #nullable enable
     
     /// <summary>
     /// Date and Time of POI Login.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime POIDateTime { get; init; } 
     /// <summary>
     /// Information related to the software of the POI System which manages the Sale to POI protocol.
     /// </summary>
-    [DataMember]
-    public ValueList<PointOfInteractionComponent9> POISoftware { get; init; } = []; // Warning: Don't know multiplicity.
+    public PointOfInteractionComponent9? POISoftware { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _yzUEsN6LEeiwsev40qZGEQ
     /// <summary>
     /// Capabilities of the POI (Point Of Interaction) performing the transaction.
     /// </summary>
-    [DataMember]
     public PointOfInteractionCapabilities8? POICapabilities { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "POIDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(POIDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        // Not sure how to serialize POISoftware, multiplicity Unknown
+        if (POICapabilities is PointOfInteractionCapabilities8 POICapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "POICpblties", xmlNamespace );
+            POICapabilitiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LoginResponse1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification2Choice;
 /// Specifies whether the party is locked or not, and the reason for this status, when required.
 /// </summary>
 public partial record LockStatus : SystemPartyModification2Choice_
+     , IIsoXmlSerilizable<LockStatus>
 {
     #nullable enable
+    
     /// <summary>
     /// Specifies the date from which the lock status is valid.
     /// </summary>
@@ -26,6 +30,39 @@ public partial record LockStatus : SystemPartyModification2Choice_
     /// <summary>
     /// Specifies the underlying reason for the locking of the party.
     /// </summary>
-    public IsoMax35Text? LockReason { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text? LockReason { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ValidFrom is IsoISODate ValidFromValue)
+        {
+            writer.WriteStartElement(null, "VldFr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ValidFromValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (LockReason is IsoMax35Text LockReasonValue)
+        {
+            writer.WriteStartElement(null, "LckRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(LockReasonValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new LockStatus Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

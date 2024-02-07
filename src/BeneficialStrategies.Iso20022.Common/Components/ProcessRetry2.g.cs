@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Definition of retry process if activation of an action fails.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProcessRetry2
+     : IIsoXmlSerilizable<ProcessRetry2>
 {
     #nullable enable
     
     /// <summary>
     /// Time period to wait for a retry in months, days, hours and minutes, leading zeros could be omitted.
     /// </summary>
-    [DataMember]
     public required IsoMax9NumericText Delay { get; init; } 
     /// <summary>
     /// Maximum number of retries.
     /// </summary>
-    [DataMember]
     public IsoNumber? MaximumNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Dely", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax9NumericText(Delay)); // data type Max9NumericText System.String
+        writer.WriteEndElement();
+        if (MaximumNumber is IsoNumber MaximumNumberValue)
+        {
+            writer.WriteStartElement(null, "MaxNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static ProcessRetry2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.FundParameters3Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.FundParameters3Choice;
 /// Specifies that there is no criteria for the report. The request is a request for all reports, rather than reports attributed to a specific fund manager, date or financial instrument.
 /// </summary>
 public partial record NoCriteria : FundParameters3Choice_
+     , IIsoXmlSerilizable<NoCriteria>
 {
-    public required NoCriteria1Code Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies that there is no criteria.
+    /// </summary>
+    public required NoCriteria1Code Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NoCrit", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new NoCriteria Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

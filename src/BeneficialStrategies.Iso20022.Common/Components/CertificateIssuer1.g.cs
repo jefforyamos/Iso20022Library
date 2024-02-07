@@ -7,23 +7,42 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Certificate issuer name (see X.509).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CertificateIssuer1
+     : IIsoXmlSerilizable<CertificateIssuer1>
 {
     #nullable enable
     
     /// <summary>
     /// Relative distinguished name inside a X.509 certificate.
     /// </summary>
-    [DataMember]
-    public ValueList<RelativeDistinguishedName1> RelativeDistinguishedName { get; init; } = []; // Warning: Don't know multiplicity.
+    public RelativeDistinguishedName1? RelativeDistinguishedName { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _SxIvsAEcEeCQm6a_G2yO_w_1329577257
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize RelativeDistinguishedName, multiplicity Unknown
+    }
+    public static CertificateIssuer1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

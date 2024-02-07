@@ -7,38 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a payment against a commercial invoice.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReportLine4
+     : IIsoXmlSerilizable<ReportLine4>
 {
     #nullable enable
     
     /// <summary>
     /// Reference to the identification of the underlying commercial document.
     /// </summary>
-    [DataMember]
     public required InvoiceIdentification1 CommercialDocumentReference { get; init; } 
     /// <summary>
     /// Specifies the adjustments applied to obtain the net amount.
     /// </summary>
-    [DataMember]
-    public ValueList<Adjustment4> Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
+    public Adjustment4? Adjustment { get; init; } 
     /// <summary>
     /// Net amount, after adjustments, intended to be paid.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount NetAmount { get; init; } 
     /// <summary>
     /// Specifies how the net amount to be paid is related to different purchase orders.
     /// </summary>
-    [DataMember]
-    public ValueList<ReportLine2> BreakdownByPurchaseOrder { get; init; } = []; // Warning: Don't know multiplicity.
+    public ReportLine2? BreakdownByPurchaseOrder { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _ToDCw9p-Ed-ak6NoX_4Aeg_202348166
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ComrclDocRef", xmlNamespace );
+        CommercialDocumentReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Adjustment is Adjustment4 AdjustmentValue)
+        {
+            writer.WriteStartElement(null, "Adjstmnt", xmlNamespace );
+            AdjustmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "NetAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(NetAmount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        // Not sure how to serialize BreakdownByPurchaseOrder, multiplicity Unknown
+    }
+    public static ReportLine4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

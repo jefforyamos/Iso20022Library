@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TwoLegTransactionType4Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TwoLegTransactionType4Choice;
 /// Parameters for contracts which obligate the buyer to receive and the seller to deliver in the future the assets specified at an agreed price or contracts which grant to the holder either the privilege to purchase or the privilege to sell the assets specified at a predetermined price or formula at or within a time in the future.
 /// </summary>
 public partial record FutureOrOptionDetails : TwoLegTransactionType4Choice_
+     , IIsoXmlSerilizable<FutureOrOptionDetails>
 {
     #nullable enable
+    
     /// <summary>
     /// Specifies the type of the contract for futures and options.
     /// </summary>
@@ -74,11 +78,11 @@ public partial record FutureOrOptionDetails : TwoLegTransactionType4Choice_
     /// <summary>
     /// Ratio applied to convert the related security.
     /// </summary>
-    public UnderlyingRatio2? Ratio { get; init;  } // Warning: Don't know multiplicity.
+    public UnderlyingRatio2? Ratio { get; init; } 
     /// <summary>
     /// Rating(s) of the security.
     /// </summary>
-    public Rating1? Rating { get; init;  } // Warning: Don't know multiplicity.
+    public Rating1? Rating { get; init; } 
     /// <summary>
     /// Initial issue price of a financial instrument.
     /// </summary>
@@ -95,5 +99,143 @@ public partial record FutureOrOptionDetails : TwoLegTransactionType4Choice_
     /// Specifies that there will be one price and one transaction when two contracts are carried out simultaneously, one to buy and the other one to sell with two different expiration dates.
     /// </summary>
     public IsoYesNoIndicator? SpreadTransaction { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FutureAndOptionContractType is FutureAndOptionContractType1Code FutureAndOptionContractTypeValue)
+        {
+            writer.WriteStartElement(null, "FutrAndOptnCtrctTp", xmlNamespace );
+            writer.WriteValue(FutureAndOptionContractTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (LastDeliveryDate is IsoISODateTime LastDeliveryDateValue)
+        {
+            writer.WriteStartElement(null, "LastDlvryDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(LastDeliveryDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (UnitOfMeasure is UnitOfMeasure1Code UnitOfMeasureValue)
+        {
+            writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
+            writer.WriteValue(UnitOfMeasureValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (FutureDate is IsoISODateTime FutureDateValue)
+        {
+            writer.WriteStartElement(null, "FutrDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(FutureDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (MinimumSize is IsoActiveCurrencyAndAmount MinimumSizeValue)
+        {
+            writer.WriteStartElement(null, "MinSz", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MinimumSizeValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (AnnouncementDate is IsoISODateTime AnnouncementDateValue)
+        {
+            writer.WriteStartElement(null, "AnncmntDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(AnnouncementDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (Appearance is Appearance1Code AppearanceValue)
+        {
+            writer.WriteStartElement(null, "Apprnc", xmlNamespace );
+            writer.WriteValue(AppearanceValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (StrippableIndicator is IsoYesNoIndicator StrippableIndicatorValue)
+        {
+            writer.WriteStartElement(null, "StrpblInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(StrippableIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PositionLimit is IsoNumber PositionLimitValue)
+        {
+            writer.WriteStartElement(null, "PosLmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(PositionLimitValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (NearTermPositionLimit is IsoNumber NearTermPositionLimitValue)
+        {
+            writer.WriteStartElement(null, "NearTermPosLmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NearTermPositionLimitValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (MinimumTradingPricingIncrement is IsoNumber MinimumTradingPricingIncrementValue)
+        {
+            writer.WriteStartElement(null, "MinTradgPricgIncrmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MinimumTradingPricingIncrementValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Purpose is IsoMax256Text PurposeValue)
+        {
+            writer.WriteStartElement(null, "Purp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(PurposeValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (ContractSettlementMonth is IsoISOYearMonth ContractSettlementMonthValue)
+        {
+            writer.WriteStartElement(null, "CtrctSttlmMnth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOYearMonth(ContractSettlementMonthValue)); // data type ISOYearMonth System.UInt16
+            writer.WriteEndElement();
+        }
+        if (FirstDealingDate is DateAndDateTime1Choice_ FirstDealingDateValue)
+        {
+            writer.WriteStartElement(null, "FrstDealgDt", xmlNamespace );
+            FirstDealingDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Ratio is UnderlyingRatio2 RatioValue)
+        {
+            writer.WriteStartElement(null, "Ratio", xmlNamespace );
+            RatioValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Rating is Rating1 RatingValue)
+        {
+            writer.WriteStartElement(null, "Ratg", xmlNamespace );
+            RatingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssuePrice is Price14 IssuePriceValue)
+        {
+            writer.WriteStartElement(null, "IssePric", xmlNamespace );
+            IssuePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionRights is OptionRight2Choice_ OptionRightsValue)
+        {
+            writer.WriteStartElement(null, "OptnRghts", xmlNamespace );
+            OptionRightsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LastTransaction is IsoYesNoIndicator LastTransactionValue)
+        {
+            writer.WriteStartElement(null, "LastTx", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(LastTransactionValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SpreadTransaction is IsoYesNoIndicator SpreadTransactionValue)
+        {
+            writer.WriteStartElement(null, "SprdTx", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SpreadTransactionValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new FutureOrOptionDetails Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

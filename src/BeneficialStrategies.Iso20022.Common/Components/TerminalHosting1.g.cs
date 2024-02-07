@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Entity hosting the ATM terminal.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TerminalHosting1
+     : IIsoXmlSerilizable<TerminalHosting1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of ATM terminal hosting.
     /// </summary>
-    [DataMember]
     public TransactionEnvironment3Code? Category { get; init; } 
     /// <summary>
     /// Identify the entity hosting the ATM.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Category is TransactionEnvironment3Code CategoryValue)
+        {
+            writer.WriteStartElement(null, "Ctgy", xmlNamespace );
+            writer.WriteValue(CategoryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Identification is IsoMax35Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TerminalHosting1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

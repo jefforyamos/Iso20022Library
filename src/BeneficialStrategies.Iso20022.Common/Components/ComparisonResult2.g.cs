@@ -7,48 +7,78 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes the comparison between the currently established baseline elements and the proposed ones.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ComparisonResult2
+     : IIsoXmlSerilizable<ComparisonResult2>
 {
     #nullable enable
     
     /// <summary>
     /// Sequence number assigned to the element.
     /// </summary>
-    [DataMember]
     public required IsoNumber ElementSequenceNumber { get; init; } 
     /// <summary>
     /// Specifies from the root of the message the complete path of the element.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text ElementPath { get; init; } 
     /// <summary>
     /// Name of the element.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ElementName { get; init; } 
     /// <summary>
     /// Replacement of an existing content by a different one.
     /// </summary>
-    [DataMember]
     public required Replacement2 Replacement { get; init; } 
     /// <summary>
     /// Deletion of the current element.
     /// </summary>
-    [DataMember]
     public required Deletion2 Deletion { get; init; } 
     /// <summary>
     /// Addition of a new element.
     /// </summary>
-    [DataMember]
     public required Addition2 Addition { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ElmtSeqNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(ElementSequenceNumber)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ElmtPth", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(ElementPath)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ElmtNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ElementName)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rplcmnt", xmlNamespace );
+        Replacement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Deltn", xmlNamespace );
+        Deletion.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Addtn", xmlNamespace );
+        Addition.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ComparisonResult2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

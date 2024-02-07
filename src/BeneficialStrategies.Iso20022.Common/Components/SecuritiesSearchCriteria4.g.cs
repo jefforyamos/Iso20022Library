@@ -7,78 +7,156 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Criteria for a query about securities reference data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesSearchCriteria4
+     : IIsoXmlSerilizable<SecuritiesSearchCriteria4>
 {
     #nullable enable
     
     /// <summary>
     /// Way(s) of identifying the security.
     /// </summary>
-    [DataMember]
     public SecurityIdentification39? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, for example, common share with voting rights, fully paid, or registered.
     /// </summary>
-    [DataMember]
     public IsoCFIOct2015Identifier? ClassificationFinancialInstrument { get; init; } 
     /// <summary>
     /// Planned final repayment date at the time of issuance.
     /// </summary>
-    [DataMember]
     public DatePeriodSearch1Choice_? MaturityDate { get; init; } 
     /// <summary>
     /// Date/time at which the security was made available.
     /// </summary>
-    [DataMember]
     public DatePeriodSearch1Choice_? IssueDate { get; init; } 
     /// <summary>
     /// Currency in which a security is issued or redenominated.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? IssueCurrency { get; init; } 
     /// <summary>
     /// Primary market or country where a security is issued by the issuer or its agent.
     /// </summary>
-    [DataMember]
     public CountryCode? CountryOfIssue { get; init; } 
     /// <summary>
     /// Specifies the status of the security within its lifecycle.
     /// </summary>
-    [DataMember]
     public SecurityStatus3Choice_? SecurityStatus { get; init; } 
     /// <summary>
     /// Entity involved in an activity.
     /// </summary>
-    [DataMember]
     public SystemPartyIdentification2Choice_? MaintainingCSD { get; init; } 
     /// <summary>
     /// Entity involved in an activity.
     /// </summary>
-    [DataMember]
     public SystemPartyIdentification2Choice_? InvestorCSD { get; init; } 
     /// <summary>
     /// Entity involved in an activity.
     /// </summary>
-    [DataMember]
     public SystemPartyIdentification2Choice_? IssuerCSD { get; init; } 
     /// <summary>
     /// Technical issuer of a security.
     /// </summary>
-    [DataMember]
     public SystemPartyIdentification2Choice_? TechnicalIssuerCSD { get; init; } 
     /// <summary>
     /// CSD of a security.
     /// </summary>
-    [DataMember]
     public SystemPartyIdentification2Choice_? CSD { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FinancialInstrumentIdentification is SecurityIdentification39 FinancialInstrumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+            FinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClassificationFinancialInstrument is IsoCFIOct2015Identifier ClassificationFinancialInstrumentValue)
+        {
+            writer.WriteStartElement(null, "ClssfctnFinInstrm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCFIOct2015Identifier(ClassificationFinancialInstrumentValue)); // data type CFIOct2015Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (MaturityDate is DatePeriodSearch1Choice_ MaturityDateValue)
+        {
+            writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
+            MaturityDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssueDate is DatePeriodSearch1Choice_ IssueDateValue)
+        {
+            writer.WriteStartElement(null, "IsseDt", xmlNamespace );
+            IssueDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssueCurrency is ActiveOrHistoricCurrencyCode IssueCurrencyValue)
+        {
+            writer.WriteStartElement(null, "IsseCcy", xmlNamespace );
+            writer.WriteValue(IssueCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CountryOfIssue is CountryCode CountryOfIssueValue)
+        {
+            writer.WriteStartElement(null, "CtryOfIsse", xmlNamespace );
+            writer.WriteValue(CountryOfIssueValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SecurityStatus is SecurityStatus3Choice_ SecurityStatusValue)
+        {
+            writer.WriteStartElement(null, "SctySts", xmlNamespace );
+            SecurityStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MaintainingCSD is SystemPartyIdentification2Choice_ MaintainingCSDValue)
+        {
+            writer.WriteStartElement(null, "MntngCSD", xmlNamespace );
+            MaintainingCSDValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestorCSD is SystemPartyIdentification2Choice_ InvestorCSDValue)
+        {
+            writer.WriteStartElement(null, "InvstrCSD", xmlNamespace );
+            InvestorCSDValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssuerCSD is SystemPartyIdentification2Choice_ IssuerCSDValue)
+        {
+            writer.WriteStartElement(null, "IssrCSD", xmlNamespace );
+            IssuerCSDValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TechnicalIssuerCSD is SystemPartyIdentification2Choice_ TechnicalIssuerCSDValue)
+        {
+            writer.WriteStartElement(null, "TechIssrCSD", xmlNamespace );
+            TechnicalIssuerCSDValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CSD is SystemPartyIdentification2Choice_ CSDValue)
+        {
+            writer.WriteStartElement(null, "CSD", xmlNamespace );
+            CSDValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesSearchCriteria4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

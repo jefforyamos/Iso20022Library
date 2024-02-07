@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.TransferOutInstructionV07>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// The TransferOutInstruction message is used to instruct the withdrawal of a financial instrument from one account and deliver it to either another account or to a third party.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An instructing party, for example, an investment manager or its authorised representative, sends the TransferOutInstruction message to the executing party, for example, a transfer agent, to instruct the delivery of a financial instrument, free of payment, on a given date from a specified party.|This message may also be used to instruct the delivery of a financial instrument, free of payment, to another of the instructing parties own accounts or to a third party.|Usage|The TransferOutInstruction message is used to instruct the withdrawal of a financial instrument from one account and deliver it to either another account or to a third party.")]
-public partial record TransferOutInstructionV07 : IOuterRecord
+public partial record TransferOutInstructionV07 : IOuterRecord<TransferOutInstructionV07,TransferOutInstructionV07Document>
+    ,IIsoXmlSerilizable<TransferOutInstructionV07>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record TransferOutInstructionV07 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "TrfOutInstr";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => TransferOutInstructionV07Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -162,6 +169,86 @@ public partial record TransferOutInstructionV07 : IOuterRecord
     {
         return new TransferOutInstructionV07Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("TrfOutInstr");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PoolReference is AdditionalReference6 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousReference is AdditionalReference6 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference6 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RequestedTransferDate is DateFormat1Choice_ RequestedTransferDateValue)
+        {
+            writer.WriteStartElement(null, "ReqdTrfDt", xmlNamespace );
+            RequestedTransferDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TrfDtls", xmlNamespace );
+        TransferDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
+        AccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SettlementDetails is ReceiveInformation16 SettlementDetailsValue)
+        {
+            writer.WriteStartElement(null, "SttlmDtls", xmlNamespace );
+            SettlementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarketPracticeVersion is MarketPracticeVersion1 MarketPracticeVersionValue)
+        {
+            writer.WriteStartElement(null, "MktPrctcVrsn", xmlNamespace );
+            MarketPracticeVersionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CopyDetails is CopyInformation4 CopyDetailsValue)
+        {
+            writer.WriteStartElement(null, "CpyDtls", xmlNamespace );
+            CopyDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransferOutInstructionV07 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -169,9 +256,7 @@ public partial record TransferOutInstructionV07 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransferOutInstructionV07"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record TransferOutInstructionV07Document : IOuterDocument<TransferOutInstructionV07>
+public partial record TransferOutInstructionV07Document : IOuterDocument<TransferOutInstructionV07>, IXmlSerializable
 {
     
     /// <summary>
@@ -187,5 +272,22 @@ public partial record TransferOutInstructionV07Document : IOuterDocument<Transfe
     /// <summary>
     /// The instance of <seealso cref="TransferOutInstructionV07"/> is required.
     /// </summary>
+    [DataMember(Name=TransferOutInstructionV07.XmlTag)]
     public required TransferOutInstructionV07 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(TransferOutInstructionV07.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

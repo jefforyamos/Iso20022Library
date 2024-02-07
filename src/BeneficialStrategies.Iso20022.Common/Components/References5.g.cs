@@ -7,48 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements for the identification of the message and related references.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record References5
+     : IIsoXmlSerilizable<References5>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the type of acknowledged request.
     /// </summary>
-    [DataMember]
     public required UseCases1Code RequestType { get; init; } 
     /// <summary>
     /// Identifies a message by a unique identifier and the date and time when the message was created by the sender.
     /// </summary>
-    [DataMember]
     public required MessageIdentification1 MessageIdentification { get; init; } 
     /// <summary>
     /// Identifies a process by a unique identifier and the date and time when the first message belonging to the process was created by the sender. The process identification remains the same in all messages belonging to the same process, from the initial request message to the final account report closing the process.
     /// </summary>
-    [DataMember]
     public required MessageIdentification1 ProcessIdentification { get; init; } 
     /// <summary>
     /// Reference to the message that is acknowledged.
     /// </summary>
-    [DataMember]
-    public ValueList<MessageIdentification1> AcknowledgedMessageIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public MessageIdentification1? AcknowledgedMessageIdentification { get; init; } 
     /// <summary>
     /// Status of the request.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Status { get; init; } 
     /// <summary>
     /// File name of a document logically related to the request.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax70Text> AttachedDocumentName { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax70Text? AttachedDocumentName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ReqTp", xmlNamespace );
+        writer.WriteValue(RequestType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PrcId", xmlNamespace );
+        ProcessIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AcknowledgedMessageIdentification is MessageIdentification1 AcknowledgedMessageIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AckdMsgId", xmlNamespace );
+            AcknowledgedMessageIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Status is IsoMax35Text StatusValue)
+        {
+            writer.WriteStartElement(null, "Sts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(StatusValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AttachedDocumentName is IsoMax70Text AttachedDocumentNameValue)
+        {
+            writer.WriteStartElement(null, "AttchdDocNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AttachedDocumentNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static References5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

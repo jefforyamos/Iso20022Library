@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Transparency calculation specific details for a freight commodity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CommodityDerivative5
+     : IIsoXmlSerilizable<CommodityDerivative5>
 {
     #nullable enable
     
     /// <summary>
     /// Specification of the size related to the freight sub type. Field to be populated when the base product field is equal to freight.
     /// </summary>
-    [DataMember]
     public required IsoMax25Text Size { get; init; } 
     /// <summary>
     /// Details the specific route or time charter average. Field to be populated when the base product field is equal to freight.
     /// </summary>
-    [DataMember]
     public required IsoMax25Text AverageTimeCharter { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sz", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax25Text(Size)); // data type Max25Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AvrgTmChrtr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax25Text(AverageTimeCharter)); // data type Max25Text System.String
+        writer.WriteEndElement();
+    }
+    public static CommodityDerivative5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

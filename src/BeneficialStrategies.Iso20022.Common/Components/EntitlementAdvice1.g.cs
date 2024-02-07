@@ -7,43 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the CA entitlement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record EntitlementAdvice1
+     : IIsoXmlSerilizable<EntitlementAdvice1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    [DataMember]
     public required CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    [DataMember]
     public required IsoExact3NumericText OptionNumber { get; init; } 
     /// <summary>
     /// Date on which the holders of securities are/will be recorded for the income being paid or for entitlement to the rights or offer/privilege.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? RecordDate { get; init; } 
     /// <summary>
     /// Date on which securities/cash will be paid.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? PaymentDate { get; init; } 
     /// <summary>
     /// Provides information about the entitlement and the entitled account.
     /// </summary>
-    [DataMember]
-    public ValueList<Entitlement1> AccountAndDistributionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Entitlement1? AccountAndDistributionDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _UJRggdp-Ed-ak6NoX_4Aeg_-1335835024
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+        OptionType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OptnNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact3NumericText(OptionNumber)); // data type Exact3NumericText System.String
+        writer.WriteEndElement();
+        if (RecordDate is DateFormat4Choice_ RecordDateValue)
+        {
+            writer.WriteStartElement(null, "RcrdDt", xmlNamespace );
+            RecordDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentDate is DateFormat4Choice_ PaymentDateValue)
+        {
+            writer.WriteStartElement(null, "PmtDt", xmlNamespace );
+            PaymentDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize AccountAndDistributionDetails, multiplicity Unknown
+    }
+    public static EntitlementAdvice1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

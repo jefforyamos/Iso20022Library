@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the elements used to uniquely identify a standing order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StandingOrderIdentification3
+     : IIsoXmlSerilizable<StandingOrderIdentification3>
 {
     #nullable enable
     
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.|.
     /// </summary>
-    [DataMember]
     public required CashAccount24 Account { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? AccountOwner { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Acct", xmlNamespace );
+        Account.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountOwner is BranchAndFinancialInstitutionIdentification5 AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static StandingOrderIdentification3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

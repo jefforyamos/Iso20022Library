@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Encrypted data with an encryption key identified with a name.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NamedKeyEncryptedData1
+     : IIsoXmlSerilizable<NamedKeyEncryptedData1>
 {
     #nullable enable
     
     /// <summary>
     /// Version of the data structure.
     /// </summary>
-    [DataMember]
     public IsoNumber? Version { get; init; } 
     /// <summary>
     /// Name of the key encryption key (KEK).
     /// </summary>
-    [DataMember]
     public IsoMax140Text? KeyName { get; init; } 
     /// <summary>
     /// Encrypted data with an encryption key.
     /// </summary>
-    [DataMember]
     public required EncryptedContent1 EncryptedContent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Version is IsoNumber VersionValue)
+        {
+            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(VersionValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (KeyName is IsoMax140Text KeyNameValue)
+        {
+            writer.WriteStartElement(null, "KeyNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(KeyNameValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "NcrptdCntt", xmlNamespace );
+        EncryptedContent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static NamedKeyEncryptedData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

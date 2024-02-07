@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Repurchase agreement where a single, pre defined, financial instrument is sold and repurchased.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SpecificCollateral2
+     : IIsoXmlSerilizable<SpecificCollateral2>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of collateral placed as security for repo.
     /// </summary>
-    [DataMember]
     public required FinancialInstrument59 FinancialInstrumentIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SpecificCollateral2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

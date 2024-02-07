@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Price expressed as a percentage price.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PercentagePrice1
+     : IIsoXmlSerilizable<PercentagePrice1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of percentage price.
     /// </summary>
-    [DataMember]
     public required PriceRateType3Code PercentagePriceType { get; init; } 
     /// <summary>
     /// Specifies the value of price.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate PriceValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PctgPricTp", xmlNamespace );
+        writer.WriteValue(PercentagePriceType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PricVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(PriceValue)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+    }
+    public static PercentagePrice1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

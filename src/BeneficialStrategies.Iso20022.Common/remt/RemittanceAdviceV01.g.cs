@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.remt.RemittanceAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.remt;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.remt;
 /// The RemittanceAdvice message allows the originator to provide remittance details that can be associated with a payment.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The RemittanceAdvice message allows the originator to provide remittance details that can be associated with a payment.")]
-public partial record RemittanceAdviceV01 : IOuterRecord
+public partial record RemittanceAdviceV01 : IOuterRecord<RemittanceAdviceV01,RemittanceAdviceV01Document>
+    ,IIsoXmlSerilizable<RemittanceAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record RemittanceAdviceV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "RmtAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => RemittanceAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -76,6 +83,35 @@ public partial record RemittanceAdviceV01 : IOuterRecord
     {
         return new RemittanceAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("RmtAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
+        GroupHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RmtInf", xmlNamespace );
+        RemittanceInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RemittanceAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -83,9 +119,7 @@ public partial record RemittanceAdviceV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RemittanceAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record RemittanceAdviceV01Document : IOuterDocument<RemittanceAdviceV01>
+public partial record RemittanceAdviceV01Document : IOuterDocument<RemittanceAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -101,5 +135,22 @@ public partial record RemittanceAdviceV01Document : IOuterDocument<RemittanceAdv
     /// <summary>
     /// The instance of <seealso cref="RemittanceAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=RemittanceAdviceV01.XmlTag)]
     public required RemittanceAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(RemittanceAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

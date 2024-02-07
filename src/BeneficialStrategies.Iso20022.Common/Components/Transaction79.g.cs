@@ -7,58 +7,107 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Fraud reporting transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Transaction79
+     : IIsoXmlSerilizable<Transaction79>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the  transaction reporting the fraud.
     /// </summary>
-    [DataMember]
     public required IsoMax70Text FraudTransactionIdentification { get; init; } 
     /// <summary>
     /// Fraud reporting type information.
     /// </summary>
-    [DataMember]
     public required ReportedFraud1 ReportedFraud { get; init; } 
     /// <summary>
     /// Data pertaining to fraudulent reported transaction.
     /// </summary>
-    [DataMember]
     public required FraudulentTransactionData1 FraudulentTransactionData { get; init; } 
     /// <summary>
     /// Details of a not-received card.
     /// </summary>
-    [DataMember]
     public CardNotReceivedDetails1? CardNotReceivedDetails { get; init; } 
     /// <summary>
     /// Cardholder name as it appears on the card.
     /// </summary>
-    [DataMember]
     public CardholderName1? CardholderCardName { get; init; } 
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalFee1> AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalFee1? AdditionalFees { get; init; } 
     /// <summary>
     /// Additional information relevant for the settlement report.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation22> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation22? AdditionalInformation { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FrdTxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(FraudTransactionIdentification)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptdFrd", xmlNamespace );
+        ReportedFraud.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FrdlntTxData", xmlNamespace );
+        FraudulentTransactionData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CardNotReceivedDetails is CardNotReceivedDetails1 CardNotReceivedDetailsValue)
+        {
+            writer.WriteStartElement(null, "CardNotRcvdDtls", xmlNamespace );
+            CardNotReceivedDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CardholderCardName is CardholderName1 CardholderCardNameValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrCardNm", xmlNamespace );
+            CardholderCardNameValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalFees is AdditionalFee1 AdditionalFeesValue)
+        {
+            writer.WriteStartElement(null, "AddtlFees", xmlNamespace );
+            AdditionalFeesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation22 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Transaction79 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

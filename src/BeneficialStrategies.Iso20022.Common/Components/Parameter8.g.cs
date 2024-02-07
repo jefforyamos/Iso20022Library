@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters of the RSASSA-PSS digital signature algorithm (RSA signature algorithm with appendix: Probabilistic Signature Scheme).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Parameter8
+     : IIsoXmlSerilizable<Parameter8>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the digest algorithm.
     /// </summary>
-    [DataMember]
     public required Algorithm11Code DigestAlgorithm { get; init; } 
     /// <summary>
     /// Mask generator function cryptographic algorithm and parameters.
     /// </summary>
-    [DataMember]
     public required AlgorithmIdentification12 MaskGeneratorAlgorithm { get; init; } 
     /// <summary>
     /// Length of the salt to include in the signature.
     /// </summary>
-    [DataMember]
     public required IsoNumber SaltLength { get; init; } 
     /// <summary>
     /// Trailer field number.
     /// </summary>
-    [DataMember]
     public IsoNumber? TrailerField { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DgstAlgo", xmlNamespace );
+        writer.WriteValue(DigestAlgorithm.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MskGnrtrAlgo", xmlNamespace );
+        MaskGeneratorAlgorithm.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SaltLngth", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(SaltLength)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        if (TrailerField is IsoNumber TrailerFieldValue)
+        {
+            writer.WriteStartElement(null, "TrlrFld", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(TrailerFieldValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static Parameter8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

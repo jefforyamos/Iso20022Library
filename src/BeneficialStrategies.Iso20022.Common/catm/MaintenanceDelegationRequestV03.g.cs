@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.catm.MaintenanceDelegationRequestV03>;
 
 namespace BeneficialStrategies.Iso20022.catm;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.catm;
 /// A terminal manager requests to the master terminal manager the delegation of maintenance functions or maintenance operation on the terminal estate managed by the master terminal manager.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"A terminal manager requests to the master terminal manager the delegation of maintenance functions or maintenance operation on the terminal estate managed by the master terminal manager.")]
-public partial record MaintenanceDelegationRequestV03 : IOuterRecord
+public partial record MaintenanceDelegationRequestV03 : IOuterRecord<MaintenanceDelegationRequestV03,MaintenanceDelegationRequestV03Document>
+    ,IIsoXmlSerilizable<MaintenanceDelegationRequestV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record MaintenanceDelegationRequestV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MntncDlgtnReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => MaintenanceDelegationRequestV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -76,6 +83,35 @@ public partial record MaintenanceDelegationRequestV03 : IOuterRecord
     {
         return new MaintenanceDelegationRequestV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MntncDlgtnReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Header is Header29 HeaderValue)
+        {
+            writer.WriteStartElement(null, "Hdr", xmlNamespace );
+            HeaderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MntncDlgtnReq", xmlNamespace );
+        MaintenanceDelegationRequest.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+        SecurityTrailer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static MaintenanceDelegationRequestV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -83,9 +119,7 @@ public partial record MaintenanceDelegationRequestV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MaintenanceDelegationRequestV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record MaintenanceDelegationRequestV03Document : IOuterDocument<MaintenanceDelegationRequestV03>
+public partial record MaintenanceDelegationRequestV03Document : IOuterDocument<MaintenanceDelegationRequestV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -101,5 +135,22 @@ public partial record MaintenanceDelegationRequestV03Document : IOuterDocument<M
     /// <summary>
     /// The instance of <seealso cref="MaintenanceDelegationRequestV03"/> is required.
     /// </summary>
+    [DataMember(Name=MaintenanceDelegationRequestV03.XmlTag)]
     public required MaintenanceDelegationRequestV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(MaintenanceDelegationRequestV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

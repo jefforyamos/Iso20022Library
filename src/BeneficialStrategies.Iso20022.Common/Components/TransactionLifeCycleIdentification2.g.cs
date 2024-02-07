@@ -7,6 +7,8 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -15,9 +17,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// It shall contain the same value in all messages throughout a transaction's lifecycle.
 /// ISO 8583:2003 bit 21
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionLifeCycleIdentification2
+     : IIsoXmlSerilizable<TransactionLifeCycleIdentification2>
 {
     #nullable enable
     
@@ -25,8 +26,27 @@ public partial record TransactionLifeCycleIdentification2
     /// Unique transaction identifier.
     /// ISO 8583:2003 bit 21-2
     /// </summary>
-    [DataMember]
     public required IsoExact15Text Identification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact15Text(Identification)); // data type Exact15Text System.String
+        writer.WriteEndElement();
+    }
+    public static TransactionLifeCycleIdentification2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

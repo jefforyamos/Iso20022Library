@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsin.InvoiceAssignmentNotificationV01>;
 
 namespace BeneficialStrategies.Iso20022.tsin;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.tsin;
 /// The message can carry digital signatures if required by context.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"This message is sent from a factoring service provider or a factoring client to a trade partner to inform about assignments of financing items and, optionally, to an interested party.|The information given to the trade party indicates that property of the payment obligation has been or is being transferred to the financial institution and that payments have to be done between the trade partner and the factoring service provider.|The message indicates whether the notified party is required to acknowledge the notified assignment and to which party an acknowledgement has to be sent.|This message can also be used outside a factoring context directly between a payer and a payee for example as a reminder about a payment obligation or to make an adjustment.|If applicable, the message may reference corresponding items of an InvoiceFinancingRequest or InvoiceFinancingStatus or other related messages and may contain referenced data.|The message can carry digital signatures if required by context.")]
-public partial record InvoiceAssignmentNotificationV01 : IOuterRecord
+public partial record InvoiceAssignmentNotificationV01 : IOuterRecord<InvoiceAssignmentNotificationV01,InvoiceAssignmentNotificationV01Document>
+    ,IIsoXmlSerilizable<InvoiceAssignmentNotificationV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record InvoiceAssignmentNotificationV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "InvcAssgnmtNtfctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => InvoiceAssignmentNotificationV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -108,6 +115,53 @@ public partial record InvoiceAssignmentNotificationV01 : IOuterRecord
     {
         return new InvoiceAssignmentNotificationV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("InvcAssgnmtNtfctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NtfctnList", xmlNamespace );
+        NotificationList.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (NotificationCount is IsoMax15NumericText NotificationCountValue)
+        {
+            writer.WriteStartElement(null, "NtfctnCnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(NotificationCountValue)); // data type Max15NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (ItemCount is IsoMax15NumericText ItemCountValue)
+        {
+            writer.WriteStartElement(null, "ItmCnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(ItemCountValue)); // data type Max15NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (ControlSum is IsoDecimalNumber ControlSumValue)
+        {
+            writer.WriteStartElement(null, "CtrlSum", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(ControlSumValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (AttachedMessage is EncapsulatedBusinessMessage1 AttachedMessageValue)
+        {
+            writer.WriteStartElement(null, "AttchdMsg", xmlNamespace );
+            AttachedMessageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InvoiceAssignmentNotificationV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -115,9 +169,7 @@ public partial record InvoiceAssignmentNotificationV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvoiceAssignmentNotificationV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record InvoiceAssignmentNotificationV01Document : IOuterDocument<InvoiceAssignmentNotificationV01>
+public partial record InvoiceAssignmentNotificationV01Document : IOuterDocument<InvoiceAssignmentNotificationV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -133,5 +185,22 @@ public partial record InvoiceAssignmentNotificationV01Document : IOuterDocument<
     /// <summary>
     /// The instance of <seealso cref="InvoiceAssignmentNotificationV01"/> is required.
     /// </summary>
+    [DataMember(Name=InvoiceAssignmentNotificationV01.XmlTag)]
     public required InvoiceAssignmentNotificationV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(InvoiceAssignmentNotificationV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, eg, dividend option or valuation currency.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrument27
+     : IIsoXmlSerilizable<FinancialInstrument27>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier of a security, assigned under a formal or proprietary identification scheme.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification3Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? Name { get; init; } 
     /// <summary>
     /// Account held in the name of a party that is not the name of the beneficial owner of the shares.
     /// </summary>
-    [DataMember]
     public Account6? TransfereeAccount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Name is IsoMax350Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(NameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (TransfereeAccount is Account6 TransfereeAccountValue)
+        {
+            writer.WriteStartElement(null, "TrfeeAcct", xmlNamespace );
+            TransfereeAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstrument27 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

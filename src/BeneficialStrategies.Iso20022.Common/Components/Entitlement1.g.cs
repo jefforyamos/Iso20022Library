@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the entitlement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Entitlement1
+     : IIsoXmlSerilizable<Entitlement1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the party that owns the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Idenfitication of the account.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text AccountIdentification { get; init; } 
     /// <summary>
     /// Provides information about the securities distribution.
     /// </summary>
-    [DataMember]
-    public ValueList<SecuritiesEntitlement1> SecuritiesDistributionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecuritiesEntitlement1? SecuritiesDistributionDetails { get; init; } 
     /// <summary>
     /// Provides information about the cash distribution.
     /// </summary>
-    [DataMember]
-    public ValueList<CashEntitlement1> CashDistributionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashEntitlement1? CashDistributionDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountOwnerIdentification is PartyIdentification2Choice_ AccountOwnerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnrId", xmlNamespace );
+            AccountOwnerIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AcctId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (SecuritiesDistributionDetails is SecuritiesEntitlement1 SecuritiesDistributionDetailsValue)
+        {
+            writer.WriteStartElement(null, "SctiesDstrbtnDtls", xmlNamespace );
+            SecuritiesDistributionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashDistributionDetails is CashEntitlement1 CashDistributionDetailsValue)
+        {
+            writer.WriteStartElement(null, "CshDstrbtnDtls", xmlNamespace );
+            CashDistributionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Entitlement1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

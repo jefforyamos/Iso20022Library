@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Report information about securities reference data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesAuditTrailReport4
+     : IIsoXmlSerilizable<SecuritiesAuditTrailReport4>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the returned securities reference data or error information.
     /// </summary>
-    [DataMember]
     public required AuditTrailOrBusinessError6Choice_ SecuritiesAuditTrailOrError { get; init; } 
     /// <summary>
     /// Period in dates for which the audit trail is provided.
     /// </summary>
-    [DataMember]
     public DatePeriodSearch1Choice_? DatePeriod { get; init; } 
     /// <summary>
     /// Identifies the securities for which the audit trail is provided.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification39 FinancialInstrumentIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SctiesAudtTrlOrErr", xmlNamespace );
+        SecuritiesAuditTrailOrError.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DatePeriod is DatePeriodSearch1Choice_ DatePeriodValue)
+        {
+            writer.WriteStartElement(null, "DtPrd", xmlNamespace );
+            DatePeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SecuritiesAuditTrailReport4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

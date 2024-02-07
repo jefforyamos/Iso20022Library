@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.RateValueType2FormatChoice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.RateValueType2FormatChoice;
 /// Proprietary code to express the value of a rate.
 /// </summary>
 public partial record Proprietary : RateValueType2FormatChoice_
+     , IIsoXmlSerilizable<Proprietary>
 {
     #nullable enable
+    
     /// <summary>
     /// Identification assigned by an institution.
     /// </summary>
@@ -27,5 +31,35 @@ public partial record Proprietary : RateValueType2FormatChoice_
     /// Entity that assigns the identification.
     /// </summary>
     public required IsoMax35Text Issuer { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(Identification)); // data type Max4AlphaNumericText System.String
+        writer.WriteEndElement();
+        if (SchemeName is IsoMax35Text SchemeNameValue)
+        {
+            writer.WriteStartElement(null, "SchmeNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SchemeNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Issr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Issuer)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static new Proprietary Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

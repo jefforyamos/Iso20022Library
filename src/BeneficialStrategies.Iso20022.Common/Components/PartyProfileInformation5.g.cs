@@ -7,88 +7,176 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information to support the Know Your Customer (KYC) processes.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyProfileInformation5
+     : IIsoXmlSerilizable<PartyProfileInformation5>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the certificate type has been obtained and verified.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? CertificationIndicator { get; init; } 
     /// <summary>
     /// Identification of the person who validated the document.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? ValidatingParty { get; init; } 
     /// <summary>
     /// Identification of the person who checked the document.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? CheckingParty { get; init; } 
     /// <summary>
     /// Identification of the person who is responsible for the document.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? ResponsibleParty { get; init; } 
     /// <summary>
     /// Type of certificate.
     /// </summary>
-    [DataMember]
     public CertificationType1Choice_? CertificateType { get; init; } 
     /// <summary>
     /// Date at which the certification check has been performed.
     /// </summary>
-    [DataMember]
     public IsoISODate? CheckingDate { get; init; } 
     /// <summary>
     /// Specifies how frequently the check is performed.
     /// </summary>
-    [DataMember]
     public EventFrequency1Code? CheckingFrequency { get; init; } 
     /// <summary>
     /// Specifies the date at which the next certification check will be performed.
     /// </summary>
-    [DataMember]
     public IsoISODate? NextRevisionDate { get; init; } 
     /// <summary>
     /// Limits between which a person's salary is estimated.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SalaryRange { get; init; } 
     /// <summary>
     /// Indicates the main source of revenue.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? SourceOfWealth { get; init; } 
     /// <summary>
     /// Specifies an assessment of the customer’s behaviour at the time of the account opening application.
     /// </summary>
-    [DataMember]
     public CustomerConductClassification1Choice_? CustomerConductClassification { get; init; } 
     /// <summary>
     /// Specifies the customer’s money laundering risk.
     /// </summary>
-    [DataMember]
     public RiskLevel2Choice_? RiskLevel { get; init; } 
     /// <summary>
     /// Specifies the type of due diligence checks carried out on the investor or account owner. For definitions of ordinary, simple and enhanced know your customer checks, local market regulations should be consulted.
     /// </summary>
-    [DataMember]
     public KYCCheckType1Choice_? KnowYourCustomerCheckType { get; init; } 
     /// <summary>
     /// Specifies whether a customer has been checked in a Know Your Customer (KYC) database.
     /// </summary>
-    [DataMember]
     public DataBaseCheck1? KnowYourCustomerDatabaseCheck { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CertificationIndicator is IsoYesNoIndicator CertificationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CertfctnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CertificationIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ValidatingParty is IsoMax140Text ValidatingPartyValue)
+        {
+            writer.WriteStartElement(null, "VldtngPty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(ValidatingPartyValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (CheckingParty is IsoMax140Text CheckingPartyValue)
+        {
+            writer.WriteStartElement(null, "ChckngPty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(CheckingPartyValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (ResponsibleParty is IsoMax140Text ResponsiblePartyValue)
+        {
+            writer.WriteStartElement(null, "RspnsblPty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(ResponsiblePartyValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (CertificateType is CertificationType1Choice_ CertificateTypeValue)
+        {
+            writer.WriteStartElement(null, "CertTp", xmlNamespace );
+            CertificateTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CheckingDate is IsoISODate CheckingDateValue)
+        {
+            writer.WriteStartElement(null, "ChckngDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(CheckingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (CheckingFrequency is EventFrequency1Code CheckingFrequencyValue)
+        {
+            writer.WriteStartElement(null, "ChckngFrqcy", xmlNamespace );
+            writer.WriteValue(CheckingFrequencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (NextRevisionDate is IsoISODate NextRevisionDateValue)
+        {
+            writer.WriteStartElement(null, "NxtRvsnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(NextRevisionDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SalaryRange is IsoMax35Text SalaryRangeValue)
+        {
+            writer.WriteStartElement(null, "SlryRg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SalaryRangeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SourceOfWealth is IsoMax140Text SourceOfWealthValue)
+        {
+            writer.WriteStartElement(null, "SrcOfWlth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(SourceOfWealthValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (CustomerConductClassification is CustomerConductClassification1Choice_ CustomerConductClassificationValue)
+        {
+            writer.WriteStartElement(null, "CstmrCndctClssfctn", xmlNamespace );
+            CustomerConductClassificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RiskLevel is RiskLevel2Choice_ RiskLevelValue)
+        {
+            writer.WriteStartElement(null, "RskLvl", xmlNamespace );
+            RiskLevelValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (KnowYourCustomerCheckType is KYCCheckType1Choice_ KnowYourCustomerCheckTypeValue)
+        {
+            writer.WriteStartElement(null, "KnowYourCstmrChckTp", xmlNamespace );
+            KnowYourCustomerCheckTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (KnowYourCustomerDatabaseCheck is DataBaseCheck1 KnowYourCustomerDatabaseCheckValue)
+        {
+            writer.WriteStartElement(null, "KnowYourCstmrDBChck", xmlNamespace );
+            KnowYourCustomerDatabaseCheckValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyProfileInformation5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

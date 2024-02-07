@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.semt.StatementOfInvestmentFundTransactionsCancellationV02>;
 
 namespace BeneficialStrategies.Iso20022.semt;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// This message may also contain all the details of the message to be cancelled, but this is not recommended.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account servicer, for example, a transfer agent sends the StatementOfInvestmentFundTransactionsCancellation message to the account owner, for example, an investment manager or its authorised representative to cancel a previously sent StatementOfInvestmentFundTransactions message.|Usage|The StatementOfInvestmentFundTransactionsCancellation message is used to cancel a previously sent StatementOfInvestmentFundTransactions message. This message must contain the reference of the message to be cancelled.|This message may also contain all the details of the message to be cancelled, but this is not recommended.")]
-public partial record StatementOfInvestmentFundTransactionsCancellationV02 : IOuterRecord
+public partial record StatementOfInvestmentFundTransactionsCancellationV02 : IOuterRecord<StatementOfInvestmentFundTransactionsCancellationV02,StatementOfInvestmentFundTransactionsCancellationV02Document>
+    ,IIsoXmlSerilizable<StatementOfInvestmentFundTransactionsCancellationV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record StatementOfInvestmentFundTransactionsCancellationV02 : IOu
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "StmtOfInvstmtFndTxsCxlV02";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => StatementOfInvestmentFundTransactionsCancellationV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -98,6 +105,47 @@ public partial record StatementOfInvestmentFundTransactionsCancellationV02 : IOu
     {
         return new StatementOfInvestmentFundTransactionsCancellationV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("StmtOfInvstmtFndTxsCxlV02");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PreviousReference is AdditionalReference2 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference2 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MsgPgntn", xmlNamespace );
+        MessagePagination.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (StatementToBeCancelled is StatementOfInvestmentFundTransactions2 StatementToBeCancelledValue)
+        {
+            writer.WriteStartElement(null, "StmtToBeCanc", xmlNamespace );
+            StatementToBeCancelledValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static StatementOfInvestmentFundTransactionsCancellationV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -105,9 +153,7 @@ public partial record StatementOfInvestmentFundTransactionsCancellationV02 : IOu
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatementOfInvestmentFundTransactionsCancellationV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record StatementOfInvestmentFundTransactionsCancellationV02Document : IOuterDocument<StatementOfInvestmentFundTransactionsCancellationV02>
+public partial record StatementOfInvestmentFundTransactionsCancellationV02Document : IOuterDocument<StatementOfInvestmentFundTransactionsCancellationV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -123,5 +169,22 @@ public partial record StatementOfInvestmentFundTransactionsCancellationV02Docume
     /// <summary>
     /// The instance of <seealso cref="StatementOfInvestmentFundTransactionsCancellationV02"/> is required.
     /// </summary>
+    [DataMember(Name=StatementOfInvestmentFundTransactionsCancellationV02.XmlTag)]
     public required StatementOfInvestmentFundTransactionsCancellationV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(StatementOfInvestmentFundTransactionsCancellationV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

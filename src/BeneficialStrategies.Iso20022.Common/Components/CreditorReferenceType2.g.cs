@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the type of creditor reference.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CreditorReferenceType2
+     : IIsoXmlSerilizable<CreditorReferenceType2>
 {
     #nullable enable
     
     /// <summary>
     /// Coded or proprietary format creditor reference type.
     /// </summary>
-    [DataMember]
     public required CreditorReferenceType1Choice_ CodeOrProprietary { get; init; } 
     /// <summary>
     /// Entity that assigns the credit reference type.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CdOrPrtry", xmlNamespace );
+        CodeOrProprietary.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Issuer is IsoMax35Text IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CreditorReferenceType2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements providing further details on the message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GroupHeader23
+     : IIsoXmlSerilizable<GroupHeader23>
 {
     #nullable enable
     
     /// <summary>
     /// Point to point reference assigned by the account servicing institution and sent to the account owner to unambiguously identify the message.||Usage: The account servicing institution has to make sure that 'MessageIdentification' is unique per instructed party for a pre-agreed period.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created by the account servicer.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Party that is entitled by the account owner to receive information about movements in the account. ||Guideline: MessageRecipient should only be identified when different from the account owner.
     /// </summary>
-    [DataMember]
     public PartyIdentification8? MessageRecipient { get; init; } 
     /// <summary>
     /// Pagination of the message.||Usage: the pagination of the message is only allowed when agreed between the parties.
     /// </summary>
-    [DataMember]
     public Pagination? MessagePagination { get; init; } 
     /// <summary>
     /// Further details on the message.
     /// </summary>
-    [DataMember]
     public IsoMax500Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (MessageRecipient is PartyIdentification8 MessageRecipientValue)
+        {
+            writer.WriteStartElement(null, "MsgRcpt", xmlNamespace );
+            MessageRecipientValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessagePagination is Pagination MessagePaginationValue)
+        {
+            writer.WriteStartElement(null, "MsgPgntn", xmlNamespace );
+            MessagePaginationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax500Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Text(AdditionalInformationValue)); // data type Max500Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static GroupHeader23 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

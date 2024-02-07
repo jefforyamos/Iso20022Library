@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Element containing all information needed to identify who triggered the request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TriggerInformation1
+     : IIsoXmlSerilizable<TriggerInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Actor who trigger the request.
     /// </summary>
-    [DataMember]
     public required PartyType5Code TriggerSource { get; init; } 
     /// <summary>
     /// Identification of the trigger source.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text SourceIdentification { get; init; } 
     /// <summary>
     /// Identification of the type of the call.
     /// </summary>
-    [DataMember]
     public required ExchangePolicy1Code TriggerType { get; init; } 
     /// <summary>
     /// Additional information related to request.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TrggrSrc", xmlNamespace );
+        writer.WriteValue(TriggerSource.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SrcId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(SourceIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TrggrTp", xmlNamespace );
+        writer.WriteValue(TriggerType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax70Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AdditionalInformationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TriggerInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

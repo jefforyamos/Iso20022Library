@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// GenericInformation exchanged with a name and value.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GenericInformation1
+     : IIsoXmlSerilizable<GenericInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the generic information to exchange.
     /// </summary>
-    [DataMember]
     public required IsoMax70Text Name { get; init; } 
     /// <summary>
     /// Value of the generic information to exchange.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Value { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(Name)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        if (Value is IsoMax140Text ValueValue)
+        {
+            writer.WriteStartElement(null, "Val", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(ValueValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static GenericInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,98 +7,160 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed description of the items that correspond to the parameters set in a request and for which a report has been generated.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionReportItems3
+     : IIsoXmlSerilizable<TransactionReportItems3>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identification assigned by the matching application to the baseline when it is established.
     /// </summary>
-    [DataMember]
     public DocumentIdentification3? EstablishedBaselineIdentification { get; init; } 
     /// <summary>
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
-    [DataMember]
     public required TransactionStatus4 TransactionStatus { get; init; } 
     /// <summary>
     /// Reference to the transaction for each financial institution which is a party to the transaction.
     /// </summary>
-    [DataMember]
     public ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = [];
     /// <summary>
     /// Reference to the purchase order of the underlying transaction.
     /// </summary>
-    [DataMember]
     public required DocumentIdentification7 PurchaseOrderReference { get; init; } 
     /// <summary>
     /// Party that buys goods or services, or a financial instrument.
     /// </summary>
-    [DataMember]
     public required PartyIdentification26 Buyer { get; init; } 
     /// <summary>
     /// Party that sells goods or services, or a financial instrument.
     /// </summary>
-    [DataMember]
     public required PartyIdentification26 Seller { get; init; } 
     /// <summary>
     /// Financial institution of the buyer.
     /// </summary>
-    [DataMember]
     public required BICIdentification1 BuyerBank { get; init; } 
     /// <summary>
     /// Country of the buyer bank.
     /// </summary>
-    [DataMember]
     public required CountryCode BuyerBankCountry { get; init; } 
     /// <summary>
     /// Financial institution of the seller.
     /// </summary>
-    [DataMember]
     public required BICIdentification1 SellerBank { get; init; } 
     /// <summary>
     /// Country of the seller bank.
     /// </summary>
-    [DataMember]
     public required CountryCode SellerBankCountry { get; init; } 
     /// <summary>
     /// Financial institution that is an obligor bank to the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<BICIdentification1> ObligorBank { get; init; } = []; // Warning: Don't know multiplicity.
+    public BICIdentification1? ObligorBank { get; init; } 
     /// <summary>
     /// Financial institution that is a data set submitting bank to the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<BICIdentification1> SubmittingBank { get; init; } = []; // Warning: Don't know multiplicity.
+    public BICIdentification1? SubmittingBank { get; init; } 
     /// <summary>
     /// Amount of baseline not yet utilised.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount OutstandingAmount { get; init; } 
     /// <summary>
     /// Total net amount as specified in the baseline.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount TotalNetAmount { get; init; } 
     /// <summary>
     /// Next processing step required.
     /// </summary>
-    [DataMember]
-    public ValueList<PendingActivity2> PendingRequestForAction { get; init; } = []; // Warning: Don't know multiplicity.
+    public PendingActivity2? PendingRequestForAction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (EstablishedBaselineIdentification is DocumentIdentification3 EstablishedBaselineIdentificationValue)
+        {
+            writer.WriteStartElement(null, "EstblishdBaselnId", xmlNamespace );
+            EstablishedBaselineIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxSts", xmlNamespace );
+        TransactionStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UsrTxRef", xmlNamespace );
+        UserTransactionReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PurchsOrdrRef", xmlNamespace );
+        PurchaseOrderReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Buyr", xmlNamespace );
+        Buyer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sellr", xmlNamespace );
+        Seller.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BuyrBk", xmlNamespace );
+        BuyerBank.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BuyrBkCtry", xmlNamespace );
+        writer.WriteValue(BuyerBankCountry.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SellrBk", xmlNamespace );
+        SellerBank.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SellrBkCtry", xmlNamespace );
+        writer.WriteValue(SellerBankCountry.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ObligorBank is BICIdentification1 ObligorBankValue)
+        {
+            writer.WriteStartElement(null, "OblgrBk", xmlNamespace );
+            ObligorBankValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SubmittingBank is BICIdentification1 SubmittingBankValue)
+        {
+            writer.WriteStartElement(null, "SubmitgBk", xmlNamespace );
+            SubmittingBankValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OutsdngAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(OutstandingAmount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlNetAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(TotalNetAmount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (PendingRequestForAction is PendingActivity2 PendingRequestForActionValue)
+        {
+            writer.WriteStartElement(null, "PdgReqForActn", xmlNamespace );
+            PendingRequestForActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionReportItems3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,44 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to the confirmed fraudulent transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FraudulentTransactionData2
+     : IIsoXmlSerilizable<FraudulentTransactionData2>
 {
     #nullable enable
     
     /// <summary>
     /// Status of authorisation of the fraudulent transaction.
     /// </summary>
-    [DataMember]
     public AuthorisationStatus1? AuthorisationStatus { get; init; } 
     /// <summary>
     /// Details of the dispute if and when relevant.
     /// </summary>
-    [DataMember]
     public DisputeData2? DisputeDetails { get; init; } 
     /// <summary>
     /// Reason for sending the message.
     /// The ISO 8583 maintenance agency (MA) manages this Message reason code list.
     /// </summary>
-    [DataMember]
-    public ValueList<ISO8583MessageReasonCode> MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public ISO8583MessageReasonCode? MessageReason { get; init; } 
     /// <summary>
     /// Supports message reason codes that are not defined  in external code list. 
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? AlternateMessageReason { get; init; } 
     /// <summary>
     /// Complete or partial details of the original message identified as fraudulent.
     /// </summary>
-    [DataMember]
     public IsoMax100KBinary? FraudulentMessage { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AuthorisationStatus is AuthorisationStatus1 AuthorisationStatusValue)
+        {
+            writer.WriteStartElement(null, "AuthstnSts", xmlNamespace );
+            AuthorisationStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DisputeDetails is DisputeData2 DisputeDetailsValue)
+        {
+            writer.WriteStartElement(null, "DsptDtls", xmlNamespace );
+            DisputeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageReason is ISO8583MessageReasonCode MessageReasonValue)
+        {
+            writer.WriteStartElement(null, "MsgRsn", xmlNamespace );
+            writer.WriteValue(MessageReasonValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AlternateMessageReason is IsoMax35Text AlternateMessageReasonValue)
+        {
+            writer.WriteStartElement(null, "AltrnMsgRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AlternateMessageReasonValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (FraudulentMessage is IsoMax100KBinary FraudulentMessageValue)
+        {
+            writer.WriteStartElement(null, "FrdlntMsg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax100KBinary(FraudulentMessageValue)); // data type Max100KBinary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static FraudulentTransactionData2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

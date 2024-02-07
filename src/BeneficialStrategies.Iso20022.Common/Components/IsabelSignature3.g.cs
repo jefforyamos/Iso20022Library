@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the signature of an Isabel file.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IsabelSignature3
+     : IIsoXmlSerilizable<IsabelSignature3>
 {
     #nullable enable
     
     /// <summary>
     /// Common signature elements applicable to all signature records.
     /// </summary>
-    [DataMember]
     public required IsabelSignatureHash1 Header { get; init; } 
     /// <summary>
     /// Individual record of the file signature.
     /// </summary>
-    [DataMember]
     public ValueList<IsabelSignatureRecord2> Record { get; init; } = [];
     /// <summary>
     /// Random data related to the signature.
     /// </summary>
-    [DataMember]
     public required IsoMax64Text RandomBlock { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rcrd", xmlNamespace );
+        Record.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RandBlck", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax64Text(RandomBlock)); // data type Max64Text System.String
+        writer.WriteEndElement();
+    }
+    public static IsabelSignature3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

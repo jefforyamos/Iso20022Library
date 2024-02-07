@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.acmt.AccountExcludedMandateMaintenanceAmendmentRequestV03>;
 
 namespace BeneficialStrategies.Iso20022.acmt;
 
@@ -23,10 +26,9 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// If modification codes are used (in that case, they must be used everywhere): the organisation will specify under the “Account” and “Organisation” tags which elements must be added, deleted, modified, or if they are unchanged.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The AccountExcludedMandateMaintenanceAmendmentRequest message is sent from an organisation to a financial institution as part of the account maintenance process. It is sent in response to a request from the financial institution to send additional information. Usage: this update is about account details excluding any mandate information. |If modification codes are not used: the organisation will specify under the “Account” and “Organisation” tags the complete information as it should be in the financial institution’s records after processing the update request. |If modification codes are used (in that case, they must be used everywhere): the organisation will specify under the “Account” and “Organisation” tags which elements must be added, deleted, modified, or if they are unchanged.")]
-public partial record AccountExcludedMandateMaintenanceAmendmentRequestV03 : IOuterRecord
+public partial record AccountExcludedMandateMaintenanceAmendmentRequestV03 : IOuterRecord<AccountExcludedMandateMaintenanceAmendmentRequestV03,AccountExcludedMandateMaintenanceAmendmentRequestV03Document>
+    ,IIsoXmlSerilizable<AccountExcludedMandateMaintenanceAmendmentRequestV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -38,6 +40,11 @@ public partial record AccountExcludedMandateMaintenanceAmendmentRequestV03 : IOu
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AcctExcldMndtMntncAmdmntReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AccountExcludedMandateMaintenanceAmendmentRequestV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -134,6 +141,65 @@ public partial record AccountExcludedMandateMaintenanceAmendmentRequestV03 : IOu
     {
         return new AccountExcludedMandateMaintenanceAmendmentRequestV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AcctExcldMndtMntncAmdmntReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Refs", xmlNamespace );
+        References.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (From is OrganisationIdentification29 FromValue)
+        {
+            writer.WriteStartElement(null, "Fr", xmlNamespace );
+            FromValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContractDates is AccountContract2 ContractDatesValue)
+        {
+            writer.WriteStartElement(null, "CtrctDts", xmlNamespace );
+            ContractDatesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnderlyingMasterAgreement is ContractDocument1 UnderlyingMasterAgreementValue)
+        {
+            writer.WriteStartElement(null, "UndrlygMstrAgrmt", xmlNamespace );
+            UnderlyingMasterAgreementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Acct", xmlNamespace );
+        Account.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctSvcrId", xmlNamespace );
+        AccountServicerIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Org", xmlNamespace );
+        Organisation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DigitalSignature is PartyAndSignature3 DigitalSignatureValue)
+        {
+            writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
+            DigitalSignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountExcludedMandateMaintenanceAmendmentRequestV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -141,9 +207,7 @@ public partial record AccountExcludedMandateMaintenanceAmendmentRequestV03 : IOu
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountExcludedMandateMaintenanceAmendmentRequestV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AccountExcludedMandateMaintenanceAmendmentRequestV03Document : IOuterDocument<AccountExcludedMandateMaintenanceAmendmentRequestV03>
+public partial record AccountExcludedMandateMaintenanceAmendmentRequestV03Document : IOuterDocument<AccountExcludedMandateMaintenanceAmendmentRequestV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -159,5 +223,22 @@ public partial record AccountExcludedMandateMaintenanceAmendmentRequestV03Docume
     /// <summary>
     /// The instance of <seealso cref="AccountExcludedMandateMaintenanceAmendmentRequestV03"/> is required.
     /// </summary>
+    [DataMember(Name=AccountExcludedMandateMaintenanceAmendmentRequestV03.XmlTag)]
     public required AccountExcludedMandateMaintenanceAmendmentRequestV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AccountExcludedMandateMaintenanceAmendmentRequestV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

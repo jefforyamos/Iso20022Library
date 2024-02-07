@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of an intention to pay based on purchase orders or commercial invoice.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IntentToPay1
+     : IIsoXmlSerilizable<IntentToPay1>
 {
     #nullable enable
     
     /// <summary>
     /// The intention to pay is based on a purchase order.
     /// </summary>
-    [DataMember]
     public required ReportLine3 ByPurchaseOrder { get; init; } 
     /// <summary>
     /// The intention to pay is based on a commercial invoice.
     /// </summary>
-    [DataMember]
     public required ReportLine4 ByCommercialInvoice { get; init; } 
     /// <summary>
     /// Date at which the payment would be effected.
     /// </summary>
-    [DataMember]
     public required IsoISODate ExpectedPaymentDate { get; init; } 
     /// <summary>
     /// Specifies the beneficiary's account information.
     /// </summary>
-    [DataMember]
     public SettlementTerms2? SettlementTerms { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ByPurchsOrdr", xmlNamespace );
+        ByPurchaseOrder.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ByComrclInvc", xmlNamespace );
+        ByCommercialInvoice.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XpctdPmtDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ExpectedPaymentDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (SettlementTerms is SettlementTerms2 SettlementTermsValue)
+        {
+            writer.WriteStartElement(null, "SttlmTerms", xmlNamespace );
+            SettlementTermsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IntentToPay1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

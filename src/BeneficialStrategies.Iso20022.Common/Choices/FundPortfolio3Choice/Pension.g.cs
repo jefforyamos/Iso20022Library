@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio3Choice;
 /// Portfolio is a pension policy, plan or scheme.
 /// </summary>
 public partial record Pension : FundPortfolio3Choice_
+     , IIsoXmlSerilizable<Pension>
 {
     #nullable enable
+    
     /// <summary>
     /// Identification of the pension policy, plan or scheme.
     /// </summary>
@@ -30,7 +34,7 @@ public partial record Pension : FundPortfolio3Choice_
     /// <summary>
     /// Tax reference issued to the pension policy, plan or scheme by a central organisation.
     /// </summary>
-    public TaxReference1? TaxReference { get; init;  } // Warning: Don't know multiplicity.
+    public TaxReference1? TaxReference { get; init; } 
     /// <summary>
     /// Reference of the drawdown.
     /// </summary>
@@ -38,6 +42,60 @@ public partial record Pension : FundPortfolio3Choice_
     /// <summary>
     /// Additional information about the pension policy, plan or scheme.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is PensionPolicy1 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Type is PensionSchemeType1Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransferScope is PensionTransferScope1Choice_ TransferScopeValue)
+        {
+            writer.WriteStartElement(null, "TrfScp", xmlNamespace );
+            TransferScopeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxReference is TaxReference1 TaxReferenceValue)
+        {
+            writer.WriteStartElement(null, "TaxRef", xmlNamespace );
+            TaxReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DrawdownTrancheIdentification is IsoMax35Text DrawdownTrancheIdentificationValue)
+        {
+            writer.WriteStartElement(null, "DrwdwnTrchId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DrawdownTrancheIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Pension Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

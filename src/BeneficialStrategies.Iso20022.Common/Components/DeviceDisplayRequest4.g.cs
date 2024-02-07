@@ -7,23 +7,42 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Display Request message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DeviceDisplayRequest4
+     : IIsoXmlSerilizable<DeviceDisplayRequest4>
 {
     #nullable enable
     
     /// <summary>
     /// Message to be displayed.
     /// </summary>
-    [DataMember]
-    public ValueList<ActionMessage9> DisplayOutput { get; init; } = []; // Warning: Don't know multiplicity.
+    public ActionMessage9? DisplayOutput { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _IpU2wVE6EeyApZmLzm74zA
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize DisplayOutput, multiplicity Unknown
+    }
+    public static DeviceDisplayRequest4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

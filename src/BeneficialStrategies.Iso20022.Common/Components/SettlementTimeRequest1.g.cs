@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information on the requested settlement time of the instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementTimeRequest1
+     : IIsoXmlSerilizable<SettlementTimeRequest1>
 {
     #nullable enable
     
     /// <summary>
     /// Time by which the funds must be credited, with confirmation, to the CLS Bank's account at the central bank, expressed in Central European Time (CET).
     /// </summary>
-    [DataMember]
     public required IsoISOTime CLSTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CLSTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISOTime(CLSTime)); // data type ISOTime System.TimeOnly
+        writer.WriteEndElement();
+    }
+    public static SettlementTimeRequest1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

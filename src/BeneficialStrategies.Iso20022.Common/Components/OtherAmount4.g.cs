@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Other amount in clearing record data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OtherAmount4
+     : IIsoXmlSerilizable<OtherAmount4>
 {
     #nullable enable
     
     /// <summary>
     /// Number of other amounts involved in clearing.
     /// </summary>
-    [DataMember]
     public required IsoNumber ClearingCount { get; init; } 
     /// <summary>
     /// Amount of clearing.
     /// </summary>
-    [DataMember]
     public required Amount17 ClearingAmount { get; init; } 
     /// <summary>
     /// Interchange fee.
     /// </summary>
-    [DataMember]
     public Amount17? InterchangeFee { get; init; } 
     /// <summary>
     /// Agent fee.
     /// </summary>
-    [DataMember]
     public Amount17? AgentFee { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ClrCnt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(ClearingCount)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClrAmt", xmlNamespace );
+        ClearingAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (InterchangeFee is Amount17 InterchangeFeeValue)
+        {
+            writer.WriteStartElement(null, "IntrchngFee", xmlNamespace );
+            InterchangeFeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AgentFee is Amount17 AgentFeeValue)
+        {
+            writer.WriteStartElement(null, "AgtFee", xmlNamespace );
+            AgentFeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OtherAmount4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action date details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionDateSD4
+     : IIsoXmlSerilizable<CorporateActionDateSD4>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Date on which accounting for due bills starts and associated tracking begins.
     /// </summary>
-    [DataMember]
     public IsoISODate? InterimAccountingStartDate { get; init; } 
     /// <summary>
     /// Date on which the event security is no longer listed on the exchange.
     /// </summary>
-    [DataMember]
     public IsoISODate? DelistingDate { get; init; } 
     /// <summary>
     /// Date by which a holder can exercise warrants.
     /// </summary>
-    [DataMember]
     public IsoISODate? ExercisePeriodBeginDate { get; init; } 
     /// <summary>
     /// Date by which a holder listed as a member of the claimant group in a lawsuit may object to the proposed solution.
     /// </summary>
-    [DataMember]
     public IsoISODate? ObjectionDate { get; init; } 
     /// <summary>
     /// Date by which claimants may exclude themselves from an ongoing class action lawsuit.
     /// </summary>
-    [DataMember]
     public IsoISODate? ExclusionDate { get; init; } 
     /// <summary>
     /// Date by which a holder must file claim forms to become a member of the claimant group in a lawsuit.
     /// </summary>
-    [DataMember]
     public IsoISODate? ProofOfClaimFilingDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (InterimAccountingStartDate is IsoISODate InterimAccountingStartDateValue)
+        {
+            writer.WriteStartElement(null, "IntrmAcctgStartDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(InterimAccountingStartDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (DelistingDate is IsoISODate DelistingDateValue)
+        {
+            writer.WriteStartElement(null, "DlistgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DelistingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ExercisePeriodBeginDate is IsoISODate ExercisePeriodBeginDateValue)
+        {
+            writer.WriteStartElement(null, "ExrcPrdBegnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExercisePeriodBeginDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ObjectionDate is IsoISODate ObjectionDateValue)
+        {
+            writer.WriteStartElement(null, "ObjctnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ObjectionDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ExclusionDate is IsoISODate ExclusionDateValue)
+        {
+            writer.WriteStartElement(null, "ExclsnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExclusionDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ProofOfClaimFilingDate is IsoISODate ProofOfClaimFilingDateValue)
+        {
+            writer.WriteStartElement(null, "ProofOfClmFilgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ProofOfClaimFilingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionDateSD4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

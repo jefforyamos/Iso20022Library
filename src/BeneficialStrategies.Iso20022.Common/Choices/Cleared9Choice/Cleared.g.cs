@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Cleared9Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Cleared9Choice;
 /// Indicates that the contract has been cleared.
 /// </summary>
 public partial record Cleared : Cleared9Choice_
+     , IIsoXmlSerilizable<Cleared>
 {
     #nullable enable
+    
     /// <summary>
     /// In the case of a contract that has been cleared, the unique code for the CCP that has cleared the contract.
     /// </summary>
@@ -23,5 +27,35 @@ public partial record Cleared : Cleared9Choice_
     /// Time and date when clearing took place.
     /// </summary>
     public IsoISODateTime? ClearingDateTime { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CCP is OrganisationIdentification9Choice_ CCPValue)
+        {
+            writer.WriteStartElement(null, "CCP", xmlNamespace );
+            CCPValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingDateTime is IsoISODateTime ClearingDateTimeValue)
+        {
+            writer.WriteStartElement(null, "ClrDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ClearingDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static new Cleared Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.StatementUpdateTypeCodeAndDSSCodeChoice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.StatementUpdateTypeCodeAndDSSCod
 /// Update type expressed as a code.
 /// </summary>
 public partial record StatementUpdateTypeAsCode : StatementUpdateTypeCodeAndDSSCodeChoice_
+     , IIsoXmlSerilizable<StatementUpdateTypeAsCode>
 {
-    public required StatementUpdateTypeCode Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies the nature of a statement update, eg, it is a complete statement.
+    /// </summary>
+    public required StatementUpdateTypeCode Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "StmtUpdTpAsCd", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new StatementUpdateTypeAsCode Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

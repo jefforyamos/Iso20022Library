@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Counterparty16Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Counterparty16Choice;
 /// Party that sells goods or services, or a financial instrument.
 /// </summary>
 public partial record Seller : Counterparty16Choice_
+     , IIsoXmlSerilizable<Seller>
 {
     #nullable enable
+    
     /// <summary>
     /// Identification of the party.
     /// </summary>
@@ -47,5 +51,68 @@ public partial record Seller : Counterparty16Choice_
     /// Provides additional information to a party identification.
     /// </summary>
     public PartyTextInformation3? AdditionalInformation { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LEI is IsoLEIIdentifier LEIValue)
+        {
+            writer.WriteStartElement(null, "LEI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEIValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (AlternateIdentification is AlternatePartyIdentification9 AlternateIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AltrnId", xmlNamespace );
+            AlternateIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingAccount is SecuritiesAccount30 SafekeepingAccountValue)
+        {
+            writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+            SafekeepingAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BlockChainAddressOrWallet is BlockChainAddressWallet7 BlockChainAddressOrWalletValue)
+        {
+            writer.WriteStartElement(null, "BlckChainAdrOrWllt", xmlNamespace );
+            BlockChainAddressOrWalletValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProcessingDate is DateAndDateTime2Choice_ ProcessingDateValue)
+        {
+            writer.WriteStartElement(null, "PrcgDt", xmlNamespace );
+            ProcessingDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProcessingIdentification is IsoRestrictedFINXMax16Text ProcessingIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrcgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(ProcessingIdentificationValue)); // data type RestrictedFINXMax16Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is PartyTextInformation3 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Seller Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

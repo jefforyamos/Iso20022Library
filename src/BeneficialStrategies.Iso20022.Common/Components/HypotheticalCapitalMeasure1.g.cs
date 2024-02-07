@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Measure of the total capital requirement all the clearing members are required to hold against their default fund contributions to a central counterparty.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record HypotheticalCapitalMeasure1
+     : IIsoXmlSerilizable<HypotheticalCapitalMeasure1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the amount of the total capital requirement all the clearing members are required to hold against their default fund contributions to a central counterparty.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Unique internal identifier for each default waterfall at the central counterparty.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text DefaultWaterfallIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DfltWtrfllId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(DefaultWaterfallIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static HypotheticalCapitalMeasure1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

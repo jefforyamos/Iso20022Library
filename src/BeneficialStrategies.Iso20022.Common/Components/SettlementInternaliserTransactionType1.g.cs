@@ -7,43 +7,71 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the aggregated data per transaction type for a settlement internaliser.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementInternaliserTransactionType1
+     : IIsoXmlSerilizable<SettlementInternaliserTransactionType1>
 {
     #nullable enable
     
     /// <summary>
     /// Purchase or sale of securities.
     /// </summary>
-    [DataMember]
     public required InternalisationData1 SecuritiesBuyOrSell { get; init; } 
     /// <summary>
     /// Relates to securities transfers aiming to provide or to return collateral.
     /// </summary>
-    [DataMember]
     public required InternalisationData1 CollateralManagementOperation { get; init; } 
     /// <summary>
     /// Relates to a securities lending or borrowing operation.
     /// </summary>
-    [DataMember]
     public required InternalisationData1 SecuritiesLendingOrBorrowing { get; init; } 
     /// <summary>
     /// Repurchase transactions.
     /// </summary>
-    [DataMember]
     public required InternalisationData1 RepurchaseAgreement { get; init; } 
     /// <summary>
     /// Covers any securities transactions type not covered as a dedicated type.
     /// </summary>
-    [DataMember]
     public required InternalisationData1 OtherTransactions { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SctiesBuyOrSell", xmlNamespace );
+        SecuritiesBuyOrSell.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CollMgmtOpr", xmlNamespace );
+        CollateralManagementOperation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctiesLndgOrBrrwg", xmlNamespace );
+        SecuritiesLendingOrBorrowing.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RpAgrmt", xmlNamespace );
+        RepurchaseAgreement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrTxs", xmlNamespace );
+        OtherTransactions.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SettlementInternaliserTransactionType1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

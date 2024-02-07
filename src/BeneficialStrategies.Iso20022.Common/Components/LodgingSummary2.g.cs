@@ -7,103 +7,206 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data pertaining to a lodging transaction. 
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LodgingSummary2
+     : IIsoXmlSerilizable<LodgingSummary2>
 {
     #nullable enable
     
     /// <summary>
     /// Contains the lodging company's invoice or billing ID reference number, referred to as a folio number. 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? FolioNumber { get; init; } 
     /// <summary>
     /// Details of the lodging property. 
     /// </summary>
-    [DataMember]
     public LodgingProperty2? Property { get; init; } 
     /// <summary>
     /// Contains customer details.
     /// </summary>
-    [DataMember]
     public Customer8? Customer { get; init; } 
     /// <summary>
     /// Number of rooms within the reservation. 
     /// </summary>
-    [DataMember]
     public IsoMax4NumericText? NumberOfRooms { get; init; } 
     /// <summary>
     /// Contains the room details. 
     /// </summary>
-    [DataMember]
-    public ValueList<LodgingRoom1> Room { get; init; } = []; // Warning: Don't know multiplicity.
+    public LodgingRoom1? Room { get; init; } 
     /// <summary>
     /// Duration of stay in days.
     /// </summary>
-    [DataMember]
     public IsoMax4NumericText? Duration { get; init; } 
     /// <summary>
     /// Lodging transaction details.
     /// </summary>
-    [DataMember]
     public DepartureOrArrival2? Arrival { get; init; } 
     /// <summary>
     /// Contains departure details. 
     /// </summary>
-    [DataMember]
     public DepartureOrArrival1? Departure { get; init; } 
     /// <summary>
     /// Indicates that the cardholder failed to arrive at the property and was therefore charged a no-show fee; property was not actually rented. 
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? NoShowIndicator { get; init; } 
     /// <summary>
     /// Indicates whether or not insurance was purchased. 
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? InsuranceIndicator { get; init; } 
     /// <summary>
     /// Amount of insurance.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? InsuranceAmount { get; init; } 
     /// <summary>
     /// Taxes related to the products or services. 
     /// </summary>
-    [DataMember]
-    public ValueList<Tax39> TotalTax { get; init; } = []; // Warning: Don't know multiplicity.
+    public Tax39? TotalTax { get; init; } 
     /// <summary>
     /// Contains the total amount of lodging expenses.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalAmount { get; init; } 
     /// <summary>
     /// Contains Authorised amount details.
     /// </summary>
-    [DataMember]
-    public ValueList<AuthorisedAmount1> AuthorisedAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public AuthorisedAmount1? AuthorisedAmount { get; init; } 
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     /// <summary>
     /// Loyalty programme details. 
     /// </summary>
-    [DataMember]
-    public ValueList<LoyaltyProgramme2> LoyaltyProgramme { get; init; } = []; // Warning: Don't know multiplicity.
+    public LoyaltyProgramme2? LoyaltyProgramme { get; init; } 
     /// <summary>
     /// Additional user-defined data pertaining to the lodging. 
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FolioNumber is IsoMax35Text FolioNumberValue)
+        {
+            writer.WriteStartElement(null, "FolioNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(FolioNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Property is LodgingProperty2 PropertyValue)
+        {
+            writer.WriteStartElement(null, "Prprty", xmlNamespace );
+            PropertyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Customer is Customer8 CustomerValue)
+        {
+            writer.WriteStartElement(null, "Cstmr", xmlNamespace );
+            CustomerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NumberOfRooms is IsoMax4NumericText NumberOfRoomsValue)
+        {
+            writer.WriteStartElement(null, "NbOfRooms", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(NumberOfRoomsValue)); // data type Max4NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (Room is LodgingRoom1 RoomValue)
+        {
+            writer.WriteStartElement(null, "Room", xmlNamespace );
+            RoomValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Duration is IsoMax4NumericText DurationValue)
+        {
+            writer.WriteStartElement(null, "Drtn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(DurationValue)); // data type Max4NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (Arrival is DepartureOrArrival2 ArrivalValue)
+        {
+            writer.WriteStartElement(null, "Arrvl", xmlNamespace );
+            ArrivalValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Departure is DepartureOrArrival1 DepartureValue)
+        {
+            writer.WriteStartElement(null, "Dprture", xmlNamespace );
+            DepartureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NoShowIndicator is IsoTrueFalseIndicator NoShowIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NoShowInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(NoShowIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (InsuranceIndicator is IsoTrueFalseIndicator InsuranceIndicatorValue)
+        {
+            writer.WriteStartElement(null, "InsrncInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(InsuranceIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (InsuranceAmount is IsoImpliedCurrencyAndAmount InsuranceAmountValue)
+        {
+            writer.WriteStartElement(null, "InsrncAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(InsuranceAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TotalTax is Tax39 TotalTaxValue)
+        {
+            writer.WriteStartElement(null, "TtlTax", xmlNamespace );
+            TotalTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalAmount is IsoImpliedCurrencyAndAmount TotalAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(TotalAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (AuthorisedAmount is AuthorisedAmount1 AuthorisedAmountValue)
+        {
+            writer.WriteStartElement(null, "AuthrsdAmt", xmlNamespace );
+            AuthorisedAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SummaryCommodityIdentification is IsoMax35Text SummaryCommodityIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SummryCmmdtyId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SummaryCommodityIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (LoyaltyProgramme is LoyaltyProgramme2 LoyaltyProgrammeValue)
+        {
+            writer.WriteStartElement(null, "LltyPrgrmm", xmlNamespace );
+            LoyaltyProgrammeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is IsoMax350Text AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalDataValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static LodgingSummary2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

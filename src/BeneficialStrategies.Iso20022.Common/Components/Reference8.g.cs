@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional references linked to the order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Reference8
+     : IIsoXmlSerilizable<Reference8>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identifier for quote.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? QuoteIdentification { get; init; } 
     /// <summary>
     /// Unique identifier of indication of interest message.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? IOIIdentification { get; init; } 
     /// <summary>
     /// Refers to the identification reference to the order being hit or taken. (Required for counter-order selection / Hit / Take Orders).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReferenceOrderIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (QuoteIdentification is IsoMax35Text QuoteIdentificationValue)
+        {
+            writer.WriteStartElement(null, "QtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(QuoteIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (IOIIdentification is IsoMax35Text IOIIdentificationValue)
+        {
+            writer.WriteStartElement(null, "IOIId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IOIIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ReferenceOrderIdentification is IsoMax35Text ReferenceOrderIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RefOrdrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReferenceOrderIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Reference8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

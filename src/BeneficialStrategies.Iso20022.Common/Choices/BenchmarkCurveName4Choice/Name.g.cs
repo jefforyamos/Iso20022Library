@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.BenchmarkCurveName4Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.BenchmarkCurveName4Choice;
 /// Where no identifier exists, standardized name of the index, including its term (such as ‘EURIBOR6M’, ‘LIBOR3M’).
 /// </summary>
 public partial record Name : BenchmarkCurveName4Choice_
+     , IIsoXmlSerilizable<Name>
 {
-    public required IsoMax25Text Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a character string with a maximum length of 25 characters.
+    /// </summary>
+    public required IsoMax25Text Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax25Text(Value)); // data type Max25Text System.String
+        writer.WriteEndElement();
+    }
+    public static new Name Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

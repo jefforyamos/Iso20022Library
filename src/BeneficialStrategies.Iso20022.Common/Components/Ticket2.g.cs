@@ -7,84 +7,162 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains ticket details. 
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Ticket2
+     : IIsoXmlSerilizable<Ticket2>
 {
     #nullable enable
     
     /// <summary>
     /// Contains the ticket number. 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TicketNumber { get; init; } 
     /// <summary>
     /// Name of the issuing ticket agent. 
     /// </summary>
-    [DataMember]
     public PartyIdentification258? TicketIssuer { get; init; } 
     /// <summary>
     /// Date the ticket was issued.
     /// </summary>
-    [DataMember]
     public IsoISODate? TicketIssueDate { get; init; } 
     /// <summary>
     /// Location where ticket was issued.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? TicketIssueLocation { get; init; } 
     /// <summary>
     /// Number of a ticket that contains additional coupons for an itinerary that contains more than four segments. 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ConjunctionTicketNumber { get; init; } 
     /// <summary>
     /// Indicates whether or not restrictions apply to the ticket.
     /// True = Restrictions apply
     /// False = Restrictions do not apply
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? RestrictedTicketIndicator { get; init; } 
     /// <summary>
     /// Indicates whether or not the ticket is open-ended. 
     /// True = Ticket is open-ended
     /// False = Ticket is not open-ended
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? OpenTicketIndicator { get; init; } 
     /// <summary>
     /// Contains the specific restriction applicable to the ticket.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Restrictions { get; init; } 
     /// <summary>
     /// Indicates whether or not the ticket was exchanged (reissued or new ticket generated). 
     /// True = Ticket was exchanged
     /// False = Ticket was not exchanged
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ExchangedTicketIndicator { get; init; } 
     /// <summary>
     /// Contains the original ticket number that was replaced by the new ticket number. 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ExchangedTicketNumber { get; init; } 
     /// <summary>
     /// Ticket record locator number.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RecordLocatorNumber { get; init; } 
     /// <summary>
     /// Reservation number or identifier. 
     /// </summary>
-    [DataMember]
     public ReservationDetails3? Reservation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TicketNumber is IsoMax35Text TicketNumberValue)
+        {
+            writer.WriteStartElement(null, "TcktNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TicketNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TicketIssuer is PartyIdentification258 TicketIssuerValue)
+        {
+            writer.WriteStartElement(null, "TcktIssr", xmlNamespace );
+            TicketIssuerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TicketIssueDate is IsoISODate TicketIssueDateValue)
+        {
+            writer.WriteStartElement(null, "TcktIsseDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(TicketIssueDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (TicketIssueLocation is IsoMax140Text TicketIssueLocationValue)
+        {
+            writer.WriteStartElement(null, "TcktIsseLctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(TicketIssueLocationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (ConjunctionTicketNumber is IsoMax35Text ConjunctionTicketNumberValue)
+        {
+            writer.WriteStartElement(null, "CnjnctnTcktNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ConjunctionTicketNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RestrictedTicketIndicator is IsoTrueFalseIndicator RestrictedTicketIndicatorValue)
+        {
+            writer.WriteStartElement(null, "RstrctdTcktInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(RestrictedTicketIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (OpenTicketIndicator is IsoTrueFalseIndicator OpenTicketIndicatorValue)
+        {
+            writer.WriteStartElement(null, "OpnTcktInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(OpenTicketIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Restrictions is IsoMax70Text RestrictionsValue)
+        {
+            writer.WriteStartElement(null, "Rstrctns", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(RestrictionsValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (ExchangedTicketIndicator is IsoTrueFalseIndicator ExchangedTicketIndicatorValue)
+        {
+            writer.WriteStartElement(null, "XchgdTcktInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ExchangedTicketIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ExchangedTicketNumber is IsoMax35Text ExchangedTicketNumberValue)
+        {
+            writer.WriteStartElement(null, "XchgdTcktNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ExchangedTicketNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RecordLocatorNumber is IsoMax35Text RecordLocatorNumberValue)
+        {
+            writer.WriteStartElement(null, "RcrdLctrNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RecordLocatorNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Reservation is ReservationDetails3 ReservationValue)
+        {
+            writer.WriteStartElement(null, "Rsvatn", xmlNamespace );
+            ReservationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Ticket2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

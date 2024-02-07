@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Value of total holdings reported.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TotalValueInPageAndStatement
+     : IIsoXmlSerilizable<TotalValueInPageAndStatement>
 {
     #nullable enable
     
     /// <summary>
     /// Total value of positions reported in this message.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalHoldingsValueOfPage { get; init; } 
     /// <summary>
     /// Total value of positions reported in this statement (a statement may comprise one or more messages).
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalHoldingsValueOfStatement { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TotalHoldingsValueOfPage is IsoActiveCurrencyAndAmount TotalHoldingsValueOfPageValue)
+        {
+            writer.WriteStartElement(null, "TtlHldgsValOfPg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalHoldingsValueOfPageValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TtlHldgsValOfStmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalHoldingsValueOfStatement)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static TotalValueInPageAndStatement Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

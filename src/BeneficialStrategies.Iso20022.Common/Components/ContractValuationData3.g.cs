@@ -7,34 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to contract valuation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ContractValuationData3
+     : IIsoXmlSerilizable<ContractValuationData3>
 {
     #nullable enable
     
     /// <summary>
     /// Mark to market valuation of the contract, or mark to model valuation. The CCP’s valuation to be used for a cleared trade.
     /// </summary>
-    [DataMember]
     public AmountAndDirection54? ContractValue { get; init; } 
     /// <summary>
     /// Date and time of the last valuation.
     /// Usage: For mark-to-market valuation the date and time of publishing of reference prices shall be reported.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? TimeStamp { get; init; } 
     /// <summary>
     /// Indicate whether valuation was performed mark to market, mark to model or provided by the CCP.
     /// </summary>
-    [DataMember]
     public ValuationType1Code? Type { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ContractValue is AmountAndDirection54 ContractValueValue)
+        {
+            writer.WriteStartElement(null, "CtrctVal", xmlNamespace );
+            ContractValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TimeStamp is IsoISODateTime TimeStampValue)
+        {
+            writer.WriteStartElement(null, "TmStmp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(TimeStampValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (Type is ValuationType1Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static ContractValuationData3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

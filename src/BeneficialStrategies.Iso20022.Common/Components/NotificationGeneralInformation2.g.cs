@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Event notification type and status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NotificationGeneralInformation2
+     : IIsoXmlSerilizable<NotificationGeneralInformation2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of notification.
     /// </summary>
-    [DataMember]
     public required NotificationType3Code NotificationType { get; init; } 
     /// <summary>
     /// Status of the details of the event.
     /// </summary>
-    [DataMember]
     public required EventStatus1 NotificationStatus { get; init; } 
     /// <summary>
     /// Indicates whether the announcement was initiated by the first intermediary in the custody chain in accordance with SRD II.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ShareholderRightsDirectiveIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NtfctnTp", xmlNamespace );
+        writer.WriteValue(NotificationType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NtfctnSts", xmlNamespace );
+        NotificationStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ShareholderRightsDirectiveIndicator is IsoYesNoIndicator ShareholderRightsDirectiveIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ShrhldrRghtsDrctvInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ShareholderRightsDirectiveIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static NotificationGeneralInformation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

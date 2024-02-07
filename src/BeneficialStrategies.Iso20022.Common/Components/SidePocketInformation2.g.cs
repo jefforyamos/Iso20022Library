@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information that identifies a side pocket in investment fund orders.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SidePocketInformation2
+     : IIsoXmlSerilizable<SidePocketInformation2>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the investor wants to participate in the optional side pocket.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? SidePocketInclusionIndicator { get; init; } 
     /// <summary>
     /// Identification of the side pocket.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SidePocketIdentification { get; init; } 
     /// <summary>
     /// Quantity of the side pocket.
     /// </summary>
-    [DataMember]
     public SidePocketQuantityAndAmount1? SidePocketQuantity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SidePocketInclusionIndicator is IsoYesNoIndicator SidePocketInclusionIndicatorValue)
+        {
+            writer.WriteStartElement(null, "SdPcktInclsnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SidePocketInclusionIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SidePocketIdentification is IsoMax35Text SidePocketIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SdPcktId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SidePocketIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SidePocketQuantity is SidePocketQuantityAndAmount1 SidePocketQuantityValue)
+        {
+            writer.WriteStartElement(null, "SdPcktQty", xmlNamespace );
+            SidePocketQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SidePocketInformation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

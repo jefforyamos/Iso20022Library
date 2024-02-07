@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice13Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice13Choi
 /// Used to express differences in interest rates, for example, a difference of 0.10% is equivalent to a change of 10 basis points.
 /// </summary>
 public partial record BasisPointSpread : SecuritiesTransactionPrice13Choice_
+     , IIsoXmlSerilizable<BasisPointSpread>
 {
-    public required IsoNumber Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Number of objects represented as an integer.
+    /// </summary>
+    public required IsoNumber Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BsisPtSprd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(Value)); // data type Number System.UInt64
+        writer.WriteEndElement();
+    }
+    public static new BasisPointSpread Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

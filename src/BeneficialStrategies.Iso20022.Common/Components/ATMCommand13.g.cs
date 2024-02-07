@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Maintenance command to perform on an ATM.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMCommand13
+     : IIsoXmlSerilizable<ATMCommand13>
 {
     #nullable enable
     
     /// <summary>
     /// Type of command to be performed by the ATM.
     /// </summary>
-    [DataMember]
     public required ATMCommand6Code Type { get; init; } 
     /// <summary>
     /// Urgency of the command.
     /// </summary>
-    [DataMember]
     public required TMSContactLevel2Code Urgency { get; init; } 
     /// <summary>
     /// Date time on which the command must be performed.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? DateTime { get; init; } 
     /// <summary>
     /// Identification of the entity issuing the command.
     /// </summary>
-    [DataMember]
     public ATMCommandIdentification1? CommandIdentification { get; init; } 
     /// <summary>
     /// Specific parameters attached to the command.
     /// </summary>
-    [DataMember]
     public ATMCommandParameters1Choice_? CommandParameters { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Urgcy", xmlNamespace );
+        writer.WriteValue(Urgency.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (DateTime is IsoISODateTime DateTimeValue)
+        {
+            writer.WriteStartElement(null, "DtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(DateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (CommandIdentification is ATMCommandIdentification1 CommandIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CmdId", xmlNamespace );
+            CommandIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CommandParameters is ATMCommandParameters1Choice_ CommandParametersValue)
+        {
+            writer.WriteStartElement(null, "CmdParams", xmlNamespace );
+            CommandParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMCommand13 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

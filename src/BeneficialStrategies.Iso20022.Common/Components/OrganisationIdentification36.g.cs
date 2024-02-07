@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies an organisation through client identification, a name and a domicile.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OrganisationIdentification36
+     : IIsoXmlSerilizable<OrganisationIdentification36>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the organisation.
     /// </summary>
-    [DataMember]
     public required GenericIdentification175 Identification { get; init; } 
     /// <summary>
     /// Indicates the name of the reporting counterparty.
     /// </summary>
-    [DataMember]
     public IsoMax105Text? Name { get; init; } 
     /// <summary>
     /// Indicates the domicile of counterparty.
     /// </summary>
-    [DataMember]
     public IsoMax500Text? Domicile { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Name is IsoMax105Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax105Text(NameValue)); // data type Max105Text System.String
+            writer.WriteEndElement();
+        }
+        if (Domicile is IsoMax500Text DomicileValue)
+        {
+            writer.WriteStartElement(null, "Dmcl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Text(DomicileValue)); // data type Max500Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static OrganisationIdentification36 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

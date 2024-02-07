@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed information on rejections for derivatives submitted to trade repositories and failed to pass validations.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RejectionStatistics3
+     : IIsoXmlSerilizable<RejectionStatistics3>
 {
     #nullable enable
     
     /// <summary>
     /// Total number of derivatives submitted by the report submitting entity for the reporting counterparty which failed to pass technical schema validations.
     /// </summary>
-    [DataMember]
     public required IsoMax20PositiveNumber TotalNumberOfTechnicalRejections { get; init; } 
     /// <summary>
     /// Detailed information on rejections for derivatives submitted to trade repositories and failed to pass data validations.
     /// </summary>
-    [DataMember]
     public required DerivativesStatistics3 DerivativesStatistics { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TtlNbOfTechRjctns", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20PositiveNumber(TotalNumberOfTechnicalRejections)); // data type Max20PositiveNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DerivsSttstcs", xmlNamespace );
+        DerivativesStatistics.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static RejectionStatistics3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

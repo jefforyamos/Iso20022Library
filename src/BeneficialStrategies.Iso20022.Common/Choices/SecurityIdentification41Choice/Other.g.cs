@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification41Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification41Choice;
 /// Other identification of an underlier.
 /// </summary>
 public partial record Other : SecurityIdentification41Choice_
+     , IIsoXmlSerilizable<Other>
 {
     #nullable enable
+    
     /// <summary>
     /// Indicates other identifier of an underlier.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record Other : SecurityIdentification41Choice_
     /// Indicates the source of the identifier that represent the underlier.
     /// </summary>
     public required IsoMax100Text Source { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax210Text(Identification)); // data type Max210Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Src", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax100Text(Source)); // data type Max100Text System.String
+        writer.WriteEndElement();
+    }
+    public static new Other Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

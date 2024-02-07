@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides further individual record details on the charges related to the payment transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ChargesRecord4
+     : IIsoXmlSerilizable<ChargesRecord4>
 {
     #nullable enable
     
@@ -23,64 +24,131 @@ public partial record ChargesRecord4
     /// Unique and unambiguous identification of the charges record for reconciliation purpose.
     /// Usage: this identification shall be used as the end-to-end identification in the resulting message for the payment of the charges, to allow for automated reconciliation. 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ChargesRecordIdentification { get; init; } 
     /// <summary>
     /// Identifies the underlying transaction(s) to which the charges apply.
     /// </summary>
-    [DataMember]
-    public ValueList<TransactionReferences7> UnderlyingTransaction { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransactionReferences7? UnderlyingTransaction { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _IQFdISkdEeuBrrgCSpsocg
     /// <summary>
     /// Amount of transaction charges to be paid by the charge bearer.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether the charges amount is a credit or a debit amount. |Usage: A zero amount is considered to be a credit.
     /// </summary>
-    [DataMember]
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Date and time at which the charges are or will be available.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? ValueDate { get; init; } 
     /// <summary>
     /// Specifies the debtor agent of the initial transaction, if different from the charges account owner.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? DebtorAgent { get; init; } 
     /// <summary>
     /// Specifies the account of the debtor agent of the initial transaction, when instructing agent is different from the charges account owner.
     /// </summary>
-    [DataMember]
     public CashAccount40? DebtorAgentAccount { get; init; } 
     /// <summary>
     /// Identifies the account that has been debited or credited for the charges, interest or other
     /// adjustment(s).
     /// </summary>
-    [DataMember]
     public required CashAccount40 ChargesAccount { get; init; } 
     /// <summary>
     /// Agent that owns the charges account.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? ChargesAccountOwner { get; init; } 
     /// <summary>
     /// Specifies the type of charge.
     /// </summary>
-    [DataMember]
     public ChargeType3Choice_? Type { get; init; } 
     /// <summary>
     /// Further information related to the processing of the payment adjustment instruction that may need to be acted upon by the next agent. 
     /// </summary>
-    [DataMember]
     public InstructionForInstructedAgent1? InstructionForInstructedAgent { get; init; } 
     /// <summary>
     /// Further details on the cancellation request reason.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ChargesRecordIdentification is IsoMax35Text ChargesRecordIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ChrgsRcrdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ChargesRecordIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize UnderlyingTransaction, multiplicity Unknown
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (CreditDebitIndicator is CreditDebitCode CreditDebitIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+            writer.WriteValue(CreditDebitIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ValueDate is DateAndDateTime2Choice_ ValueDateValue)
+        {
+            writer.WriteStartElement(null, "ValDt", xmlNamespace );
+            ValueDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DebtorAgent is BranchAndFinancialInstitutionIdentification6 DebtorAgentValue)
+        {
+            writer.WriteStartElement(null, "DbtrAgt", xmlNamespace );
+            DebtorAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DebtorAgentAccount is CashAccount40 DebtorAgentAccountValue)
+        {
+            writer.WriteStartElement(null, "DbtrAgtAcct", xmlNamespace );
+            DebtorAgentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ChrgsAcct", xmlNamespace );
+        ChargesAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ChargesAccountOwner is BranchAndFinancialInstitutionIdentification6 ChargesAccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "ChrgsAcctOwnr", xmlNamespace );
+            ChargesAccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Type is ChargeType3Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructionForInstructedAgent is InstructionForInstructedAgent1 InstructionForInstructedAgentValue)
+        {
+            writer.WriteStartElement(null, "InstrForInstdAgt", xmlNamespace );
+            InstructionForInstructedAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax140Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalInformationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ChargesRecord4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

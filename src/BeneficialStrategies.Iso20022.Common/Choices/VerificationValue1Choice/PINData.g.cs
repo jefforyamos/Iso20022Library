@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.VerificationValue1Choice;
 
@@ -17,8 +19,10 @@ namespace BeneficialStrategies.Iso20022.Choices.VerificationValue1Choice;
 /// ISO 8583:2003 bit 52 & bit 53 or bit 50
 /// </summary>
 public partial record PINData : VerificationValue1Choice_
+     , IIsoXmlSerilizable<PINData>
 {
     #nullable enable
+    
     /// <summary>
     /// Identifies the key management scheme and associated control field format.
     /// ISO 13492
@@ -67,5 +71,71 @@ public partial record PINData : VerificationValue1Choice_
     /// Binary, length of 8 or 16
     /// </summary>
     public required IsoMax16HexBinaryText EncryptedPINBlock { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Control is IsoExact1HexBinaryText ControlValue)
+        {
+            writer.WriteStartElement(null, "Ctrl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact1HexBinaryText(ControlValue)); // data type Exact1HexBinaryText System.String
+            writer.WriteEndElement();
+        }
+        if (KeySetIdentifier is IsoMax8NumericText KeySetIdentifierValue)
+        {
+            writer.WriteStartElement(null, "KeySetIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax8NumericText(KeySetIdentifierValue)); // data type Max8NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (DerivedInformation is IsoMax32HexBinaryText DerivedInformationValue)
+        {
+            writer.WriteStartElement(null, "DrvdInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax32HexBinaryText(DerivedInformationValue)); // data type Max32HexBinaryText System.String
+            writer.WriteEndElement();
+        }
+        if (Algorithm is IsoMax2NumericText AlgorithmValue)
+        {
+            writer.WriteStartElement(null, "Algo", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2NumericText(AlgorithmValue)); // data type Max2NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (KeyLength is IsoMax4NumericText KeyLengthValue)
+        {
+            writer.WriteStartElement(null, "KeyLngth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(KeyLengthValue)); // data type Max4NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (KeyProtection is IsoMax2NumericText KeyProtectionValue)
+        {
+            writer.WriteStartElement(null, "KeyPrtcn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2NumericText(KeyProtectionValue)); // data type Max2NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (KeyIndex is IsoMax5NumericText KeyIndexValue)
+        {
+            writer.WriteStartElement(null, "KeyIndx", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax5NumericText(KeyIndexValue)); // data type Max5NumericText System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PINBlckFrmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax2NumericText(PINBlockFormat)); // data type Max2NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NcrptdPINBlck", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax16HexBinaryText(EncryptedPINBlock)); // data type Max16HexBinaryText System.String
+        writer.WriteEndElement();
+    }
+    public static new PINData Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

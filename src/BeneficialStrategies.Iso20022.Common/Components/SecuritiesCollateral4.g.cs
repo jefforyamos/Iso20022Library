@@ -7,88 +7,167 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details about the securities posted as collateral.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesCollateral4
+     : IIsoXmlSerilizable<SecuritiesCollateral4>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the identification of the proposed collateral.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CollateralIdentification { get; init; } 
     /// <summary>
     /// Identifies the register number of the collateral deposit assigned by the central counterparty.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AssetNumber { get; init; } 
     /// <summary>
     /// Identification of a security.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification14 SecurityIdentification { get; init; } 
     /// <summary>
     /// Planned final repayment date at the time of issuance.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeChoice_? MaturityDate { get; init; } 
     /// <summary>
     /// Indicates that the collateral posted in the clearing house covers the margin until a specific timeframe.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? LimitedCoverageIndicator { get; init; } 
     /// <summary>
     /// Quantity of securities collateral.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Indicates the price of the security.
     /// </summary>
-    [DataMember]
     public Price2? Price { get; init; } 
     /// <summary>
     /// Value of the collateral based on current market prices.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? MarketValue { get; init; } 
     /// <summary>
     /// Haircut or valuation factor on the security expressed as a percentage.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Haircut { get; init; } 
     /// <summary>
     /// Value of the collateral after taking into account the haircut.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? CollateralValue { get; init; } 
     /// <summary>
     /// Valuation date of the securities taken as collateral.
     /// </summary>
-    [DataMember]
     public IsoISODate? ValueDate { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
-    [DataMember]
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    [DataMember]
     public required SafekeepingPlaceFormat7Choice_ SafekeepingPlace { get; init; } 
     /// <summary>
     /// Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.
     /// </summary>
-    [DataMember]
     public SettlementDetails88? SettlementParameters { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CollateralIdentification is IsoMax35Text CollateralIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CollId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CollateralIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AssetNumber is IsoMax35Text AssetNumberValue)
+        {
+            writer.WriteStartElement(null, "AsstNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AssetNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SctyId", xmlNamespace );
+        SecurityIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MaturityDate is DateAndDateTimeChoice_ MaturityDateValue)
+        {
+            writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
+            MaturityDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LimitedCoverageIndicator is IsoYesNoIndicator LimitedCoverageIndicatorValue)
+        {
+            writer.WriteStartElement(null, "LtdCvrgInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(LimitedCoverageIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        Quantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Price is Price2 PriceValue)
+        {
+            writer.WriteStartElement(null, "Pric", xmlNamespace );
+            PriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarketValue is IsoActiveCurrencyAndAmount MarketValueValue)
+        {
+            writer.WriteStartElement(null, "MktVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MarketValueValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Haircut is IsoPercentageRate HaircutValue)
+        {
+            writer.WriteStartElement(null, "Hrcut", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(HaircutValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CollateralValue is IsoActiveCurrencyAndAmount CollateralValueValue)
+        {
+            writer.WriteStartElement(null, "CollVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CollateralValueValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ValueDate is IsoISODate ValueDateValue)
+        {
+            writer.WriteStartElement(null, "ValDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ValueDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SafekeepingAccount is SecuritiesAccount19 SafekeepingAccountValue)
+        {
+            writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+            SafekeepingAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
+        SafekeepingPlace.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SettlementParameters is SettlementDetails88 SettlementParametersValue)
+        {
+            writer.WriteStartElement(null, "SttlmParams", xmlNamespace );
+            SettlementParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesCollateral4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

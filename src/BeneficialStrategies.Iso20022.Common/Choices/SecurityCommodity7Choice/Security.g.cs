@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecurityCommodity7Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityCommodity7Choice;
 /// Data specific to securities being subject to the transaction.
 /// </summary>
 public partial record Security : SecurityCommodity7Choice_
+     , IIsoXmlSerilizable<Security>
 {
     #nullable enable
+    
     /// <summary>
     /// Specifies whether the values defined as ISIN (International Securities Identification Number-ISO 6166) identifier are matching or not.
     /// </summary>
@@ -50,7 +54,7 @@ public partial record Security : SecurityCommodity7Choice_
     /// <summary>
     /// Specifies whether the values defined as securities lending type are matching or not.
     /// </summary>
-    public CompareSecuritiesLendingType3? Type { get; init;  } // Warning: Don't know multiplicity.
+    public CompareSecuritiesLendingType3? Type { get; init; } 
     /// <summary>
     /// Specifies whether the the unit prices are matching or not.
     /// </summary>
@@ -73,5 +77,107 @@ public partial record Security : SecurityCommodity7Choice_
     /// Only actual values, as opposed to estimated or default values are to be reported for this attribute.
     /// </summary>
     public ComparePercentageRate3? HaircutOrMargin { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is CompareISINIdentifier4 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClassificationType is CompareCFIIdentifier3 ClassificationTypeValue)
+        {
+            writer.WriteStartElement(null, "ClssfctnTp", xmlNamespace );
+            ClassificationTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Quantity is CompareDecimalNumber3 QuantityValue)
+        {
+            writer.WriteStartElement(null, "Qty", xmlNamespace );
+            QuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NominalValue is CompareAmountAndDirection2 NominalValueValue)
+        {
+            writer.WriteStartElement(null, "NmnlVal", xmlNamespace );
+            NominalValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Quality is CompareCollateralQualityType3 QualityValue)
+        {
+            writer.WriteStartElement(null, "Qlty", xmlNamespace );
+            QualityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Maturity is CompareDate3 MaturityValue)
+        {
+            writer.WriteStartElement(null, "Mtrty", xmlNamespace );
+            MaturityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssuerIdentification is CompareOrganisationIdentification6 IssuerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "IssrId", xmlNamespace );
+            IssuerIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssuerCountry is CompareCountryCode3 IssuerCountryValue)
+        {
+            writer.WriteStartElement(null, "IssrCtry", xmlNamespace );
+            IssuerCountryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Type is CompareSecuritiesLendingType3 TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnitPrice is CompareUnitPrice6 UnitPriceValue)
+        {
+            writer.WriteStartElement(null, "UnitPric", xmlNamespace );
+            UnitPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExclusiveArrangement is CompareTrueFalseIndicator3 ExclusiveArrangementValue)
+        {
+            writer.WriteStartElement(null, "ExclsvArrgmnt", xmlNamespace );
+            ExclusiveArrangementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarketValue is CompareAmountAndDirection2 MarketValueValue)
+        {
+            writer.WriteStartElement(null, "MktVal", xmlNamespace );
+            MarketValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AvailableForCollateralReuse is CompareTrueFalseIndicator3 AvailableForCollateralReuseValue)
+        {
+            writer.WriteStartElement(null, "AvlblForCollReuse", xmlNamespace );
+            AvailableForCollateralReuseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (HaircutOrMargin is ComparePercentageRate3 HaircutOrMarginValue)
+        {
+            writer.WriteStartElement(null, "HrcutOrMrgn", xmlNamespace );
+            HaircutOrMarginValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Security Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

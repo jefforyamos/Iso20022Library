@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a document.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Document11
+     : IIsoXmlSerilizable<Document11>
 {
     #nullable enable
     
     /// <summary>
     /// Type of document.
     /// </summary>
-    [DataMember]
     public PresentationDocumentFormat1Choice_? Type { get; init; } 
     /// <summary>
     /// Wording for document.
     /// </summary>
-    [DataMember]
     public IsoMax20000Text? Wording { get; init; } 
     /// <summary>
     /// Details related to an electronic presentation.
     /// </summary>
-    [DataMember]
-    public ValueList<Presentation3> ElectronicDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Presentation3? ElectronicDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is PresentationDocumentFormat1Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Wording is IsoMax20000Text WordingValue)
+        {
+            writer.WriteStartElement(null, "Wrdg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax20000Text(WordingValue)); // data type Max20000Text System.String
+            writer.WriteEndElement();
+        }
+        if (ElectronicDetails is Presentation3 ElectronicDetailsValue)
+        {
+            writer.WriteStartElement(null, "ElctrncDtls", xmlNamespace );
+            ElectronicDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Document11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

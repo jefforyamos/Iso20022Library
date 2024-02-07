@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.RegisteredShareholderName1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.RegisteredShareholderName1Choice
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
 public partial record IndividualPerson : RegisteredShareholderName1Choice_
+     , IIsoXmlSerilizable<IndividualPerson>
 {
     #nullable enable
+    
     /// <summary>
     /// Term used to address the person.
     /// </summary>
@@ -34,6 +38,48 @@ public partial record IndividualPerson : RegisteredShareholderName1Choice_
     /// <summary>
     /// Address of the person.
     /// </summary>
-    public IReadOnlyCollection<PostalAddress21> PostalAddress { get; init; } = [];
+    public ValueList<PostalAddress21> PostalAddress { get; init; } = [];
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NamePrefix is NamePrefix1Choice_ NamePrefixValue)
+        {
+            writer.WriteStartElement(null, "NmPrfx", xmlNamespace );
+            NamePrefixValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GivenName is IsoMax35Text GivenNameValue)
+        {
+            writer.WriteStartElement(null, "GvnNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(GivenNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MiddleName is IsoMax35Text MiddleNameValue)
+        {
+            writer.WriteStartElement(null, "MddlNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MiddleNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(Name)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PstlAdr", xmlNamespace );
+        PostalAddress.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new IndividualPerson Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

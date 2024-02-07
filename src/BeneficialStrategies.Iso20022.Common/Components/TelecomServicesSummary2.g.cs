@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Telecom services summary component carries summary level telephony billing data. 
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TelecomServicesSummary2
+     : IIsoXmlSerilizable<TelecomServicesSummary2>
 {
     #nullable enable
     
     /// <summary>
     /// Contains the details of the customer. Also known as the user of the service.
     /// </summary>
-    [DataMember]
     public Customer6? Customer { get; init; } 
     /// <summary>
     /// Contains the billing period start date for telecommunication or related services.
     /// </summary>
-    [DataMember]
     public IsoISODate? BillingStatementPeriodStart { get; init; } 
     /// <summary>
     /// Contains the billing period end date for telecommunication or related services.
     /// </summary>
-    [DataMember]
     public IsoISODate? BillingStatementPeriodEnd { get; init; } 
     /// <summary>
     /// Summary of the charges associated with the billing event. 
     /// </summary>
-    [DataMember]
-    public ValueList<Amount19> BillingEvent { get; init; } = []; // Warning: Don't know multiplicity.
+    public Amount19? BillingEvent { get; init; } 
     /// <summary>
     /// Total of taxes applicable to the billing amount.
     /// </summary>
-    [DataMember]
-    public ValueList<Tax39> TotalTax { get; init; } = []; // Warning: Don't know multiplicity.
+    public Tax39? TotalTax { get; init; } 
     /// <summary>
     /// Additional user-defined data pertaining to the shipment.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Customer is Customer6 CustomerValue)
+        {
+            writer.WriteStartElement(null, "Cstmr", xmlNamespace );
+            CustomerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BillingStatementPeriodStart is IsoISODate BillingStatementPeriodStartValue)
+        {
+            writer.WriteStartElement(null, "BllgStmtPrdStart", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(BillingStatementPeriodStartValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (BillingStatementPeriodEnd is IsoISODate BillingStatementPeriodEndValue)
+        {
+            writer.WriteStartElement(null, "BllgStmtPrdEnd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(BillingStatementPeriodEndValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (BillingEvent is Amount19 BillingEventValue)
+        {
+            writer.WriteStartElement(null, "BllgEvt", xmlNamespace );
+            BillingEventValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalTax is Tax39 TotalTaxValue)
+        {
+            writer.WriteStartElement(null, "TtlTax", xmlNamespace );
+            TotalTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is IsoMax350Text AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalDataValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TelecomServicesSummary2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

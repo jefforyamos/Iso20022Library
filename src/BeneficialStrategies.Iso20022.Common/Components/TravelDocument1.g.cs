@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of travel document used for identification and/or authentication of the customer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TravelDocument1
+     : IIsoXmlSerilizable<TravelDocument1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of travel document.
     /// </summary>
-    [DataMember]
     public required OfficialDocumentType1Code Type { get; init; } 
     /// <summary>
     /// Form of travel document.
     /// </summary>
-    [DataMember]
     public PresentationMedium2Code? Form { get; init; } 
     /// <summary>
     /// Identification of travel document (for example, passport number).
     /// </summary>
-    [DataMember]
     public required IsoMax70Text Identification { get; init; } 
     /// <summary>
     /// Party assigning the travel document.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Assigner { get; init; } 
     /// <summary>
     /// Issuance date of travel document.
     /// </summary>
-    [DataMember]
     public IsoISODate? IssuanceDate { get; init; } 
     /// <summary>
     /// Expiration date of travel document (if and when relevant).
     /// </summary>
-    [DataMember]
     public IsoISODate? ExpirationDate { get; init; } 
     /// <summary>
     /// Country issuing the travel document.
     /// </summary>
-    [DataMember]
     public IsoMin2Max3AlphaText? Country { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Form is PresentationMedium2Code FormValue)
+        {
+            writer.WriteStartElement(null, "Form", xmlNamespace );
+            writer.WriteValue(FormValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(Identification)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        if (Assigner is IsoMax70Text AssignerValue)
+        {
+            writer.WriteStartElement(null, "Assgnr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AssignerValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (IssuanceDate is IsoISODate IssuanceDateValue)
+        {
+            writer.WriteStartElement(null, "IssncDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(IssuanceDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ExpirationDate is IsoISODate ExpirationDateValue)
+        {
+            writer.WriteStartElement(null, "XprtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExpirationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Country is IsoMin2Max3AlphaText CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMin2Max3AlphaText(CountryValue)); // data type Min2Max3AlphaText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TravelDocument1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

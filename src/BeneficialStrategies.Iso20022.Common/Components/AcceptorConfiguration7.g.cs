@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acceptor configuration to be downloaded from the terminal management system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AcceptorConfiguration7
+     : IIsoXmlSerilizable<AcceptorConfiguration7>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the terminal management system (TMS) sending the acceptor parameters.
     /// </summary>
-    [DataMember]
     public required GenericIdentification71 TerminalManagerIdentification { get; init; } 
     /// <summary>
     /// Data set containing the acceptor parameters of a point of interaction (POI).
     /// </summary>
-    [DataMember]
-    public ValueList<TerminalManagementDataSet23> DataSet { get; init; } = []; // Warning: Don't know multiplicity.
+    public TerminalManagementDataSet23? DataSet { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _-J_sw9qHEeearpaEPXv9UA
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TermnlMgrId", xmlNamespace );
+        TerminalManagerIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize DataSet, multiplicity Unknown
+    }
+    public static AcceptorConfiguration7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

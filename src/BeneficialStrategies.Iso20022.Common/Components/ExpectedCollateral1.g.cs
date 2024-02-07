@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the expected collateral type and direction for the variation margin and optionaly the segregated independent amount.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ExpectedCollateral1
+     : IIsoXmlSerilizable<ExpectedCollateral1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the expected collateral type and direction for the variation margin.
     /// </summary>
-    [DataMember]
     public required ExpectedCollateralMovement1 VariationMargin { get; init; } 
     /// <summary>
     /// Provides the expected collateral type and direction for the segregated independent amount.
     /// </summary>
-    [DataMember]
     public ExpectedCollateralMovement1? SegregatedIndependentAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "VartnMrgn", xmlNamespace );
+        VariationMargin.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SegregatedIndependentAmount is ExpectedCollateralMovement1 SegregatedIndependentAmountValue)
+        {
+            writer.WriteStartElement(null, "SgrtdIndpdntAmt", xmlNamespace );
+            SegregatedIndependentAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ExpectedCollateral1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

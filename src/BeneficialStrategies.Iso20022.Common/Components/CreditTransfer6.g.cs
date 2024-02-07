@@ -7,83 +7,160 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment instrument between a debtor and a creditor, which flows through one or more financial institutions or systems.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CreditTransfer6
+     : IIsoXmlSerilizable<CreditTransfer6>
 {
     #nullable enable
     
     /// <summary>
     /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts' receivable system.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Reference { get; init; } 
     /// <summary>
     /// Party that owes an amount of money to the (ultimate) creditor. In the context of the payment model, the debtor is also the debit account owner.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? Debtor { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the debtor to which a debit entry will be made as a result of the transaction.
     /// </summary>
-    [DataMember]
     public AccountIdentificationAndName3? DebtorAccount { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
-    [DataMember]
     public FinancialInstitutionIdentification3Choice_? DebtorAgent { get; init; } 
     /// <summary>
     /// Identifies the account of the debtor's agent.
     /// </summary>
-    [DataMember]
     public AccountIdentificationAndName3? DebtorAgentAccount { get; init; } 
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.
     /// </summary>
-    [DataMember]
     public FinancialInstitutionIdentification3Choice_? IntermediaryAgent1 { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the intermediary agent 1 at its servicing agent in the payment chain.
     /// </summary>
-    [DataMember]
     public AccountIdentificationAndName3? IntermediaryAgent1Account { get; init; } 
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.
     /// </summary>
-    [DataMember]
     public FinancialInstitutionIdentification3Choice_? IntermediaryAgent2 { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the intermediary agent 2 at its servicing agent in the payment chain.
     /// </summary>
-    [DataMember]
     public AccountIdentificationAndName3? IntermediaryAgent2Account { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
-    [DataMember]
     public required FinancialInstitutionIdentification3Choice_ CreditorAgent { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the creditor agent at its servicing agent to which a credit entry will be made as a result of the payment transaction.
     /// </summary>
-    [DataMember]
     public AccountIdentificationAndName3? CreditorAgentAccount { get; init; } 
     /// <summary>
     /// Party that receives an amount of money from the debtor. In the context of the payment model, the creditor is also the credit account owner.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? Creditor { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the creditor to which a credit entry will be posted as a result of the payment transaction.
     /// </summary>
-    [DataMember]
     public required AccountIdentificationAndName3 CreditorAccount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Reference is IsoMax35Text ReferenceValue)
+        {
+            writer.WriteStartElement(null, "Ref", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Debtor is PartyIdentification2Choice_ DebtorValue)
+        {
+            writer.WriteStartElement(null, "Dbtr", xmlNamespace );
+            DebtorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DebtorAccount is AccountIdentificationAndName3 DebtorAccountValue)
+        {
+            writer.WriteStartElement(null, "DbtrAcct", xmlNamespace );
+            DebtorAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DebtorAgent is FinancialInstitutionIdentification3Choice_ DebtorAgentValue)
+        {
+            writer.WriteStartElement(null, "DbtrAgt", xmlNamespace );
+            DebtorAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DebtorAgentAccount is AccountIdentificationAndName3 DebtorAgentAccountValue)
+        {
+            writer.WriteStartElement(null, "DbtrAgtAcct", xmlNamespace );
+            DebtorAgentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryAgent1 is FinancialInstitutionIdentification3Choice_ IntermediaryAgent1Value)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt1", xmlNamespace );
+            IntermediaryAgent1Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryAgent1Account is AccountIdentificationAndName3 IntermediaryAgent1AccountValue)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt1Acct", xmlNamespace );
+            IntermediaryAgent1AccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryAgent2 is FinancialInstitutionIdentification3Choice_ IntermediaryAgent2Value)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt2", xmlNamespace );
+            IntermediaryAgent2Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryAgent2Account is AccountIdentificationAndName3 IntermediaryAgent2AccountValue)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt2Acct", xmlNamespace );
+            IntermediaryAgent2AccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CdtrAgt", xmlNamespace );
+        CreditorAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CreditorAgentAccount is AccountIdentificationAndName3 CreditorAgentAccountValue)
+        {
+            writer.WriteStartElement(null, "CdtrAgtAcct", xmlNamespace );
+            CreditorAgentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Creditor is PartyIdentification2Choice_ CreditorValue)
+        {
+            writer.WriteStartElement(null, "Cdtr", xmlNamespace );
+            CreditorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CdtrAcct", xmlNamespace );
+        CreditorAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CreditTransfer6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,88 +7,143 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of confirmation in the CMU.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Confirmation1
+     : IIsoXmlSerilizable<Confirmation1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the status of the confirmation.
     /// </summary>
-    [DataMember]
     public required TradeConfirmationStatus1Code ConfirmationStatus { get; init; } 
     /// <summary>
     /// Time that both of parties confirm the trade.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ConfirmationTime { get; init; } 
     /// <summary>
     /// Time that the trade party confirms the trade.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? TradePartyConfirmationTime { get; init; } 
     /// <summary>
     /// Time that the initiating party confirms the trade.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? InitiatingPartyConfirmationTime { get; init; } 
     /// <summary>
     /// Identifies the type of confirmation message being sent.
     /// </summary>
-    [DataMember]
     public required ConfirmationRequest1Code ConfirmationType { get; init; } 
     /// <summary>
     /// Identifies the confirm request messge.
     /// </summary>
-    [DataMember]
     public required MessageIdentification1 RequestIdentification { get; init; } 
     /// <summary>
     /// Start number in request result.
     /// </summary>
-    [DataMember]
     public required IsoMax35NumericText QueryStartNumber { get; init; } 
     /// <summary>
     /// Total number of reports returned in response to a request.
     /// </summary>
-    [DataMember]
     public required IsoNumber TotalNumberOfReports { get; init; } 
     /// <summary>
     /// Query results will be grouped with fixed number. The field indicates that the total number of groups.
     /// </summary>
-    [DataMember]
     public required IsoMax35NumericText PageNumber { get; init; } 
     /// <summary>
     /// Page number in request result.
     /// </summary>
-    [DataMember]
     public required IsoMax35NumericText QueryPageNumber { get; init; } 
     /// <summary>
     /// Number of messages in current page.
     /// </summary>
-    [DataMember]
     public required IsoNumber MessageNumberOfCurrentPage { get; init; } 
     /// <summary>
     /// Number of reports at current page.
     /// </summary>
-    [DataMember]
     public required IsoNumber ListOrderNumber { get; init; } 
     /// <summary>
     /// Indicate whether the current message is the last one of the current page or not.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator LastPageIndicator { get; init; } 
     /// <summary>
     /// Indicates whether this message is that last report message in response to a request.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator LastReportRequested { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ConfSts", xmlNamespace );
+        writer.WriteValue(ConfirmationStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ConfirmationTime is IsoISODateTime ConfirmationTimeValue)
+        {
+            writer.WriteStartElement(null, "ConfTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ConfirmationTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (TradePartyConfirmationTime is IsoISODateTime TradePartyConfirmationTimeValue)
+        {
+            writer.WriteStartElement(null, "TradPtyConfTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(TradePartyConfirmationTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (InitiatingPartyConfirmationTime is IsoISODateTime InitiatingPartyConfirmationTimeValue)
+        {
+            writer.WriteStartElement(null, "InitgPtyConfTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(InitiatingPartyConfirmationTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ConfTp", xmlNamespace );
+        writer.WriteValue(ConfirmationType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ReqId", xmlNamespace );
+        RequestIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "QryStartNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35NumericText(QueryStartNumber)); // data type Max35NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlNbOfRpts", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberOfReports)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PgNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35NumericText(PageNumber)); // data type Max35NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "QryPgNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35NumericText(QueryPageNumber)); // data type Max35NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MsgNbOfCurPg", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(MessageNumberOfCurrentPage)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ListOrdrNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(ListOrderNumber)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "LastPgInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(LastPageIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "LastRptReqd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(LastReportRequested)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static Confirmation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AccountIdentificationFormatChoice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentificationFormatChoic
 /// Identification of the account expressed with an account number and a code.
 /// </summary>
 public partial record IdentificationAndPurpose : AccountIdentificationFormatChoice_
+     , IIsoXmlSerilizable<IdentificationAndPurpose>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record IdentificationAndPurpose : AccountIdentificationFormatChoi
     /// Specifies the purpose of the account.
     /// </summary>
     public required SecuritiesAccountPurposeType1Code Purpose { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Purp", xmlNamespace );
+        writer.WriteValue(Purpose.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new IdentificationAndPurpose Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

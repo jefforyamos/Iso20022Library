@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio3Choice;
 
@@ -14,8 +16,10 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio3Choice;
 /// In the UK, a typical tax wrapper product is known as an 'ISA' (Individual Savings Account).
 /// </summary>
 public partial record TaxEfficientProduct : FundPortfolio3Choice_
+     , IIsoXmlSerilizable<TaxEfficientProduct>
 {
     #nullable enable
+    
     /// <summary>
     /// Type of tax efficient product, for example, an individual savings account (ISA) in the UK.
     /// </summary>
@@ -35,6 +39,51 @@ public partial record TaxEfficientProduct : FundPortfolio3Choice_
     /// <summary>
     /// Additional information about the tax efficient product.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TaxEffcntPdctTp", xmlNamespace );
+        TaxEfficientProductType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CashComponentIndicator is IsoYesNoIndicator CashComponentIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CshCmpntInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CashComponentIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PreviousYears is PreviousYear4 PreviousYearsValue)
+        {
+            writer.WriteStartElement(null, "PrvsYrs", xmlNamespace );
+            PreviousYearsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CurrentYearSubscriptionDetails is SubscriptionInformation2 CurrentYearSubscriptionDetailsValue)
+        {
+            writer.WriteStartElement(null, "CurYrSbcptDtls", xmlNamespace );
+            CurrentYearSubscriptionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new TaxEfficientProduct Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

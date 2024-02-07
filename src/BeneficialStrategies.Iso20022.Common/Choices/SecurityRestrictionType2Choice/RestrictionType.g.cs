@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecurityRestrictionType2Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityRestrictionType2Choice;
 /// Type of the restriction, for example, selling restriction, buying restriction, placing restriction.
 /// </summary>
 public partial record RestrictionType : SecurityRestrictionType2Choice_
+     , IIsoXmlSerilizable<RestrictionType>
 {
-    public required RestrictionType1Code Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies the type of restriction.
+    /// </summary>
+    public required RestrictionType1Code Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RstrctnTp", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new RestrictionType Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

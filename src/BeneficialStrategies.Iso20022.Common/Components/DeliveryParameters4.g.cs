@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters of a physical delivery.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DeliveryParameters4
+     : IIsoXmlSerilizable<DeliveryParameters4>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the address for the physical delivery is the registered address.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator RegisteredAddressIndicator { get; init; } 
     /// <summary>
     /// Name and address to/from which the physical delivery/receipt of the financial instrument must take place.
     /// </summary>
-    [DataMember]
     public NameAndAddress4? NameAndAddress { get; init; } 
     /// <summary>
     /// Contact person and contact information.
     /// </summary>
-    [DataMember]
     public ContactIdentification2? ContactPerson { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RegdAdrInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RegisteredAddressIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (NameAndAddress is NameAndAddress4 NameAndAddressValue)
+        {
+            writer.WriteStartElement(null, "NmAndAdr", xmlNamespace );
+            NameAndAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContactPerson is ContactIdentification2 ContactPersonValue)
+        {
+            writer.WriteStartElement(null, "CtctPrsn", xmlNamespace );
+            ContactPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DeliveryParameters4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

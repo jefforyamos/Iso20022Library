@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides references to the submitted data set both for the matching application and for the user.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DataSetSubmissionReferences3
+     : IIsoXmlSerilizable<DataSetSubmissionReferences3>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Reference to the purchase order of the underlying transaction.
     /// </summary>
-    [DataMember]
     public required DocumentIdentification7 PurchaseOrderReference { get; init; } 
     /// <summary>
     /// Provides reference to the transaction for the financial institution that submits the data set.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SubmitterTransactionReference { get; init; } 
     /// <summary>
     /// Specifies that this message should force the matching application to match all data sets it has received so far for the transaction identified by the transaction identification.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ForcedMatch { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PurchsOrdrRef", xmlNamespace );
+        PurchaseOrderReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SubmitterTransactionReference is IsoMax35Text SubmitterTransactionReferenceValue)
+        {
+            writer.WriteStartElement(null, "SubmitrTxRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SubmitterTransactionReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ForcdMtch", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ForcedMatch)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static DataSetSubmissionReferences3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

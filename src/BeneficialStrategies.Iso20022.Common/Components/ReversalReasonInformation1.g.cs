@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Further information on the reversal reason of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReversalReasonInformation1
+     : IIsoXmlSerilizable<ReversalReasonInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Party issuing the reversal.
     /// </summary>
-    [DataMember]
     public PartyIdentification8? ReversalOriginator { get; init; } 
     /// <summary>
     /// Specifies the reason for the reversal.
     /// </summary>
-    [DataMember]
     public ReversalReason1Choice_? ReversalReason { get; init; } 
     /// <summary>
     /// Further details on the reversal reason.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax105Text> AdditionalReversalReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax105Text? AdditionalReversalReasonInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReversalOriginator is PartyIdentification8 ReversalOriginatorValue)
+        {
+            writer.WriteStartElement(null, "RvslOrgtr", xmlNamespace );
+            ReversalOriginatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReversalReason is ReversalReason1Choice_ ReversalReasonValue)
+        {
+            writer.WriteStartElement(null, "RvslRsn", xmlNamespace );
+            ReversalReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalReversalReasonInformation is IsoMax105Text AdditionalReversalReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlRvslRsnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax105Text(AdditionalReversalReasonInformationValue)); // data type Max105Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ReversalReasonInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

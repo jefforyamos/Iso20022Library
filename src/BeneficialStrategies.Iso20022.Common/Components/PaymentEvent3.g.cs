@@ -7,69 +7,111 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains the details of an invalid payment event.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentEvent3
+     : IIsoXmlSerilizable<PaymentEvent3>
 {
     #nullable enable
     
     /// <summary>
     /// Contains the unique end to end transaction reference of a payment.
     /// </summary>
-    [DataMember]
     public required IsoUUIDv4Identifier UETR { get; init; } 
     /// <summary>
     /// Specifies the business service agreed between the two MessagingEndpoints under which rules this business message is exchanged.
     /// Usage:
     /// To be used when there is a choice of processing services or processing service levels.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? BusinessService { get; init; } 
     /// <summary>
     /// Indicates whether the requestor institution participates in the payment transaction identified by the unique end to end transaction reference identification  (UETR).
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Participant { get; init; } 
     /// <summary>
     /// Reference assigned by the network when sending the payment.
     /// </summary>
-    [DataMember]
     public required IsoMax50Text NetworkReference { get; init; } 
     /// <summary>
     /// Identifies the original message name identifier to which the message refers.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MessageNameIdentification { get; init; } 
     /// <summary>
     /// Contains a unique identification, as assigned by an instructing party for an instructed party, to unambiguously identify the instruction.
     /// Usage: The instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text InstructionIdentification { get; init; } 
     /// <summary>
     /// Identifies the the sending MessagingEndpoint that has created this business message for the receiving MessagingEndpoint that will process this business message.
     /// Usage:
     /// The sending MessagingEndpoint might be different from the sending address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
-    [DataMember]
     public required IsoAnyBICIdentifier From { get; init; } 
     /// <summary>
     /// Identifies the MessagingEndpoint designated by the sending MessagingEndpoint to be the recipient who will ultimately process this business message.
     /// Note the receiving MessagingEndpoint might be different from the receiving address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
-    [DataMember]
     public IsoAnyBICIdentifier? To { get; init; } 
     /// <summary>
     /// Specifies the reason why the event is invalid.
     /// </summary>
-    [DataMember]
     public required ExternalInvalidEventReason1Code InvalidityReason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UETR", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoUUIDv4Identifier(UETR)); // data type UUIDv4Identifier System.String
+        writer.WriteEndElement();
+        if (BusinessService is IsoMax35Text BusinessServiceValue)
+        {
+            writer.WriteStartElement(null, "BizSvc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(BusinessServiceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Ptcpt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Participant)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NtwkRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax50Text(NetworkReference)); // data type Max50Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MsgNmId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageNameIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InstrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(InstructionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Fr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(From)); // data type AnyBICIdentifier System.String
+        writer.WriteEndElement();
+        if (To is IsoAnyBICIdentifier ToValue)
+        {
+            writer.WriteStartElement(null, "To", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(ToValue)); // data type AnyBICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InvldtyRsn", xmlNamespace );
+        writer.WriteValue(InvalidityReason.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static PaymentEvent3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

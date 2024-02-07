@@ -7,68 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Key elements used to identify the original transaction(s) that is being referred to.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TrackerPaymentTransaction3
+     : IIsoXmlSerilizable<TrackerPaymentTransaction3>
 {
     #nullable enable
     
     /// <summary>
     /// Provides information on the original tracked message that contained the transaction.
     /// </summary>
-    [DataMember]
     public OriginalBusinessInstruction2? TrackedMessageIdentification { get; init; } 
     /// <summary>
     /// Party that provides information on the status and related details of a transaction.
     /// </summary>
-    [DataMember]
     public required TrackerPartyIdentification1 TrackerInformingParty { get; init; } 
     /// <summary>
     /// Set of elements used to reference a payment instruction.
     /// </summary>
-    [DataMember]
     public required PaymentIdentification11 PaymentIdentification { get; init; } 
     /// <summary>
     /// Specifies the details on how the settlement of the transaction(s) between the instructing agent and the instructed agent is completed.
     /// </summary>
-    [DataMember]
     public SettlementInstruction10? SettlementInformation { get; init; } 
     /// <summary>
     /// Agent that is instructed by the previous party in the chain to carry out the (set of) instruction(s).
     /// </summary>
-    [DataMember]
     public TrackerFinancialInstitutionIdentification1? InstructedAgent { get; init; } 
     /// <summary>
     /// Amount of money moved between the instructing agent and the instructed agent.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINActiveCurrencyAndAmount? InterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Provides details of the rate and the currencies used in the foreign exchange.
     /// </summary>
-    [DataMember]
     public CurrencyExchange16? ExchangeRateData { get; init; } 
     /// <summary>
     /// Specifies which party/parties will bear the charges associated with the processing of the payment transaction.
     /// </summary>
-    [DataMember]
     public ChargeBearerType4Code? ChargeBearer { get; init; } 
     /// <summary>
     /// Provides information on the charges to be paid by the charge bearer(s) related to the payment transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<TrackerCharges1> ChargesInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public TrackerCharges1? ChargesInformation { get; init; } 
     /// <summary>
     /// Provides information on the tracking of the interbank transaction related to the payment.
     /// </summary>
-    [DataMember]
     public TrackerData3? TrackerData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TrackedMessageIdentification is OriginalBusinessInstruction2 TrackedMessageIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TrckdMsgId", xmlNamespace );
+            TrackedMessageIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TrckrInfrmgPty", xmlNamespace );
+        TrackerInformingParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PmtId", xmlNamespace );
+        PaymentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SettlementInformation is SettlementInstruction10 SettlementInformationValue)
+        {
+            writer.WriteStartElement(null, "SttlmInf", xmlNamespace );
+            SettlementInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructedAgent is TrackerFinancialInstitutionIdentification1 InstructedAgentValue)
+        {
+            writer.WriteStartElement(null, "InstdAgt", xmlNamespace );
+            InstructedAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterbankSettlementAmount is IsoRestrictedFINActiveCurrencyAndAmount InterbankSettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "IntrBkSttlmAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAndAmount(InterbankSettlementAmountValue)); // data type RestrictedFINActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExchangeRateData is CurrencyExchange16 ExchangeRateDataValue)
+        {
+            writer.WriteStartElement(null, "XchgRateData", xmlNamespace );
+            ExchangeRateDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ChargeBearer is ChargeBearerType4Code ChargeBearerValue)
+        {
+            writer.WriteStartElement(null, "ChrgBr", xmlNamespace );
+            writer.WriteValue(ChargeBearerValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ChargesInformation is TrackerCharges1 ChargesInformationValue)
+        {
+            writer.WriteStartElement(null, "ChrgsInf", xmlNamespace );
+            ChargesInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TrackerData is TrackerData3 TrackerDataValue)
+        {
+            writer.WriteStartElement(null, "TrckrData", xmlNamespace );
+            TrackerDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TrackerPaymentTransaction3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

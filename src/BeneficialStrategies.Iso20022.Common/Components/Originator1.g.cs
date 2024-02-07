@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Originator of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Originator1
+     : IIsoXmlSerilizable<Originator1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the originator of the transaction.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Identification of the entity assigning the originator identification.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Assigner { get; init; } 
     /// <summary>
     /// Country of the originator.
     /// </summary>
-    [DataMember]
     public ISO3NumericCountryCode? Country { get; init; } 
     /// <summary>
     /// Short name of the originator.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Assigner is IsoMax35Text AssignerValue)
+        {
+            writer.WriteStartElement(null, "Assgnr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AssignerValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Country is ISO3NumericCountryCode CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(CountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ShortName is IsoMax35Text ShortNameValue)
+        {
+            writer.WriteStartElement(null, "ShrtNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ShortNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Originator1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

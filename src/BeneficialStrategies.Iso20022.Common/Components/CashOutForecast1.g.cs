@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Cash movements out of a fund as a result of investment funds transactions, eg, redemptions or switch-out.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashOutForecast1
+     : IIsoXmlSerilizable<CashOutForecast1>
 {
     #nullable enable
     
     /// <summary>
     /// Date on which cash is available.
     /// </summary>
-    [DataMember]
     public required IsoISODate SettlementDate { get; init; } 
     /// <summary>
     /// Sub-total amount of the cash flow out, expressed as an amount of money.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? SubTotalAmount { get; init; } 
     /// <summary>
     /// Sub-total amount of the cash flow out, expressed as a number of units.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1? SubTotalUnitsNumber { get; init; } 
     /// <summary>
     /// Indicates whether the estimated cash flow out is exceptional.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ExceptionalCashFlowIndicator { get; init; } 
     /// <summary>
     /// Breakdown of cash out amounts, eg, by transaction or order type.
     /// </summary>
-    [DataMember]
-    public ValueList<FundCashOutBreakdown1> CashOutBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public FundCashOutBreakdown1? CashOutBreakdownDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(SettlementDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (SubTotalAmount is IsoActiveOrHistoricCurrencyAndAmount SubTotalAmountValue)
+        {
+            writer.WriteStartElement(null, "SubTtlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(SubTotalAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (SubTotalUnitsNumber is FinancialInstrumentQuantity1 SubTotalUnitsNumberValue)
+        {
+            writer.WriteStartElement(null, "SubTtlUnitsNb", xmlNamespace );
+            SubTotalUnitsNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExceptionalCashFlowIndicator is IsoYesNoIndicator ExceptionalCashFlowIndicatorValue)
+        {
+            writer.WriteStartElement(null, "XcptnlCshFlowInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ExceptionalCashFlowIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CashOutBreakdownDetails is FundCashOutBreakdown1 CashOutBreakdownDetailsValue)
+        {
+            writer.WriteStartElement(null, "CshOutBrkdwnDtls", xmlNamespace );
+            CashOutBreakdownDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CashOutForecast1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.SecuritiesTransactionCancellationRequest002V07>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -41,10 +44,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// - re-send to a third party a copy of a message for information using the relevant elements in the Business Application Header.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account owner sends a SecuritiesTransactionCancellationRequest to an account servicer to request the cancellation of a securities transaction.|The account owner/servicer relationship may be:|- a global custodian which has an account with a local custodian, or|- an investment management institution which manage a fund account opened at a custodian, or - a broker which has an account with a custodian, or|- a central securities depository participant which has an account with a central securities depository, or|- a central securities depository which has an account with a custodian, another central securities depository or another settlement market infrastructure, or|- a central counterparty or a stock exchange or a trade matching utility which need to instruct to a central securities depository or another settlement market infrastructure.||Usage|The transaction may be:|- a securities settlement transaction|- an intra-position movement|- a securities financing transaction|The instruction cannot be:|- a securities settlement conditions modification (another transaction processing command should be sent to reverse a processing change previously requested).|- a securities financing modification|The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information using the relevant elements in the Business Application Header.")]
-public partial record SecuritiesTransactionCancellationRequest002V07 : IOuterRecord
+public partial record SecuritiesTransactionCancellationRequest002V07 : IOuterRecord<SecuritiesTransactionCancellationRequest002V07,SecuritiesTransactionCancellationRequest002V07Document>
+    ,IIsoXmlSerilizable<SecuritiesTransactionCancellationRequest002V07>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -56,6 +58,11 @@ public partial record SecuritiesTransactionCancellationRequest002V07 : IOuterRec
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesTxCxlReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesTransactionCancellationRequest002V07Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -167,6 +174,86 @@ public partial record SecuritiesTransactionCancellationRequest002V07 : IOuterRec
     {
         return new SecuritiesTransactionCancellationRequest002V07Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesTxCxlReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AcctOwnrTxId", xmlNamespace );
+        AccountOwnerTransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountServicerTransactionIdentification is IsoRestrictedFINXMax16Text AccountServicerTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcrTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(AccountServicerTransactionIdentificationValue)); // data type RestrictedFINXMax16Text System.String
+            writer.WriteEndElement();
+        }
+        if (MarketInfrastructureTransactionIdentification is IsoRestrictedFINXMax16Text MarketInfrastructureTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MktInfrstrctrTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(MarketInfrastructureTransactionIdentificationValue)); // data type RestrictedFINXMax16Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProcessorTransactionIdentification is IsoRestrictedFINXMax16Text ProcessorTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrcrTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(ProcessorTransactionIdentificationValue)); // data type RestrictedFINXMax16Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountOwner is PartyIdentification156 AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingAccount is SecuritiesAccount30 SafekeepingAccountValue)
+        {
+            writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+            SafekeepingAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BlockChainAddressOrWallet is BlockChainAddressWallet7 BlockChainAddressOrWalletValue)
+        {
+            writer.WriteStartElement(null, "BlckChainAdrOrWllt", xmlNamespace );
+            BlockChainAddressOrWalletValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionDetails is TransactionDetails160 TransactionDetailsValue)
+        {
+            writer.WriteStartElement(null, "TxDtls", xmlNamespace );
+            TransactionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CancellationReason is CancellationReason27 CancellationReasonValue)
+        {
+            writer.WriteStartElement(null, "CxlRsn", xmlNamespace );
+            CancellationReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FXCancellation is FXCancellation4Choice_ FXCancellationValue)
+        {
+            writer.WriteStartElement(null, "FxCxl", xmlNamespace );
+            FXCancellationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesTransactionCancellationRequest002V07 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -174,9 +261,7 @@ public partial record SecuritiesTransactionCancellationRequest002V07 : IOuterRec
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesTransactionCancellationRequest002V07"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesTransactionCancellationRequest002V07Document : IOuterDocument<SecuritiesTransactionCancellationRequest002V07>
+public partial record SecuritiesTransactionCancellationRequest002V07Document : IOuterDocument<SecuritiesTransactionCancellationRequest002V07>, IXmlSerializable
 {
     
     /// <summary>
@@ -192,5 +277,22 @@ public partial record SecuritiesTransactionCancellationRequest002V07Document : I
     /// <summary>
     /// The instance of <seealso cref="SecuritiesTransactionCancellationRequest002V07"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesTransactionCancellationRequest002V07.XmlTag)]
     public required SecuritiesTransactionCancellationRequest002V07 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesTransactionCancellationRequest002V07.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,27 +7,26 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to contract valuation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ContractValuationData8
+     : IIsoXmlSerilizable<ContractValuationData8>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the current value of the outstanding contract.
     /// </summary>
-    [DataMember]
     public AmountAndDirection109? ContractValue { get; init; } 
     /// <summary>
     /// Indicates the date and time of the last valuation marked to market provided by the central counterparty (CCP) or calculated using the current or last available market price of the inputs.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? TimeStamp { get; init; } 
     /// <summary>
     /// Indicates the source and method used for the valuation of the transaction by the reporting counterparty.
@@ -35,13 +34,52 @@ public partial record ContractValuationData8
     /// If at least one valuation input is used that is classified as mark-to-model, the whole valuation is classified as mark-to-model.
     /// If only inputs are used that are classified as mark-to-market; the whole valuation is classified as mark-to-market.|
     /// </summary>
-    [DataMember]
     public ValuationType1Code? Type { get; init; } 
     /// <summary>
     /// Specifies the ratio of the absolute change in price of a derivative transaction to the change in price of the underlier, at the time a new transaction is reported or when a change in the notional amount is reported.
     /// </summary>
-    [DataMember]
     public IsoLongFraction19DecimalNumber? Delta { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ContractValue is AmountAndDirection109 ContractValueValue)
+        {
+            writer.WriteStartElement(null, "CtrctVal", xmlNamespace );
+            ContractValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TimeStamp is IsoISODateTime TimeStampValue)
+        {
+            writer.WriteStartElement(null, "TmStmp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(TimeStampValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (Type is ValuationType1Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Delta is IsoLongFraction19DecimalNumber DeltaValue)
+        {
+            writer.WriteStartElement(null, "Dlta", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLongFraction19DecimalNumber(DeltaValue)); // data type LongFraction19DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static ContractValuationData8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

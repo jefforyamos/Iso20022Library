@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRateFormat35Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRateFormat35Choice;
 /// Specifies different formats for the gross dividend rate.
 /// </summary>
 public partial record RateTypeAndAmountAndRateStatus : GrossDividendRateFormat35Choice_
+     , IIsoXmlSerilizable<RateTypeAndAmountAndRateStatus>
 {
     #nullable enable
+    
     /// <summary>
     /// Value expressed as a rate type.
     /// </summary>
@@ -27,5 +31,35 @@ public partial record RateTypeAndAmountAndRateStatus : GrossDividendRateFormat35
     /// Value expressed as a rate status.
     /// </summary>
     public RateStatus3Choice_? RateStatus { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RateTp", xmlNamespace );
+        RateType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(Amount)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+        writer.WriteEndElement();
+        if (RateStatus is RateStatus3Choice_ RateStatusValue)
+        {
+            writer.WriteStartElement(null, "RateSts", xmlNamespace );
+            RateStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new RateTypeAndAmountAndRateStatus Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

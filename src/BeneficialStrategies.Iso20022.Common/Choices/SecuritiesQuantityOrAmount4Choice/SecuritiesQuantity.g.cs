@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecuritiesQuantityOrAmount4Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesQuantityOrAmount4Choic
 /// Provides information about securities quantity linked to a corporate action option.
 /// </summary>
 public partial record SecuritiesQuantity : SecuritiesQuantityOrAmount4Choice_
+     , IIsoXmlSerilizable<SecuritiesQuantity>
 {
     #nullable enable
+    
     /// <summary>
     /// Minimum quantity of securities to be accepted (used in the framework of conditional privilege on election). In case of proration, if this minimum quantity is not reached then the instruction is void.
     /// </summary>
@@ -27,5 +31,38 @@ public partial record SecuritiesQuantity : SecuritiesQuantityOrAmount4Choice_
     /// Quantity of additional shares requested due to the difference of “round-up against payment” practice between the account servicer and the account holder (for instance for French dividend option).
     /// </summary>
     public FinancialInstrumentQuantity1Choice_? AdditionalRoundUpQuantity { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ConditionalQuantity is FinancialInstrumentQuantity1Choice_ ConditionalQuantityValue)
+        {
+            writer.WriteStartElement(null, "CondlQty", xmlNamespace );
+            ConditionalQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InstdQty", xmlNamespace );
+        InstructedQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalRoundUpQuantity is FinancialInstrumentQuantity1Choice_ AdditionalRoundUpQuantityValue)
+        {
+            writer.WriteStartElement(null, "AddtlRndUpQty", xmlNamespace );
+            AdditionalRoundUpQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new SecuritiesQuantity Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

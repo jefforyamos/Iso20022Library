@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.reda.SecuritiesAccountStatusAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.reda;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// When the processing is succesfully performed, the message includes the related securities account identification.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The SecuritiesAccountStatusAdvice message is send by the the executing party to an instructing party to provide the status of the execution of an creation, modification or deletion of securities account reference data.||Usage: |When processing information is negative – a failure occurred in applying the changes the message accordingly also delivers information about the reason why the creation or update could not be processed. |When the processing is succesfully performed, the message includes the related securities account identification.")]
-public partial record SecuritiesAccountStatusAdviceV01 : IOuterRecord
+public partial record SecuritiesAccountStatusAdviceV01 : IOuterRecord<SecuritiesAccountStatusAdviceV01,SecuritiesAccountStatusAdviceV01Document>
+    ,IIsoXmlSerilizable<SecuritiesAccountStatusAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record SecuritiesAccountStatusAdviceV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesAcctStsAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesAccountStatusAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -79,6 +86,38 @@ public partial record SecuritiesAccountStatusAdviceV01 : IOuterRecord
     {
         return new SecuritiesAccountStatusAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesAcctStsAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MessageHeader is MessageHeader12 MessageHeaderValue)
+        {
+            writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+            MessageHeaderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SctiesAcctSts", xmlNamespace );
+        SecuritiesAccountStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesAccountStatusAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -86,9 +125,7 @@ public partial record SecuritiesAccountStatusAdviceV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesAccountStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesAccountStatusAdviceV01Document : IOuterDocument<SecuritiesAccountStatusAdviceV01>
+public partial record SecuritiesAccountStatusAdviceV01Document : IOuterDocument<SecuritiesAccountStatusAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -104,5 +141,22 @@ public partial record SecuritiesAccountStatusAdviceV01Document : IOuterDocument<
     /// <summary>
     /// The instance of <seealso cref="SecuritiesAccountStatusAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesAccountStatusAdviceV01.XmlTag)]
     public required SecuritiesAccountStatusAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesAccountStatusAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

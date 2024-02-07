@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of characteristics, such as the identification or the creation date and time, specific to the message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MessageHeader4
+     : IIsoXmlSerilizable<MessageHeader4>
 {
     #nullable enable
     
     /// <summary>
     /// Point to point reference, as assigned by the sender, to unambiguously identify the message.|Usage: The sender has to make sure that MessageIdentification is unique for a pre-agreed period.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? CreationDateTime { get; init; } 
     /// <summary>
     /// Specific actions to be executed through the request.
     /// </summary>
-    [DataMember]
     public RequestType3Choice_? RequestType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (CreationDateTime is IsoISODateTime CreationDateTimeValue)
+        {
+            writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (RequestType is RequestType3Choice_ RequestTypeValue)
+        {
+            writer.WriteStartElement(null, "ReqTp", xmlNamespace );
+            RequestTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MessageHeader4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

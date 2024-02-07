@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides ownership details  of a person on an asset.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Ownership1
+     : IIsoXmlSerilizable<Ownership1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of ownership.
     /// </summary>
-    [DataMember]
     public OwnershipType3Choice_? OwnershipType { get; init; } 
     /// <summary>
     /// Percentage of ownership that a person has on an asset.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? OwnershipPercentage { get; init; } 
     /// <summary>
     /// Percentage of usufruct that a person has on an asset.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? UsufructPercentage { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OwnershipType is OwnershipType3Choice_ OwnershipTypeValue)
+        {
+            writer.WriteStartElement(null, "OwnrshTp", xmlNamespace );
+            OwnershipTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OwnershipPercentage is IsoPercentageRate OwnershipPercentageValue)
+        {
+            writer.WriteStartElement(null, "OwnrshPctg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(OwnershipPercentageValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (UsufructPercentage is IsoPercentageRate UsufructPercentageValue)
+        {
+            writer.WriteStartElement(null, "UsfrctPctg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(UsufructPercentageValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static Ownership1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

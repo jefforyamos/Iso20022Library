@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.UnderlyingIdentification2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingIdentification2Choice;
 /// Underlying of a swap transaction.
 /// </summary>
 public partial record Swap : UnderlyingIdentification2Choice_
+     , IIsoXmlSerilizable<Swap>
 {
     #nullable enable
+    
     /// <summary>
     /// Instrument received by the buyer.
     /// </summary>
@@ -23,5 +27,35 @@ public partial record Swap : UnderlyingIdentification2Choice_
     /// Instrument paid by the buyer.
     /// </summary>
     public FinancialInstrumentIdentification7Choice_? SwapOut { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SwapIn is FinancialInstrumentIdentification7Choice_ SwapInValue)
+        {
+            writer.WriteStartElement(null, "SwpIn", xmlNamespace );
+            SwapInValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SwapOut is FinancialInstrumentIdentification7Choice_ SwapOutValue)
+        {
+            writer.WriteStartElement(null, "SwpOut", xmlNamespace );
+            SwapOutValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Swap Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

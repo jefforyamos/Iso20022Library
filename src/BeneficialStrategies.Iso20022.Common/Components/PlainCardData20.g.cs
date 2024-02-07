@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Sensitive data associated with a payment card.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PlainCardData20
+     : IIsoXmlSerilizable<PlainCardData20>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the driver or vehicle.
     /// </summary>
-    [DataMember]
     public IsoMax20Text? DriverOrVehicleIdentification { get; init; } 
     /// <summary>
     /// Additional card specific data.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AdditionalCardData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DriverOrVehicleIdentification is IsoMax20Text DriverOrVehicleIdentificationValue)
+        {
+            writer.WriteStartElement(null, "DrvrOrVhclId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax20Text(DriverOrVehicleIdentificationValue)); // data type Max20Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalCardData is IsoMax35Text AdditionalCardDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlCardData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdditionalCardDataValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PlainCardData20 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

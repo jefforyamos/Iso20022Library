@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.setr.RedemptionOrderV04>;
 
 namespace BeneficialStrategies.Iso20022.setr;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// If there are redemption orders for the same financial instrument but for different accounts that are to be communicated in a single message, then the RedemptionBulkOrder message must be used.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The RedemptionOrder message is sent by an instructing party, for example, an investment manager or its authorised representative, to the executing party, for example, a transfer agent, to instruct the redemption of one or more financial instruments for one investment fund account.|Usage|The RedemptionOrder message is used to instruct single redemption orders, that is, a message containing one order for one financial instrument and related to one investment account. The RedemptionOrder message may also be used for multiple orders, that is, a message containing several orders related to the same investment account for different financial instruments.|For a single redemption order, the RedemptionOrder message, not the RedemptionBulkOrder message, must be used.|If there are redemption orders for the same financial instrument but for different accounts that are to be communicated in a single message, then the RedemptionBulkOrder message must be used.")]
-public partial record RedemptionOrderV04 : IOuterRecord
+public partial record RedemptionOrderV04 : IOuterRecord<RedemptionOrderV04,RedemptionOrderV04Document>
+    ,IIsoXmlSerilizable<RedemptionOrderV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record RedemptionOrderV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "RedOrdr";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => RedemptionOrderV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -108,6 +115,53 @@ public partial record RedemptionOrderV04 : IOuterRecord
     {
         return new RedemptionOrderV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("RedOrdr");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PoolReference is AdditionalReference9 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousReference is AdditionalReference8 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MltplOrdrDtls", xmlNamespace );
+        MultipleOrderDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CopyDetails is CopyInformation4 CopyDetailsValue)
+        {
+            writer.WriteStartElement(null, "CpyDtls", xmlNamespace );
+            CopyDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RedemptionOrderV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -115,9 +169,7 @@ public partial record RedemptionOrderV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RedemptionOrderV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record RedemptionOrderV04Document : IOuterDocument<RedemptionOrderV04>
+public partial record RedemptionOrderV04Document : IOuterDocument<RedemptionOrderV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -133,5 +185,22 @@ public partial record RedemptionOrderV04Document : IOuterDocument<RedemptionOrde
     /// <summary>
     /// The instance of <seealso cref="RedemptionOrderV04"/> is required.
     /// </summary>
+    [DataMember(Name=RedemptionOrderV04.XmlTag)]
     public required RedemptionOrderV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(RedemptionOrderV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

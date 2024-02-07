@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Organised structure that is set up for a particular purpose, eg, a business, government body, department, charity, or financial institution.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Intermediary1
+     : IIsoXmlSerilizable<Intermediary1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution, eg, Dun & Bradstreet Identification.
     /// </summary>
-    [DataMember]
     public required PartyIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>
-    [DataMember]
     public Account1? Account { get; init; } 
     /// <summary>
     /// Set of functions performed by an intermediary in a given situation.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Role { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Account is Account1 AccountValue)
+        {
+            writer.WriteStartElement(null, "Acct", xmlNamespace );
+            AccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Role is IsoMax35Text RoleValue)
+        {
+            writer.WriteStartElement(null, "Role", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RoleValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Intermediary1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

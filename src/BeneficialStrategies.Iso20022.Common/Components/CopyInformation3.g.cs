@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information provided when the message is a copy of a previous message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CopyInformation3
+     : IIsoXmlSerilizable<CopyInformation3>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the message is a copy.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator CopyIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CpyInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CopyIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static CopyInformation3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

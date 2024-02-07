@@ -7,68 +7,136 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information such as the taxation conditions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionNarrative11
+     : IIsoXmlSerilizable<CorporateActionNarrative11>
 {
     #nullable enable
     
     /// <summary>
     /// Provides additional information or specifies in more detail the content of a message. This field may only be used when the information to be transmitted, cannot be coded.
     /// </summary>
-    [DataMember]
     public UpdatedAdditionalInformation2? AdditionalText { get; init; } 
     /// <summary>
     /// Provides information that can be ignored for automated processing; - reiteration of information that has been included within structured fields of this message, - or narrative information not needed for automatic processing.
     /// </summary>
-    [DataMember]
     public UpdatedAdditionalInformation2? NarrativeVersion { get; init; } 
     /// <summary>
     /// Provides conditional information related to the event, for example, an offer is subject to 50 percent acceptance, the offeror allows the securities holder to set some conditions.
     /// </summary>
-    [DataMember]
     public UpdatedAdditionalInformation2? InformationConditions { get; init; } 
     /// <summary>
     /// Provides information conditions to the account owner that are to be complied with, for example, not open to US/Canadian residents, Qualified Institutional Buyers (QIB) or SIL (Sophisticated Investor Letter) to be provided.
     /// </summary>
-    [DataMember]
     public UpdatedAdditionalInformation2? InformationToComplyWith { get; init; } 
     /// <summary>
     /// Provides taxation conditions that cannot be included within the structured fields of this message and has not been mentioned in the Service Level Agreement (SLA).
     /// </summary>
-    [DataMember]
     public UpdatedAdditionalInformation2? TaxationConditions { get; init; } 
     /// <summary>
     /// Provides a disclaimer relative to the information provided in the message. It may be ignored for automated processing.
     /// </summary>
-    [DataMember]
     public UpdatedAdditionalInformation2? Disclaimer { get; init; } 
     /// <summary>
     /// Provides additional information regarding the party, for example, the contact unit or person responsible for the transaction identified in the message.
     /// </summary>
-    [DataMember]
     public UpdatedAdditionalInformation2? PartyContactNarrative { get; init; } 
     /// <summary>
     /// Provides declaration details narrative relative to the financial instrument, for example, beneficial ownership.
     /// </summary>
-    [DataMember]
     public UpdatedAdditionalInformation2? DeclarationDetails { get; init; } 
     /// <summary>
     /// Provides information required for the registration.
     /// </summary>
-    [DataMember]
     public UpdatedAdditionalInformation2? RegistrationDetails { get; init; } 
     /// <summary>
     /// Provides additional information on the basket or index underlying a security, for example a warrant.
     /// </summary>
-    [DataMember]
     public UpdatedAdditionalInformation2? BasketOrIndexInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AdditionalText is UpdatedAdditionalInformation2 AdditionalTextValue)
+        {
+            writer.WriteStartElement(null, "AddtlTxt", xmlNamespace );
+            AdditionalTextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NarrativeVersion is UpdatedAdditionalInformation2 NarrativeVersionValue)
+        {
+            writer.WriteStartElement(null, "NrrtvVrsn", xmlNamespace );
+            NarrativeVersionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InformationConditions is UpdatedAdditionalInformation2 InformationConditionsValue)
+        {
+            writer.WriteStartElement(null, "InfConds", xmlNamespace );
+            InformationConditionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InformationToComplyWith is UpdatedAdditionalInformation2 InformationToComplyWithValue)
+        {
+            writer.WriteStartElement(null, "InfToCmplyWth", xmlNamespace );
+            InformationToComplyWithValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxationConditions is UpdatedAdditionalInformation2 TaxationConditionsValue)
+        {
+            writer.WriteStartElement(null, "TaxtnConds", xmlNamespace );
+            TaxationConditionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Disclaimer is UpdatedAdditionalInformation2 DisclaimerValue)
+        {
+            writer.WriteStartElement(null, "Dsclmr", xmlNamespace );
+            DisclaimerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PartyContactNarrative is UpdatedAdditionalInformation2 PartyContactNarrativeValue)
+        {
+            writer.WriteStartElement(null, "PtyCtctNrrtv", xmlNamespace );
+            PartyContactNarrativeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeclarationDetails is UpdatedAdditionalInformation2 DeclarationDetailsValue)
+        {
+            writer.WriteStartElement(null, "DclrtnDtls", xmlNamespace );
+            DeclarationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RegistrationDetails is UpdatedAdditionalInformation2 RegistrationDetailsValue)
+        {
+            writer.WriteStartElement(null, "RegnDtls", xmlNamespace );
+            RegistrationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BasketOrIndexInformation is UpdatedAdditionalInformation2 BasketOrIndexInformationValue)
+        {
+            writer.WriteStartElement(null, "BsktOrIndxInf", xmlNamespace );
+            BasketOrIndexInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionNarrative11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

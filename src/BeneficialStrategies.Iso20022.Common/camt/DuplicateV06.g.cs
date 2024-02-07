@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.DuplicateV06>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// The Duplicate Data element must contain a well formed XML document. This means XML special characters such as '<' must be used in a way that is consistent with XML well-formedness criteria.|
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The Duplicate message is used by financial institutions, with their own offices, and/or with other financial institutions with which they have established bilateral agreements. It allows to exchange duplicate payment instructions.|Usage|This message must be sent in response to a RequestForDuplicate message.|The Duplicate Data element must contain a well formed XML document. This means XML special characters such as '<' must be used in a way that is consistent with XML well-formedness criteria.|")]
-public partial record DuplicateV06 : IOuterRecord
+public partial record DuplicateV06 : IOuterRecord<DuplicateV06,DuplicateV06Document>
+    ,IIsoXmlSerilizable<DuplicateV06>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record DuplicateV06 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "Dplct";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => DuplicateV06Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -90,6 +97,41 @@ public partial record DuplicateV06 : IOuterRecord
     {
         return new DuplicateV06Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("Dplct");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Assgnmt", xmlNamespace );
+        Assignment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Case is Case5 CaseValue)
+        {
+            writer.WriteStartElement(null, "Case", xmlNamespace );
+            CaseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Dplct", xmlNamespace );
+        Duplicate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DuplicateV06 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -97,9 +139,7 @@ public partial record DuplicateV06 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DuplicateV06"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record DuplicateV06Document : IOuterDocument<DuplicateV06>
+public partial record DuplicateV06Document : IOuterDocument<DuplicateV06>, IXmlSerializable
 {
     
     /// <summary>
@@ -115,5 +155,22 @@ public partial record DuplicateV06Document : IOuterDocument<DuplicateV06>
     /// <summary>
     /// The instance of <seealso cref="DuplicateV06"/> is required.
     /// </summary>
+    [DataMember(Name=DuplicateV06.XmlTag)]
     public required DuplicateV06 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(DuplicateV06.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

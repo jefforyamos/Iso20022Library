@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data block for a TR31 or TR34 key block which contains the key being transported.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TRRelatedData2
+     : IIsoXmlSerilizable<TRRelatedData2>
 {
     #nullable enable
     
     /// <summary>
     /// Specific TR34 command where the TRBlock is a TR34 block.
     /// </summary>
-    [DataMember]
     public TR34Command1Code? TR34Command { get; init; } 
     /// <summary>
     /// TR31 or TR34 data block.
     /// </summary>
-    [DataMember]
     public IsoMax100KBinary? TRBlock { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TR34Command is TR34Command1Code TR34CommandValue)
+        {
+            writer.WriteStartElement(null, "TR34Cmd", xmlNamespace );
+            writer.WriteValue(TR34CommandValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TRBlock is IsoMax100KBinary TRBlockValue)
+        {
+            writer.WriteStartElement(null, "TRBlck", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax100KBinary(TRBlockValue)); // data type Max100KBinary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static TRRelatedData2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

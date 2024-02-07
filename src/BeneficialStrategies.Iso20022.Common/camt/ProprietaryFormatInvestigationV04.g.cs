@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.ProprietaryFormatInvestigationV04>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// The ProprietaryData element must contain a well formed XML document. This means XML special characters such as '<' must be used in a way that is consistent with XML well-formedness criteria.|.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The Proprietary Format Investigation message type is used by financial institutions, with their own offices, and/or with other financial institutions with which they have established bilateral agreements.|Usage|The user should ensure that an existing standard message cannot be used before using the proprietary message.|As defined in the scope, this ProprietaryFormatInvestigation message may only be used when bilaterally agreed.|It is used as an envelope for a non standard message and provides means to manage an exception or investigation which falls outside the scope or capability of any other formatted message.|The ProprietaryData element must contain a well formed XML document. This means XML special characters such as '<' must be used in a way that is consistent with XML well-formedness criteria.|.")]
-public partial record ProprietaryFormatInvestigationV04 : IOuterRecord
+public partial record ProprietaryFormatInvestigationV04 : IOuterRecord<ProprietaryFormatInvestigationV04,ProprietaryFormatInvestigationV04Document>
+    ,IIsoXmlSerilizable<ProprietaryFormatInvestigationV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record ProprietaryFormatInvestigationV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "PrtryFrmtInvstgtn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ProprietaryFormatInvestigationV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -91,6 +98,41 @@ public partial record ProprietaryFormatInvestigationV04 : IOuterRecord
     {
         return new ProprietaryFormatInvestigationV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("PrtryFrmtInvstgtn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Assgnmt", xmlNamespace );
+        Assignment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Case is Case4 CaseValue)
+        {
+            writer.WriteStartElement(null, "Case", xmlNamespace );
+            CaseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PrtryData", xmlNamespace );
+        ProprietaryData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ProprietaryFormatInvestigationV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -98,9 +140,7 @@ public partial record ProprietaryFormatInvestigationV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ProprietaryFormatInvestigationV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ProprietaryFormatInvestigationV04Document : IOuterDocument<ProprietaryFormatInvestigationV04>
+public partial record ProprietaryFormatInvestigationV04Document : IOuterDocument<ProprietaryFormatInvestigationV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -116,5 +156,22 @@ public partial record ProprietaryFormatInvestigationV04Document : IOuterDocument
     /// <summary>
     /// The instance of <seealso cref="ProprietaryFormatInvestigationV04"/> is required.
     /// </summary>
+    [DataMember(Name=ProprietaryFormatInvestigationV04.XmlTag)]
     public required ProprietaryFormatInvestigationV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ProprietaryFormatInvestigationV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

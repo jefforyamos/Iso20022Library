@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Track2Data1Choice;
 
@@ -15,6 +17,36 @@ namespace BeneficialStrategies.Iso20022.Choices.Track2Data1Choice;
 /// When an odd number of hexadecimal text characters is present, a zero must be appended to the end of the string to pad to an even number of hexadecimal text characters.
 /// </summary>
 public partial record HexadecimalBinaryValue : Track2Data1Choice_
+     , IIsoXmlSerilizable<HexadecimalBinaryValue>
 {
-    public required IsoMax19HexBinaryText Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a character string with a maximum length of 19 binary bytes (38 hexadecimal text characters). 
+    /// Used only for hex binary data only, supports only characters A-F and 0-9.
+    /// </summary>
+    public required IsoMax19HexBinaryText Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "HexBinryVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax19HexBinaryText(Value)); // data type Max19HexBinaryText System.String
+        writer.WriteEndElement();
+    }
+    public static new HexadecimalBinaryValue Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the request of a fund transfer from an ATM.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMTransferRequest1
+     : IIsoXmlSerilizable<ATMTransferRequest1>
 {
     #nullable enable
     
     /// <summary>
     /// Environment in which the fund transfer is performed.
     /// </summary>
-    [DataMember]
     public required ATMEnvironment11 Environment { get; init; } 
     /// <summary>
     /// Context in which the fund transfer is performed.
     /// </summary>
-    [DataMember]
     public ATMContext18? Context { get; init; } 
     /// <summary>
     /// Transfer information for the transaction.
     /// </summary>
-    [DataMember]
     public required ATMTransaction23 Transaction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Envt", xmlNamespace );
+        Environment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Context is ATMContext18 ContextValue)
+        {
+            writer.WriteStartElement(null, "Cntxt", xmlNamespace );
+            ContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Tx", xmlNamespace );
+        Transaction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ATMTransferRequest1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

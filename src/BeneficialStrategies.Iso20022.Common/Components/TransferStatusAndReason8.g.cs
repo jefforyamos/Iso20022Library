@@ -7,154 +7,301 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the status of a transfer instruction and its reason.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransferStatusAndReason8
+     : IIsoXmlSerilizable<TransferStatusAndReason8>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the transfer, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransferReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
-    [DataMember]
     public AdditionalReference10? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a transfer cancellation, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// Type of event for which the message is sent.
     /// </summary>
-    [DataMember]
-    public ValueList<TransferStatusType3Choice_> TransferEventType { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransferStatusType3Choice_? TransferEventType { get; init; } 
     /// <summary>
     /// Status of the transfer instruction.
     /// </summary>
-    [DataMember]
     public required TransferStatus5Choice_ TransferStatus { get; init; } 
     /// <summary>
     /// Identification of the asset.
     /// </summary>
-    [DataMember]
     public FinancialInstrument63Choice_? Instrument { get; init; } 
     /// <summary>
     /// Investment account information of the transfer for which the status or information is provided.
     /// </summary>
-    [DataMember]
     public Account33? InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Identification of a related party or intermediary.
     /// </summary>
-    [DataMember]
-    public ValueList<Intermediary48> IntermediaryInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public Intermediary48? IntermediaryInformation { get; init; } 
     /// <summary>
     /// Date on which the transfer was executed.
     /// In some scenarios, this is the date and time to be used as the trade date when securities are settled through an International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// </summary>
-    [DataMember]
     public IsoISODate? TradeDate { get; init; } 
     /// <summary>
     /// Date at which the securities are to be exchanged or were exchanged at the International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// </summary>
-    [DataMember]
     public IsoISODate? SettlementDate { get; init; } 
     /// <summary>
     /// Date on which the document, for example, the application form, was sent.
     /// </summary>
-    [DataMember]
     public IsoISODate? SendOutDate { get; init; } 
     /// <summary>
     /// Date on which cash is available.
     /// </summary>
-    [DataMember]
     public IsoISODate? CashSettlementDate { get; init; } 
     /// <summary>
     /// Number of units to be transferred.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? TotalUnitsNumber { get; init; } 
     /// <summary>
     /// Weighted average price of the units in the account. The average price may also be known as the average acquisition price.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? AveragePrice { get; init; } 
     /// <summary>
     /// Breakdown of units to be transferred.
     /// </summary>
-    [DataMember]
-    public ValueList<Unit11> UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Unit11? UnitsDetails { get; init; } 
     /// <summary>
     /// Information about the source security following a conversion.
     /// </summary>
-    [DataMember]
     public Conversion2? Conversion { get; init; } 
     /// <summary>
     /// Total transfer value.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? TotalTransferValue { get; init; } 
     /// <summary>
     /// Details of a payment that will result from or resulting from the liquation of an asset and transfer of cash or for the transfer of cash that was not invested.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentInstrument18> PaymentDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentInstrument18? PaymentDetails { get; init; } 
     /// <summary>
     /// Information about the realisation of benefits taken from a pension.
     /// </summary>
-    [DataMember]
-    public ValueList<BenefitCrystallisationEvent2> BenefitCrystallisationEvent { get; init; } = []; // Warning: Don't know multiplicity.
+    public BenefitCrystallisationEvent2? BenefitCrystallisationEvent { get; init; } 
     /// <summary>
     /// Details of a drawdown tranche.
     /// </summary>
-    [DataMember]
-    public ValueList<Drawdown2> DrawdownTranche { get; init; } = []; // Warning: Don't know multiplicity.
+    public Drawdown2? DrawdownTranche { get; init; } 
     /// <summary>
     /// Drawdown information not specifically associated with a drawdown tranche.
     /// </summary>
-    [DataMember]
     public Drawdown3? OtherDrawdownInformation { get; init; } 
     /// <summary>
     /// Response information.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax350Text> QueryResponse { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax350Text? QueryResponse { get; init; } 
     /// <summary>
     /// Party that initiates the status.
     /// </summary>
-    [DataMember]
     public PartyIdentification139? StatusInitiator { get; init; } 
     /// <summary>
     /// Party that issues the status or information message.
     /// </summary>
-    [DataMember]
     public PartyIdentification139? StatusIssuer { get; init; } 
     /// <summary>
     /// Party that receives the status or information message.
     /// </summary>
-    [DataMember]
     public PartyIdentification139? StatusRecipient { get; init; } 
     /// <summary>
     /// Additional information about the status.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TrfRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ClientReference is AdditionalReference10 ClientReferenceValue)
+        {
+            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
+            ClientReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CancellationReference is IsoMax35Text CancellationReferenceValue)
+        {
+            writer.WriteStartElement(null, "CxlRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CancellationReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TransferEventType is TransferStatusType3Choice_ TransferEventTypeValue)
+        {
+            writer.WriteStartElement(null, "TrfEvtTp", xmlNamespace );
+            TransferEventTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TrfSts", xmlNamespace );
+        TransferStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Instrument is FinancialInstrument63Choice_ InstrumentValue)
+        {
+            writer.WriteStartElement(null, "Instrm", xmlNamespace );
+            InstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestmentAccountDetails is Account33 InvestmentAccountDetailsValue)
+        {
+            writer.WriteStartElement(null, "InvstmtAcctDtls", xmlNamespace );
+            InvestmentAccountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryInformation is Intermediary48 IntermediaryInformationValue)
+        {
+            writer.WriteStartElement(null, "IntrmyInf", xmlNamespace );
+            IntermediaryInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeDate is IsoISODate TradeDateValue)
+        {
+            writer.WriteStartElement(null, "TradDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(TradeDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SettlementDate is IsoISODate SettlementDateValue)
+        {
+            writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(SettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SendOutDate is IsoISODate SendOutDateValue)
+        {
+            writer.WriteStartElement(null, "SndOutDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(SendOutDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (CashSettlementDate is IsoISODate CashSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "CshSttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(CashSettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (TotalUnitsNumber is IsoDecimalNumber TotalUnitsNumberValue)
+        {
+            writer.WriteStartElement(null, "TtlUnitsNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(TotalUnitsNumberValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (AveragePrice is IsoActiveOrHistoricCurrencyAnd13DecimalAmount AveragePriceValue)
+        {
+            writer.WriteStartElement(null, "AvrgPric", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd13DecimalAmount(AveragePriceValue)); // data type ActiveOrHistoricCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (UnitsDetails is Unit11 UnitsDetailsValue)
+        {
+            writer.WriteStartElement(null, "UnitsDtls", xmlNamespace );
+            UnitsDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Conversion is Conversion2 ConversionValue)
+        {
+            writer.WriteStartElement(null, "Convs", xmlNamespace );
+            ConversionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalTransferValue is IsoActiveCurrencyAnd13DecimalAmount TotalTransferValueValue)
+        {
+            writer.WriteStartElement(null, "TtlTrfVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(TotalTransferValueValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PaymentDetails is PaymentInstrument18 PaymentDetailsValue)
+        {
+            writer.WriteStartElement(null, "PmtDtls", xmlNamespace );
+            PaymentDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BenefitCrystallisationEvent is BenefitCrystallisationEvent2 BenefitCrystallisationEventValue)
+        {
+            writer.WriteStartElement(null, "BnftCrstllstnEvt", xmlNamespace );
+            BenefitCrystallisationEventValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DrawdownTranche is Drawdown2 DrawdownTrancheValue)
+        {
+            writer.WriteStartElement(null, "DrwdwnTrch", xmlNamespace );
+            DrawdownTrancheValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherDrawdownInformation is Drawdown3 OtherDrawdownInformationValue)
+        {
+            writer.WriteStartElement(null, "OthrDrwdwnInf", xmlNamespace );
+            OtherDrawdownInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (QueryResponse is IsoMax350Text QueryResponseValue)
+        {
+            writer.WriteStartElement(null, "QryRspn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(QueryResponseValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (StatusInitiator is PartyIdentification139 StatusInitiatorValue)
+        {
+            writer.WriteStartElement(null, "StsInitr", xmlNamespace );
+            StatusInitiatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StatusIssuer is PartyIdentification139 StatusIssuerValue)
+        {
+            writer.WriteStartElement(null, "StsIssr", xmlNamespace );
+            StatusIssuerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StatusRecipient is PartyIdentification139 StatusRecipientValue)
+        {
+            writer.WriteStartElement(null, "StsRcpt", xmlNamespace );
+            StatusRecipientValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransferStatusAndReason8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

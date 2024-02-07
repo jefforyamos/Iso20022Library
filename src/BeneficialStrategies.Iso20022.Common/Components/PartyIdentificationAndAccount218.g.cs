@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Entity involved in an activity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentificationAndAccount218
+     : IIsoXmlSerilizable<PartyIdentificationAndAccount218>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a party.
     /// </summary>
-    [DataMember]
     public required PartyIdentification240Choice_ Identification { get; init; } 
     /// <summary>
     /// Provides additional information regarding the party, for example, the contact unit or person responsible for the transaction identified in the message.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
-    [DataMember]
     public AlternatePartyIdentification8? AlternateIdentification { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SafekeepingAccount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (AlternateIdentification is AlternatePartyIdentification8 AlternateIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AltrnId", xmlNamespace );
+            AlternateIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingAccount is IsoMax35Text SafekeepingAccountValue)
+        {
+            writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SafekeepingAccountValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyIdentificationAndAccount218 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

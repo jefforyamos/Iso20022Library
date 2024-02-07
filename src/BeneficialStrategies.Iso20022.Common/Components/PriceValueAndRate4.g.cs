@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Price and rate.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PriceValueAndRate4
+     : IIsoXmlSerilizable<PriceValueAndRate4>
 {
     #nullable enable
     
     /// <summary>
     /// Price expressed as a currency and amount.
     /// </summary>
-    [DataMember]
     public PriceAndDirection1? Value { get; init; } 
     /// <summary>
     /// Price expressed as a percentage.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Value is PriceAndDirection1 ValueValue)
+        {
+            writer.WriteStartElement(null, "Val", xmlNamespace );
+            ValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Rate is IsoPercentageRate RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static PriceValueAndRate4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,23 +7,46 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides disclaimer narrative information about the event.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateEventNarrative3
+     : IIsoXmlSerilizable<CorporateEventNarrative3>
 {
     #nullable enable
     
     /// <summary>
     /// Issuer’s disclaimer notice relative to the meeting announcement information provided. It may be ignored for automated processing.
     /// </summary>
-    [DataMember]
-    public ValueList<LanguageSpecifiedNarrative1> Disclaimer { get; init; } = []; // Warning: Don't know multiplicity.
+    public LanguageSpecifiedNarrative1? Disclaimer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Disclaimer is LanguageSpecifiedNarrative1 DisclaimerValue)
+        {
+            writer.WriteStartElement(null, "Dsclmr", xmlNamespace );
+            DisclaimerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateEventNarrative3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

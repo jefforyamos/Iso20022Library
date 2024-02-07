@@ -7,58 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Date and time query criteria.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeDateTimeQueryCriteria5
+     : IIsoXmlSerilizable<TradeDateTimeQueryCriteria5>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the reporting date and full hour that transaction was reported.
     /// </summary>
-    [DataMember]
     public DateTimePeriod1? ReportingDateTime { get; init; } 
     /// <summary>
     /// Indicates the date and full hour the trade was executed.
     /// </summary>
-    [DataMember]
     public DateTimePeriod1? ExecutionDateTime { get; init; } 
     /// <summary>
     /// Indicates the date when the trade was matured.
     /// </summary>
-    [DataMember]
     public DateOrBlankQuery2Choice_? MaturityDate { get; init; } 
     /// <summary>
     /// Indicates the date when obligations under the contract come into effect.
     /// </summary>
-    [DataMember]
     public DatePeriod1? EffectiveDate { get; init; } 
     /// <summary>
     /// Date and time of the valuation.
     /// </summary>
-    [DataMember]
     public DateTimePeriod1? ValuationDateTime { get; init; } 
     /// <summary>
     /// Indicates the date when the trade was terminated.
     /// </summary>
-    [DataMember]
     public DateOrBlankQuery2Choice_? ExpirationDate { get; init; } 
     /// <summary>
     /// Indicates the effective date of the early termination of the reported derivative transaction.
     /// </summary>
-    [DataMember]
     public DatePeriod1? EarlyTerminationDate { get; init; } 
     /// <summary>
     /// Indicates the collateral time stamp range.
     /// </summary>
-    [DataMember]
     public DateTimeOrBlankQuery1Choice_? CollateralTimeStamp { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReportingDateTime is DateTimePeriod1 ReportingDateTimeValue)
+        {
+            writer.WriteStartElement(null, "RptgDtTm", xmlNamespace );
+            ReportingDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExecutionDateTime is DateTimePeriod1 ExecutionDateTimeValue)
+        {
+            writer.WriteStartElement(null, "ExctnDtTm", xmlNamespace );
+            ExecutionDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MaturityDate is DateOrBlankQuery2Choice_ MaturityDateValue)
+        {
+            writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
+            MaturityDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EffectiveDate is DatePeriod1 EffectiveDateValue)
+        {
+            writer.WriteStartElement(null, "FctvDt", xmlNamespace );
+            EffectiveDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValuationDateTime is DateTimePeriod1 ValuationDateTimeValue)
+        {
+            writer.WriteStartElement(null, "ValtnDtTm", xmlNamespace );
+            ValuationDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExpirationDate is DateOrBlankQuery2Choice_ ExpirationDateValue)
+        {
+            writer.WriteStartElement(null, "XprtnDt", xmlNamespace );
+            ExpirationDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EarlyTerminationDate is DatePeriod1 EarlyTerminationDateValue)
+        {
+            writer.WriteStartElement(null, "EarlyTermntnDt", xmlNamespace );
+            EarlyTerminationDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollateralTimeStamp is DateTimeOrBlankQuery1Choice_ CollateralTimeStampValue)
+        {
+            writer.WriteStartElement(null, "CollTmStmp", xmlNamespace );
+            CollateralTimeStampValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeDateTimeQueryCriteria5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

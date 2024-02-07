@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Expected trade date and expected settlement date of the order execution.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ExpectedExecutionDetails2
+     : IIsoXmlSerilizable<ExpectedExecutionDetails2>
 {
     #nullable enable
     
     /// <summary>
     /// Expected date or expected date and time at which a price will be applied according to the terms of the prospectus.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeChoice_? ExpectedTradeDateTime { get; init; } 
     /// <summary>
     /// Expected date at which the financial instruments will be exchanged against cash.
     /// </summary>
-    [DataMember]
     public IsoISODate? ExpectedCashSettlementDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ExpectedTradeDateTime is DateAndDateTimeChoice_ ExpectedTradeDateTimeValue)
+        {
+            writer.WriteStartElement(null, "XpctdTradDtTm", xmlNamespace );
+            ExpectedTradeDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExpectedCashSettlementDate is IsoISODate ExpectedCashSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "XpctdCshSttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExpectedCashSettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static ExpectedExecutionDetails2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

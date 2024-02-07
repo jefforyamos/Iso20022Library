@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the product through ISIN.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ISINQueryCriteria1
+     : IIsoXmlSerilizable<ISINQueryCriteria1>
 {
     #nullable enable
     
     /// <summary>
     /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation's International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoISINOct2015Identifier> Identifier { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoISINOct2015Identifier? Identifier { get; init; } 
     /// <summary>
     /// Field can be queried for not reported value.
     /// </summary>
-    [DataMember]
     public NotReported1Code? NotReported { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identifier is IsoISINOct2015Identifier IdentifierValue)
+        {
+            writer.WriteStartElement(null, "Idr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(IdentifierValue)); // data type ISINOct2015Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (NotReported is NotReported1Code NotReportedValue)
+        {
+            writer.WriteStartElement(null, "NotRptd", xmlNamespace );
+            writer.WriteValue(NotReportedValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static ISINQueryCriteria1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

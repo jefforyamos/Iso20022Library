@@ -7,69 +7,134 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a security or other asset.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrument101
+     : IIsoXmlSerilizable<FinancialInstrument101>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the line of holding in the portfolio.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? LineIdentification { get; init; } 
     /// <summary>
     /// Identification of the asset.
     /// </summary>
-    [DataMember]
     public required FinancialInstrument61Choice_ Instrument { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
-    [DataMember]
     public AdditionalReference10? ClientReference { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transfer allocated by the counterparty.
     /// </summary>
-    [DataMember]
     public AdditionalReference10? CounterpartyReference { get; init; } 
     /// <summary>
     /// Account held in the name of the party that is not the name of the beneficial owner of the shares.
     /// (Party and account into which the transferee receives the financial instrument from the transferor.)
     /// </summary>
-    [DataMember]
     public Account28? TransfereeAccount { get; init; } 
     /// <summary>
     /// Party and account from which the transferor delivers the financial instrument to the transferee.
     /// </summary>
-    [DataMember]
     public Account28? Transferor { get; init; } 
     /// <summary>
     /// Chain of parties involved in the settlement of a transaction.
     /// </summary>
-    [DataMember]
     public FundSettlementParameters18? SettlementPartiesDetails { get; init; } 
     /// <summary>
     /// Indicates whether the assets are held in an individual’s own name.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? AssetsHeldInOwnName { get; init; } 
     /// <summary>
     /// Indicates whether the transfer results in a change of beneficial owner.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? TransferResultsInChangeOfBeneficialOwner { get; init; } 
     /// <summary>
     /// Additional information about the financial instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (LineIdentification is IsoMax35Text LineIdentificationValue)
+        {
+            writer.WriteStartElement(null, "LineId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(LineIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Instrm", xmlNamespace );
+        Instrument.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ClientReference is AdditionalReference10 ClientReferenceValue)
+        {
+            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
+            ClientReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CounterpartyReference is AdditionalReference10 CounterpartyReferenceValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyRef", xmlNamespace );
+            CounterpartyReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransfereeAccount is Account28 TransfereeAccountValue)
+        {
+            writer.WriteStartElement(null, "TrfeeAcct", xmlNamespace );
+            TransfereeAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Transferor is Account28 TransferorValue)
+        {
+            writer.WriteStartElement(null, "Trfr", xmlNamespace );
+            TransferorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementPartiesDetails is FundSettlementParameters18 SettlementPartiesDetailsValue)
+        {
+            writer.WriteStartElement(null, "SttlmPtiesDtls", xmlNamespace );
+            SettlementPartiesDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AssetsHeldInOwnName is IsoYesNoIndicator AssetsHeldInOwnNameValue)
+        {
+            writer.WriteStartElement(null, "AsstsHeldInOwnNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AssetsHeldInOwnNameValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TransferResultsInChangeOfBeneficialOwner is IsoYesNoIndicator TransferResultsInChangeOfBeneficialOwnerValue)
+        {
+            writer.WriteStartElement(null, "TrfRsltsInChngOfBnfclOwnr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(TransferResultsInChangeOfBeneficialOwnerValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstrument101 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount, currency, exchange rate and quotation date.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Amount4
+     : IIsoXmlSerilizable<Amount4>
 {
     #nullable enable
     
     /// <summary>
     /// Amount exclusive of currency.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Currency code associated with the applicable type of amount.  ISO 4217 "Codes for the representation of currencies and funds".
     /// </summary>
-    [DataMember]
     public ISO3NumericCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// The factor used in the conversion from one amount to another amount.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? ExchangeRate { get; init; } 
     /// <summary>
     /// Date and time at which the exchange rate has been quoted.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? QuotationDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(Amount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (Currency is ISO3NumericCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExchangeRate is IsoDecimalNumber ExchangeRateValue)
+        {
+            writer.WriteStartElement(null, "XchgRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(ExchangeRateValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (QuotationDate is IsoISODateTime QuotationDateValue)
+        {
+            writer.WriteStartElement(null, "QtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(QuotationDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static Amount4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

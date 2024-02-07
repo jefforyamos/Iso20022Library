@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Features of a media resource.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ResourceContent1
+     : IIsoXmlSerilizable<ResourceContent1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of media resource.
     /// </summary>
-    [DataMember]
     public required ResourceType1Code ResourceType { get; init; } 
     /// <summary>
     /// Format of the media resource;
     /// </summary>
-    [DataMember]
     public SoundFormat1Code? ResourceFormat { get; init; } 
     /// <summary>
     /// Language of the media resource.
     /// </summary>
-    [DataMember]
     public LanguageCode? Language { get; init; } 
     /// <summary>
     /// Reference of a media resource.
     /// </summary>
-    [DataMember]
     public IsoMax1025Text? ResourceReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RsrcTp", xmlNamespace );
+        writer.WriteValue(ResourceType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ResourceFormat is SoundFormat1Code ResourceFormatValue)
+        {
+            writer.WriteStartElement(null, "RsrcFrmt", xmlNamespace );
+            writer.WriteValue(ResourceFormatValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Language is LanguageCode LanguageValue)
+        {
+            writer.WriteStartElement(null, "Lang", xmlNamespace );
+            writer.WriteValue(LanguageValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ResourceReference is IsoMax1025Text ResourceReferenceValue)
+        {
+            writer.WriteStartElement(null, "RsrcRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1025Text(ResourceReferenceValue)); // data type Max1025Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ResourceContent1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

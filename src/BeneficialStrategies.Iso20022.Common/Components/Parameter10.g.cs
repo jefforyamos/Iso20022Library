@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters of the asymmetric encryption algorithm.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Parameter10
+     : IIsoXmlSerilizable<Parameter10>
 {
     #nullable enable
     
     /// <summary>
     /// Format of data before encryption, if the format is not plaintext or implicit.
     /// </summary>
-    [DataMember]
     public EncryptionFormat2Code? EncryptionFormat { get; init; } 
     /// <summary>
     /// Identification of the digest algorithm.
     /// </summary>
-    [DataMember]
     public Algorithm16Code? DigestAlgorithm { get; init; } 
     /// <summary>
     /// Mask generator function cryptographic algorithm and parameters.
     /// </summary>
-    [DataMember]
     public AlgorithmIdentification18? MaskGeneratorAlgorithm { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (EncryptionFormat is EncryptionFormat2Code EncryptionFormatValue)
+        {
+            writer.WriteStartElement(null, "NcrptnFrmt", xmlNamespace );
+            writer.WriteValue(EncryptionFormatValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DigestAlgorithm is Algorithm16Code DigestAlgorithmValue)
+        {
+            writer.WriteStartElement(null, "DgstAlgo", xmlNamespace );
+            writer.WriteValue(DigestAlgorithmValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MaskGeneratorAlgorithm is AlgorithmIdentification18 MaskGeneratorAlgorithmValue)
+        {
+            writer.WriteStartElement(null, "MskGnrtrAlgo", xmlNamespace );
+            MaskGeneratorAlgorithmValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Parameter10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.auth.DerivativesTradeReportV02>;
 
 namespace BeneficialStrategies.Iso20022.auth;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// The DerivativesTradeReport is sent by the reporting entities to provide transaction data to the trade repositories (TRs) or by the trade repositories (TRs) to the competent authorities.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The DerivativesTradeReport is sent by the reporting entities to provide transaction data to the trade repositories (TRs) or by the trade repositories (TRs) to the competent authorities.")]
-public partial record DerivativesTradeReportV02 : IOuterRecord
+public partial record DerivativesTradeReportV02 : IOuterRecord<DerivativesTradeReportV02,DerivativesTradeReportV02Document>
+    ,IIsoXmlSerilizable<DerivativesTradeReportV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record DerivativesTradeReportV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "DerivsTradRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => DerivativesTradeReportV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -76,6 +83,35 @@ public partial record DerivativesTradeReportV02 : IOuterRecord
     {
         return new DerivativesTradeReportV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("DerivsTradRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptHdr", xmlNamespace );
+        ReportHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradData", xmlNamespace );
+        TradeData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DerivativesTradeReportV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -83,9 +119,7 @@ public partial record DerivativesTradeReportV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DerivativesTradeReportV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record DerivativesTradeReportV02Document : IOuterDocument<DerivativesTradeReportV02>
+public partial record DerivativesTradeReportV02Document : IOuterDocument<DerivativesTradeReportV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -101,5 +135,22 @@ public partial record DerivativesTradeReportV02Document : IOuterDocument<Derivat
     /// <summary>
     /// The instance of <seealso cref="DerivativesTradeReportV02"/> is required.
     /// </summary>
+    [DataMember(Name=DerivativesTradeReportV02.XmlTag)]
     public required DerivativesTradeReportV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(DerivativesTradeReportV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

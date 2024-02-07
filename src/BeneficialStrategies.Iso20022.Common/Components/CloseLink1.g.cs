@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details of the close links as defined in the collateral reference data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CloseLink1
+     : IIsoXmlSerilizable<CloseLink1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a security by an ISIN.
     /// </summary>
-    [DataMember]
     public required IsoISINIdentifier SecurityIdentification { get; init; } 
     /// <summary>
     /// Identifies the party for which the close link is defined.
     /// </summary>
-    [DataMember]
     public required SystemPartyIdentification1Choice_ PartyIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SctyId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISINIdentifier(SecurityIdentification)); // data type ISINIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PtyId", xmlNamespace );
+        PartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CloseLink1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

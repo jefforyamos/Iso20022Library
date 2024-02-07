@@ -7,38 +7,64 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique and unambiguous way to identify a person.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PersonIdentification10
+     : IIsoXmlSerilizable<PersonIdentification10>
 {
     #nullable enable
     
     /// <summary>
     /// First name of a person (also known as given name).
     /// </summary>
-    [DataMember]
     public required IsoMax140Text FirstName { get; init; } 
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text Name { get; init; } 
     /// <summary>
     /// Date on which a person is born.
     /// </summary>
-    [DataMember]
     public required IsoISODate BirthDate { get; init; } 
     /// <summary>
     /// Unique identification of a person, as assigned by an institution, using an identification scheme.
     /// </summary>
-    [DataMember]
     public required GenericPersonIdentification1 Other { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FrstNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(FirstName)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(Name)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BirthDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(BirthDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Othr", xmlNamespace );
+        Other.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static PersonIdentification10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to report on business day information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BusinessDayReturnCriteria2
+     : IIsoXmlSerilizable<BusinessDayReturnCriteria2>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the system date is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? SystemDateIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the system status is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? SystemStatusIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the system currency is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? SystemCurrencyIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the closure information is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? ClosurePeriodIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the events are requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? EventIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the session period is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? SessionPeriodIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the system event type is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? EventTypeIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SystemDateIndicator is IsoRequestedIndicator SystemDateIndicatorValue)
+        {
+            writer.WriteStartElement(null, "SysDtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SystemDateIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SystemStatusIndicator is IsoRequestedIndicator SystemStatusIndicatorValue)
+        {
+            writer.WriteStartElement(null, "SysStsInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SystemStatusIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SystemCurrencyIndicator is IsoRequestedIndicator SystemCurrencyIndicatorValue)
+        {
+            writer.WriteStartElement(null, "SysCcyInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SystemCurrencyIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ClosurePeriodIndicator is IsoRequestedIndicator ClosurePeriodIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ClsrPrdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(ClosurePeriodIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (EventIndicator is IsoRequestedIndicator EventIndicatorValue)
+        {
+            writer.WriteStartElement(null, "EvtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(EventIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SessionPeriodIndicator is IsoRequestedIndicator SessionPeriodIndicatorValue)
+        {
+            writer.WriteStartElement(null, "SsnPrdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SessionPeriodIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (EventTypeIndicator is IsoRequestedIndicator EventTypeIndicatorValue)
+        {
+            writer.WriteStartElement(null, "EvtTpInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(EventTypeIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static BusinessDayReturnCriteria2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

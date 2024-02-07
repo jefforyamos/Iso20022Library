@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to identify the underlying (group of) transaction(s) to which the resolution of investigation applies.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UnderlyingTransaction3
+     : IIsoXmlSerilizable<UnderlyingTransaction3>
 {
     #nullable enable
     
     /// <summary>
     /// Set of elements used to provide information on the original cancellation message, to which the resolution refers.
     /// </summary>
-    [DataMember]
     public OriginalGroupInformation24? OriginalGroupInformationAndStatus { get; init; } 
     /// <summary>
     /// Set of elements used to provide information on the original (group of) transactions, to which the cancellation status refers.
     /// </summary>
-    [DataMember]
-    public ValueList<OriginalPaymentInformation3> OriginalPaymentInformationAndStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    public OriginalPaymentInformation3? OriginalPaymentInformationAndStatus { get; init; } 
     /// <summary>
     /// Set of elements used to provide information on the original transactions to which the cancellation request message refers.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentTransactionInformation33> TransactionInformationAndStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentTransactionInformation33? TransactionInformationAndStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OriginalGroupInformationAndStatus is OriginalGroupInformation24 OriginalGroupInformationAndStatusValue)
+        {
+            writer.WriteStartElement(null, "OrgnlGrpInfAndSts", xmlNamespace );
+            OriginalGroupInformationAndStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalPaymentInformationAndStatus is OriginalPaymentInformation3 OriginalPaymentInformationAndStatusValue)
+        {
+            writer.WriteStartElement(null, "OrgnlPmtInfAndSts", xmlNamespace );
+            OriginalPaymentInformationAndStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionInformationAndStatus is PaymentTransactionInformation33 TransactionInformationAndStatusValue)
+        {
+            writer.WriteStartElement(null, "TxInfAndSts", xmlNamespace );
+            TransactionInformationAndStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static UnderlyingTransaction3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

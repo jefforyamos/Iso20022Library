@@ -7,6 +7,8 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -16,37 +18,71 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Multiple references can be given to identify the same party.
 /// A short identification can be used for display purposes.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record QualifiedPartyIdentification1
+     : IIsoXmlSerilizable<QualifiedPartyIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Schema ID to be used in IDREF values.
     /// </summary>
-    [DataMember]
     public required IsoID Identification { get; init; } 
     /// <summary>
     /// List of identifications for the same party.
     /// </summary>
-    [DataMember]
-    public ValueList<SingleQualifiedPartyIdentification1> Party { get; init; } = []; // Warning: Don't know multiplicity.
+    public SingleQualifiedPartyIdentification1? Party { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _OTgzMjU1-AOSNFX-8224494
     /// <summary>
     /// Short identification of the resulting party as a control mechanism for humans.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? ShortIdentification { get; init; } 
     /// <summary>
     /// Formally defined role qualifying the party.
     /// </summary>
-    [DataMember]
     public GenericIdentification1? Role { get; init; } 
     /// <summary>
     /// Free form description of the party's role.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? RoleDescription { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoID(Identification)); // data type ID System.String
+        writer.WriteEndElement();
+        // Not sure how to serialize Party, multiplicity Unknown
+        if (ShortIdentification is PartyIdentification2Choice_ ShortIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ShrtId", xmlNamespace );
+            ShortIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Role is GenericIdentification1 RoleValue)
+        {
+            writer.WriteStartElement(null, "Role", xmlNamespace );
+            RoleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RoleDescription is IsoMax256Text RoleDescriptionValue)
+        {
+            writer.WriteStartElement(null, "RoleDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(RoleDescriptionValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static QualifiedPartyIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

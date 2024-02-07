@@ -7,73 +7,134 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details of the interest calculation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InterestCalculation3
+     : IIsoXmlSerilizable<InterestCalculation3>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the calculation date of the interest amount.
     /// </summary>
-    [DataMember]
     public required IsoISODate CalculationDate { get; init; } 
     /// <summary>
     /// Provides the identification of the collateral account.
     /// </summary>
-    [DataMember]
     public AccountIdentification26? CollateralAccountIdentification { get; init; } 
     /// <summary>
     /// Provides the collateral amount used to calculate the interest amount and includes debit/short or credit/long positions.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection20 EffectivePrincipalAmount { get; init; } 
     /// <summary>
     /// Provides the collateral amount posted before taking into account the collateral movement amount.
     /// </summary>
-    [DataMember]
     public AmountAndDirection20? PrincipalAmount { get; init; } 
     /// <summary>
     /// Provides the additional amount of collateral posted between two calculation dates.
     /// </summary>
-    [DataMember]
     public AmountAndDirection20? MovementAmount { get; init; } 
     /// <summary>
     /// Indicates the number of days for the calculation of the interest.
     /// </summary>
-    [DataMember]
     public IsoNumber? NumberOfDays { get; init; } 
     /// <summary>
     /// Specifies the percentage charged for the use of an amount of money, usually expressed at an annual rate. The interest rate is the ratio of the amount of interest paid during a certain period of time compared to the principal amount of the interest bearing financial instrument.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate EffectiveRate { get; init; } 
     /// <summary>
     /// Specifies the percentage charged for the use of an amount of money, usually expressed at an annual rate. The interest rate is the ratio of the amount of interest paid during a certain period of time compared to the principal amount of the interest bearing financial instrument.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? InterestRate { get; init; } 
     /// <summary>
     /// Indicates the differences in interest rates.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Spread { get; init; } 
     /// <summary>
     /// Specifies the amount of money representing an interest payment.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection20 AccruedInterestAmount { get; init; } 
     /// <summary>
     /// Specifies the total amount of money representing an interest payment.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? AggregatedInterestAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ClctnDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(CalculationDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (CollateralAccountIdentification is AccountIdentification26 CollateralAccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CollAcctId", xmlNamespace );
+            CollateralAccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FctvPrncplAmt", xmlNamespace );
+        EffectivePrincipalAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PrincipalAmount is AmountAndDirection20 PrincipalAmountValue)
+        {
+            writer.WriteStartElement(null, "PrncplAmt", xmlNamespace );
+            PrincipalAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MovementAmount is AmountAndDirection20 MovementAmountValue)
+        {
+            writer.WriteStartElement(null, "MvmntAmt", xmlNamespace );
+            MovementAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NumberOfDays is IsoNumber NumberOfDaysValue)
+        {
+            writer.WriteStartElement(null, "NbOfDays", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfDaysValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FctvRate", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(EffectiveRate)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+        if (InterestRate is IsoPercentageRate InterestRateValue)
+        {
+            writer.WriteStartElement(null, "IntrstRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(InterestRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Spread is IsoPercentageRate SpreadValue)
+        {
+            writer.WriteStartElement(null, "Sprd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(SpreadValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AcrdIntrstAmt", xmlNamespace );
+        AccruedInterestAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AggregatedInterestAmount is IsoActiveCurrencyAndAmount AggregatedInterestAmountValue)
+        {
+            writer.WriteStartElement(null, "AggtdIntrstAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AggregatedInterestAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static InterestCalculation3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

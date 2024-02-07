@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of breakdown of a quantity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record QuantityBreakdown34
+     : IIsoXmlSerilizable<QuantityBreakdown34>
 {
     #nullable enable
     
     /// <summary>
     /// Identification, for tax purposes, of a lot of identical securities that are bought at a certain date and at a certain price.
     /// </summary>
-    [DataMember]
     public GenericIdentification39? LotNumber { get; init; } 
     /// <summary>
     /// Quantity of financial instruments that is part of the lot described.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1Choice_? LotQuantity { get; init; } 
     /// <summary>
     /// Specifies the securities sub balance type indicator (example restriction type for a market infrastructure).
     /// </summary>
-    [DataMember]
     public GenericIdentification47? SecuritiesSubBalanceType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (LotNumber is GenericIdentification39 LotNumberValue)
+        {
+            writer.WriteStartElement(null, "LotNb", xmlNamespace );
+            LotNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LotQuantity is FinancialInstrumentQuantity1Choice_ LotQuantityValue)
+        {
+            writer.WriteStartElement(null, "LotQty", xmlNamespace );
+            LotQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesSubBalanceType is GenericIdentification47 SecuritiesSubBalanceTypeValue)
+        {
+            writer.WriteStartElement(null, "SctiesSubBalTp", xmlNamespace );
+            SecuritiesSubBalanceTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static QuantityBreakdown34 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

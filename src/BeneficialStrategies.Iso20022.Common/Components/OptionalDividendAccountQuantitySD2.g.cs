@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding optional dividend election details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OptionalDividendAccountQuantitySD2
+     : IIsoXmlSerilizable<OptionalDividendAccountQuantitySD2>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Beneficial owner quantity to be paid.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity15Choice_ BeneficialOwnerQuantity { get; init; } 
     /// <summary>
     /// Number of accounts for which the beneficial quantity is elected.
     /// </summary>
-    [DataMember]
     public required IsoMax15NumericText NumberOfAccounts { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BnfclOwnrQty", xmlNamespace );
+        BeneficialOwnerQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NbOfAccts", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(NumberOfAccounts)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+    }
+    public static OptionalDividendAccountQuantitySD2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

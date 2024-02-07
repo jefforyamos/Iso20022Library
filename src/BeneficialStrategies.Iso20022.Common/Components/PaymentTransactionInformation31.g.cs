@@ -7,83 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide reference and status information on the original transactions, included in the original instruction, to which the cancellation request message applies.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentTransactionInformation31
+     : IIsoXmlSerilizable<PaymentTransactionInformation31>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier of a cancellation request, as assigned by the assigner.||Usage: The cancellation request identification can be used for reconciliation or to link tasks relating to the cancellation request.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CancellationIdentification { get; init; } 
     /// <summary>
     /// Set of elements to uniquely and unambiguously identify an exception or an investigation workflow.
     /// </summary>
-    [DataMember]
     public Case2? Case { get; init; } 
     /// <summary>
     /// Set of elements used to provide information on the original messsage.
     /// </summary>
-    [DataMember]
     public OriginalGroupInformation3? OriginalGroupInformation { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original instructing party for the original instructed party, to unambiguously identify the original instruction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalInstructionIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original initiating party, to unambiguously identify the original transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalEndToEndIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original first instructing agent, to umambiguously identify the transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique reference, as assigned by the original clearing system, to unambiguously identify the original instruction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalClearingSystemReference { get; init; } 
     /// <summary>
     /// Amount of money, as provided in the original transaction, to be moved between the instructing agent and the instructed agent.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? OriginalInterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Date, as provided in the original transaction, on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
-    [DataMember]
     public IsoISODate? OriginalInterbankSettlementDate { get; init; } 
     /// <summary>
     /// Party who assigns the case.|Usage: This is also the agent that instructs the next party in the chain to carry out the (set of) cancellation request(s).
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? Assigner { get; init; } 
     /// <summary>
     /// Party to which the case is assigned.|Usage: This is also the agent that is instructed by the previous party in the chain to carry out the (set of) cancellation request(s).
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? Assignee { get; init; } 
     /// <summary>
     /// Set of elements used to provide detailed information on the cancellation reason.
     /// </summary>
-    [DataMember]
-    public ValueList<CancellationReasonInformation3> CancellationReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public CancellationReasonInformation3? CancellationReasonInformation { get; init; } 
     /// <summary>
     /// Set of key elements used to identify the original transaction that is being referred to.
     /// </summary>
-    [DataMember]
     public OriginalTransactionReference13? OriginalTransactionReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CancellationIdentification is IsoMax35Text CancellationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CxlId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CancellationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Case is Case2 CaseValue)
+        {
+            writer.WriteStartElement(null, "Case", xmlNamespace );
+            CaseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalGroupInformation is OriginalGroupInformation3 OriginalGroupInformationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlGrpInf", xmlNamespace );
+            OriginalGroupInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalInstructionIdentification is IsoMax35Text OriginalInstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlInstrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalInstructionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalEndToEndIdentification is IsoMax35Text OriginalEndToEndIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlEndToEndId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalEndToEndIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalTransactionIdentification is IsoMax35Text OriginalTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalClearingSystemReference is IsoMax35Text OriginalClearingSystemReferenceValue)
+        {
+            writer.WriteStartElement(null, "OrgnlClrSysRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalClearingSystemReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalInterbankSettlementAmount is IsoActiveOrHistoricCurrencyAndAmount OriginalInterbankSettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "OrgnlIntrBkSttlmAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(OriginalInterbankSettlementAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (OriginalInterbankSettlementDate is IsoISODate OriginalInterbankSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "OrgnlIntrBkSttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(OriginalInterbankSettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Assigner is BranchAndFinancialInstitutionIdentification4 AssignerValue)
+        {
+            writer.WriteStartElement(null, "Assgnr", xmlNamespace );
+            AssignerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Assignee is BranchAndFinancialInstitutionIdentification4 AssigneeValue)
+        {
+            writer.WriteStartElement(null, "Assgne", xmlNamespace );
+            AssigneeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CancellationReasonInformation is CancellationReasonInformation3 CancellationReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "CxlRsnInf", xmlNamespace );
+            CancellationReasonInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalTransactionReference is OriginalTransactionReference13 OriginalTransactionReferenceValue)
+        {
+            writer.WriteStartElement(null, "OrgnlTxRef", xmlNamespace );
+            OriginalTransactionReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentTransactionInformation31 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

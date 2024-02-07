@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the beneficiary's account information for the settlement of a purchase of goods or services.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementTerms3
+     : IIsoXmlSerilizable<SettlementTerms3>
 {
     #nullable enable
     
     /// <summary>
     /// Financial institution that receives the payment transaction on behalf of an account owner, and posts the transaction into the account.
     /// </summary>
-    [DataMember]
     public FinancialInstitutionIdentification4Choice_? CreditorAgent { get; init; } 
     /// <summary>
     /// Account to be credited as a result of an instruction.
     /// </summary>
-    [DataMember]
     public required CashAccount24 CreditorAccount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CreditorAgent is FinancialInstitutionIdentification4Choice_ CreditorAgentValue)
+        {
+            writer.WriteStartElement(null, "CdtrAgt", xmlNamespace );
+            CreditorAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CdtrAcct", xmlNamespace );
+        CreditorAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SettlementTerms3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

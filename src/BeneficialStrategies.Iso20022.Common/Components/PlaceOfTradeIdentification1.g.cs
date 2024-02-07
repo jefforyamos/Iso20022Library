@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of market in which a trade transaction has been executed.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PlaceOfTradeIdentification1
+     : IIsoXmlSerilizable<PlaceOfTradeIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification and type of the place of trade.
     /// </summary>
-    [DataMember]
     public MarketIdentification84? MarketTypeAndIdentification { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for a place of trade.
     /// </summary>
-    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MarketTypeAndIdentification is MarketIdentification84 MarketTypeAndIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MktTpAndId", xmlNamespace );
+            MarketTypeAndIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LEI is IsoLEIIdentifier LEIValue)
+        {
+            writer.WriteStartElement(null, "LEI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEIValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PlaceOfTradeIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

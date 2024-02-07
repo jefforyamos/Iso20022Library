@@ -7,53 +7,99 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Context, or geographic environment, in which trading parties may meet in order to negotiate and execute trades among themselves.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LocalMarketAnnex4
+     : IIsoXmlSerilizable<LocalMarketAnnex4>
 {
     #nullable enable
     
     /// <summary>
     /// Country of the local fund order desk.
     /// </summary>
-    [DataMember]
-    public ValueList<CountryCode> Country { get; init; } = []; // Warning: Don't know multiplicity.
+    public CountryCode? Country { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _YhHaE7rcEeqxc9M5o04tAA
     /// <summary>
     /// Local entity appointed by the fund, to which orders should be submitted. 
     /// </summary>
-    [DataMember]
     public required OrderDesk1 LocalOrderDesk { get; init; } 
     /// <summary>
     /// Processing characteristics linked to a subscription to the investment fund or alternative/hedge fund.
     /// </summary>
-    [DataMember]
     public ProcessingCharacteristics8? SubscriptionProcessingCharacteristics { get; init; } 
     /// <summary>
     /// Processing characteristics linked to a redemption to the investment fund or alternative/hedge fund.
     /// </summary>
-    [DataMember]
     public ProcessingCharacteristics5? RedemptionProcessingCharacteristics { get; init; } 
     /// <summary>
     /// Processing characteristics linked to a switch of the investment fund or alternative/hedge fund.
     /// </summary>
-    [DataMember]
     public ProcessingCharacteristics6? SwitchProcessingCharacteristics { get; init; } 
     /// <summary>
     /// Account to be used for cash settlement.
     /// </summary>
-    [DataMember]
-    public ValueList<CashAccount202> CashSettlementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashAccount202? CashSettlementDetails { get; init; } 
     /// <summary>
     /// Additional information about the fund order desk.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize Country, multiplicity Unknown
+        writer.WriteStartElement(null, "LclOrdrDsk", xmlNamespace );
+        LocalOrderDesk.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SubscriptionProcessingCharacteristics is ProcessingCharacteristics8 SubscriptionProcessingCharacteristicsValue)
+        {
+            writer.WriteStartElement(null, "SbcptPrcgChrtcs", xmlNamespace );
+            SubscriptionProcessingCharacteristicsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RedemptionProcessingCharacteristics is ProcessingCharacteristics5 RedemptionProcessingCharacteristicsValue)
+        {
+            writer.WriteStartElement(null, "RedPrcgChrtcs", xmlNamespace );
+            RedemptionProcessingCharacteristicsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SwitchProcessingCharacteristics is ProcessingCharacteristics6 SwitchProcessingCharacteristicsValue)
+        {
+            writer.WriteStartElement(null, "SwtchPrcgChrtcs", xmlNamespace );
+            SwitchProcessingCharacteristicsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashSettlementDetails is CashAccount202 CashSettlementDetailsValue)
+        {
+            writer.WriteStartElement(null, "CshSttlmDtls", xmlNamespace );
+            CashSettlementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LocalMarketAnnex4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

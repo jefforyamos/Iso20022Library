@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstitutionIdentification6
+     : IIsoXmlSerilizable<FinancialInstitutionIdentification6>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier of a clearing system member, as assigned by the system or system administrator.
     /// </summary>
-    [DataMember]
     public ClearingSystemMemberIdentification2Choice_? ClearingSystemMemberIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier, as assigned to a financial institution using a proprietary identification scheme.
     /// </summary>
-    [DataMember]
     public GenericIdentification4? ProprietaryIdentification { get; init; } 
     /// <summary>
     /// Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
     /// </summary>
-    [DataMember]
     public IsoBICIdentifier? BIC { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ClearingSystemMemberIdentification is ClearingSystemMemberIdentification2Choice_ ClearingSystemMemberIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClrSysMmbId", xmlNamespace );
+            ClearingSystemMemberIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProprietaryIdentification is GenericIdentification4 ProprietaryIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrtryId", xmlNamespace );
+            ProprietaryIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BIC is IsoBICIdentifier BICValue)
+        {
+            writer.WriteStartElement(null, "BIC", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBICIdentifier(BICValue)); // data type BICIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstitutionIdentification6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

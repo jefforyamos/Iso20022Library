@@ -7,118 +7,236 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Agreement (contract) related to a vehicle rental service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record VehicleRentalAgreement2
+     : IIsoXmlSerilizable<VehicleRentalAgreement2>
 {
     #nullable enable
     
     /// <summary>
     /// Contains the original vehicle rental agreement, invoice or contract number.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AgreementNumber { get; init; } 
     /// <summary>
     /// Indicates that an adjustment was made to a vehicle rental charge (for example, additional charges added). 
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? AdjustedIndicator { get; init; } 
     /// <summary>
     /// Contains the vehicle rental location. 
     /// </summary>
-    [DataMember]
     public Address2? RentalLocation { get; init; } 
     /// <summary>
     /// Used when different than rental location
     /// </summary>
-    [DataMember]
-    public ValueList<Address2> PickupLocation { get; init; } = []; // Warning: Don't know multiplicity.
+    public Address2? PickupLocation { get; init; } 
     /// <summary>
     /// Date the vehicle was picked-up by the customer.  In the case of a no-show transaction or a prepaid transaction, this contains the scheduled pickup date.
     /// </summary>
-    [DataMember]
     public IsoISODate? CheckOutDate { get; init; } 
     /// <summary>
     /// Time the vehicle was picked-up by the customer.  In the case of a no-show transaction or a prepaid transaction, this contains the scheduled pickup time.
     /// </summary>
-    [DataMember]
     public IsoISOTime? CheckOutTime { get; init; } 
     /// <summary>
     /// Location to which vehicle was returned.
     /// </summary>
-    [DataMember]
     public Address2? ReturnLocation { get; init; } 
     /// <summary>
     /// Date when the vehicle was returned to the rental agency.
     /// </summary>
-    [DataMember]
     public IsoISODate? CheckInDate { get; init; } 
     /// <summary>
     /// Time when the vehicle was returned to the rental agency.
     /// </summary>
-    [DataMember]
     public IsoISOTime? CheckInTime { get; init; } 
     /// <summary>
     /// Duration of rental in days.
     /// </summary>
-    [DataMember]
     public IsoMax4NumericText? Duration { get; init; } 
     /// <summary>
     /// Contains the details of the vehicle classification.
     /// </summary>
-    [DataMember]
     public Vehicle4? VehicleClassDetails { get; init; } 
     /// <summary>
     /// Distance travelled during vehicle rental.
     /// </summary>
-    [DataMember]
     public Distance1? TravelDistance { get; init; } 
     /// <summary>
     /// Vehicle rental rate.
     /// </summary>
-    [DataMember]
-    public ValueList<RentalRate1> RentalRate { get; init; } = []; // Warning: Don't know multiplicity.
+    public RentalRate1? RentalRate { get; init; } 
     /// <summary>
     /// Vehicle rental details.
     /// </summary>
-    [DataMember]
     public RentalDetails2? RentalDetails { get; init; } 
     /// <summary>
     /// Registration number of vehicle.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? VehicleRegistrationNumber { get; init; } 
     /// <summary>
     /// Indicates whether or not insurance was purchased. 
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? InsuranceIndicator { get; init; } 
     /// <summary>
     /// Contains the details of additional amount for a specific vehicle rental service type. 
     /// </summary>
-    [DataMember]
-    public ValueList<Amount18> AdditionalAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public Amount18? AdditionalAmount { get; init; } 
     /// <summary>
     /// Taxes related to the products or services. 
     /// </summary>
-    [DataMember]
-    public ValueList<Tax39> EstimatedTax { get; init; } = []; // Warning: Don't know multiplicity.
+    public Tax39? EstimatedTax { get; init; } 
     /// <summary>
     /// Discount applied to the vehicle rental.
     /// </summary>
-    [DataMember]
-    public ValueList<Discount3> DiscountProgramme { get; init; } = []; // Warning: Don't know multiplicity.
+    public Discount3? DiscountProgramme { get; init; } 
     /// <summary>
     /// Loyalty programme details.
     /// </summary>
-    [DataMember]
-    public ValueList<LoyaltyProgramme3> LoyaltyProgramme { get; init; } = []; // Warning: Don't know multiplicity.
+    public LoyaltyProgramme3? LoyaltyProgramme { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AgreementNumber is IsoMax35Text AgreementNumberValue)
+        {
+            writer.WriteStartElement(null, "AgrmtNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AgreementNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdjustedIndicator is IsoTrueFalseIndicator AdjustedIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AdjstdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AdjustedIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (RentalLocation is Address2 RentalLocationValue)
+        {
+            writer.WriteStartElement(null, "RntlLctn", xmlNamespace );
+            RentalLocationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PickupLocation is Address2 PickupLocationValue)
+        {
+            writer.WriteStartElement(null, "PckpLctn", xmlNamespace );
+            PickupLocationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CheckOutDate is IsoISODate CheckOutDateValue)
+        {
+            writer.WriteStartElement(null, "ChckOutDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(CheckOutDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (CheckOutTime is IsoISOTime CheckOutTimeValue)
+        {
+            writer.WriteStartElement(null, "ChckOutTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(CheckOutTimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+        if (ReturnLocation is Address2 ReturnLocationValue)
+        {
+            writer.WriteStartElement(null, "RtrLctn", xmlNamespace );
+            ReturnLocationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CheckInDate is IsoISODate CheckInDateValue)
+        {
+            writer.WriteStartElement(null, "ChckInDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(CheckInDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (CheckInTime is IsoISOTime CheckInTimeValue)
+        {
+            writer.WriteStartElement(null, "ChckInTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(CheckInTimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+        if (Duration is IsoMax4NumericText DurationValue)
+        {
+            writer.WriteStartElement(null, "Drtn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(DurationValue)); // data type Max4NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (VehicleClassDetails is Vehicle4 VehicleClassDetailsValue)
+        {
+            writer.WriteStartElement(null, "VhclClssDtls", xmlNamespace );
+            VehicleClassDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TravelDistance is Distance1 TravelDistanceValue)
+        {
+            writer.WriteStartElement(null, "TrvlDstnc", xmlNamespace );
+            TravelDistanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RentalRate is RentalRate1 RentalRateValue)
+        {
+            writer.WriteStartElement(null, "RntlRate", xmlNamespace );
+            RentalRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RentalDetails is RentalDetails2 RentalDetailsValue)
+        {
+            writer.WriteStartElement(null, "RntlDtls", xmlNamespace );
+            RentalDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (VehicleRegistrationNumber is IsoMax70Text VehicleRegistrationNumberValue)
+        {
+            writer.WriteStartElement(null, "VhclRegnNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(VehicleRegistrationNumberValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (InsuranceIndicator is IsoTrueFalseIndicator InsuranceIndicatorValue)
+        {
+            writer.WriteStartElement(null, "InsrncInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(InsuranceIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalAmount is Amount18 AdditionalAmountValue)
+        {
+            writer.WriteStartElement(null, "AddtlAmt", xmlNamespace );
+            AdditionalAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EstimatedTax is Tax39 EstimatedTaxValue)
+        {
+            writer.WriteStartElement(null, "EstmtdTax", xmlNamespace );
+            EstimatedTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DiscountProgramme is Discount3 DiscountProgrammeValue)
+        {
+            writer.WriteStartElement(null, "DscntPrgrmm", xmlNamespace );
+            DiscountProgrammeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LoyaltyProgramme is LoyaltyProgramme3 LoyaltyProgrammeValue)
+        {
+            writer.WriteStartElement(null, "LltyPrgrmm", xmlNamespace );
+            LoyaltyProgrammeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static VehicleRentalAgreement2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

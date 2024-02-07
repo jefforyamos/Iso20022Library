@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Physical and logical characteristics of a POI component (Point of Interaction).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PointOfInteractionComponentCharacteristics3
+     : IIsoXmlSerilizable<PointOfInteractionComponentCharacteristics3>
 {
     #nullable enable
     
     /// <summary>
     /// Memory characteristics of the component.
     /// </summary>
-    [DataMember]
-    public ValueList<MemoryCharacteristics1> Memory { get; init; } = []; // Warning: Don't know multiplicity.
+    public MemoryCharacteristics1? Memory { get; init; } 
     /// <summary>
     /// Low level communication of the hardware or software component toward another component or an external entity.
     /// </summary>
-    [DataMember]
-    public ValueList<CommunicationCharacteristics3> Communication { get; init; } = []; // Warning: Don't know multiplicity.
+    public CommunicationCharacteristics3? Communication { get; init; } 
     /// <summary>
     /// Number of security access modules (SAM).
     /// </summary>
-    [DataMember]
     public IsoNumber? SecurityAccessModules { get; init; } 
     /// <summary>
     /// Number of subscriber identity modules (SIM).
     /// </summary>
-    [DataMember]
     public IsoNumber? SubscriberIdentityModules { get; init; } 
     /// <summary>
     /// Value for checking a cryptographic key security parameter.
     /// </summary>
-    [DataMember]
     public IsoMax35Binary? KeyCheckValue { get; init; } 
     /// <summary>
     /// Sufficient characteristic information to identify the Key Encryption Key.
     /// </summary>
-    [DataMember]
     public KEKIdentifier5? KeyCharacteristic { get; init; } 
     /// <summary>
     /// Use in DUKPT Key to carry last 5 bytes of derivation value.
     /// </summary>
-    [DataMember]
     public IsoMax5000Binary? EncryptedKey { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Memory is MemoryCharacteristics1 MemoryValue)
+        {
+            writer.WriteStartElement(null, "Mmry", xmlNamespace );
+            MemoryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Communication is CommunicationCharacteristics3 CommunicationValue)
+        {
+            writer.WriteStartElement(null, "Com", xmlNamespace );
+            CommunicationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecurityAccessModules is IsoNumber SecurityAccessModulesValue)
+        {
+            writer.WriteStartElement(null, "SctyAccsMdls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(SecurityAccessModulesValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (SubscriberIdentityModules is IsoNumber SubscriberIdentityModulesValue)
+        {
+            writer.WriteStartElement(null, "SbcbrIdntyMdls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(SubscriberIdentityModulesValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (KeyCheckValue is IsoMax35Binary KeyCheckValueValue)
+        {
+            writer.WriteStartElement(null, "KeyChckVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Binary(KeyCheckValueValue)); // data type Max35Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (KeyCharacteristic is KEKIdentifier5 KeyCharacteristicValue)
+        {
+            writer.WriteStartElement(null, "KeyChrtc", xmlNamespace );
+            KeyCharacteristicValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EncryptedKey is IsoMax5000Binary EncryptedKeyValue)
+        {
+            writer.WriteStartElement(null, "NcrptdKey", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax5000Binary(EncryptedKeyValue)); // data type Max5000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static PointOfInteractionComponentCharacteristics3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

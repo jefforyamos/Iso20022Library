@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.ModifyStandingOrderV07>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -35,10 +38,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// The transaction administrator may send a Receipt message as a reply to the Modify Standing Order request. To verify the outcome of the request, the member may submit a GetStandingOrder message with the appropriate search criteria.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The ModifyStandingOrder message is sent by a member to the transaction administrator.|It is used to request a change in the features of a permanent order for the transfer of funds between two accounts belonging to the same member and being held at the transaction administrator.|Usage|There should be one standing order per (direct) member and per business day. The ModifyStandingOrder message must not be used to request a transfer of funds between accounts during the working day. The liquidity transfer messages must be used for this purpose. There is no need to have a standing order to empty the settlement account at the end of the day and transfer the funds to the current account. For liquidity savings purposes, systems will effect the necessary transfers automatically when and where relevant.|The ModifyStandingOrder message first identifies the standing order to be modified and then provide the details of the new standing order. The elements that can be modified are:|- amount|- account to be credited|- account to be debited|- account owner (for on behalf scenario)|- frequency of payment|- daytime or overnight processing|- dates when the standing order begins and ceases to be effective|Based on the criteria received within the ModifyStandingOrder message, the transaction administrator will execute or reject the requested modifications.|The transaction administrator may send a Receipt message as a reply to the Modify Standing Order request. To verify the outcome of the request, the member may submit a GetStandingOrder message with the appropriate search criteria.")]
-public partial record ModifyStandingOrderV07 : IOuterRecord
+public partial record ModifyStandingOrderV07 : IOuterRecord<ModifyStandingOrderV07,ModifyStandingOrderV07Document>
+    ,IIsoXmlSerilizable<ModifyStandingOrderV07>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -50,6 +52,11 @@ public partial record ModifyStandingOrderV07 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "ModfyStgOrdr";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ModifyStandingOrderV07Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -100,6 +107,38 @@ public partial record ModifyStandingOrderV07 : IOuterRecord
     {
         return new ModifyStandingOrderV07Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("ModfyStgOrdr");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+        MessageHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StgOrdrId", xmlNamespace );
+        StandingOrderIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NewStgOrdrValSet", xmlNamespace );
+        NewStandingOrderValueSet.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ModifyStandingOrderV07 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -107,9 +146,7 @@ public partial record ModifyStandingOrderV07 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ModifyStandingOrderV07"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ModifyStandingOrderV07Document : IOuterDocument<ModifyStandingOrderV07>
+public partial record ModifyStandingOrderV07Document : IOuterDocument<ModifyStandingOrderV07>, IXmlSerializable
 {
     
     /// <summary>
@@ -125,5 +162,22 @@ public partial record ModifyStandingOrderV07Document : IOuterDocument<ModifyStan
     /// <summary>
     /// The instance of <seealso cref="ModifyStandingOrderV07"/> is required.
     /// </summary>
+    [DataMember(Name=ModifyStandingOrderV07.XmlTag)]
     public required ModifyStandingOrderV07 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ModifyStandingOrderV07.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

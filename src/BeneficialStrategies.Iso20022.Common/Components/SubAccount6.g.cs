@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SubAccount6
+     : IIsoXmlSerilizable<SubAccount6>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     /// <summary>
     /// Additional properties of the account.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Characteristic { get; init; } 
     /// <summary>
     /// Supplementary registration information applying to a specific block of units for dealing and reporting purposes. The supplementary registration information may be used when all the units are registered, for example, to a funds supermarket, but holdings for each investor have to reconciled individually.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountDesignation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Name is IsoMax35Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Characteristic is IsoMax35Text CharacteristicValue)
+        {
+            writer.WriteStartElement(null, "Chrtc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CharacteristicValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountDesignation is IsoMax35Text AccountDesignationValue)
+        {
+            writer.WriteStartElement(null, "AcctDsgnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountDesignationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SubAccount6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

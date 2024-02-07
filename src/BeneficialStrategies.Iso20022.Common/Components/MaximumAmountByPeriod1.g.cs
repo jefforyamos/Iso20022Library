@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Maximum amount allowed over a specific period of time.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MaximumAmountByPeriod1
+     : IIsoXmlSerilizable<MaximumAmountByPeriod1>
 {
     #nullable enable
     
     /// <summary>
     /// Maximum amount allowed over a specific period of time.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount MaximumAmount { get; init; } 
     /// <summary>
     /// Period specified as a number of days.
     /// </summary>
-    [DataMember]
     public required IsoMax3NumericText NumberOfDays { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MaxAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MaximumAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NbOfDays", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax3NumericText(NumberOfDays)); // data type Max3NumericText System.String
+        writer.WriteEndElement();
+    }
+    public static MaximumAmountByPeriod1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

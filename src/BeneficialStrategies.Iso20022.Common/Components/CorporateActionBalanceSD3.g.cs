@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action balance details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionBalanceSD3
+     : IIsoXmlSerilizable<CorporateActionBalanceSD3>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Position held in a security as of the day prior to publication date. This position is subject to a redemption lottery call when this is the first lottery. This balance will not be adjusted for the supplemental or concurrent lotteries and will remain constant to report the original position.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat9? OriginalBalance { get; init; } 
     /// <summary>
     /// Adjusted position held in a security that is subject to redemption call.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat9? AdjustedBalance { get; init; } 
     /// <summary>
     /// Portion of the Original Balance position held in DTC General Free account as of day prior to Publication Date. Position held in this account is subject to redemption lottery call.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat9? UnpledgedBalance { get; init; } 
     /// <summary>
     /// Portion of the Original Balance position held in DTC Segregated account as of day prior to Publication Date. Position held in this account is subject to redemption lottery call and must be released to allow allocation.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat9? InvestmentUnpledgedBalance { get; init; } 
     /// <summary>
     /// Portion of the Original Balance position held in DTC Investment account as of day prior to Publication Date. Position held in this account is subject to redemption lottery call and must be released to allow allocation.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat9? InvestmentPledgedBalance { get; init; } 
     /// <summary>
     /// Position held in DTC Segregated account. This position is eligible for payment.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat9? MemoSegregationBalance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (OriginalBalance is SignedQuantityFormat9 OriginalBalanceValue)
+        {
+            writer.WriteStartElement(null, "OrgnlBal", xmlNamespace );
+            OriginalBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdjustedBalance is SignedQuantityFormat9 AdjustedBalanceValue)
+        {
+            writer.WriteStartElement(null, "AdjstdBal", xmlNamespace );
+            AdjustedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnpledgedBalance is SignedQuantityFormat9 UnpledgedBalanceValue)
+        {
+            writer.WriteStartElement(null, "UpldgdBal", xmlNamespace );
+            UnpledgedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestmentUnpledgedBalance is SignedQuantityFormat9 InvestmentUnpledgedBalanceValue)
+        {
+            writer.WriteStartElement(null, "InvstmtUpldgdBal", xmlNamespace );
+            InvestmentUnpledgedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestmentPledgedBalance is SignedQuantityFormat9 InvestmentPledgedBalanceValue)
+        {
+            writer.WriteStartElement(null, "InvstmtPldgdBal", xmlNamespace );
+            InvestmentPledgedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MemoSegregationBalance is SignedQuantityFormat9 MemoSegregationBalanceValue)
+        {
+            writer.WriteStartElement(null, "MemoSgrtnBal", xmlNamespace );
+            MemoSegregationBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionBalanceSD3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

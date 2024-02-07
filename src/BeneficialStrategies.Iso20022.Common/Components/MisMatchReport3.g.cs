@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Description of the mis-matched situation between two baselines or between a baseline and a data set.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MisMatchReport3
+     : IIsoXmlSerilizable<MisMatchReport3>
 {
     #nullable enable
     
     /// <summary>
     /// Total number of mismatches between two baselines or between one baseline and one data set.
     /// </summary>
-    [DataMember]
     public required IsoNumber NumberOfMisMatches { get; init; } 
     /// <summary>
     /// Details of each mismatch occurrence.
     /// </summary>
-    [DataMember]
-    public ValueList<ValidationResult5> MisMatchInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public ValidationResult5? MisMatchInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NbOfMisMtchs", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfMisMatches)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        if (MisMatchInformation is ValidationResult5 MisMatchInformationValue)
+        {
+            writer.WriteStartElement(null, "MisMtchInf", xmlNamespace );
+            MisMatchInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MisMatchReport3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

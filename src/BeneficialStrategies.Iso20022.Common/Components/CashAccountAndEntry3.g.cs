@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashAccountAndEntry3
+     : IIsoXmlSerilizable<CashAccountAndEntry3>
 {
     #nullable enable
     
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    [DataMember]
     public required CashAccount39 Account { get; init; } 
     /// <summary>
     /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
     /// </summary>
-    [DataMember]
     public CashEntry2? Entry { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Acct", xmlNamespace );
+        Account.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Entry is CashEntry2 EntryValue)
+        {
+            writer.WriteStartElement(null, "Ntry", xmlNamespace );
+            EntryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CashAccountAndEntry3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

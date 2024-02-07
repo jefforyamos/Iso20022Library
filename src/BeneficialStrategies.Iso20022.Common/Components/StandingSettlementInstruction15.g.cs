@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the standing settlement instruction to be applied.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StandingSettlementInstruction15
+     : IIsoXmlSerilizable<StandingSettlementInstruction15>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies what settlement standing instruction database is to be used to derive the settlement parties involved in the transaction.
     /// </summary>
-    [DataMember]
     public required SettlementStandingInstructionDatabase5Choice_ SettlementStandingInstructionDatabase { get; init; } 
     /// <summary>
     /// Identification of the buyer or seller in a standing settlement instruction enabling to derive the Standing Settlement Instruction.
     /// </summary>
-    [DataMember]
     public required Counterparty12Choice_ Counterparty { get; init; } 
     /// <summary>
     /// Vendor of the Settlement Standing Instruction database requested to be consulted.
     /// </summary>
-    [DataMember]
     public PartyIdentification111? Vendor { get; init; } 
     /// <summary>
     /// Delivering parties, other than the seller, needed for deriving the standing settlement instruction (for example, depository) or provided for information purposes (for example, instructing party settlement chain).
     /// </summary>
-    [DataMember]
     public SettlementParties64? OtherDeliveringSettlementParties { get; init; } 
     /// <summary>
     /// Receiving parties, other than the buyer, needed for deriving the standing settlement instruction (for example, depository) or provided for information purposes (for example, instructing party settlement chain).
     /// </summary>
-    [DataMember]
     public SettlementParties64? OtherReceivingSettlementParties { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttlmStgInstrDB", xmlNamespace );
+        SettlementStandingInstructionDatabase.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CtrPty", xmlNamespace );
+        Counterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Vendor is PartyIdentification111 VendorValue)
+        {
+            writer.WriteStartElement(null, "Vndr", xmlNamespace );
+            VendorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherDeliveringSettlementParties is SettlementParties64 OtherDeliveringSettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "OthrDlvrgSttlmPties", xmlNamespace );
+            OtherDeliveringSettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherReceivingSettlementParties is SettlementParties64 OtherReceivingSettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "OthrRcvgSttlmPties", xmlNamespace );
+            OtherReceivingSettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static StandingSettlementInstruction15 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

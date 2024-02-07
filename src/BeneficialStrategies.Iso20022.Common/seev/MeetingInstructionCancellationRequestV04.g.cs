@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.MeetingInstructionCancellationRequestV04>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -24,10 +27,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// This message must be answered by a MeetingInstructionStatus message. Some instructions in the previously sent MeetingInstruction message may have already been executed and cannot be cancelled. This information should appear clearly in the status message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The MeetingInstructionCancellationRequest message is sent by the same party that sent the MeetingInstruction message. It is sent to request the cancellation of all instructions included in the original the MeetingInstruction message.|Usage|This message must be answered by a MeetingInstructionStatus message. Some instructions in the previously sent MeetingInstruction message may have already been executed and cannot be cancelled. This information should appear clearly in the status message.")]
-public partial record MeetingInstructionCancellationRequestV04 : IOuterRecord
+public partial record MeetingInstructionCancellationRequestV04 : IOuterRecord<MeetingInstructionCancellationRequestV04,MeetingInstructionCancellationRequestV04Document>
+    ,IIsoXmlSerilizable<MeetingInstructionCancellationRequestV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -39,6 +41,11 @@ public partial record MeetingInstructionCancellationRequestV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MtgInstrCxlReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => MeetingInstructionCancellationRequestV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -115,6 +122,59 @@ public partial record MeetingInstructionCancellationRequestV04 : IOuterRecord
     {
         return new MeetingInstructionCancellationRequestV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MtgInstrCxlReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+        PreviousReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MeetingReference is MeetingReference4 MeetingReferenceValue)
+        {
+            writer.WriteStartElement(null, "MtgRef", xmlNamespace );
+            MeetingReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequestingParty is PartyIdentification9Choice_ RequestingPartyValue)
+        {
+            writer.WriteStartElement(null, "RqstngPty", xmlNamespace );
+            RequestingPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecurityIdentification is SecurityIdentification11 SecurityIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SctyId", xmlNamespace );
+            SecurityIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructedPosition is SafekeepingAccount4 InstructedPositionValue)
+        {
+            writer.WriteStartElement(null, "InstdPos", xmlNamespace );
+            InstructedPositionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension2 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MeetingInstructionCancellationRequestV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -122,9 +182,7 @@ public partial record MeetingInstructionCancellationRequestV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingInstructionCancellationRequestV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record MeetingInstructionCancellationRequestV04Document : IOuterDocument<MeetingInstructionCancellationRequestV04>
+public partial record MeetingInstructionCancellationRequestV04Document : IOuterDocument<MeetingInstructionCancellationRequestV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -140,5 +198,22 @@ public partial record MeetingInstructionCancellationRequestV04Document : IOuterD
     /// <summary>
     /// The instance of <seealso cref="MeetingInstructionCancellationRequestV04"/> is required.
     /// </summary>
+    [DataMember(Name=MeetingInstructionCancellationRequestV04.XmlTag)]
     public required MeetingInstructionCancellationRequestV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(MeetingInstructionCancellationRequestV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

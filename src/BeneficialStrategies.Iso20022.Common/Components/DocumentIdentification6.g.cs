@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies a document by a unique identification and a version.|Also provides reference to a baseline amendment number.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DocumentIdentification6
+     : IIsoXmlSerilizable<DocumentIdentification6>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a set of data.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the version of a set of data. Example: Version 1.
     /// </summary>
-    [DataMember]
     public required IsoNumber Version { get; init; } 
     /// <summary>
     /// Number that is assigned sequentially by the TSU to a baseline amendment.
     /// </summary>
-    [DataMember]
     public IsoMax3NumericText? AmendmentSequenceNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(Version)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        if (AmendmentSequenceNumber is IsoMax3NumericText AmendmentSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "AmdmntSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(AmendmentSequenceNumberValue)); // data type Max3NumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static DocumentIdentification6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

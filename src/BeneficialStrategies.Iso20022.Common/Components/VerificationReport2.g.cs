@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details of the verification of identification data for which verification was requested.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record VerificationReport2
+     : IIsoXmlSerilizable<VerificationReport2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by a sending party, to unambiguously identify the party and account identification information group within the original message.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OriginalIdentification { get; init; } 
     /// <summary>
     /// Identifies whether the party and/or account information received is correct.
     /// </summary>
-    [DataMember]
     public required IsoIdentificationVerificationIndicator Verification { get; init; } 
     /// <summary>
     /// Specifies the reason why the verified identification information is incorrect.
     /// </summary>
-    [DataMember]
     public VerificationReason1Choice_? Reason { get; init; } 
     /// <summary>
     /// Provides party and/or account identification information as given in the original message.
     /// </summary>
-    [DataMember]
     public IdentificationInformation2? OriginalPartyAndAccountIdentification { get; init; } 
     /// <summary>
     /// Provides party and/or account identification information.
     /// </summary>
-    [DataMember]
     public IdentificationInformation2? UpdatedPartyAndAccountIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OrgnlId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Vrfctn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoIdentificationVerificationIndicator(Verification)); // data type IdentificationVerificationIndicator System.String
+        writer.WriteEndElement();
+        if (Reason is VerificationReason1Choice_ ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            ReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalPartyAndAccountIdentification is IdentificationInformation2 OriginalPartyAndAccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlPtyAndAcctId", xmlNamespace );
+            OriginalPartyAndAccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UpdatedPartyAndAccountIdentification is IdentificationInformation2 UpdatedPartyAndAccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "UpdtdPtyAndAcctId", xmlNamespace );
+            UpdatedPartyAndAccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static VerificationReport2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

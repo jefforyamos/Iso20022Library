@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details on the settlement fails per currency.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementFailsCurrency2
+     : IIsoXmlSerilizable<SettlementFailsCurrency2>
 {
     #nullable enable
     
@@ -23,13 +24,34 @@ public partial record SettlementFailsCurrency2
     /// Currency of the cash counter value specified in a settlement instruction.
     /// Usage: this is the currency in which the aggregate values have to be reported for the settlement fails per currency.
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Aggregated data of all settlement transactions per currency.
     /// </summary>
-    [DataMember]
     public required SettlementTotalData1 Data { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ccy", xmlNamespace );
+        writer.WriteValue(Currency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Data", xmlNamespace );
+        Data.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SettlementFailsCurrency2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

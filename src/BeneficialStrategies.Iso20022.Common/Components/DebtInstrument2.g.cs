@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the debit instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DebtInstrument2
+     : IIsoXmlSerilizable<DebtInstrument2>
 {
     #nullable enable
     
     /// <summary>
     /// Total issued nominal amount in monetary value.
     /// </summary>
-    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount TotalIssuedNominalAmount { get; init; } 
     /// <summary>
     /// Maturity date of the financial instrument.
     /// </summary>
-    [DataMember]
     public IsoISODate? MaturityDate { get; init; } 
     /// <summary>
     /// Nominal value of each instrument. If not available, the minimum traded value should be populated.
     /// </summary>
-    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount NominalValuePerUnit { get; init; } 
     /// <summary>
     /// Interest rate of the debt instrument.
     /// </summary>
-    [DataMember]
     public required InterestRate6Choice_ InterestRate { get; init; } 
     /// <summary>
     /// Seniority for a specific debt instrument.
     /// </summary>
-    [DataMember]
     public DebtInstrumentSeniorityType1Code? DebtSeniority { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TtlIssdNmnlAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalIssuedNominalAmount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (MaturityDate is IsoISODate MaturityDateValue)
+        {
+            writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(MaturityDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "NmnlValPerUnit", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(NominalValuePerUnit)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IntrstRate", xmlNamespace );
+        InterestRate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DebtSeniority is DebtInstrumentSeniorityType1Code DebtSeniorityValue)
+        {
+            writer.WriteStartElement(null, "DebtSnrty", xmlNamespace );
+            writer.WriteValue(DebtSeniorityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static DebtInstrument2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

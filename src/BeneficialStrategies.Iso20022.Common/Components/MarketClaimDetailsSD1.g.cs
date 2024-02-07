@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification information expressed as a country of fiscal domicile and a reference.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MarketClaimDetailsSD1
+     : IIsoXmlSerilizable<MarketClaimDetailsSD1>
 {
     #nullable enable
     
     /// <summary>
     /// Country in which the account owner has one's fiscal domicile.
     /// </summary>
-    [DataMember]
     public required CountryCode FiscalDomicile { get; init; } 
     /// <summary>
     /// Identification of the document assigned by the account servicer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountServicerIdentification { get; init; } 
     /// <summary>
     /// Identification of the document assigned by the account owner.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Percentage of a cash distribution that will be withheld by the tax authorities of the jurisdiction of the issuer, for which a relief at source and/or reclaim may be possible.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? TaxRate { get; init; } 
     /// <summary>
     /// Quantity of securities that do not impact the taxable record date entitlement.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity18Choice_? CashCompensation { get; init; } 
     /// <summary>
     /// Quantity of securities that impact the taxable record date entitlement.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity18Choice_? DividendCorrection { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FsclDmcl", xmlNamespace );
+        writer.WriteValue(FiscalDomicile.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AccountServicerIdentification is IsoMax35Text AccountServicerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountServicerIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountOwnerIdentification is IsoMax35Text AccountOwnerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountOwnerIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TaxRate is IsoPercentageRate TaxRateValue)
+        {
+            writer.WriteStartElement(null, "TaxRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(TaxRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CashCompensation is FinancialInstrumentQuantity18Choice_ CashCompensationValue)
+        {
+            writer.WriteStartElement(null, "CshCompstn", xmlNamespace );
+            CashCompensationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DividendCorrection is FinancialInstrumentQuantity18Choice_ DividendCorrectionValue)
+        {
+            writer.WriteStartElement(null, "DvddCrrctn", xmlNamespace );
+            DividendCorrectionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MarketClaimDetailsSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

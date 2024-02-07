@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CollateralValueCriteriaDefinition2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueCriteriaDefinitio
 /// Explicitly defines the query criteria.
 /// </summary>
 public partial record NewCriteria : CollateralValueCriteriaDefinition2Choice_
+     , IIsoXmlSerilizable<NewCriteria>
 {
     #nullable enable
+    
     /// <summary>
     /// Name of the query defined by the search criteria and return criteria.
     /// </summary>
@@ -27,5 +31,41 @@ public partial record NewCriteria : CollateralValueCriteriaDefinition2Choice_
     /// Defines the expected account report.
     /// </summary>
     public CashAccountReturnCriteria2? ReturnCriteria { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (QueryName is IsoMax35Text QueryNameValue)
+        {
+            writer.WriteStartElement(null, "QryNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(QueryNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SearchCriteria is CollateralValueSearchCriteria2 SearchCriteriaValue)
+        {
+            writer.WriteStartElement(null, "SchCrit", xmlNamespace );
+            SearchCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReturnCriteria is CashAccountReturnCriteria2 ReturnCriteriaValue)
+        {
+            writer.WriteStartElement(null, "RtrCrit", xmlNamespace );
+            ReturnCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new NewCriteria Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

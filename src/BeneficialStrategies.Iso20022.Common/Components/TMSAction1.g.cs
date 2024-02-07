@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Single terminal management action to be performed by the point of interaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TMSAction1
+     : IIsoXmlSerilizable<TMSAction1>
 {
     #nullable enable
     
     /// <summary>
     /// Types of action to be performed by a point of interaction (POI).
     /// </summary>
-    [DataMember]
     public required TerminalManagementAction1Code Type { get; init; } 
     /// <summary>
     /// Communication parameters of the terminal management system to contact.
     /// </summary>
-    [DataMember]
     public NetworkParameters1? Address { get; init; } 
     /// <summary>
     /// Data set on which the action has to be performed.
     /// </summary>
-    [DataMember]
     public DataSetIdentification2? DataSetIdentification { get; init; } 
     /// <summary>
     /// Event on which the action has to be activated by the point of interaction (POI).
     /// </summary>
-    [DataMember]
     public required TerminalManagementActionTrigger1Code Trigger { get; init; } 
     /// <summary>
     /// Additional process to perform before starting or after completing the action by the point of interaction (POI).
     /// </summary>
-    [DataMember]
     public TerminalManagementAdditionalProcess1Code? AdditionalProcess { get; init; } 
     /// <summary>
     /// Date and time the action has to be performed.
     /// </summary>
-    [DataMember]
     public ProcessTiming1? TimeCondition { get; init; } 
     /// <summary>
     /// Action to perform in case of error on the related action in progress.
     /// </summary>
-    [DataMember]
-    public ValueList<ErrorAction1> ErrorAction { get; init; } = []; // Warning: Don't know multiplicity.
+    public ErrorAction1? ErrorAction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Address is NetworkParameters1 AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DataSetIdentification is DataSetIdentification2 DataSetIdentificationValue)
+        {
+            writer.WriteStartElement(null, "DataSetId", xmlNamespace );
+            DataSetIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Trggr", xmlNamespace );
+        writer.WriteValue(Trigger.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AdditionalProcess is TerminalManagementAdditionalProcess1Code AdditionalProcessValue)
+        {
+            writer.WriteStartElement(null, "AddtlPrc", xmlNamespace );
+            writer.WriteValue(AdditionalProcessValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TimeCondition is ProcessTiming1 TimeConditionValue)
+        {
+            writer.WriteStartElement(null, "TmCond", xmlNamespace );
+            TimeConditionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ErrorAction is ErrorAction1 ErrorActionValue)
+        {
+            writer.WriteStartElement(null, "ErrActn", xmlNamespace );
+            ErrorActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TMSAction1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

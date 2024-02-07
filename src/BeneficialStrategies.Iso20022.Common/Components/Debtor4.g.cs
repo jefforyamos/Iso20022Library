@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the debtor.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Debtor4
+     : IIsoXmlSerilizable<Debtor4>
 {
     #nullable enable
     
     /// <summary>
     /// Party that owes an amount of money to the (ultimate) creditor. In the context of the payment model, the debtor is also the debit account owner.
     /// </summary>
-    [DataMember]
     public PartyIdentification178Choice_? Debtor { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public CashAccountIdentification7Choice_? AccountIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Debtor is PartyIdentification178Choice_ DebtorValue)
+        {
+            writer.WriteStartElement(null, "Dbtr", xmlNamespace );
+            DebtorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountIdentification is CashAccountIdentification7Choice_ AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            AccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Debtor4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

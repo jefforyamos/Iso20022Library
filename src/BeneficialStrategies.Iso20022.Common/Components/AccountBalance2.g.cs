@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Balance of the account involved in the card transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountBalance2
+     : IIsoXmlSerilizable<AccountBalance2>
 {
     #nullable enable
     
@@ -23,13 +24,37 @@ public partial record AccountBalance2
     /// Account for which a balance is sought.
     /// This code list is maintained by the ISO 8583/MA (maintenance agency).
     /// </summary>
-    [DataMember]
     public required ISO8583AccountTypeCode AccountType { get; init; } 
     /// <summary>
     /// Balance of the account.
     /// </summary>
-    [DataMember]
-    public ValueList<Balance28> Balance { get; init; } = []; // Warning: Don't know multiplicity.
+    public Balance28? Balance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AcctTp", xmlNamespace );
+        writer.WriteValue(AccountType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Balance is Balance28 BalanceValue)
+        {
+            writer.WriteStartElement(null, "Bal", xmlNamespace );
+            BalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountBalance2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

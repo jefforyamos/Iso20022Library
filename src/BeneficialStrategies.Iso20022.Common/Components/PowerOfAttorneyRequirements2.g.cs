@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the conditions to be filled in to obtain a valid power of attorney.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PowerOfAttorneyRequirements2
+     : IIsoXmlSerilizable<PowerOfAttorneyRequirements2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the power of attorney needs to be validated by some authority.
     /// </summary>
-    [DataMember]
-    public ValueList<PowerOfAttorneyLegalisation1Code> LegalRequirement { get; init; } = [];
+    public SimpleValueList<PowerOfAttorneyLegalisation1Code> LegalRequirement { get; init; } = [];
     /// <summary>
     /// Specifies the documents needed to obtain a valid power of attorney.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? OtherDocumentation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "LglRqrmnt", xmlNamespace );
+        writer.WriteValue(LegalRequirement.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherDocumentation is IsoMax350Text OtherDocumentationValue)
+        {
+            writer.WriteStartElement(null, "OthrDcmnttn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(OtherDocumentationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PowerOfAttorneyRequirements2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

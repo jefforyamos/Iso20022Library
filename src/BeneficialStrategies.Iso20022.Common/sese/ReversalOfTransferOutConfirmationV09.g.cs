@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.ReversalOfTransferOutConfirmationV09>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// The message identification of the original TransferOutConfirmation message may also be quoted in PreviousReference but this is not recommended.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The ReversalOfTransferOutConfirmation message is sent by an executing party, for example, a transfer agent, to the instructing party, for example, an investment manager or its authorised representative, to cancel a previously sent transfer out confirmation.|Usage|The ReversalOfTransferOutConfirmation message is used to reverse a previously sent transfer out confirmation.|To request the reversal of a transfer out confirmation, the transfer reference of the transfer out instruction, as specified in the original TransferOutInstruction message, is specified in the transfer reference element. The executing party’s reference for the execution of the transfer may also be specified in the TransferConfirmationReference element.|The message identification of the original TransferOutConfirmation message may also be quoted in PreviousReference but this is not recommended.")]
-public partial record ReversalOfTransferOutConfirmationV09 : IOuterRecord
+public partial record ReversalOfTransferOutConfirmationV09 : IOuterRecord<ReversalOfTransferOutConfirmationV09,ReversalOfTransferOutConfirmationV09Document>
+    ,IIsoXmlSerilizable<ReversalOfTransferOutConfirmationV09>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record ReversalOfTransferOutConfirmationV09 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "RvslOfTrfOutConf";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ReversalOfTransferOutConfirmationV09Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -126,6 +133,65 @@ public partial record ReversalOfTransferOutConfirmationV09 : IOuterRecord
     {
         return new ReversalOfTransferOutConfirmationV09Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("RvslOfTrfOutConf");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PoolReference is AdditionalReference11 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousReference is AdditionalReference10 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference10 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RvslRefs", xmlNamespace );
+        ReversalReferences.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MarketPracticeVersion is MarketPracticeVersion1 MarketPracticeVersionValue)
+        {
+            writer.WriteStartElement(null, "MktPrctcVrsn", xmlNamespace );
+            MarketPracticeVersionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CopyDetails is CopyInformation5 CopyDetailsValue)
+        {
+            writer.WriteStartElement(null, "CpyDtls", xmlNamespace );
+            CopyDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ReversalOfTransferOutConfirmationV09 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -133,9 +199,7 @@ public partial record ReversalOfTransferOutConfirmationV09 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReversalOfTransferOutConfirmationV09"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ReversalOfTransferOutConfirmationV09Document : IOuterDocument<ReversalOfTransferOutConfirmationV09>
+public partial record ReversalOfTransferOutConfirmationV09Document : IOuterDocument<ReversalOfTransferOutConfirmationV09>, IXmlSerializable
 {
     
     /// <summary>
@@ -151,5 +215,22 @@ public partial record ReversalOfTransferOutConfirmationV09Document : IOuterDocum
     /// <summary>
     /// The instance of <seealso cref="ReversalOfTransferOutConfirmationV09"/> is required.
     /// </summary>
+    [DataMember(Name=ReversalOfTransferOutConfirmationV09.XmlTag)]
     public required ReversalOfTransferOutConfirmationV09 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ReversalOfTransferOutConfirmationV09.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

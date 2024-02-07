@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Report information about securities account reference data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesAccountAuditTrailReport3
+     : IIsoXmlSerilizable<SecuritiesAccountAuditTrailReport3>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the returned securities account reference data or error information.
     /// </summary>
-    [DataMember]
     public required AuditTrailOrBusinessError6Choice_ SecuritiesAccountAuditTrailOrError { get; init; } 
     /// <summary>
     /// Period in dates for which the audit trail is provided.
     /// </summary>
-    [DataMember]
     public DatePeriodSearch1Choice_? DatePeriod { get; init; } 
     /// <summary>
     /// Identifies the securities account for which the audit trail is provided.
     /// </summary>
-    [DataMember]
     public required SecuritiesAccount19 SecuritiesAccountIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SctiesAcctAudtTrlOrErr", xmlNamespace );
+        SecuritiesAccountAuditTrailOrError.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DatePeriod is DatePeriodSearch1Choice_ DatePeriodValue)
+        {
+            writer.WriteStartElement(null, "DtPrd", xmlNamespace );
+            DatePeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SctiesAcctId", xmlNamespace );
+        SecuritiesAccountIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SecuritiesAccountAuditTrailReport3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

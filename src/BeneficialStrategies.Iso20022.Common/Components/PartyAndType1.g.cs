@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Party type and party identification information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyAndType1
+     : IIsoXmlSerilizable<PartyAndType1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of additional party.
     /// </summary>
-    [DataMember]
     public required PartyType1Choice_ Type { get; init; } 
     /// <summary>
     /// Details related to the additional party.
     /// </summary>
-    [DataMember]
     public PartyIdentification43? Party { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Party is PartyIdentification43 PartyValue)
+        {
+            writer.WriteStartElement(null, "Pty", xmlNamespace );
+            PartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyAndType1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

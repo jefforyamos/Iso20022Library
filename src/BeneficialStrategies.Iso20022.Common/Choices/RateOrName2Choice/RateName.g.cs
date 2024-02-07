@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.RateOrName2Choice;
 
@@ -13,15 +15,41 @@ namespace BeneficialStrategies.Iso20022.Choices.RateOrName2Choice;
 /// Pricing expressed as a rate name.
 /// </summary>
 public partial record RateName : RateOrName2Choice_
+     , IIsoXmlSerilizable<RateName>
 {
     #nullable enable
+    
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>
     public IsoRestrictedFINXMax8Text? Issuer { get; init; } 
-    /// <summary>
-    /// Rate Name specifies the reference rate or basis rate on which a variable rate is based (ex: EONIA, EURIBOR, LIBOR, FEFUND, EURREPO).
-    /// </summary>
-    public required IsoRestrictedFINXMax24Text RateNameValue { get; init; } 
+    public required IsoRestrictedFINXMax24Text Value { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Issuer is IsoRestrictedFINXMax8Text IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax8Text(IssuerValue)); // data type RestrictedFINXMax8Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RateNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax24Text(Value)); // data type RestrictedFINXMax24Text System.String
+        writer.WriteEndElement();
+    }
+    public static new RateName Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

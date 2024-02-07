@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains departure or arrival information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DepartureOrArrival1
+     : IIsoXmlSerilizable<DepartureOrArrival1>
 {
     #nullable enable
     
     /// <summary>
     /// Departure or arrival location (for example, city, airport code, station id, etc). 
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Location { get; init; } 
     /// <summary>
     /// Specific explanation of the location or directions. 
     /// </summary>
-    [DataMember]
     public IsoMax256Text? Description { get; init; } 
     /// <summary>
     /// Departure or arrival date.
     /// </summary>
-    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// Departure or arrival time. 
     /// </summary>
-    [DataMember]
     public IsoISOTime? Time { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Location is IsoMax70Text LocationValue)
+        {
+            writer.WriteStartElement(null, "Lctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(LocationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Description is IsoMax256Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(DescriptionValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (Date is IsoISODate DateValue)
+        {
+            writer.WriteStartElement(null, "Dt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Time is IsoISOTime TimeValue)
+        {
+            writer.WriteStartElement(null, "Tm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(TimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static DepartureOrArrival1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

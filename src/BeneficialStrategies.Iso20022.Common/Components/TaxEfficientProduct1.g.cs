@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Characteristics of a tax efficient product.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxEfficientProduct1
+     : IIsoXmlSerilizable<TaxEfficientProduct1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of tax efficient product, for example, an individual savings account (ISA) in the UK.
     /// </summary>
-    [DataMember]
     public required TaxEfficientProductType1Choice_ TaxEfficientProductType { get; init; } 
     /// <summary>
     /// Investment plans issued during previous years.
     /// </summary>
-    [DataMember]
     public PreviousYear2Choice_? PreviousYears { get; init; } 
     /// <summary>
     /// Indicates that the product was issued during the current fiscal year.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? CurrentYear { get; init; } 
     /// <summary>
     /// Additional information about the tax efficient product.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TaxEffcntPdctTp", xmlNamespace );
+        TaxEfficientProductType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PreviousYears is PreviousYear2Choice_ PreviousYearsValue)
+        {
+            writer.WriteStartElement(null, "PrvsYrs", xmlNamespace );
+            PreviousYearsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CurrentYear is IsoYesNoIndicator CurrentYearValue)
+        {
+            writer.WriteStartElement(null, "CurYr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CurrentYearValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TaxEfficientProduct1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

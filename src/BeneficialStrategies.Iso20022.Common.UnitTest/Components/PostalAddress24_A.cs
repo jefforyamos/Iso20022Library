@@ -20,8 +20,8 @@ public class PostalAddress24_A : TestPublishedSample<PostalAddress24>
     [Fact]
     public void TestValueEquivalentList()
     {
-        var list1 = new ValueList<string> { "One", "Two", "Three"};
-        var list2 = new ValueList<string> { "One", "Two", "Three"};
+        var list1 = new SimpleValueList<string> { "One", "Two", "Three"};
+        var list2 = new SimpleValueList<string> { "One", "Two", "Three"};
         Assert.Equal(list1, list2);
     }
 

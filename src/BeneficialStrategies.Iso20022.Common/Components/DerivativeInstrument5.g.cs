@@ -7,64 +7,122 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the derivative instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DerivativeInstrument5
+     : IIsoXmlSerilizable<DerivativeInstrument5>
 {
     #nullable enable
     
     /// <summary>
     /// Expiry date of the financial instrument.
     /// </summary>
-    [DataMember]
     public IsoISODate? ExpiryDate { get; init; } 
     /// <summary>
     /// Number of units of the underlying instrument represented by a single derivative contract. For a future or option on an index, the amount per index point.
     /// </summary>
-    [DataMember]
     public IsoNonNegativeDecimalNumber? PriceMultiplier { get; init; } 
     /// <summary>
     /// Choice to specify the type(s) of underlying instrument(s) that make up the financial instrument.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentIdentification5Choice_? UnderlyingInstrument { get; init; } 
     /// <summary>
     /// Specifies whether it is a call option (right to purchase a specific underlying asset) or a put option (right to sell a specific underlying asset).
     /// Usage:
     /// Within the scope of MiFIR, RTS 23, the following meanings should be used where a swaption is being detailed, “Put”, in case of receiver swaption, in which the buyer has the right to enter into a swap as a fixed-rate receiver. Call”, in case of payer swaption, in which the buyer has the right to enter into a swap as a fixed-rate payer. Caps and floors shall interpret this field as, "Put”, in case of a Floor, "Call”, in case of a Cap. Field only applies to derivatives that are options or warrants.
     /// </summary>
-    [DataMember]
     public OptionType2Code? OptionType { get; init; } 
     /// <summary>
     /// Attributes to specify the strike price of a derivative.
     /// Usage:
     /// Within the scope of MiFIR RTS 23, these are the fields 31 and 32. This field only applies to options, warrants, spread bet on an option on an equity or contract for difference on an option on an equity. Where price is currently not available but pending, the value shall be ’PNDG’. Where strike price is not applicable it shall not be populated.
     /// </summary>
-    [DataMember]
     public SecuritiesTransactionPrice4Choice_? StrikePrice { get; init; } 
     /// <summary>
     /// Indication as to whether the option may be exercised only at a fixed date (European, and Asian style), a series of pre-specified dates (Bermudan) or at any time during the life of the contract (American style).
     /// Usage:
     /// Within the scope of MiFIR, RTS 23, this field is only applicable for options, warrants and entitlement certificates.
     /// </summary>
-    [DataMember]
     public OptionStyle7Code? OptionExerciseStyle { get; init; } 
     /// <summary>
     /// Indicates whether the transaction is settled physically or in cash.
     /// </summary>
-    [DataMember]
     public PhysicalTransferType4Code? DeliveryType { get; init; } 
     /// <summary>
     /// Specific attributes of the underlying asset class of the financial instrument.
     /// </summary>
-    [DataMember]
     public AssetClass2? AssetClassSpecificAttributes { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ExpiryDate is IsoISODate ExpiryDateValue)
+        {
+            writer.WriteStartElement(null, "XpryDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExpiryDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (PriceMultiplier is IsoNonNegativeDecimalNumber PriceMultiplierValue)
+        {
+            writer.WriteStartElement(null, "PricMltplr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNonNegativeDecimalNumber(PriceMultiplierValue)); // data type NonNegativeDecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (UnderlyingInstrument is FinancialInstrumentIdentification5Choice_ UnderlyingInstrumentValue)
+        {
+            writer.WriteStartElement(null, "UndrlygInstrm", xmlNamespace );
+            UnderlyingInstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionType is OptionType2Code OptionTypeValue)
+        {
+            writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+            writer.WriteValue(OptionTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (StrikePrice is SecuritiesTransactionPrice4Choice_ StrikePriceValue)
+        {
+            writer.WriteStartElement(null, "StrkPric", xmlNamespace );
+            StrikePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionExerciseStyle is OptionStyle7Code OptionExerciseStyleValue)
+        {
+            writer.WriteStartElement(null, "OptnExrcStyle", xmlNamespace );
+            writer.WriteValue(OptionExerciseStyleValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DeliveryType is PhysicalTransferType4Code DeliveryTypeValue)
+        {
+            writer.WriteStartElement(null, "DlvryTp", xmlNamespace );
+            writer.WriteValue(DeliveryTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AssetClassSpecificAttributes is AssetClass2 AssetClassSpecificAttributesValue)
+        {
+            writer.WriteStartElement(null, "AsstClssSpcfcAttrbts", xmlNamespace );
+            AssetClassSpecificAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DerivativeInstrument5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

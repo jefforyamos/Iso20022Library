@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Net position of a segregated holding of a single security within the overall position held in the securities account, eg, sub-balance per status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalBalanceInformation2
+     : IIsoXmlSerilizable<AdditionalBalanceInformation2>
 {
     #nullable enable
     
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    [DataMember]
     public required SubBalanceQuantity1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Reason a security is not available or additional information about the financial instrument for which the balance is given, for example, unregistered, registered in nominee name.
     /// </summary>
-    [DataMember]
     public required SecuritiesBalanceType2Code SubBalanceType { get; init; } 
     /// <summary>
     /// Reason a security is not available or additional information about the financial instrument for which the balance is given, for example, unregistered, registered in nominee name.
     /// </summary>
-    [DataMember]
     public required IsoExtended350Code ExtendedSubBalanceType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        Quantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SubBalTp", xmlNamespace );
+        writer.WriteValue(SubBalanceType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtndedSubBalTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedSubBalanceType)); // data type Extended350Code System.String
+        writer.WriteEndElement();
+    }
+    public static AdditionalBalanceInformation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

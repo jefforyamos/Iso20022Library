@@ -7,32 +7,30 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the service details for the creditor enrolment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CreditorServiceEnrolment1
+     : IIsoXmlSerilizable<CreditorServiceEnrolment1>
 {
     #nullable enable
     
     /// <summary>
     /// Start date when the creditor enrolment becomes effective.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? EnrolmentStartDate { get; init; } 
     /// <summary>
     /// End date when the creditor enrolment becomes effective.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? EnrolmentEndDate { get; init; } 
     /// <summary>
     /// Provides the details of the visibility of the creditor enrolment as shown to the debtors.
     /// </summary>
-    [DataMember]
     public Visibilty1? Visibility { get; init; } 
     /// <summary>
     /// Define the acceptance of activation requests through the scheme. 
@@ -40,18 +38,65 @@ public partial record CreditorServiceEnrolment1
     /// When true, it is possible for the debtor to send activation requests through its payment service provider.
     /// When false, it is not possible for the debtor to send activation request through servicing messages. The creditor only accepts activation through another way(s).
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator ServiceActivationAllowed { get; init; } 
     /// <summary>
     /// Information web page, as provided by the creditor, to which the debtor can be linked for further information (Universal Resource Locator - URL).
     /// </summary>
-    [DataMember]
     public IsoMax2048Text? ServiceDescriptionLink { get; init; } 
     /// <summary>
     /// Web page link provided by the Creditor, intended to the Debtors, to proceed to activation when  servicing messages can not be used.
     /// </summary>
-    [DataMember]
     public IsoMax2048Text? CreditorServiceActivationLink { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (EnrolmentStartDate is DateAndDateTime2Choice_ EnrolmentStartDateValue)
+        {
+            writer.WriteStartElement(null, "EnrlmntStartDt", xmlNamespace );
+            EnrolmentStartDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EnrolmentEndDate is DateAndDateTime2Choice_ EnrolmentEndDateValue)
+        {
+            writer.WriteStartElement(null, "EnrlmntEndDt", xmlNamespace );
+            EnrolmentEndDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Visibility is Visibilty1 VisibilityValue)
+        {
+            writer.WriteStartElement(null, "Vsblty", xmlNamespace );
+            VisibilityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SvcActvtnAllwd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ServiceActivationAllowed)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        if (ServiceDescriptionLink is IsoMax2048Text ServiceDescriptionLinkValue)
+        {
+            writer.WriteStartElement(null, "SvcDescLk", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2048Text(ServiceDescriptionLinkValue)); // data type Max2048Text System.String
+            writer.WriteEndElement();
+        }
+        if (CreditorServiceActivationLink is IsoMax2048Text CreditorServiceActivationLinkValue)
+        {
+            writer.WriteStartElement(null, "CdtrSvcActvtnLk", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2048Text(CreditorServiceActivationLinkValue)); // data type Max2048Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CreditorServiceEnrolment1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

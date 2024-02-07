@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the identification attribtues of an invoice which are required by the creditor for the activation of the debtor.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CreditorInvoice4
+     : IIsoXmlSerilizable<CreditorInvoice4>
 {
     #nullable enable
     
@@ -23,33 +24,80 @@ public partial record CreditorInvoice4
     /// Indicates whether the creditor allows limited presentment of the e-invoice, that is, only the e-invoice data needed for payment initiation.
     /// When absent, the element is not applicable.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? LimitedPresentmentIndicator { get; init; } 
     /// <summary>
     /// Unique and unambiguous type of the identification of the debtor required by the creditor, for example  the reference number or customer number. Unique identification provided by the web bank or web payment services user, with which the creditor may identify the debtor in its system.
     /// </summary>
-    [DataMember]
     public CustomerTypeRequest2? CustomerIdentificationType { get; init; } 
     /// <summary>
     /// Document format type supported to exchange the contracts.
     /// </summary>
-    [DataMember]
-    public ValueList<DocumentFormat2Choice_> ContractFormatType { get; init; } = []; // Warning: Don't know multiplicity.
+    public DocumentFormat2Choice_? ContractFormatType { get; init; } 
     /// <summary>
     /// Type of the contract reference requested by the creditor which the debtor must provide in the debtor activation request  to identify the contract(s) for which the RTP is requested.
     /// </summary>
-    [DataMember]
-    public ValueList<DocumentType1Choice_> ContractReferenceType { get; init; } = []; // Warning: Don't know multiplicity.
+    public DocumentType1Choice_? ContractReferenceType { get; init; } 
     /// <summary>
     /// Instructions provided by the seller (that is creditor or ultimate creditor) for the Request-To-Pay (RTP) recipient (that is the debtor). The instructions may include for example the time required by the creditor to take into account the activation request. The debtor agent may display the information in the customer’s own service language.
     /// </summary>
-    [DataMember]
     public IsoMax500Text? CreditorInstruction { get; init; } 
     /// <summary>
     /// Creditor's service provider address to which the debtor activation has to be delivered.
     /// </summary>
-    [DataMember]
     public RTPPartyIdentification1? ActivationRequestDeliveryParty { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (LimitedPresentmentIndicator is IsoTrueFalseIndicator LimitedPresentmentIndicatorValue)
+        {
+            writer.WriteStartElement(null, "LtdPresntmntInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(LimitedPresentmentIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CustomerIdentificationType is CustomerTypeRequest2 CustomerIdentificationTypeValue)
+        {
+            writer.WriteStartElement(null, "CstmrIdTp", xmlNamespace );
+            CustomerIdentificationTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContractFormatType is DocumentFormat2Choice_ ContractFormatTypeValue)
+        {
+            writer.WriteStartElement(null, "CtrctFrmtTp", xmlNamespace );
+            ContractFormatTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContractReferenceType is DocumentType1Choice_ ContractReferenceTypeValue)
+        {
+            writer.WriteStartElement(null, "CtrctRefTp", xmlNamespace );
+            ContractReferenceTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditorInstruction is IsoMax500Text CreditorInstructionValue)
+        {
+            writer.WriteStartElement(null, "CdtrInstr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Text(CreditorInstructionValue)); // data type Max500Text System.String
+            writer.WriteEndElement();
+        }
+        if (ActivationRequestDeliveryParty is RTPPartyIdentification1 ActivationRequestDeliveryPartyValue)
+        {
+            writer.WriteStartElement(null, "ActvtnReqDlvryPty", xmlNamespace );
+            ActivationRequestDeliveryPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CreditorInvoice4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

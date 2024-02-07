@@ -7,48 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique and unambiguous identification of the original message references.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OriginalMessage2
+     : IIsoXmlSerilizable<OriginalMessage2>
 {
     #nullable enable
     
     /// <summary>
     /// Original message sender used to identify the message.
     /// </summary>
-    [DataMember]
     public Party28Choice_? OriginalSender { get; init; } 
     /// <summary>
     /// Point to point reference assigned by the original instructing party to unambiguously identify the original group of individual transactions.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OriginalMessageIdentification { get; init; } 
     /// <summary>
     /// Specifies the original message name identifier to which the message refers, such as pacs.003.001.01 or MT103.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OriginalMessageNameIdentification { get; init; } 
     /// <summary>
     /// Original date and time at which the message was created.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? OriginalCreationDateTime { get; init; } 
     /// <summary>
     /// Specifies the identification of original package of instructions, entries or records.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalPackageIdentification { get; init; } 
     /// <summary>
     /// Specifies the identification of original entry, instruction or record within the package.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OriginalRecordIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OriginalSender is Party28Choice_ OriginalSenderValue)
+        {
+            writer.WriteStartElement(null, "OrgnlSndr", xmlNamespace );
+            OriginalSenderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OrgnlMsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalMessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgnlMsgNmId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalMessageNameIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (OriginalCreationDateTime is IsoISODateTime OriginalCreationDateTimeValue)
+        {
+            writer.WriteStartElement(null, "OrgnlCreDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(OriginalCreationDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (OriginalPackageIdentification is IsoMax35Text OriginalPackageIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlPackgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalPackageIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OrgnlRcrdId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalRecordIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static OriginalMessage2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

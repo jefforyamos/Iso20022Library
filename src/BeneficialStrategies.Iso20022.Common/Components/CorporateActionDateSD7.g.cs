@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action options date details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionDateSD7
+     : IIsoXmlSerilizable<CorporateActionDateSD7>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Actual early expiration time as set by the issuer/offer/agent.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ActualEarlyExpirationDate { get; init; } 
     /// <summary>
     /// Last day protect instructions can be submitted to the issuer / agent.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ActualProtectExpirationDate { get; init; } 
     /// <summary>
     /// Last day protect instructions can be submitted to the issuer / agent for the early expiration.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ActualEarlyProtectExpirationDate { get; init; } 
     /// <summary>
     /// Last day protect instructions can be submitted to DTC for the early expiration.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? DTCEarlyProtectExpirationDate { get; init; } 
     /// <summary>
     /// Last day cover early protect instructions can be submitted to the issuer / agent.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ActualEarlyCoverProtectExpirationDate { get; init; } 
     /// <summary>
     /// Last day cover early protect instructions can be submitted to DTC.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? DTCEarlyCoverProtectExpirationDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (ActualEarlyExpirationDate is IsoISODateTime ActualEarlyExpirationDateValue)
+        {
+            writer.WriteStartElement(null, "ActlEarlyXprtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ActualEarlyExpirationDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ActualProtectExpirationDate is IsoISODateTime ActualProtectExpirationDateValue)
+        {
+            writer.WriteStartElement(null, "ActlPrtctXprtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ActualProtectExpirationDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ActualEarlyProtectExpirationDate is IsoISODateTime ActualEarlyProtectExpirationDateValue)
+        {
+            writer.WriteStartElement(null, "ActlEarlyPrtctXprtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ActualEarlyProtectExpirationDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (DTCEarlyProtectExpirationDate is IsoISODateTime DTCEarlyProtectExpirationDateValue)
+        {
+            writer.WriteStartElement(null, "DTCEarlyPrtctXprtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(DTCEarlyProtectExpirationDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ActualEarlyCoverProtectExpirationDate is IsoISODateTime ActualEarlyCoverProtectExpirationDateValue)
+        {
+            writer.WriteStartElement(null, "ActlEarlyCoverPrtctXprtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ActualEarlyCoverProtectExpirationDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (DTCEarlyCoverProtectExpirationDate is IsoISODateTime DTCEarlyCoverProtectExpirationDateValue)
+        {
+            writer.WriteStartElement(null, "DTCEarlyCoverPrtctXprtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(DTCEarlyCoverProtectExpirationDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionDateSD7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Net position of a segregated holding of a single financial instrument within the overall position held in the securities account, for example, sub-balance per status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SubBalanceBreakdown1
+     : IIsoXmlSerilizable<SubBalanceBreakdown1>
 {
     #nullable enable
     
     /// <summary>
     /// Reason for the sub-balance.
     /// </summary>
-    [DataMember]
     public required SubBalanceType9Choice_ SubBalanceType { get; init; } 
     /// <summary>
     /// Quantity of financial instrument in the sub-balance.
     /// </summary>
-    [DataMember]
     public required SubBalanceQuantity5Choice_ Quantity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SubBalTp", xmlNamespace );
+        SubBalanceType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        Quantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SubBalanceBreakdown1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

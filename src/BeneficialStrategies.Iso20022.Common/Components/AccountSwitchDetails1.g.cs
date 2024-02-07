@@ -7,60 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the account switch, including its status and any response codes.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountSwitchDetails1
+     : IIsoXmlSerilizable<AccountSwitchDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique number that provides unique and unambiguous identification of the account switch. 
     /// </summary>
-    [DataMember]
     public required IsoMax35Text UniqueReferenceNumber { get; init; } 
     /// <summary>
     /// Unique number that provides unique and unambiguous identification of the account switch. 
     /// Usage: Where one or more account switches have taken place since the original account switch this field contains the unique number that relates to the switch that transferred the account to the latest new account servicer.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text RoutingUniqueReferenceNumber { get; init; } 
     /// <summary>
     /// Date and time that the request was received by the central switch service, populated by the central switch service only.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? SwitchReceivedDateTime { get; init; } 
     /// <summary>
     /// Date on which the account switch is expected to have completed. The value is the same as the targeted switch date if the switch completes in the expected timeline.
     /// </summary>
-    [DataMember]
     public IsoISODate? SwitchDate { get; init; } 
     /// <summary>
     /// Indicates whether the account switch is a full switch or a partial switch.
     /// Usage: A full switch indicates the transfer of the full balance of the account and associated payment mandates. A partial switch indicates the transfer of certain payment mandates to a new account.
     /// </summary>
-    [DataMember]
     public required SwitchType1Code SwitchType { get; init; } 
     /// <summary>
     /// State of the account switch at the time the message is sent.
     /// </summary>
-    [DataMember]
     public SwitchStatus1Code? SwitchStatus { get; init; } 
     /// <summary>
     /// Identifies the processing window in which the balance transfer will be processed on the day of the account switch.
     /// </summary>
-    [DataMember]
     public BalanceTransferWindow1Code? BalanceTransferWindow { get; init; } 
     /// <summary>
     /// Response code and additional information.
     /// </summary>
-    [DataMember]
-    public ValueList<ResponseDetails1> Response { get; init; } = []; // Warning: Don't know multiplicity.
+    public ResponseDetails1? Response { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UnqRefNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(UniqueReferenceNumber)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RtgUnqRefNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(RoutingUniqueReferenceNumber)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (SwitchReceivedDateTime is IsoISODateTime SwitchReceivedDateTimeValue)
+        {
+            writer.WriteStartElement(null, "SwtchRcvdDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(SwitchReceivedDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (SwitchDate is IsoISODate SwitchDateValue)
+        {
+            writer.WriteStartElement(null, "SwtchDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(SwitchDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SwtchTp", xmlNamespace );
+        writer.WriteValue(SwitchType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SwitchStatus is SwitchStatus1Code SwitchStatusValue)
+        {
+            writer.WriteStartElement(null, "SwtchSts", xmlNamespace );
+            writer.WriteValue(SwitchStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (BalanceTransferWindow is BalanceTransferWindow1Code BalanceTransferWindowValue)
+        {
+            writer.WriteStartElement(null, "BalTrfWndw", xmlNamespace );
+            writer.WriteValue(BalanceTransferWindowValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Response is ResponseDetails1 ResponseValue)
+        {
+            writer.WriteStartElement(null, "Rspn", xmlNamespace );
+            ResponseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountSwitchDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

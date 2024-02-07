@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Limit of amounts for the customer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMTransactionAmounts6
+     : IIsoXmlSerilizable<ATMTransactionAmounts6>
 {
     #nullable enable
     
     /// <summary>
     /// Default currency of the limits.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Maximum amount allowed for a transaction in the service.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? MaximumPossibleAmount { get; init; } 
     /// <summary>
     /// Minimum amount allowed for a transaction in the service.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? MinimumPossibleAmount { get; init; } 
     /// <summary>
     /// Additional amount that may be displayed to the customer, for instance the daily limit or the daily balance for the service.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMTransactionAmounts7> AdditionalAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMTransactionAmounts7? AdditionalAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MaximumPossibleAmount is IsoImpliedCurrencyAndAmount MaximumPossibleAmountValue)
+        {
+            writer.WriteStartElement(null, "MaxPssblAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MaximumPossibleAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MinimumPossibleAmount is IsoImpliedCurrencyAndAmount MinimumPossibleAmountValue)
+        {
+            writer.WriteStartElement(null, "MinPssblAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MinimumPossibleAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (AdditionalAmount is ATMTransactionAmounts7 AdditionalAmountValue)
+        {
+            writer.WriteStartElement(null, "AddtlAmt", xmlNamespace );
+            AdditionalAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMTransactionAmounts6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

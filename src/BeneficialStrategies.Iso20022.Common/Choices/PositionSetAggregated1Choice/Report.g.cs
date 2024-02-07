@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PositionSetAggregated1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PositionSetAggregated1Choice;
 /// Detailed aggregated position set report between a pair of counterparties.
 /// </summary>
 public partial record Report : PositionSetAggregated1Choice_
+     , IIsoXmlSerilizable<Report>
 {
     #nullable enable
+    
     /// <summary>
     /// Reference date for statistics collection.
     /// </summary>
@@ -22,18 +26,63 @@ public partial record Report : PositionSetAggregated1Choice_
     /// <summary>
     /// Aggregation of outstanding derivatives with similar dimensions. Numerous positions sets that are produced according to the combination of dimensions used to stratify the derivatives, and different metrics are used to represent the aggregations. 
     /// </summary>
-    public PositionSet5? PositionSet { get; init;  } // Warning: Don't know multiplicity.
+    public PositionSet5? PositionSet { get; init; } 
     /// <summary>
     /// Aggregation of outstanding derivatives according to the currency of the position, for use by central banks issuing specific currencies.
     /// </summary>
-    public PositionSet5? CurrencyPositionSet { get; init;  } // Warning: Don't know multiplicity.
+    public PositionSet5? CurrencyPositionSet { get; init; } 
     /// <summary>
     /// Aggregation of collateral for derivative positions using collateral fields as metrics.
     /// </summary>
-    public PositionSet4? CollateralPositionSet { get; init;  } // Warning: Don't know multiplicity.
+    public PositionSet4? CollateralPositionSet { get; init; } 
     /// <summary>
     /// Aggregation of collateral with similar dimensions that relate to the currency position sets, with relevant collateral related metrics.
     /// </summary>
-    public PositionSet4? CurrencyCollateralPositionSet { get; init;  } // Warning: Don't know multiplicity.
+    public PositionSet4? CurrencyCollateralPositionSet { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RefDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ReferenceDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (PositionSet is PositionSet5 PositionSetValue)
+        {
+            writer.WriteStartElement(null, "PosSet", xmlNamespace );
+            PositionSetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CurrencyPositionSet is PositionSet5 CurrencyPositionSetValue)
+        {
+            writer.WriteStartElement(null, "CcyPosSet", xmlNamespace );
+            CurrencyPositionSetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollateralPositionSet is PositionSet4 CollateralPositionSetValue)
+        {
+            writer.WriteStartElement(null, "CollPosSet", xmlNamespace );
+            CollateralPositionSetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CurrencyCollateralPositionSet is PositionSet4 CurrencyCollateralPositionSetValue)
+        {
+            writer.WriteStartElement(null, "CcyCollPosSet", xmlNamespace );
+            CurrencyCollateralPositionSetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Report Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Fulfilment instructions for the retrieval
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RetrievalFulfilmentInstructions1
+     : IIsoXmlSerilizable<RetrievalFulfilmentInstructions1>
 {
     #nullable enable
     
     /// <summary>
     /// Contains information describing the fulfilment information delivery methods.
     /// </summary>
-    [DataMember]
     public RetrievalDeliveryMethod1Choice_? Method { get; init; } 
     /// <summary>
     /// Information related to a retrieval fulfilment.
     /// </summary>
-    [DataMember]
     public DeliveryInformation2? DeliveryInformation { get; init; } 
     /// <summary>
     /// Additional information relevant for the retrieval.
     /// </summary>
-    [DataMember]
     public AdditionalInformation22? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Method is RetrievalDeliveryMethod1Choice_ MethodValue)
+        {
+            writer.WriteStartElement(null, "Mtd", xmlNamespace );
+            MethodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveryInformation is DeliveryInformation2 DeliveryInformationValue)
+        {
+            writer.WriteStartElement(null, "DlvryInf", xmlNamespace );
+            DeliveryInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation22 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RetrievalFulfilmentInstructions1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

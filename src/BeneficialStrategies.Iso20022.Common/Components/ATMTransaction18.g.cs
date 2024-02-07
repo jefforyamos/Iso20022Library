@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acknowledgement of a completion advice.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMTransaction18
+     : IIsoXmlSerilizable<ATMTransaction18>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
-    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Response to the advice.
     /// </summary>
-    [DataMember]
     public required Response4Code Response { get; init; } 
     /// <summary>
     /// Detail of the response.
     /// </summary>
-    [DataMember]
     public ResultDetail4Code? ResponseReason { get; init; } 
     /// <summary>
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
-    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMCommand7> Command { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMCommand7? Command { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rspn", xmlNamespace );
+        writer.WriteValue(Response.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ResponseReason is ResultDetail4Code ResponseReasonValue)
+        {
+            writer.WriteStartElement(null, "RspnRsn", xmlNamespace );
+            writer.WriteValue(ResponseReasonValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ICCRelatedData is IsoMax10000Binary ICCRelatedDataValue)
+        {
+            writer.WriteStartElement(null, "ICCRltdData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(ICCRelatedDataValue)); // data type Max10000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (Command is ATMCommand7 CommandValue)
+        {
+            writer.WriteStartElement(null, "Cmd", xmlNamespace );
+            CommandValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMTransaction18 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,23 +7,46 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Numeric variables calculated on market exposures.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ExposureMetrics6
+     : IIsoXmlSerilizable<ExposureMetrics6>
 {
     #nullable enable
     
     /// <summary>
     /// Information on posted collateral and margin.
     /// </summary>
-    [DataMember]
     public PostedMarginOrCollateral4? PostedMarginOrCollateral { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PostedMarginOrCollateral is PostedMarginOrCollateral4 PostedMarginOrCollateralValue)
+        {
+            writer.WriteStartElement(null, "PstdMrgnOrColl", xmlNamespace );
+            PostedMarginOrCollateralValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ExposureMetrics6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

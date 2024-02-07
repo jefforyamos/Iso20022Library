@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Common identification of a service to be billed.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BillingServiceCommonIdentification1
+     : IIsoXmlSerilizable<BillingServiceCommonIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Defines the issuer of the common code, such as "AFP".
     /// </summary>
-    [DataMember]
     public required IsoMax6Text Issuer { get; init; } 
     /// <summary>
     /// Standard reference code used to uniquely identify this service across financial institutions. This is not the financial institution’s internal bank service identification.
     /// </summary>
-    [DataMember]
     public required IsoMax8Text Identification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Issr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax6Text(Issuer)); // data type Max6Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax8Text(Identification)); // data type Max8Text System.String
+        writer.WriteEndElement();
+    }
+    public static BillingServiceCommonIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

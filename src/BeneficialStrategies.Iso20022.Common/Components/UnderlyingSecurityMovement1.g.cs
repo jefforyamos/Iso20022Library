@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the underlying securities movement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UnderlyingSecurityMovement1
+     : IIsoXmlSerilizable<UnderlyingSecurityMovement1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the financial instrument.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification7 SecurityIdentification { get; init; } 
     /// <summary>
     /// Quantity of financial instrument.
     /// </summary>
-    [DataMember]
     public required UnitOrFaceAmount1Choice_ SecuritiesQuantity { get; init; } 
     /// <summary>
     /// Provides information about the debited/credited securities account.
     /// </summary>
-    [DataMember]
     public ValueList<SecuritiesAccount8> AccountDetails { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SctyId", xmlNamespace );
+        SecurityIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctiesQty", xmlNamespace );
+        SecuritiesQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
+        AccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static UnderlyingSecurityMovement1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

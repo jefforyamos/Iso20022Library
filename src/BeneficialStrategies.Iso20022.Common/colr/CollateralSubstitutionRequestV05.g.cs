@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.colr.CollateralSubstitutionRequestV05>;
 
 namespace BeneficialStrategies.Iso20022.colr;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// The CollateralSubstitutionRequest message can be sent by either the collateral giver or collateral taker in order to substitute collateral that is already held by the other party.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The CollateralSubstitutionRequest message is sent by either the collateral giver or its collateral manager to the collateral taker or its collateral manager. It is used to request a substitution of collateral by specifying the collateral to be returned and proposing the new type(s) of collateral to be delivered. Note: There are cases where the collateral taker can initiate the CollateralSubstitutionRequest message, for example in case of breach in the concentration limit.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|The CollateralSubstitutionRequest message can be sent by either the collateral giver or collateral taker in order to substitute collateral that is already held by the other party.")]
-public partial record CollateralSubstitutionRequestV05 : IOuterRecord
+public partial record CollateralSubstitutionRequestV05 : IOuterRecord<CollateralSubstitutionRequestV05,CollateralSubstitutionRequestV05Document>
+    ,IIsoXmlSerilizable<CollateralSubstitutionRequestV05>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record CollateralSubstitutionRequestV05 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "CollSbstitnReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CollateralSubstitutionRequestV05Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -110,6 +117,50 @@ public partial record CollateralSubstitutionRequestV05 : IOuterRecord
     {
         return new CollateralSubstitutionRequestV05Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("CollSbstitnReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Oblgtn", xmlNamespace );
+        Obligation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Agreement is Agreement4 AgreementValue)
+        {
+            writer.WriteStartElement(null, "Agrmt", xmlNamespace );
+            AgreementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CollSbstitnRtr", xmlNamespace );
+        CollateralSubstitutionReturn.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CollateralSubstitutionDeliver is CollateralSubstitution8 CollateralSubstitutionDeliverValue)
+        {
+            writer.WriteStartElement(null, "CollSbstitnDlvr", xmlNamespace );
+            CollateralSubstitutionDeliverValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralSubstitutionRequestV05 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -117,9 +168,7 @@ public partial record CollateralSubstitutionRequestV05 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CollateralSubstitutionRequestV05"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CollateralSubstitutionRequestV05Document : IOuterDocument<CollateralSubstitutionRequestV05>
+public partial record CollateralSubstitutionRequestV05Document : IOuterDocument<CollateralSubstitutionRequestV05>, IXmlSerializable
 {
     
     /// <summary>
@@ -135,5 +184,22 @@ public partial record CollateralSubstitutionRequestV05Document : IOuterDocument<
     /// <summary>
     /// The instance of <seealso cref="CollateralSubstitutionRequestV05"/> is required.
     /// </summary>
+    [DataMember(Name=CollateralSubstitutionRequestV05.XmlTag)]
     public required CollateralSubstitutionRequestV05 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CollateralSubstitutionRequestV05.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional references linked to the list order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Reference12
+     : IIsoXmlSerilizable<Reference12>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identifier for bid response as assigned by sell-side (broker, exchange, electronic communication network).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? BidIdentification { get; init; } 
     /// <summary>
     /// Unique identifier for a bid request as assigned by institution.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClientBidIdentification { get; init; } 
     /// <summary>
     /// Unique identifier of the indication of interest message. Required for previously indicated orders.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text IOIIdentification { get; init; } 
     /// <summary>
     /// Unique identifier for quote. Required for previously quoted orders.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text QuoteIdentification { get; init; } 
     /// <summary>
     /// Unique identifier of the order being hit or taken.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ReferenceOrderIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (BidIdentification is IsoMax35Text BidIdentificationValue)
+        {
+            writer.WriteStartElement(null, "BidId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(BidIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClientBidIdentification is IsoMax35Text ClientBidIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClntBidId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientBidIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "IOIId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(IOIIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "QtId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(QuoteIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RefOrdrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ReferenceOrderIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static Reference12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

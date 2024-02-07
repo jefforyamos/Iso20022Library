@@ -7,58 +7,107 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Tax related to an investment fund order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Tax34
+     : IIsoXmlSerilizable<Tax34>
 {
     #nullable enable
     
     /// <summary>
     /// Type of tax.
     /// </summary>
-    [DataMember]
     public required TaxType1Choice_ Type { get; init; } 
     /// <summary>
     /// Basis used to determine the capital gain or loss.
     /// </summary>
-    [DataMember]
     public TaxBasis1Choice_? Basis { get; init; } 
     /// <summary>
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Country where the tax is due.
     /// </summary>
-    [DataMember]
     public CountryCode? Country { get; init; } 
     /// <summary>
     /// Indicates whether a tax exemption applies.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ExemptionIndicator { get; init; } 
     /// <summary>
     /// Reason for the tax exemption.
     /// </summary>
-    [DataMember]
     public ExemptionReason1Choice_? ExemptionReason { get; init; } 
     /// <summary>
     /// Party that receives the tax. The recipient of, and the party entitled to, the tax may be two different parties.
     /// </summary>
-    [DataMember]
     public PartyIdentification113? RecipientIdentification { get; init; } 
     /// <summary>
     /// Information used to calculate the tax.
     /// </summary>
-    [DataMember]
     public TaxCalculationInformation11? TaxCalculationDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Basis is TaxBasis1Choice_ BasisValue)
+        {
+            writer.WriteStartElement(null, "Bsis", xmlNamespace );
+            BasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (Country is CountryCode CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(CountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "XmptnInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ExemptionIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (ExemptionReason is ExemptionReason1Choice_ ExemptionReasonValue)
+        {
+            writer.WriteStartElement(null, "XmptnRsn", xmlNamespace );
+            ExemptionReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RecipientIdentification is PartyIdentification113 RecipientIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcptId", xmlNamespace );
+            RecipientIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxCalculationDetails is TaxCalculationInformation11 TaxCalculationDetailsValue)
+        {
+            writer.WriteStartElement(null, "TaxClctnDtls", xmlNamespace );
+            TaxCalculationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Tax34 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

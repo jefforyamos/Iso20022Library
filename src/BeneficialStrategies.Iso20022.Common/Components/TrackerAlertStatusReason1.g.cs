@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the reason for the status of the tracker alert.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TrackerAlertStatusReason1
+     : IIsoXmlSerilizable<TrackerAlertStatusReason1>
 {
     #nullable enable
     
     /// <summary>
     /// Reason for the status, in a proprietary form.
     /// </summary>
-    [DataMember]
     public required IsoExact4AlphaNumericText Proprietary { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Prtry", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(Proprietary)); // data type Exact4AlphaNumericText System.String
+        writer.WriteEndElement();
+    }
+    public static TrackerAlertStatusReason1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the mandate, for which a copy of the details is requested.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MandateCopy3
+     : IIsoXmlSerilizable<MandateCopy3>
 {
     #nullable enable
     
     /// <summary>
     /// Provides information on the original message.
     /// </summary>
-    [DataMember]
     public OriginalMessageInformation1? OriginalMessageInformation { get; init; } 
     /// <summary>
     /// Provides the original mandate data.
     /// </summary>
-    [DataMember]
     public required OriginalMandate9Choice_ OriginalMandate { get; init; } 
     /// <summary>
     /// Indicates the status of the mandate.
     /// </summary>
-    [DataMember]
     public MandateStatus1Choice_? MandateStatus { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OriginalMessageInformation is OriginalMessageInformation1 OriginalMessageInformationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlMsgInf", xmlNamespace );
+            OriginalMessageInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OrgnlMndt", xmlNamespace );
+        OriginalMandate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MandateStatus is MandateStatus1Choice_ MandateStatusValue)
+        {
+            writer.WriteStartElement(null, "MndtSts", xmlNamespace );
+            MandateStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MandateCopy3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

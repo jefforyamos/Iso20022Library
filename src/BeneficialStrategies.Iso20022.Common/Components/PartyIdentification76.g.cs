@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to identify a person or an organisation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentification76
+     : IIsoXmlSerilizable<PartyIdentification76>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the owner of the investment account which is used to acquire or sell financial instruments.
     /// </summary>
-    [DataMember]
     public required PersonOrOrganisation1Choice_ Identification { get; init; } 
     /// <summary>
     /// Country of the branch that received the order from the client or made an investment decision for a client in accordance with a discretionary mandate given to it by the client.
     /// </summary>
-    [DataMember]
     public CountryCode? CountryOfBranch { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CountryOfBranch is CountryCode CountryOfBranchValue)
+        {
+            writer.WriteStartElement(null, "CtryOfBrnch", xmlNamespace );
+            writer.WriteValue(CountryOfBranchValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyIdentification76 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.PEPOrISAOrPortfolioInformationV01>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -24,10 +27,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// The PEPOrISAOrPortfolioInformation message is used to provide information about one or more PEP or ISA or portfolio products held in a client's account.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An executing party, eg, a (old) plan manager, sends the PEPOrISAOrPortfolioInformation message to the instructing party, eg, a (new) plan manager, to provide information about financial instruments held on behalf of a client.|Usage|The PEPOrISAOrPortfolioInformation message is used to provide information about one or more PEP or ISA or portfolio products held in a client's account.")]
-public partial record PEPOrISAOrPortfolioInformationV01 : IOuterRecord
+public partial record PEPOrISAOrPortfolioInformationV01 : IOuterRecord<PEPOrISAOrPortfolioInformationV01,PEPOrISAOrPortfolioInformationV01Document>
+    ,IIsoXmlSerilizable<PEPOrISAOrPortfolioInformationV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -39,6 +41,11 @@ public partial record PEPOrISAOrPortfolioInformationV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "PEPOrISAOrPrtflInfV01";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => PEPOrISAOrPortfolioInformationV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -189,6 +196,101 @@ public partial record PEPOrISAOrPortfolioInformationV01 : IOuterRecord
     {
         return new PEPOrISAOrPortfolioInformationV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("PEPOrISAOrPrtflInfV01");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgRef", xmlNamespace );
+        MessageReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PoolReference is AdditionalReference3 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousReference is AdditionalReference3 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference3 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PrimaryIndividualInvestor is IndividualPerson8 PrimaryIndividualInvestorValue)
+        {
+            writer.WriteStartElement(null, "PmryIndvInvstr", xmlNamespace );
+            PrimaryIndividualInvestorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecondaryIndividualInvestor is IndividualPerson8 SecondaryIndividualInvestorValue)
+        {
+            writer.WriteStartElement(null, "ScndryIndvInvstr", xmlNamespace );
+            SecondaryIndividualInvestorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherIndividualInvestor is IndividualPerson8 OtherIndividualInvestorValue)
+        {
+            writer.WriteStartElement(null, "OthrIndvInvstr", xmlNamespace );
+            OtherIndividualInvestorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PrimaryCorporateInvestor is Organisation4 PrimaryCorporateInvestorValue)
+        {
+            writer.WriteStartElement(null, "PmryCorpInvstr", xmlNamespace );
+            PrimaryCorporateInvestorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecondaryCorporateInvestor is Organisation4 SecondaryCorporateInvestorValue)
+        {
+            writer.WriteStartElement(null, "ScndryCorpInvstr", xmlNamespace );
+            SecondaryCorporateInvestorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherCorporateInvestor is Organisation4 OtherCorporateInvestorValue)
+        {
+            writer.WriteStartElement(null, "OthrCorpInvstr", xmlNamespace );
+            OtherCorporateInvestorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ClntAcct", xmlNamespace );
+        ClientAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (NomineeAccount is Account6 NomineeAccountValue)
+        {
+            writer.WriteStartElement(null, "NmneeAcct", xmlNamespace );
+            NomineeAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "NewPlanMgr", xmlNamespace );
+        NewPlanManager.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PdctTrf", xmlNamespace );
+        ProductTransfer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PEPOrISAOrPortfolioInformationV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -196,9 +298,7 @@ public partial record PEPOrISAOrPortfolioInformationV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PEPOrISAOrPortfolioInformationV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record PEPOrISAOrPortfolioInformationV01Document : IOuterDocument<PEPOrISAOrPortfolioInformationV01>
+public partial record PEPOrISAOrPortfolioInformationV01Document : IOuterDocument<PEPOrISAOrPortfolioInformationV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -214,5 +314,22 @@ public partial record PEPOrISAOrPortfolioInformationV01Document : IOuterDocument
     /// <summary>
     /// The instance of <seealso cref="PEPOrISAOrPortfolioInformationV01"/> is required.
     /// </summary>
+    [DataMember(Name=PEPOrISAOrPortfolioInformationV01.XmlTag)]
     public required PEPOrISAOrPortfolioInformationV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(PEPOrISAOrPortfolioInformationV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

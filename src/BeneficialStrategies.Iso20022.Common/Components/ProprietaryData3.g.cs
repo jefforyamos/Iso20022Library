@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Container for proprietary information. Business content of this element is not specified.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProprietaryData3
+     : IIsoXmlSerilizable<ProprietaryData3>
 {
     #nullable enable
     
     /// <summary>
     /// Proprietary content.
     /// </summary>
-    [DataMember]
     public required SkipProcessing Any { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Any", xmlNamespace );
+        Any.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ProprietaryData3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

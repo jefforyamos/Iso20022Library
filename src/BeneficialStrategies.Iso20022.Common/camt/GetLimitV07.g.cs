@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.GetLimitV07>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// The GetLimit message is used to request information on the details of one or more limits set by the member (or on behalf of the member) and managed by the transaction administrator.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The GetLimit message is used to request information on the details of one or more limits set by the member (or on behalf of the member) and managed by the transaction administrator.")]
-public partial record GetLimitV07 : IOuterRecord
+public partial record GetLimitV07 : IOuterRecord<GetLimitV07,GetLimitV07Document>
+    ,IIsoXmlSerilizable<GetLimitV07>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record GetLimitV07 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "GetLmt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => GetLimitV07Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -75,6 +82,38 @@ public partial record GetLimitV07 : IOuterRecord
     {
         return new GetLimitV07Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("GetLmt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+        MessageHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LimitQueryDefinition is LimitQuery4 LimitQueryDefinitionValue)
+        {
+            writer.WriteStartElement(null, "LmtQryDef", xmlNamespace );
+            LimitQueryDefinitionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static GetLimitV07 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -82,9 +121,7 @@ public partial record GetLimitV07 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="GetLimitV07"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record GetLimitV07Document : IOuterDocument<GetLimitV07>
+public partial record GetLimitV07Document : IOuterDocument<GetLimitV07>, IXmlSerializable
 {
     
     /// <summary>
@@ -100,5 +137,22 @@ public partial record GetLimitV07Document : IOuterDocument<GetLimitV07>
     /// <summary>
     /// The instance of <seealso cref="GetLimitV07"/> is required.
     /// </summary>
+    [DataMember(Name=GetLimitV07.XmlTag)]
     public required GetLimitV07 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(GetLimitV07.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

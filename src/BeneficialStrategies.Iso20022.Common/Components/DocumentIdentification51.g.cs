@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification and creation date of a document.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DocumentIdentification51
+     : IIsoXmlSerilizable<DocumentIdentification51>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identifier of the document (message) assigned by the sender of the document.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Date and time at which the document (message) was created by the sender.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? CreationDateTime { get; init; } 
     /// <summary>
     /// Specifies if this document is a copy, a duplicate, or a duplicate of a copy.
     /// </summary>
-    [DataMember]
     public CopyDuplicate1Code? CopyDuplicate { get; init; } 
     /// <summary>
     /// Party that originated the message, if other than the sender.
     /// </summary>
-    [DataMember]
     public PartyIdentification136? MessageOriginator { get; init; } 
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
     /// </summary>
-    [DataMember]
     public PartyIdentification136? MessageRecipient { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (CreationDateTime is DateAndDateTime2Choice_ CreationDateTimeValue)
+        {
+            writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+            CreationDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CopyDuplicate is CopyDuplicate1Code CopyDuplicateValue)
+        {
+            writer.WriteStartElement(null, "CpyDplct", xmlNamespace );
+            writer.WriteValue(CopyDuplicateValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MessageOriginator is PartyIdentification136 MessageOriginatorValue)
+        {
+            writer.WriteStartElement(null, "MsgOrgtr", xmlNamespace );
+            MessageOriginatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageRecipient is PartyIdentification136 MessageRecipientValue)
+        {
+            writer.WriteStartElement(null, "MsgRcpt", xmlNamespace );
+            MessageRecipientValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DocumentIdentification51 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

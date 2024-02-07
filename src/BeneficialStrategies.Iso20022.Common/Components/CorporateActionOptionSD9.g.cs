@@ -7,44 +7,84 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action option details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionOptionSD9
+     : IIsoXmlSerilizable<CorporateActionOptionSD9>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Used for options that have particular proprietary feature that cannot be represented in standard ISO message.
     /// </summary>
-    [DataMember]
     public ExtendedOptionFeature1Code? ExtendedOptionFeatures { get; init; } 
     /// <summary>
     /// Identifies whether the option will be processed as default by DTC (The Depository Trust Corporation) when no election is made.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? DTCDefaultOptionFlag { get; init; } 
     /// <summary>
     /// Indicates whether optional dividend supplementary data are required in the ISO 20022 CAIN instructions for this event.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? OptionalDividendSupplementaryDataRequiredFlag { get; init; } 
     /// <summary>
     /// Unique DTCC legacy reference used for matching and reconciling legacy records. The number algorhithm is as follows: Department ID (1:1), Activity Type (2:3), Cusip Country Code (5:2), Cusip (7:9), Record Date (15:8), Payable Date (22:8), Sequence Number (29:3), RDP Issue Type (31:1). 
     /// USAGE RULE: this sequence can be populated /extended to event details, option details or a movement, depending on sequence number coordinality to an event.
     /// </summary>
-    [DataMember]
     public IsoExact32AlphaNumericText? RDPReferenceNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (ExtendedOptionFeatures is ExtendedOptionFeature1Code ExtendedOptionFeaturesValue)
+        {
+            writer.WriteStartElement(null, "XtndedOptnFeatrs", xmlNamespace );
+            writer.WriteValue(ExtendedOptionFeaturesValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DTCDefaultOptionFlag is IsoYesNoIndicator DTCDefaultOptionFlagValue)
+        {
+            writer.WriteStartElement(null, "DTCDfltOptnFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DTCDefaultOptionFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (OptionalDividendSupplementaryDataRequiredFlag is IsoYesNoIndicator OptionalDividendSupplementaryDataRequiredFlagValue)
+        {
+            writer.WriteStartElement(null, "OptnlDvddSplmtryDataReqrdFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OptionalDividendSupplementaryDataRequiredFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (RDPReferenceNumber is IsoExact32AlphaNumericText RDPReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "RDPRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact32AlphaNumericText(RDPReferenceNumberValue)); // data type Exact32AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionOptionSD9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

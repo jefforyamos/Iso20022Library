@@ -7,34 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the reconciliation period between an acquirer and an issuer or their respective agents.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Reconciliation3
+     : IIsoXmlSerilizable<Reconciliation3>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the reconciliation.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Date of the reconciliation.
     /// ISO 8583:93/2003 bit 28
     /// </summary>
-    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// A value used to allow a period within a reconciliation date.  Refer to ISO8583:2003 Field 29
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CheckpointReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is IsoMax35Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Date is IsoISODate DateValue)
+        {
+            writer.WriteStartElement(null, "Dt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (CheckpointReference is IsoMax35Text CheckpointReferenceValue)
+        {
+            writer.WriteStartElement(null, "ChckptRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CheckpointReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Reconciliation3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

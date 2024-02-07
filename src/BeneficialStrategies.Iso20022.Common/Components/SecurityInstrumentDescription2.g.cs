@@ -7,58 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the security instrument by its name and typical characteristics.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityInstrumentDescription2
+     : IIsoXmlSerilizable<SecurityInstrumentDescription2>
 {
     #nullable enable
     
     /// <summary>
     /// Description of the security.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? Description { get; init; } 
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, eg, common share with voting rights, fully paid, or registered.
     /// </summary>
-    [DataMember]
     public SecurityClassificationType1Choice_? ClassificationType { get; init; } 
     /// <summary>
     /// Provides the place of listing using a market identifier code (MIC).
     /// </summary>
-    [DataMember]
     public IsoMICIdentifier? PlaceOfListing { get; init; } 
     /// <summary>
     /// Exercise date/time of a derivative contract.
     /// </summary>
-    [DataMember]
     public IsoISODate? ExerciseDate { get; init; } 
     /// <summary>
     /// Maturity date/time at which an interest bearing security becomes due.
     /// </summary>
-    [DataMember]
     public IsoISODate? MaturityDate { get; init; } 
     /// <summary>
     /// Specifies whether it is a call option (right to purchase a specific underlying asset) or a put option (right to sell a specific underlying asset).
     /// </summary>
-    [DataMember]
     public OptionTypeCode? OptionType { get; init; } 
     /// <summary>
     /// Predetermined price at which the holder will have to buy or sell the underlying instrument.
     /// </summary>
-    [DataMember]
     public PriceRateOrAmountChoice_? StrikePrice { get; init; } 
     /// <summary>
     /// Indicates the ratio or multiplying factor used to convert one contract into a quantity. In the case of an equity or a bond, the price multiplier is 1.
     /// </summary>
-    [DataMember]
     public IsoBaseOneRate? Multiplier { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Description is IsoMax350Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(DescriptionValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClassificationType is SecurityClassificationType1Choice_ ClassificationTypeValue)
+        {
+            writer.WriteStartElement(null, "ClssfctnTp", xmlNamespace );
+            ClassificationTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PlaceOfListing is IsoMICIdentifier PlaceOfListingValue)
+        {
+            writer.WriteStartElement(null, "PlcOfListg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(PlaceOfListingValue)); // data type MICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (ExerciseDate is IsoISODate ExerciseDateValue)
+        {
+            writer.WriteStartElement(null, "ExrcDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExerciseDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (MaturityDate is IsoISODate MaturityDateValue)
+        {
+            writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(MaturityDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (OptionType is OptionTypeCode OptionTypeValue)
+        {
+            writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+            writer.WriteValue(OptionTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (StrikePrice is PriceRateOrAmountChoice_ StrikePriceValue)
+        {
+            writer.WriteStartElement(null, "StrkPric", xmlNamespace );
+            StrikePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Multiplier is IsoBaseOneRate MultiplierValue)
+        {
+            writer.WriteStartElement(null, "Mltplr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(MultiplierValue)); // data type BaseOneRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static SecurityInstrumentDescription2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Report entry details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CBRFReportEntry1
+     : IIsoXmlSerilizable<CBRFReportEntry1>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the message.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MessageName { get; init; } 
     /// <summary>
     /// Total number of entries in the group.
     /// </summary>
-    [DataMember]
     public required IsoMax9NumericText TotalNumberOfEntries { get; init; } 
     /// <summary>
     /// Information identifying electronic messages.
     /// </summary>
-    [DataMember]
-    public ValueList<ElectronicMessageDetails1> MessageDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public ElectronicMessageDetails1? MessageDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _99e7YBj6EeapYKOltfjd7A
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageName)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlNbOfNtries", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax9NumericText(TotalNumberOfEntries)); // data type Max9NumericText System.String
+        writer.WriteEndElement();
+        // Not sure how to serialize MessageDetails, multiplicity Unknown
+    }
+    public static CBRFReportEntry1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

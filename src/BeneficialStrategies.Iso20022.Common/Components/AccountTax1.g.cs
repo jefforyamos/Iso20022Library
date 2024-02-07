@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes account taxing parameters.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountTax1
+     : IIsoXmlSerilizable<AccountTax1>
 {
     #nullable enable
     
     /// <summary>
     /// Defines the calculation method on how the taxes are applied on the account.
     /// </summary>
-    [DataMember]
     public required BillingTaxCalculationMethod1Code CalculationMethod { get; init; } 
     /// <summary>
     /// Identifies the tax region in which the account resides.
     /// </summary>
-    [DataMember]
     public IsoMax40Text? Region { get; init; } 
     /// <summary>
     /// Specifies the country of residence, when the account owner does not reside in the account's tax region.||Usage: If present, the account owner does not reside in the account's tax region.
     /// </summary>
-    [DataMember]
     public ResidenceLocation1Choice_? NonResidenceCountry { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ClctnMtd", xmlNamespace );
+        writer.WriteValue(CalculationMethod.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Region is IsoMax40Text RegionValue)
+        {
+            writer.WriteStartElement(null, "Rgn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax40Text(RegionValue)); // data type Max40Text System.String
+            writer.WriteEndElement();
+        }
+        if (NonResidenceCountry is ResidenceLocation1Choice_ NonResidenceCountryValue)
+        {
+            writer.WriteStartElement(null, "NonResCtry", xmlNamespace );
+            NonResidenceCountryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountTax1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

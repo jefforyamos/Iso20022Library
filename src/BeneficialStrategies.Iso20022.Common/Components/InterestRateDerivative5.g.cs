@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the interest rate derivative specific elements for interest rate derivatives as defined in the local regulation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InterestRateDerivative5
+     : IIsoXmlSerilizable<InterestRateDerivative5>
 {
     #nullable enable
     
     /// <summary>
     /// Specific details on the underlying type of the interest rate derivative.
     /// </summary>
-    [DataMember]
     public required InterestRateDerivative2Choice_ UnderlyingType { get; init; } 
     /// <summary>
     /// Populated when the underlying type is a bond or a bond future. Details the issuer and maturity date of the bond.
     /// </summary>
-    [DataMember]
     public BondDerivative2? UnderlyingBond { get; init; } 
     /// <summary>
     /// Notional currency of a swaption.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? SwaptionNotionalCurrency { get; init; } 
     /// <summary>
     /// Maturity date of the underlying swap, populated for swaptions, futures on swaps and forwards on a swap only.
     /// </summary>
-    [DataMember]
     public IsoISODate? UnderlyingSwapMaturityDate { get; init; } 
     /// <summary>
     /// Populated to define the inflation index.
     /// </summary>
-    [DataMember]
     public InflationIndex1Choice_? InflationIndex { get; init; } 
     /// <summary>
     /// Provides the interest rate against a reference rate and term in number of days, weeks, months or years.
     /// </summary>
-    [DataMember]
     public required FloatingInterestRate8 InterestRateReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UndrlygTp", xmlNamespace );
+        UnderlyingType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (UnderlyingBond is BondDerivative2 UnderlyingBondValue)
+        {
+            writer.WriteStartElement(null, "UndrlygBd", xmlNamespace );
+            UnderlyingBondValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SwaptionNotionalCurrency is ActiveCurrencyCode SwaptionNotionalCurrencyValue)
+        {
+            writer.WriteStartElement(null, "SwptnNtnlCcy", xmlNamespace );
+            writer.WriteValue(SwaptionNotionalCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (UnderlyingSwapMaturityDate is IsoISODate UnderlyingSwapMaturityDateValue)
+        {
+            writer.WriteStartElement(null, "UndrlygSwpMtrtyDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(UnderlyingSwapMaturityDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (InflationIndex is InflationIndex1Choice_ InflationIndexValue)
+        {
+            writer.WriteStartElement(null, "InfltnIndx", xmlNamespace );
+            InflationIndexValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "IntrstRateRef", xmlNamespace );
+        InterestRateReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static InterestRateDerivative5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

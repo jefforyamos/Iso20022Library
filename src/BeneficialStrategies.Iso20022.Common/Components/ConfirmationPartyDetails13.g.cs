@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parties used for acting parties that apply either to the whole message or to individual sides.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ConfirmationPartyDetails13
+     : IIsoXmlSerilizable<ConfirmationPartyDetails13>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution, eg, Dun & Bradstreet Identification.
     /// </summary>
-    [DataMember]
     public required PartyIdentification240Choice_ Identification { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
-    [DataMember]
     public AlternatePartyIdentification8? AlternateIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction for the party identified.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ProcessingIdentification { get; init; } 
     /// <summary>
     /// Provides additional information to a party identification.
     /// </summary>
-    [DataMember]
     public PartyTextInformation5? AdditionalInformation { get; init; } 
     /// <summary>
     /// Indicates whether the confirmation party is a member of the investor protection association required, eg, as per regulation.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? InvestorProtectionAssociationMembership { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AlternateIdentification is AlternatePartyIdentification8 AlternateIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AltrnId", xmlNamespace );
+            AlternateIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProcessingIdentification is IsoMax35Text ProcessingIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrcgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProcessingIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is PartyTextInformation5 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestorProtectionAssociationMembership is IsoYesNoIndicator InvestorProtectionAssociationMembershipValue)
+        {
+            writer.WriteStartElement(null, "InvstrPrtcnAssoctnMmbsh", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(InvestorProtectionAssociationMembershipValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ConfirmationPartyDetails13 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

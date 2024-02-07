@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reference to the collateral management transaction (exposure) or the contract identification of  the sender (collateral taker) or the receiver (triparty agent)
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Reference21
+     : IIsoXmlSerilizable<Reference21>
 {
     #nullable enable
     
     /// <summary>
     /// Unique reference identifying the collateral management transaction (exposure) from the collateral taker's or the collateral giver point of view.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SenderCollateralTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique reference identifying the collateral management transaction (exposure)  from the triparty agent's point of view.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReceiverCollateralTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique reference identifying the collateral management contract from the collateral taker's or the collateral giver's point of view.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SenderCollateralContractIdentification { get; init; } 
     /// <summary>
     /// Unique reference identifying the collateral management contract from the triparty agent's point of view.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReceiverCollateralContractIdentification { get; init; } 
     /// <summary>
     /// Unique identification (UTI) agreed upon by the two trade counterparties to identify the transaction/exposure or the contract.
     /// </summary>
-    [DataMember]
     public IsoMax52Text? CommonTransactionIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SenderCollateralTransactionIdentification is IsoMax35Text SenderCollateralTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SndrCollTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SenderCollateralTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ReceiverCollateralTransactionIdentification is IsoMax35Text ReceiverCollateralTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcvrCollTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReceiverCollateralTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SenderCollateralContractIdentification is IsoMax35Text SenderCollateralContractIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SndrCollCtrctId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SenderCollateralContractIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ReceiverCollateralContractIdentification is IsoMax35Text ReceiverCollateralContractIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcvrCollCtrctId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReceiverCollateralContractIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CommonTransactionIdentification is IsoMax52Text CommonTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CmonTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(CommonTransactionIdentificationValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Reference21 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

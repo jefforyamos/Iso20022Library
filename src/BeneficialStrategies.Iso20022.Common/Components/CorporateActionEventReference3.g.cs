@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a linked corporate action event.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionEventReference3
+     : IIsoXmlSerilizable<CorporateActionEventReference3>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the linked corporate action event.
     /// </summary>
-    [DataMember]
     public required CorporateActionEventReference3Choice_ EventIdentification { get; init; } 
     /// <summary>
     /// Specifies when this corporate action event is to be processed relative to a linked corporate action event.
     /// </summary>
-    [DataMember]
     public ProcessingPosition7Choice_? LinkageType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "EvtId", xmlNamespace );
+        EventIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LinkageType is ProcessingPosition7Choice_ LinkageTypeValue)
+        {
+            writer.WriteStartElement(null, "LkgTp", xmlNamespace );
+            LinkageTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionEventReference3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

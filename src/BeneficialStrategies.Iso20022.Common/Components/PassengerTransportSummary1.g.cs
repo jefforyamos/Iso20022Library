@@ -7,88 +7,176 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Passenger ticket summary information for the cardholder. 
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PassengerTransportSummary1
+     : IIsoXmlSerilizable<PassengerTransportSummary1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification number of the document.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DocumentNumber { get; init; } 
     /// <summary>
     /// Reservation number or identifier. 
     /// </summary>
-    [DataMember]
     public ReservationDetails3? Reservation { get; init; } 
     /// <summary>
     /// Contains a code provided to a travel agent by a company to authorise ticket issuance. 
     /// </summary>
-    [DataMember]
     public IsoMax70Text? TravelAuthorisationCode { get; init; } 
     /// <summary>
     /// Name of the issuing ticket agent. 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TicketIssuer { get; init; } 
     /// <summary>
     /// Indicates whether or not the ticket is open or restricted.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? OpenTicketIndicator { get; init; } 
     /// <summary>
     /// Contains Customer Reference Values provided for this transaction and used for various reference processing at the customer site. These values represent information most prevalently provided by travel agencies for transactions booked against a lodged account or central travel account.
     /// </summary>
-    [DataMember]
-    public ValueList<CustomerReference1> CustomerReference { get; init; } = []; // Warning: Don't know multiplicity.
+    public CustomerReference1? CustomerReference { get; init; } 
     /// <summary>
     /// Contains the details of the passenger.
     /// </summary>
-    [DataMember]
-    public ValueList<Customer5> Passenger { get; init; } = []; // Warning: Don't know multiplicity.
+    public Customer5? Passenger { get; init; } 
     /// <summary>
     /// Contains departure location, date and time. 
     /// </summary>
-    [DataMember]
     public DepartureOrArrival1? Departure { get; init; } 
     /// <summary>
     /// Duration of the trip in days.
     /// </summary>
-    [DataMember]
     public IsoMax4NumericText? Duration { get; init; } 
     /// <summary>
     /// Indicates whether or not insurance was purchased. 
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? InsuranceIndicator { get; init; } 
     /// <summary>
     /// Total amount.
     /// </summary>
-    [DataMember]
     public AmountDetails1? TotalAmount { get; init; } 
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     /// <summary>
     /// Loyalty programme details. 
     /// </summary>
-    [DataMember]
     public LoyaltyProgramme2? LoyaltyProgramme { get; init; } 
     /// <summary>
     /// Additional user-defined data pertaining to the transportation.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DocumentNumber is IsoMax35Text DocumentNumberValue)
+        {
+            writer.WriteStartElement(null, "DocNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DocumentNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Reservation is ReservationDetails3 ReservationValue)
+        {
+            writer.WriteStartElement(null, "Rsvatn", xmlNamespace );
+            ReservationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TravelAuthorisationCode is IsoMax70Text TravelAuthorisationCodeValue)
+        {
+            writer.WriteStartElement(null, "TrvlAuthstnCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(TravelAuthorisationCodeValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (TicketIssuer is IsoMax35Text TicketIssuerValue)
+        {
+            writer.WriteStartElement(null, "TcktIssr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TicketIssuerValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OpenTicketIndicator is IsoTrueFalseIndicator OpenTicketIndicatorValue)
+        {
+            writer.WriteStartElement(null, "OpnTcktInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(OpenTicketIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CustomerReference is CustomerReference1 CustomerReferenceValue)
+        {
+            writer.WriteStartElement(null, "CstmrRef", xmlNamespace );
+            CustomerReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Passenger is Customer5 PassengerValue)
+        {
+            writer.WriteStartElement(null, "Pssngr", xmlNamespace );
+            PassengerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Departure is DepartureOrArrival1 DepartureValue)
+        {
+            writer.WriteStartElement(null, "Dprture", xmlNamespace );
+            DepartureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Duration is IsoMax4NumericText DurationValue)
+        {
+            writer.WriteStartElement(null, "Drtn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(DurationValue)); // data type Max4NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (InsuranceIndicator is IsoTrueFalseIndicator InsuranceIndicatorValue)
+        {
+            writer.WriteStartElement(null, "InsrncInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(InsuranceIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TotalAmount is AmountDetails1 TotalAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
+            TotalAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SummaryCommodityIdentification is IsoMax35Text SummaryCommodityIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SummryCmmdtyId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SummaryCommodityIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (LoyaltyProgramme is LoyaltyProgramme2 LoyaltyProgrammeValue)
+        {
+            writer.WriteStartElement(null, "LltyPrgrmm", xmlNamespace );
+            LoyaltyProgrammeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is IsoMax350Text AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalDataValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PassengerTransportSummary1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

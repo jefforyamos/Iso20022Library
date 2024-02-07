@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
 /// Specifies whether the party is locked or not, and the reason for this status, when required.
 /// </summary>
 public partial record LockStatus : UpdateLogPartyRecord1Choice_
+     , IIsoXmlSerilizable<LockStatus>
 {
     #nullable enable
+    
     /// <summary>
     /// Old value before the update.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record LockStatus : UpdateLogPartyRecord1Choice_
     /// New value after the update.
     /// </summary>
     public required PartyLockStatus1 New { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Od", xmlNamespace );
+        Old.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "New", xmlNamespace );
+        New.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new LockStatus Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PriceType4Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceType4Choice;
 /// Last reported price of a financial instrument in a market, determined by supply and demand.
 /// </summary>
 public partial record Market : PriceType4Choice_
+     , IIsoXmlSerilizable<Market>
 {
     #nullable enable
+    
     /// <summary>
     /// Specification of the price type.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record Market : PriceType4Choice_
     /// Value of the price, for example, as a currency and value.
     /// </summary>
     public required PriceRateOrAmount3Choice_ Value { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        Value.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new Market Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

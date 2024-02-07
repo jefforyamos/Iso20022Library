@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.setr.SecuritiesTradeConfirmationCancellationV01>;
 
 namespace BeneficialStrategies.Iso20022.setr;
 
@@ -29,10 +32,9 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// Respondent: Instructing party, a custodian or an affirming party optionally responds with SecuritiesTradeConfirmationResponse (accept or reject) message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|Sent by an executing party to an instructing party directly or through Central Matching Utility (CMU) to cancel the referenced SecuritiesTradeConfirmation message that was previously sent.|The instructing party is typically the investment manager or an intermediary system/vendor communicating on behalf of the investment manager or of other categories of investors.|The executing party is typically the broker/dealer or an intermediary system/vendor communicating on behalf of the broker/dealer.|It may also be used to cancel the trade confirmation previously sent from an executing party or an instructing party to a custodian or an affirming party directly or through CMU.|The ISO 20022 Business Application Header must be used|Usage|Initiator: Both in local and central matching, the Initiator may be either the Executing Party or Instructing Party.|Respondent: Instructing party, a custodian or an affirming party optionally responds with SecuritiesTradeConfirmationResponse (accept or reject) message.")]
-public partial record SecuritiesTradeConfirmationCancellationV01 : IOuterRecord
+public partial record SecuritiesTradeConfirmationCancellationV01 : IOuterRecord<SecuritiesTradeConfirmationCancellationV01,SecuritiesTradeConfirmationCancellationV01Document>
+    ,IIsoXmlSerilizable<SecuritiesTradeConfirmationCancellationV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -44,6 +46,11 @@ public partial record SecuritiesTradeConfirmationCancellationV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesTradConfCxl";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesTradeConfirmationCancellationV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -92,6 +99,44 @@ public partial record SecuritiesTradeConfirmationCancellationV01 : IOuterRecord
     {
         return new SecuritiesTradeConfirmationCancellationV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesTradConfCxl");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (References is Linkages15 ReferencesValue)
+        {
+            writer.WriteStartElement(null, "Refs", xmlNamespace );
+            ReferencesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherBusinessParties is OtherParties18 OtherBusinessPartiesValue)
+        {
+            writer.WriteStartElement(null, "OthrBizPties", xmlNamespace );
+            OtherBusinessPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesTradeConfirmationCancellationV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -99,9 +144,7 @@ public partial record SecuritiesTradeConfirmationCancellationV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesTradeConfirmationCancellationV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesTradeConfirmationCancellationV01Document : IOuterDocument<SecuritiesTradeConfirmationCancellationV01>
+public partial record SecuritiesTradeConfirmationCancellationV01Document : IOuterDocument<SecuritiesTradeConfirmationCancellationV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -117,5 +160,22 @@ public partial record SecuritiesTradeConfirmationCancellationV01Document : IOute
     /// <summary>
     /// The instance of <seealso cref="SecuritiesTradeConfirmationCancellationV01"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesTradeConfirmationCancellationV01.XmlTag)]
     public required SecuritiesTradeConfirmationCancellationV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesTradeConfirmationCancellationV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

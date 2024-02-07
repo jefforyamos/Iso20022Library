@@ -7,39 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the trade leg statement details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeLegStatement3
+     : IIsoXmlSerilizable<TradeLegStatement3>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the clearing member account at the Central counterparty through which the trade must be cleared (sometimes called position account).
     /// </summary>
-    [DataMember]
     public SecuritiesAccount18? ClearingAccount { get; init; } 
     /// <summary>
     /// Clearing organisation that will clear the trade.
     /// Note: This field allows Clearing Member Firm to segregate flows coming from clearing counterparty's clearing system. Indeed, Clearing Member Firms receive messages from the same system (same sender) and this field allows them to know if the message is related to equities or derivatives.
     /// </summary>
-    [DataMember]
     public PartyIdentification35Choice_? ClearingSegment { get; init; } 
     /// <summary>
     /// Provides the identification for the non-clearing member.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount31? NonClearingMember { get; init; } 
     /// <summary>
     /// Provides the lists of all trades during the period in consideration for the statement.
     /// </summary>
-    [DataMember]
-    public ValueList<TradeLeg9> TradeLegsDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public TradeLeg9? TradeLegsDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _dXY85y6XEeSQQqw1BT_aMg
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ClearingAccount is SecuritiesAccount18 ClearingAccountValue)
+        {
+            writer.WriteStartElement(null, "ClrAcct", xmlNamespace );
+            ClearingAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingSegment is PartyIdentification35Choice_ ClearingSegmentValue)
+        {
+            writer.WriteStartElement(null, "ClrSgmt", xmlNamespace );
+            ClearingSegmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NonClearingMember is PartyIdentificationAndAccount31 NonClearingMemberValue)
+        {
+            writer.WriteStartElement(null, "NonClrMmb", xmlNamespace );
+            NonClearingMemberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize TradeLegsDetails, multiplicity Unknown
+    }
+    public static TradeLegStatement3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentification218
+     : IIsoXmlSerilizable<PartyIdentification218>
 {
     #nullable enable
     
     /// <summary>
     /// Role played by the third party.
     /// </summary>
-    [DataMember]
     public required PartyRole6Choice_ Role { get; init; } 
     /// <summary>
     /// Identification of the third party.
     /// </summary>
-    [DataMember]
     public required PartyIdentification205Choice_ Identification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Role", xmlNamespace );
+        Role.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static PartyIdentification218 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

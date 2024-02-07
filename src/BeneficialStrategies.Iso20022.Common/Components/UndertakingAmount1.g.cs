@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about an amount.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UndertakingAmount1
+     : IIsoXmlSerilizable<UndertakingAmount1>
 {
     #nullable enable
     
     /// <summary>
     /// Amount and currency of the undertaking.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Percentage by which the amount claimed under the undertaking may be more than the undertaking amount.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? PlusTolerance { get; init; } 
     /// <summary>
     /// Additional information concerning the undertaking amount.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (PlusTolerance is IsoPercentageRate PlusToleranceValue)
+        {
+            writer.WriteStartElement(null, "PlusTlrnce", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PlusToleranceValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+    }
+    public static UndertakingAmount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

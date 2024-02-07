@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Funds transfer service
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransferService2
+     : IIsoXmlSerilizable<TransferService2>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the funding service provider.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ServiceProvider { get; init; } 
     /// <summary>
     /// Name of the funding service (for example, MoneyGram, Western Union, etc.).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ServiceName { get; init; } 
     /// <summary>
     /// Reference to the funding service.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Reference { get; init; } 
     /// <summary>
     /// Purpose of the transfer. 
     /// </summary>
-    [DataMember]
     public IsoMax500Text? BusinessPurpose { get; init; } 
     /// <summary>
     /// Free text that can be used between the sender and the receiver to describe the details of the transfer.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? Description { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ServiceProvider is IsoMax35Text ServiceProviderValue)
+        {
+            writer.WriteStartElement(null, "SvcPrvdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ServiceProviderValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ServiceName is IsoMax35Text ServiceNameValue)
+        {
+            writer.WriteStartElement(null, "SvcNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ServiceNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Reference is IsoMax35Text ReferenceValue)
+        {
+            writer.WriteStartElement(null, "Ref", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (BusinessPurpose is IsoMax500Text BusinessPurposeValue)
+        {
+            writer.WriteStartElement(null, "BizPurp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Text(BusinessPurposeValue)); // data type Max500Text System.String
+            writer.WriteEndElement();
+        }
+        if (Description is IsoMax256Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(DescriptionValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TransferService2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

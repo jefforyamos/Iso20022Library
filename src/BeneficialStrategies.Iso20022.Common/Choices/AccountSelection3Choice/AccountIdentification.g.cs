@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AccountSelection3Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountSelection3Choice;
 /// Unique and unambiguous identification for the account between the account owner and the account servicer.
 /// </summary>
 public partial record AccountIdentification : AccountSelection3Choice_
+     , IIsoXmlSerilizable<AccountIdentification>
 {
-    public required IsoMax35Text Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a character string with a maximum length of 35 characters.
+    /// </summary>
+    public required IsoMax35Text Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AcctId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Value)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static new AccountIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

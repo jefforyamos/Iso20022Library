@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Non-extension information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NonExtension1
+     : IIsoXmlSerilizable<NonExtension1>
 {
     #nullable enable
     
     /// <summary>
     /// Minimum number of days prior to the then current expiry date by which notice of non-extension must be sent.
     /// </summary>
-    [DataMember]
     public IsoNumber? NotificationPeriod { get; init; } 
     /// <summary>
     /// Method by which the notice of non-extension is intended to be delivered.
     /// </summary>
-    [DataMember]
     public CommunicationMethod1Choice_? NotificationMethod { get; init; } 
     /// <summary>
     /// Type of party to whom the notice of non-extension is intended to be delivered.
     /// </summary>
-    [DataMember]
     public PartyType1Choice_? NotificationRecipientType { get; init; } 
     /// <summary>
     /// Name of party to whom the notice of non-extension is intended to be delivered.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? NotificationRecipientName { get; init; } 
     /// <summary>
     /// Address of party to whom the notice of non-extension is intended to be delivered.
     /// </summary>
-    [DataMember]
     public PostalAddress6? NotificationRecipientAddress { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NotificationPeriod is IsoNumber NotificationPeriodValue)
+        {
+            writer.WriteStartElement(null, "NtfctnPrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NotificationPeriodValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (NotificationMethod is CommunicationMethod1Choice_ NotificationMethodValue)
+        {
+            writer.WriteStartElement(null, "NtfctnMtd", xmlNamespace );
+            NotificationMethodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotificationRecipientType is PartyType1Choice_ NotificationRecipientTypeValue)
+        {
+            writer.WriteStartElement(null, "NtfctnRcptTp", xmlNamespace );
+            NotificationRecipientTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotificationRecipientName is IsoMax140Text NotificationRecipientNameValue)
+        {
+            writer.WriteStartElement(null, "NtfctnRcptNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(NotificationRecipientNameValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (NotificationRecipientAddress is PostalAddress6 NotificationRecipientAddressValue)
+        {
+            writer.WriteStartElement(null, "NtfctnRcptAdr", xmlNamespace );
+            NotificationRecipientAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static NonExtension1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

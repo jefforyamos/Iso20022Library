@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the non guaranteed trade details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NonGuaranteedTrade3
+     : IIsoXmlSerilizable<NonGuaranteedTrade3>
 {
     #nullable enable
     
     /// <summary>
     /// External identification of the member who is the market counterpart member of the current trade leg (in case of non guarantee trades, this field allows buyer and seller to identify each other).
     /// </summary>
-    [DataMember]
     public required PartyIdentification35Choice_ TradeCounterpartyMemberIdentification { get; init; } 
     /// <summary>
     /// External identification of the clearing member of the market couterpart member (in case of non guarantee trades, this field allows buyer and seller to identify each other).
     /// </summary>
-    [DataMember]
     public required PartyIdentification35Choice_ TradeCounterpartyClearingMemberIdentification { get; init; } 
     /// <summary>
     /// Provides details about the delivering parties involved in the settlement chain.
     /// </summary>
-    [DataMember]
     public DeliveringPartiesAndAccount11? DeliveringParties { get; init; } 
     /// <summary>
     /// Provides details about the receiving parties involved in the settlement chain.
     /// </summary>
-    [DataMember]
     public ReceivingPartiesAndAccount11? ReceivingParties { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TradCtrPtyMmbId", xmlNamespace );
+        TradeCounterpartyMemberIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradCtrPtyClrMmbId", xmlNamespace );
+        TradeCounterpartyClearingMemberIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DeliveringParties is DeliveringPartiesAndAccount11 DeliveringPartiesValue)
+        {
+            writer.WriteStartElement(null, "DlvrgPties", xmlNamespace );
+            DeliveringPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReceivingParties is ReceivingPartiesAndAccount11 ReceivingPartiesValue)
+        {
+            writer.WriteStartElement(null, "RcvgPties", xmlNamespace );
+            ReceivingPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static NonGuaranteedTrade3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

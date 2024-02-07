@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.BankToCustomerAccountReportV06>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -29,10 +32,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// For a statement, the Bank-to-Customer Account Statement message should be used.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The BankToCustomerAccountReport message is sent by the account servicer to an account owner or to a party authorised by the account owner to receive the message. It can be used to inform the account owner, or authorised party, of the entries reported to the account, and/or to provide the owner with balance information on the account at a given point in time.|Usage|The BankToCustomerAccountReport message can contain reports for more than one account. It provides information for cash management and/or reconciliation. It can be used to:|- report pending and booked items;|- provide balance information.|It can include underlying details of transactions that have been included in the entry.|It is possible that the receiver of the message is not the account owner, but a party entitled by the account owner to receive the account information (also known as recipient).|For a statement, the Bank-to-Customer Account Statement message should be used.")]
-public partial record BankToCustomerAccountReportV06 : IOuterRecord
+public partial record BankToCustomerAccountReportV06 : IOuterRecord<BankToCustomerAccountReportV06,BankToCustomerAccountReportV06Document>
+    ,IIsoXmlSerilizable<BankToCustomerAccountReportV06>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -44,6 +46,11 @@ public partial record BankToCustomerAccountReportV06 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "BkToCstmrAcctRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => BankToCustomerAccountReportV06Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -84,6 +91,35 @@ public partial record BankToCustomerAccountReportV06 : IOuterRecord
     {
         return new BankToCustomerAccountReportV06Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("BkToCstmrAcctRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
+        GroupHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rpt", xmlNamespace );
+        Report.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BankToCustomerAccountReportV06 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -91,9 +127,7 @@ public partial record BankToCustomerAccountReportV06 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BankToCustomerAccountReportV06"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record BankToCustomerAccountReportV06Document : IOuterDocument<BankToCustomerAccountReportV06>
+public partial record BankToCustomerAccountReportV06Document : IOuterDocument<BankToCustomerAccountReportV06>, IXmlSerializable
 {
     
     /// <summary>
@@ -109,5 +143,22 @@ public partial record BankToCustomerAccountReportV06Document : IOuterDocument<Ba
     /// <summary>
     /// The instance of <seealso cref="BankToCustomerAccountReportV06"/> is required.
     /// </summary>
+    [DataMember(Name=BankToCustomerAccountReportV06.XmlTag)]
     public required BankToCustomerAccountReportV06 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(BankToCustomerAccountReportV06.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

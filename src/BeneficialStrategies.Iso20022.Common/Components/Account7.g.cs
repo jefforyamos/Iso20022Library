@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Account7
+     : IIsoXmlSerilizable<Account7>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public required AccountIdentification1 Identification { get; init; } 
     /// <summary>
     /// Institution servicing an account and assigning the account identifier to the account owner.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? AccountServicer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountServicer is PartyIdentification2Choice_ AccountServicerValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+            AccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Account7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,56 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Instructions, initiated by the creditor, to debit a debtor's account in favour of the creditor.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DirectDebitInstructionDetails2
+     : IIsoXmlSerilizable<DirectDebitInstructionDetails2>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the mandate for a direct debit instruction.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MandateIdentification { get; init; } 
     /// <summary>
     /// Indicates whether the instruction is an automated direct debit instruction.
     /// Usage: Default value for AutomatedDirectDebitInstructionIndicator is false.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? AutomatedDirectDebitInstructionIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the direct debit instruction is transferable.
     /// Usage: Default value for DirectDebitTransferableIndicator is false.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? DirectDebitTransferableIndicator { get; init; } 
     /// <summary>
     /// Party to which an amount of money is due.
     /// </summary>
-    [DataMember]
     public required PartyIdentification135 Creditor { get; init; } 
     /// <summary>
     /// Amount of the last debit made for the direct debit mandate.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? LastCollectionCurrencyAmount { get; init; } 
     /// <summary>
     /// Date on which the last debit for the direct debit mandate may be made.
     /// Usage: Not included if all limits to the validity of the direct debit mandate have already been specified or if there are no time limits on the validity of the direct debit.
     /// </summary>
-    [DataMember]
     public IsoISODate? LastCollectionDate { get; init; } 
     /// <summary>
     /// Provides further information about the status of a requested transaction schedule transfer.
     /// </summary>
-    [DataMember]
-    public ValueList<TransferInstruction1> OtherDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransferInstruction1? OtherDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MndtId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MandateIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (AutomatedDirectDebitInstructionIndicator is IsoYesNoIndicator AutomatedDirectDebitInstructionIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AutomtdDrctDbtInstrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AutomatedDirectDebitInstructionIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (DirectDebitTransferableIndicator is IsoYesNoIndicator DirectDebitTransferableIndicatorValue)
+        {
+            writer.WriteStartElement(null, "DrctDbtTrfblInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DirectDebitTransferableIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Cdtr", xmlNamespace );
+        Creditor.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LastCollectionCurrencyAmount is IsoActiveOrHistoricCurrencyAndAmount LastCollectionCurrencyAmountValue)
+        {
+            writer.WriteStartElement(null, "LastColltnCcyAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(LastCollectionCurrencyAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (LastCollectionDate is IsoISODate LastCollectionDateValue)
+        {
+            writer.WriteStartElement(null, "LastColltnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(LastCollectionDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (OtherDetails is TransferInstruction1 OtherDetailsValue)
+        {
+            writer.WriteStartElement(null, "OthrDtls", xmlNamespace );
+            OtherDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DirectDebitInstructionDetails2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

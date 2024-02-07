@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsmt.AmendmentRejectionNotificationV03>;
 
 namespace BeneficialStrategies.Iso20022.tsmt;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// In order to pass on information about the acceptance of an amendment request the matching application sends an AmendmentAcceptanceNotification message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The AmendmentRejectionNotification message is sent by the matching application to the requester of an amendment.|This message is used to notify the rejection of an amendment request.|Usage|The AmendmentRejectionNotification message can be sent by the matching application to pass on information about the rejection of an amendment request that it has obtained through the receipt of an AmendmentRejection message.|In order to pass on information about the acceptance of an amendment request the matching application sends an AmendmentAcceptanceNotification message.")]
-public partial record AmendmentRejectionNotificationV03 : IOuterRecord
+public partial record AmendmentRejectionNotificationV03 : IOuterRecord<AmendmentRejectionNotificationV03,AmendmentRejectionNotificationV03Document>
+    ,IIsoXmlSerilizable<AmendmentRejectionNotificationV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AmdmntRjctnNtfctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AmendmentRejectionNotificationV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -90,7 +97,7 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord
     [Description(@"Reference to the transaction for each financial institution which is a party to the transaction.")]
     [DataMember(Name="UsrTxRef")]
     [XmlElement(ElementName="UsrTxRef")]
-    public required IReadOnlyCollection<DocumentIdentification5> UserTransactionReference { get; init; } = []; // Min=0, Max=2
+    public required ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = []; // Min=0, Max=2
     
     /// <summary>
     /// Reference to the identification of the delta report that contained the amendment.
@@ -150,6 +157,56 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord
     {
         return new AmendmentRejectionNotificationV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AmdmntRjctnNtfctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NtfctnId", xmlNamespace );
+        NotificationIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EstblishdBaselnId", xmlNamespace );
+        EstablishedBaselineIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxSts", xmlNamespace );
+        TransactionStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UsrTxRef", xmlNamespace );
+        UserTransactionReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DltaRptRef", xmlNamespace );
+        DeltaReportReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RjctdAmdmntNb", xmlNamespace );
+        RejectedAmendmentNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Initr", xmlNamespace );
+        Initiator.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RjctnRsn", xmlNamespace );
+        RejectionReason.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RequestForAction is PendingActivity2 RequestForActionValue)
+        {
+            writer.WriteStartElement(null, "ReqForActn", xmlNamespace );
+            RequestForActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AmendmentRejectionNotificationV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -157,9 +214,7 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AmendmentRejectionNotificationV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AmendmentRejectionNotificationV03Document : IOuterDocument<AmendmentRejectionNotificationV03>
+public partial record AmendmentRejectionNotificationV03Document : IOuterDocument<AmendmentRejectionNotificationV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -175,5 +230,22 @@ public partial record AmendmentRejectionNotificationV03Document : IOuterDocument
     /// <summary>
     /// The instance of <seealso cref="AmendmentRejectionNotificationV03"/> is required.
     /// </summary>
+    [DataMember(Name=AmendmentRejectionNotificationV03.XmlTag)]
     public required AmendmentRejectionNotificationV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AmendmentRejectionNotificationV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

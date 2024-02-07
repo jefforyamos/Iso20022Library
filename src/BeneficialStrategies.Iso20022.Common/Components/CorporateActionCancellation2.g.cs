@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Corporate action event cancellation status and reason.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionCancellation2
+     : IIsoXmlSerilizable<CorporateActionCancellation2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies reasons for cancellation of a corporate action event.
     /// </summary>
-    [DataMember]
     public required CorporateActionCancellationReason1Code CancellationReasonCode { get; init; } 
     /// <summary>
     /// Additional information about cancellation of a corporate action event.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax140Text? CancellationReason { get; init; } 
     /// <summary>
     /// Specifies the status of the details of the event.
     /// </summary>
-    [DataMember]
     public required CorporateActionProcessingStatus1Choice_ ProcessingStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CxlRsnCd", xmlNamespace );
+        writer.WriteValue(CancellationReasonCode.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (CancellationReason is IsoRestrictedFINXMax140Text CancellationReasonValue)
+        {
+            writer.WriteStartElement(null, "CxlRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax140Text(CancellationReasonValue)); // data type RestrictedFINXMax140Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PrcgSts", xmlNamespace );
+        ProcessingStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CorporateActionCancellation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

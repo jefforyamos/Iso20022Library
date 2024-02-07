@@ -7,53 +7,91 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the additional information for an NDF as supplied on a fixing instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FixingConditions1
+     : IIsoXmlSerilizable<FixingConditions1>
 {
     #nullable enable
     
     /// <summary>
     /// The date on which the trade was executed.
     /// </summary>
-    [DataMember]
     public required IsoISODate TradeDate { get; init; } 
     /// <summary>
     /// Represents the original reference of the instruction for which the status is given, as assigned by the participant that submitted the foreign exchange trade.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OriginatorReference { get; init; } 
     /// <summary>
     /// Reference common to both parties of the trade.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CommonReference { get; init; } 
     /// <summary>
     /// Reference to the identification of a previous event in the life of a trade which is amended or cancelled.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RelatedReference { get; init; } 
     /// <summary>
     /// Currency and amount bought in a foreign exchange trade.
     /// </summary>
-    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount TradingSideBuyAmount { get; init; } 
     /// <summary>
     /// Currency and amount sold in a foreign exchange trade.
     /// </summary>
-    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount TradingSideSellAmount { get; init; } 
     /// <summary>
     /// The value of one currency expressed in relation to another currency. ExchangeRate expresses the ratio between UnitCurrency and QuotedCurrency (ExchangeRate = UnitCurrency/QuotedCurrency).
     /// </summary>
-    [DataMember]
     public required IsoBaseOneRate ExchangeRate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TradDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(TradeDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgtrRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginatorReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (CommonReference is IsoMax35Text CommonReferenceValue)
+        {
+            writer.WriteStartElement(null, "CmonRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CommonReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is IsoMax35Text RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RelatedReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TradgSdBuyAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TradingSideBuyAmount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradgSdSellAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TradingSideSellAmount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XchgRate", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ExchangeRate)); // data type BaseOneRate System.Decimal
+        writer.WriteEndElement();
+    }
+    public static FixingConditions1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

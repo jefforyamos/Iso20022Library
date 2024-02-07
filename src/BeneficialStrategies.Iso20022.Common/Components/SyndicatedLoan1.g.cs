@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Loan offered by a group of lenders (called a syndicate) who work together to lend an amount of money to a single borrower.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SyndicatedLoan1
+     : IIsoXmlSerilizable<SyndicatedLoan1>
 {
     #nullable enable
     
     /// <summary>
     /// Party which obtains the loan.
     /// </summary>
-    [DataMember]
     public required TradeParty2 Borrower { get; init; } 
     /// <summary>
     /// Party which provides an amount of money available to others to borrow.
     /// </summary>
-    [DataMember]
     public TradeParty2? Lender { get; init; } 
     /// <summary>
     /// Amount of the part in the syndicated loan.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Share of the part in the syndicated loan.
     /// </summary>
-    [DataMember]
     public IsoPercentage? Share { get; init; } 
     /// <summary>
     /// Provides details on the currency exchange rate and contract.
     /// </summary>
-    [DataMember]
     public ExchangeRate1? ExchangeRateInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Brrwr", xmlNamespace );
+        Borrower.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Lender is TradeParty2 LenderValue)
+        {
+            writer.WriteStartElement(null, "Lndr", xmlNamespace );
+            LenderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Amount is IsoActiveCurrencyAndAmount AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Share is IsoPercentage ShareValue)
+        {
+            writer.WriteStartElement(null, "Shr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentage(ShareValue)); // data type Percentage System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExchangeRateInformation is ExchangeRate1 ExchangeRateInformationValue)
+        {
+            writer.WriteStartElement(null, "XchgRateInf", xmlNamespace );
+            ExchangeRateInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SyndicatedLoan1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

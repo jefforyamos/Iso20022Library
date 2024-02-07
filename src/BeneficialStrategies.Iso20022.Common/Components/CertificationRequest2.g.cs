@@ -7,38 +7,69 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information of the certificate to create.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CertificationRequest2
+     : IIsoXmlSerilizable<CertificationRequest2>
 {
     #nullable enable
     
     /// <summary>
     /// Version of the certificate request information data structure.
     /// </summary>
-    [DataMember]
     public IsoNumber? Version { get; init; } 
     /// <summary>
     /// Distinguished name of the certificate subject, the entity whose public key is to be certified.
     /// </summary>
-    [DataMember]
     public CertificateIssuer1? SubjectName { get; init; } 
     /// <summary>
     /// Information about the public key being certified.
     /// </summary>
-    [DataMember]
     public required PublicRSAKey2 SubjectPublicKeyInformation { get; init; } 
     /// <summary>
     /// Attribute of the certificate service to be put in the certificate extensions, or to be used for the request.
     /// </summary>
-    [DataMember]
-    public ValueList<RelativeDistinguishedName2> Attribute { get; init; } = []; // Warning: Don't know multiplicity.
+    public RelativeDistinguishedName2? Attribute { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _ECnAkI4UEeW6h7rGyYlyTg
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Version is IsoNumber VersionValue)
+        {
+            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(VersionValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (SubjectName is CertificateIssuer1 SubjectNameValue)
+        {
+            writer.WriteStartElement(null, "SbjtNm", xmlNamespace );
+            SubjectNameValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SbjtPblcKeyInf", xmlNamespace );
+        SubjectPublicKeyInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize Attribute, multiplicity Unknown
+    }
+    public static CertificationRequest2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

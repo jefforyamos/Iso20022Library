@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the sub-class according to one of the segmentation criteria defined as per local regulation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NonEquitySubClassSegmentationCriterion1
+     : IIsoXmlSerilizable<NonEquitySubClassSegmentationCriterion1>
 {
     #nullable enable
     
     /// <summary>
     /// Criteria used to segment classes of derivative instruments into sub classes as per local regulation.
     /// </summary>
-    [DataMember]
     public required NonEquitySubClassSegmentationCriteria1Code CriteriaName { get; init; } 
     /// <summary>
     /// Value identifying the sub class with respect to a segmentation criteria as per local regulation.
     /// </summary>
-    [DataMember]
     public required IsoMax1000Text CriteriaValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CritNm", xmlNamespace );
+        writer.WriteValue(CriteriaName.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CritVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax1000Text(CriteriaValue)); // data type Max1000Text System.String
+        writer.WriteEndElement();
+    }
+    public static NonEquitySubClassSegmentationCriterion1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

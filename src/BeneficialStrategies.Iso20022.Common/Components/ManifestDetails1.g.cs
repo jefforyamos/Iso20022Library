@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes the related items or attachments (such as message types and number of messages types) within the file.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ManifestDetails1
+     : IIsoXmlSerilizable<ManifestDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of items contained in the document set. An initial list of values can be found in the ISO20022 message type catalogue such as admi, camt, pacs, sese, semt etc. ISO messages.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text DocumentType { get; init; } 
     /// <summary>
     /// Gives the number of instances (messages) for each declared type.
     /// </summary>
-    [DataMember]
     public required IsoNumber NumberOfDocuments { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DocTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(DocumentType)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NbOfDocs", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfDocuments)); // data type Number System.UInt64
+        writer.WriteEndElement();
+    }
+    public static ManifestDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

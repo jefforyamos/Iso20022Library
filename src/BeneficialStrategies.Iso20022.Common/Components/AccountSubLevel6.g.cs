@@ -7,63 +7,117 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account and holding of the next sub-level (Level 6).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountSubLevel6
+     : IIsoXmlSerilizable<AccountSubLevel6>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the sub-account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public required SecuritiesAccount19 AccountIdentification { get; init; } 
     /// <summary>
     /// Party that legally owns the sub-account.
     /// </summary>
-    [DataMember]
     public required PartyIdentification100 AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the sub-account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    [DataMember]
     public required PartyIdentification100 AccountServicer { get; init; } 
     /// <summary>
     /// Individual or entity that is ultimately entitled to the benefit of income and rights in a financial instrument, as opposed to a nominal or legal owner.
     /// </summary>
-    [DataMember]
-    public ValueList<BeneficialOwner2> BeneficialOwner { get; init; } = []; // Warning: Don't know multiplicity.
+    public BeneficialOwner2? BeneficialOwner { get; init; } 
     /// <summary>
     /// Report on the net position of a financial instrument on the sub-account, for a certain date.
     /// </summary>
-    [DataMember]
-    public ValueList<AggregateHoldingBalance1> BalanceForAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    public AggregateHoldingBalance1? BalanceForAccount { get; init; } 
     /// <summary>
     /// Holdings of level 7.
     /// </summary>
-    [DataMember]
-    public ValueList<AccountSubLevel7> AccountSubLevel7 { get; init; } = []; // Warning: Don't know multiplicity.
+    public AccountSubLevel7? AccountSubLevel7 { get; init; } 
     /// <summary>
     /// Difference in holdings between the sub-account at level 6 and the sub-accounts of level 7.
     /// </summary>
-    [DataMember]
-    public ValueList<AggregateHoldingBalance2> AccountSubLevel7Difference { get; init; } = []; // Warning: Don't know multiplicity.
+    public AggregateHoldingBalance2? AccountSubLevel7Difference { get; init; } 
     /// <summary>
     /// Identification of a related party acting as an intermediary.
     /// </summary>
-    [DataMember]
-    public ValueList<Intermediary29> Agent { get; init; } = []; // Warning: Don't know multiplicity.
+    public Intermediary29? Agent { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AcctId", xmlNamespace );
+        AccountIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+        AccountOwner.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+        AccountServicer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BeneficialOwner is BeneficialOwner2 BeneficialOwnerValue)
+        {
+            writer.WriteStartElement(null, "BnfclOwnr", xmlNamespace );
+            BeneficialOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BalanceForAccount is AggregateHoldingBalance1 BalanceForAccountValue)
+        {
+            writer.WriteStartElement(null, "BalForAcct", xmlNamespace );
+            BalanceForAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountSubLevel7 is AccountSubLevel7 AccountSubLevel7Value)
+        {
+            writer.WriteStartElement(null, "AcctSubLvl7", xmlNamespace );
+            AccountSubLevel7Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountSubLevel7Difference is AggregateHoldingBalance2 AccountSubLevel7DifferenceValue)
+        {
+            writer.WriteStartElement(null, "AcctSubLvl7Diff", xmlNamespace );
+            AccountSubLevel7DifferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Agent is Intermediary29 AgentValue)
+        {
+            writer.WriteStartElement(null, "Agt", xmlNamespace );
+            AgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountSubLevel6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

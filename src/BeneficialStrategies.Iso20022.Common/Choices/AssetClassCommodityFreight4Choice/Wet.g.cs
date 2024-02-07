@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityFreight4Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityFreight4Choic
 /// Wet freight commodity derivative.
 /// </summary>
 public partial record Wet : AssetClassCommodityFreight4Choice_
+     , IIsoXmlSerilizable<Wet>
 {
     #nullable enable
+    
     /// <summary>
     /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
     /// </summary>
@@ -27,5 +31,38 @@ public partial record Wet : AssetClassCommodityFreight4Choice_
     /// Further subproduct type related to instruments that have a non-financial instrument or commodity as underlying.
     /// </summary>
     public AssetClassDetailedSubProductType34Code? AdditionalSubProduct { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BasePdct", xmlNamespace );
+        writer.WriteValue(BaseProduct.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SubProduct is AssetClassSubProductType32Code SubProductValue)
+        {
+            writer.WriteStartElement(null, "SubPdct", xmlNamespace );
+            writer.WriteValue(SubProductValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AdditionalSubProduct is AssetClassDetailedSubProductType34Code AdditionalSubProductValue)
+        {
+            writer.WriteStartElement(null, "AddtlSubPdct", xmlNamespace );
+            writer.WriteValue(AdditionalSubProductValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static new Wet Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the rate adjustments as determined by the rate schedule.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RateAdjustment1
+     : IIsoXmlSerilizable<RateAdjustment1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the rate as determined by the rate schedule.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate Rate { get; init; } 
     /// <summary>
     /// Specifies date as of which the rate is effective.
     /// </summary>
-    [DataMember]
     public required IsoISODate AdjustmentDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Rate", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(Rate)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AdjstmntDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(AdjustmentDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+    }
+    public static RateAdjustment1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

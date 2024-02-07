@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Balances of units and cash derived from investment fund orders.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FundBalance1
+     : IIsoXmlSerilizable<FundBalance1>
 {
     #nullable enable
     
     /// <summary>
     /// Total number of units from orders placed in units.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1? TotalUnitsFromUnitOrders { get; init; } 
     /// <summary>
     /// Number of units derived from orders placed in cash.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1? TotalUnitsFromCashOrders { get; init; } 
     /// <summary>
     /// Total amount of cash derived from orders placed as units.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalCashFromUnitOrders { get; init; } 
     /// <summary>
     /// Total amount of cash from orders placed in cash.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalCashFromCashOrders { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TotalUnitsFromUnitOrders is FinancialInstrumentQuantity1 TotalUnitsFromUnitOrdersValue)
+        {
+            writer.WriteStartElement(null, "TtlUnitsFrUnitOrdrs", xmlNamespace );
+            TotalUnitsFromUnitOrdersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalUnitsFromCashOrders is FinancialInstrumentQuantity1 TotalUnitsFromCashOrdersValue)
+        {
+            writer.WriteStartElement(null, "TtlUnitsFrCshOrdrs", xmlNamespace );
+            TotalUnitsFromCashOrdersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalCashFromUnitOrders is IsoActiveOrHistoricCurrencyAndAmount TotalCashFromUnitOrdersValue)
+        {
+            writer.WriteStartElement(null, "TtlCshFrUnitOrdrs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalCashFromUnitOrdersValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TotalCashFromCashOrders is IsoActiveOrHistoricCurrencyAndAmount TotalCashFromCashOrdersValue)
+        {
+            writer.WriteStartElement(null, "TtlCshFrCshOrdrs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalCashFromCashOrdersValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static FundBalance1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,48 +7,84 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Movements of securities.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesMovement7
+     : IIsoXmlSerilizable<SecuritiesMovement7>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the quantity of financial instrument is to be delivered or received.
     /// </summary>
-    [DataMember]
     public required CollateralEntryType1Code SecuritiesMovementType { get; init; } 
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Quantity of financial instrument.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity33Choice_ Quantity { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is delivered/received as collateral or as a loan.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator CollateralMovement { get; init; } 
     /// <summary>
     /// Reference assigned by the party A to the financial instrument movement.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClientSecuritiesMovementIdentification { get; init; } 
     /// <summary>
     /// Reference assigned by the triparty agent to the financial instrument movement.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TripartyAgentServiceProviderSecuritiesMovementIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SctiesMvmntTp", xmlNamespace );
+        writer.WriteValue(SecuritiesMovementType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        Quantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CollMvmnt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CollateralMovement)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (ClientSecuritiesMovementIdentification is IsoMax35Text ClientSecuritiesMovementIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClntSctiesMvmntId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientSecuritiesMovementIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TripartyAgentServiceProviderSecuritiesMovementIdentification is IsoMax35Text TripartyAgentServiceProviderSecuritiesMovementIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TrptyAgtSvcPrvdrSctiesMvmntId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TripartyAgentServiceProviderSecuritiesMovementIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesMovement7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

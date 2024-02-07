@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies prices.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionPrice27
+     : IIsoXmlSerilizable<CorporateActionPrice27>
 {
     #nullable enable
     
     /// <summary>
     /// Cash disbursement in lieu of equities; usually in lieu of fractional quantity.
     /// </summary>
-    [DataMember]
     public PriceFormat5Choice_? CashInLieuOfSharePrice { get; init; } 
     /// <summary>
     /// Indicates whether the price is an indicative price or a market price.
     /// </summary>
-    [DataMember]
     public IndicativeOrMarketPrice2Choice_? IndicativeOrMarketPrice { get; init; } 
     /// <summary>
     /// Cash value of resulting securities proceeds for tax calculation and/or reporting.
     /// </summary>
-    [DataMember]
     public AmountPrice2? CashValueForTax { get; init; } 
     /// <summary>
     /// Generic cash price paid per product by the underlying security holder either as a percentage or an amount, for example, reinvestment price.
     /// </summary>
-    [DataMember]
     public PriceFormat6Choice_? GenericCashPricePaidPerProduct { get; init; } 
     /// <summary>
     /// Generic cash price received per product by the underlying security holder either as a percentage or an amount, for example, redemption price.
     /// </summary>
-    [DataMember]
     public PriceFormat7Choice_? GenericCashPriceReceivedPerProduct { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CashInLieuOfSharePrice is PriceFormat5Choice_ CashInLieuOfSharePriceValue)
+        {
+            writer.WriteStartElement(null, "CshInLieuOfShrPric", xmlNamespace );
+            CashInLieuOfSharePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IndicativeOrMarketPrice is IndicativeOrMarketPrice2Choice_ IndicativeOrMarketPriceValue)
+        {
+            writer.WriteStartElement(null, "IndctvOrMktPric", xmlNamespace );
+            IndicativeOrMarketPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashValueForTax is AmountPrice2 CashValueForTaxValue)
+        {
+            writer.WriteStartElement(null, "CshValForTax", xmlNamespace );
+            CashValueForTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GenericCashPricePaidPerProduct is PriceFormat6Choice_ GenericCashPricePaidPerProductValue)
+        {
+            writer.WriteStartElement(null, "GncCshPricPdPerPdct", xmlNamespace );
+            GenericCashPricePaidPerProductValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GenericCashPriceReceivedPerProduct is PriceFormat7Choice_ GenericCashPriceReceivedPerProductValue)
+        {
+            writer.WriteStartElement(null, "GncCshPricRcvdPerPdct", xmlNamespace );
+            GenericCashPriceReceivedPerProductValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionPrice27 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

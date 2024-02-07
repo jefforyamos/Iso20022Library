@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.acmt.AccountSwitchCancelExistingPaymentV01>;
 
 namespace BeneficialStrategies.Iso20022.acmt;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// The AccountSwitchCancelExistingPayment message is sent by the new account servicer to the previous account servicer to identify which payment arrangements are to be cancelled on the account owner's account and when they are to be cancelled. This message is used during a partial switch of the account and may be sent multiple times to allow for the account parties to transfer different payment arrangements at different times during the switch. 
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The AccountSwitchCancelExistingPayment message is sent by the new account servicer to the previous account servicer to identify which payment arrangements are to be cancelled on the account owner's account and when they are to be cancelled. This message is used during a partial switch of the account and may be sent multiple times to allow for the account parties to transfer different payment arrangements at different times during the switch. ")]
-public partial record AccountSwitchCancelExistingPaymentV01 : IOuterRecord
+public partial record AccountSwitchCancelExistingPaymentV01 : IOuterRecord<AccountSwitchCancelExistingPaymentV01,AccountSwitchCancelExistingPaymentV01Document>
+    ,IIsoXmlSerilizable<AccountSwitchCancelExistingPaymentV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record AccountSwitchCancelExistingPaymentV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AcctSwtchCclExstgPmt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AccountSwitchCancelExistingPaymentV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -104,6 +111,50 @@ public partial record AccountSwitchCancelExistingPaymentV01 : IOuterRecord
     {
         return new AccountSwitchCancelExistingPaymentV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AcctSwtchCclExstgPmt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctSwtchDtls", xmlNamespace );
+        AccountSwitchDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OdAcct", xmlNamespace );
+        OldAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PaymentInstruction is PaymentInstruction24 PaymentInstructionValue)
+        {
+            writer.WriteStartElement(null, "PmtInstr", xmlNamespace );
+            PaymentInstructionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DirectDebitInstruction is DirectDebitInstructionDetails1 DirectDebitInstructionValue)
+        {
+            writer.WriteStartElement(null, "DrctDbtInstr", xmlNamespace );
+            DirectDebitInstructionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountSwitchCancelExistingPaymentV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -111,9 +162,7 @@ public partial record AccountSwitchCancelExistingPaymentV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountSwitchCancelExistingPaymentV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AccountSwitchCancelExistingPaymentV01Document : IOuterDocument<AccountSwitchCancelExistingPaymentV01>
+public partial record AccountSwitchCancelExistingPaymentV01Document : IOuterDocument<AccountSwitchCancelExistingPaymentV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -129,5 +178,22 @@ public partial record AccountSwitchCancelExistingPaymentV01Document : IOuterDocu
     /// <summary>
     /// The instance of <seealso cref="AccountSwitchCancelExistingPaymentV01"/> is required.
     /// </summary>
+    [DataMember(Name=AccountSwitchCancelExistingPaymentV01.XmlTag)]
     public required AccountSwitchCancelExistingPaymentV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AccountSwitchCancelExistingPaymentV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

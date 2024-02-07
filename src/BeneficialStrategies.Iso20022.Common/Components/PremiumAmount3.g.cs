@@ -7,53 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Commercial agreement in which the buyer agrees to pay the seller an amount of cash. Some aspects of the payment may be defined in the agreement, for example, the method of the payment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PremiumAmount3
+     : IIsoXmlSerilizable<PremiumAmount3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the calculation method of the premium amount.
     /// </summary>
-    [DataMember]
     public required PremiumQuote1Choice_ PremiumQuote { get; init; } 
     /// <summary>
     /// Identification of the premium currency in which the option is held. 
     /// </summary>
-    [DataMember]
     public required ActiveOrHistoricCurrencyCode PremiumCurrency { get; init; } 
     /// <summary>
     /// Result of the calculation of the premium amount on the basis of the premium quote and one of the amounts of the underlying foreign exchange trade.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Number of decimal places to which quantities of units/shares are rounded.
     /// </summary>
-    [DataMember]
     public required IsoNumber DecimalPlaces { get; init; } 
     /// <summary>
     /// Date on which the premium must be settled.
     /// </summary>
-    [DataMember]
     public required IsoISODate PremiumSettlementDate { get; init; } 
     /// <summary>
     /// Premium fee payer related information.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text PayerPartyReference { get; init; } 
     /// <summary>
     /// Premium fee receiver related information.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ReceiverPartyReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrmQt", xmlNamespace );
+        PremiumQuote.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PrmCcy", xmlNamespace );
+        writer.WriteValue(PremiumCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DcmlPlcs", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(DecimalPlaces)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PrmSttlmDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(PremiumSettlementDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PyerPtyRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(PayerPartyReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RcvrPtyRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ReceiverPartyReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static PremiumAmount3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

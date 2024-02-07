@@ -7,23 +7,46 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money due to a party as compensation for a service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Commission13
+     : IIsoXmlSerilizable<Commission13>
 {
     #nullable enable
     
     /// <summary>
     /// Reference to the agreement established between the fund and another party. This element, amongst others, defines the conditions of the commissions.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CommercialAgreementReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CommercialAgreementReference is IsoMax35Text CommercialAgreementReferenceValue)
+        {
+            writer.WriteStartElement(null, "ComrclAgrmtRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CommercialAgreementReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Commission13 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

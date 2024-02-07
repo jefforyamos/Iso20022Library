@@ -7,68 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Inquiry information for the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMTransaction7
+     : IIsoXmlSerilizable<ATMTransaction7>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
-    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Result of the inquiry service.
     /// </summary>
-    [DataMember]
     public required ResponseType3 TransactionResponse { get; init; } 
     /// <summary>
     /// Sequence of actions to be performed by the ATM to complete the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<Action5> Action { get; init; } = []; // Warning: Don't know multiplicity.
+    public Action5? Action { get; init; } 
     /// <summary>
     /// Profile of the customer with the allowed services and restrictions.
     /// </summary>
-    [DataMember]
     public ATMCustomerProfile3? CustomerServiceProfile { get; init; } 
     /// <summary>
     /// Dynamic currency conversion result.
     /// </summary>
-    [DataMember]
     public CurrencyConversion3? CurrencyConversion { get; init; } 
     /// <summary>
     /// Account information associated to the customer.
     /// </summary>
-    [DataMember]
-    public ValueList<CardAccount6> AccountInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardAccount6? AccountInformation { get; init; } 
     /// <summary>
     /// Statement information of an account.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMAccountStatement1> AccountStatementData { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMAccountStatement1? AccountStatementData { get; init; } 
     /// <summary>
     /// Exchange rate and calculated amount to be presented to the customer when the dispense currency or the deposit currency (target currency) is different to account currency (source currency).
     /// </summary>
-    [DataMember]
     public CurrencyConversion5? CurrencyExchange { get; init; } 
     /// <summary>
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
-    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMCommand1> Command { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMCommand1? Command { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxRspn", xmlNamespace );
+        TransactionResponse.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Action is Action5 ActionValue)
+        {
+            writer.WriteStartElement(null, "Actn", xmlNamespace );
+            ActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CustomerServiceProfile is ATMCustomerProfile3 CustomerServiceProfileValue)
+        {
+            writer.WriteStartElement(null, "CstmrSvcPrfl", xmlNamespace );
+            CustomerServiceProfileValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CurrencyConversion is CurrencyConversion3 CurrencyConversionValue)
+        {
+            writer.WriteStartElement(null, "CcyConvs", xmlNamespace );
+            CurrencyConversionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountInformation is CardAccount6 AccountInformationValue)
+        {
+            writer.WriteStartElement(null, "AcctInf", xmlNamespace );
+            AccountInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountStatementData is ATMAccountStatement1 AccountStatementDataValue)
+        {
+            writer.WriteStartElement(null, "AcctStmtData", xmlNamespace );
+            AccountStatementDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CurrencyExchange is CurrencyConversion5 CurrencyExchangeValue)
+        {
+            writer.WriteStartElement(null, "CcyXchg", xmlNamespace );
+            CurrencyExchangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ICCRelatedData is IsoMax10000Binary ICCRelatedDataValue)
+        {
+            writer.WriteStartElement(null, "ICCRltdData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(ICCRelatedDataValue)); // data type Max10000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (Command is ATMCommand1 CommandValue)
+        {
+            writer.WriteStartElement(null, "Cmd", xmlNamespace );
+            CommandValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMTransaction7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

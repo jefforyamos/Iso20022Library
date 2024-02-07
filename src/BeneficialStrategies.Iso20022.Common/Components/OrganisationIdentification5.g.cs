@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Official identification of an organisation (legal entity) in a specific register.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OrganisationIdentification5
+     : IIsoXmlSerilizable<OrganisationIdentification5>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the register of legal entities.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text RegistrationNumber { get; init; } 
     /// <summary>
     /// Name of the register managed by a registration authority.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RegisterName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RegnNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(RegistrationNumber)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (RegisterName is IsoMax35Text RegisterNameValue)
+        {
+            writer.WriteStartElement(null, "RegrNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RegisterNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static OrganisationIdentification5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

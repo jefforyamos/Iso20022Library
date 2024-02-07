@@ -7,23 +7,42 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates the ordering in which the resulting transaction reports should be returned.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SearchOutputOrder1
+     : IIsoXmlSerilizable<SearchOutputOrder1>
 {
     #nullable enable
     
     /// <summary>
     /// Ordering criteria for the transaction report.
     /// </summary>
-    [DataMember]
-    public ValueList<CriteriaOrder1> CriteriaOrder { get; init; } = []; // Warning: Don't know multiplicity.
+    public CriteriaOrder1? CriteriaOrder { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _0aWhsN6QEeiwsev40qZGEQ
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize CriteriaOrder, multiplicity Unknown
+    }
+    public static SearchOutputOrder1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

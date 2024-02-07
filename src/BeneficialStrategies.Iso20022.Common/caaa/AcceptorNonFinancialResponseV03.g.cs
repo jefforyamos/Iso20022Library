@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.caaa.AcceptorNonFinancialResponseV03>;
 
 namespace BeneficialStrategies.Iso20022.caaa;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// The AcceptorNonFinancialResponse message is sent by the Acquirer (or its Agent) to the POI to provide addintional information.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The AcceptorNonFinancialResponse message is sent by the Acquirer (or its Agent) to the POI to provide addintional information.")]
-public partial record AcceptorNonFinancialResponseV03 : IOuterRecord
+public partial record AcceptorNonFinancialResponseV03 : IOuterRecord<AcceptorNonFinancialResponseV03,AcceptorNonFinancialResponseV03Document>
+    ,IIsoXmlSerilizable<AcceptorNonFinancialResponseV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record AcceptorNonFinancialResponseV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AccptrNonFinRspn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AcceptorNonFinancialResponseV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -76,6 +83,35 @@ public partial record AcceptorNonFinancialResponseV03 : IOuterRecord
     {
         return new AcceptorNonFinancialResponseV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AccptrNonFinRspn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NonFinRspn", xmlNamespace );
+        NonFinancialResponse.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecurityTrailer is ContentInformationType36 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AcceptorNonFinancialResponseV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -83,9 +119,7 @@ public partial record AcceptorNonFinancialResponseV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorNonFinancialResponseV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AcceptorNonFinancialResponseV03Document : IOuterDocument<AcceptorNonFinancialResponseV03>
+public partial record AcceptorNonFinancialResponseV03Document : IOuterDocument<AcceptorNonFinancialResponseV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -101,5 +135,22 @@ public partial record AcceptorNonFinancialResponseV03Document : IOuterDocument<A
     /// <summary>
     /// The instance of <seealso cref="AcceptorNonFinancialResponseV03"/> is required.
     /// </summary>
+    [DataMember(Name=AcceptorNonFinancialResponseV03.XmlTag)]
     public required AcceptorNonFinancialResponseV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AcceptorNonFinancialResponseV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

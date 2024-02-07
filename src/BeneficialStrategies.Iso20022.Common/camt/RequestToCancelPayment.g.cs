@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.RequestToCancelPayment>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -33,10 +36,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// The Request To Cancel Payment message may be used to escalate a case after an unsuccessful request to modify the payment. In this scenario, the case identification remains the same as in the original Request To Modify Payment message and the element ReopenCaseIndication is set to 'Yes' or 'true'.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The Request To Cancel Payment message is sent by a case creator/case assigner to a case assignee.|This message is used to request the cancellation of an original payment instruction.|Usage|The Request To Cancel Payment message must be answered with a:|- Resolution Of Investigation message with a positive final outcome when the case assignee can perform the requested cancellation|- Resolution Of Investigation message with a negative final outcome when the case assignee may perform the requested cancellation but fails to do so (too late, irrevocable instruction.)|- Reject Case Assignment message when the case assignee is unable or not authorised to perform the requested cancellation|- Notification Of Case Assignment message to indicate whether the case assignee will take on the case himself or reassign the case to a subsequent party in the payment processing chain.|A Request To Cancel Payment message concerns one and only one original payment instruction at a time. If several original payment instructions need to be cancelled, then multiple Request To Cancel Payment messages must be sent.|When a case assignee successfully performs a cancellation, it must return the corresponding funds to the case assigner. It may provide some details about the return in the Resolution Of Investigation message.|The processing of a request to cancel payment case may end with a Debit Authorisation Request message sent to the creditor by its account servicing institution.|The Request To Cancel Payment message may be used to escalate a case after an unsuccessful request to modify the payment. In this scenario, the case identification remains the same as in the original Request To Modify Payment message and the element ReopenCaseIndication is set to 'Yes' or 'true'.")]
-public partial record RequestToCancelPayment : IOuterRecord
+public partial record RequestToCancelPayment : IOuterRecord<RequestToCancelPayment,RequestToCancelPaymentDocument>
+    ,IIsoXmlSerilizable<RequestToCancelPayment>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -48,6 +50,11 @@ public partial record RequestToCancelPayment : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "camt.008.002.01";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => RequestToCancelPaymentDocument.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -99,6 +106,35 @@ public partial record RequestToCancelPayment : IOuterRecord
     {
         return new RequestToCancelPaymentDocument { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("camt.008.002.01");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Assgnmt", xmlNamespace );
+        Assignment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Case", xmlNamespace );
+        Case.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Undrlyg", xmlNamespace );
+        Underlying.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Justfn", xmlNamespace );
+        Justification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static RequestToCancelPayment Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -106,9 +142,7 @@ public partial record RequestToCancelPayment : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestToCancelPayment"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record RequestToCancelPaymentDocument : IOuterDocument<RequestToCancelPayment>
+public partial record RequestToCancelPaymentDocument : IOuterDocument<RequestToCancelPayment>, IXmlSerializable
 {
     
     /// <summary>
@@ -124,5 +158,22 @@ public partial record RequestToCancelPaymentDocument : IOuterDocument<RequestToC
     /// <summary>
     /// The instance of <seealso cref="RequestToCancelPayment"/> is required.
     /// </summary>
+    [DataMember(Name=RequestToCancelPayment.XmlTag)]
     public required RequestToCancelPayment Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(RequestToCancelPayment.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

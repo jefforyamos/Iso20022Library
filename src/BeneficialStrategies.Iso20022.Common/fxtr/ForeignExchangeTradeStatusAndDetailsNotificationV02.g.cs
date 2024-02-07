@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.fxtr.ForeignExchangeTradeStatusAndDetailsNotificationV02>;
 
 namespace BeneficialStrategies.Iso20022.fxtr;
 
@@ -24,10 +27,9 @@ namespace BeneficialStrategies.Iso20022.fxtr;
 /// The notification is sent by a central settlement system to the two trading parties after it has received foreign exchange trade instructions from both.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope||The ForeignExchangeTradeStatusAndDetails message is sent by a central system to the participant to provide notification of the status and details of a foreign exchange trade.||Usage||The notification is sent by a central settlement system to the two trading parties after it has received foreign exchange trade instructions from both.")]
-public partial record ForeignExchangeTradeStatusAndDetailsNotificationV02 : IOuterRecord
+public partial record ForeignExchangeTradeStatusAndDetailsNotificationV02 : IOuterRecord<ForeignExchangeTradeStatusAndDetailsNotificationV02,ForeignExchangeTradeStatusAndDetailsNotificationV02Document>
+    ,IIsoXmlSerilizable<ForeignExchangeTradeStatusAndDetailsNotificationV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -39,6 +41,11 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV02 : IOut
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "FXTradStsAndDtlsNtfctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ForeignExchangeTradeStatusAndDetailsNotificationV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -164,6 +171,77 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV02 : IOut
     {
         return new ForeignExchangeTradeStatusAndDetailsNotificationV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("FXTradStsAndDtlsNtfctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "StsDtls", xmlNamespace );
+        StatusDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradInf", xmlNamespace );
+        TradeInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradgSdId", xmlNamespace );
+        TradingSideIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CtrPtySdId", xmlNamespace );
+        CounterpartySideIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradAmts", xmlNamespace );
+        TradeAmounts.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AgrdRate", xmlNamespace );
+        AgreedRate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TradingSideSettlementInstructions is SettlementParties29 TradingSideSettlementInstructionsValue)
+        {
+            writer.WriteStartElement(null, "TradgSdSttlmInstrs", xmlNamespace );
+            TradingSideSettlementInstructionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CounterpartySideSettlementInstructions is SettlementParties29 CounterpartySideSettlementInstructionsValue)
+        {
+            writer.WriteStartElement(null, "CtrPtySdSttlmInstrs", xmlNamespace );
+            CounterpartySideSettlementInstructionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GeneralInformation is GeneralInformation4 GeneralInformationValue)
+        {
+            writer.WriteStartElement(null, "GnlInf", xmlNamespace );
+            GeneralInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SplitTradeInformation is SplitTradeDetails1 SplitTradeInformationValue)
+        {
+            writer.WriteStartElement(null, "SpltTradInf", xmlNamespace );
+            SplitTradeInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RegulatoryReporting is RegulatoryReporting1 RegulatoryReportingValue)
+        {
+            writer.WriteStartElement(null, "RgltryRptg", xmlNamespace );
+            RegulatoryReportingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ForeignExchangeTradeStatusAndDetailsNotificationV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -171,9 +249,7 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV02 : IOut
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeStatusAndDetailsNotificationV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ForeignExchangeTradeStatusAndDetailsNotificationV02Document : IOuterDocument<ForeignExchangeTradeStatusAndDetailsNotificationV02>
+public partial record ForeignExchangeTradeStatusAndDetailsNotificationV02Document : IOuterDocument<ForeignExchangeTradeStatusAndDetailsNotificationV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -189,5 +265,22 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV02Documen
     /// <summary>
     /// The instance of <seealso cref="ForeignExchangeTradeStatusAndDetailsNotificationV02"/> is required.
     /// </summary>
+    [DataMember(Name=ForeignExchangeTradeStatusAndDetailsNotificationV02.XmlTag)]
     public required ForeignExchangeTradeStatusAndDetailsNotificationV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ForeignExchangeTradeStatusAndDetailsNotificationV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

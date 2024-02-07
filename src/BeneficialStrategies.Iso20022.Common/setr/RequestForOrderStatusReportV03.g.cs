@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.setr.RequestForOrderStatusReportV03>;
 
 namespace BeneficialStrategies.Iso20022.setr;
 
@@ -34,10 +37,9 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// The RequestForOrderStatusReport message may not be used to request the status of an investment account, a transfer or the status of a financial instrument.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An instructing party, for example, an investment manager or its authorised representative, sends the RequestForOrderStatusReport to the executing party, for example, a transfer agent, to request the status of one or more order instruction or order cancellation request messages.|Usage|The RequestForOrderStatusReport message is used to request the status of:|- one or several individual order instructions, or,|- one or several order messages, or|- one or several individual order cancellation requests, or,|- one or several order cancellation request messages.|The response to a RequestForOrderStatusReport message is the OrderInstructionStatusReport message or OrderCancellationStatusReport message.|If the RequestForOrderStatusReport message is used to request the status of several individual order instructions or one or more order instruction messages, then the instructing party may receive several OrderInstructionStatusReport messages from the executing party.|If the RequestForOrderStatusReport message is used to request the status of several individual order cancellation requests or one or more order cancellation messages, then the instructing party may receive several OrderCancellationStatusReport messages from the executing party.|When the RequestForOrderStatusReport is used to request the status of one or more individual orders or order cancellations, each individual order is identified with its order reference. The investment account and/or financial instrument related to the order can also be identified. The message identification of the message in which the individual order was conveyed may also be quoted in PreviousReference.|When the RequestForOrderStatusReport is used to request the status of an order message or an order cancellations request message, then the message identification of the order or cancellation message is identified in PreviousReference.|The RequestForOrderStatusReport message may not be used to request the status of an investment account, a transfer or the status of a financial instrument.")]
-public partial record RequestForOrderStatusReportV03 : IOuterRecord
+public partial record RequestForOrderStatusReportV03 : IOuterRecord<RequestForOrderStatusReportV03,RequestForOrderStatusReportV03Document>
+    ,IIsoXmlSerilizable<RequestForOrderStatusReportV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -49,6 +51,11 @@ public partial record RequestForOrderStatusReportV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "ReqForOrdrStsRptV03";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => RequestForOrderStatusReportV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -89,6 +96,35 @@ public partial record RequestForOrderStatusReportV03 : IOuterRecord
     {
         return new RequestForOrderStatusReportV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("ReqForOrdrStsRptV03");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ReqDtls", xmlNamespace );
+        RequestDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RequestForOrderStatusReportV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -96,9 +132,7 @@ public partial record RequestForOrderStatusReportV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestForOrderStatusReportV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record RequestForOrderStatusReportV03Document : IOuterDocument<RequestForOrderStatusReportV03>
+public partial record RequestForOrderStatusReportV03Document : IOuterDocument<RequestForOrderStatusReportV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -114,5 +148,22 @@ public partial record RequestForOrderStatusReportV03Document : IOuterDocument<Re
     /// <summary>
     /// The instance of <seealso cref="RequestForOrderStatusReportV03"/> is required.
     /// </summary>
+    [DataMember(Name=RequestForOrderStatusReportV03.XmlTag)]
     public required RequestForOrderStatusReportV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(RequestForOrderStatusReportV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

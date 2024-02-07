@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the reporting counterparty.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CounterpartyIdentification11
+     : IIsoXmlSerilizable<CounterpartyIdentification11>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the counterparty in the transaction.
     /// </summary>
-    [DataMember]
     public required OrganisationIdentification15Choice_ Identification { get; init; } 
     /// <summary>
     /// Nature of the reporting counterparty in accordance with the local regulation.
     /// </summary>
-    [DataMember]
     public CounterpartyTradeNature7Choice_? Nature { get; init; } 
     /// <summary>
     /// Identification of the branch of the counterparty, when the transaction concludes a transaction through a branch office.
     /// </summary>
-    [DataMember]
     public Branch5Choice_? Branch { get; init; } 
     /// <summary>
     /// Identifies whether the reporting counterparty is a collateral provider or a collateral taker.
     /// </summary>
-    [DataMember]
     public CollateralRole1Code? Side { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Nature is CounterpartyTradeNature7Choice_ NatureValue)
+        {
+            writer.WriteStartElement(null, "Ntr", xmlNamespace );
+            NatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Branch is Branch5Choice_ BranchValue)
+        {
+            writer.WriteStartElement(null, "Brnch", xmlNamespace );
+            BranchValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Side is CollateralRole1Code SideValue)
+        {
+            writer.WriteStartElement(null, "Sd", xmlNamespace );
+            writer.WriteValue(SideValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static CounterpartyIdentification11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

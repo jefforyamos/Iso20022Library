@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Drawdown allowance check. For pensions that have a lifetime allowance, a check is made of the maximum value of benefits that may be taken from the pension without incurring a special tax. (This check or 'event' is known as the benefit crystallisation event in the UK market.)
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DrawdownAllowanceCheck1
+     : IIsoXmlSerilizable<DrawdownAllowanceCheck1>
 {
     #nullable enable
     
@@ -24,13 +25,40 @@ public partial record DrawdownAllowanceCheck1
     /// If the Benefit Crystallised Event (BCE ) is other than 1 and 6 then the BCEIndicator must contain the value "true'.
     /// If the Benefit Crystallised Event (BCE ) is 1 or 6 then the BCEIndicator must contain the value false'.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? BCEIndicator { get; init; } 
     /// <summary>
     /// Species information about the drawdown allowance check.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? CheckInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (BCEIndicator is IsoYesNoIndicator BCEIndicatorValue)
+        {
+            writer.WriteStartElement(null, "BCEInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(BCEIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CheckInformation is IsoMax350Text CheckInformationValue)
+        {
+            writer.WriteStartElement(null, "ChckInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(CheckInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static DrawdownAllowanceCheck1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

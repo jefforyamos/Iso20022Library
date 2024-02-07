@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Balance details for a cash account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashBalance11
+     : IIsoXmlSerilizable<CashBalance11>
 {
     #nullable enable
     
     /// <summary>
     /// Currency and amount of money of the cash balance.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether the balance is a credit or a debit balance. A zero balance is considered to be a credit balance.
     /// </summary>
-    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Specifies the nature of a balance.
     /// </summary>
-    [DataMember]
     public BalanceType9Choice_? Type { get; init; } 
     /// <summary>
     /// Current status of a cash balance.
     /// </summary>
-    [DataMember]
     public BalanceStatus1Code? Status { get; init; } 
     /// <summary>
     /// Date and time at which the balance is or will be available.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? ValueDate { get; init; } 
     /// <summary>
     /// Number of payments taken into account for the calculation of the cash balance value.
     /// </summary>
-    [DataMember]
     public IsoNumber? NumberOfPayments { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(Amount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Type is BalanceType9Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Status is BalanceStatus1Code StatusValue)
+        {
+            writer.WriteStartElement(null, "Sts", xmlNamespace );
+            writer.WriteValue(StatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ValueDate is DateAndDateTime2Choice_ ValueDateValue)
+        {
+            writer.WriteStartElement(null, "ValDt", xmlNamespace );
+            ValueDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NumberOfPayments is IsoNumber NumberOfPaymentsValue)
+        {
+            writer.WriteStartElement(null, "NbOfPmts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfPaymentsValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static CashBalance11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

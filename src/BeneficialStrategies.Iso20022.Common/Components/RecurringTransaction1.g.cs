@@ -7,43 +7,74 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Financial loan (instalment) or a recurring transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RecurringTransaction1
+     : IIsoXmlSerilizable<RecurringTransaction1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the recurring/instalment occurrence of the transaction (1 = 1st instalment, 2 = 2nd instalment, etc.).
     /// </summary>
-    [DataMember]
     public required IsoMax2NumericText SequenceNumber { get; init; } 
     /// <summary>
     /// Period unit between consecutive payments (for example day, month, year).
     /// </summary>
-    [DataMember]
     public required Frequency4Code PeriodUnit { get; init; } 
     /// <summary>
     /// Number of period units between consecutive payments.
     /// </summary>
-    [DataMember]
     public required IsoNumber InstalmentPeriod { get; init; } 
     /// <summary>
     /// Total number of instalment payments.
     /// </summary>
-    [DataMember]
     public required IsoNumber TotalNumberOfPayments { get; init; } 
     /// <summary>
     /// Interest charged in percentage for the total amount of payments.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? InterestCharges { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SeqNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax2NumericText(SequenceNumber)); // data type Max2NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PrdUnit", xmlNamespace );
+        writer.WriteValue(PeriodUnit.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InstlmtPrd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(InstalmentPeriod)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlNbOfPmts", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberOfPayments)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        if (InterestCharges is IsoImpliedCurrencyAndAmount InterestChargesValue)
+        {
+            writer.WriteStartElement(null, "IntrstChrgs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(InterestChargesValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static RecurringTransaction1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

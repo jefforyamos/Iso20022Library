@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Instrument specific technical data to support identification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RecordTechnicalData2
+     : IIsoXmlSerilizable<RecordTechnicalData2>
 {
     #nullable enable
     
     /// <summary>
     /// Defines the date and time when the report was originally received by the national competent authority.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime ReceiptDateTime { get; init; } 
     /// <summary>
     /// Specifies the reason for the cancellation the transaction.
     /// </summary>
-    [DataMember]
     public required CancelledStatusReason15Code CancellationReason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RctDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(ReceiptDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CxlRsn", xmlNamespace );
+        writer.WriteValue(CancellationReason.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static RecordTechnicalData2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

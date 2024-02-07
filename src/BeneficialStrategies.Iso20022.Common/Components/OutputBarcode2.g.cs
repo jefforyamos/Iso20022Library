@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Barcode content to display or print.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OutputBarcode2
+     : IIsoXmlSerilizable<OutputBarcode2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of Barcode coding.
     /// </summary>
-    [DataMember]
     public required BarcodeType1Code BarcodeType { get; init; } 
     /// <summary>
     /// Value with a Barcode coding.
     /// </summary>
-    [DataMember]
     public IsoMax8000Text? BarcodeValue { get; init; } 
     /// <summary>
     /// Use for binary and Kanji Quick Respone Code.
     /// </summary>
-    [DataMember]
     public IsoMax3000Binary? QRCodeBinaryValue { get; init; } 
     /// <summary>
     /// Version of the Quick Response Code.
     /// </summary>
-    [DataMember]
     public IsoMax16Text? QRCodeVersion { get; init; } 
     /// <summary>
     /// Encoding Mode of Quick Response Code.
     /// </summary>
-    [DataMember]
     public QRCodeEncodingMode1Code? QRCodeEncodingMode { get; init; } 
     /// <summary>
     /// Error Correction mode of Quick Response Code.
     /// </summary>
-    [DataMember]
     public QRCodeErrorCorrection1Code? QRCodeErrorCorrection { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BrcdTp", xmlNamespace );
+        writer.WriteValue(BarcodeType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (BarcodeValue is IsoMax8000Text BarcodeValueValue)
+        {
+            writer.WriteStartElement(null, "BrcdVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax8000Text(BarcodeValueValue)); // data type Max8000Text System.String
+            writer.WriteEndElement();
+        }
+        if (QRCodeBinaryValue is IsoMax3000Binary QRCodeBinaryValueValue)
+        {
+            writer.WriteStartElement(null, "QRCdBinryVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3000Binary(QRCodeBinaryValueValue)); // data type Max3000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (QRCodeVersion is IsoMax16Text QRCodeVersionValue)
+        {
+            writer.WriteStartElement(null, "QRCdVrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax16Text(QRCodeVersionValue)); // data type Max16Text System.String
+            writer.WriteEndElement();
+        }
+        if (QRCodeEncodingMode is QRCodeEncodingMode1Code QRCodeEncodingModeValue)
+        {
+            writer.WriteStartElement(null, "QRCdNcodgMd", xmlNamespace );
+            writer.WriteValue(QRCodeEncodingModeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (QRCodeErrorCorrection is QRCodeErrorCorrection1Code QRCodeErrorCorrectionValue)
+        {
+            writer.WriteStartElement(null, "QRCdErrCrrctn", xmlNamespace );
+            writer.WriteValue(QRCodeErrorCorrectionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static OutputBarcode2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

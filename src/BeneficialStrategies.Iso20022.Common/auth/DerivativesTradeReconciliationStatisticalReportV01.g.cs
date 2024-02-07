@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.auth.DerivativesTradeReconciliationStatisticalReportV01>;
 
 namespace BeneficialStrategies.Iso20022.auth;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// The DerivativesTradeReportReconciliationStatisticalReport message is sent by the trade repositories to the supervisory authority system, to report cumulative information within the reference period for the reconciliation status of the reported and outstanding derivatives.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The DerivativesTradeReportReconciliationStatisticalReport message is sent by the trade repositories to the supervisory authority system, to report cumulative information within the reference period for the reconciliation status of the reported and outstanding derivatives.")]
-public partial record DerivativesTradeReconciliationStatisticalReportV01 : IOuterRecord
+public partial record DerivativesTradeReconciliationStatisticalReportV01 : IOuterRecord<DerivativesTradeReconciliationStatisticalReportV01,DerivativesTradeReconciliationStatisticalReportV01Document>
+    ,IIsoXmlSerilizable<DerivativesTradeReconciliationStatisticalReportV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record DerivativesTradeReconciliationStatisticalReportV01 : IOute
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "DerivsTradRcncltnSttstclRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => DerivativesTradeReconciliationStatisticalReportV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -66,6 +73,32 @@ public partial record DerivativesTradeReconciliationStatisticalReportV01 : IOute
     {
         return new DerivativesTradeReconciliationStatisticalReportV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("DerivsTradRcncltnSttstclRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttstcsPerCtrPty", xmlNamespace );
+        StatisticsPerCounterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DerivativesTradeReconciliationStatisticalReportV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -73,9 +106,7 @@ public partial record DerivativesTradeReconciliationStatisticalReportV01 : IOute
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DerivativesTradeReconciliationStatisticalReportV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record DerivativesTradeReconciliationStatisticalReportV01Document : IOuterDocument<DerivativesTradeReconciliationStatisticalReportV01>
+public partial record DerivativesTradeReconciliationStatisticalReportV01Document : IOuterDocument<DerivativesTradeReconciliationStatisticalReportV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -91,5 +122,22 @@ public partial record DerivativesTradeReconciliationStatisticalReportV01Document
     /// <summary>
     /// The instance of <seealso cref="DerivativesTradeReconciliationStatisticalReportV01"/> is required.
     /// </summary>
+    [DataMember(Name=DerivativesTradeReconciliationStatisticalReportV01.XmlTag)]
     public required DerivativesTradeReconciliationStatisticalReportV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(DerivativesTradeReconciliationStatisticalReportV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

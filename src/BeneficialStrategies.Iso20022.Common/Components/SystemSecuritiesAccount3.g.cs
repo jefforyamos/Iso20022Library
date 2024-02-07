@@ -7,6 +7,8 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -16,68 +18,136 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Definition of the entity includes the default setting for holding of settlement instructions involving positions related to the account.
 /// Set of market specific attributes define specific properties for the account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SystemSecuritiesAccount3
+     : IIsoXmlSerilizable<SystemSecuritiesAccount3>
 {
     #nullable enable
     
     /// <summary>
     /// Legal opening date for the securities account.
     /// </summary>
-    [DataMember]
     public IsoISODate? OpeningDate { get; init; } 
     /// <summary>
     /// Legal closing date for the securities account.
     /// </summary>
-    [DataMember]
     public IsoISODate? ClosingDate { get; init; } 
     /// <summary>
     /// Meaning when true: Account is in Hold status.
     /// Meaning when false: Account is in Release status.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? HoldIndicator { get; init; } 
     /// <summary>
     /// Specifies whether the securities account can hold a negative position in a security.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? NegativePosition { get; init; } 
     /// <summary>
     /// Specifies the type of the securities account.
     /// </summary>
-    [DataMember]
     public SystemSecuritiesAccountType1Code? Type { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    [DataMember]
     public required SystemPartyIdentification3 AccountOwner { get; init; } 
     /// <summary>
     /// Specifies the type of the party owning the account.
     /// </summary>
-    [DataMember]
     public SystemPartyType1Code? PartyType { get; init; } 
     /// <summary>
     /// Additional attributes defined by a central security depositary for a party.
     /// </summary>
-    [DataMember]
-    public ValueList<MarketSpecificAttribute1> MarketSpecificAttribute { get; init; } = []; // Warning: Don't know multiplicity.
+    public MarketSpecificAttribute1? MarketSpecificAttribute { get; init; } 
     /// <summary>
     /// Defines the specific processing characteristics for a securities account to ensure configurability of specific requirements, as prescribed by national legal and regulatory requirements and practices.
     /// </summary>
-    [DataMember]
-    public ValueList<SystemRestriction1> Restriction { get; init; } = []; // Warning: Don't know multiplicity.
+    public SystemRestriction1? Restriction { get; init; } 
     /// <summary>
     /// Specifies information to identify securities accounts where allocation instructions are posted.
     /// </summary>
-    [DataMember]
     public IsoExact4AlphaNumericText? EndInvestorFlag { get; init; } 
     /// <summary>
     /// Defines how the price is applied to the securities account.
     /// </summary>
-    [DataMember]
     public IsoExact4AlphaNumericText? PricingScheme { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OpeningDate is IsoISODate OpeningDateValue)
+        {
+            writer.WriteStartElement(null, "OpngDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(OpeningDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ClosingDate is IsoISODate ClosingDateValue)
+        {
+            writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ClosingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (HoldIndicator is IsoTrueFalseIndicator HoldIndicatorValue)
+        {
+            writer.WriteStartElement(null, "HldInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(HoldIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (NegativePosition is IsoYesNoIndicator NegativePositionValue)
+        {
+            writer.WriteStartElement(null, "NegPos", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(NegativePositionValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Type is SystemSecuritiesAccountType1Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+        AccountOwner.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PartyType is SystemPartyType1Code PartyTypeValue)
+        {
+            writer.WriteStartElement(null, "PtyTp", xmlNamespace );
+            writer.WriteValue(PartyTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MarketSpecificAttribute is MarketSpecificAttribute1 MarketSpecificAttributeValue)
+        {
+            writer.WriteStartElement(null, "MktSpcfcAttr", xmlNamespace );
+            MarketSpecificAttributeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Restriction is SystemRestriction1 RestrictionValue)
+        {
+            writer.WriteStartElement(null, "Rstrctn", xmlNamespace );
+            RestrictionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EndInvestorFlag is IsoExact4AlphaNumericText EndInvestorFlagValue)
+        {
+            writer.WriteStartElement(null, "EndInvstrFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(EndInvestorFlagValue)); // data type Exact4AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+        if (PricingScheme is IsoExact4AlphaNumericText PricingSchemeValue)
+        {
+            writer.WriteStartElement(null, "PricgSchme", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(PricingSchemeValue)); // data type Exact4AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SystemSecuritiesAccount3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

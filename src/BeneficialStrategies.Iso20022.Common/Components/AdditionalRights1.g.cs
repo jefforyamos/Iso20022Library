@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the general meeting, specifying the participation requirements and the voting procedures. Alternatively, it may indicate where such information may be obtained.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalRights1
+     : IIsoXmlSerilizable<AdditionalRights1>
 {
     #nullable enable
     
     /// <summary>
     /// Specific rights granted to the shareholders that can be exercised at shareholders meetings (for example, the right to ask questions, the right to add items to the agenda or table draft resolutions).
     /// </summary>
-    [DataMember]
     public required AdditionalRightCode1Choice_ AdditionalRight { get; init; } 
     /// <summary>
     /// Address to use over the www (HTTP) service where addtional information on specific rights granted to the shareholders can be found.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? AdditionalRightInformationURLAddress { get; init; } 
     /// <summary>
     /// Additional right granted to determine the date and time by which security holders can propose amendments or new resolutions. This deadline is set by an intermediary.
     /// </summary>
-    [DataMember]
     public DateFormat2Choice_? AdditionalRightDeadline { get; init; } 
     /// <summary>
     /// Additional right granted to determine the date and time by which security holders can propose amendments or new resolutions. This deadline is set by the issuer.
     /// </summary>
-    [DataMember]
     public DateFormat2Choice_? AdditionalRightMarketDeadline { get; init; } 
     /// <summary>
     /// Additional right granted to specify the minimum stake in share capital or cash value or number of security holders required to table resolutions.
     /// </summary>
-    [DataMember]
     public AdditionalRightThreshold1Choice_? AdditionalRightThreshold { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AddtlRght", xmlNamespace );
+        AdditionalRight.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalRightInformationURLAddress is IsoMax256Text AdditionalRightInformationURLAddressValue)
+        {
+            writer.WriteStartElement(null, "AddtlRghtInfURLAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(AdditionalRightInformationURLAddressValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalRightDeadline is DateFormat2Choice_ AdditionalRightDeadlineValue)
+        {
+            writer.WriteStartElement(null, "AddtlRghtDdln", xmlNamespace );
+            AdditionalRightDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalRightMarketDeadline is DateFormat2Choice_ AdditionalRightMarketDeadlineValue)
+        {
+            writer.WriteStartElement(null, "AddtlRghtMktDdln", xmlNamespace );
+            AdditionalRightMarketDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalRightThreshold is AdditionalRightThreshold1Choice_ AdditionalRightThresholdValue)
+        {
+            writer.WriteStartElement(null, "AddtlRghtThrshld", xmlNamespace );
+            AdditionalRightThresholdValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AdditionalRights1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about market identification and market type.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MarketIdentification2
+     : IIsoXmlSerilizable<MarketIdentification2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of market.
     /// </summary>
-    [DataMember]
     public required MarketTypeFormat1Choice_ Type { get; init; } 
     /// <summary>
     /// Identifies the market.
     /// </summary>
-    [DataMember]
     public MarketIdentification1Choice_? Identification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Identification is MarketIdentification1Choice_ IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MarketIdentification2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

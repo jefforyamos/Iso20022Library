@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.DebitAuthorisationRequestV07>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -31,10 +34,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// The DebitAuthorisationRequest must be used exclusively between the account servicing institution and the account owner. It must not be used in place of a RequestToModifyPayment or CustomerPaymentCancellationRequest or FIToFIPaymentCancellationRequest message between subsequent agents.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The DebitAuthorisationRequest message is sent by an account servicing institution to an account owner. This message is used to request authorisation to debit an account.|Usage|The DebitAuthorisationRequest message must be answered with a DebitAuthorisationResponse message.|The DebitAuthorisationRequest message can be used to request debit authorisation in a:|- request to modify payment case (in the case of a lower final amount or change of creditor);|- request to cancel payment case (full amount);|- unable to apply case (the creditor whose account has been credited is not the intended beneficiary);|- claim non receipt case (the creditor whose account has been credited is not the intended beneficiary).|The DebitAuthorisationRequest message covers one and only one payment instruction at a time. If an account servicing institution needs to request debit authorisation for several instructions, then multiple DebitAuthorisationRequest messages must be sent.|The DebitAuthorisationRequest must be used exclusively between the account servicing institution and the account owner. It must not be used in place of a RequestToModifyPayment or CustomerPaymentCancellationRequest or FIToFIPaymentCancellationRequest message between subsequent agents.")]
-public partial record DebitAuthorisationRequestV07 : IOuterRecord
+public partial record DebitAuthorisationRequestV07 : IOuterRecord<DebitAuthorisationRequestV07,DebitAuthorisationRequestV07Document>
+    ,IIsoXmlSerilizable<DebitAuthorisationRequestV07>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -46,6 +48,11 @@ public partial record DebitAuthorisationRequestV07 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "DbtAuthstnReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => DebitAuthorisationRequestV07Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -106,6 +113,44 @@ public partial record DebitAuthorisationRequestV07 : IOuterRecord
     {
         return new DebitAuthorisationRequestV07Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("DbtAuthstnReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Assgnmt", xmlNamespace );
+        Assignment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Case is Case5 CaseValue)
+        {
+            writer.WriteStartElement(null, "Case", xmlNamespace );
+            CaseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Undrlyg", xmlNamespace );
+        Underlying.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Dtl", xmlNamespace );
+        Detail.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DebitAuthorisationRequestV07 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -113,9 +158,7 @@ public partial record DebitAuthorisationRequestV07 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DebitAuthorisationRequestV07"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record DebitAuthorisationRequestV07Document : IOuterDocument<DebitAuthorisationRequestV07>
+public partial record DebitAuthorisationRequestV07Document : IOuterDocument<DebitAuthorisationRequestV07>, IXmlSerializable
 {
     
     /// <summary>
@@ -131,5 +174,22 @@ public partial record DebitAuthorisationRequestV07Document : IOuterDocument<Debi
     /// <summary>
     /// The instance of <seealso cref="DebitAuthorisationRequestV07"/> is required.
     /// </summary>
+    [DataMember(Name=DebitAuthorisationRequestV07.XmlTag)]
     public required DebitAuthorisationRequestV07 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(DebitAuthorisationRequestV07.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

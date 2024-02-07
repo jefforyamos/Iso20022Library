@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Credit default swap derivative specific for reporting derivatives on a single name.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CreditDefaultSwapDerivative4
+     : IIsoXmlSerilizable<CreditDefaultSwapDerivative4>
 {
     #nullable enable
     
     /// <summary>
     /// Derivative on a credit default swap with the ISIN code of the underlying swap.
     /// </summary>
-    [DataMember]
     public IsoISINOct2015Identifier? UnderlyingNameIdentification { get; init; } 
     /// <summary>
     /// Identification of the reference obligation for a derivative on a credit default swap.
     /// </summary>
-    [DataMember]
     public required IsoISINOct2015Identifier ObligationIdentification { get; init; } 
     /// <summary>
     /// Describes the single name specific details the derivative is being made on.
     /// </summary>
-    [DataMember]
     public required CreditDefaultSwapSingleName2 SingleName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (UnderlyingNameIdentification is IsoISINOct2015Identifier UnderlyingNameIdentificationValue)
+        {
+            writer.WriteStartElement(null, "UndrlygNmId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(UnderlyingNameIdentificationValue)); // data type ISINOct2015Identifier System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OblgtnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(ObligationIdentification)); // data type ISINOct2015Identifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SnglNm", xmlNamespace );
+        SingleName.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CreditDefaultSwapDerivative4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

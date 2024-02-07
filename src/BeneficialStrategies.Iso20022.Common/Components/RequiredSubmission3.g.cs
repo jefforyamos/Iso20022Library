@@ -7,53 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details relative to the submission of the insurance data set.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RequiredSubmission3
+     : IIsoXmlSerilizable<RequiredSubmission3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies with party(ies) is authorised to submit the data set as part of the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<BICIdentification1> Submitter { get; init; } = []; // Warning: Don't know multiplicity.
+    public BICIdentification1? Submitter { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _Rax589p-Ed-ak6NoX_4Aeg_-1897093637
     /// <summary>
     /// Specifies if the issuer must be matched as part of the validation of the data set.
     /// </summary>
-    [DataMember]
     public PartyIdentification27? MatchIssuer { get; init; } 
     /// <summary>
     /// Specifies if the issue date must be matched as part of the validation of the data set.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator MatchIssueDate { get; init; } 
     /// <summary>
     /// Specifies if the transport information must be matched as part of the validation of the data set.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator MatchTransport { get; init; } 
     /// <summary>
     /// Specifies if the insured amount must be matched as part of the validation of the data set.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator MatchAmount { get; init; } 
     /// <summary>
     /// Specifies which clauses are required in the insurance data set.
     /// </summary>
-    [DataMember]
-    public ValueList<InsuranceClauses1Code> ClausesRequired { get; init; } = []; // Warning: Don't know multiplicity.
+    public InsuranceClauses1Code? ClausesRequired { get; init; } 
     /// <summary>
     /// Specifies if the assured (insured) party must be matched as part of the validation of the data set.
     /// </summary>
-    [DataMember]
     public AssuredType1Code? MatchAssuredParty { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize Submitter, multiplicity Unknown
+        if (MatchIssuer is PartyIdentification27 MatchIssuerValue)
+        {
+            writer.WriteStartElement(null, "MtchIssr", xmlNamespace );
+            MatchIssuerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MtchIsseDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MatchIssueDate)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MtchTrnsprt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MatchTransport)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MtchAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MatchAmount)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (ClausesRequired is InsuranceClauses1Code ClausesRequiredValue)
+        {
+            writer.WriteStartElement(null, "ClausesReqrd", xmlNamespace );
+            writer.WriteValue(ClausesRequiredValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MatchAssuredParty is AssuredType1Code MatchAssuredPartyValue)
+        {
+            writer.WriteStartElement(null, "MtchAssrdPty", xmlNamespace );
+            writer.WriteValue(MatchAssuredPartyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static RequiredSubmission3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

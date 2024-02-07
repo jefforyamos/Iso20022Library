@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes the multimodal or the individual transport of goods.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransportMeans3
+     : IIsoXmlSerilizable<TransportMeans3>
 {
     #nullable enable
     
     /// <summary>
     /// Code specifying the transport mode for the delivery of the consignment, such as by air, sea, rail, road or inland waterway. Reference UN/ECE Recommendation 19 - Code for Modes of Transport (www.unece.org/cefact/recommendations).
     /// </summary>
-    [DataMember]
     public IsoMax4Text? ModeCode { get; init; } 
     /// <summary>
     /// Unique identification of the means of transport, such as the International Maritime Organization number of a vessel.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Name, expressed as text, of the means of transport.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ModeCode is IsoMax4Text ModeCodeValue)
+        {
+            writer.WriteStartElement(null, "MdCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4Text(ModeCodeValue)); // data type Max4Text System.String
+            writer.WriteEndElement();
+        }
+        if (Identification is IsoMax35Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Name is IsoMax35Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TransportMeans3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

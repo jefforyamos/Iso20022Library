@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters for contracts which obligate the buyer to receive and the seller to deliver in the future the assets specified at an agreed price.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Future4
+     : IIsoXmlSerilizable<Future4>
 {
     #nullable enable
     
     /// <summary>
     /// Ratio or multiplying factor used to convert one contract into a quantity.
     /// </summary>
-    [DataMember]
     public IsoBaseOneRate? ContractSize { get; init; } 
     /// <summary>
     /// Predetermined price at which the holder of a Future will have to buy or sell the underlying instrument.
     /// </summary>
-    [DataMember]
     public Price8? ExercisePrice { get; init; } 
     /// <summary>
     /// Date on which future contracts settle.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? FutureDate { get; init; } 
     /// <summary>
     /// Specifies the minimum ratio or multiply factor used to convert from contracts to shares.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? MinimumSize { get; init; } 
     /// <summary>
     /// Used to indicate the measurement unit of the underlying commodity on which the contract is based (for example, 2500 lbs of lean cattle, 1000 barrels of crude oil, 1000 bushels of corn, etc.).
     /// </summary>
-    [DataMember]
     public UnitOfMeasure7Choice_? UnitOfMeasure { get; init; } 
     /// <summary>
     /// Used to indicate a time unit for the contract (for example days, weeks, months, etc.).
     /// </summary>
-    [DataMember]
     public TimeUnit3Choice_? TimeUnit { get; init; } 
     /// <summary>
     /// Provides more information about the underlying instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<UnderlyingAttributes4> AdditionalUnderlyingAttributes { get; init; } = []; // Warning: Don't know multiplicity.
+    public UnderlyingAttributes4? AdditionalUnderlyingAttributes { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ContractSize is IsoBaseOneRate ContractSizeValue)
+        {
+            writer.WriteStartElement(null, "CtrctSz", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ContractSizeValue)); // data type BaseOneRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExercisePrice is Price8 ExercisePriceValue)
+        {
+            writer.WriteStartElement(null, "ExrcPric", xmlNamespace );
+            ExercisePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FutureDate is IsoISODateTime FutureDateValue)
+        {
+            writer.WriteStartElement(null, "FutrDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(FutureDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (MinimumSize is IsoActiveCurrencyAndAmount MinimumSizeValue)
+        {
+            writer.WriteStartElement(null, "MinSz", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MinimumSizeValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (UnitOfMeasure is UnitOfMeasure7Choice_ UnitOfMeasureValue)
+        {
+            writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
+            UnitOfMeasureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TimeUnit is TimeUnit3Choice_ TimeUnitValue)
+        {
+            writer.WriteStartElement(null, "TmUnit", xmlNamespace );
+            TimeUnitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalUnderlyingAttributes is UnderlyingAttributes4 AdditionalUnderlyingAttributesValue)
+        {
+            writer.WriteStartElement(null, "AddtlUndrlygAttrbts", xmlNamespace );
+            AdditionalUnderlyingAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Future4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

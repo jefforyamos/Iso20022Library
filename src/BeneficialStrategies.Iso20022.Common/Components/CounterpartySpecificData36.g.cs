@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related specifically to counterparties.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CounterpartySpecificData36
+     : IIsoXmlSerilizable<CounterpartySpecificData36>
 {
     #nullable enable
     
     /// <summary>
     /// Data specific to counterparties of the reported transaction/position.
     /// </summary>
-    [DataMember]
     public required TradeCounterpartyReport20 Counterparty { get; init; } 
     /// <summary>
     /// Data specific to the valuation of the transaction.
     /// </summary>
-    [DataMember]
     public ContractValuationData8? Valuation { get; init; } 
     /// <summary>
     /// Indicates the date and time of the submission of the report to the trade repository.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ReportingTimeStamp { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CtrPty", xmlNamespace );
+        Counterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Valuation is ContractValuationData8 ValuationValue)
+        {
+            writer.WriteStartElement(null, "Valtn", xmlNamespace );
+            ValuationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReportingTimeStamp is IsoISODateTime ReportingTimeStampValue)
+        {
+            writer.WriteStartElement(null, "RptgTmStmp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ReportingTimeStampValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static CounterpartySpecificData36 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

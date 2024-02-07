@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.QuantityRange1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityRange1Choice;
 /// Range of valid quantity values.
 /// </summary>
 public partial record FromToQuantity : QuantityRange1Choice_
+     , IIsoXmlSerilizable<FromToQuantity>
 {
     #nullable enable
+    
     /// <summary>
     /// Lower boundary of a range of quantity values.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record FromToQuantity : QuantityRange1Choice_
     /// Upper boundary of a range of quantity values.
     /// </summary>
     public required QuantityRangeBoundary1 ToQuantity { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FrQty", xmlNamespace );
+        FromQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ToQty", xmlNamespace );
+        ToQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new FromToQuantity Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

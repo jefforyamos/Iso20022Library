@@ -7,38 +7,69 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional information with update description and date.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UpdatedAdditionalInformation13
+     : IIsoXmlSerilizable<UpdatedAdditionalInformation13>
 {
     #nullable enable
     
     /// <summary>
     /// Language used to provide additional information and using the ISO 639-1 language code standard.
     /// </summary>
-    [DataMember]
     public required ISO2ALanguageCode Language { get; init; } 
     /// <summary>
     /// Specifies the amendments made to the narrative since the last message.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? UpdateDescription { get; init; } 
     /// <summary>
     /// Specifies the date at which the narrative has been updated.
     /// </summary>
-    [DataMember]
     public IsoISODate? UpdateDate { get; init; } 
     /// <summary>
     /// Provides additional textual information.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax8000Text> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax8000Text? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _bRG2B-6QEeqc-LCjwLsUVg
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Lang", xmlNamespace );
+        writer.WriteValue(Language.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (UpdateDescription is IsoMax140Text UpdateDescriptionValue)
+        {
+            writer.WriteStartElement(null, "UpdDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(UpdateDescriptionValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (UpdateDate is IsoISODate UpdateDateValue)
+        {
+            writer.WriteStartElement(null, "UpdDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(UpdateDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize AdditionalInformation, multiplicity Unknown
+    }
+    public static UpdatedAdditionalInformation13 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

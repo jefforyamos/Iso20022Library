@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.cain.NetworkManagementResponse>;
 
 namespace BeneficialStrategies.Iso20022.cain;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// The NetworkManagementResponse message is sent by an acquirer, an issuer or an agent to answer to an NetworkManagementInitiation message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The NetworkManagementResponse message is sent by an acquirer, an issuer or an agent to answer to an NetworkManagementInitiation message.")]
-public partial record NetworkManagementResponse : IOuterRecord
+public partial record NetworkManagementResponse : IOuterRecord<NetworkManagementResponse,NetworkManagementResponseDocument>
+    ,IIsoXmlSerilizable<NetworkManagementResponse>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record NetworkManagementResponse : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "NtwkMgmtRspn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => NetworkManagementResponseDocument.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -76,6 +83,35 @@ public partial record NetworkManagementResponse : IOuterRecord
     {
         return new NetworkManagementResponseDocument { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("NtwkMgmtRspn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NtwkMgmtRspn", xmlNamespace );
+        NetworkManagementResponseValue.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecurityTrailer is ContentInformationType15 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static NetworkManagementResponse Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -83,9 +119,7 @@ public partial record NetworkManagementResponse : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NetworkManagementResponse"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record NetworkManagementResponseDocument : IOuterDocument<NetworkManagementResponse>
+public partial record NetworkManagementResponseDocument : IOuterDocument<NetworkManagementResponse>, IXmlSerializable
 {
     
     /// <summary>
@@ -101,5 +135,22 @@ public partial record NetworkManagementResponseDocument : IOuterDocument<Network
     /// <summary>
     /// The instance of <seealso cref="NetworkManagementResponse"/> is required.
     /// </summary>
+    [DataMember(Name=NetworkManagementResponse.XmlTag)]
     public required NetworkManagementResponse Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(NetworkManagementResponse.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

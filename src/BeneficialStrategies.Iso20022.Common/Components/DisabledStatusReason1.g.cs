@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reason for a disabled status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DisabledStatusReason1
+     : IIsoXmlSerilizable<DisabledStatusReason1>
 {
     #nullable enable
     
     /// <summary>
     /// Reason for the disabled account status.
     /// </summary>
-    [DataMember]
     public required DisabledStatusReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Additional information about the reason for the disabled account status.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        Code.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static DisabledStatusReason1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

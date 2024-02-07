@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Source of funding
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FundingSource2
+     : IIsoXmlSerilizable<FundingSource2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of source funding used to perform the transfer of funds.
     /// </summary>
-    [DataMember]
     public FundingSourceType2Code? SourceType { get; init; } 
     /// <summary>
     /// Any other type of funding source used to perform the transfer of funds.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherSourceType { get; init; } 
     /// <summary>
     /// Reference to the funding source.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Reference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SourceType is FundingSourceType2Code SourceTypeValue)
+        {
+            writer.WriteStartElement(null, "SrcTp", xmlNamespace );
+            writer.WriteValue(SourceTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherSourceType is IsoMax35Text OtherSourceTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrSrcTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherSourceTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Reference is IsoMax35Text ReferenceValue)
+        {
+            writer.WriteStartElement(null, "Ref", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static FundingSource2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

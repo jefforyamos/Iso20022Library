@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Filter to compute the totals.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TotalFilter1
+     : IIsoXmlSerilizable<TotalFilter1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifier of the POI system performing a reconciliation.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? POIIdentification { get; init; } 
     /// <summary>
     /// Identification of the sale terminal (electronic cash register or point of sale terminal) or the sale system.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SaleIdentification { get; init; } 
     /// <summary>
     /// Identification of the cashier who carried out the transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CashierIdentification { get; init; } 
     /// <summary>
     /// Identifies the shift of the cashier.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ShiftNumber { get; init; } 
     /// <summary>
     /// Identification of a group of transaction on a POI Terminal, having the same Sale features.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TotalsGroupIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (POIIdentification is IsoMax35Text POIIdentificationValue)
+        {
+            writer.WriteStartElement(null, "POIId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(POIIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SaleIdentification is IsoMax35Text SaleIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CashierIdentification is IsoMax35Text CashierIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CshrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CashierIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ShiftNumber is IsoMax35Text ShiftNumberValue)
+        {
+            writer.WriteStartElement(null, "ShftNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ShiftNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TotalsGroupIdentification is IsoMax35Text TotalsGroupIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TtlsGrpId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TotalsGroupIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TotalFilter1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,73 +7,146 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the acceptor configuration.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AcceptorConfigurationContent10
+     : IIsoXmlSerilizable<AcceptorConfigurationContent10>
 {
     #nullable enable
     
     /// <summary>
     /// True if the whole configuration related to the terminal manager has to be replaced by the configuration included in the message content.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ReplaceConfiguration { get; init; } 
     /// <summary>
     /// Configuration parameters of the TMS protocol between a POI and a terminal manager.
     /// </summary>
-    [DataMember]
-    public ValueList<TMSProtocolParameters5> TMSProtocolParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public TMSProtocolParameters5? TMSProtocolParameters { get; init; } 
     /// <summary>
     /// Acceptor parameters dedicated to an acquirer protocol.
     /// </summary>
-    [DataMember]
-    public ValueList<AcquirerProtocolParameters14> AcquirerProtocolParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public AcquirerProtocolParameters14? AcquirerProtocolParameters { get; init; } 
     /// <summary>
     /// Acceptor parameters dedicated to a service provider.
     /// </summary>
-    [DataMember]
-    public ValueList<ServiceProviderParameters1> ServiceProviderParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public ServiceProviderParameters1? ServiceProviderParameters { get; init; } 
     /// <summary>
     /// Acceptor parameters dedicated to the merchant.
     /// </summary>
-    [DataMember]
-    public ValueList<MerchantConfigurationParameters6> MerchantParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public MerchantConfigurationParameters6? MerchantParameters { get; init; } 
     /// <summary>
     /// Manufacturer configuration parameters of the point of interaction.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentTerminalParameters8> TerminalParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentTerminalParameters8? TerminalParameters { get; init; } 
     /// <summary>
     /// Acceptor parameters dedicated to a payment application of the point of interaction.
     /// </summary>
-    [DataMember]
-    public ValueList<ApplicationParameters10> ApplicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public ApplicationParameters10? ApplicationParameters { get; init; } 
     /// <summary>
     /// Acceptor parameters dedicated to the communication with an acquirer host or a terminal manager host.
     /// </summary>
-    [DataMember]
-    public ValueList<HostCommunicationParameter6> HostCommunicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public HostCommunicationParameter6? HostCommunicationParameters { get; init; } 
     /// <summary>
     /// Point of interaction parameters related to the security of software application and application protocol.
     /// </summary>
-    [DataMember]
-    public ValueList<SecurityParameters13> SecurityParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecurityParameters13? SecurityParameters { get; init; } 
     /// <summary>
     /// Parameters dedicated to protocols between a sale system and the POI.
     /// </summary>
-    [DataMember]
-    public ValueList<SaleToPOIProtocolParameter1> SaleToPOIParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public SaleToPOIProtocolParameter1? SaleToPOIParameters { get; init; } 
     /// <summary>
     /// Group of software packages to transfer to a group of POIComponent of the POI System.
     /// </summary>
-    [DataMember]
-    public ValueList<TerminalPackageType2> TerminalPackage { get; init; } = []; // Warning: Don't know multiplicity.
+    public TerminalPackageType2? TerminalPackage { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReplaceConfiguration is IsoTrueFalseIndicator ReplaceConfigurationValue)
+        {
+            writer.WriteStartElement(null, "RplcCfgtn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ReplaceConfigurationValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TMSProtocolParameters is TMSProtocolParameters5 TMSProtocolParametersValue)
+        {
+            writer.WriteStartElement(null, "TMSPrtcolParams", xmlNamespace );
+            TMSProtocolParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AcquirerProtocolParameters is AcquirerProtocolParameters14 AcquirerProtocolParametersValue)
+        {
+            writer.WriteStartElement(null, "AcqrrPrtcolParams", xmlNamespace );
+            AcquirerProtocolParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ServiceProviderParameters is ServiceProviderParameters1 ServiceProviderParametersValue)
+        {
+            writer.WriteStartElement(null, "SvcPrvdrParams", xmlNamespace );
+            ServiceProviderParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MerchantParameters is MerchantConfigurationParameters6 MerchantParametersValue)
+        {
+            writer.WriteStartElement(null, "MrchntParams", xmlNamespace );
+            MerchantParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TerminalParameters is PaymentTerminalParameters8 TerminalParametersValue)
+        {
+            writer.WriteStartElement(null, "TermnlParams", xmlNamespace );
+            TerminalParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ApplicationParameters is ApplicationParameters10 ApplicationParametersValue)
+        {
+            writer.WriteStartElement(null, "ApplParams", xmlNamespace );
+            ApplicationParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (HostCommunicationParameters is HostCommunicationParameter6 HostCommunicationParametersValue)
+        {
+            writer.WriteStartElement(null, "HstComParams", xmlNamespace );
+            HostCommunicationParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecurityParameters is SecurityParameters13 SecurityParametersValue)
+        {
+            writer.WriteStartElement(null, "SctyParams", xmlNamespace );
+            SecurityParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SaleToPOIParameters is SaleToPOIProtocolParameter1 SaleToPOIParametersValue)
+        {
+            writer.WriteStartElement(null, "SaleToPOIParams", xmlNamespace );
+            SaleToPOIParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TerminalPackage is TerminalPackageType2 TerminalPackageValue)
+        {
+            writer.WriteStartElement(null, "TermnlPackg", xmlNamespace );
+            TerminalPackageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AcceptorConfigurationContent10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

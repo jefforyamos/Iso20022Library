@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information for the presentation of documents.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Presentation1
+     : IIsoXmlSerilizable<Presentation1>
 {
     #nullable enable
     
     /// <summary>
     /// Medium through which the presentation can be submitted such as paper, electronic or both.
     /// </summary>
-    [DataMember]
     public PresentationMedium1Choice_? Medium { get; init; } 
     /// <summary>
     /// Choice of representation for the place of presentation.
     /// </summary>
-    [DataMember]
     public PlaceOrUnderConfirmationChoice1_? PlaceOfPresentationOrUnderConfirmationChoice { get; init; } 
     /// <summary>
     /// Document required to be presented.
     /// </summary>
-    [DataMember]
-    public ValueList<Document8> Document { get; init; } = []; // Warning: Don't know multiplicity.
+    public Document8? Document { get; init; } 
     /// <summary>
     /// Additional information related to the presentation.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Medium is PresentationMedium1Choice_ MediumValue)
+        {
+            writer.WriteStartElement(null, "Mdm", xmlNamespace );
+            MediumValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PlaceOfPresentationOrUnderConfirmationChoice is PlaceOrUnderConfirmationChoice1_ PlaceOfPresentationOrUnderConfirmationChoiceValue)
+        {
+            writer.WriteStartElement(null, "PlcOfPresntnOrUdrConfChc", xmlNamespace );
+            PlaceOfPresentationOrUnderConfirmationChoiceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Document is Document8 DocumentValue)
+        {
+            writer.WriteStartElement(null, "Doc", xmlNamespace );
+            DocumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+    }
+    public static Presentation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

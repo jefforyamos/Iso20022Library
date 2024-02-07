@@ -7,58 +7,113 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Characteristics of an investment plan.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestmentPlanCharacteristics1
+     : IIsoXmlSerilizable<InvestmentPlanCharacteristics1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of investment plan.
     /// </summary>
-    [DataMember]
     public required InvestmentFundPlanType1Choice_ PlanType { get; init; } 
     /// <summary>
     /// Frequency of the investment plan.
     /// </summary>
-    [DataMember]
     public Frequency20Choice_? Frequency { get; init; } 
     /// <summary>
     /// Total number of times the amount must be invested at the predefined frequency as of the start date of the investment plan.
     /// </summary>
-    [DataMember]
     public IsoNumber? TotalNumberOfInstalments { get; init; } 
     /// <summary>
     /// Minimum amount of the periodical payments. (If there is no maximum, then '0' must be specified for the Amount or Units.)
     /// </summary>
-    [DataMember]
     public UnitsOrAmount1Choice_? Quantity { get; init; } 
     /// <summary>
     /// Indicates whether it is possible to continue the savings plan after the end date.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? PlanContinuation { get; init; } 
     /// <summary>
     /// Indicates whether it is possible to subscribe to additional instalments over and above that permitted by the savings plan frequency. 
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? AdditionalSubscription { get; init; } 
     /// <summary>
     /// Indicates whether any additional instalments will reduce the period of the life of the savings investment plan.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? AdditionalSubscriptionFunction { get; init; } 
     /// <summary>
     /// Additional information about the investment plan.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlanTp", xmlNamespace );
+        PlanType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Frequency is Frequency20Choice_ FrequencyValue)
+        {
+            writer.WriteStartElement(null, "Frqcy", xmlNamespace );
+            FrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalNumberOfInstalments is IsoNumber TotalNumberOfInstalmentsValue)
+        {
+            writer.WriteStartElement(null, "TtlNbOfInstlmts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberOfInstalmentsValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Quantity is UnitsOrAmount1Choice_ QuantityValue)
+        {
+            writer.WriteStartElement(null, "Qty", xmlNamespace );
+            QuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PlanContinuation is IsoYesNoIndicator PlanContinuationValue)
+        {
+            writer.WriteStartElement(null, "PlanConttn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PlanContinuationValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalSubscription is IsoYesNoIndicator AdditionalSubscriptionValue)
+        {
+            writer.WriteStartElement(null, "AddtlSbcpt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AdditionalSubscriptionValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalSubscriptionFunction is IsoYesNoIndicator AdditionalSubscriptionFunctionValue)
+        {
+            writer.WriteStartElement(null, "AddtlSbcptFctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AdditionalSubscriptionFunctionValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InvestmentPlanCharacteristics1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

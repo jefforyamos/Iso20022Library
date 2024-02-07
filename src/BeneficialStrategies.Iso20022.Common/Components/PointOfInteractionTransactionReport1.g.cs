@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Transaction Report information for one transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PointOfInteractionTransactionReport1
+     : IIsoXmlSerilizable<PointOfInteractionTransactionReport1>
 {
     #nullable enable
     
     /// <summary>
     /// Response for this specific transaction.
     /// </summary>
-    [DataMember]
     public required ResponseType9 Response { get; init; } 
     /// <summary>
     /// Data responded to a Payment request.
     /// </summary>
-    [DataMember]
     public PaymentResponse1? PaymentResponse { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Rspn", xmlNamespace );
+        Response.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PaymentResponse is PaymentResponse1 PaymentResponseValue)
+        {
+            writer.WriteStartElement(null, "PmtRspn", xmlNamespace );
+            PaymentResponseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PointOfInteractionTransactionReport1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

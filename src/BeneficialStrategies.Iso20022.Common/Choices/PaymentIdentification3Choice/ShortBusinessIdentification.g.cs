@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification3Choice;
 /// Business identification of the payment instruction given by the clearing agent.
 /// </summary>
 public partial record ShortBusinessIdentification : PaymentIdentification3Choice_
+     , IIsoXmlSerilizable<ShortBusinessIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique and unambiguous identifier for a payment instruction, as assigned by the clearing agent or the initiating party.
     /// </summary>
@@ -27,5 +31,32 @@ public partial record ShortBusinessIdentification : PaymentIdentification3Choice
     /// The identification of the instructing agent that transmitted the payment instruction.
     /// </summary>
     public required IsoBICIdentifier InstructingAgentIdentification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PmtInstrRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(PaymentInstructionReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IntrBkValDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(InterbankValueDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InstgAgtId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBICIdentifier(InstructingAgentIdentification)); // data type BICIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static new ShortBusinessIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

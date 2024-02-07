@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.trea.AmendNonDeliverableForwardOpeningV02>;
 
 namespace BeneficialStrategies.Iso20022.trea;
 
@@ -24,10 +27,9 @@ namespace BeneficialStrategies.Iso20022.trea;
 /// The message is sent from a participant to a central settlement system to advise of the update of a previously sent notification and it contains a "Related Reference" to link it to the previous notification.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The AmendNonDeliverableForwardOpening message is sent by a participant to a central system or to a counterparty to notify the amendment of the opening of a non deliverable trade previously confirmed by the sender.|Usage|The message is sent from a participant to a central settlement system to advise of the update of a previously sent notification and it contains a ""Related Reference"" to link it to the previous notification.")]
-public partial record AmendNonDeliverableForwardOpeningV02 : IOuterRecord
+public partial record AmendNonDeliverableForwardOpeningV02 : IOuterRecord<AmendNonDeliverableForwardOpeningV02,AmendNonDeliverableForwardOpeningV02Document>
+    ,IIsoXmlSerilizable<AmendNonDeliverableForwardOpeningV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -39,6 +41,11 @@ public partial record AmendNonDeliverableForwardOpeningV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AmdNDFOpngV02";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AmendNonDeliverableForwardOpeningV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -110,6 +117,41 @@ public partial record AmendNonDeliverableForwardOpeningV02 : IOuterRecord
     {
         return new AmendNonDeliverableForwardOpeningV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AmdNDFOpngV02");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TradInf", xmlNamespace );
+        TradeInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradgSdId", xmlNamespace );
+        TradingSideIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CtrPtySdId", xmlNamespace );
+        CounterpartySideIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradAmts", xmlNamespace );
+        TradeAmounts.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AgrdRate", xmlNamespace );
+        AgreedRate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ValtnConds", xmlNamespace );
+        ValuationConditions.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static AmendNonDeliverableForwardOpeningV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -117,9 +159,7 @@ public partial record AmendNonDeliverableForwardOpeningV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AmendNonDeliverableForwardOpeningV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AmendNonDeliverableForwardOpeningV02Document : IOuterDocument<AmendNonDeliverableForwardOpeningV02>
+public partial record AmendNonDeliverableForwardOpeningV02Document : IOuterDocument<AmendNonDeliverableForwardOpeningV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -135,5 +175,22 @@ public partial record AmendNonDeliverableForwardOpeningV02Document : IOuterDocum
     /// <summary>
     /// The instance of <seealso cref="AmendNonDeliverableForwardOpeningV02"/> is required.
     /// </summary>
+    [DataMember(Name=AmendNonDeliverableForwardOpeningV02.XmlTag)]
     public required AmendNonDeliverableForwardOpeningV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AmendNonDeliverableForwardOpeningV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

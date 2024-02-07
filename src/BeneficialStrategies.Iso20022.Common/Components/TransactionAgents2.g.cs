@@ -7,68 +7,136 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide information on the agents specific to the individual transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionAgents2
+     : IIsoXmlSerilizable<TransactionAgents2>
 {
     #nullable enable
     
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? DebtorAgent { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? CreditorAgent { get; init; } 
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.||Usage: If more than one intermediary agent is present, then IntermediaryAgent1 identifies the agent between the DebtorAgent and the IntermediaryAgent2.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? IntermediaryAgent1 { get; init; } 
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.||Usage: If more than two intermediary agents are present, then IntermediaryAgent2 identifies the agent between the IntermediaryAgent1 and the IntermediaryAgent3.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? IntermediaryAgent2 { get; init; } 
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.||Usage: If IntermediaryAgent3 is present, then it identifies the agent between the IntermediaryAgent 2 and the CreditorAgent.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? IntermediaryAgent3 { get; init; } 
     /// <summary>
     /// Party that receives securities from the delivering agent at the place of settlement, such as central securities depository.|Can also be used in the context of treasury operations.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? ReceivingAgent { get; init; } 
     /// <summary>
     /// Party that delivers securities to the receiving agent at the place of settlement, such as a central securities depository.|Can also be used in the context of treasury operations.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? DeliveringAgent { get; init; } 
     /// <summary>
     /// Legal entity that has the right to issue securities.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? IssuingAgent { get; init; } 
     /// <summary>
     /// Place where settlement of the securities takes place.|Usage: This is typed by a financial institution identification as this is the standard way to identify a securities settlement agent/central system.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? SettlementPlace { get; init; } 
     /// <summary>
     /// Proprietary agent related to the underlying transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<ProprietaryAgent2> Proprietary { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProprietaryAgent2? Proprietary { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DebtorAgent is BranchAndFinancialInstitutionIdentification4 DebtorAgentValue)
+        {
+            writer.WriteStartElement(null, "DbtrAgt", xmlNamespace );
+            DebtorAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditorAgent is BranchAndFinancialInstitutionIdentification4 CreditorAgentValue)
+        {
+            writer.WriteStartElement(null, "CdtrAgt", xmlNamespace );
+            CreditorAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryAgent1 is BranchAndFinancialInstitutionIdentification4 IntermediaryAgent1Value)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt1", xmlNamespace );
+            IntermediaryAgent1Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryAgent2 is BranchAndFinancialInstitutionIdentification4 IntermediaryAgent2Value)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt2", xmlNamespace );
+            IntermediaryAgent2Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryAgent3 is BranchAndFinancialInstitutionIdentification4 IntermediaryAgent3Value)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt3", xmlNamespace );
+            IntermediaryAgent3Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReceivingAgent is BranchAndFinancialInstitutionIdentification4 ReceivingAgentValue)
+        {
+            writer.WriteStartElement(null, "RcvgAgt", xmlNamespace );
+            ReceivingAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveringAgent is BranchAndFinancialInstitutionIdentification4 DeliveringAgentValue)
+        {
+            writer.WriteStartElement(null, "DlvrgAgt", xmlNamespace );
+            DeliveringAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssuingAgent is BranchAndFinancialInstitutionIdentification4 IssuingAgentValue)
+        {
+            writer.WriteStartElement(null, "IssgAgt", xmlNamespace );
+            IssuingAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementPlace is BranchAndFinancialInstitutionIdentification4 SettlementPlaceValue)
+        {
+            writer.WriteStartElement(null, "SttlmPlc", xmlNamespace );
+            SettlementPlaceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Proprietary is ProprietaryAgent2 ProprietaryValue)
+        {
+            writer.WriteStartElement(null, "Prtry", xmlNamespace );
+            ProprietaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionAgents2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

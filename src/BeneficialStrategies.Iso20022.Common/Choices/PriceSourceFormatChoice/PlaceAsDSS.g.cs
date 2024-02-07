@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PriceSourceFormatChoice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceSourceFormatChoice;
 /// Source of a price quotation expressed with a propriety identification scheme.
 /// </summary>
 public partial record PlaceAsDSS : PriceSourceFormatChoice_
+     , IIsoXmlSerilizable<PlaceAsDSS>
 {
     #nullable enable
+    
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>
@@ -27,5 +31,35 @@ public partial record PlaceAsDSS : PriceSourceFormatChoice_
     /// Additional information.
     /// </summary>
     public IsoMax35Text? Narrative { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Issr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax8Text(Issuer)); // data type Max8Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Inf", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(Information)); // data type Exact4AlphaNumericText System.String
+        writer.WriteEndElement();
+        if (Narrative is IsoMax35Text NarrativeValue)
+        {
+            writer.WriteStartElement(null, "Nrrtv", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NarrativeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new PlaceAsDSS Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

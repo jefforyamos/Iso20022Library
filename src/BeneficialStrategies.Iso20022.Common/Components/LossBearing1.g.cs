@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// An investor’s ability to bear losses.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LossBearing1
+     : IIsoXmlSerilizable<LossBearing1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the product is compatible with a client who cannot bear loss of capital. Minor losses especially due to costs are possible. For a negative target (no), the product should not be sold to investors that cannot bear losses. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 03010. In EMT v2, this is known as Compatible With Clients Who Can Not Bear Capital Loss.
     /// </summary>
-    [DataMember]
     public TargetMarket1Code? NoCapitalLoss { get; init; } 
     /// <summary>
     /// Specifies whether the product is compatible with a client who is seeking to preserve capital or who can bear losses limited to a level specified by a structured security or structure fund product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 03020. In EMT v2, this is known as Compatible With Clients Who Can Bear Limited Capital Loss.
     /// </summary>
-    [DataMember]
     public TargetMarket1Code? LimitedCapitalLoss { get; init; } 
     /// <summary>
     /// Specifies the percentage of loss that can be carried by the investor. This is typically used for structured products or structured funds. This is only specified when a clear partial capital guarantee is provided on the primary market and the product is held until maturity. The level of potential losses is the one that could be calculated according to the offering documentation. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 03030.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? LimitedCapitalLossLevel { get; init; } 
     /// <summary>
     /// Specifies the product is compatible with a client who does not need capital guarantee nor protection. One hundred percent of the capital is at risk. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 03040. In EMT v2, this is known as Compatible With Clients Who Do Not Need Capital Guarantee.
     /// </summary>
-    [DataMember]
     public TargetMarket1Code? NoCapitalGuarantee { get; init; } 
     /// <summary>
     /// Specifies the product is compatible with a client who can bear loss beyond the capital. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 03050. In EMT v2, this is known as Compatible With Clients Who Can Bear Loss Beyond Capital.
     /// </summary>
-    [DataMember]
     public TargetMarket1Code? LossBeyondCapital { get; init; } 
     /// <summary>
     /// Specifies another type of loss bearing.
     /// </summary>
-    [DataMember]
-    public ValueList<OtherTargetMarketLossBearing1> Other { get; init; } = []; // Warning: Don't know multiplicity.
+    public OtherTargetMarketLossBearing1? Other { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NoCapitalLoss is TargetMarket1Code NoCapitalLossValue)
+        {
+            writer.WriteStartElement(null, "NoCptlLoss", xmlNamespace );
+            writer.WriteValue(NoCapitalLossValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (LimitedCapitalLoss is TargetMarket1Code LimitedCapitalLossValue)
+        {
+            writer.WriteStartElement(null, "LtdCptlLoss", xmlNamespace );
+            writer.WriteValue(LimitedCapitalLossValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (LimitedCapitalLossLevel is IsoPercentageRate LimitedCapitalLossLevelValue)
+        {
+            writer.WriteStartElement(null, "LtdCptlLossLvl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(LimitedCapitalLossLevelValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (NoCapitalGuarantee is TargetMarket1Code NoCapitalGuaranteeValue)
+        {
+            writer.WriteStartElement(null, "NoCptlGrnt", xmlNamespace );
+            writer.WriteValue(NoCapitalGuaranteeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (LossBeyondCapital is TargetMarket1Code LossBeyondCapitalValue)
+        {
+            writer.WriteStartElement(null, "LossByndCptl", xmlNamespace );
+            writer.WriteValue(LossBeyondCapitalValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Other is OtherTargetMarketLossBearing1 OtherValue)
+        {
+            writer.WriteStartElement(null, "Othr", xmlNamespace );
+            OtherValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LossBearing1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

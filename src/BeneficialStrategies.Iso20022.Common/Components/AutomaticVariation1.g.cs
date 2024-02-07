@@ -7,38 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Variation parameters and triggers.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AutomaticVariation1
+     : IIsoXmlSerilizable<AutomaticVariation1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the automatic variation.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Type of variation.
     /// </summary>
-    [DataMember]
     public required VariationType1Code Type { get; init; } 
     /// <summary>
     /// Details related to the variation amount and its trigger.
     /// </summary>
-    [DataMember]
-    public ValueList<AmountAndTrigger1> AmountAndTrigger { get; init; } = []; // Warning: Don't know multiplicity.
+    public AmountAndTrigger1? AmountAndTrigger { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _9y7vcHltEeG7BsjMvd1mEw_-1036746610
     /// <summary>
     /// Additional information related to the variation.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        // Not sure how to serialize AmountAndTrigger, multiplicity Unknown
+        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+    }
+    public static AutomaticVariation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

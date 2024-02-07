@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique identification, as assigned by the original requestor, to unambiguously identify the business instruction message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OriginalBusinessInstruction3
+     : IIsoXmlSerilizable<OriginalBusinessInstruction3>
 {
     #nullable enable
     
     /// <summary>
     /// Point to point reference, as assigned by the original initiating party, to unambiguously identify the original instruction message.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINXMax35Text MessageIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax35Text(MessageIdentification)); // data type RestrictedFINXMax35Text System.String
+        writer.WriteEndElement();
+    }
+    public static OriginalBusinessInstruction3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

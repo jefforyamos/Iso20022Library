@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ThresholdBasis1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.ThresholdBasis1Choice;
 /// Nature of the quantity used as a basis to set a threshold for voting on resolutions at general meetings and provided as a code value.
 /// </summary>
 public partial record Code : ThresholdBasis1Choice_
+     , IIsoXmlSerilizable<Code>
 {
-    public required ThresholdBasis1Code Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Nature of the quantity used as a basis to set a threshold for voting on resolutions at general meetings.
+    /// </summary>
+    public required ThresholdBasis1Code Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new Code Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

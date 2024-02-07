@@ -7,78 +7,144 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information on the status of a trade.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeData1
+     : IIsoXmlSerilizable<TradeData1>
 {
     #nullable enable
     
     /// <summary>
     /// Refers to the identification of a notification.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text NotificationIdentification { get; init; } 
     /// <summary>
     /// Reference to the unique identification assigned to a trade by a central matching system.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MatchingSystemUniqueReference { get; init; } 
     /// <summary>
     /// Identifies the party which assigned a status to a treasury trade.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? StatusOriginator { get; init; } 
     /// <summary>
     /// Specifies the new status of a trade.
     /// </summary>
-    [DataMember]
     public required TradeStatus1Code CurrentStatus { get; init; } 
     /// <summary>
     /// Description of the status of a trade when no coded form is available.
     /// </summary>
-    [DataMember]
     public required IsoExtended350Code ExtendedCurrentStatus { get; init; } 
     /// <summary>
     /// Additional information on the current status of a trade in a central system.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? CurrentStatusSubType { get; init; } 
     /// <summary>
     /// Specifies the time at which the current status was assigned.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? CurrentStatusTime { get; init; } 
     /// <summary>
     /// Specifies the previous status of a trade.
     /// </summary>
-    [DataMember]
     public TradeStatus1Code? PreviousStatus { get; init; } 
     /// <summary>
     /// Description of the status of a trade when no coded form is available.
     /// </summary>
-    [DataMember]
     public IsoExtended350Code? ExtendedPreviousStatus { get; init; } 
     /// <summary>
     /// Additional information on the previous status of a trade in a central system.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? PreviousStatusSubType { get; init; } 
     /// <summary>
     /// Specifies the time at which the previous status was assigned.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? PreviousStatusTime { get; init; } 
     /// <summary>
     /// Specifies the product for which the status of the confirmation is reported.
     /// </summary>
-    [DataMember]
     public IsoMax4AlphaNumericText? ProductType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NtfctnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(NotificationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MtchgSysUnqRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MatchingSystemUniqueReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (StatusOriginator is IsoMax35Text StatusOriginatorValue)
+        {
+            writer.WriteStartElement(null, "StsOrgtr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(StatusOriginatorValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CurSts", xmlNamespace );
+        writer.WriteValue(CurrentStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtndedCurSts", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedCurrentStatus)); // data type Extended350Code System.String
+        writer.WriteEndElement();
+        if (CurrentStatusSubType is IsoMax70Text CurrentStatusSubTypeValue)
+        {
+            writer.WriteStartElement(null, "CurStsSubTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(CurrentStatusSubTypeValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (CurrentStatusTime is IsoISODateTime CurrentStatusTimeValue)
+        {
+            writer.WriteStartElement(null, "CurStsTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(CurrentStatusTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (PreviousStatus is TradeStatus1Code PreviousStatusValue)
+        {
+            writer.WriteStartElement(null, "PrvsSts", xmlNamespace );
+            writer.WriteValue(PreviousStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExtendedPreviousStatus is IsoExtended350Code ExtendedPreviousStatusValue)
+        {
+            writer.WriteStartElement(null, "XtndedPrvsSts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedPreviousStatusValue)); // data type Extended350Code System.String
+            writer.WriteEndElement();
+        }
+        if (PreviousStatusSubType is IsoMax70Text PreviousStatusSubTypeValue)
+        {
+            writer.WriteStartElement(null, "PrvsStsSubTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(PreviousStatusSubTypeValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (PreviousStatusTime is IsoISODateTime PreviousStatusTimeValue)
+        {
+            writer.WriteStartElement(null, "PrvsStsTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(PreviousStatusTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ProductType is IsoMax4AlphaNumericText ProductTypeValue)
+        {
+            writer.WriteStartElement(null, "PdctTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(ProductTypeValue)); // data type Max4AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

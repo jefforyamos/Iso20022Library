@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates the reference amount from which contractual payments are determined and the schedule applicable to the payments.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NotionalAmount1
+     : IIsoXmlSerilizable<NotionalAmount1>
 {
     #nullable enable
     
@@ -23,13 +24,37 @@ public partial record NotionalAmount1
     /// Reference amount from which contractual payments are determined.
     /// Usage: In case of partial terminations, and amortisations and in case of contracts where the notional, due to the characteristics of the contract, varies over time, it shall reflect the remaining notional after the change took place.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection106 Amount { get; init; } 
     /// <summary>
     /// Specifies the effective date and end date of the schedule for derivative transactions negotiated in monetary amounts varying throughout the life of the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<Schedule3> Schedule { get; init; } = []; // Warning: Don't know multiplicity.
+    public Schedule3? Schedule { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        Amount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Schedule is Schedule3 ScheduleValue)
+        {
+            writer.WriteStartElement(null, "Schdl", xmlNamespace );
+            ScheduleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static NotionalAmount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

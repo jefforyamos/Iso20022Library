@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus43Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus43Choice;
 /// Status of the standing settlement instruction, cancellation or deletion is pending.
 /// </summary>
 public partial record PendingProcessing : ProcessingStatus43Choice_
+     , IIsoXmlSerilizable<PendingProcessing>
 {
     #nullable enable
+    
     /// <summary>
     /// Reason for the pending status.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record PendingProcessing : ProcessingStatus43Choice_
     /// Additional information about the processed instruction.
     /// </summary>
     public IsoMax210Text? AdditionalReasonInformation { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Rsn", xmlNamespace );
+        Reason.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalReasonInformation is IsoMax210Text AdditionalReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlRsnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax210Text(AdditionalReasonInformationValue)); // data type Max210Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new PendingProcessing Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

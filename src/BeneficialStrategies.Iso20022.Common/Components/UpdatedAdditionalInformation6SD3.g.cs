@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Extension for additional information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UpdatedAdditionalInformation6SD3
+     : IIsoXmlSerilizable<UpdatedAdditionalInformation6SD3>
 {
     #nullable enable
     
@@ -23,30 +24,72 @@ public partial record UpdatedAdditionalInformation6SD3
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance. 
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Specifies the securities account to be credited.
     /// 会社法制の見直し要綱の、22ページ第３－１－①をご参照ください。.
     /// </summary>
-    [DataMember]
     public IsoMax50Text? SecuritiesCreditAccountIdentification { get; init; } 
     /// <summary>
     /// ISIN of Offeror's share when the corporate action event type code is TEND.
     /// </summary>
-    [DataMember]
     public IsoISINIdentifier? OfferorShare { get; init; } 
     /// <summary>
     /// Local code of Offeror's share when the corporate action event type code is TEND.
     /// 買付者 銘柄コード.
     /// </summary>
-    [DataMember]
     public IsoMax5AlphaNumericText? OfferorShareLocalCode { get; init; } 
     /// <summary>
     /// Name in the local language by which a party is known and which is usually used to identify that party.
     /// </summary>
-    [DataMember]
     public IsoMax240Text? LocalLanguageName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (SecuritiesCreditAccountIdentification is IsoMax50Text SecuritiesCreditAccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SctiesCdtAcctId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax50Text(SecuritiesCreditAccountIdentificationValue)); // data type Max50Text System.String
+            writer.WriteEndElement();
+        }
+        if (OfferorShare is IsoISINIdentifier OfferorShareValue)
+        {
+            writer.WriteStartElement(null, "OfferrShr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISINIdentifier(OfferorShareValue)); // data type ISINIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (OfferorShareLocalCode is IsoMax5AlphaNumericText OfferorShareLocalCodeValue)
+        {
+            writer.WriteStartElement(null, "OfferrShrLclCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax5AlphaNumericText(OfferorShareLocalCodeValue)); // data type Max5AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+        if (LocalLanguageName is IsoMax240Text LocalLanguageNameValue)
+        {
+            writer.WriteStartElement(null, "LclLangNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax240Text(LocalLanguageNameValue)); // data type Max240Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static UpdatedAdditionalInformation6SD3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

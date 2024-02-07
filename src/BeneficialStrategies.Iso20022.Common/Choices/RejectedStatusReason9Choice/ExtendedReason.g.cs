@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.RejectedStatusReason9Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedStatusReason9Choice;
 /// Reason for the rejected status.
 /// </summary>
 public partial record ExtendedReason : RejectedStatusReason9Choice_
+     , IIsoXmlSerilizable<ExtendedReason>
 {
-    public required IsoExtended350Code Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Code and / or description for values that are not yet part of the related code list.
+    /// </summary>
+    public required IsoExtended350Code Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "XtndedRsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExtended350Code(Value)); // data type Extended350Code System.String
+        writer.WriteEndElement();
+    }
+    public static new ExtendedReason Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

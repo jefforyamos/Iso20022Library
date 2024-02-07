@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount related to the original transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OriginalTransactionAmount2
+     : IIsoXmlSerilizable<OriginalTransactionAmount2>
 {
     #nullable enable
     
     /// <summary>
     /// Qualifies the amount of the transaction.
     /// </summary>
-    [DataMember]
     public TypeOfAmount22Code? AmountQualifier { get; init; } 
     /// <summary>
     /// Actual amount of the transaction.
     /// </summary>
-    [DataMember]
     public required TransactionAmount1 TransactionAmount { get; init; } 
     /// <summary>
     /// Amount to be billed to cardholder.
     /// </summary>
-    [DataMember]
     public Amount15? CardholderBillingAmount { get; init; } 
     /// <summary>
     /// Amount used for reconciliation.
     /// </summary>
-    [DataMember]
     public Amount15? ReconciliationAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AmountQualifier is TypeOfAmount22Code AmountQualifierValue)
+        {
+            writer.WriteStartElement(null, "AmtQlfr", xmlNamespace );
+            writer.WriteValue(AmountQualifierValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxAmt", xmlNamespace );
+        TransactionAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CardholderBillingAmount is Amount15 CardholderBillingAmountValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrBllgAmt", xmlNamespace );
+            CardholderBillingAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReconciliationAmount is Amount15 ReconciliationAmountValue)
+        {
+            writer.WriteStartElement(null, "RcncltnAmt", xmlNamespace );
+            ReconciliationAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OriginalTransactionAmount2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

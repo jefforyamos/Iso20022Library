@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique and unambiguous way to identify an organisation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentification3
+     : IIsoXmlSerilizable<PartyIdentification3>
 {
     #nullable enable
     
     /// <summary>
     /// Code allocated to a financial or non-financial institution by the ISO 9362 Registration Authority, as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
     /// </summary>
-    [DataMember]
     public required IsoAnyBICIdentifier BICOrBEI { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BICOrBEI", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(BICOrBEI)); // data type AnyBICIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static PartyIdentification3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

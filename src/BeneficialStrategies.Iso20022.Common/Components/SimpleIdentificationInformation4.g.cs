@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to an identification, for example, party identification or account identification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SimpleIdentificationInformation4
+     : IIsoXmlSerilizable<SimpleIdentificationInformation4>
 {
     #nullable enable
     
     /// <summary>
     /// Name or number assigned by an entity to enable recognition of that entity, for example, account identifier.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static SimpleIdentificationInformation4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

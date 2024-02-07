@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Media mix selected.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMMediaMix2
+     : IIsoXmlSerilizable<ATMMediaMix2>
 {
     #nullable enable
     
     /// <summary>
     /// Number of notes or coins.
     /// </summary>
-    [DataMember]
     public required IsoNumber Number { get; init; } 
     /// <summary>
     /// Unit value.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount UnitValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(Number)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UnitVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(UnitValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static ATMMediaMix2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

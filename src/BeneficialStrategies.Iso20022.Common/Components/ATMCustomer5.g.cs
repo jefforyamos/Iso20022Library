@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Customer involved in a transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMCustomer5
+     : IIsoXmlSerilizable<ATMCustomer5>
 {
     #nullable enable
     
     /// <summary>
     /// Profile of the customer selected to perform the transaction.
     /// </summary>
-    [DataMember]
     public ATMCustomerProfile2? Profile { get; init; } 
     /// <summary>
     /// Result of the customer authentication for this transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<TransactionVerificationResult5> AuthenticationResult { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransactionVerificationResult5? AuthenticationResult { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Profile is ATMCustomerProfile2 ProfileValue)
+        {
+            writer.WriteStartElement(null, "Prfl", xmlNamespace );
+            ProfileValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AuthenticationResult is TransactionVerificationResult5 AuthenticationResultValue)
+        {
+            writer.WriteStartElement(null, "AuthntcnRslt", xmlNamespace );
+            AuthenticationResultValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMCustomer5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

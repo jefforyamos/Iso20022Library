@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.StandingOrderOrAll2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingOrderOrAll2Choice;
 /// Identification of all standing orders defined with specific characteristics.
 /// </summary>
 public partial record AllStandingOrders : StandingOrderOrAll2Choice_
+     , IIsoXmlSerilizable<AllStandingOrders>
 {
     #nullable enable
+    
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.|.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record AllStandingOrders : StandingOrderOrAll2Choice_
     /// Party that legally owns the account.
     /// </summary>
     public BranchAndFinancialInstitutionIdentification6? AccountOwner { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Acct", xmlNamespace );
+        Account.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountOwner is BranchAndFinancialInstitutionIdentification6 AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new AllStandingOrders Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,73 +7,146 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains additional charges related to or during transit (e.g., baggage fee, in-flight purchase). These are separate from the original ticket purchase.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AncillaryPurchase2
+     : IIsoXmlSerilizable<AncillaryPurchase2>
 {
     #nullable enable
     
     /// <summary>
     /// Contains the form number assigned by the carrier for the transaction. 
     /// </summary>
-    [DataMember]
     public IsoMax15Text? AncillaryDocumentNumber { get; init; } 
     /// <summary>
     /// Document number of related transport details.
     /// </summary>
-    [DataMember]
     public IsoMax15Text? RelatedDocumentNumber { get; init; } 
     /// <summary>
     /// Contains an ancillary category code for the primary type of service that has been provided. 
     /// </summary>
-    [DataMember]
     public IsoMax4Text? ServiceCategoryCode { get; init; } 
     /// <summary>
     /// Contains ancillary service sub category code.
     /// </summary>
-    [DataMember]
     public IsoMax4Text? ServiceSubCategoryCode { get; init; } 
     /// <summary>
     /// Proprietary service type code assigned by the service provider.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ServiceProviderServiceType { get; init; } 
     /// <summary>
     /// Indicates reason for the credit to the cardholder.  Includes: ancillary purchase cancelled, passenger transport ticket and related ancillary purchase cancelled, etc.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CreditReasonCode { get; init; } 
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     /// <summary>
     /// Ancillary purchase amount.
     /// </summary>
-    [DataMember]
     public Amount16? Amount { get; init; } 
     /// <summary>
     /// Subfield contains the ancillary fee amount.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? Fee { get; init; } 
     /// <summary>
     /// Taxes related to the products or services. 
     /// </summary>
-    [DataMember]
-    public ValueList<Tax39> Tax { get; init; } = []; // Warning: Don't know multiplicity.
+    public Tax39? Tax { get; init; } 
     /// <summary>
     /// Additional user-defined data pertaining to the transportation.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AncillaryDocumentNumber is IsoMax15Text AncillaryDocumentNumberValue)
+        {
+            writer.WriteStartElement(null, "AncllryDocNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15Text(AncillaryDocumentNumberValue)); // data type Max15Text System.String
+            writer.WriteEndElement();
+        }
+        if (RelatedDocumentNumber is IsoMax15Text RelatedDocumentNumberValue)
+        {
+            writer.WriteStartElement(null, "RltdDocNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15Text(RelatedDocumentNumberValue)); // data type Max15Text System.String
+            writer.WriteEndElement();
+        }
+        if (ServiceCategoryCode is IsoMax4Text ServiceCategoryCodeValue)
+        {
+            writer.WriteStartElement(null, "SvcCtgyCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4Text(ServiceCategoryCodeValue)); // data type Max4Text System.String
+            writer.WriteEndElement();
+        }
+        if (ServiceSubCategoryCode is IsoMax4Text ServiceSubCategoryCodeValue)
+        {
+            writer.WriteStartElement(null, "SvcSubCtgyCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4Text(ServiceSubCategoryCodeValue)); // data type Max4Text System.String
+            writer.WriteEndElement();
+        }
+        if (ServiceProviderServiceType is IsoMax35Text ServiceProviderServiceTypeValue)
+        {
+            writer.WriteStartElement(null, "SvcPrvdrSvcTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ServiceProviderServiceTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CreditReasonCode is IsoMax35Text CreditReasonCodeValue)
+        {
+            writer.WriteStartElement(null, "CdtRsnCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CreditReasonCodeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SummaryCommodityIdentification is IsoMax35Text SummaryCommodityIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SummryCmmdtyId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SummaryCommodityIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Amount is Amount16 AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            AmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Fee is IsoImpliedCurrencyAndAmount FeeValue)
+        {
+            writer.WriteStartElement(null, "Fee", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(FeeValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Tax is Tax39 TaxValue)
+        {
+            writer.WriteStartElement(null, "Tax", xmlNamespace );
+            TaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is IsoMax350Text AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalDataValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AncillaryPurchase2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

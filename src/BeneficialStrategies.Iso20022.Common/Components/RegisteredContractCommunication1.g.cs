@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Communication details related to the registered currency control contract.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RegisteredContractCommunication1
+     : IIsoXmlSerilizable<RegisteredContractCommunication1>
 {
     #nullable enable
     
     /// <summary>
     /// Method by which the registered contract document is exchanged.
     /// </summary>
-    [DataMember]
     public required CommunicationMethod4Code Method { get; init; } 
     /// <summary>
     /// Date of the exchange.
     /// </summary>
-    [DataMember]
     public required IsoISODate Date { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Mtd", xmlNamespace );
+        writer.WriteValue(Method.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Dt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(Date)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+    }
+    public static RegisteredContractCommunication1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

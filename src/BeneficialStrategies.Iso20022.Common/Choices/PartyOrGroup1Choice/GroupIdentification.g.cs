@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PartyOrGroup1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrGroup1Choice;
 /// Specifies the identification of a group of parties.
 /// </summary>
 public partial record GroupIdentification : PartyOrGroup1Choice_
+     , IIsoXmlSerilizable<GroupIdentification>
 {
-    public required IsoMax4AlphaNumericText Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies an alphanumeric string with a maximum length of 4 characters.
+    /// </summary>
+    public required IsoMax4AlphaNumericText Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(Value)); // data type Max4AlphaNumericText System.String
+        writer.WriteEndElement();
+    }
+    public static new GroupIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

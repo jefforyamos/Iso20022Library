@@ -7,68 +7,133 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details on a quantity, account and other related information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record QuantityAndAccount103
+     : IIsoXmlSerilizable<QuantityAndAccount103>
 {
     #nullable enable
     
     /// <summary>
     /// Quantity of financial instrument effectively settled.
     /// </summary>
-    [DataMember]
     public required Quantity54Choice_ SettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument previously settled.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity36Choice_? PreviouslySettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument remaining to be settled.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity36Choice_? RemainingToBeSettledQuantity { get; init; } 
     /// <summary>
     /// Amount of money previously settled.
     /// </summary>
-    [DataMember]
     public AmountAndDirection19? PreviouslySettledAmount { get; init; } 
     /// <summary>
     /// Amount of money remaining to be settled.
     /// </summary>
-    [DataMember]
     public AmountAndDirection19? RemainingToBeSettledAmount { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification156? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
-    [DataMember]
     public SecuritiesAccount30? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
-    [DataMember]
     public BlockChainAddressWallet7? BlockChainAddressOrWallet { get; init; } 
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    [DataMember]
     public CashAccountIdentification6Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    [DataMember]
     public SafeKeepingPlace4? SafekeepingPlace { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttldQty", xmlNamespace );
+        SettledQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PreviouslySettledQuantity is FinancialInstrumentQuantity36Choice_ PreviouslySettledQuantityValue)
+        {
+            writer.WriteStartElement(null, "PrevslySttldQty", xmlNamespace );
+            PreviouslySettledQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RemainingToBeSettledQuantity is FinancialInstrumentQuantity36Choice_ RemainingToBeSettledQuantityValue)
+        {
+            writer.WriteStartElement(null, "RmngToBeSttldQty", xmlNamespace );
+            RemainingToBeSettledQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviouslySettledAmount is AmountAndDirection19 PreviouslySettledAmountValue)
+        {
+            writer.WriteStartElement(null, "PrevslySttldAmt", xmlNamespace );
+            PreviouslySettledAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RemainingToBeSettledAmount is AmountAndDirection19 RemainingToBeSettledAmountValue)
+        {
+            writer.WriteStartElement(null, "RmngToBeSttldAmt", xmlNamespace );
+            RemainingToBeSettledAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountOwner is PartyIdentification156 AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingAccount is SecuritiesAccount30 SafekeepingAccountValue)
+        {
+            writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+            SafekeepingAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BlockChainAddressOrWallet is BlockChainAddressWallet7 BlockChainAddressOrWalletValue)
+        {
+            writer.WriteStartElement(null, "BlckChainAdrOrWllt", xmlNamespace );
+            BlockChainAddressOrWalletValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccount is CashAccountIdentification6Choice_ CashAccountValue)
+        {
+            writer.WriteStartElement(null, "CshAcct", xmlNamespace );
+            CashAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingPlace is SafeKeepingPlace4 SafekeepingPlaceValue)
+        {
+            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
+            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static QuantityAndAccount103 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

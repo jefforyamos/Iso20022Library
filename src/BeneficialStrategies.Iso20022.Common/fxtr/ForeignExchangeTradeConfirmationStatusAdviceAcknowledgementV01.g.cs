@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.fxtr.ForeignExchangeTradeConfirmationStatusAdviceAcknowledgementV01>;
 
 namespace BeneficialStrategies.Iso20022.fxtr;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.fxtr;
 /// Note that one confirmation status advice acknowledgement responds to one confirmation status advice.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The ForeignExchangeTradeConfirmationStatusAdviceAcknowledgement message is sent from a market participant to a Central matching utility (CMU) in response to the FXTradeConfirmationStatusAdvice previously sent by the CMU in the scenario of trades matched by both participants.||Usage|The acknowledgement is sent by the trading member to the CMU after they received the confirmation status advice. |Note that one confirmation status advice acknowledgement responds to one confirmation status advice.")]
-public partial record ForeignExchangeTradeConfirmationStatusAdviceAcknowledgementV01 : IOuterRecord
+public partial record ForeignExchangeTradeConfirmationStatusAdviceAcknowledgementV01 : IOuterRecord<ForeignExchangeTradeConfirmationStatusAdviceAcknowledgementV01,ForeignExchangeTradeConfirmationStatusAdviceAcknowledgementV01Document>
+    ,IIsoXmlSerilizable<ForeignExchangeTradeConfirmationStatusAdviceAcknowledgementV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceAcknowledgemen
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "FXTradConfStsAdvcAck";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ForeignExchangeTradeConfirmationStatusAdviceAcknowledgementV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -149,6 +156,62 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceAcknowledgemen
     {
         return new ForeignExchangeTradeConfirmationStatusAdviceAcknowledgementV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("FXTradConfStsAdvcAck");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AdviceAcknowledgementIdentification is MessageIdentification1 AdviceAcknowledgementIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AdvcAckId", xmlNamespace );
+            AdviceAcknowledgementIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ReqId", xmlNamespace );
+        RequestIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(TradeDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TradeIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradgMd", xmlNamespace );
+        writer.WriteValue(TradingMode.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AffirmSts", xmlNamespace );
+        writer.WriteValue(AffirmationStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ConfSts", xmlNamespace );
+        writer.WriteValue(ConfirmationStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MktId", xmlNamespace );
+        MarketIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalInformation is AdditionalInformation5 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ForeignExchangeTradeConfirmationStatusAdviceAcknowledgementV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -156,9 +219,7 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceAcknowledgemen
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeConfirmationStatusAdviceAcknowledgementV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ForeignExchangeTradeConfirmationStatusAdviceAcknowledgementV01Document : IOuterDocument<ForeignExchangeTradeConfirmationStatusAdviceAcknowledgementV01>
+public partial record ForeignExchangeTradeConfirmationStatusAdviceAcknowledgementV01Document : IOuterDocument<ForeignExchangeTradeConfirmationStatusAdviceAcknowledgementV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -174,5 +235,22 @@ public partial record ForeignExchangeTradeConfirmationStatusAdviceAcknowledgemen
     /// <summary>
     /// The instance of <seealso cref="ForeignExchangeTradeConfirmationStatusAdviceAcknowledgementV01"/> is required.
     /// </summary>
+    [DataMember(Name=ForeignExchangeTradeConfirmationStatusAdviceAcknowledgementV01.XmlTag)]
     public required ForeignExchangeTradeConfirmationStatusAdviceAcknowledgementV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ForeignExchangeTradeConfirmationStatusAdviceAcknowledgementV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

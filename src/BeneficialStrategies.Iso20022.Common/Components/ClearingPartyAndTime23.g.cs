@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the central counterparty intended clearing time.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ClearingPartyAndTime23
+     : IIsoXmlSerilizable<ClearingPartyAndTime23>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the central counterparty (CCP) that cleared the transaction.
     /// </summary>
-    [DataMember]
     public OrganisationIdentification15Choice_? CCP { get; init; } 
     /// <summary>
     /// Time and date when the original derivative was received by the central counterparty for clearing.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ClearingReceiptDateTime { get; init; } 
     /// <summary>
     /// Time and date when clearing took place.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ClearingDateTime { get; init; } 
     /// <summary>
     /// Unique identifier of each clearing derivative that replaces the original derivative that was submitted for clearing to the central counterparty, other than the identifier for the transaction being reported.
     /// </summary>
-    [DataMember]
     public UniqueTransactionIdentifier1Choice_? ClearingIdentifier { get; init; } 
     /// <summary>
     /// Unique identifier of the original derivative submitted for clearing to the central counterparty that is replaced by the clearing derivative.
     /// </summary>
-    [DataMember]
     public UniqueTransactionIdentifier1Choice_? OriginalIdentifier { get; init; } 
     /// <summary>
     /// Identifies the trade repository to which the original derivative was reported.
     /// </summary>
-    [DataMember]
     public OrganisationIdentification15Choice_? OriginalTradeRepositoryIdentifier { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CCP is OrganisationIdentification15Choice_ CCPValue)
+        {
+            writer.WriteStartElement(null, "CCP", xmlNamespace );
+            CCPValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingReceiptDateTime is IsoISODateTime ClearingReceiptDateTimeValue)
+        {
+            writer.WriteStartElement(null, "ClrRctDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ClearingReceiptDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ClearingDateTime is IsoISODateTime ClearingDateTimeValue)
+        {
+            writer.WriteStartElement(null, "ClrDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ClearingDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ClearingIdentifier is UniqueTransactionIdentifier1Choice_ ClearingIdentifierValue)
+        {
+            writer.WriteStartElement(null, "ClrIdr", xmlNamespace );
+            ClearingIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalIdentifier is UniqueTransactionIdentifier1Choice_ OriginalIdentifierValue)
+        {
+            writer.WriteStartElement(null, "OrgnlIdr", xmlNamespace );
+            OriginalIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalTradeRepositoryIdentifier is OrganisationIdentification15Choice_ OriginalTradeRepositoryIdentifierValue)
+        {
+            writer.WriteStartElement(null, "OrgnlTradRpstryIdr", xmlNamespace );
+            OriginalTradeRepositoryIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ClearingPartyAndTime23 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

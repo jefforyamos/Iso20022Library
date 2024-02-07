@@ -7,45 +7,79 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the securities transaction report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesTransactionReport2
+     : IIsoXmlSerilizable<SecuritiesTransactionReport2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the transaction.
     /// </summary>
-    [DataMember]
     public required IsoMax52Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the entity executing the transaction. 
     /// Usage:
     /// For legal entities, use the legal entity identifier. For non-legal entities, this field shall be populated with an identifier as specified in the local regulation.
     /// </summary>
-    [DataMember]
     public required IsoLEIIdentifier ExecutingParty { get; init; } 
     /// <summary>
     /// Entity submitting the transaction report to the competent authority.
     /// </summary>
-    [DataMember]
     public required IsoLEIIdentifier SubmittingParty { get; init; } 
     /// <summary>
     /// Data used for exchanges between national competent authorities, not to be used by reporting entities.
     /// </summary>
-    [DataMember]
     public RecordTechnicalData2? TechnicalAttributes { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax52Text(TransactionIdentification)); // data type Max52Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ExctgPty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(ExecutingParty)); // data type LEIIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SubmitgPty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(SubmittingParty)); // data type LEIIdentifier System.String
+        writer.WriteEndElement();
+        if (TechnicalAttributes is RecordTechnicalData2 TechnicalAttributesValue)
+        {
+            writer.WriteStartElement(null, "TechAttrbts", xmlNamespace );
+            TechnicalAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesTransactionReport2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

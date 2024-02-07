@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccountModification2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccountModification2Ch
 /// Account to or from which a securities entry is made.
 /// </summary>
 public partial record SystemSecuritiesAccount : SecuritiesAccountModification2Choice_
+     , IIsoXmlSerilizable<SystemSecuritiesAccount>
 {
     #nullable enable
+    
     /// <summary>
     /// Legal closing date of the securities account.
     /// </summary>
@@ -38,5 +42,53 @@ public partial record SystemSecuritiesAccount : SecuritiesAccountModification2Ch
     /// Defines how the price is applied to the securities account.
     /// </summary>
     public IsoExact4AlphaNumericText? PricingScheme { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ClosingDate is IsoISODate ClosingDateValue)
+        {
+            writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ClosingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (HoldIndicator is IsoTrueFalseIndicator HoldIndicatorValue)
+        {
+            writer.WriteStartElement(null, "HldInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(HoldIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (NegativePosition is IsoTrueFalseIndicator NegativePositionValue)
+        {
+            writer.WriteStartElement(null, "NegPos", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(NegativePositionValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (EndInvestorFlag is IsoExact4AlphaNumericText EndInvestorFlagValue)
+        {
+            writer.WriteStartElement(null, "EndInvstrFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(EndInvestorFlagValue)); // data type Exact4AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+        if (PricingScheme is IsoExact4AlphaNumericText PricingSchemeValue)
+        {
+            writer.WriteStartElement(null, "PricgSchme", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(PricingSchemeValue)); // data type Exact4AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new SystemSecuritiesAccount Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

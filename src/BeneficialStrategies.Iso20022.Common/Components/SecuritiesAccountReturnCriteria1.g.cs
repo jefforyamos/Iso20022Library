@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Return criteria for information to be returned in the report deriving from a query about securities account reference data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesAccountReturnCriteria1
+     : IIsoXmlSerilizable<SecuritiesAccountReturnCriteria1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the identification of the account is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? AccountIdentification { get; init; } 
     /// <summary>
     /// Indicates whether the identification of the party owning the account is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? PartyIdentification { get; init; } 
     /// <summary>
     /// Indicates whether the type of the party owning the account is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? PartyType { get; init; } 
     /// <summary>
     /// Indicates whether the account servicer is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? AccountServicer { get; init; } 
     /// <summary>
     /// Indicates whether the account type is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? AccountType { get; init; } 
     /// <summary>
     /// Indicates whether the opening date for the account is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? OpeningDate { get; init; } 
     /// <summary>
     /// Indicates whether the closing date for the account is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? ClosingDate { get; init; } 
     /// <summary>
     /// Specifies information to identify securities accounts where allocation instructions are posted.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? EndInvestorFlag { get; init; } 
     /// <summary>
     /// Defines how the price is applied to the securities account.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? PricingScheme { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountIdentification is IsoRequestedIndicator AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(AccountIdentificationValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PartyIdentification is IsoRequestedIndicator PartyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PtyId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(PartyIdentificationValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PartyType is IsoRequestedIndicator PartyTypeValue)
+        {
+            writer.WriteStartElement(null, "PtyTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(PartyTypeValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AccountServicer is IsoRequestedIndicator AccountServicerValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(AccountServicerValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AccountType is IsoRequestedIndicator AccountTypeValue)
+        {
+            writer.WriteStartElement(null, "AcctTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(AccountTypeValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (OpeningDate is IsoRequestedIndicator OpeningDateValue)
+        {
+            writer.WriteStartElement(null, "OpngDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(OpeningDateValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ClosingDate is IsoRequestedIndicator ClosingDateValue)
+        {
+            writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(ClosingDateValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (EndInvestorFlag is IsoRequestedIndicator EndInvestorFlagValue)
+        {
+            writer.WriteStartElement(null, "EndInvstrFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(EndInvestorFlagValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PricingScheme is IsoRequestedIndicator PricingSchemeValue)
+        {
+            writer.WriteStartElement(null, "PricgSchme", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(PricingSchemeValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesAccountReturnCriteria1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

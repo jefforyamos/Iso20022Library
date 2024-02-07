@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Structured information supplied to fully identify the documents referred to in the remittance information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReferredDocumentInformation1
+     : IIsoXmlSerilizable<ReferredDocumentInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the type of the referred document.
     /// </summary>
-    [DataMember]
     public ReferredDocumentType1? ReferredDocumentType { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification number of the referred document.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReferredDocumentNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReferredDocumentType is ReferredDocumentType1 ReferredDocumentTypeValue)
+        {
+            writer.WriteStartElement(null, "RfrdDocTp", xmlNamespace );
+            ReferredDocumentTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReferredDocumentNumber is IsoMax35Text ReferredDocumentNumberValue)
+        {
+            writer.WriteStartElement(null, "RfrdDocNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReferredDocumentNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ReferredDocumentInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

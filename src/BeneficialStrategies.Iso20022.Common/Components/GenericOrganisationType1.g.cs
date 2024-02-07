@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies a generic type of identification requested for an organisation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GenericOrganisationType1
+     : IIsoXmlSerilizable<GenericOrganisationType1>
 {
     #nullable enable
     
     /// <summary>
     /// Type assigned by an institution for the organisation.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator Requested { get; init; } 
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
-    [DataMember]
     public required OrganisationIdentificationSchemeName1Choice_ SchemeName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Reqd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(Requested)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SchmeNm", xmlNamespace );
+        SchemeName.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static GenericOrganisationType1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

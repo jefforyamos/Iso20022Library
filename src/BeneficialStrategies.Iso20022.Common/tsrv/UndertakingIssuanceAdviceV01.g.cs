@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsrv.UndertakingIssuanceAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.tsrv;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.tsrv;
 /// The UndertakingIssuanceAdvice message is sent by an advising party to the beneficiary, either directly or via one or more other advising parties in the transaction chain, to advise the issuance of an undertaking. Other interested parties may also be informed of the advice. The undertaking advised could be a demand guarantee, standby letter of credit, or counter-undertaking (counter-guarantee or counter-standby). In addition to providing details on the applicable rules, expiry date, the amount, required documents, and terms and conditions of the undertaking, the advice may provide information from the sender such as confirmation details.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The UndertakingIssuanceAdvice message is sent by an advising party to the beneficiary, either directly or via one or more other advising parties in the transaction chain, to advise the issuance of an undertaking. Other interested parties may also be informed of the advice. The undertaking advised could be a demand guarantee, standby letter of credit, or counter-undertaking (counter-guarantee or counter-standby). In addition to providing details on the applicable rules, expiry date, the amount, required documents, and terms and conditions of the undertaking, the advice may provide information from the sender such as confirmation details.")]
-public partial record UndertakingIssuanceAdviceV01 : IOuterRecord
+public partial record UndertakingIssuanceAdviceV01 : IOuterRecord<UndertakingIssuanceAdviceV01,UndertakingIssuanceAdviceV01Document>
+    ,IIsoXmlSerilizable<UndertakingIssuanceAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record UndertakingIssuanceAdviceV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "UdrtkgIssncAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => UndertakingIssuanceAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -84,7 +91,7 @@ public partial record UndertakingIssuanceAdviceV01 : IOuterRecord
     [Description(@"Additional information specific to the bank-to-bank communication.")]
     [DataMember(Name="BkToBkInf")]
     [XmlElement(ElementName="BkToBkInf")]
-    public required IReadOnlyCollection<IsoMax2000Text> BankToBankInformation { get; init; } = []; // Min=0, Max=5
+    public required SimpleValueList<IsoMax2000Text> BankToBankInformation { get; init; } = []; // Min=0, Max=5
     
     /// <summary>
     /// Digital signature of the undertaking advice.
@@ -104,6 +111,47 @@ public partial record UndertakingIssuanceAdviceV01 : IOuterRecord
     {
         return new UndertakingIssuanceAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("UdrtkgIssncAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AdvsgPty", xmlNamespace );
+        AdvisingParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecondAdvisingParty is PartyIdentification43 SecondAdvisingPartyValue)
+        {
+            writer.WriteStartElement(null, "ScndAdvsgPty", xmlNamespace );
+            SecondAdvisingPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DtOfAdvc", xmlNamespace );
+        DateOfAdvice.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UdrtkgIssncAdvcDtls", xmlNamespace );
+        UndertakingIssuanceAdviceDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BkToBkInf", xmlNamespace );
+        BankToBankInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+        if (DigitalSignature is PartyAndSignature2 DigitalSignatureValue)
+        {
+            writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
+            DigitalSignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static UndertakingIssuanceAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -111,9 +159,7 @@ public partial record UndertakingIssuanceAdviceV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingIssuanceAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record UndertakingIssuanceAdviceV01Document : IOuterDocument<UndertakingIssuanceAdviceV01>
+public partial record UndertakingIssuanceAdviceV01Document : IOuterDocument<UndertakingIssuanceAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -129,5 +175,22 @@ public partial record UndertakingIssuanceAdviceV01Document : IOuterDocument<Unde
     /// <summary>
     /// The instance of <seealso cref="UndertakingIssuanceAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=UndertakingIssuanceAdviceV01.XmlTag)]
     public required UndertakingIssuanceAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(UndertakingIssuanceAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

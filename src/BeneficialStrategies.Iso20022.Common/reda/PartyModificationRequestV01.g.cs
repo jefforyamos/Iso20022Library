@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.reda.PartyModificationRequestV01>;
 
 namespace BeneficialStrategies.Iso20022.reda;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// Scope:|The PartyModificationRequest message is sent by the instructing party to the executing party to request for an update of the party reference data of a party defined in the executing system.||Usage:|It aims at instructing the update of an existing party by amending its existing details or by providing additional details.|Processing and confirmation of the party modification request message are provided via a party status advice.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope:|The PartyModificationRequest message is sent by the instructing party to the executing party to request for an update of the party reference data of a party defined in the executing system.||Usage:|It aims at instructing the update of an existing party by amending its existing details or by providing additional details.|Processing and confirmation of the party modification request message are provided via a party status advice.")]
-public partial record PartyModificationRequestV01 : IOuterRecord
+public partial record PartyModificationRequestV01 : IOuterRecord<PartyModificationRequestV01,PartyModificationRequestV01Document>
+    ,IIsoXmlSerilizable<PartyModificationRequestV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record PartyModificationRequestV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "PtyModReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => PartyModificationRequestV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -85,6 +92,41 @@ public partial record PartyModificationRequestV01 : IOuterRecord
     {
         return new PartyModificationRequestV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("PtyModReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MessageHeader is MessageHeader1 MessageHeaderValue)
+        {
+            writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+            MessageHeaderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SysPtyId", xmlNamespace );
+        SystemPartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Mod", xmlNamespace );
+        Modification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyModificationRequestV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -92,9 +134,7 @@ public partial record PartyModificationRequestV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyModificationRequestV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record PartyModificationRequestV01Document : IOuterDocument<PartyModificationRequestV01>
+public partial record PartyModificationRequestV01Document : IOuterDocument<PartyModificationRequestV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -110,5 +150,22 @@ public partial record PartyModificationRequestV01Document : IOuterDocument<Party
     /// <summary>
     /// The instance of <seealso cref="PartyModificationRequestV01"/> is required.
     /// </summary>
+    [DataMember(Name=PartyModificationRequestV01.XmlTag)]
     public required PartyModificationRequestV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(PartyModificationRequestV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

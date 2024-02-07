@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Definition of absolute price move of a financial instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Absolute1
+     : IIsoXmlSerilizable<Absolute1>
 {
     #nullable enable
     
     /// <summary>
     /// Unit of measure for the absolute stress.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Unit { get; init; } 
     /// <summary>
     /// Number of units of measure shifted.
     /// </summary>
-    [DataMember]
     public required IsoNumber Quantity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Unit", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Unit)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(Quantity)); // data type Number System.UInt64
+        writer.WriteEndElement();
+    }
+    public static Absolute1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

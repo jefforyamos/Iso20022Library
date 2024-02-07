@@ -7,54 +7,95 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the response to a reversal of an authorisation or financial message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReversalResponse2
+     : IIsoXmlSerilizable<ReversalResponse2>
 {
     #nullable enable
     
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
-    [DataMember]
     public required Environment14 Environment { get; init; } 
     /// <summary>
     /// Context in which the card transaction is performed.
     /// </summary>
-    [DataMember]
     public required TransactionContext3 Context { get; init; } 
     /// <summary>
     /// Reversal response transaction.
     /// </summary>
-    [DataMember]
     public required Transaction86 Transaction { get; init; } 
     /// <summary>
     /// Outcome of the processing of the transaction.
     /// </summary>
-    [DataMember]
     public required ProcessingResult2 ProcessingResult { get; init; } 
     /// <summary>
     /// Data related to an integrated circuit card application embedded in the payment card of the cardholder.
     /// ISO 8583 bit 55
     /// </summary>
-    [DataMember]
     public IsoMax10KHexBinaryText? ICCRelatedData { get; init; } 
     /// <summary>
     /// Contains protected data and the attributes used to protect the data.
     /// </summary>
-    [DataMember]
-    public ValueList<ProtectedData1> ProtectedData { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProtectedData1? ProtectedData { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Envt", xmlNamespace );
+        Environment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Cntxt", xmlNamespace );
+        Context.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tx", xmlNamespace );
+        Transaction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PrcgRslt", xmlNamespace );
+        ProcessingResult.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ICCRelatedData is IsoMax10KHexBinaryText ICCRelatedDataValue)
+        {
+            writer.WriteStartElement(null, "ICCRltdData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10KHexBinaryText(ICCRelatedDataValue)); // data type Max10KHexBinaryText System.String
+            writer.WriteEndElement();
+        }
+        if (ProtectedData is ProtectedData1 ProtectedDataValue)
+        {
+            writer.WriteStartElement(null, "PrtctdData", xmlNamespace );
+            ProtectedDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ReversalResponse2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

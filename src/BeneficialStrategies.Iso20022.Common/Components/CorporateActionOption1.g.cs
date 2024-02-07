@@ -7,133 +7,251 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the CA option.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionOption1
+     : IIsoXmlSerilizable<CorporateActionOption1>
 {
     #nullable enable
     
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    [DataMember]
     public required IsoExact3NumericText OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    [DataMember]
     public required CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     /// <summary>
     /// Specifies the status of the option.
     /// </summary>
-    [DataMember]
     public required CorporateActionEventStatus2FormatChoice_ OptionAvailabilityStatus { get; init; } 
     /// <summary>
     /// Whether or not certification is required from the account owner. |Yes: certification required |No: no certification required.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? CertificationIndicator { get; init; } 
     /// <summary>
     /// Type of certification which is required.
     /// </summary>
-    [DataMember]
     public BeneficiaryCertificationType1FormatChoice_? CertificationType { get; init; } 
     /// <summary>
     /// Identification of a temporary security used for processing reasons, eg, contra security used in the US.
     /// </summary>
-    [DataMember]
     public SecurityIdentification7? AssentedLineSecurityIdentification { get; init; } 
     /// <summary>
     /// Identification of the safekeeping account held by an agent at the CSD.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AgentSecuritiesAccountIdentification { get; init; } 
     /// <summary>
     /// Identification of the cash account held by an agent at the CSD.
     /// </summary>
-    [DataMember]
     public AccountIdentification2Choice_? AgentCashAccountIdentification { get; init; } 
     /// <summary>
     /// Specifies the conditions that apply to the offer.
     /// </summary>
-    [DataMember]
-    public ValueList<OfferType1FormatChoice_> OfferType { get; init; } = []; // Warning: Don't know multiplicity.
+    public OfferType1FormatChoice_? OfferType { get; init; } 
     /// <summary>
     /// Type of intermediates securities distribution, eg, stock dividend, reverse right.
     /// </summary>
-    [DataMember]
     public IntermediateSecurityDistributionType1FormatChoice_? IntermediateSecuritiesDistributionType { get; init; } 
     /// <summary>
     /// Indicates whether withdrawal of instruction is allowed.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator WithdrawalAllowedIndicator { get; init; } 
     /// <summary>
     /// Indicates whether change of instruction is allowed.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ChangeAllowedIndicator { get; init; } 
     /// <summary>
     /// Provides information about the dates related to a CA option.
     /// </summary>
-    [DataMember]
     public CorporateActionDate4? DateDetails { get; init; } 
     /// <summary>
     /// Provides information about rates and amounts related to a CA option.
     /// </summary>
-    [DataMember]
     public CorporateActionRate2? RateAndAmountDetails { get; init; } 
     /// <summary>
     /// Provides information about the prices related to a CA option.
     /// </summary>
-    [DataMember]
     public CorporateActionPrice1? PriceDetails { get; init; } 
     /// <summary>
     /// Provides information about the periods related to a CA option.
     /// </summary>
-    [DataMember]
     public CorporateActionPeriod2? PeriodDetails { get; init; } 
     /// <summary>
     /// Provides information about the securities movement linked to the CA option.
     /// </summary>
-    [DataMember]
-    public ValueList<SecurityOption1> SecuritiesMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecurityOption1? SecuritiesMovementDetails { get; init; } 
     /// <summary>
     /// Provides information about the cash movement linked to the CA option.
     /// </summary>
-    [DataMember]
-    public ValueList<CashOption1> CashMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashOption1? CashMovementDetails { get; init; } 
     /// <summary>
     /// Provides information about the agents linked to the CA option.
     /// </summary>
-    [DataMember]
-    public ValueList<CorporateActionAgent1> CorporateActionOtherAgentDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CorporateActionAgent1? CorporateActionOtherAgentDetails { get; init; } 
     /// <summary>
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
-    [DataMember]
     public FractionDispositionType1FormatChoice_? FractionDisposition { get; init; } 
     /// <summary>
     /// ndicates whether redemption charges apply.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? RedemptionChargesAppliedIndicator { get; init; } 
     /// <summary>
     /// Specifies the features that may apply to a corporate action option.
     /// </summary>
-    [DataMember]
-    public ValueList<OptionFeatures1FormatChoice_> OptionFeatures { get; init; } = []; // Warning: Don't know multiplicity.
+    public OptionFeatures1FormatChoice_? OptionFeatures { get; init; } 
     /// <summary>
     /// Provides additional information.
     /// </summary>
-    [DataMember]
     public CorporateActionNarrative1? CorporateActionAdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OptnNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact3NumericText(OptionNumber)); // data type Exact3NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+        OptionType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OptnAvlbtySts", xmlNamespace );
+        OptionAvailabilityStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CertificationIndicator is IsoYesNoIndicator CertificationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CertfctnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CertificationIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CertificationType is BeneficiaryCertificationType1FormatChoice_ CertificationTypeValue)
+        {
+            writer.WriteStartElement(null, "CertfctnTp", xmlNamespace );
+            CertificationTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AssentedLineSecurityIdentification is SecurityIdentification7 AssentedLineSecurityIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AssntdLineSctyId", xmlNamespace );
+            AssentedLineSecurityIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AgentSecuritiesAccountIdentification is IsoMax35Text AgentSecuritiesAccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AgtSctiesAcctId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AgentSecuritiesAccountIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AgentCashAccountIdentification is AccountIdentification2Choice_ AgentCashAccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AgtCshAcctId", xmlNamespace );
+            AgentCashAccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OfferType is OfferType1FormatChoice_ OfferTypeValue)
+        {
+            writer.WriteStartElement(null, "OfferTp", xmlNamespace );
+            OfferTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediateSecuritiesDistributionType is IntermediateSecurityDistributionType1FormatChoice_ IntermediateSecuritiesDistributionTypeValue)
+        {
+            writer.WriteStartElement(null, "IntrmdtSctiesDstrbtnTp", xmlNamespace );
+            IntermediateSecuritiesDistributionTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "WdrwlAllwdInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(WithdrawalAllowedIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ChngAllwdInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ChangeAllowedIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (DateDetails is CorporateActionDate4 DateDetailsValue)
+        {
+            writer.WriteStartElement(null, "DtDtls", xmlNamespace );
+            DateDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RateAndAmountDetails is CorporateActionRate2 RateAndAmountDetailsValue)
+        {
+            writer.WriteStartElement(null, "RateAndAmtDtls", xmlNamespace );
+            RateAndAmountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PriceDetails is CorporateActionPrice1 PriceDetailsValue)
+        {
+            writer.WriteStartElement(null, "PricDtls", xmlNamespace );
+            PriceDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PeriodDetails is CorporateActionPeriod2 PeriodDetailsValue)
+        {
+            writer.WriteStartElement(null, "PrdDtls", xmlNamespace );
+            PeriodDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesMovementDetails is SecurityOption1 SecuritiesMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "SctiesMvmntDtls", xmlNamespace );
+            SecuritiesMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashMovementDetails is CashOption1 CashMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "CshMvmntDtls", xmlNamespace );
+            CashMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CorporateActionOtherAgentDetails is CorporateActionAgent1 CorporateActionOtherAgentDetailsValue)
+        {
+            writer.WriteStartElement(null, "CorpActnOthrAgtDtls", xmlNamespace );
+            CorporateActionOtherAgentDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FractionDisposition is FractionDispositionType1FormatChoice_ FractionDispositionValue)
+        {
+            writer.WriteStartElement(null, "FrctnDspstn", xmlNamespace );
+            FractionDispositionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RedemptionChargesAppliedIndicator is IsoYesNoIndicator RedemptionChargesAppliedIndicatorValue)
+        {
+            writer.WriteStartElement(null, "RedChrgsApldInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RedemptionChargesAppliedIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (OptionFeatures is OptionFeatures1FormatChoice_ OptionFeaturesValue)
+        {
+            writer.WriteStartElement(null, "OptnFeatrs", xmlNamespace );
+            OptionFeaturesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CorporateActionAdditionalInformation is CorporateActionNarrative1 CorporateActionAdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "CorpActnAddtlInf", xmlNamespace );
+            CorporateActionAdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionOption1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

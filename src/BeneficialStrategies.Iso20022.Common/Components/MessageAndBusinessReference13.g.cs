@@ -7,78 +7,153 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the message reference of the message for which the status is requested and the business reference of the transfer instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MessageAndBusinessReference13
+     : IIsoXmlSerilizable<MessageAndBusinessReference13>
 {
     #nullable enable
     
     /// <summary>
     /// Reference to the message or communication that was previously sent.
     /// </summary>
-    [DataMember]
     public References68Choice_? Reference { get; init; } 
     /// <summary>
     /// Type of request required.
     /// </summary>
-    [DataMember]
     public TypeOfRequest1Choice_? TypeOfRequest { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the transfer, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransferReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
-    [DataMember]
     public AdditionalReference10? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a transfer cancellation, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// Identification of the asset.
     /// </summary>
-    [DataMember]
     public FinancialInstrument63Choice_? Instrument { get; init; } 
     /// <summary>
     /// Investment account information of the transfer for which the status or information is requested.
     /// </summary>
-    [DataMember]
     public Account33? InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Identification of a related party or intermediary.
     /// </summary>
-    [DataMember]
-    public ValueList<Intermediary48> IntermediaryInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public Intermediary48? IntermediaryInformation { get; init; } 
     /// <summary>
     /// Information about the query.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation25> QueryInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation25? QueryInformation { get; init; } 
     /// <summary>
     /// Party that issues the request message.
     /// </summary>
-    [DataMember]
     public PartyIdentification139? RequestIssuer { get; init; } 
     /// <summary>
     /// Party that receives the request message.
     /// </summary>
-    [DataMember]
     public PartyIdentification139? RequestRecipient { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Reference is References68Choice_ ReferenceValue)
+        {
+            writer.WriteStartElement(null, "Ref", xmlNamespace );
+            ReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TypeOfRequest is TypeOfRequest1Choice_ TypeOfRequestValue)
+        {
+            writer.WriteStartElement(null, "TpOfReq", xmlNamespace );
+            TypeOfRequestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TrfRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ClientReference is AdditionalReference10 ClientReferenceValue)
+        {
+            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
+            ClientReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CancellationReference is IsoMax35Text CancellationReferenceValue)
+        {
+            writer.WriteStartElement(null, "CxlRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CancellationReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Instrument is FinancialInstrument63Choice_ InstrumentValue)
+        {
+            writer.WriteStartElement(null, "Instrm", xmlNamespace );
+            InstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestmentAccountDetails is Account33 InvestmentAccountDetailsValue)
+        {
+            writer.WriteStartElement(null, "InvstmtAcctDtls", xmlNamespace );
+            InvestmentAccountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryInformation is Intermediary48 IntermediaryInformationValue)
+        {
+            writer.WriteStartElement(null, "IntrmyInf", xmlNamespace );
+            IntermediaryInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (QueryInformation is AdditionalInformation25 QueryInformationValue)
+        {
+            writer.WriteStartElement(null, "QryInf", xmlNamespace );
+            QueryInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequestIssuer is PartyIdentification139 RequestIssuerValue)
+        {
+            writer.WriteStartElement(null, "ReqIssr", xmlNamespace );
+            RequestIssuerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequestRecipient is PartyIdentification139 RequestRecipientValue)
+        {
+            writer.WriteStartElement(null, "ReqRcpt", xmlNamespace );
+            RequestRecipientValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MessageAndBusinessReference13 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

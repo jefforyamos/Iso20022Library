@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details about the cash compensation such as the fees and the total settlement amount.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashCompensation1
+     : IIsoXmlSerilizable<CashCompensation1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the original amount to be settled.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection20 SettlementAmount { get; init; } 
     /// <summary>
     /// Amount of fees linked to the cash compensation process.
     /// </summary>
-    [DataMember]
     public AmountAndDirection20? Fees { get; init; } 
     /// <summary>
     /// Indicates the value date of the cash compensation.
     /// </summary>
-    [DataMember]
     public IsoISODate? ValueDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
+        SettlementAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Fees is AmountAndDirection20 FeesValue)
+        {
+            writer.WriteStartElement(null, "Fees", xmlNamespace );
+            FeesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValueDate is IsoISODate ValueDateValue)
+        {
+            writer.WriteStartElement(null, "ValDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ValueDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static CashCompensation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

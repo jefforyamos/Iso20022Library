@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the applicable Incoterm and associated location.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Incoterms4
+     : IIsoXmlSerilizable<Incoterms4>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the Incoterms.
     /// </summary>
-    [DataMember]
     public required Incoterms4Choice_ IncotermsCode { get; init; } 
     /// <summary>
     /// Location where the Incoterms are actioned. Reference UN/ECE Recommendation 16 - LOCODE - Code for Trade and Transport Locations (www.unece.org/cefact/recommendations).
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Location { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IncotrmsCd", xmlNamespace );
+        IncotermsCode.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Location is IsoMax70Text LocationValue)
+        {
+            writer.WriteStartElement(null, "Lctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(LocationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Incoterms4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

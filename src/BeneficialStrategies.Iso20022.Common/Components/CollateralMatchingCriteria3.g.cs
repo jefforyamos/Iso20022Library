@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Compares information related to both sides of a collateral.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralMatchingCriteria3
+     : IIsoXmlSerilizable<CollateralMatchingCriteria3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the values defined as true/false indicator are matching or not.
     /// </summary>
-    [DataMember]
     public CompareTrueFalseIndicator2? UncollateralisedFlag { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as true/false indicator are matching or not.
     /// </summary>
-    [DataMember]
     public CompareTrueFalseIndicator2? NetExposureCollateralisationIndicator { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDate2? CollateralValueDate { get; init; } 
     /// <summary>
     /// Specifies whether the infromation on the component type is matching or not.
     /// </summary>
-    [DataMember]
     public SecurityCommodityCash1? ComponentType { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as security identification are matching or not.
     /// </summary>
-    [DataMember]
     public CompareSecurityIdentification2? BasketIdentifier { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (UncollateralisedFlag is CompareTrueFalseIndicator2 UncollateralisedFlagValue)
+        {
+            writer.WriteStartElement(null, "UncollsdFlg", xmlNamespace );
+            UncollateralisedFlagValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NetExposureCollateralisationIndicator is CompareTrueFalseIndicator2 NetExposureCollateralisationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NetXpsrCollstnInd", xmlNamespace );
+            NetExposureCollateralisationIndicatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollateralValueDate is CompareDate2 CollateralValueDateValue)
+        {
+            writer.WriteStartElement(null, "CollValDt", xmlNamespace );
+            CollateralValueDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ComponentType is SecurityCommodityCash1 ComponentTypeValue)
+        {
+            writer.WriteStartElement(null, "CmpntTp", xmlNamespace );
+            ComponentTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BasketIdentifier is CompareSecurityIdentification2 BasketIdentifierValue)
+        {
+            writer.WriteStartElement(null, "BsktIdr", xmlNamespace );
+            BasketIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralMatchingCriteria3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

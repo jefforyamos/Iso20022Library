@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to the authentication of the cardholder.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardholderAuthentication4
+     : IIsoXmlSerilizable<CardholderAuthentication4>
 {
     #nullable enable
     
     /// <summary>
     /// Method used to authenticate the cardholder.
     /// </summary>
-    [DataMember]
     public required AuthenticationMethod2Code AuthenticationMethod { get; init; } 
     /// <summary>
     /// Entity or object in charge of verifying the cardholder authenticity.
     /// </summary>
-    [DataMember]
     public required AuthenticationEntity1Code AuthenticationEntity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AuthntcnMtd", xmlNamespace );
+        writer.WriteValue(AuthenticationMethod.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AuthntcnNtty", xmlNamespace );
+        writer.WriteValue(AuthenticationEntity.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static CardholderAuthentication4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

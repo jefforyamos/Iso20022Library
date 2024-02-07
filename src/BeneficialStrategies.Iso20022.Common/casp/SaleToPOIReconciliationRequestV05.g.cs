@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.casp.SaleToPOIReconciliationRequestV05>;
 
 namespace BeneficialStrategies.Iso20022.casp;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.casp;
 /// The SaleToPOIReconciliationRequest message is sent by a sale system to request for reconciliation between sale and POI systems.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The SaleToPOIReconciliationRequest message is sent by a sale system to request for reconciliation between sale and POI systems.")]
-public partial record SaleToPOIReconciliationRequestV05 : IOuterRecord
+public partial record SaleToPOIReconciliationRequestV05 : IOuterRecord<SaleToPOIReconciliationRequestV05,SaleToPOIReconciliationRequestV05Document>
+    ,IIsoXmlSerilizable<SaleToPOIReconciliationRequestV05>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record SaleToPOIReconciliationRequestV05 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SaleToPOIRcncltnReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SaleToPOIReconciliationRequestV05Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -76,6 +83,35 @@ public partial record SaleToPOIReconciliationRequestV05 : IOuterRecord
     {
         return new SaleToPOIReconciliationRequestV05Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SaleToPOIRcncltnReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RcncltnReq", xmlNamespace );
+        ReconciliationRequest.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecurityTrailer is ContentInformationType33 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SaleToPOIReconciliationRequestV05 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -83,9 +119,7 @@ public partial record SaleToPOIReconciliationRequestV05 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIReconciliationRequestV05"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SaleToPOIReconciliationRequestV05Document : IOuterDocument<SaleToPOIReconciliationRequestV05>
+public partial record SaleToPOIReconciliationRequestV05Document : IOuterDocument<SaleToPOIReconciliationRequestV05>, IXmlSerializable
 {
     
     /// <summary>
@@ -101,5 +135,22 @@ public partial record SaleToPOIReconciliationRequestV05Document : IOuterDocument
     /// <summary>
     /// The instance of <seealso cref="SaleToPOIReconciliationRequestV05"/> is required.
     /// </summary>
+    [DataMember(Name=SaleToPOIReconciliationRequestV05.XmlTag)]
     public required SaleToPOIReconciliationRequestV05 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SaleToPOIReconciliationRequestV05.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

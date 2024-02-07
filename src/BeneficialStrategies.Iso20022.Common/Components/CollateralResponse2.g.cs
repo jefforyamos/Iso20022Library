@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information on the collateral proposal(s), that is either in cash, securities or other types.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralResponse2
+     : IIsoXmlSerilizable<CollateralResponse2>
 {
     #nullable enable
     
     /// <summary>
     /// Provides details on the securities collateral proposal.
     /// </summary>
-    [DataMember]
-    public ValueList<SecuritiesCollateralResponse1> SecuritiesCollateralResponse { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecuritiesCollateralResponse1? SecuritiesCollateralResponse { get; init; } 
     /// <summary>
     /// Provides details on the cash collateral proposal.
     /// </summary>
-    [DataMember]
-    public ValueList<CashCollateralResponse2> CashCollateralResponse { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashCollateralResponse2? CashCollateralResponse { get; init; } 
     /// <summary>
     /// Provides details on other collateral proposal.
     /// </summary>
-    [DataMember]
-    public ValueList<OtherCollateralResponse2> OtherCollateralResponse { get; init; } = []; // Warning: Don't know multiplicity.
+    public OtherCollateralResponse2? OtherCollateralResponse { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SecuritiesCollateralResponse is SecuritiesCollateralResponse1 SecuritiesCollateralResponseValue)
+        {
+            writer.WriteStartElement(null, "SctiesCollRspn", xmlNamespace );
+            SecuritiesCollateralResponseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashCollateralResponse is CashCollateralResponse2 CashCollateralResponseValue)
+        {
+            writer.WriteStartElement(null, "CshCollRspn", xmlNamespace );
+            CashCollateralResponseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherCollateralResponse is OtherCollateralResponse2 OtherCollateralResponseValue)
+        {
+            writer.WriteStartElement(null, "OthrCollRspn", xmlNamespace );
+            OtherCollateralResponseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralResponse2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

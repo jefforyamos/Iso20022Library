@@ -7,73 +7,140 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Organised structure that is set up for a particular purpose, eg, a business, government body, department, charity, or financial institution.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Organisation3
+     : IIsoXmlSerilizable<Organisation3>
 {
     #nullable enable
     
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text Name { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution, eg, Dun & Bradstreet Identification.
     /// </summary>
-    [DataMember]
     public PartyIdentification4Choice_? Identification { get; init; } 
     /// <summary>
     /// Purpose of the organisation, eg, charity.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Purpose { get; init; } 
     /// <summary>
     /// Country of taxation of an individual person or an organisation.
     /// </summary>
-    [DataMember]
     public CountryCode? TaxationCountry { get; init; } 
     /// <summary>
     /// Country in which the organisation is registered.
     /// </summary>
-    [DataMember]
     public CountryCode? RegistrationCountry { get; init; } 
     /// <summary>
     /// Date and time at which a given organisation was officially registered.
     /// </summary>
-    [DataMember]
     public IsoISODate? RegistrationDate { get; init; } 
     /// <summary>
     /// Number assigned by a tax authority to an entity.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TaxIdentificationNumber { get; init; } 
     /// <summary>
     /// Number assigned by a national registration authority to an entity.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? NationalRegistrationNumber { get; init; } 
     /// <summary>
     /// Address information to be either inserted, updated or deleted.
     /// </summary>
-    [DataMember]
     public ValueList<ModificationScope1> ModifiedPostalAddress { get; init; } = [];
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
-    [DataMember]
     public CommunicationAddress3? PrimaryCommunicationAddress { get; init; } 
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
-    [DataMember]
     public CommunicationAddress3? SecondaryCommunicationAddress { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(Name)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        if (Identification is PartyIdentification4Choice_ IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Purpose is IsoMax35Text PurposeValue)
+        {
+            writer.WriteStartElement(null, "Purp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PurposeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TaxationCountry is CountryCode TaxationCountryValue)
+        {
+            writer.WriteStartElement(null, "TaxtnCtry", xmlNamespace );
+            writer.WriteValue(TaxationCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (RegistrationCountry is CountryCode RegistrationCountryValue)
+        {
+            writer.WriteStartElement(null, "RegnCtry", xmlNamespace );
+            writer.WriteValue(RegistrationCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (RegistrationDate is IsoISODate RegistrationDateValue)
+        {
+            writer.WriteStartElement(null, "RegnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(RegistrationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (TaxIdentificationNumber is IsoMax35Text TaxIdentificationNumberValue)
+        {
+            writer.WriteStartElement(null, "TaxIdNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TaxIdentificationNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (NationalRegistrationNumber is IsoMax35Text NationalRegistrationNumberValue)
+        {
+            writer.WriteStartElement(null, "NtlRegnNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NationalRegistrationNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ModfdPstlAdr", xmlNamespace );
+        ModifiedPostalAddress.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PrimaryCommunicationAddress is CommunicationAddress3 PrimaryCommunicationAddressValue)
+        {
+            writer.WriteStartElement(null, "PmryComAdr", xmlNamespace );
+            PrimaryCommunicationAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecondaryCommunicationAddress is CommunicationAddress3 SecondaryCommunicationAddressValue)
+        {
+            writer.WriteStartElement(null, "ScndryComAdr", xmlNamespace );
+            SecondaryCommunicationAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Organisation3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Date and time restricted format.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DateTime1
+     : IIsoXmlSerilizable<DateTime1>
 {
     #nullable enable
     
     /// <summary>
     /// Specified date and time.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime DateTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(DateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+    }
+    public static DateTime1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

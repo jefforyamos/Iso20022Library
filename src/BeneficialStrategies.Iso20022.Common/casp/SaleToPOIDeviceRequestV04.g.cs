@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.casp.SaleToPOIDeviceRequestV04>;
 
 namespace BeneficialStrategies.Iso20022.casp;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.casp;
 /// The SaleTOPOIDeviceRequest message is sent by the sale system to POI system to request a device service.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The SaleTOPOIDeviceRequest message is sent by the sale system to POI system to request a device service.")]
-public partial record SaleToPOIDeviceRequestV04 : IOuterRecord
+public partial record SaleToPOIDeviceRequestV04 : IOuterRecord<SaleToPOIDeviceRequestV04,SaleToPOIDeviceRequestV04Document>
+    ,IIsoXmlSerilizable<SaleToPOIDeviceRequestV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record SaleToPOIDeviceRequestV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SaleToPOIDvcReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SaleToPOIDeviceRequestV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -76,6 +83,35 @@ public partial record SaleToPOIDeviceRequestV04 : IOuterRecord
     {
         return new SaleToPOIDeviceRequestV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SaleToPOIDvcReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DvcReq", xmlNamespace );
+        DeviceRequest.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecurityTrailer is ContentInformationType29 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SaleToPOIDeviceRequestV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -83,9 +119,7 @@ public partial record SaleToPOIDeviceRequestV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIDeviceRequestV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SaleToPOIDeviceRequestV04Document : IOuterDocument<SaleToPOIDeviceRequestV04>
+public partial record SaleToPOIDeviceRequestV04Document : IOuterDocument<SaleToPOIDeviceRequestV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -101,5 +135,22 @@ public partial record SaleToPOIDeviceRequestV04Document : IOuterDocument<SaleToP
     /// <summary>
     /// The instance of <seealso cref="SaleToPOIDeviceRequestV04"/> is required.
     /// </summary>
+    [DataMember(Name=SaleToPOIDeviceRequestV04.XmlTag)]
     public required SaleToPOIDeviceRequestV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SaleToPOIDeviceRequestV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Totals for the value of the holdings reported in the statement or page.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TotalValueInPageAndStatement4
+     : IIsoXmlSerilizable<TotalValueInPageAndStatement4>
 {
     #nullable enable
     
     /// <summary>
     /// Total value of positions reported in this message.
     /// </summary>
-    [DataMember]
     public AmountAndDirection14? TotalHoldingsValueOfPage { get; init; } 
     /// <summary>
     /// Total value of positions reported in this statement (a statement may comprise one or more messages).
     /// </summary>
-    [DataMember]
     public required AmountAndDirection14 TotalHoldingsValueOfStatement { get; init; } 
     /// <summary>
     /// Total book value of positions reported in this statement (a statement may comprise one or more messages).
     /// </summary>
-    [DataMember]
     public AmountAndDirection14? TotalBookValueOfStatement { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TotalHoldingsValueOfPage is AmountAndDirection14 TotalHoldingsValueOfPageValue)
+        {
+            writer.WriteStartElement(null, "TtlHldgsValOfPg", xmlNamespace );
+            TotalHoldingsValueOfPageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TtlHldgsValOfStmt", xmlNamespace );
+        TotalHoldingsValueOfStatement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TotalBookValueOfStatement is AmountAndDirection14 TotalBookValueOfStatementValue)
+        {
+            writer.WriteStartElement(null, "TtlBookValOfStmt", xmlNamespace );
+            TotalBookValueOfStatementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TotalValueInPageAndStatement4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

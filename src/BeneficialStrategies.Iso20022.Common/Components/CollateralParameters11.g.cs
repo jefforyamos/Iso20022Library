@@ -7,53 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters which explicitly state the conditions that must be fulfilled before a particular triparty collateral instruction/transaction  can be confirmed. These parameters are defined by the instructing party in compliance with triparty collateral rules in the market the instruction/transaction will take place.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralParameters11
+     : IIsoXmlSerilizable<CollateralParameters11>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of collateral instruction.
     /// </summary>
-    [DataMember]
     public required CollateralTransactionType1Choice_ CollateralInstructionType { get; init; } 
     /// <summary>
     /// Specifies the underlying business area/type of trade causing the exposure.
     /// </summary>
-    [DataMember]
     public required ExposureType23Choice_ ExposureType { get; init; } 
     /// <summary>
     /// Specifies whether the alleged side is the collateral taker or giver. So it will be the opposite  side of the instruction.
     /// </summary>
-    [DataMember]
     public required CollateralRole1Code CollateralSide { get; init; } 
     /// <summary>
     /// Percentage by which the collateral value sought is increased, in selecting securities for a collateral basket, to reflect the taker's margin requirements.
     /// </summary>
-    [DataMember]
     public RateOrType1Choice_? ValueSoughtMarginRate { get; init; } 
     /// <summary>
     /// Number identifying the collateral eligibility set profile of the counterparty.
     /// </summary>
-    [DataMember]
     public GenericIdentification1? EligibilitySetProfile { get; init; } 
     /// <summary>
     /// Change of title for the collateral. If N then collateral is pledged.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? TransferTitle { get; init; } 
     /// <summary>
     /// Specifies the settlement process in which the collateral will be settled.
     /// </summary>
-    [DataMember]
     public GenericIdentification30? SettlementProcess { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CollInstrTp", xmlNamespace );
+        CollateralInstructionType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XpsrTp", xmlNamespace );
+        ExposureType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CollSd", xmlNamespace );
+        writer.WriteValue(CollateralSide.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ValueSoughtMarginRate is RateOrType1Choice_ ValueSoughtMarginRateValue)
+        {
+            writer.WriteStartElement(null, "ValSghtMrgnRate", xmlNamespace );
+            ValueSoughtMarginRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EligibilitySetProfile is GenericIdentification1 EligibilitySetProfileValue)
+        {
+            writer.WriteStartElement(null, "ElgbltySetPrfl", xmlNamespace );
+            EligibilitySetProfileValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransferTitle is IsoYesNoIndicator TransferTitleValue)
+        {
+            writer.WriteStartElement(null, "TrfTitl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(TransferTitleValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SettlementProcess is GenericIdentification30 SettlementProcessValue)
+        {
+            writer.WriteStartElement(null, "SttlmPrc", xmlNamespace );
+            SettlementProcessValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralParameters11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

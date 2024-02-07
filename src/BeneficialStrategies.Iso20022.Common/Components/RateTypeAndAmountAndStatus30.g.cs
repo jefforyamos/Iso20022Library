@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the value expressed as a rate and an amount.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RateTypeAndAmountAndStatus30
+     : IIsoXmlSerilizable<RateTypeAndAmountAndStatus30>
 {
     #nullable enable
     
     /// <summary>
     /// Value expressed as a rate type.
     /// </summary>
-    [DataMember]
     public required RateType51Choice_ RateType { get; init; } 
     /// <summary>
     /// Value expressed as an amount.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
     /// <summary>
     /// Value expressed as a rate status.
     /// </summary>
-    [DataMember]
     public RateStatus4Choice_? RateStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RateTp", xmlNamespace );
+        RateType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAnd13DecimalAmount(Amount)); // data type RestrictedFINActiveCurrencyAnd13DecimalAmount System.Decimal
+        writer.WriteEndElement();
+        if (RateStatus is RateStatus4Choice_ RateStatusValue)
+        {
+            writer.WriteStartElement(null, "RateSts", xmlNamespace );
+            RateStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RateTypeAndAmountAndStatus30 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

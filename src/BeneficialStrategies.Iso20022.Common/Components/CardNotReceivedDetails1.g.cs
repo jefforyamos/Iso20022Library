@@ -7,55 +7,102 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of a non-received card.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardNotReceivedDetails1
+     : IIsoXmlSerilizable<CardNotReceivedDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Date of card when mailed to the cardholder.
     /// </summary>
-    [DataMember]
     public required IsoISODate DateOfCardMailed { get; init; } 
     /// <summary>
     /// Address where card was mailed to.
     /// </summary>
-    [DataMember]
     public Address1? MailingAddress { get; init; } 
     /// <summary>
     /// Unstructured mailing address where card was mailed to.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? MailingAddressUnstructured { get; init; } 
     /// <summary>
     /// Postal code where the card was mailed from.
     /// </summary>
-    [DataMember]
     public required IsoMax16Text MailedFromPostalCode { get; init; } 
     /// <summary>
     /// Date of the beginning of validation of the card.
     /// </summary>
-    [DataMember]
     public IsoISODate? ValidFrom { get; init; } 
     /// <summary>
     /// Indicates whether card provides a Card Security Code.
     /// True: Card provides a Card Security Code.
     /// False: Card does not provide a Card Security Code.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CardSecurityCodeIndicator { get; init; } 
     /// <summary>
     /// Identifies the security capabilities of the card.
     /// </summary>
-    [DataMember]
-    public ValueList<CardSecurityCapability1> CardSecurityCapability { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardSecurityCapability1? CardSecurityCapability { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DtOfCardMld", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(DateOfCardMailed)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (MailingAddress is Address1 MailingAddressValue)
+        {
+            writer.WriteStartElement(null, "MlngAdr", xmlNamespace );
+            MailingAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MailingAddressUnstructured is IsoMax256Text MailingAddressUnstructuredValue)
+        {
+            writer.WriteStartElement(null, "MlngAdrUstrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(MailingAddressUnstructuredValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MldFrPstlCd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax16Text(MailedFromPostalCode)); // data type Max16Text System.String
+        writer.WriteEndElement();
+        if (ValidFrom is IsoISODate ValidFromValue)
+        {
+            writer.WriteStartElement(null, "VldFr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ValidFromValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (CardSecurityCodeIndicator is IsoTrueFalseIndicator CardSecurityCodeIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CardSctyCdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CardSecurityCodeIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CardSecurityCapability is CardSecurityCapability1 CardSecurityCapabilityValue)
+        {
+            writer.WriteStartElement(null, "CardSctyCpblty", xmlNamespace );
+            CardSecurityCapabilityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardNotReceivedDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

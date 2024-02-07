@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money due to a party as compensation for a service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Commission19
+     : IIsoXmlSerilizable<Commission19>
 {
     #nullable enable
     
     /// <summary>
     /// Commission expressed as an amount of money.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Additional information about the type of commission.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(Amount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Commission19 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains credential information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Credentials2
+     : IIsoXmlSerilizable<Credentials2>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the type of credential.
     /// </summary>
-    [DataMember]
     public required Identification3Code IdentificationCode { get; init; } 
     /// <summary>
     /// Used when OtherNational or OtherPrivate value is selected in identification code list. 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherIdentificationCode { get; init; } 
     /// <summary>
     /// Value of identification.
     /// </summary>
-    [DataMember]
     public required IsoMax70Text IdentificationValue { get; init; } 
     /// <summary>
     /// Expiration date of the identification.
     /// </summary>
-    [DataMember]
     public IsoISOYearMonth? IdentificationExpiryDate { get; init; } 
     /// <summary>
     /// Entity that assigns and manages this type of identification.
     /// </summary>
-    [DataMember]
     public Authority1? AssignerAuthority { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IdCd", xmlNamespace );
+        writer.WriteValue(IdentificationCode.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherIdentificationCode is IsoMax35Text OtherIdentificationCodeValue)
+        {
+            writer.WriteStartElement(null, "OthrIdCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherIdentificationCodeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "IdVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(IdentificationValue)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        if (IdentificationExpiryDate is IsoISOYearMonth IdentificationExpiryDateValue)
+        {
+            writer.WriteStartElement(null, "IdXpryDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOYearMonth(IdentificationExpiryDateValue)); // data type ISOYearMonth System.UInt16
+            writer.WriteEndElement();
+        }
+        if (AssignerAuthority is Authority1 AssignerAuthorityValue)
+        {
+            writer.WriteStartElement(null, "AssgnrAuthrty", xmlNamespace );
+            AssignerAuthorityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Credentials2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

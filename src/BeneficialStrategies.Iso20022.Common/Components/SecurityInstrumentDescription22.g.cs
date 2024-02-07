@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the security instrument by its name and typical characteristics.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityInstrumentDescription22
+     : IIsoXmlSerilizable<SecurityInstrumentDescription22>
 {
     #nullable enable
     
     /// <summary>
     /// Attributes and characteristics of the financial instrument.
     /// </summary>
-    [DataMember]
     public required SecurityInstrumentDescription23 FinancialInstrumentGeneralAttributes { get; init; } 
     /// <summary>
     /// Attributes specific to debt instruments.
     /// </summary>
-    [DataMember]
     public DebtInstrument4? DebtInstrumentAttributes { get; init; } 
     /// <summary>
     /// Attributes specific to derivative instruments.
     /// </summary>
-    [DataMember]
     public required DerivativeInstrument6 DerivativeInstrumentAttributes { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FinInstrmGnlAttrbts", xmlNamespace );
+        FinancialInstrumentGeneralAttributes.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DebtInstrumentAttributes is DebtInstrument4 DebtInstrumentAttributesValue)
+        {
+            writer.WriteStartElement(null, "DebtInstrmAttrbts", xmlNamespace );
+            DebtInstrumentAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DerivInstrmAttrbts", xmlNamespace );
+        DerivativeInstrumentAttributes.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SecurityInstrumentDescription22 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

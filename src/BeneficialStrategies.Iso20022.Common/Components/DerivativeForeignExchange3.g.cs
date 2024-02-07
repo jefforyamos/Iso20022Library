@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Attributes of non-financial instrument of type foreign exchange as underlying.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DerivativeForeignExchange3
+     : IIsoXmlSerilizable<DerivativeForeignExchange3>
 {
     #nullable enable
     
     /// <summary>
     /// Type of the underlying currency.
     /// </summary>
-    [DataMember]
     public AssetFXSubProductType1Code? FXType { get; init; } 
     /// <summary>
     /// Underlying currency 2 of the currency pair (the currency 1 will be populated in the notional currency).
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? OtherNotionalCurrency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FXType is AssetFXSubProductType1Code FXTypeValue)
+        {
+            writer.WriteStartElement(null, "FxTp", xmlNamespace );
+            writer.WriteValue(FXTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherNotionalCurrency is ActiveOrHistoricCurrencyCode OtherNotionalCurrencyValue)
+        {
+            writer.WriteStartElement(null, "OthrNtnlCcy", xmlNamespace );
+            writer.WriteValue(OtherNotionalCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static DerivativeForeignExchange3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

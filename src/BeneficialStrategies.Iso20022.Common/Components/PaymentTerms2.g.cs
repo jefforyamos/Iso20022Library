@@ -7,38 +7,64 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the payment terms of the underlying transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentTerms2
+     : IIsoXmlSerilizable<PaymentTerms2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies payment terms not present in a code list.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text OtherPaymentTerms { get; init; } 
     /// <summary>
     /// Specifies the payment period in coded form and a number of days.
     /// </summary>
-    [DataMember]
     public required PaymentPeriod2 PaymentCode { get; init; } 
     /// <summary>
     /// Specifies that the payment conditions apply to a percentage of the amount due.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate Percentage { get; init; } 
     /// <summary>
     /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OthrPmtTerms", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(OtherPaymentTerms)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PmtCd", xmlNamespace );
+        PaymentCode.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Pctg", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(Percentage)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(Amount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static PaymentTerms2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

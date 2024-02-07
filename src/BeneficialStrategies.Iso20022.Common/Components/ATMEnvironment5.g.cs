@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMEnvironment5
+     : IIsoXmlSerilizable<ATMEnvironment5>
 {
     #nullable enable
     
     /// <summary>
     /// ATM information.
     /// </summary>
-    [DataMember]
     public required AutomatedTellerMachine2 ATM { get; init; } 
     /// <summary>
     /// Customer involved in the withdrawal transaction.
     /// </summary>
-    [DataMember]
     public required ATMCustomer2 Customer { get; init; } 
     /// <summary>
     /// Encryption of the sensitive card data.
     /// </summary>
-    [DataMember]
     public ContentInformationType10? ProtectedCardData { get; init; } 
     /// <summary>
     /// Sensitive data associated with the card performing the transaction.
     /// </summary>
-    [DataMember]
     public PlainCardData14? PlainCardData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ATM", xmlNamespace );
+        ATM.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Cstmr", xmlNamespace );
+        Customer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ProtectedCardData is ContentInformationType10 ProtectedCardDataValue)
+        {
+            writer.WriteStartElement(null, "PrtctdCardData", xmlNamespace );
+            ProtectedCardDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PlainCardData is PlainCardData14 PlainCardDataValue)
+        {
+            writer.WriteStartElement(null, "PlainCardData", xmlNamespace );
+            PlainCardDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMEnvironment5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

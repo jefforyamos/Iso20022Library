@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.InstructionType1Choice;
 
@@ -13,11 +15,34 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionType1Choice;
 /// Identifies the meeting instruction cancellation request message for which the status is provided.
 /// </summary>
 public partial record InstructionCancellationIdentification : InstructionType1Choice_
+     , IIsoXmlSerilizable<InstructionCancellationIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// String of characters that uniquely identifies a message.
     /// </summary>
     public required IsoMax35Text Identification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static new InstructionCancellationIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

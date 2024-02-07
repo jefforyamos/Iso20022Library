@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the type of process related to an ATM message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMMessageFunction2
+     : IIsoXmlSerilizable<ATMMessageFunction2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of requested function.
     /// </summary>
-    [DataMember]
     public required MessageFunction11Code Function { get; init; } 
     /// <summary>
     /// Codification of the type of service for the ATM.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ATMServiceCode { get; init; } 
     /// <summary>
     /// Codification of the type of service for the ATM manager host.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? HostServiceCode { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Fctn", xmlNamespace );
+        writer.WriteValue(Function.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ATMServiceCode is IsoMax35Text ATMServiceCodeValue)
+        {
+            writer.WriteStartElement(null, "ATMSvcCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ATMServiceCodeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (HostServiceCode is IsoMax35Text HostServiceCodeValue)
+        {
+            writer.WriteStartElement(null, "HstSvcCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(HostServiceCodeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMMessageFunction2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

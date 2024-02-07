@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information needed due to regulatory and statutory requirements.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StructuredRegulatoryReporting2
+     : IIsoXmlSerilizable<StructuredRegulatoryReporting2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the nature, purpose, and reason for the transaction to be reported for regulatory and statutory requirements in a coded form.
     /// </summary>
-    [DataMember]
     public IsoMax3Text? Code { get; init; } 
     /// <summary>
     /// Amount of money to be reported for regulatory and statutory requirements.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Additional details that cater for specific domestic regulatory requirements.||Usage: Information is used to provide details that are not catered for in the Code or/and Amount elements.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Information { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Code is IsoMax3Text CodeValue)
+        {
+            writer.WriteStartElement(null, "Cd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3Text(CodeValue)); // data type Max3Text System.String
+            writer.WriteEndElement();
+        }
+        if (Amount is IsoCurrencyAndAmount AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(AmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Information is IsoMax35Text InformationValue)
+        {
+            writer.WriteStartElement(null, "Inf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(InformationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static StructuredRegulatoryReporting2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

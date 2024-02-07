@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.DateFormat42Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat42Choice;
 /// Year and month.
 /// </summary>
 public partial record YearMonth : DateFormat42Choice_
+     , IIsoXmlSerilizable<YearMonth>
 {
-    public required IsoISOYearMonth Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Month within a particular calendar year represented by YYYY-MM (ISO 8601).
+    /// </summary>
+    public required IsoISOYearMonth Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "YrMnth", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISOYearMonth(Value)); // data type ISOYearMonth System.UInt16
+        writer.WriteEndElement();
+    }
+    public static new YearMonth Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

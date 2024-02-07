@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Entity involved in an activity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentificationAndAccount154
+     : IIsoXmlSerilizable<PartyIdentificationAndAccount154>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous way to identify an organisation.
     /// </summary>
-    [DataMember]
     public required PartyIdentification245Choice_ Identification { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Account in which cash is maintained.
     /// </summary>
-    [DataMember]
     public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Reference meaningful to the party identified.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ProcessingIdentification { get; init; } 
     /// <summary>
     /// Provides additional information regarding the party.
     /// </summary>
-    [DataMember]
     public PartyTextInformation1? AdditionalInformation { get; init; } 
     /// <summary>
     /// Entity involved in an activity.
     /// </summary>
-    [DataMember]
     public AlternatePartyIdentification10? AlternateIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SafekeepingAccount is IsoMax35Text SafekeepingAccountValue)
+        {
+            writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SafekeepingAccountValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CashAccount is CashAccountIdentification5Choice_ CashAccountValue)
+        {
+            writer.WriteStartElement(null, "CshAcct", xmlNamespace );
+            CashAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProcessingIdentification is IsoMax35Text ProcessingIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrcgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProcessingIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is PartyTextInformation1 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AlternateIdentification is AlternatePartyIdentification10 AlternateIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AltrnId", xmlNamespace );
+            AlternateIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyIdentificationAndAccount154 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

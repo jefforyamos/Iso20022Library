@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of information specific to the counterparties of the reported transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Counterparty39
+     : IIsoXmlSerilizable<Counterparty39>
 {
     #nullable enable
     
     /// <summary>
     /// Unique code identifying the reporting counterparty.
     /// </summary>
-    [DataMember]
     public required OrganisationIdentification15Choice_ ReportingCounterparty { get; init; } 
     /// <summary>
     /// Unique code identifying the entity with which the reporting counterparty concluded the transaction.
     /// </summary>
-    [DataMember]
     public required PartyIdentification236Choice_ OtherCounterparty { get; init; } 
     /// <summary>
     /// Identification of the entity in the case where a financial counterparty is responsible for reporting on behalf of the other counterparty.
     /// </summary>
-    [DataMember]
     public OrganisationIdentification15Choice_? EntityResponsibleForReport { get; init; } 
     /// <summary>
     /// Unique code identifying the entity which submits the report. In the case where submission of the report has been delegated to a third party or to the other counterparty, a unique code identifying that entity.
     /// </summary>
-    [DataMember]
     public OrganisationIdentification15Choice_? ReportSubmittingEntity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptgCtrPty", xmlNamespace );
+        ReportingCounterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrCtrPty", xmlNamespace );
+        OtherCounterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (EntityResponsibleForReport is OrganisationIdentification15Choice_ EntityResponsibleForReportValue)
+        {
+            writer.WriteStartElement(null, "NttyRspnsblForRpt", xmlNamespace );
+            EntityResponsibleForReportValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReportSubmittingEntity is OrganisationIdentification15Choice_ ReportSubmittingEntityValue)
+        {
+            writer.WriteStartElement(null, "RptSubmitgNtty", xmlNamespace );
+            ReportSubmittingEntityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Counterparty39 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

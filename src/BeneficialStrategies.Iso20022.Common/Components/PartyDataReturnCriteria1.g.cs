@@ -7,78 +7,156 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Return criteria for information to be returned in the report deriving from a query about party reference data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyDataReturnCriteria1
+     : IIsoXmlSerilizable<PartyDataReturnCriteria1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the opening date of the party is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? OpeningDate { get; init; } 
     /// <summary>
     /// Indicates whether the closing date of the party is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? ClosingDate { get; init; } 
     /// <summary>
     /// Indicates whether the type is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? Type { get; init; } 
     /// <summary>
     /// Indicates whether the unique identification to unambiguously identify the party within the system is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? PartyIdentification { get; init; } 
     /// <summary>
     /// Indicates whether the central security depository or the national central bank who initially created the party reference data is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? CSDOrNCB { get; init; } 
     /// <summary>
     /// Indicates whether the identification of the restriction is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? RestrictionIdentification { get; init; } 
     /// <summary>
     /// Indicates whether the date at which a restriction for party has been issued is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? RestrictedOnDate { get; init; } 
     /// <summary>
     /// Indicates whether the name for the party is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? Name { get; init; } 
     /// <summary>
     /// Indicates whether the short name for the party is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? ShortName { get; init; } 
     /// <summary>
     /// Indicates whether the address for the party is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? Address { get; init; } 
     /// <summary>
     /// Indicates whether the technical addresses for the party are requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? TechnicalAddress { get; init; } 
     /// <summary>
     /// Indicates whether the market specific attributes for the party are requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? MarketSpecificAttribute { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OpeningDate is IsoRequestedIndicator OpeningDateValue)
+        {
+            writer.WriteStartElement(null, "OpngDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(OpeningDateValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ClosingDate is IsoRequestedIndicator ClosingDateValue)
+        {
+            writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(ClosingDateValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Type is IsoRequestedIndicator TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(TypeValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PartyIdentification is IsoRequestedIndicator PartyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PtyId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(PartyIdentificationValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CSDOrNCB is IsoRequestedIndicator CSDOrNCBValue)
+        {
+            writer.WriteStartElement(null, "CSDOrNCB", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(CSDOrNCBValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (RestrictionIdentification is IsoRequestedIndicator RestrictionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RstrctnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(RestrictionIdentificationValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (RestrictedOnDate is IsoRequestedIndicator RestrictedOnDateValue)
+        {
+            writer.WriteStartElement(null, "RstrctdOnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(RestrictedOnDateValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Name is IsoRequestedIndicator NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(NameValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ShortName is IsoRequestedIndicator ShortNameValue)
+        {
+            writer.WriteStartElement(null, "ShrtNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(ShortNameValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Address is IsoRequestedIndicator AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(AddressValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TechnicalAddress is IsoRequestedIndicator TechnicalAddressValue)
+        {
+            writer.WriteStartElement(null, "TechAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(TechnicalAddressValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (MarketSpecificAttribute is IsoRequestedIndicator MarketSpecificAttributeValue)
+        {
+            writer.WriteStartElement(null, "MktSpcfcAttr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(MarketSpecificAttributeValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyDataReturnCriteria1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

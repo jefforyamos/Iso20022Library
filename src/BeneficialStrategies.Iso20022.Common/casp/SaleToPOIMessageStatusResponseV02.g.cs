@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.casp.SaleToPOIMessageStatusResponseV02>;
 
 namespace BeneficialStrategies.Iso20022.casp;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.casp;
 /// The SaleToPOIMessageStatusResponse message is sent by a POI System to respond to the sale system at a previous message status request.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The SaleToPOIMessageStatusResponse message is sent by a POI System to respond to the sale system at a previous message status request.")]
-public partial record SaleToPOIMessageStatusResponseV02 : IOuterRecord
+public partial record SaleToPOIMessageStatusResponseV02 : IOuterRecord<SaleToPOIMessageStatusResponseV02,SaleToPOIMessageStatusResponseV02Document>
+    ,IIsoXmlSerilizable<SaleToPOIMessageStatusResponseV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record SaleToPOIMessageStatusResponseV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SaleToPOIMsgStsRspn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SaleToPOIMessageStatusResponseV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -76,6 +83,35 @@ public partial record SaleToPOIMessageStatusResponseV02 : IOuterRecord
     {
         return new SaleToPOIMessageStatusResponseV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SaleToPOIMsgStsRspn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StsRspn", xmlNamespace );
+        StatusResponse.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecurityTrailer is ContentInformationType21 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SaleToPOIMessageStatusResponseV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -83,9 +119,7 @@ public partial record SaleToPOIMessageStatusResponseV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIMessageStatusResponseV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SaleToPOIMessageStatusResponseV02Document : IOuterDocument<SaleToPOIMessageStatusResponseV02>
+public partial record SaleToPOIMessageStatusResponseV02Document : IOuterDocument<SaleToPOIMessageStatusResponseV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -101,5 +135,22 @@ public partial record SaleToPOIMessageStatusResponseV02Document : IOuterDocument
     /// <summary>
     /// The instance of <seealso cref="SaleToPOIMessageStatusResponseV02"/> is required.
     /// </summary>
+    [DataMember(Name=SaleToPOIMessageStatusResponseV02.XmlTag)]
     public required SaleToPOIMessageStatusResponseV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SaleToPOIMessageStatusResponseV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

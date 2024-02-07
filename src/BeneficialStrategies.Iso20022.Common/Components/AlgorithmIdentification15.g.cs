@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a cryptographic algorithm and parameters for the MAC computation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AlgorithmIdentification15
+     : IIsoXmlSerilizable<AlgorithmIdentification15>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the MAC algorithm.
     /// </summary>
-    [DataMember]
     public required Algorithm12Code Algorithm { get; init; } 
     /// <summary>
     /// Parameters associated to the MAC algorithm.
     /// </summary>
-    [DataMember]
     public Parameter7? Parameter { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Algo", xmlNamespace );
+        writer.WriteValue(Algorithm.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Parameter is Parameter7 ParameterValue)
+        {
+            writer.WriteStartElement(null, "Param", xmlNamespace );
+            ParameterValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AlgorithmIdentification15 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

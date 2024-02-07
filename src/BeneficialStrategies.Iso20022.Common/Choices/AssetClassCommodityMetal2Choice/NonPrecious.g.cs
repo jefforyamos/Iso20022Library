@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityMetal2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityMetal2Choice;
 /// Non-precious metal commodity derivative.
 /// </summary>
 public partial record NonPrecious : AssetClassCommodityMetal2Choice_
+     , IIsoXmlSerilizable<NonPrecious>
 {
     #nullable enable
+    
     /// <summary>
     /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
     /// </summary>
@@ -27,5 +31,38 @@ public partial record NonPrecious : AssetClassCommodityMetal2Choice_
     /// Further subproduct type related to instruments that have a non-financial instrument or commodity as underlying.
     /// </summary>
     public AssetClassDetailedSubProductType10Code? AdditionalSubProduct { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BasePdct", xmlNamespace );
+        writer.WriteValue(BaseProduct.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SubProduct is AssetClassSubProductType15Code SubProductValue)
+        {
+            writer.WriteStartElement(null, "SubPdct", xmlNamespace );
+            writer.WriteValue(SubProductValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AdditionalSubProduct is AssetClassDetailedSubProductType10Code AdditionalSubProductValue)
+        {
+            writer.WriteStartElement(null, "AddtlSubPdct", xmlNamespace );
+            writer.WriteValue(AdditionalSubProductValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static new NonPrecious Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

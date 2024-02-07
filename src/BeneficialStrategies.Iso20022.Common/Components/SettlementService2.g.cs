@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Attributes of a settlement service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementService2
+     : IIsoXmlSerilizable<SettlementService2>
 {
     #nullable enable
     
     /// <summary>
     /// Settlement service actually applied to the transaction.
     /// </summary>
-    [DataMember]
     public SettlementServiceMode1? SettlementServiceApplied { get; init; } 
     /// <summary>
     /// Dates related to the settlement service related to the transaction.
     /// </summary>
-    [DataMember]
     public SettlementServiceDate1? SettlementServiceDates { get; init; } 
     /// <summary>
     /// Entity in charge of the settlement reporting service.
     /// </summary>
-    [DataMember]
     public SettlementReportingEntity1? SettlementReportingEntity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SettlementServiceApplied is SettlementServiceMode1 SettlementServiceAppliedValue)
+        {
+            writer.WriteStartElement(null, "SttlmSvcApld", xmlNamespace );
+            SettlementServiceAppliedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementServiceDates is SettlementServiceDate1 SettlementServiceDatesValue)
+        {
+            writer.WriteStartElement(null, "SttlmSvcDts", xmlNamespace );
+            SettlementServiceDatesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementReportingEntity is SettlementReportingEntity1 SettlementReportingEntityValue)
+        {
+            writer.WriteStartElement(null, "SttlmRptgNtty", xmlNamespace );
+            SettlementReportingEntityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementService2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

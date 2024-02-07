@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Context in which the card payment transaction is performed.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Context18
+     : IIsoXmlSerilizable<Context18>
 {
     #nullable enable
     
     /// <summary>
     /// Contains point of interaction information specific to a given transaction that may change from transaction to transaction.
     /// </summary>
-    [DataMember]
     public PointOfServiceContext3? PointOfServiceContext { get; init; } 
     /// <summary>
     /// Context of the card payment transaction.
     /// </summary>
-    [DataMember]
     public TransactionContext7? TransactionContext { get; init; } 
     /// <summary>
     /// Contain validation result and/or data to be validated.
     /// </summary>
-    [DataMember]
-    public ValueList<Verification5> Verification { get; init; } = []; // Warning: Don't know multiplicity.
+    public Verification5? Verification { get; init; } 
     /// <summary>
     /// Context of risk associated with the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<RiskContext2> RiskContext { get; init; } = []; // Warning: Don't know multiplicity.
+    public RiskContext2? RiskContext { get; init; } 
     /// <summary>
     /// Context of the sale associated with the card payment transaction.
     /// </summary>
-    [DataMember]
     public SaleContext8? SaleContext { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData2> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData2? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PointOfServiceContext is PointOfServiceContext3 PointOfServiceContextValue)
+        {
+            writer.WriteStartElement(null, "PtOfSvcCntxt", xmlNamespace );
+            PointOfServiceContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionContext is TransactionContext7 TransactionContextValue)
+        {
+            writer.WriteStartElement(null, "TxCntxt", xmlNamespace );
+            TransactionContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Verification is Verification5 VerificationValue)
+        {
+            writer.WriteStartElement(null, "Vrfctn", xmlNamespace );
+            VerificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RiskContext is RiskContext2 RiskContextValue)
+        {
+            writer.WriteStartElement(null, "RskCntxt", xmlNamespace );
+            RiskContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SaleContext is SaleContext8 SaleContextValue)
+        {
+            writer.WriteStartElement(null, "SaleCntxt", xmlNamespace );
+            SaleContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData2 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Context18 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

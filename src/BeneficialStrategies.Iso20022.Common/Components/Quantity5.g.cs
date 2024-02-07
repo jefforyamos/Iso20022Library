@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details on the quantity, account and other related information involved in a transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Quantity5
+     : IIsoXmlSerilizable<Quantity5>
 {
     #nullable enable
     
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ SettlementQuantity { get; init; } 
     /// <summary>
     /// Denomination of the security to be received or delivered.
     /// </summary>
-    [DataMember]
     public IsoMax210Text? DenominationChoice { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of a certificate assigned by the issuer.
     /// </summary>
-    [DataMember]
-    public ValueList<SecuritiesCertificate1> CertificateNumber { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecuritiesCertificate1? CertificateNumber { get; init; } 
     /// <summary>
     /// Breakdown of a quantity into lots such as tax lots, instrument series, etc.
     /// </summary>
-    [DataMember]
-    public ValueList<QuantityBreakdown3> QuantityBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
+    public QuantityBreakdown3? QuantityBreakdown { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttlmQty", xmlNamespace );
+        SettlementQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DenominationChoice is IsoMax210Text DenominationChoiceValue)
+        {
+            writer.WriteStartElement(null, "DnmtnChc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax210Text(DenominationChoiceValue)); // data type Max210Text System.String
+            writer.WriteEndElement();
+        }
+        if (CertificateNumber is SecuritiesCertificate1 CertificateNumberValue)
+        {
+            writer.WriteStartElement(null, "CertNb", xmlNamespace );
+            CertificateNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (QuantityBreakdown is QuantityBreakdown3 QuantityBreakdownValue)
+        {
+            writer.WriteStartElement(null, "QtyBrkdwn", xmlNamespace );
+            QuantityBreakdownValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Quantity5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

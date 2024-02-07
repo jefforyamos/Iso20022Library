@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Undertaking extend or pay query details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ExtendOrPayQuery2
+     : IIsoXmlSerilizable<ExtendOrPayQuery2>
 {
     #nullable enable
     
     /// <summary>
     /// Details related to the identification of the undertaking.
     /// </summary>
-    [DataMember]
     public required Undertaking9 UndertakingIdentification { get; init; } 
     /// <summary>
     /// Details related to the demand.
     /// </summary>
-    [DataMember]
     public required Demand4 DemandDetails { get; init; } 
     /// <summary>
     /// Processing status reported by the applicant.
     /// </summary>
-    [DataMember]
     public required DemandStatus1Code Status { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UdrtkgId", xmlNamespace );
+        UndertakingIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DmndDtls", xmlNamespace );
+        DemandDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static ExtendOrPayQuery2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

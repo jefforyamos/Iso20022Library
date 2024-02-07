@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Location on the Earth specified by two numbers representing vertical and horizontal position.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GeolocationGeographicCoordinates1
+     : IIsoXmlSerilizable<GeolocationGeographicCoordinates1>
 {
     #nullable enable
     
@@ -23,14 +24,35 @@ public partial record GeolocationGeographicCoordinates1
     /// Angular distance of a location on the earth south or north of the equator.
     /// The latitude is measured in degrees, minutes and seconds, following by "N" for the north and "S" for the south of the equator. For example: 48°51'29" N the Eiffel Tower latitude.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Latitude { get; init; } 
     /// <summary>
     /// Angular measurement of the distance of a location on the earth east or west of the Greenwich observatory.
     /// The longitude is measured in degrees, minutes and seconds, following by "E" for the east and "W" for the west. For example: 23°27'30" E.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Longitude { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Lat", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Latitude)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Long", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Longitude)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static GeolocationGeographicCoordinates1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

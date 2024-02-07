@@ -7,83 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Shipping or Courier Service delivery. 
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ShippingData2
+     : IIsoXmlSerilizable<ShippingData2>
 {
     #nullable enable
     
     /// <summary>
     /// Contains the invoice number.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? InvoiceNumber { get; init; } 
     /// <summary>
     /// Contains the date and time the electronic invoice was created.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? InvoiceCreationDateTime { get; init; } 
     /// <summary>
     /// Contains a card acceptor designated code for the shipping service provided.
     /// </summary>
-    [DataMember]
     public IsoMax40Text? ServiceDescriptorCode { get; init; } 
     /// <summary>
     /// Contains the amount of any incentives applied to the transaction. 
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? IncentiveAmount { get; init; } 
     /// <summary>
     /// Contains the amount of any miscellaneous expenses applicable to the transaction. 
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? MiscellaneousExpenses { get; init; } 
     /// <summary>
     /// Indicates whether or not insurance was purchased. 
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? InsuranceIndicator { get; init; } 
     /// <summary>
     /// Amount of insurance.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? InsuranceAmount { get; init; } 
     /// <summary>
     /// Contains the net amount of shipping expenses.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? NetAmount { get; init; } 
     /// <summary>
     /// Contains the total tax amount for the entire purchase. 
     /// </summary>
-    [DataMember]
-    public ValueList<Tax39> Tax { get; init; } = []; // Warning: Don't know multiplicity.
+    public Tax39? Tax { get; init; } 
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     /// <summary>
     /// Contains the total number of packages being shipped or sent by the service provider.
     /// </summary>
-    [DataMember]
     public IsoMax6NumericText? NumberOfPackages { get; init; } 
     /// <summary>
     /// Contains the details of the package being shipped. 
     /// </summary>
-    [DataMember]
-    public ValueList<ShippingPackage2> Package { get; init; } = []; // Warning: Don't know multiplicity.
+    public ShippingPackage2? Package { get; init; } 
     /// <summary>
     /// Contains additional shipping data.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (InvoiceNumber is IsoMax70Text InvoiceNumberValue)
+        {
+            writer.WriteStartElement(null, "InvcNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(InvoiceNumberValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (InvoiceCreationDateTime is IsoISODateTime InvoiceCreationDateTimeValue)
+        {
+            writer.WriteStartElement(null, "InvcCreDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(InvoiceCreationDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ServiceDescriptorCode is IsoMax40Text ServiceDescriptorCodeValue)
+        {
+            writer.WriteStartElement(null, "SvcDscrptrCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax40Text(ServiceDescriptorCodeValue)); // data type Max40Text System.String
+            writer.WriteEndElement();
+        }
+        if (IncentiveAmount is IsoImpliedCurrencyAndAmount IncentiveAmountValue)
+        {
+            writer.WriteStartElement(null, "IncntivAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(IncentiveAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MiscellaneousExpenses is IsoImpliedCurrencyAndAmount MiscellaneousExpensesValue)
+        {
+            writer.WriteStartElement(null, "MiscExpnss", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MiscellaneousExpensesValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (InsuranceIndicator is IsoTrueFalseIndicator InsuranceIndicatorValue)
+        {
+            writer.WriteStartElement(null, "InsrncInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(InsuranceIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (InsuranceAmount is IsoImpliedCurrencyAndAmount InsuranceAmountValue)
+        {
+            writer.WriteStartElement(null, "InsrncAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(InsuranceAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (NetAmount is IsoImpliedCurrencyAndAmount NetAmountValue)
+        {
+            writer.WriteStartElement(null, "NetAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(NetAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Tax is Tax39 TaxValue)
+        {
+            writer.WriteStartElement(null, "Tax", xmlNamespace );
+            TaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SummaryCommodityIdentification is IsoMax35Text SummaryCommodityIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SummryCmmdtyId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SummaryCommodityIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (NumberOfPackages is IsoMax6NumericText NumberOfPackagesValue)
+        {
+            writer.WriteStartElement(null, "NbOfPackgs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax6NumericText(NumberOfPackagesValue)); // data type Max6NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (Package is ShippingPackage2 PackageValue)
+        {
+            writer.WriteStartElement(null, "Packg", xmlNamespace );
+            PackageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is IsoMax350Text AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalDataValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ShippingData2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

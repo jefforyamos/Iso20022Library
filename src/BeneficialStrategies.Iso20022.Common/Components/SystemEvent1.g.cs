@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed information about an event occurring on a system, whether planned, eg, cut-off time for a specific type of eligible transfer, or unplanned, eg, an unsolicited failure, as stipulated in the specifications of the system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SystemEvent1
+     : IIsoXmlSerilizable<SystemEvent1>
 {
     #nullable enable
     
     /// <summary>
     /// Nature of the event that has occurred.
     /// </summary>
-    [DataMember]
     public required SystemEventType1Choice_ Type { get; init; } 
     /// <summary>
     /// Date and time at which the event is foreseen to occur.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime ScheduledTime { get; init; } 
     /// <summary>
     /// Date and time at which the event effectively takes place.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? EffectiveTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SchdldTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(ScheduledTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (EffectiveTime is IsoISODateTime EffectiveTimeValue)
+        {
+            writer.WriteStartElement(null, "FctvTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(EffectiveTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static SystemEvent1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

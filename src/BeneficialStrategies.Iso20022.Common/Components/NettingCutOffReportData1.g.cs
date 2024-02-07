@@ -7,58 +7,104 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the meta data associated with a netting cut off report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NettingCutOffReportData1
+     : IIsoXmlSerilizable<NettingCutOffReportData1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a message, as assigned by the Sender. This unique identifier can be used for cross-referencing purposes in subsequent messages.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the net report was generated.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Describes the type of net report, indicating how the obligations have been calculated.
     /// </summary>
-    [DataMember]
     public required IsoMax4Text ReportType { get; init; } 
     /// <summary>
     /// Date on which the proposed netting cut off will become active.
     /// </summary>
-    [DataMember]
     public required IsoISODate ActivationDate { get; init; } 
     /// <summary>
     /// Describes the participant receiving the net report.
     /// </summary>
-    [DataMember]
     public PartyIdentification73Choice_? NetServiceParticipantIdentification { get; init; } 
     /// <summary>
     /// Describes the central system responsible for generating the net report.
     /// </summary>
-    [DataMember]
     public PartyIdentification73Choice_? ReportServicer { get; init; } 
     /// <summary>
     /// Describes the type of netting service supporting the net report.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? NetServiceType { get; init; } 
     /// <summary>
     /// Page number of the message (within the net cut off report) and continuation indicator to indicate that the report is to continue or that the message is the last page of the report.
     /// </summary>
-    [DataMember]
     public Pagination? MessagePagination { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4Text(ReportType)); // data type Max4Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ActvtnDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ActivationDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (NetServiceParticipantIdentification is PartyIdentification73Choice_ NetServiceParticipantIdentificationValue)
+        {
+            writer.WriteStartElement(null, "NetSvcPtcptId", xmlNamespace );
+            NetServiceParticipantIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReportServicer is PartyIdentification73Choice_ ReportServicerValue)
+        {
+            writer.WriteStartElement(null, "RptSvcr", xmlNamespace );
+            ReportServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NetServiceType is IsoMax35Text NetServiceTypeValue)
+        {
+            writer.WriteStartElement(null, "NetSvcTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NetServiceTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MessagePagination is Pagination MessagePaginationValue)
+        {
+            writer.WriteStartElement(null, "MsgPgntn", xmlNamespace );
+            MessagePaginationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static NettingCutOffReportData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

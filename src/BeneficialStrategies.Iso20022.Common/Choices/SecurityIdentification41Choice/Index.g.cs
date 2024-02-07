@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification41Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification41Choice;
 /// Indicates the index upon which the financial instrument is based.
 /// </summary>
 public partial record Index : SecurityIdentification41Choice_
+     , IIsoXmlSerilizable<Index>
 {
     #nullable enable
+    
     /// <summary>
     /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation's International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
     /// </summary>
@@ -23,9 +27,42 @@ public partial record Index : SecurityIdentification41Choice_
     /// Proprietary identification of the index on which the financial instrument is based.
     /// </summary>
     public IsoMax350Text? Name { get; init; } 
-    /// <summary>
-    /// Index name where the underlying is an index.
-    /// </summary>
-    public ExternalBenchmarkCurveName1Code? IndexValue { get; init; } 
+    public ExternalBenchmarkCurveName1Code? Value { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ISIN is IsoISINOct2015Identifier ISINValue)
+        {
+            writer.WriteStartElement(null, "ISIN", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(ISINValue)); // data type ISINOct2015Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (Name is IsoMax350Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(NameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (Value is ExternalBenchmarkCurveName1Code ValueValue)
+        {
+            writer.WriteStartElement(null, "Indx", xmlNamespace );
+            writer.WriteValue(ValueValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static new Index Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

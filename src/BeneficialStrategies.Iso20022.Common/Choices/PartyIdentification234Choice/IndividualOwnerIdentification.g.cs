@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification234Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification234Choice;
 /// Individual local country specific identification of the owner agreed between the account servicer and account owner.
 /// </summary>
 public partial record IndividualOwnerIdentification : PartyIdentification234Choice_
+     , IIsoXmlSerilizable<IndividualOwnerIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Specifies the type of alternate identification of the party identified.
     /// </summary>
@@ -27,5 +31,32 @@ public partial record IndividualOwnerIdentification : PartyIdentification234Choi
     /// Alternate identification for a party.
     /// </summary>
     public required IsoMax35Text AlternateIdentification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IdTp", xmlNamespace );
+        IdentificationType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Ctry", xmlNamespace );
+        writer.WriteValue(Country.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AltrnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(AlternateIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static new IndividualOwnerIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

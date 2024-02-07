@@ -7,93 +7,159 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Calculation of the current situation of a line item as a result of the submission of a commercial dataset.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LineItemDetails8
+     : IIsoXmlSerilizable<LineItemDetails8>
 {
     #nullable enable
     
     /// <summary>
     /// Sequential number assigned to a line item.
     /// </summary>
-    [DataMember]
     public required IsoMax70Text LineItemIdentification { get; init; } 
     /// <summary>
     /// Name of the product detailed in the corresponding line item.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? ProductName { get; init; } 
     /// <summary>
     /// Identifies the product of the corresponding line item.
     /// </summary>
-    [DataMember]
-    public ValueList<ProductIdentifier2Choice_> ProductIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProductIdentifier2Choice_? ProductIdentifier { get; init; } 
     /// <summary>
     /// Identifies the characteristic of a product.
     /// </summary>
-    [DataMember]
-    public ValueList<ProductCharacteristics1Choice_> ProductCharacteristics { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProductCharacteristics1Choice_? ProductCharacteristics { get; init; } 
     /// <summary>
     /// Identifies the category of product.
     /// </summary>
-    [DataMember]
-    public ValueList<ProductCategory1Choice_> ProductCategory { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProductCategory1Choice_? ProductCategory { get; init; } 
     /// <summary>
     /// Quantity ordered for a line as indicated in the baseline.
     /// </summary>
-    [DataMember]
     public required Quantity4 OrderedQuantity { get; init; } 
     /// <summary>
     /// Quantity accepted by data set submission.
     /// </summary>
-    [DataMember]
     public required Quantity4 AcceptedQuantity { get; init; } 
     /// <summary>
     /// Difference between the ordered quantity and the accepted one.
     /// </summary>
-    [DataMember]
     public required Quantity4 OutstandingQuantity { get; init; } 
     /// <summary>
     /// Quantity of a product for which a mismatched data set has been submitted and has not yet been accepted or rejected.
     /// </summary>
-    [DataMember]
     public required Quantity4 PendingQuantity { get; init; } 
     /// <summary>
     /// Variance allowed on the quantity of goods.
     /// </summary>
-    [DataMember]
     public PercentageTolerance1? QuantityTolerance { get; init; } 
     /// <summary>
     /// Price multiplied by the ordered quantity for a line as indicated in the baseline.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount OrderedAmount { get; init; } 
     /// <summary>
     /// Price multiplied by the accepted quantity for a line.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount AcceptedAmount { get; init; } 
     /// <summary>
     /// Price multiplied by the outstanding quantity for a line.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount OutstandingAmount { get; init; } 
     /// <summary>
     /// Price multiplied by the pending quantity for a line.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount PendingAmount { get; init; } 
     /// <summary>
     /// Variance on price for the goods.
     /// </summary>
-    [DataMember]
     public PercentageTolerance1? PriceTolerance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "LineItmId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(LineItemIdentification)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        if (ProductName is IsoMax70Text ProductNameValue)
+        {
+            writer.WriteStartElement(null, "PdctNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(ProductNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProductIdentifier is ProductIdentifier2Choice_ ProductIdentifierValue)
+        {
+            writer.WriteStartElement(null, "PdctIdr", xmlNamespace );
+            ProductIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProductCharacteristics is ProductCharacteristics1Choice_ ProductCharacteristicsValue)
+        {
+            writer.WriteStartElement(null, "PdctChrtcs", xmlNamespace );
+            ProductCharacteristicsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProductCategory is ProductCategory1Choice_ ProductCategoryValue)
+        {
+            writer.WriteStartElement(null, "PdctCtgy", xmlNamespace );
+            ProductCategoryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OrdrdQty", xmlNamespace );
+        OrderedQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AccptdQty", xmlNamespace );
+        AcceptedQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OutsdngQty", xmlNamespace );
+        OutstandingQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PdgQty", xmlNamespace );
+        PendingQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (QuantityTolerance is PercentageTolerance1 QuantityToleranceValue)
+        {
+            writer.WriteStartElement(null, "QtyTlrnce", xmlNamespace );
+            QuantityToleranceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OrdrdAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(OrderedAmount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AccptdAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(AcceptedAmount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OutsdngAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(OutstandingAmount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PdgAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(PendingAmount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (PriceTolerance is PercentageTolerance1 PriceToleranceValue)
+        {
+            writer.WriteStartElement(null, "PricTlrnce", xmlNamespace );
+            PriceToleranceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LineItemDetails8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

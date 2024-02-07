@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount, currency, exchange rate and quotation date, sign and label.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FeeAmount2
+     : IIsoXmlSerilizable<FeeAmount2>
 {
     #nullable enable
     
@@ -24,32 +25,71 @@ public partial record FeeAmount2
     /// ISO 8583:87 bit 8, 28, 29, 30 & 31
     /// ISO 8583:93/2003 bit 8 & 46
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Currency for the type of amount.
     /// </summary>
-    [DataMember]
     public ISO3NumericCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Exchange rate of the currency code associated with the amount. 
     /// ISO 8583 bit 9 (for use with reconciliation/settlement amount)
     /// ISO 8583 bit 10 (for use with cardholder billing amount)
     /// </summary>
-    [DataMember]
     public IsoBaseOneRate? ExchangeRate { get; init; } 
     /// <summary>
     /// Date and time at which the exchange rate has been quoted.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? QuotationDate { get; init; } 
     /// <summary>
     /// Indicates whether the amount value is positive or negative.
     /// Negative: the receiver of the message owes the fee to the sender.
     /// Positive: the sender of the message owes the fee to the receiver.
     /// </summary>
-    [DataMember]
     public IsoPlusOrMinusIndicator? Sign { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(Amount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (Currency is ISO3NumericCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExchangeRate is IsoBaseOneRate ExchangeRateValue)
+        {
+            writer.WriteStartElement(null, "XchgRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ExchangeRateValue)); // data type BaseOneRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (QuotationDate is IsoISODateTime QuotationDateValue)
+        {
+            writer.WriteStartElement(null, "QtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(QuotationDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (Sign is IsoPlusOrMinusIndicator SignValue)
+        {
+            writer.WriteStartElement(null, "Sgn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPlusOrMinusIndicator(SignValue)); // data type PlusOrMinusIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static FeeAmount2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

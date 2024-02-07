@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Sensitive information related to the mobile phone.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SensitiveMobileData1
+     : IIsoXmlSerilizable<SensitiveMobileData1>
 {
     #nullable enable
     
     /// <summary>
     /// identifies the mobile - Mobile Subscriber Integrated Service Digital Network (The SIM identifier).
     /// </summary>
-    [DataMember]
     public required IsoMax35NumericText MSISDN { get; init; } 
     /// <summary>
     /// International Mobile Subscriber Identity is a unique number associated with the mobile phone user, containing the Mobile Country Code (MCC), the Mobile Network Code (MNC), and the Mobile Identification Number (MSIN).
     /// </summary>
-    [DataMember]
     public IsoMax35NumericText? IMSI { get; init; } 
     /// <summary>
     /// International Mobile Equipment Identity is a number usually unique to identify a mobile phone.
     /// </summary>
-    [DataMember]
     public IsoMax35NumericText? IMEI { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MSISDN", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35NumericText(MSISDN)); // data type Max35NumericText System.String
+        writer.WriteEndElement();
+        if (IMSI is IsoMax35NumericText IMSIValue)
+        {
+            writer.WriteStartElement(null, "IMSI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35NumericText(IMSIValue)); // data type Max35NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (IMEI is IsoMax35NumericText IMEIValue)
+        {
+            writer.WriteStartElement(null, "IMEI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35NumericText(IMEIValue)); // data type Max35NumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SensitiveMobileData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the reason for requesting a debit authorisation as well as the amount of the requested debit.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DebitAuthorisation1
+     : IIsoXmlSerilizable<DebitAuthorisation1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the reason for the cancellation request.
     /// </summary>
-    [DataMember]
     public required CancellationReason14Choice_ CancellationReason { get; init; } 
     /// <summary>
     /// Amount of money requested for debit authorisation.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? AmountToDebit { get; init; } 
     /// <summary>
     /// Value date for debiting the amount.
     /// </summary>
-    [DataMember]
     public IsoISODate? ValueDateToDebit { get; init; } 
     /// <summary>
     /// Further details on the cancellation request reason.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax105Text> AdditionalCancellationReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax105Text? AdditionalCancellationReasonInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CxlRsn", xmlNamespace );
+        CancellationReason.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AmountToDebit is IsoActiveOrHistoricCurrencyAndAmount AmountToDebitValue)
+        {
+            writer.WriteStartElement(null, "AmtToDbt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(AmountToDebitValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ValueDateToDebit is IsoISODate ValueDateToDebitValue)
+        {
+            writer.WriteStartElement(null, "ValDtToDbt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ValueDateToDebitValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (AdditionalCancellationReasonInformation is IsoMax105Text AdditionalCancellationReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlCxlRsnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax105Text(AdditionalCancellationReasonInformationValue)); // data type Max105Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static DebitAuthorisation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

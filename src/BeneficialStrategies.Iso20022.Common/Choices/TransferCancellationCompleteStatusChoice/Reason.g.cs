@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TransferCancellationCompleteStatusChoice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferCancellationCompleteStat
 /// Reason of the complete status.
 /// </summary>
 public partial record Reason : TransferCancellationCompleteStatusChoice_
+     , IIsoXmlSerilizable<Reason>
 {
     #nullable enable
+    
     /// <summary>
     /// Reason for a complete status in structured form.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record Reason : TransferCancellationCompleteStatusChoice_
     /// Additional information about the reason for the complete status in textual form.
     /// </summary>
     public IsoMax350Text? AdditionalInformation { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Strd", xmlNamespace );
+        writer.WriteValue(Structured.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new Reason Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

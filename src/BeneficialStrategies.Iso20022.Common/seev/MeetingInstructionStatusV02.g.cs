@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.MeetingInstructionStatusV02>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -30,10 +33,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// Fourth, it is used as a reminder to request voting instructions. This is done by indicating NONREF in the Identification element of the InstructionIdentification component and by using the status code NotReceived in the ProcessingStatus.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The Receiver of the MeetingInstruction or MeetingInstructionCancellationRequest sends the MeetingInstructionStatus message to the Sender of these messages.|The message gives the status of a complete message or of one or more specific instructions within the message.|Usage|The MeetingInstructionStatus message is used for four purposes.|First, it provides the status on the processing of a MeetingInstructionCancellationRequest message, ie, whether the request message is rejected or accepted.|Second, it is used to provide a global processing or rejection status of a MeetingInstruction message.|Third, it is used to provide a detailed processing or rejection status of a MeetingInstruction message, ie, for each instruction in the MeetingInstruction message the processing or rejection status is individually reported by using the InstructionIdentification element. This identification allows the receiver of the status message to link the status confirmation to its original instruction.|The blocking of securities should be confirmed via an MT 508 (Intra-Position Advice).|Fourth, it is used as a reminder to request voting instructions. This is done by indicating NONREF in the Identification element of the InstructionIdentification component and by using the status code NotReceived in the ProcessingStatus.")]
-public partial record MeetingInstructionStatusV02 : IOuterRecord
+public partial record MeetingInstructionStatusV02 : IOuterRecord<MeetingInstructionStatusV02,MeetingInstructionStatusV02Document>
+    ,IIsoXmlSerilizable<MeetingInstructionStatusV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -45,6 +47,11 @@ public partial record MeetingInstructionStatusV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MtgInstrSts";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => MeetingInstructionStatusV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -136,6 +143,47 @@ public partial record MeetingInstructionStatusV02 : IOuterRecord
     {
         return new MeetingInstructionStatusV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MtgInstrSts");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MtgInstrStsId", xmlNamespace );
+        MeetingInstructionStatusIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InstrId", xmlNamespace );
+        InstructionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InstrCxlId", xmlNamespace );
+        InstructionCancellationIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MtgRef", xmlNamespace );
+        MeetingReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptgPty", xmlNamespace );
+        ReportingParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctyId", xmlNamespace );
+        SecurityIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InstrSts", xmlNamespace );
+        InstructionStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CxlSts", xmlNamespace );
+        CancellationStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static MeetingInstructionStatusV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -143,9 +191,7 @@ public partial record MeetingInstructionStatusV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingInstructionStatusV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record MeetingInstructionStatusV02Document : IOuterDocument<MeetingInstructionStatusV02>
+public partial record MeetingInstructionStatusV02Document : IOuterDocument<MeetingInstructionStatusV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -161,5 +207,22 @@ public partial record MeetingInstructionStatusV02Document : IOuterDocument<Meeti
     /// <summary>
     /// The instance of <seealso cref="MeetingInstructionStatusV02"/> is required.
     /// </summary>
+    [DataMember(Name=MeetingInstructionStatusV02.XmlTag)]
     public required MeetingInstructionStatusV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(MeetingInstructionStatusV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.auth.FinancialInstrumentReportingNonEquityTransparencyDataReportV02>;
 
 namespace BeneficialStrategies.Iso20022.auth;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// The FinancialInstrumentReportingNonEquityTransparencyDataReport message is sent by the trading venue to the national competent authority to submit non equity specific details as part of classifying and applying necessary transparency non equity computations.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The FinancialInstrumentReportingNonEquityTransparencyDataReport message is sent by the trading venue to the national competent authority to submit non equity specific details as part of classifying and applying necessary transparency non equity computations.")]
-public partial record FinancialInstrumentReportingNonEquityTransparencyDataReportV02 : IOuterRecord
+public partial record FinancialInstrumentReportingNonEquityTransparencyDataReportV02 : IOuterRecord<FinancialInstrumentReportingNonEquityTransparencyDataReportV02,FinancialInstrumentReportingNonEquityTransparencyDataReportV02Document>
+    ,IIsoXmlSerilizable<FinancialInstrumentReportingNonEquityTransparencyDataReportV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record FinancialInstrumentReportingNonEquityTransparencyDataRepor
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "FinInstrmRptgNonEqtyTrnsprncyDataRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => FinancialInstrumentReportingNonEquityTransparencyDataReportV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -76,6 +83,35 @@ public partial record FinancialInstrumentReportingNonEquityTransparencyDataRepor
     {
         return new FinancialInstrumentReportingNonEquityTransparencyDataReportV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("FinInstrmRptgNonEqtyTrnsprncyDataRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptHdr", xmlNamespace );
+        ReportHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NonEqtyTrnsprncyData", xmlNamespace );
+        NonEquityTransparencyData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstrumentReportingNonEquityTransparencyDataReportV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -83,9 +119,7 @@ public partial record FinancialInstrumentReportingNonEquityTransparencyDataRepor
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInstrumentReportingNonEquityTransparencyDataReportV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record FinancialInstrumentReportingNonEquityTransparencyDataReportV02Document : IOuterDocument<FinancialInstrumentReportingNonEquityTransparencyDataReportV02>
+public partial record FinancialInstrumentReportingNonEquityTransparencyDataReportV02Document : IOuterDocument<FinancialInstrumentReportingNonEquityTransparencyDataReportV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -101,5 +135,22 @@ public partial record FinancialInstrumentReportingNonEquityTransparencyDataRepor
     /// <summary>
     /// The instance of <seealso cref="FinancialInstrumentReportingNonEquityTransparencyDataReportV02"/> is required.
     /// </summary>
+    [DataMember(Name=FinancialInstrumentReportingNonEquityTransparencyDataReportV02.XmlTag)]
     public required FinancialInstrumentReportingNonEquityTransparencyDataReportV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(FinancialInstrumentReportingNonEquityTransparencyDataReportV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

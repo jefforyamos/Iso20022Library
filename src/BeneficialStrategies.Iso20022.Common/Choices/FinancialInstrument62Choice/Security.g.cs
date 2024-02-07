@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument62Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument62Choice;
 /// Identification of the security.
 /// </summary>
 public partial record Security : FinancialInstrument62Choice_
+     , IIsoXmlSerilizable<Security>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique and unambiguous identifier of a security, assigned under a formal or proprietary identification scheme.
     /// </summary>
@@ -38,6 +42,57 @@ public partial record Security : FinancialInstrument62Choice_
     /// <summary>
     /// Alternative security offered in place of a restricted security.
     /// </summary>
-    public FinancialInstrumentIdentification4? AlternateSecurity { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrumentIdentification4? AlternateSecurity { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Name is IsoMax350Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(NameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (ShortName is IsoMax35Text ShortNameValue)
+        {
+            writer.WriteStartElement(null, "ShrtNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ShortNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClassificationType is ClassificationType32Choice_ ClassificationTypeValue)
+        {
+            writer.WriteStartElement(null, "ClssfctnTp", xmlNamespace );
+            ClassificationTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RestrictedIndicator is IsoYesNoIndicator RestrictedIndicatorValue)
+        {
+            writer.WriteStartElement(null, "RstrctdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RestrictedIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AlternateSecurity is FinancialInstrumentIdentification4 AlternateSecurityValue)
+        {
+            writer.WriteStartElement(null, "AltrnScty", xmlNamespace );
+            AlternateSecurityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Security Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

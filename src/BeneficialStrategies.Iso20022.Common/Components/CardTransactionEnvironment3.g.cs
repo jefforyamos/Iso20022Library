@@ -7,58 +7,107 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardTransactionEnvironment3
+     : IIsoXmlSerilizable<CardTransactionEnvironment3>
 {
     #nullable enable
     
     /// <summary>
     /// Acquirer of the card transaction.
     /// </summary>
-    [DataMember]
     public required Acquirer6 Acquirer { get; init; } 
     /// <summary>
     /// Identification of the interconnected card scheme from which the response is coming.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CardSchemeIdentification { get; init; } 
     /// <summary>
     /// Acceptor performing the card transaction.
     /// </summary>
-    [DataMember]
     public required Organisation19 Acceptor { get; init; } 
     /// <summary>
     /// Identification of the card terminal performing the transaction.
     /// </summary>
-    [DataMember]
     public GenericIdentification32? TerminalIdentification { get; init; } 
     /// <summary>
     /// Card performing the transaction.
     /// </summary>
-    [DataMember]
     public required PaymentCard14 Card { get; init; } 
     /// <summary>
     /// Container of tenders used by the customer to perform the payment.
     /// </summary>
-    [DataMember]
     public CustomerDevice1? CustomerDevice { get; init; } 
     /// <summary>
     /// Container of tenders used by the customer to perform the payment.
     /// </summary>
-    [DataMember]
     public CustomerDevice1? Wallet { get; init; } 
     /// <summary>
     /// Payment token information.
     /// </summary>
-    [DataMember]
     public CardPaymentToken4? PaymentToken { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Acqrr", xmlNamespace );
+        Acquirer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CardSchemeIdentification is IsoMax35Text CardSchemeIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CardSchmeId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CardSchemeIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Accptr", xmlNamespace );
+        Acceptor.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TerminalIdentification is GenericIdentification32 TerminalIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TermnlId", xmlNamespace );
+            TerminalIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Card", xmlNamespace );
+        Card.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CustomerDevice is CustomerDevice1 CustomerDeviceValue)
+        {
+            writer.WriteStartElement(null, "CstmrDvc", xmlNamespace );
+            CustomerDeviceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Wallet is CustomerDevice1 WalletValue)
+        {
+            writer.WriteStartElement(null, "Wllt", xmlNamespace );
+            WalletValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentToken is CardPaymentToken4 PaymentTokenValue)
+        {
+            writer.WriteStartElement(null, "PmtTkn", xmlNamespace );
+            PaymentTokenValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardTransactionEnvironment3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

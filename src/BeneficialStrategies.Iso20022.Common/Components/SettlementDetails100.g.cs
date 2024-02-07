@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of settlement of a transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementDetails100
+     : IIsoXmlSerilizable<SettlementDetails100>
 {
     #nullable enable
     
     /// <summary>
     /// Conditions under which the order/trade is to be settled.
     /// </summary>
-    [DataMember]
-    public ValueList<SettlementTransactionCondition19Choice_> SettlementTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
+    public SettlementTransactionCondition19Choice_? SettlementTransactionCondition { get; init; } 
     /// <summary>
     /// Specifies whether registration should occur upon receipt.
     /// </summary>
-    [DataMember]
     public Registration9Choice_? Registration { get; init; } 
     /// <summary>
     /// Regulatory restrictions applicable to a security.
     /// </summary>
-    [DataMember]
     public Restriction5Choice_? LegalRestrictions { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction is to be settled through an RTGS or a non RTGS system.
     /// </summary>
-    [DataMember]
     public SecuritiesRTGS4Choice_? SecuritiesRTGS { get; init; } 
     /// <summary>
     /// Specifies whether the settlement instruction is to be settled through the default or the alternate settlement system.
     /// </summary>
-    [DataMember]
     public SettlementSystemMethod4Choice_? SettlementSystemMethod { get; init; } 
     /// <summary>
     /// Tax role capacity of the instructing party.
     /// </summary>
-    [DataMember]
     public TaxCapacityParty4Choice_? TaxCapacity { get; init; } 
     /// <summary>
     /// Specifies the stamp duty type or exemption reason applicable to the settlement transaction.
     /// </summary>
-    [DataMember]
     public GenericIdentification30? StampDutyTaxBasis { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SettlementTransactionCondition is SettlementTransactionCondition19Choice_ SettlementTransactionConditionValue)
+        {
+            writer.WriteStartElement(null, "SttlmTxCond", xmlNamespace );
+            SettlementTransactionConditionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Registration is Registration9Choice_ RegistrationValue)
+        {
+            writer.WriteStartElement(null, "Regn", xmlNamespace );
+            RegistrationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LegalRestrictions is Restriction5Choice_ LegalRestrictionsValue)
+        {
+            writer.WriteStartElement(null, "LglRstrctns", xmlNamespace );
+            LegalRestrictionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesRTGS is SecuritiesRTGS4Choice_ SecuritiesRTGSValue)
+        {
+            writer.WriteStartElement(null, "SctiesRTGS", xmlNamespace );
+            SecuritiesRTGSValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementSystemMethod is SettlementSystemMethod4Choice_ SettlementSystemMethodValue)
+        {
+            writer.WriteStartElement(null, "SttlmSysMtd", xmlNamespace );
+            SettlementSystemMethodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxCapacity is TaxCapacityParty4Choice_ TaxCapacityValue)
+        {
+            writer.WriteStartElement(null, "TaxCpcty", xmlNamespace );
+            TaxCapacityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StampDutyTaxBasis is GenericIdentification30 StampDutyTaxBasisValue)
+        {
+            writer.WriteStartElement(null, "StmpDtyTaxBsis", xmlNamespace );
+            StampDutyTaxBasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementDetails100 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

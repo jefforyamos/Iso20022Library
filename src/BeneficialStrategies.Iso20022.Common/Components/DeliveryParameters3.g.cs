@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters of a physical delivery.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DeliveryParameters3
+     : IIsoXmlSerilizable<DeliveryParameters3>
 {
     #nullable enable
     
     /// <summary>
     /// Address for physical delivery.
     /// </summary>
-    [DataMember]
     public required NameAndAddress4 Address { get; init; } 
     /// <summary>
     /// Certificate representing a security that is delivered.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? IssuedCertificateNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Adr", xmlNamespace );
+        Address.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (IssuedCertificateNumber is IsoMax35Text IssuedCertificateNumberValue)
+        {
+            writer.WriteStartElement(null, "IssdCertNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuedCertificateNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static DeliveryParameters3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

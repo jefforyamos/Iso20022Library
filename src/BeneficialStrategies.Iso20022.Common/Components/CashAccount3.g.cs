@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information used for identifying an account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashAccount3
+     : IIsoXmlSerilizable<CashAccount3>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public required AccountIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Nature, or use, of the account.
     /// </summary>
-    [DataMember]
     public CashAccountType3Code? Type { get; init; } 
     /// <summary>
     /// Identification of the currency in which the account is held. ||Usage: Currency should only be used in case one and the same account number covers several currencies and the initiating party needs to identify which currency needs to be used for settlement on the account.
     /// </summary>
-    [DataMember]
     public CurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Name of the account, assigned by the account servicing institution in agreement with the account owner in order to provide an additional means of identification of the account.||Usage: the account name is different from the account owner name. The account name is used in certain user communities to provide a means of identifying the account, in addition to the account owner's identity and the account number.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Type is CashAccountType3Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Currency is CurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Name is IsoMax70Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CashAccount3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

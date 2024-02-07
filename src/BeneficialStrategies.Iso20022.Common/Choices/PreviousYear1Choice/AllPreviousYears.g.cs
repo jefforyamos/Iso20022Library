@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PreviousYear1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.PreviousYear1Choice;
 /// Selection of all investment plans.
 /// </summary>
 public partial record AllPreviousYears : PreviousYear1Choice_
+     , IIsoXmlSerilizable<AllPreviousYears>
 {
-    public required IsoPreviousAll Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Indicates that the investment plan issued during all the previous years have to be transferred.
+    /// </summary>
+    public required IsoPreviousAll Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AllPrvsYrs", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPreviousAll(Value)); // data type PreviousAll System.String
+        writer.WriteEndElement();
+    }
+    public static new AllPreviousYears Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

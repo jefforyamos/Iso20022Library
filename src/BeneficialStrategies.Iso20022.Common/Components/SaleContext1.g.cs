@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Sale context in which the transaction is performed.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SaleContext1
+     : IIsoXmlSerilizable<SaleContext1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the sale terminal (electronic cash register) or the sale system.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SaleIdentification { get; init; } 
     /// <summary>
     /// Identify a sale transaction assigned by the sale system.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SaleReferenceNumber { get; init; } 
     /// <summary>
     /// Identifier of the reconciliation between the Sale system and the POI system.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SaleReconciliationIdentification { get; init; } 
     /// <summary>
     /// Identification of the cashier who carried out the transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CashierIdentification { get; init; } 
     /// <summary>
     /// Identifies the shift of the cashier.
     /// </summary>
-    [DataMember]
     public IsoMax2NumericText? ShiftNumber { get; init; } 
     /// <summary>
     /// Additional information associated with the sale transaction.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? AdditionalSaleData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SaleIdentification is IsoMax35Text SaleIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SaleReferenceNumber is IsoMax35Text SaleReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "SaleRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReferenceNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SaleReconciliationIdentification is IsoMax35Text SaleReconciliationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleRcncltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReconciliationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CashierIdentification is IsoMax35Text CashierIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CshrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CashierIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ShiftNumber is IsoMax2NumericText ShiftNumberValue)
+        {
+            writer.WriteStartElement(null, "ShftNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2NumericText(ShiftNumberValue)); // data type Max2NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalSaleData is IsoMax70Text AdditionalSaleDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlSaleData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AdditionalSaleDataValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SaleContext1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

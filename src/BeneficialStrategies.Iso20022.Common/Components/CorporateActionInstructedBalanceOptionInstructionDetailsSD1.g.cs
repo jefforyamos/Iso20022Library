@@ -7,88 +7,158 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action instructed balance details at option level.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionInstructedBalanceOptionInstructionDetailsSD1
+     : IIsoXmlSerilizable<CorporateActionInstructedBalanceOptionInstructionDetailsSD1>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    [DataMember]
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Unique number assigned by the Depository. Transaction identification will be either the DTC Instruction Reference Number for reorganisation instructions (VOI) or the DAM Reference Number for custody / reorganisation deposits.
     /// </summary>
-    [DataMember]
     public required IsoMax15Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Number which further identifies DTC intsruction reference number. Not applicable to reorganisation / custody deposits.
     /// </summary>
-    [DataMember]
     public IsoMax3NumericText? TransactionSequenceNumber { get; init; } 
     /// <summary>
     /// Instruction date and time for reorganisation instructions or the deposit date for reorganisation / custody deposits.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime TransactionIdentificationDate { get; init; } 
     /// <summary>
     /// Contra CUSIP Identification of the option instruction.
     /// </summary>
-    [DataMember]
     public OtherIdentification2? TransactionContraCUSIP { get; init; } 
     /// <summary>
     /// Instructed quantity for reorganisation instructions or the deposit quantity for reorganisation / custody deposits.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity15Choice_ TransactionIdentificationQuantity { get; init; } 
     /// <summary>
     /// Quantity relating only to the oversubscription.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity15Choice_? TransactionIdentificationOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Status of the instruction.
     /// </summary>
-    [DataMember]
     public required DTCInstructionStatus2Code TransactionIdentificationStatus { get; init; } 
     /// <summary>
     /// Date and time of the protect instruction.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? TransactionIdentificationProtectDate { get; init; } 
     /// <summary>
     /// Date and time of the cover protect.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? TransactionIdentificationCoverProtectDate { get; init; } 
     /// <summary>
     /// Conditional quantity on the instruction.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity15Choice_? TransactionConditionalQuantity { get; init; } 
     /// <summary>
     /// Tender bid price of the instruction.
     /// </summary>
-    [DataMember]
     public PriceFormat57Choice_? TransactionTenderBidPrice { get; init; } 
     /// <summary>
     /// Customer identification entered by client upon instruction submission.
     /// </summary>
-    [DataMember]
     public IsoMax15Text? CustomerReferenceIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OptnNb", xmlNamespace );
+        OptionNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15Text(TransactionIdentification)); // data type Max15Text System.String
+        writer.WriteEndElement();
+        if (TransactionSequenceNumber is IsoMax3NumericText TransactionSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "TxSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(TransactionSequenceNumberValue)); // data type Max3NumericText System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxIdDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(TransactionIdentificationDate)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (TransactionContraCUSIP is OtherIdentification2 TransactionContraCUSIPValue)
+        {
+            writer.WriteStartElement(null, "TxContraCUSIP", xmlNamespace );
+            TransactionContraCUSIPValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxIdQty", xmlNamespace );
+        TransactionIdentificationQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionIdentificationOversubscriptionQuantity is FinancialInstrumentQuantity15Choice_ TransactionIdentificationOversubscriptionQuantityValue)
+        {
+            writer.WriteStartElement(null, "TxIdOvrsbcptQty", xmlNamespace );
+            TransactionIdentificationOversubscriptionQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxIdSts", xmlNamespace );
+        writer.WriteValue(TransactionIdentificationStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (TransactionIdentificationProtectDate is IsoISODateTime TransactionIdentificationProtectDateValue)
+        {
+            writer.WriteStartElement(null, "TxIdPrtctDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(TransactionIdentificationProtectDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (TransactionIdentificationCoverProtectDate is IsoISODateTime TransactionIdentificationCoverProtectDateValue)
+        {
+            writer.WriteStartElement(null, "TxIdCoverPrtctDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(TransactionIdentificationCoverProtectDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (TransactionConditionalQuantity is FinancialInstrumentQuantity15Choice_ TransactionConditionalQuantityValue)
+        {
+            writer.WriteStartElement(null, "TxCondlQty", xmlNamespace );
+            TransactionConditionalQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionTenderBidPrice is PriceFormat57Choice_ TransactionTenderBidPriceValue)
+        {
+            writer.WriteStartElement(null, "TxTndrBidPric", xmlNamespace );
+            TransactionTenderBidPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CustomerReferenceIdentification is IsoMax15Text CustomerReferenceIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CstmrRefId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15Text(CustomerReferenceIdentificationValue)); // data type Max15Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionInstructedBalanceOptionInstructionDetailsSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

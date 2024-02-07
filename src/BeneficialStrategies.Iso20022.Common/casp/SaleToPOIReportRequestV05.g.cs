@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.casp.SaleToPOIReportRequestV05>;
 
 namespace BeneficialStrategies.Iso20022.casp;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.casp;
 /// The SaleToPOIReportRequest message is sent by sale system to request a report service.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The SaleToPOIReportRequest message is sent by sale system to request a report service.")]
-public partial record SaleToPOIReportRequestV05 : IOuterRecord
+public partial record SaleToPOIReportRequestV05 : IOuterRecord<SaleToPOIReportRequestV05,SaleToPOIReportRequestV05Document>
+    ,IIsoXmlSerilizable<SaleToPOIReportRequestV05>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record SaleToPOIReportRequestV05 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SaleToPOIRptReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SaleToPOIReportRequestV05Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -76,6 +83,35 @@ public partial record SaleToPOIReportRequestV05 : IOuterRecord
     {
         return new SaleToPOIReportRequestV05Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SaleToPOIRptReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptReq", xmlNamespace );
+        ReportRequest.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecurityTrailer is ContentInformationType33 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SaleToPOIReportRequestV05 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -83,9 +119,7 @@ public partial record SaleToPOIReportRequestV05 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIReportRequestV05"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SaleToPOIReportRequestV05Document : IOuterDocument<SaleToPOIReportRequestV05>
+public partial record SaleToPOIReportRequestV05Document : IOuterDocument<SaleToPOIReportRequestV05>, IXmlSerializable
 {
     
     /// <summary>
@@ -101,5 +135,22 @@ public partial record SaleToPOIReportRequestV05Document : IOuterDocument<SaleToP
     /// <summary>
     /// The instance of <seealso cref="SaleToPOIReportRequestV05"/> is required.
     /// </summary>
+    [DataMember(Name=SaleToPOIReportRequestV05.XmlTag)]
     public required SaleToPOIReportRequestV05 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SaleToPOIReportRequestV05.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

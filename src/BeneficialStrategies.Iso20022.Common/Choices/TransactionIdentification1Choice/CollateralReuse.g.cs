@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TransactionIdentification1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionIdentification1Choice
 /// Provides identification of the collateral reuse.
 /// </summary>
 public partial record CollateralReuse : TransactionIdentification1Choice_
+     , IIsoXmlSerilizable<CollateralReuse>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique code identifying the reporting counterparty.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record CollateralReuse : TransactionIdentification1Choice_
     /// Unique code identifying the entity which submits the report. In the case where submission of the report has been delegated to a third party or to the other counterparty, a unique code identifying that entity.
     /// </summary>
     public required OrganisationIdentification9Choice_ ReportSubmittingEntity { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptgCtrPty", xmlNamespace );
+        ReportingCounterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptSubmitgNtty", xmlNamespace );
+        ReportSubmittingEntity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new CollateralReuse Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

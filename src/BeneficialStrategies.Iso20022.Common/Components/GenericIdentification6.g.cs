@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Balance expressed with a data source scheme.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GenericIdentification6
+     : IIsoXmlSerilizable<GenericIdentification6>
 {
     #nullable enable
     
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>
-    [DataMember]
     public required IsoMax8Text Issuer { get; init; } 
     /// <summary>
     /// Proprietary information, often a code, issued by the data source scheme issuer.
     /// </summary>
-    [DataMember]
     public required IsoExact4AlphaNumericText Information { get; init; } 
     /// <summary>
     /// Value of the balance.
     /// </summary>
-    [DataMember]
     public required IsoNumber Balance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Issr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax8Text(Issuer)); // data type Max8Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Inf", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(Information)); // data type Exact4AlphaNumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Bal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(Balance)); // data type Number System.UInt64
+        writer.WriteEndElement();
+    }
+    public static GenericIdentification6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

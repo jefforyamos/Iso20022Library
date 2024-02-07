@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification36Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification36Choice;
 /// Identification of constituents for a basket of indexes.
 /// </summary>
 public partial record Basket : SecurityIdentification36Choice_
+     , IIsoXmlSerilizable<Basket>
 {
     #nullable enable
+    
     /// <summary>
     /// Identification of the structurer of the customer basket.
     /// </summary>
@@ -27,5 +31,31 @@ public partial record Basket : SecurityIdentification36Choice_
     /// Identifier of the underliers that represent the constituents of a custom basket.
     /// </summary>
     public BasketConstituents1? Constituents { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _HI1KgQFOEeqUa4noT3P56A
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Strr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(Structurer)); // data type LEIIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax52Text(Identification)); // data type Max52Text System.String
+        writer.WriteEndElement();
+        // Not sure how to serialize Constituents, multiplicity Unknown
+    }
+    public static new Basket Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

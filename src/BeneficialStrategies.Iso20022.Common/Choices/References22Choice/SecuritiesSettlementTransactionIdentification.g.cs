@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.References22Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.References22Choice;
 /// Unambiguous identification of the securities settlement transaction.
 /// </summary>
 public partial record SecuritiesSettlementTransactionIdentification : References22Choice_
+     , IIsoXmlSerilizable<SecuritiesSettlementTransactionIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Provides unambiguous transaction identification information.
     /// </summary>
@@ -27,5 +31,32 @@ public partial record SecuritiesSettlementTransactionIdentification : References
     /// Specifies how the transaction is to be settled, for example, against payment.
     /// </summary>
     public required DeliveryReceiptType2Code Payment { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctiesMvmntTp", xmlNamespace );
+        writer.WriteValue(SecuritiesMovementType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Pmt", xmlNamespace );
+        writer.WriteValue(Payment.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new SecuritiesSettlementTransactionIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

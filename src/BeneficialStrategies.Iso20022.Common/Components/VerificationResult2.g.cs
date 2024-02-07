@@ -7,49 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Result of verifications performed prior or after the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record VerificationResult2
+     : IIsoXmlSerilizable<VerificationResult2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of the verification or authentication.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Entity who actually performed the verification.
     /// ISO 8583:93 bit 22-9
     /// </summary>
-    [DataMember]
     public VerificationEntity2Code? Entity { get; init; } 
     /// <summary>
     /// Other national or private entity in charge of the verification.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherEntity { get; init; } 
     /// <summary>
     /// Result of the verification.
     /// </summary>
-    [DataMember]
     public Verification3Code? Result { get; init; } 
     /// <summary>
     /// Additional result of the verification, for instance for electronic commerce.
     /// </summary>
-    [DataMember]
     public IsoMax500Text? OtherResult { get; init; } 
     /// <summary>
     /// Details of the result.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> ResultDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? ResultDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is IsoMax35Text TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Entity is VerificationEntity2Code EntityValue)
+        {
+            writer.WriteStartElement(null, "Ntty", xmlNamespace );
+            writer.WriteValue(EntityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherEntity is IsoMax35Text OtherEntityValue)
+        {
+            writer.WriteStartElement(null, "OthrNtty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherEntityValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Result is Verification3Code ResultValue)
+        {
+            writer.WriteStartElement(null, "Rslt", xmlNamespace );
+            writer.WriteValue(ResultValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherResult is IsoMax500Text OtherResultValue)
+        {
+            writer.WriteStartElement(null, "OthrRslt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Text(OtherResultValue)); // data type Max500Text System.String
+            writer.WriteEndElement();
+        }
+        if (ResultDetails is AdditionalData1 ResultDetailsValue)
+        {
+            writer.WriteStartElement(null, "RsltDtls", xmlNamespace );
+            ResultDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static VerificationResult2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

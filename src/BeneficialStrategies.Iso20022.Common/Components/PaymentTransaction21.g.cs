@@ -7,23 +7,46 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment processes required to transfer cash from the debtor to the creditor.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentTransaction21
+     : IIsoXmlSerilizable<PaymentTransaction21>
 {
     #nullable enable
     
     /// <summary>
     /// Choice between types of payment instrument, ie, cheque, credit transfer or investment account.
     /// </summary>
-    [DataMember]
     public PaymentInstrument11Choice_? PaymentInstrument { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PaymentInstrument is PaymentInstrument11Choice_ PaymentInstrumentValue)
+        {
+            writer.WriteStartElement(null, "PmtInstrm", xmlNamespace );
+            PaymentInstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentTransaction21 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

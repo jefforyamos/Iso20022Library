@@ -7,103 +7,197 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the corporate action security option.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesOption49
+     : IIsoXmlSerilizable<SecuritiesOption49>
 {
     #nullable enable
     
     /// <summary>
     /// Provides description of the financial instrument related to securities movement.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentAttributes67 SecurityDetails { get; init; } 
     /// <summary>
     /// Specifies whether the value is a debit or credit.
     /// </summary>
-    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Specifies that the security identified is a temporary security identification used for processing reasons, for example, contra security used in the US.
     /// </summary>
-    [DataMember]
     public TemporaryFinancialInstrumentIndicator3Choice_? TemporaryFinancialInstrumentIndicator { get; init; } 
     /// <summary>
     /// Specifies information regarding outturn resources that cannot be processed by the Central Securities Depository (CSD). Special delivery instruction is required from the account owner for the corporate action outcome to be credited.
     /// </summary>
-    [DataMember]
     public NonEligibleProceedsIndicator3Choice_? NonEligibleProceedsIndicator { get; init; } 
     /// <summary>
     /// Proceeds are taxable according to the information provided by the issuer / offeror.
     /// </summary>
-    [DataMember]
     public GenericIdentification30? IssuerOfferorTaxabilityIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the securities are newly issued or not.
     /// </summary>
-    [DataMember]
     public NewSecuritiesIssuanceType5Code? NewSecuritiesIssuanceIndicator { get; init; } 
     /// <summary>
     /// Specifies the type of income.|The lists of income type codes to be used, are available on the SMPG website at www.smpg.info.
     /// </summary>
-    [DataMember]
     public GenericIdentification30? IncomeType { get; init; } 
     /// <summary>
     /// Specifies the basis for the reduced rate of withholding.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericIdentification30> ExemptionType { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericIdentification30? ExemptionType { get; init; } 
     /// <summary>
     /// Quantity of securities based on the terms of the corporate action event and balance of underlying securities entitled to the account owner. (This quantity can be positive or negative).
     /// </summary>
-    [DataMember]
     public Quantity6Choice_? EntitledQuantity { get; init; } 
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
-    [DataMember]
     public SafekeepingPlaceFormat10Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Indicates the country from which the income originates.
     /// </summary>
-    [DataMember]
     public CountryCode? CountryOfIncomeSource { get; init; } 
     /// <summary>
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
-    [DataMember]
     public FractionDispositionType26Choice_? FractionDisposition { get; init; } 
     /// <summary>
     /// Currency in which the cash disbursed from an interest or dividend payment is offered.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? CurrencyOption { get; init; } 
     /// <summary>
     /// Period during which intermediate or outturn securities are tradable in a secondary market.
     /// </summary>
-    [DataMember]
     public Period3Choice_? TradingPeriod { get; init; } 
     /// <summary>
     /// Provides information about the dates related to securities movement.
     /// </summary>
-    [DataMember]
     public required SecurityDate12 DateDetails { get; init; } 
     /// <summary>
     /// Provides information about the rates related to securities movement.
     /// </summary>
-    [DataMember]
     public CorporateActionRate69? RateDetails { get; init; } 
     /// <summary>
     /// Provides information about the prices related to securities movement.
     /// </summary>
-    [DataMember]
     public CorporateActionPrice56? PriceDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SctyDtls", xmlNamespace );
+        SecurityDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (TemporaryFinancialInstrumentIndicator is TemporaryFinancialInstrumentIndicator3Choice_ TemporaryFinancialInstrumentIndicatorValue)
+        {
+            writer.WriteStartElement(null, "TempFinInstrmInd", xmlNamespace );
+            TemporaryFinancialInstrumentIndicatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NonEligibleProceedsIndicator is NonEligibleProceedsIndicator3Choice_ NonEligibleProceedsIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NonElgblPrcdsInd", xmlNamespace );
+            NonEligibleProceedsIndicatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssuerOfferorTaxabilityIndicator is GenericIdentification30 IssuerOfferorTaxabilityIndicatorValue)
+        {
+            writer.WriteStartElement(null, "IssrOfferrTaxbltyInd", xmlNamespace );
+            IssuerOfferorTaxabilityIndicatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewSecuritiesIssuanceIndicator is NewSecuritiesIssuanceType5Code NewSecuritiesIssuanceIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NewSctiesIssncInd", xmlNamespace );
+            writer.WriteValue(NewSecuritiesIssuanceIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (IncomeType is GenericIdentification30 IncomeTypeValue)
+        {
+            writer.WriteStartElement(null, "IncmTp", xmlNamespace );
+            IncomeTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExemptionType is GenericIdentification30 ExemptionTypeValue)
+        {
+            writer.WriteStartElement(null, "XmptnTp", xmlNamespace );
+            ExemptionTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EntitledQuantity is Quantity6Choice_ EntitledQuantityValue)
+        {
+            writer.WriteStartElement(null, "EntitldQty", xmlNamespace );
+            EntitledQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingPlace is SafekeepingPlaceFormat10Choice_ SafekeepingPlaceValue)
+        {
+            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
+            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CountryOfIncomeSource is CountryCode CountryOfIncomeSourceValue)
+        {
+            writer.WriteStartElement(null, "CtryOfIncmSrc", xmlNamespace );
+            writer.WriteValue(CountryOfIncomeSourceValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (FractionDisposition is FractionDispositionType26Choice_ FractionDispositionValue)
+        {
+            writer.WriteStartElement(null, "FrctnDspstn", xmlNamespace );
+            FractionDispositionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CurrencyOption is ActiveCurrencyCode CurrencyOptionValue)
+        {
+            writer.WriteStartElement(null, "CcyOptn", xmlNamespace );
+            writer.WriteValue(CurrencyOptionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TradingPeriod is Period3Choice_ TradingPeriodValue)
+        {
+            writer.WriteStartElement(null, "TradgPrd", xmlNamespace );
+            TradingPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DtDtls", xmlNamespace );
+        DateDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RateDetails is CorporateActionRate69 RateDetailsValue)
+        {
+            writer.WriteStartElement(null, "RateDtls", xmlNamespace );
+            RateDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PriceDetails is CorporateActionPrice56 PriceDetailsValue)
+        {
+            writer.WriteStartElement(null, "PricDtls", xmlNamespace );
+            PriceDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesOption49 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

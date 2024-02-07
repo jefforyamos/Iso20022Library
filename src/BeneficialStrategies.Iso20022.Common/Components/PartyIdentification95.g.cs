@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a person or an organisation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentification95
+     : IIsoXmlSerilizable<PartyIdentification95>
 {
     #nullable enable
     
     /// <summary>
     /// Identifier for an organisation that is allocated by an institution.
     /// </summary>
-    [DataMember]
     public PartyIdentification70Choice_? Identification { get; init; } 
     /// <summary>
     /// Identification of the organisation with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>
-    [DataMember]
     public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is PartyIdentification70Choice_ IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LegalEntityIdentifier is IsoLEIIdentifier LegalEntityIdentifierValue)
+        {
+            writer.WriteStartElement(null, "LglNttyIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LegalEntityIdentifierValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyIdentification95 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.reda.FundReferenceDataReportV06>;
 
 namespace BeneficialStrategies.Iso20022.reda;
 
@@ -29,10 +32,9 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// The FundReferenceDataReport message may be used to provide data concerning product governance, such as target market data, and a breakdown of the costs and fees in the context of MiFID II, with respect to the European MiFID Template (EMT) version 3 and 3.1. Versions 3 and 3.1 will coexist until version 4 is available.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The FundReferenceDataReport message is sent by a report provider, for example, a fund promoter, fund management company, transfer agent, or market data provider to the report recipient, for example, a professional investor, investment fund distributor, market data provider, regulator or other interested party, to provide the key reference data for financial instruments to facilitate trading. The message may also include reporting data concerning product governance, such as target market data, and a breakdown of the costs and fees.|Usage|A FundReferenceDataReport message should be prepared for each class of unit/share (for which an individual ISIN should have been allocated), in respect of its ""home"" market. Each time the fund data changes, the ‘product provider’ must provide the data to a product user, for example, the distributors, by sending a new funds reference data report. A single message may contain more than one report. When the FundReferenceDataReport message is sent to provide updated reference data, the message overwrites the previously sent data.|The FundReferenceDataReport message may be used in various models or environments:|-	in a standalone environment, for example, initiated by the Report Provider (fund promoter, fund manager and / or reference data vendors) sent on a regular frequency, or when changes are needed.|-	in a request / response environment, with the InvestmentFundReportRequest, for example, initiated by report users (data vendors, professional investors, regulators or investment fund distributors) in enabling the user to control the flow and updates of information.|-	in a reference data vendor environment, for example, market infrastructure and reference data providers may collate and store all fund reference data information centrally for access via database or regular distribution information. A reference data vendor may assume the role of both report provider and report user.|The FundReferenceDataReport message may be used to provide data concerning product governance, such as target market data, and a breakdown of the costs and fees in the context of MiFID II, with respect to the European MiFID Template (EMT) version 3 and 3.1. Versions 3 and 3.1 will coexist until version 4 is available.")]
-public partial record FundReferenceDataReportV06 : IOuterRecord
+public partial record FundReferenceDataReportV06 : IOuterRecord<FundReferenceDataReportV06,FundReferenceDataReportV06Document>
+    ,IIsoXmlSerilizable<FundReferenceDataReportV06>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -44,6 +46,11 @@ public partial record FundReferenceDataReportV06 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "FndRefDataRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => FundReferenceDataReportV06Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -102,6 +109,47 @@ public partial record FundReferenceDataReportV06 : IOuterRecord
     {
         return new FundReferenceDataReportV06Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("FndRefDataRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PreviousReference is AdditionalReference10 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference10 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FundReferenceDataReportIdentification is IsoMax35Text FundReferenceDataReportIdentificationValue)
+        {
+            writer.WriteStartElement(null, "FndRefDataRptId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(FundReferenceDataReportIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Rpt", xmlNamespace );
+        Report.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static FundReferenceDataReportV06 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -109,9 +157,7 @@ public partial record FundReferenceDataReportV06 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FundReferenceDataReportV06"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record FundReferenceDataReportV06Document : IOuterDocument<FundReferenceDataReportV06>
+public partial record FundReferenceDataReportV06Document : IOuterDocument<FundReferenceDataReportV06>, IXmlSerializable
 {
     
     /// <summary>
@@ -127,5 +173,22 @@ public partial record FundReferenceDataReportV06Document : IOuterDocument<FundRe
     /// <summary>
     /// The instance of <seealso cref="FundReferenceDataReportV06"/> is required.
     /// </summary>
+    [DataMember(Name=FundReferenceDataReportV06.XmlTag)]
     public required FundReferenceDataReportV06 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(FundReferenceDataReportV06.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

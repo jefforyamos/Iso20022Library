@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the trade status report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeStatusReport1
+     : IIsoXmlSerilizable<TradeStatusReport1>
 {
     #nullable enable
     
     /// <summary>
     /// Information concerning the original message to which the TradeStatusReport is sent in response.
     /// </summary>
-    [DataMember]
     public required OriginalMessage1 OriginalMessageDetails { get; init; } 
     /// <summary>
     /// Specifies the processing status of the original message.
     /// </summary>
-    [DataMember]
     public required UndertakingStatus1Code Status { get; init; } 
     /// <summary>
     /// Set of elements used to provide detailed information on the status reason.
     /// </summary>
-    [DataMember]
-    public ValueList<StatusReasonInformation8> StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public StatusReasonInformation8? StatusReason { get; init; } 
     /// <summary>
     /// Additional information related to the report.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OrgnlMsgDtls", xmlNamespace );
+        OriginalMessageDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (StatusReason is StatusReasonInformation8 StatusReasonValue)
+        {
+            writer.WriteStartElement(null, "StsRsn", xmlNamespace );
+            StatusReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax35Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdditionalInformationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeStatusReport1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

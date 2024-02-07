@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalInformation25
+     : IIsoXmlSerilizable<AdditionalInformation25>
 {
     #nullable enable
     
     /// <summary>
     /// Type of query.
     /// </summary>
-    [DataMember]
     public GenericIdentification36? QueryType { get; init; } 
     /// <summary>
     /// Description of the query.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text Query { get; init; } 
     /// <summary>
     /// Reason for the query.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? QueryReason { get; init; } 
     /// <summary>
     /// Reason the instruction was rejected.
     /// </summary>
-    [DataMember]
     public RejectedReason33Choice_? RejectionReason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (QueryType is GenericIdentification36 QueryTypeValue)
+        {
+            writer.WriteStartElement(null, "QryTp", xmlNamespace );
+            QueryTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Qry", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(Query)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (QueryReason is IsoMax350Text QueryReasonValue)
+        {
+            writer.WriteStartElement(null, "QryRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(QueryReasonValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (RejectionReason is RejectedReason33Choice_ RejectionReasonValue)
+        {
+            writer.WriteStartElement(null, "RjctnRsn", xmlNamespace );
+            RejectionReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AdditionalInformation25 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

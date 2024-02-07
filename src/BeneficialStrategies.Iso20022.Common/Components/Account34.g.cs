@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Account34
+     : IIsoXmlSerilizable<Account34>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountIdentification { get; init; } 
     /// <summary>
     /// Supplementary registration information applying to a specific block of units for dealing and reporting purposes. The supplementary registration information may be used when all the units are registered, for example, to a funds supermarket, but holdings for each investor have to be reconciled individually.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountDesignation { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountName { get; init; } 
     /// <summary>
     /// Institution that maintains the records where the account is held.
     /// </summary>
-    [DataMember]
     public required PartyIdentification132 AccountServicer { get; init; } 
     /// <summary>
     /// Address of the nominee company that holds the assets at the transfer agent or International Central Securities Depository or Central Securities Depository on behalf of the party.
     /// </summary>
-    [DataMember]
     public PostalAddress1? RegistrationAddress { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountIdentification is IsoMax35Text AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountDesignation is IsoMax35Text AccountDesignationValue)
+        {
+            writer.WriteStartElement(null, "AcctDsgnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountDesignationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountName is IsoMax35Text AccountNameValue)
+        {
+            writer.WriteStartElement(null, "AcctNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+        AccountServicer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RegistrationAddress is PostalAddress1 RegistrationAddressValue)
+        {
+            writer.WriteStartElement(null, "RegnAdr", xmlNamespace );
+            RegistrationAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Account34 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

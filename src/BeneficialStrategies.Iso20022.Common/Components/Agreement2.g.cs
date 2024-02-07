@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Agreement details for the over the counter market.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Agreement2
+     : IIsoXmlSerilizable<Agreement2>
 {
     #nullable enable
     
     /// <summary>
     /// Full details of the supporting legal agreement under which the margin call can be issued and/or governed.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text AgreementDetails { get; init; } 
     /// <summary>
     /// Common reference to the agreement between the two counterparties.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? AgreementIdentification { get; init; } 
     /// <summary>
     /// Date on which the collateral agreement was signed.
     /// </summary>
-    [DataMember]
     public required IsoISODate AgreementDate { get; init; } 
     /// <summary>
     /// Denomination currency as specified in the collateral agreement.
     /// </summary>
-    [DataMember]
     public required CurrencyCode BaseCurrency { get; init; } 
     /// <summary>
     /// Specifies the underlying master agreement.
     /// </summary>
-    [DataMember]
     public AgreementFramework1Choice_? AgreementFramework { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AgrmtDtls", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(AgreementDetails)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        if (AgreementIdentification is IsoMax140Text AgreementIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AgrmtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(AgreementIdentificationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AgrmtDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(AgreementDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BaseCcy", xmlNamespace );
+        writer.WriteValue(BaseCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AgreementFramework is AgreementFramework1Choice_ AgreementFrameworkValue)
+        {
+            writer.WriteStartElement(null, "AgrmtFrmwk", xmlNamespace );
+            AgreementFrameworkValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Agreement2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

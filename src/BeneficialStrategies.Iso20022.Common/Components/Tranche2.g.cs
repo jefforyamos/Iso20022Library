@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates derivative contract was tranched.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Tranche2
+     : IIsoXmlSerilizable<Tranche2>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the point at which losses in the pool will attach to a particular tranche.
     /// </summary>
-    [DataMember]
     public IsoBaseOneRate? AttachmentPoint { get; init; } 
     /// <summary>
     /// Indicates the point beyond which losses do not affect the particular tranche.
     /// </summary>
-    [DataMember]
     public IsoBaseOneRate? DetachmentPoint { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AttachmentPoint is IsoBaseOneRate AttachmentPointValue)
+        {
+            writer.WriteStartElement(null, "AttchmntPt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(AttachmentPointValue)); // data type BaseOneRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (DetachmentPoint is IsoBaseOneRate DetachmentPointValue)
+        {
+            writer.WriteStartElement(null, "DtchmntPt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(DetachmentPointValue)); // data type BaseOneRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static Tranche2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

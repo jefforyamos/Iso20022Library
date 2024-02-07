@@ -7,48 +7,81 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of characteristics related to the transfer of transactions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Header27
+     : IIsoXmlSerilizable<Header27>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates if the file transfer is a download or an upload.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator DownloadTransfer { get; init; } 
     /// <summary>
     /// Version of file format.
     /// </summary>
-    [DataMember]
     public required IsoMax6Text FormatVersion { get; init; } 
     /// <summary>
     /// Unique identification of an exchange occurrence.
     /// </summary>
-    [DataMember]
     public required IsoNumber ExchangeIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the file or message was created.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Unique identification of the partner that has initiated the exchange.
     /// </summary>
-    [DataMember]
     public required GenericIdentification71 InitiatingParty { get; init; } 
     /// <summary>
     /// Unique identification of the partner that is the recipient of the exchange.
     /// </summary>
-    [DataMember]
     public GenericIdentification92? RecipientParty { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DwnldTrf", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DownloadTransfer)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FrmtVrsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax6Text(FormatVersion)); // data type Max6Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XchgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(ExchangeIdentification)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InitgPty", xmlNamespace );
+        InitiatingParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RecipientParty is GenericIdentification92 RecipientPartyValue)
+        {
+            writer.WriteStartElement(null, "RcptPty", xmlNamespace );
+            RecipientPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Header27 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

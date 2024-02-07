@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Party8Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Party8Choice;
 /// Unique and unambiguous way to identify an organisation.
 /// </summary>
 public partial record OrganisationIdentification : Party8Choice_
+     , IIsoXmlSerilizable<OrganisationIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Code allocated to organisations by the ISO 9362 Registration Authority, under an international identification scheme, as described in the latest version of the standard ISO 9362 Banking (Banking telecommunication messages, Business Identifier Codes).
     /// </summary>
@@ -22,6 +26,36 @@ public partial record OrganisationIdentification : Party8Choice_
     /// <summary>
     /// Unique identification of an organisation, as assigned by an institution, using an identification scheme.
     /// </summary>
-    public GenericOrganisationIdentification1? Other { get; init;  } // Warning: Don't know multiplicity.
+    public GenericOrganisationIdentification1? Other { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (BIC is IsoAnyBICIdentifier BICValue)
+        {
+            writer.WriteStartElement(null, "BIC", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(BICValue)); // data type AnyBICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (Other is GenericOrganisationIdentification1 OtherValue)
+        {
+            writer.WriteStartElement(null, "Othr", xmlNamespace );
+            OtherValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new OrganisationIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Entity involved in an activity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyAndSignature1
+     : IIsoXmlSerilizable<PartyAndSignature1>
 {
     #nullable enable
     
     /// <summary>
     /// Entity involved in an activity.
     /// </summary>
-    [DataMember]
     public required PartyIdentification41 Party { get; init; } 
     /// <summary>
     /// Signature of a party.
     /// </summary>
-    [DataMember]
     public required ProprietaryData3 Signature { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Pty", xmlNamespace );
+        Party.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sgntr", xmlNamespace );
+        Signature.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static PartyAndSignature1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

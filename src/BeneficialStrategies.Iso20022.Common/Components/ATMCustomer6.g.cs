@@ -7,33 +7,62 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Customer involved in a withdrawal transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMCustomer6
+     : IIsoXmlSerilizable<ATMCustomer6>
 {
     #nullable enable
     
     /// <summary>
     /// Profile of the customer selected to perform the service.
     /// </summary>
-    [DataMember]
     public ATMCustomerProfile4? Profile { get; init; } 
     /// <summary>
     /// Language selected by the customer at the ATM for the customer session. Reference ISO 639-1 (alpha-2) et ISO 639-2 (alpha-3).
     /// </summary>
-    [DataMember]
     public LanguageCode? SelectedLanguage { get; init; } 
     /// <summary>
     /// Result of the customer authentication for this transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<TransactionVerificationResult5> AuthenticationResult { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransactionVerificationResult5? AuthenticationResult { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _YW9Tpa4KEeWZgJQOa6iKCQ
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Profile is ATMCustomerProfile4 ProfileValue)
+        {
+            writer.WriteStartElement(null, "Prfl", xmlNamespace );
+            ProfileValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SelectedLanguage is LanguageCode SelectedLanguageValue)
+        {
+            writer.WriteStartElement(null, "SelctdLang", xmlNamespace );
+            writer.WriteValue(SelectedLanguageValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize AuthenticationResult, multiplicity Unknown
+    }
+    public static ATMCustomer6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

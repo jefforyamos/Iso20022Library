@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.SecuritiesSettlementTransactionGenerationNotificationV03>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -32,10 +35,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// - re-send to a third party a copy of a message for information.|ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account servicer sends a SecuritiesSettlementTransactionGenerationNotification to an account owner to advise the account owner of a securities settlement transaction that has been generated/created by the account servicer for the account owner. The reason for creation can range from the automatic transformation of pending settlement instructions following a corporate event to the recovery of an account owner transactions' database initiated by its account servicer.|The account servicer/owner relationship may be:|- a central securities depository or another settlement market infrastructure acting on behalf of their participants|- an agent (sub-custodian) acting on behalf of their global custodian customer, or|- a custodian acting on behalf of an investment management institution or a broker/dealer.|using the relevant elements in the Business Application Header.|Usage|The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information.|ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.")]
-public partial record SecuritiesSettlementTransactionGenerationNotificationV03 : IOuterRecord
+public partial record SecuritiesSettlementTransactionGenerationNotificationV03 : IOuterRecord<SecuritiesSettlementTransactionGenerationNotificationV03,SecuritiesSettlementTransactionGenerationNotificationV03Document>
+    ,IIsoXmlSerilizable<SecuritiesSettlementTransactionGenerationNotificationV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -47,6 +49,11 @@ public partial record SecuritiesSettlementTransactionGenerationNotificationV03 :
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesSttlmTxGnrtnNtfctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesSettlementTransactionGenerationNotificationV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -225,6 +232,116 @@ public partial record SecuritiesSettlementTransactionGenerationNotificationV03 :
     {
         return new SecuritiesSettlementTransactionGenerationNotificationV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesSttlmTxGnrtnNtfctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxIdDtls", xmlNamespace );
+        TransactionIdentificationDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (NumberCounts is NumberCount1Choice_ NumberCountsValue)
+        {
+            writer.WriteStartElement(null, "NbCounts", xmlNamespace );
+            NumberCountsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Linkages is Linkages17 LinkagesValue)
+        {
+            writer.WriteStartElement(null, "Lnkgs", xmlNamespace );
+            LinkagesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TradDtls", xmlNamespace );
+        TradeDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FinancialInstrumentAttributes is FinancialInstrumentAttributes35 FinancialInstrumentAttributesValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmAttrbts", xmlNamespace );
+            FinancialInstrumentAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "QtyAndAcctDtls", xmlNamespace );
+        QuantityAndAccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmParams", xmlNamespace );
+        SettlementParameters.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DeliveringSettlementParties is SettlementParties11 DeliveringSettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "DlvrgSttlmPties", xmlNamespace );
+            DeliveringSettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReceivingSettlementParties is SettlementParties11 ReceivingSettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "RcvgSttlmPties", xmlNamespace );
+            ReceivingSettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashParties is CashParties8 CashPartiesValue)
+        {
+            writer.WriteStartElement(null, "CshPties", xmlNamespace );
+            CashPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementAmount is AmountAndDirection2 SettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
+            SettlementAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherAmounts is OtherAmounts14 OtherAmountsValue)
+        {
+            writer.WriteStartElement(null, "OthrAmts", xmlNamespace );
+            OtherAmountsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherBusinessParties is OtherParties19 OtherBusinessPartiesValue)
+        {
+            writer.WriteStartElement(null, "OthrBizPties", xmlNamespace );
+            OtherBusinessPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalPhysicalOrRegistrationDetails is RegistrationParameters1 AdditionalPhysicalOrRegistrationDetailsValue)
+        {
+            writer.WriteStartElement(null, "AddtlPhysOrRegnDtls", xmlNamespace );
+            AdditionalPhysicalOrRegistrationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GeneratedReason is GeneratedReason1 GeneratedReasonValue)
+        {
+            writer.WriteStartElement(null, "GnrtdRsn", xmlNamespace );
+            GeneratedReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StatusAndReason is StatusAndReason12 StatusAndReasonValue)
+        {
+            writer.WriteStartElement(null, "StsAndRsn", xmlNamespace );
+            StatusAndReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesSettlementTransactionGenerationNotificationV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -232,9 +349,7 @@ public partial record SecuritiesSettlementTransactionGenerationNotificationV03 :
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementTransactionGenerationNotificationV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesSettlementTransactionGenerationNotificationV03Document : IOuterDocument<SecuritiesSettlementTransactionGenerationNotificationV03>
+public partial record SecuritiesSettlementTransactionGenerationNotificationV03Document : IOuterDocument<SecuritiesSettlementTransactionGenerationNotificationV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -250,5 +365,22 @@ public partial record SecuritiesSettlementTransactionGenerationNotificationV03Do
     /// <summary>
     /// The instance of <seealso cref="SecuritiesSettlementTransactionGenerationNotificationV03"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesSettlementTransactionGenerationNotificationV03.XmlTag)]
     public required SecuritiesSettlementTransactionGenerationNotificationV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesSettlementTransactionGenerationNotificationV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

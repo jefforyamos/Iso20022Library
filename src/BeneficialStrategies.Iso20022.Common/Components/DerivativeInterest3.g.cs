@@ -7,39 +7,74 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies a multi-leg interest derivative.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DerivativeInterest3
+     : IIsoXmlSerilizable<DerivativeInterest3>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the interest rate in number of days, weeks, months or years.
     /// </summary>
-    [DataMember]
     public required FloatingInterestRate8 InterestRate { get; init; } 
     /// <summary>
     /// Interest rate of the notional currency.
     /// </summary>
-    [DataMember]
     public InterestRate8Choice_? FirstLegInterestRate { get; init; } 
     /// <summary>
     /// Notional currency in which leg 2 of the contract is denominated, in case of multi-currency or cross-currency swaps.
     /// Notional currency in which leg 2 of the swap is denominated, in case of swaptions where the underlying swap is multi-currency.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? OtherNotionalCurrency { get; init; } 
     /// <summary>
     /// Indication of the interest rate used for leg 2, if applicable.
     /// </summary>
-    [DataMember]
     public InterestRate8Choice_? OtherLegInterestRate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IntrstRate", xmlNamespace );
+        InterestRate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FirstLegInterestRate is InterestRate8Choice_ FirstLegInterestRateValue)
+        {
+            writer.WriteStartElement(null, "FrstLegIntrstRate", xmlNamespace );
+            FirstLegInterestRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherNotionalCurrency is ActiveOrHistoricCurrencyCode OtherNotionalCurrencyValue)
+        {
+            writer.WriteStartElement(null, "OthrNtnlCcy", xmlNamespace );
+            writer.WriteValue(OtherNotionalCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherLegInterestRate is InterestRate8Choice_ OtherLegInterestRateValue)
+        {
+            writer.WriteStartElement(null, "OthrLegIntrstRate", xmlNamespace );
+            OtherLegInterestRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DerivativeInterest3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

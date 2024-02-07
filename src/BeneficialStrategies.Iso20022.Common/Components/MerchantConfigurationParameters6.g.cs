@@ -7,63 +7,123 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acceptor parameters dedicated to the merchant.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MerchantConfigurationParameters6
+     : IIsoXmlSerilizable<MerchantConfigurationParameters6>
 {
     #nullable enable
     
     /// <summary>
     /// Type of action for the configuration parameters.
     /// </summary>
-    [DataMember]
     public required TerminalManagementAction3Code ActionType { get; init; } 
     /// <summary>
     /// Identification of the merchant for the MTM, if the POI manages several merchants.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MerchantIdentification { get; init; } 
     /// <summary>
     /// Version of the merchant parameters.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? Version { get; init; } 
     /// <summary>
     /// Version of the parameters' format.
     /// </summary>
-    [DataMember]
     public IsoMax8Text? ParameterFormatIdentifier { get; init; } 
     /// <summary>
     /// Local proxy configuration.
     /// </summary>
-    [DataMember]
     public NetworkParameters8? Proxy { get; init; } 
     /// <summary>
     /// Full length of other parameters.
     /// </summary>
-    [DataMember]
     public IsoPositiveNumber? OtherParametersLength { get; init; } 
     /// <summary>
     /// Place of this  Block, beginning with 0, in the full other parameters.
     /// </summary>
-    [DataMember]
     public IsoPositiveNumber? OffsetStart { get; init; } 
     /// <summary>
     /// Following place of this Block in the full other parameters.
     /// </summary>
-    [DataMember]
     public IsoPositiveNumber? OffsetEnd { get; init; } 
     /// <summary>
     /// Other merchant parameters.
     /// </summary>
-    [DataMember]
     public IsoMax10000Binary? OtherParameters { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ActnTp", xmlNamespace );
+        writer.WriteValue(ActionType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (MerchantIdentification is IsoMax35Text MerchantIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MrchntId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MerchantIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Version is IsoMax256Text VersionValue)
+        {
+            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(VersionValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (ParameterFormatIdentifier is IsoMax8Text ParameterFormatIdentifierValue)
+        {
+            writer.WriteStartElement(null, "ParamFrmtIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax8Text(ParameterFormatIdentifierValue)); // data type Max8Text System.String
+            writer.WriteEndElement();
+        }
+        if (Proxy is NetworkParameters8 ProxyValue)
+        {
+            writer.WriteStartElement(null, "Prxy", xmlNamespace );
+            ProxyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherParametersLength is IsoPositiveNumber OtherParametersLengthValue)
+        {
+            writer.WriteStartElement(null, "OthrParamsLngth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPositiveNumber(OtherParametersLengthValue)); // data type PositiveNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (OffsetStart is IsoPositiveNumber OffsetStartValue)
+        {
+            writer.WriteStartElement(null, "OffsetStart", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPositiveNumber(OffsetStartValue)); // data type PositiveNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (OffsetEnd is IsoPositiveNumber OffsetEndValue)
+        {
+            writer.WriteStartElement(null, "OffsetEnd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPositiveNumber(OffsetEndValue)); // data type PositiveNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (OtherParameters is IsoMax10000Binary OtherParametersValue)
+        {
+            writer.WriteStartElement(null, "OthrParams", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(OtherParametersValue)); // data type Max10000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static MerchantConfigurationParameters6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

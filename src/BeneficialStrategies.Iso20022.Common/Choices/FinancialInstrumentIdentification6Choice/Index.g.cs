@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentIdentification6Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentIdentificatio
 /// Index on which the financial instrument is based.
 /// </summary>
 public partial record Index : FinancialInstrumentIdentification6Choice_
+     , IIsoXmlSerilizable<Index>
 {
     #nullable enable
+    
     /// <summary>
     /// Identification of the index on which the financial instrument is based.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record Index : FinancialInstrumentIdentification6Choice_
     /// Name of the index on which the financial instrument is based.
     /// </summary>
     public required FloatingInterestRate8 Name { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ISIN is IsoISINOct2015Identifier ISINValue)
+        {
+            writer.WriteStartElement(null, "ISIN", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(ISINValue)); // data type ISINOct2015Identifier System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        Name.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new Index Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

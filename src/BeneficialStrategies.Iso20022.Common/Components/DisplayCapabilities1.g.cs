@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// The capabilities of the display components performing the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DisplayCapabilities1
+     : IIsoXmlSerilizable<DisplayCapabilities1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of display (for example merchant or cardholder).
     /// </summary>
-    [DataMember]
     public required UserInterface2Code DisplayType { get; init; } 
     /// <summary>
     /// Number of lines of the display component.
     /// </summary>
-    [DataMember]
     public required IsoMax3NumericText NumberOfLines { get; init; } 
     /// <summary>
     /// Number of columns of the display component.
     /// </summary>
-    [DataMember]
     public required IsoMax3NumericText LineWidth { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DispTp", xmlNamespace );
+        writer.WriteValue(DisplayType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NbOfLines", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax3NumericText(NumberOfLines)); // data type Max3NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "LineWidth", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax3NumericText(LineWidth)); // data type Max3NumericText System.String
+        writer.WriteEndElement();
+    }
+    public static DisplayCapabilities1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

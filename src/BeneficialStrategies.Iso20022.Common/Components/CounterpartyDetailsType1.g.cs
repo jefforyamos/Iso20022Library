@@ -7,37 +7,64 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information of the counterparty in case of [sankaku] gappei (a third party is involved as one of the counterparties in the merger but there is no security movement from the third party).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CounterpartyDetailsType1
+     : IIsoXmlSerilizable<CounterpartyDetailsType1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification15 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Classification of the Issuer or the Counterparty institution in case of a merger.
     /// 存続/消滅/親会社/子会社/未定の区分
     /// ※イベントタイプがMRGRの場合に、存続会社or消滅会社、親会社or子会社の通知を見分けるために必要。.
     /// </summary>
-    [DataMember]
     public InstitutionalClassificationCode? PostEffectiveDateClassification { get; init; } 
     /// <summary>
     /// Abbreviated name of underlying securities in the local language.
     /// Note that in case of non-listed securities, it will be a full local language security name.
     /// 銘柄名（銘柄略称）.
     /// </summary>
-    [DataMember]
     public required IsoMax240Text AbbreviatedLocalLanguageSecurityName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PostEffectiveDateClassification is InstitutionalClassificationCode PostEffectiveDateClassificationValue)
+        {
+            writer.WriteStartElement(null, "PstFctvDtClssfctn", xmlNamespace );
+            writer.WriteValue(PostEffectiveDateClassificationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AbbrvtdLclLangSctyNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax240Text(AbbreviatedLocalLanguageSecurityName)); // data type Max240Text System.String
+        writer.WriteEndElement();
+    }
+    public static CounterpartyDetailsType1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

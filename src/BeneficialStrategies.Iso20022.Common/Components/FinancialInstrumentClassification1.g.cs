@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// The classification type of the financial instrument, eg, common share with voting right, fully paid and registered etc.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrumentClassification1
+     : IIsoXmlSerilizable<FinancialInstrumentClassification1>
 {
     #nullable enable
     
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, eg, common share with voting rights, fully paid, or registered.
     /// </summary>
-    [DataMember]
     public required SecurityClassificationType1Choice_ ClassificationType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ClssfctnTp", xmlNamespace );
+        ClassificationType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static FinancialInstrumentClassification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

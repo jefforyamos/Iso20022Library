@@ -7,48 +7,78 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies elements related to the response sent by the clearing member to the central counterparty in the context of the buy in process.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BuyIn3
+     : IIsoXmlSerilizable<BuyIn3>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the reference of the BuyInNotification message.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text BuyInNotificationIdentification { get; init; } 
     /// <summary>
     /// Specific continuous net settlement case where the central counterparty can call for buy-in at a date anterior to "theoretical" buy-in date, the clearing member may request a delay.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator RequestForDelayIndicator { get; init; } 
     /// <summary>
     /// Number of days associated to the request for delay.
     /// </summary>
-    [DataMember]
     public required IsoNumber NumberOfDays { get; init; } 
     /// <summary>
     /// Buy in quantity called initially by the central counterparty.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ InitialQuantity { get; init; } 
     /// <summary>
     /// Quantity amount covered by the clearing member after notification.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ CoveredQuantity { get; init; } 
     /// <summary>
     /// Quantity amount non covered by the clearing member after notification (this is, new buy in amount to be executed).
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ UncoveredQuantity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BuyInNtfctnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(BuyInNotificationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ReqForDelyInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RequestForDelayIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NbOfDays", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfDays)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InitlQty", xmlNamespace );
+        InitialQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CvrdQty", xmlNamespace );
+        CoveredQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UcvrdQty", xmlNamespace );
+        UncoveredQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static BuyIn3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

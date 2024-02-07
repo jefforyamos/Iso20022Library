@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Profile of the customer selected by an ATM.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMCustomerProfile2
+     : IIsoXmlSerilizable<ATMCustomerProfile2>
 {
     #nullable enable
     
     /// <summary>
     /// Reference of the customer profile.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ProfileReference { get; init; } 
     /// <summary>
     /// Identification of the customer for the bank.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CustomerIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ProfileReference is IsoMax35Text ProfileReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrflRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProfileReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CustomerIdentification is IsoMax35Text CustomerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CstmrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CustomerIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMCustomerProfile2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

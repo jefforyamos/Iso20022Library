@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.UnableToApplyJustification3Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.UnableToApplyJustification3Choic
 /// Indicates whether or not the referred item is a possible duplicate of a previous instruction or entry.
 /// </summary>
 public partial record PossibleDuplicateInstruction : UnableToApplyJustification3Choice_
+     , IIsoXmlSerilizable<PossibleDuplicateInstruction>
 {
-    public required IsoTrueFalseIndicator Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// A flag indicating a True or False value.
+    /// </summary>
+    public required IsoTrueFalseIndicator Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PssblDplctInstr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(Value)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static new PossibleDuplicateInstruction Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

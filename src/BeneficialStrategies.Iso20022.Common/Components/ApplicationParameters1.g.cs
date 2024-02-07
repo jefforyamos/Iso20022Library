@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acceptor parameters dedicated to a payment application of the point of interaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ApplicationParameters1
+     : IIsoXmlSerilizable<ApplicationParameters1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the payment application.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ApplicationIdentification { get; init; } 
     /// <summary>
     /// Version of the payment application configuration parameters.
     /// </summary>
-    [DataMember]
     public required IsoMax16Text Version { get; init; } 
     /// <summary>
     /// Configuration parameters used by the related payment application.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax10000Binary> Parameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax10000Binary? Parameters { get; init; } 
     /// <summary>
     /// Sensitive parameters (sequence of Parameters including the enveloppes) encrypted with a cryptographic key.
     /// </summary>
-    [DataMember]
     public ContentInformationType2? EncryptedParameters { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ApplId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ApplicationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax16Text(Version)); // data type Max16Text System.String
+        writer.WriteEndElement();
+        if (Parameters is IsoMax10000Binary ParametersValue)
+        {
+            writer.WriteStartElement(null, "Params", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(ParametersValue)); // data type Max10000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (EncryptedParameters is ContentInformationType2 EncryptedParametersValue)
+        {
+            writer.WriteStartElement(null, "NcrptdParams", xmlNamespace );
+            EncryptedParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ApplicationParameters1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.ReversalOfTransferOutConfirmationV06>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// The message identification of the TransferOutConfirmation message in which the transfer out confirmation was conveyed may also be quoted in PreviousReference. The message identification of the TransferOutInstruction message in which the transfer out instruction was conveyed may also be quoted in RelatedReference.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An executing party, for example, a transfer agent, sends the ReversalOfTransferOutConfirmation message to the instructing party, for example, an investment manager or its authorised representative, to cancel a previously sent TransferOutConfirmation message.|Usage|The ReversalOfTransferOutConfirmation message is used to reverse a previously sent TransferOutConfirmation.|There are two ways to specify the reversal of the transfer out confirmation. Either:|- the business references, for example, TransferReference, TransferConfirmationIdentification, of the transfer confirmation are quoted, or,|- all the details of the transfer confirmation (this includes TransferReference and TransferConfirmationIdentification) are quoted but this is not recommended.|The message identification of the TransferOutConfirmation message in which the transfer out confirmation was conveyed may also be quoted in PreviousReference. The message identification of the TransferOutInstruction message in which the transfer out instruction was conveyed may also be quoted in RelatedReference.")]
-public partial record ReversalOfTransferOutConfirmationV06 : IOuterRecord
+public partial record ReversalOfTransferOutConfirmationV06 : IOuterRecord<ReversalOfTransferOutConfirmationV06,ReversalOfTransferOutConfirmationV06Document>
+    ,IIsoXmlSerilizable<ReversalOfTransferOutConfirmationV06>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record ReversalOfTransferOutConfirmationV06 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "RvslOfTrfOutConf";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ReversalOfTransferOutConfirmationV06Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -101,6 +108,47 @@ public partial record ReversalOfTransferOutConfirmationV06 : IOuterRecord
     {
         return new ReversalOfTransferOutConfirmationV06Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("RvslOfTrfOutConf");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (References is References15 ReferencesValue)
+        {
+            writer.WriteStartElement(null, "Refs", xmlNamespace );
+            ReferencesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Rvsl", xmlNamespace );
+        Reversal.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MarketPracticeVersion is MarketPracticeVersion1 MarketPracticeVersionValue)
+        {
+            writer.WriteStartElement(null, "MktPrctcVrsn", xmlNamespace );
+            MarketPracticeVersionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CopyDetails is CopyInformation2 CopyDetailsValue)
+        {
+            writer.WriteStartElement(null, "CpyDtls", xmlNamespace );
+            CopyDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ReversalOfTransferOutConfirmationV06 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -108,9 +156,7 @@ public partial record ReversalOfTransferOutConfirmationV06 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReversalOfTransferOutConfirmationV06"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ReversalOfTransferOutConfirmationV06Document : IOuterDocument<ReversalOfTransferOutConfirmationV06>
+public partial record ReversalOfTransferOutConfirmationV06Document : IOuterDocument<ReversalOfTransferOutConfirmationV06>, IXmlSerializable
 {
     
     /// <summary>
@@ -126,5 +172,22 @@ public partial record ReversalOfTransferOutConfirmationV06Document : IOuterDocum
     /// <summary>
     /// The instance of <seealso cref="ReversalOfTransferOutConfirmationV06"/> is required.
     /// </summary>
+    [DataMember(Name=ReversalOfTransferOutConfirmationV06.XmlTag)]
     public required ReversalOfTransferOutConfirmationV06 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ReversalOfTransferOutConfirmationV06.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

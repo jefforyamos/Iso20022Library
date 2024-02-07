@@ -7,73 +7,143 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action option cash movement details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashOptionSD3
+     : IIsoXmlSerilizable<CashOptionSD3>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Income classification of the cash proceeds for dividend reinvestment.
     /// </summary>
-    [DataMember]
     public ReinvestmentIncomeClassification1Code? ReinvestmentIncomeClassification { get; init; } 
     /// <summary>
     /// Indicates the type of payment. Used in stock dividends processing at DTC (The Depository Trust Corporation). Valid values list will be maintained separately from the schema.
     /// </summary>
-    [DataMember]
     public IsoMax3Text? DTCPayMethod { get; init; } 
     /// <summary>
     /// Indicates the payment order. Used in stock dividends processing at DTC (The Depository Trust Corporation). Valid values list will be maintained separately from the schema.
     /// </summary>
-    [DataMember]
     public IsoMax3Text? DTCPayOrder { get; init; } 
     /// <summary>
     /// Indicates how the entitlements were calculated optional dividends.
     /// </summary>
-    [DataMember]
     public DTCEntitlementCalculationMethod1Code? EntitlementCalculationMethod { get; init; } 
     /// <summary>
     /// Denotes whether the rate is approximate.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? EstimatedRateFlag { get; init; } 
     /// <summary>
     /// Identifies the income events which are subject to withholding tax if paid to a non-U.S. resident alien (NRA).
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? NRATaxReportableFlag { get; init; } 
     /// <summary>
     /// Indicates whether a charge is levied on the protect instructions at the time when the protect is submitted or at the time of the cover. Applies to warrants or rights exercise scenario where the holder must put up money with rights or warrants execution. When this flag is set to yes - charges are due at the time of the protect, when it is set to "no" changes are due when protect is covered.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ProtectChargeFlag { get; init; } 
     /// <summary>
     /// Corresponding cash rate paid by CSD.
     /// </summary>
-    [DataMember]
     public RateAndAmountFormat17Choice_? CSDCashRate { get; init; } 
     /// <summary>
     /// Rate at which a fee will be charged to a DTC (The Depository Trust Corporation) participant.
     /// </summary>
-    [DataMember]
     public RateAndAmountFormat17Choice_? DTCFeeRate { get; init; } 
     /// <summary>
     /// Indicates the period during which the instructions for DTC (The Depository Trust Corporation) US Tax service will be accepted.
     /// </summary>
-    [DataMember]
     public Period3? DTCUSTaxInstructionPeriod { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (ReinvestmentIncomeClassification is ReinvestmentIncomeClassification1Code ReinvestmentIncomeClassificationValue)
+        {
+            writer.WriteStartElement(null, "RinvstmtIncmClssfctn", xmlNamespace );
+            writer.WriteValue(ReinvestmentIncomeClassificationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DTCPayMethod is IsoMax3Text DTCPayMethodValue)
+        {
+            writer.WriteStartElement(null, "DTCPayMtd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3Text(DTCPayMethodValue)); // data type Max3Text System.String
+            writer.WriteEndElement();
+        }
+        if (DTCPayOrder is IsoMax3Text DTCPayOrderValue)
+        {
+            writer.WriteStartElement(null, "DTCPayOrdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3Text(DTCPayOrderValue)); // data type Max3Text System.String
+            writer.WriteEndElement();
+        }
+        if (EntitlementCalculationMethod is DTCEntitlementCalculationMethod1Code EntitlementCalculationMethodValue)
+        {
+            writer.WriteStartElement(null, "EntitlmntClctnMtd", xmlNamespace );
+            writer.WriteValue(EntitlementCalculationMethodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (EstimatedRateFlag is IsoYesNoIndicator EstimatedRateFlagValue)
+        {
+            writer.WriteStartElement(null, "EstmtdRateFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(EstimatedRateFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (NRATaxReportableFlag is IsoYesNoIndicator NRATaxReportableFlagValue)
+        {
+            writer.WriteStartElement(null, "NRATaxRptblFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(NRATaxReportableFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ProtectChargeFlag is IsoYesNoIndicator ProtectChargeFlagValue)
+        {
+            writer.WriteStartElement(null, "PrtctChrgFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ProtectChargeFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CSDCashRate is RateAndAmountFormat17Choice_ CSDCashRateValue)
+        {
+            writer.WriteStartElement(null, "CSDCshRate", xmlNamespace );
+            CSDCashRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DTCFeeRate is RateAndAmountFormat17Choice_ DTCFeeRateValue)
+        {
+            writer.WriteStartElement(null, "DTCFeeRate", xmlNamespace );
+            DTCFeeRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DTCUSTaxInstructionPeriod is Period3 DTCUSTaxInstructionPeriodValue)
+        {
+            writer.WriteStartElement(null, "DTCUSTaxInstrPrd", xmlNamespace );
+            DTCUSTaxInstructionPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CashOptionSD3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Financial instrument stressed under a stress test scenario.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StressedProduct1
+     : IIsoXmlSerilizable<StressedProduct1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identifier of the product.
     /// </summary>
-    [DataMember]
     public required GenericIdentification168 Identification { get; init; } 
     /// <summary>
     /// Maximum move across the curve for the stressed product.
     /// </summary>
-    [DataMember]
     public required StressSize1Choice_ MaximumStressSize { get; init; } 
     /// <summary>
     /// Minimum move across the curve for the stressed product.
     /// </summary>
-    [DataMember]
     public required StressSize1Choice_ MinimumStressSize { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MaxStrssSz", xmlNamespace );
+        MaximumStressSize.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MinStrssSz", xmlNamespace );
+        MinimumStressSize.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static StressedProduct1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

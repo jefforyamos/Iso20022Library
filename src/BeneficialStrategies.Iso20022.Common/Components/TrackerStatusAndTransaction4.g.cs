@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides detailed information on the transaction and it's status as updated in the tracker.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TrackerStatusAndTransaction4
+     : IIsoXmlSerilizable<TrackerStatusAndTransaction4>
 {
     #nullable enable
     
     /// <summary>
     /// Provides detailed information on the alert notification in the tracker.
     /// </summary>
-    [DataMember]
     public required TrackerAlertNotificationStatus2 AlertStatus { get; init; } 
     /// <summary>
     /// Key elements used to identify the original transaction(s) that is being referred to.
     /// </summary>
-    [DataMember]
     public required TrackerPaymentTransaction4 Transaction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AlrtSts", xmlNamespace );
+        AlertStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tx", xmlNamespace );
+        Transaction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static TrackerStatusAndTransaction4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

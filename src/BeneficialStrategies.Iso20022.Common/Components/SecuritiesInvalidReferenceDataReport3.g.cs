@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reference data instruments that are no longer valid either through an instrument update or that have passed their termination date.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesInvalidReferenceDataReport3
+     : IIsoXmlSerilizable<SecuritiesInvalidReferenceDataReport3>
 {
     #nullable enable
     
     /// <summary>
     /// Instrument details at the time this specific details on the financial instrument was invalidated.
     /// </summary>
-    [DataMember]
     public required SecuritiesReferenceDataReport5 FinancialInstrument { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FinInstrm", xmlNamespace );
+        FinancialInstrument.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesInvalidReferenceDataReport3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

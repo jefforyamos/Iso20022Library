@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details about the agreed amount for the variation margin and optionaly the segregated independent amount.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AgreedAmount1
+     : IIsoXmlSerilizable<AgreedAmount1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides details about the agreed amount for the variation margin.
     /// </summary>
-    [DataMember]
     public required Amount1 VariationMarginAmount { get; init; } 
     /// <summary>
     /// Provides details about the agreed amount for the segregated independent amount.
     /// </summary>
-    [DataMember]
     public Amount1? SegregatedIndependentAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "VartnMrgnAmt", xmlNamespace );
+        VariationMarginAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SegregatedIndependentAmount is Amount1 SegregatedIndependentAmountValue)
+        {
+            writer.WriteStartElement(null, "SgrtdIndpdntAmt", xmlNamespace );
+            SegregatedIndependentAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AgreedAmount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

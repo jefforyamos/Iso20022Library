@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acquirer involved in the card payment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Acquirer10
+     : IIsoXmlSerilizable<Acquirer10>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the acquirer (for example the bank identification number BIN).
     /// </summary>
-    [DataMember]
     public GenericIdentification177? Identification { get; init; } 
     /// <summary>
     /// Version of the payment acquirer parameters of the POI.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? ParametersVersion { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is GenericIdentification177 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ParametersVersion is IsoMax256Text ParametersVersionValue)
+        {
+            writer.WriteStartElement(null, "ParamsVrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(ParametersVersionValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Acquirer10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

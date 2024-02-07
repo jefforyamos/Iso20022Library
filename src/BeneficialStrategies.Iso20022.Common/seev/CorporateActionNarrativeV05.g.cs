@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.CorporateActionNarrativeV05>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate), using the relevant elements in the business application header (BAH).
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The CorporateActionNarrative message is sent between an account servicer and an account owner or its designated agent to cater for tax reclaims, restrictions, documentation requirements. This message is bi-directional.|Usage|The message may also be used to:|- re-send a message previously sent (the sub-function of the message is Duplicate),|- provide a third party with a copy of a message for information (the sub-function of the message is Copy),|- re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate), using the relevant elements in the business application header (BAH).")]
-public partial record CorporateActionNarrativeV05 : IOuterRecord
+public partial record CorporateActionNarrativeV05 : IOuterRecord<CorporateActionNarrativeV05,CorporateActionNarrativeV05Document>
+    ,IIsoXmlSerilizable<CorporateActionNarrativeV05>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record CorporateActionNarrativeV05 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "CorpActnNrrtv";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CorporateActionNarrativeV05Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -100,6 +107,47 @@ public partial record CorporateActionNarrativeV05 : IOuterRecord
     {
         return new CorporateActionNarrativeV05Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("CorpActnNrrtv");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountDetails is AccountIdentification42Choice_ AccountDetailsValue)
+        {
+            writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
+            AccountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnderlyingSecurity is SecurityIdentification19 UnderlyingSecurityValue)
+        {
+            writer.WriteStartElement(null, "UndrlygScty", xmlNamespace );
+            UnderlyingSecurityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+        CorporateActionGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+        AdditionalInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionNarrativeV05 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -107,9 +155,7 @@ public partial record CorporateActionNarrativeV05 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CorporateActionNarrativeV05"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CorporateActionNarrativeV05Document : IOuterDocument<CorporateActionNarrativeV05>
+public partial record CorporateActionNarrativeV05Document : IOuterDocument<CorporateActionNarrativeV05>, IXmlSerializable
 {
     
     /// <summary>
@@ -125,5 +171,22 @@ public partial record CorporateActionNarrativeV05Document : IOuterDocument<Corpo
     /// <summary>
     /// The instance of <seealso cref="CorporateActionNarrativeV05"/> is required.
     /// </summary>
+    [DataMember(Name=CorporateActionNarrativeV05.XmlTag)]
     public required CorporateActionNarrativeV05 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CorporateActionNarrativeV05.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,40 +7,78 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains additional characteristics of addendum data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalCharacteristics1
+     : IIsoXmlSerilizable<AdditionalCharacteristics1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the specific classification or type of business.
     /// </summary>
-    [DataMember]
     public AdditionalCharacteristicDetails1? BusinessType { get; init; } 
     /// <summary>
     /// Identifies specific characteristics about the
     /// business owner.
     /// </summary>
-    [DataMember]
     public AdditionalCharacteristicDetails1? Owner { get; init; } 
     /// <summary>
     /// Identifies specific characteristics about the business certification type, such as small business, disadvantaged, or other certification type.
     /// </summary>
-    [DataMember]
     public AdditionalCharacteristicDetails1? Certification { get; init; } 
     /// <summary>
     /// Identifies the racial or ethnic type of
     /// the majority owner of the business.
     /// </summary>
-    [DataMember]
     public AdditionalCharacteristicDetails1? OwnerEthnicity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (BusinessType is AdditionalCharacteristicDetails1 BusinessTypeValue)
+        {
+            writer.WriteStartElement(null, "BizTp", xmlNamespace );
+            BusinessTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Owner is AdditionalCharacteristicDetails1 OwnerValue)
+        {
+            writer.WriteStartElement(null, "Ownr", xmlNamespace );
+            OwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Certification is AdditionalCharacteristicDetails1 CertificationValue)
+        {
+            writer.WriteStartElement(null, "Certfctn", xmlNamespace );
+            CertificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OwnerEthnicity is AdditionalCharacteristicDetails1 OwnerEthnicityValue)
+        {
+            writer.WriteStartElement(null, "OwnrEthncty", xmlNamespace );
+            OwnerEthnicityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AdditionalCharacteristics1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

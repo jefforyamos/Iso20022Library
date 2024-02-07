@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the financial instrument removal request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RequestDetails28
+     : IIsoXmlSerilizable<RequestDetails28>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the  removal processing change requested.
     /// </summary>
-    [DataMember]
     public required RemovalTypeAndReason1 Removal { get; init; } 
     /// <summary>
     /// Specifies the financial instruments to be removed  (identification or attributes). 
     /// </summary>
-    [DataMember]
-    public ValueList<RemovalProcessing2Choice_> FinancialInstrumentAndAttributes { get; init; } = []; // Warning: Don't know multiplicity.
+    public RemovalProcessing2Choice_? FinancialInstrumentAndAttributes { get; init; } 
     /// <summary>
     /// Identifies the collateral parties of a contract.
     /// </summary>
-    [DataMember]
     public CollateralParties4? Counterparty { get; init; } 
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
-    [DataMember]
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
-    [DataMember]
     public BlockChainAddressWallet3? BlockChainAddressOrWallet { get; init; } 
     /// <summary>
     /// References of the transaction for which the financial instrument removal request is required.
     /// </summary>
-    [DataMember]
     public Reference21? Reference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Rmvl", xmlNamespace );
+        Removal.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FinancialInstrumentAndAttributes is RemovalProcessing2Choice_ FinancialInstrumentAndAttributesValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmAndAttrbts", xmlNamespace );
+            FinancialInstrumentAndAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Counterparty is CollateralParties4 CounterpartyValue)
+        {
+            writer.WriteStartElement(null, "CtrPty", xmlNamespace );
+            CounterpartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingAccount is SecuritiesAccount19 SafekeepingAccountValue)
+        {
+            writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+            SafekeepingAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BlockChainAddressOrWallet is BlockChainAddressWallet3 BlockChainAddressOrWalletValue)
+        {
+            writer.WriteStartElement(null, "BlckChainAdrOrWllt", xmlNamespace );
+            BlockChainAddressOrWalletValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Reference is Reference21 ReferenceValue)
+        {
+            writer.WriteStartElement(null, "Ref", xmlNamespace );
+            ReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RequestDetails28 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the underlying transaction(s) and/or batched entries.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record EntryDetails10
+     : IIsoXmlSerilizable<EntryDetails10>
 {
     #nullable enable
     
     /// <summary>
     /// Provides details on batched transactions.
     /// </summary>
-    [DataMember]
     public BatchInformation2? Batch { get; init; } 
     /// <summary>
     /// Provides information on the underlying transaction(s).
     /// </summary>
-    [DataMember]
-    public ValueList<EntryTransaction11> TransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public EntryTransaction11? TransactionDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Batch is BatchInformation2 BatchValue)
+        {
+            writer.WriteStartElement(null, "Btch", xmlNamespace );
+            BatchValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionDetails is EntryTransaction11 TransactionDetailsValue)
+        {
+            writer.WriteStartElement(null, "TxDtls", xmlNamespace );
+            TransactionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static EntryDetails10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

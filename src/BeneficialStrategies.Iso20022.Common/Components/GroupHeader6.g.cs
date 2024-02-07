@@ -7,78 +7,141 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of characteristics shared by all individual transactions included in the message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GroupHeader6
+     : IIsoXmlSerilizable<GroupHeader6>
 {
     #nullable enable
     
     /// <summary>
     /// Point to point reference assigned by the instructing party and sent to the next party in the chain to unambiguously identify the message.||Usage: The instructing party has to make sure that 'MessageIdentification' is unique per instructed party for a pre-agreed period.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which a (group of) payment instruction(s) was created by the instructing party.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// User identification or any user key that allows to check if the initiating party is allowed to initiate transactions from the account specified in the initiation.||Usage: the content is not of a technical nature, but reflects the organisational structure at the initiating side. The authorisation element can typically be used in relay scenarios, payment initiations, payment returns or payment reversals that are initiated on behalf of a different party than the initiating party.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax128Text> Authorisation { get; init; } = [];
+    public SimpleValueList<IsoMax128Text> Authorisation { get; init; } = [];
     /// <summary>
     /// Identifies whether a single entry per individual transaction or a batch entry for the sum of the amounts of all transactions in the message is requested.
     /// </summary>
-    [DataMember]
     public IsoBatchBookingIndicator? BatchBooking { get; init; } 
     /// <summary>
     /// Number of individual transactions contained in the message.
     /// </summary>
-    [DataMember]
     public required IsoMax15NumericText NumberOfTransactions { get; init; } 
     /// <summary>
     /// Total of all individual amounts included in the message, irrespective of currencies.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? ControlSum { get; init; } 
     /// <summary>
     /// Indicates whether the return applies to the whole group of transactions or to individual transactions within the original group(s).
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? GroupReturn { get; init; } 
     /// <summary>
     /// Total returned amount of money transferred between the instructing agent and the instructed agent in the return message.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? TotalReturnedInterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
-    [DataMember]
     public IsoISODate? InterbankSettlementDate { get; init; } 
     /// <summary>
     /// Specifies the details on how the settlement of the transaction(s) between the instructing agent and the instructed agent is completed.
     /// </summary>
-    [DataMember]
     public required SettlementInformation1 SettlementInformation { get; init; } 
     /// <summary>
     /// Agent that instructs the next party in the chain to carry out the (set of) instruction(s).
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? InstructingAgent { get; init; } 
     /// <summary>
     /// Agent that is instructed by the previous party in the chain to carry out the (set of) instruction(s).
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? InstructedAgent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Authstn", xmlNamespace );
+        Authorisation.Serialize(writer, xmlNamespace, "Max128Text", SerializationFormatter.IsoMax128Text );
+        writer.WriteEndElement();
+        if (BatchBooking is IsoBatchBookingIndicator BatchBookingValue)
+        {
+            writer.WriteStartElement(null, "BtchBookg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBatchBookingIndicator(BatchBookingValue)); // data type BatchBookingIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "NbOfTxs", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(NumberOfTransactions)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+        if (ControlSum is IsoDecimalNumber ControlSumValue)
+        {
+            writer.WriteStartElement(null, "CtrlSum", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(ControlSumValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (GroupReturn is IsoTrueFalseIndicator GroupReturnValue)
+        {
+            writer.WriteStartElement(null, "GrpRtr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(GroupReturnValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TotalReturnedInterbankSettlementAmount is IsoCurrencyAndAmount TotalReturnedInterbankSettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlRtrdIntrBkSttlmAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(TotalReturnedInterbankSettlementAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (InterbankSettlementDate is IsoISODate InterbankSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "IntrBkSttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(InterbankSettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SttlmInf", xmlNamespace );
+        SettlementInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (InstructingAgent is BranchAndFinancialInstitutionIdentification3 InstructingAgentValue)
+        {
+            writer.WriteStartElement(null, "InstgAgt", xmlNamespace );
+            InstructingAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructedAgent is BranchAndFinancialInstitutionIdentification3 InstructedAgentValue)
+        {
+            writer.WriteStartElement(null, "InstdAgt", xmlNamespace );
+            InstructedAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static GroupHeader6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

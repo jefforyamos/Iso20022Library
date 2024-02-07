@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of an entity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GenericIdentification183
+     : IIsoXmlSerilizable<GenericIdentification183>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the entity.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Type of identified entity.
     /// </summary>
-    [DataMember]
     public PartyType17Code? Type { get; init; } 
     /// <summary>
     /// Other type of identification.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Entity type in charge of assigning an identification.
     /// </summary>
-    [DataMember]
     public PartyType18Code? Assigner { get; init; } 
     /// <summary>
     /// Country of the entity (ISO 3166-1 alpha-2 or alpha-3).
     /// </summary>
-    [DataMember]
     public ISOMax3ACountryCode? Country { get; init; } 
     /// <summary>
     /// Name of the entity.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Type is PartyType17Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherType is IsoMax35Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Assigner is PartyType18Code AssignerValue)
+        {
+            writer.WriteStartElement(null, "Assgnr", xmlNamespace );
+            writer.WriteValue(AssignerValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Country is ISOMax3ACountryCode CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(CountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ShortName is IsoMax35Text ShortNameValue)
+        {
+            writer.WriteStartElement(null, "ShrtNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ShortNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static GenericIdentification183 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

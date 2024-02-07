@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Generic identification scheme for a document.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GenericDocumentIdentification4
+     : IIsoXmlSerilizable<GenericDocumentIdentification4>
 {
     #nullable enable
     
     /// <summary>
     /// Message type number/message identifier of the message referenced in the linkage sequence.
     /// </summary>
-    [DataMember]
     public DocumentNumber5Choice_? MessageNumber { get; init; } 
     /// <summary>
     /// Identification of the document.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MessageNumber is DocumentNumber5Choice_ MessageNumberValue)
+        {
+            writer.WriteStartElement(null, "MsgNb", xmlNamespace );
+            MessageNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static GenericDocumentIdentification4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError5Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError5Cho
 /// Provides information specific to the collateral value reports included in the message.
 /// </summary>
 public partial record BusinessReport : CollateralValueReportOrError5Choice_
+     , IIsoXmlSerilizable<BusinessReport>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique identification, as assigned by the account servicer, to unambiguously identify the account on which information is requested.
     /// </summary>
@@ -38,6 +42,57 @@ public partial record BusinessReport : CollateralValueReportOrError5Choice_
     /// <summary>
     /// Provides information specific to the report on collateral value positions.
     /// </summary>
-    public CollateralValueReportOrError6Choice_? CollateralValueReport { get; init;  } // Warning: Don't know multiplicity.
+    public CollateralValueReportOrError6Choice_? CollateralValueReport { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CshAcct", xmlNamespace );
+        CashAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CashAccountOwner is SystemPartyIdentification11 CashAccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "CshAcctOwnr", xmlNamespace );
+            CashAccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccountServicer is BranchAndFinancialInstitutionIdentification6 CashAccountServicerValue)
+        {
+            writer.WriteStartElement(null, "CshAcctSvcr", xmlNamespace );
+            CashAccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesAccountOwner is SystemPartyIdentification8 SecuritiesAccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "SctiesAcctOwnr", xmlNamespace );
+            SecuritiesAccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesAccountServicer is PartyIdentification136 SecuritiesAccountServicerValue)
+        {
+            writer.WriteStartElement(null, "SctiesAcctSvcr", xmlNamespace );
+            SecuritiesAccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollateralValueReport is CollateralValueReportOrError6Choice_ CollateralValueReportValue)
+        {
+            writer.WriteStartElement(null, "CollValRpt", xmlNamespace );
+            CollateralValueReportValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new BusinessReport Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains information about the contact responsible for the transaction identified in the message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ContactPerson1
+     : IIsoXmlSerilizable<ContactPerson1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides additional information regarding the party, eg, the contact unit or person responsible for the transaction identified in the message.
     /// </summary>
-    [DataMember]
     public required ContactIdentification4 ContactPerson { get; init; } 
     /// <summary>
     /// Identification of the institution that the contact person represents.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? InstitutionIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CtctPrsn", xmlNamespace );
+        ContactPerson.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (InstitutionIdentification is PartyIdentification2Choice_ InstitutionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "InstnId", xmlNamespace );
+            InstitutionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ContactPerson1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

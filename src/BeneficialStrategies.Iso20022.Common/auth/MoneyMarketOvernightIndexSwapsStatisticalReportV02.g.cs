@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.auth.MoneyMarketOvernightIndexSwapsStatisticalReportV02>;
 
 namespace BeneficialStrategies.Iso20022.auth;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// The MoneyMarketOvernightIndexSwapsStatisticalReport message is sent by the reporting agents to the relevant competent authority, to report the daily overnight index swaps (OIS) transactions.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The MoneyMarketOvernightIndexSwapsStatisticalReport message is sent by the reporting agents to the relevant competent authority, to report the daily overnight index swaps (OIS) transactions.")]
-public partial record MoneyMarketOvernightIndexSwapsStatisticalReportV02 : IOuterRecord
+public partial record MoneyMarketOvernightIndexSwapsStatisticalReportV02 : IOuterRecord<MoneyMarketOvernightIndexSwapsStatisticalReportV02,MoneyMarketOvernightIndexSwapsStatisticalReportV02Document>
+    ,IIsoXmlSerilizable<MoneyMarketOvernightIndexSwapsStatisticalReportV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record MoneyMarketOvernightIndexSwapsStatisticalReportV02 : IOute
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MnyMktOvrnghtIndxSwpsSttstclRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => MoneyMarketOvernightIndexSwapsStatisticalReportV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -76,6 +83,35 @@ public partial record MoneyMarketOvernightIndexSwapsStatisticalReportV02 : IOute
     {
         return new MoneyMarketOvernightIndexSwapsStatisticalReportV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MnyMktOvrnghtIndxSwpsSttstclRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptHdr", xmlNamespace );
+        ReportHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OvrnghtIndxSwpsRpt", xmlNamespace );
+        OvernightIndexSwapsReport.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MoneyMarketOvernightIndexSwapsStatisticalReportV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -83,9 +119,7 @@ public partial record MoneyMarketOvernightIndexSwapsStatisticalReportV02 : IOute
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MoneyMarketOvernightIndexSwapsStatisticalReportV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record MoneyMarketOvernightIndexSwapsStatisticalReportV02Document : IOuterDocument<MoneyMarketOvernightIndexSwapsStatisticalReportV02>
+public partial record MoneyMarketOvernightIndexSwapsStatisticalReportV02Document : IOuterDocument<MoneyMarketOvernightIndexSwapsStatisticalReportV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -101,5 +135,22 @@ public partial record MoneyMarketOvernightIndexSwapsStatisticalReportV02Document
     /// <summary>
     /// The instance of <seealso cref="MoneyMarketOvernightIndexSwapsStatisticalReportV02"/> is required.
     /// </summary>
+    [DataMember(Name=MoneyMarketOvernightIndexSwapsStatisticalReportV02.XmlTag)]
     public required MoneyMarketOvernightIndexSwapsStatisticalReportV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(MoneyMarketOvernightIndexSwapsStatisticalReportV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

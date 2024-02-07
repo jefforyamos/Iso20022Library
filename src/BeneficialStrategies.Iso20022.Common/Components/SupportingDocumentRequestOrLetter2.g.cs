@@ -7,79 +7,145 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Currency control related document or letter supporting the contract registration.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SupportingDocumentRequestOrLetter2
+     : IIsoXmlSerilizable<SupportingDocumentRequestOrLetter2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the supporting document request or the letter.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text RequestOrLetterIdentification { get; init; } 
     /// <summary>
     /// Date of the supporting document request or the letter.
     /// </summary>
-    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// Sender of the request or letter.
     /// </summary>
-    [DataMember]
     public Party40Choice_? Sender { get; init; } 
     /// <summary>
     /// Receiver of the request or letter.
     /// </summary>
-    [DataMember]
     public Party40Choice_? Receiver { get; init; } 
     /// <summary>
     /// Provides the references of the original underlying message(s) for which supporting documents are requested or for which the letter is sent.
     /// </summary>
-    [DataMember]
-    public ValueList<OriginalMessage4> OriginalReferences { get; init; } = []; // Warning: Don't know multiplicity.
+    public OriginalMessage4? OriginalReferences { get; init; } 
     /// <summary>
     /// Subject of the letter or supporting document.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text Subject { get; init; } 
     /// <summary>
     /// Provides the type of supporting document requested.
     /// </summary>
-    [DataMember]
     public required SupportDocumentType1Code Type { get; init; } 
     /// <summary>
     /// Further free format description of the request.
     /// </summary>
-    [DataMember]
     public IsoMax1025Text? Description { get; init; } 
     /// <summary>
     /// Flag to indicate whether a response is required or not.
     /// Usage: when the request is used to send a letter, there is no response required.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator ResponseRequired { get; init; } 
     /// <summary>
     /// Date by which the response to the request is expected.
     /// </summary>
-    [DataMember]
     public IsoISODate? DueDate { get; init; } 
     /// <summary>
     /// Documents provided as attachments to the supporting document request or letter.
     /// </summary>
-    [DataMember]
-    public ValueList<DocumentGeneralInformation3> Attachment { get; init; } = []; // Warning: Don't know multiplicity.
+    public DocumentGeneralInformation3? Attachment { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ReqOrLttrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(RequestOrLetterIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Date is IsoISODate DateValue)
+        {
+            writer.WriteStartElement(null, "Dt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Sender is Party40Choice_ SenderValue)
+        {
+            writer.WriteStartElement(null, "Sndr", xmlNamespace );
+            SenderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Receiver is Party40Choice_ ReceiverValue)
+        {
+            writer.WriteStartElement(null, "Rcvr", xmlNamespace );
+            ReceiverValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalReferences is OriginalMessage4 OriginalReferencesValue)
+        {
+            writer.WriteStartElement(null, "OrgnlRefs", xmlNamespace );
+            OriginalReferencesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Sbjt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(Subject)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Description is IsoMax1025Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1025Text(DescriptionValue)); // data type Max1025Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RspnReqrd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ResponseRequired)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        if (DueDate is IsoISODate DueDateValue)
+        {
+            writer.WriteStartElement(null, "DueDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DueDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Attachment is DocumentGeneralInformation3 AttachmentValue)
+        {
+            writer.WriteStartElement(null, "Attchmnt", xmlNamespace );
+            AttachmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SupportingDocumentRequestOrLetter2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.setr.RedemptionBulkOrderCancellationRequestV03>;
 
 namespace BeneficialStrategies.Iso20022.setr;
 
@@ -37,10 +40,9 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// The deadline and acceptance of a cancellation request is subject to a service level agreement (SLA). This cancellation message is a cancellation request. There is no automatic acceptance of the cancellation.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An instructing party, for example, an investment manager or its authorised representative, sends the RedemptionBulkOrderCancellationRequest message to the executing party, for example, a transfer agent, to request the cancellation of a previously sent RedemptionBulkOrder instruction.|Usage|The RedemptionBulkOrderCancellationRequest message is used to either:|- request the cancellation of an entire RedemptionBulkOrder message, that is, all the individual orders that it contained, or,|- request the cancellation of one or more individual orders included in a previously sent RedemptionBulkOrder message. There is no amendment, but a cancellation and re-instruct policy.|There are two ways to use the message.|(1) When the RedemptionBulkOrderCancellationRequest message is used to request the cancellation of an entire RedemptionBulkOrder message, this can be done by either:|- quoting the order references of all the individual orders listed in the RedemptionBulkOrder message, or,|- quoting the details of all the individual orders (this includes the OrderReference) listed in RedemptionBulkOrder message, but this is not recommended.|The message identification of the RedemptionBulkOrder message may also be quoted in PreviousReference.|It is also possible to request the cancellation of an entire RedemptionBulkOrder message by quoting its message identification in PreviousReference, but this is not recommended.|(2) When the RedemptionBulkOrderCancellationRequest message is used to request the cancellation of one or more individual orders, this can be done by either:|- quoting the OrderReference of each individual order listed in the RedemptionOrder message, or,|- quoting the details of each individual order (including the OrderReference) listed in RedemptionOrder message, but this is not recommended.|The message identification of the RedemptionBulkOrder message in which the individual order was conveyed may also be quoted in PreviousReference.|The deadline and acceptance of a cancellation request is subject to a service level agreement (SLA). This cancellation message is a cancellation request. There is no automatic acceptance of the cancellation.")]
-public partial record RedemptionBulkOrderCancellationRequestV03 : IOuterRecord
+public partial record RedemptionBulkOrderCancellationRequestV03 : IOuterRecord<RedemptionBulkOrderCancellationRequestV03,RedemptionBulkOrderCancellationRequestV03Document>
+    ,IIsoXmlSerilizable<RedemptionBulkOrderCancellationRequestV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -52,6 +54,11 @@ public partial record RedemptionBulkOrderCancellationRequestV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "RedBlkOrdrCxlReqV03";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => RedemptionBulkOrderCancellationRequestV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -118,6 +125,56 @@ public partial record RedemptionBulkOrderCancellationRequestV03 : IOuterRecord
     {
         return new RedemptionBulkOrderCancellationRequestV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("RedBlkOrdrCxlReqV03");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PoolReference is AdditionalReference3 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousReference is AdditionalReference3 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CancellationByReference is InvestmentFundOrder1 CancellationByReferenceValue)
+        {
+            writer.WriteStartElement(null, "CxlByRef", xmlNamespace );
+            CancellationByReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CancellationByOrderDetails is RedemptionBulkOrderInstruction2 CancellationByOrderDetailsValue)
+        {
+            writer.WriteStartElement(null, "CxlByOrdrDtls", xmlNamespace );
+            CancellationByOrderDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CopyDetails is CopyInformation2 CopyDetailsValue)
+        {
+            writer.WriteStartElement(null, "CpyDtls", xmlNamespace );
+            CopyDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RedemptionBulkOrderCancellationRequestV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -125,9 +182,7 @@ public partial record RedemptionBulkOrderCancellationRequestV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RedemptionBulkOrderCancellationRequestV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record RedemptionBulkOrderCancellationRequestV03Document : IOuterDocument<RedemptionBulkOrderCancellationRequestV03>
+public partial record RedemptionBulkOrderCancellationRequestV03Document : IOuterDocument<RedemptionBulkOrderCancellationRequestV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -143,5 +198,22 @@ public partial record RedemptionBulkOrderCancellationRequestV03Document : IOuter
     /// <summary>
     /// The instance of <seealso cref="RedemptionBulkOrderCancellationRequestV03"/> is required.
     /// </summary>
+    [DataMember(Name=RedemptionBulkOrderCancellationRequestV03.XmlTag)]
     public required RedemptionBulkOrderCancellationRequestV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(RedemptionBulkOrderCancellationRequestV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

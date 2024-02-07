@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the currency(ies) for each leg of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LegCurrency2
+     : IIsoXmlSerilizable<LegCurrency2>
 {
     #nullable enable
     
@@ -23,14 +24,41 @@ public partial record LegCurrency2
     /// Currency of the notional amount. 
     /// Usage: In the case of an interest rate or currency derivative contract, this will be the notional currency of the first leg.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? CurrencyFirstLeg { get; init; } 
     /// <summary>
     /// Other currency of the notional amount. 
     /// Usage: In the case of an interest rate or currency derivative contract, this will be the notional currency of the second leg.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? CurrencySecondLeg { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CurrencyFirstLeg is ActiveOrHistoricCurrencyCode CurrencyFirstLegValue)
+        {
+            writer.WriteStartElement(null, "CcyFrstLeg", xmlNamespace );
+            writer.WriteValue(CurrencyFirstLegValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CurrencySecondLeg is ActiveOrHistoricCurrencyCode CurrencySecondLegValue)
+        {
+            writer.WriteStartElement(null, "CcyScndLeg", xmlNamespace );
+            writer.WriteValue(CurrencySecondLegValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static LegCurrency2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

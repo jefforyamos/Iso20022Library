@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to search for system business day information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BusinessDaySearchCriteria2
+     : IIsoXmlSerilizable<BusinessDaySearchCriteria2>
 {
     #nullable enable
     
     /// <summary>
     /// Date for which the availability information is provided.
     /// </summary>
-    [DataMember]
     public IsoISODate? SystemDate { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the system, as assigned by the system administrator.
     /// </summary>
-    [DataMember]
-    public ValueList<SystemIdentification2Choice_> SystemIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public SystemIdentification2Choice_? SystemIdentification { get; init; } 
     /// <summary>
     /// Currency which may be processed by the system. A system may process transactions in a single currency or in multiple currencies.
     /// </summary>
-    [DataMember]
-    public ValueList<ActiveCurrencyCode> SystemCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    public ActiveCurrencyCode? SystemCurrency { get; init; } 
     /// <summary>
     /// Nature of the event that has occurred.
     /// </summary>
-    [DataMember]
     public SystemEventType2Choice_? EventType { get; init; } 
     /// <summary>
     /// Period of time when the system is closed/not operating.
     /// </summary>
-    [DataMember]
     public DateTimePeriod1Choice_? ClosurePeriod { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SystemDate is IsoISODate SystemDateValue)
+        {
+            writer.WriteStartElement(null, "SysDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(SystemDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SystemIdentification is SystemIdentification2Choice_ SystemIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SysId", xmlNamespace );
+            SystemIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SystemCurrency is ActiveCurrencyCode SystemCurrencyValue)
+        {
+            writer.WriteStartElement(null, "SysCcy", xmlNamespace );
+            writer.WriteValue(SystemCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (EventType is SystemEventType2Choice_ EventTypeValue)
+        {
+            writer.WriteStartElement(null, "EvtTp", xmlNamespace );
+            EventTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClosurePeriod is DateTimePeriod1Choice_ ClosurePeriodValue)
+        {
+            writer.WriteStartElement(null, "ClsrPrd", xmlNamespace );
+            ClosurePeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BusinessDaySearchCriteria2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

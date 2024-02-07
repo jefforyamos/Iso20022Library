@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusType2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusType2Choice;
 /// Contains the detailed status of the payment.
 /// </summary>
 public partial record DetailedStatus : PaymentStatusType2Choice_
+     , IIsoXmlSerilizable<DetailedStatus>
 {
     #nullable enable
+    
     /// <summary>
     /// Identifies the party that issues the status.
     /// </summary>
@@ -44,6 +48,57 @@ public partial record DetailedStatus : PaymentStatusType2Choice_
     /// <summary>
     /// Amount of money asked or paid for the charge.
     /// </summary>
-    public IsoActiveOrHistoricCurrencyAndAmount? ChargeAmount { get; init;  } // Warning: Don't know multiplicity.
+    public IsoActiveOrHistoricCurrencyAndAmount? ChargeAmount { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Orgtr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(Originator)); // data type AnyBICIdentifier System.String
+        writer.WriteEndElement();
+        if (FundsAvailable is IsoISODateTime FundsAvailableValue)
+        {
+            writer.WriteStartElement(null, "FndsAvlbl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(FundsAvailableValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxSts", xmlNamespace );
+        TransactionStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ForwardedToAgent is IsoAnyBICIdentifier ForwardedToAgentValue)
+        {
+            writer.WriteStartElement(null, "FwddToAgt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(ForwardedToAgentValue)); // data type AnyBICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ConfdAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ConfirmedAmount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (ForeignExchangeDetails is CurrencyExchange12 ForeignExchangeDetailsValue)
+        {
+            writer.WriteStartElement(null, "FXDtls", xmlNamespace );
+            ForeignExchangeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ChargeAmount is IsoActiveOrHistoricCurrencyAndAmount ChargeAmountValue)
+        {
+            writer.WriteStartElement(null, "ChrgAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ChargeAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static new DetailedStatus Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

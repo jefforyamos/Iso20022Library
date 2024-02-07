@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Agreement between two parties to sell a financial instrument or set of financial instruments and repurchase such instruments at an agreed future date.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RepurchaseAgreement3
+     : IIsoXmlSerilizable<RepurchaseAgreement3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies attributes of a derivative based on Final ISDA Taxonomy v1.0 and Final ISDA Taxonomy v2.0.
     /// </summary>
-    [DataMember]
     public required ProductClassification1 ProductClassification { get; init; } 
     /// <summary>
     /// Indicates whether the repo is a general collateral repo or specific repo.
     /// </summary>
-    [DataMember]
     public required RepurchaseAgreementType1Choice_ RepurchaseAgreementType { get; init; } 
     /// <summary>
     /// Identifier for triparty agent if applicable.
     /// </summary>
-    [DataMember]
     public IsoLEIIdentifier? TripartyAgent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PdctClssfctn", xmlNamespace );
+        ProductClassification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RpAgrmtTp", xmlNamespace );
+        RepurchaseAgreementType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TripartyAgent is IsoLEIIdentifier TripartyAgentValue)
+        {
+            writer.WriteStartElement(null, "TrptyAgt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(TripartyAgentValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static RepurchaseAgreement3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

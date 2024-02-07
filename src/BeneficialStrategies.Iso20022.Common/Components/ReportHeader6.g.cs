@@ -7,29 +7,54 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides header details on the report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReportHeader6
+     : IIsoXmlSerilizable<ReportHeader6>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a report billing statement.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ReportIdentification { get; init; } 
     /// <summary>
     /// Provides details on the page number of the message.
     /// Usage: The pagination of the message is only allowed when agreed between the parties.
     /// </summary>
-    [DataMember]
     public Pagination1? MessagePagination { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ReportIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (MessagePagination is Pagination1 MessagePaginationValue)
+        {
+            writer.WriteStartElement(null, "MsgPgntn", xmlNamespace );
+            MessagePaginationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ReportHeader6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

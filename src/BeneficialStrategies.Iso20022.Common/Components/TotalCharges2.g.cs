@@ -7,28 +7,52 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Total amount of charges.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TotalCharges2
+     : IIsoXmlSerilizable<TotalCharges2>
 {
     #nullable enable
     
     /// <summary>
     /// Total value of the charges for a specific order.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? TotalAmountOfCharges { get; init; } 
     /// <summary>
     /// Information related to a specific charge.
     /// </summary>
-    [DataMember]
-    public ValueList<Charge10> ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Charge10? ChargeDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _VI5xitp-Ed-ak6NoX_4Aeg_-463850083
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TotalAmountOfCharges is IsoActiveCurrencyAnd13DecimalAmount TotalAmountOfChargesValue)
+        {
+            writer.WriteStartElement(null, "TtlAmtOfChrgs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(TotalAmountOfChargesValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize ChargeDetails, multiplicity Unknown
+    }
+    public static TotalCharges2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

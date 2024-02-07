@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes the multimodal or the individual transport of goods.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransportMeans1
+     : IIsoXmlSerilizable<TransportMeans1>
 {
     #nullable enable
     
     /// <summary>
     /// Moving of goods or people from one place to another by vehicle.
     /// </summary>
-    [DataMember]
     public required SingleTransport4 IndividualTransport { get; init; } 
     /// <summary>
     /// Specifies the different movements and places and their role in a multimodal conveyance of goods.
     /// </summary>
-    [DataMember]
     public MultimodalTransport3? MultimodalTransport { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IndvTrnsprt", xmlNamespace );
+        IndividualTransport.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MultimodalTransport is MultimodalTransport3 MultimodalTransportValue)
+        {
+            writer.WriteStartElement(null, "MltmdlTrnsprt", xmlNamespace );
+            MultimodalTransportValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransportMeans1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

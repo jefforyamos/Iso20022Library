@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.RepurchaseAgreementType1Choice;
 
@@ -13,11 +15,33 @@ namespace BeneficialStrategies.Iso20022.Choices.RepurchaseAgreementType1Choice;
 /// Repurchase agreement where the agreement allows for the sale and repurchase of any of a selection of assets from a pool of eligible assets.
 /// </summary>
 public partial record GeneralCollateral : RepurchaseAgreementType1Choice_
+     , IIsoXmlSerilizable<GeneralCollateral>
 {
     #nullable enable
+    
     /// <summary>
     /// List of the identifiers of the securities eligible for a general collateral repurchase agreement.
     /// </summary>
     public IsoMax35Text? EligibleFinancialInstrumentIdentification { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _OFpSY8huEeadgvwNGwK05w
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize EligibleFinancialInstrumentIdentification, multiplicity Unknown
+    }
+    public static new GeneralCollateral Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies prices.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionPrice4
+     : IIsoXmlSerilizable<CorporateActionPrice4>
 {
     #nullable enable
     
     /// <summary>
     /// Estimated price, eg, for valuation purposes.
     /// </summary>
-    [DataMember]
     public PriceFormat2Choice_? IndicativePrice { get; init; } 
     /// <summary>
     /// Last reported/known price of a financial instrument in a market.
     /// </summary>
-    [DataMember]
     public PriceFormat2Choice_? MarketPrice { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (IndicativePrice is PriceFormat2Choice_ IndicativePriceValue)
+        {
+            writer.WriteStartElement(null, "IndctvPric", xmlNamespace );
+            IndicativePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarketPrice is PriceFormat2Choice_ MarketPriceValue)
+        {
+            writer.WriteStartElement(null, "MktPric", xmlNamespace );
+            MarketPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionPrice4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

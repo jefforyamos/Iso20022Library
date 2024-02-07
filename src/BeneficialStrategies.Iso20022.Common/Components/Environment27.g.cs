@@ -7,54 +7,107 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Environment27
+     : IIsoXmlSerilizable<Environment27>
 {
     #nullable enable
     
     /// <summary>
     /// financial institution (or its agent) at which the accounts are held by the parties settling. This institution, acting on information provided by the parties, transfers the appropriate funds between the accounts.
     /// </summary>
-    [DataMember]
     public PartyIdentification263? SettlementInstitution { get; init; } 
     /// <summary>
     /// Identifies the originator of the transaction.
     /// </summary>
-    [DataMember]
     public PartyIdentification263? Originator { get; init; } 
     /// <summary>
     /// Party sending the message to another intermediary agent or to the destination.
     /// </summary>
-    [DataMember]
     public PartyIdentification263? Sender { get; init; } 
     /// <summary>
     /// Party receiving the message from the origin or from an intermediary agent.
     /// ISO 8583 bit 100.
     /// </summary>
-    [DataMember]
     public PartyIdentification263? Receiver { get; init; } 
     /// <summary>
     /// Identifies the destination of the transaction.
     /// </summary>
-    [DataMember]
     public PartyIdentification263? Destination { get; init; } 
     /// <summary>
     /// Financial Institution to which the settlement totals apply.
     /// </summary>
-    [DataMember]
     public FinancialInstitution6? FinancialInstitution { get; init; } 
     /// <summary>
     /// Additional institution involved in settlement. For example, the other party involved in bilateral settlement agreement.
     /// </summary>
-    [DataMember]
     public PartyIdentification258? OtherInstitution { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SettlementInstitution is PartyIdentification263 SettlementInstitutionValue)
+        {
+            writer.WriteStartElement(null, "SttlmInstn", xmlNamespace );
+            SettlementInstitutionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Originator is PartyIdentification263 OriginatorValue)
+        {
+            writer.WriteStartElement(null, "Orgtr", xmlNamespace );
+            OriginatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Sender is PartyIdentification263 SenderValue)
+        {
+            writer.WriteStartElement(null, "Sndr", xmlNamespace );
+            SenderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Receiver is PartyIdentification263 ReceiverValue)
+        {
+            writer.WriteStartElement(null, "Rcvr", xmlNamespace );
+            ReceiverValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Destination is PartyIdentification263 DestinationValue)
+        {
+            writer.WriteStartElement(null, "Dstn", xmlNamespace );
+            DestinationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialInstitution is FinancialInstitution6 FinancialInstitutionValue)
+        {
+            writer.WriteStartElement(null, "FI", xmlNamespace );
+            FinancialInstitutionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherInstitution is PartyIdentification258 OtherInstitutionValue)
+        {
+            writer.WriteStartElement(null, "OthrInstn", xmlNamespace );
+            OtherInstitutionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Environment27 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.semt.IntraPositionMovementInstructionV01>;
 
 namespace BeneficialStrategies.Iso20022.semt;
 
@@ -33,10 +36,9 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate).|ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account owner sends a IntraPositionMovementInstruction to an account servicer to instruct the movement of securities within its holding from one sub-balance to another, for example, blocking of securities.|The account owner/servicer relationship may be:|- a global custodian which has an account with its local agent (sub-custodian), or|- an investment management institution which manage a fund account opened at a custodian, or|- broker which has an account with a custodian, or|- a central securities depository participant which has an account with a central securities depository, or|- a central securities depository which has an account with a custodian, another central securities depository or another settlement market infrastructure.|Usage|The message may also be used to:|- re-send a message previously sent (the sub-function of the message is Duplicate),|- provide a third party with a copy of a message for information (the sub-function of the message is Copy),|- re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate).|ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.")]
-public partial record IntraPositionMovementInstructionV01 : IOuterRecord
+public partial record IntraPositionMovementInstructionV01 : IOuterRecord<IntraPositionMovementInstructionV01,IntraPositionMovementInstructionV01Document>
+    ,IIsoXmlSerilizable<IntraPositionMovementInstructionV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -48,6 +50,11 @@ public partial record IntraPositionMovementInstructionV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "IntraPosMvmntInstr";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => IntraPositionMovementInstructionV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -171,6 +178,83 @@ public partial record IntraPositionMovementInstructionV01 : IOuterRecord
     {
         return new IntraPositionMovementInstructionV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("IntraPosMvmntInstr");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CorporateActionEventIdentification is Identification1 CorporateActionEventIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CorpActnEvtId", xmlNamespace );
+            CorporateActionEventIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Linkages is Linkages2 LinkagesValue)
+        {
+            writer.WriteStartElement(null, "Lnkgs", xmlNamespace );
+            LinkagesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountOwner is PartyIdentification13Choice_ AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+        SafekeepingAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SafekeepingPlace is SafekeepingPlaceFormat3Choice_ SafekeepingPlaceValue)
+        {
+            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
+            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FinancialInstrumentAttributes is FinancialInstrumentAttributes4 FinancialInstrumentAttributesValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmAttrbts", xmlNamespace );
+            FinancialInstrumentAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "IntraPosDtls", xmlNamespace );
+        IntraPositionDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MessageOriginator is PartyIdentification10Choice_ MessageOriginatorValue)
+        {
+            writer.WriteStartElement(null, "MsgOrgtr", xmlNamespace );
+            MessageOriginatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageRecipient is PartyIdentification10Choice_ MessageRecipientValue)
+        {
+            writer.WriteStartElement(null, "MsgRcpt", xmlNamespace );
+            MessageRecipientValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension2 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IntraPositionMovementInstructionV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -178,9 +262,7 @@ public partial record IntraPositionMovementInstructionV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IntraPositionMovementInstructionV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record IntraPositionMovementInstructionV01Document : IOuterDocument<IntraPositionMovementInstructionV01>
+public partial record IntraPositionMovementInstructionV01Document : IOuterDocument<IntraPositionMovementInstructionV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -196,5 +278,22 @@ public partial record IntraPositionMovementInstructionV01Document : IOuterDocume
     /// <summary>
     /// The instance of <seealso cref="IntraPositionMovementInstructionV01"/> is required.
     /// </summary>
+    [DataMember(Name=IntraPositionMovementInstructionV01.XmlTag)]
     public required IntraPositionMovementInstructionV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(IntraPositionMovementInstructionV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

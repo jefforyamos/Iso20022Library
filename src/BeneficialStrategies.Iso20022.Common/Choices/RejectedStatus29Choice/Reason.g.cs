@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.RejectedStatus29Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedStatus29Choice;
 /// Reason for the rejected status.
 /// </summary>
 public partial record Reason : RejectedStatus29Choice_
+     , IIsoXmlSerilizable<Reason>
 {
     #nullable enable
+    
     /// <summary>
     /// Specifies the reason why the instruction or instruction cancellation has been rejected.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record Reason : RejectedStatus29Choice_
     /// Provides additional information about the processed instruction.
     /// </summary>
     public IsoMax350Text? AdditionalReasonInformation { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RsnCd", xmlNamespace );
+        ReasonCode.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalReasonInformation is IsoMax350Text AdditionalReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlRsnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalReasonInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new Reason Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies how the cash in the account that is awaiting investment is to be dealt with.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ResidualCash2
+     : IIsoXmlSerilizable<ResidualCash2>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the cash in the account awaiting investment is to be transferred.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Indicator { get; init; } 
     /// <summary>
     /// Currency of the cash.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ind", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Indicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static ResidualCash2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

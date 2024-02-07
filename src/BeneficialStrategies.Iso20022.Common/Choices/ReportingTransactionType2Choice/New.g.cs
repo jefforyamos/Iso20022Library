@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ReportingTransactionType2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportingTransactionType2Choice;
 /// Transaction is a newly reported transaction.
 /// </summary>
 public partial record New : ReportingTransactionType2Choice_
+     , IIsoXmlSerilizable<New>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique and unambiguous identification of the transaction.
     /// </summary>
@@ -71,6 +75,75 @@ public partial record New : ReportingTransactionType2Choice_
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax52Text(TransactionIdentification)); // data type Max52Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ExctgPty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(ExecutingParty)); // data type LEIIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InvstmtPtyInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(InvestmentPartyIndicator)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SubmitgPty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(SubmittingParty)); // data type LEIIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Buyr", xmlNamespace );
+        Buyer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sellr", xmlNamespace );
+        Seller.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrdrTrnsmssn", xmlNamespace );
+        OrderTransmission.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tx", xmlNamespace );
+        Transaction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FinInstrm", xmlNamespace );
+        FinancialInstrument.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (InvestmentDecisionPerson is InvestmentParty1Choice_ InvestmentDecisionPersonValue)
+        {
+            writer.WriteStartElement(null, "InvstmtDcsnPrsn", xmlNamespace );
+            InvestmentDecisionPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ExctgPrsn", xmlNamespace );
+        ExecutingPerson.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AddtlAttrbts", xmlNamespace );
+        AdditionalAttributes.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TechnicalAttributes is RecordTechnicalData5 TechnicalAttributesValue)
+        {
+            writer.WriteStartElement(null, "TechAttrbts", xmlNamespace );
+            TechnicalAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new New Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

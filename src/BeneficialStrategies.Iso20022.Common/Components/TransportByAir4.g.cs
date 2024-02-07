@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the transportation of goods by air.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransportByAir4
+     : IIsoXmlSerilizable<TransportByAir4>
 {
     #nullable enable
     
     /// <summary>
     /// Place from where the goods must leave.
     /// </summary>
-    [DataMember]
     public required AirportName1Choice_ DepartureAirport { get; init; } 
     /// <summary>
     /// Place where the goods must arrive.
     /// </summary>
-    [DataMember]
     public required AirportName1Choice_ DestinationAirport { get; init; } 
     /// <summary>
     /// Flight number allocated by the airline that is carrying the goods from an airport of departure to an airport of destination;.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? FlightNumber { get; init; } 
     /// <summary>
     /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? AirCarrierName { get; init; } 
     /// <summary>
     /// Country in which the carrier of the goods, for example, shipping company, is located or registered.
     /// </summary>
-    [DataMember]
     public CountryCode? AirCarrierCountry { get; init; } 
     /// <summary>
     /// Name of the carrier's (for example, shipping company's) agent that acts on behalf of the carrier and may be the issuer of transport documents relating to the underlying shipment.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? CarrierAgentName { get; init; } 
     /// <summary>
     /// Country of registration of the carrier's (for example, shipping company's) agent that acts on behalf of the carrier and may be the issuer of transport documents relating to the underlying shipment.
     /// </summary>
-    [DataMember]
     public CountryCode? CarrierAgentCountry { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DprtureAirprt", xmlNamespace );
+        DepartureAirport.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DstnAirprt", xmlNamespace );
+        DestinationAirport.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FlightNumber is IsoMax35Text FlightNumberValue)
+        {
+            writer.WriteStartElement(null, "FlghtNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(FlightNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AirCarrierName is IsoMax70Text AirCarrierNameValue)
+        {
+            writer.WriteStartElement(null, "AirCrrierNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AirCarrierNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (AirCarrierCountry is CountryCode AirCarrierCountryValue)
+        {
+            writer.WriteStartElement(null, "AirCrrierCtry", xmlNamespace );
+            writer.WriteValue(AirCarrierCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CarrierAgentName is IsoMax70Text CarrierAgentNameValue)
+        {
+            writer.WriteStartElement(null, "CrrierAgtNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(CarrierAgentNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (CarrierAgentCountry is CountryCode CarrierAgentCountryValue)
+        {
+            writer.WriteStartElement(null, "CrrierAgtCtry", xmlNamespace );
+            writer.WriteValue(CarrierAgentCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static TransportByAir4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CancellationStatusReason3Choice;
 
@@ -13,6 +15,36 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationStatusReason3Choice;
 /// Reason for the cancellation status, in a coded form.
 /// </summary>
 public partial record Code : CancellationStatusReason3Choice_
+     , IIsoXmlSerilizable<Code>
 {
-    public required ExternalPaymentCancellationRejection1Code Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies the reason for the rejection of a cancellation, as published in an external payment cancellation rejection code set.
+    /// External code sets can be downloaded from www.iso20022.org.
+    /// </summary>
+    public required ExternalPaymentCancellationRejection1Code Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new Code Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

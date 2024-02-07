@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.AgentCAGlobalDistributionStatusAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// - Provide a status by individual movements, in which case, the building block Individual Movement Status must be present. An individual movement cannot be rejected.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|This message is sent by an issuer (or its agent) to the CSD to authorise/prohibit the CSD to process the entitlement movements.|Usage|This message is used to authorise/prohibit the CSD to process the movements requested in the Global Distribution Authorisation Request message.|Once the amendment request has been accepted by the issuer (or its agent), the CSD will process any resource movement and send an Agent Corporate Action Election Advice message with the function, option change, to confirm that the amendment has been booked at the CSD.|The issuer (or its agent) can provide the status in 2 different ways:|- Provide a global status, in which case the building block Global Movement Status must be present; or|- Provide a status by individual movements, in which case, the building block Individual Movement Status must be present. An individual movement cannot be rejected.")]
-public partial record AgentCAGlobalDistributionStatusAdviceV01 : IOuterRecord
+public partial record AgentCAGlobalDistributionStatusAdviceV01 : IOuterRecord<AgentCAGlobalDistributionStatusAdviceV01,AgentCAGlobalDistributionStatusAdviceV01Document>
+    ,IIsoXmlSerilizable<AgentCAGlobalDistributionStatusAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record AgentCAGlobalDistributionStatusAdviceV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AgtCAGblDstrbtnStsAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AgentCAGlobalDistributionStatusAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -104,6 +111,38 @@ public partial record AgentCAGlobalDistributionStatusAdviceV01 : IOuterRecord
     {
         return new AgentCAGlobalDistributionStatusAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AgtCAGblDstrbtnStsAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AgtCAGblDstrbtnAuthstnReqId", xmlNamespace );
+        AgentCAGlobalDistributionAuthorisationRequestIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+        CorporateActionGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "GblMvmntSts", xmlNamespace );
+        GlobalMovementStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IndvMvmntSts", xmlNamespace );
+        IndividualMovementStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static AgentCAGlobalDistributionStatusAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -111,9 +150,7 @@ public partial record AgentCAGlobalDistributionStatusAdviceV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAGlobalDistributionStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AgentCAGlobalDistributionStatusAdviceV01Document : IOuterDocument<AgentCAGlobalDistributionStatusAdviceV01>
+public partial record AgentCAGlobalDistributionStatusAdviceV01Document : IOuterDocument<AgentCAGlobalDistributionStatusAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -129,5 +166,22 @@ public partial record AgentCAGlobalDistributionStatusAdviceV01Document : IOuterD
     /// <summary>
     /// The instance of <seealso cref="AgentCAGlobalDistributionStatusAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=AgentCAGlobalDistributionStatusAdviceV01.XmlTag)]
     public required AgentCAGlobalDistributionStatusAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AgentCAGlobalDistributionStatusAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

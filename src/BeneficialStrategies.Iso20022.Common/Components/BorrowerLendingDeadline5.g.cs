@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Stock lending deadline assigned to a borrower of the stock.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BorrowerLendingDeadline5
+     : IIsoXmlSerilizable<BorrowerLendingDeadline5>
 {
     #nullable enable
     
     /// <summary>
     /// Date/time set as the deadline to respond, with instructions, to an outstanding event for which the underlying security is out on loan.
     /// </summary>
-    [DataMember]
     public required DateFormat43Choice_ StockLendingDeadline { get; init; } 
     /// <summary>
     /// Party who has borrowed stocks on loan.
     /// </summary>
-    [DataMember]
     public required PartyIdentification127Choice_ Borrower { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "StockLndgDdln", xmlNamespace );
+        StockLendingDeadline.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Brrwr", xmlNamespace );
+        Borrower.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static BorrowerLendingDeadline5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

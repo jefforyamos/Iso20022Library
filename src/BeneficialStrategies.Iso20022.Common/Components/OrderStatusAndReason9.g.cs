@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status report of a bulk or multiple or switch order cancellation instruction that was previously received.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OrderStatusAndReason9
+     : IIsoXmlSerilizable<OrderStatusAndReason9>
 {
     #nullable enable
     
     /// <summary>
     /// Reference assigned to a set of orders or trades in order to link them together.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Cancellation status of the order cancellation.
     /// </summary>
-    [DataMember]
     public required CancellationStatus22Choice_ CancellationStatus { get; init; } 
     /// <summary>
     /// Party that initiates the status of the order cancellation.
     /// </summary>
-    [DataMember]
     public PartyIdentification113? StatusInitiator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CxlSts", xmlNamespace );
+        CancellationStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (StatusInitiator is PartyIdentification113 StatusInitiatorValue)
+        {
+            writer.WriteStartElement(null, "StsInitr", xmlNamespace );
+            StatusInitiatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OrderStatusAndReason9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

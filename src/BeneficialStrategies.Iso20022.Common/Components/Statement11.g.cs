@@ -7,63 +7,114 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Characteristics of the statement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Statement11
+     : IIsoXmlSerilizable<Statement11>
 {
     #nullable enable
     
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
-    [DataMember]
     public Number3Choice_? ReportNumber { get; init; } 
     /// <summary>
     /// Identification of the SecuritiesStatementQuery message sent to request this statement.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? QueryReference { get; init; } 
     /// <summary>
     /// Reference common to all pages of a statement.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? StatementIdentification { get; init; } 
     /// <summary>
     /// Period for the statement.
     /// </summary>
-    [DataMember]
     public required Period2Choice_ StatementPeriod { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
-    [DataMember]
     public Frequency4Choice_? Frequency { get; init; } 
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>
-    [DataMember]
     public UpdateType2Choice_? UpdateType { get; init; } 
     /// <summary>
     /// Type of balance on which the statement is prepared.
     /// </summary>
-    [DataMember]
     public required StatementBasis2Choice_ StatementBasis { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the statement reports holdings at subsafekeeping account level.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator SubAccountIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReportNumber is Number3Choice_ ReportNumberValue)
+        {
+            writer.WriteStartElement(null, "RptNb", xmlNamespace );
+            ReportNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (QueryReference is IsoMax35Text QueryReferenceValue)
+        {
+            writer.WriteStartElement(null, "QryRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(QueryReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (StatementIdentification is IsoMax35Text StatementIdentificationValue)
+        {
+            writer.WriteStartElement(null, "StmtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(StatementIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "StmtPrd", xmlNamespace );
+        StatementPeriod.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Frequency is Frequency4Choice_ FrequencyValue)
+        {
+            writer.WriteStartElement(null, "Frqcy", xmlNamespace );
+            FrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UpdateType is UpdateType2Choice_ UpdateTypeValue)
+        {
+            writer.WriteStartElement(null, "UpdTp", xmlNamespace );
+            UpdateTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "StmtBsis", xmlNamespace );
+        StatementBasis.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ActvtyInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ActivityIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SubAcctInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SubAccountIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static Statement11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

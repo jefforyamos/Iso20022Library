@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of a non-extension advice.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UndertakingNonExtensionStatusAdvice1
+     : IIsoXmlSerilizable<UndertakingNonExtensionStatusAdvice1>
 {
     #nullable enable
     
     /// <summary>
     /// Details related to the notifying party.
     /// </summary>
-    [DataMember]
     public required PartyIdentification43 NotifyingParty { get; init; } 
     /// <summary>
     /// Details related to the identification of the undertaking.
     /// </summary>
-    [DataMember]
     public required Undertaking7 UndertakingIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NtifngPty", xmlNamespace );
+        NotifyingParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UdrtkgId", xmlNamespace );
+        UndertakingIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static UndertakingNonExtensionStatusAdvice1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

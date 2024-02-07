@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates the payment transaction status and optionally the reason for that status. 
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentStatus4
+     : IIsoXmlSerilizable<PaymentStatus4>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the status of a single payment transaction.
     /// </summary>
-    [DataMember]
     public required TransactionIndividualStatus5Code Status { get; init; } 
     /// <summary>
     /// Provides the reason for a specific payment status.
     /// </summary>
-    [DataMember]
     public PaymentStatusReason1Code? Reason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Reason is PaymentStatusReason1Code ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            writer.WriteValue(ReasonValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentStatus4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

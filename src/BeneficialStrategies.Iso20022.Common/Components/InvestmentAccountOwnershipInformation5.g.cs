@@ -7,63 +7,120 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Characteristics of the ownership of an investment account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestmentAccountOwnershipInformation5
+     : IIsoXmlSerilizable<InvestmentAccountOwnershipInformation5>
 {
     #nullable enable
     
     /// <summary>
     /// Organised structure that is set up for a particular purpose, eg, a business, government body, department, charity, or financial institution.
     /// </summary>
-    [DataMember]
     public required Organisation2 Organisation { get; init; } 
     /// <summary>
     /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
     /// </summary>
-    [DataMember]
     public required IndividualPerson10 IndividualPerson { get; init; } 
     /// <summary>
     /// Status of an identity check to prevent money laundering. This includes the counter-terrorism check.
     /// </summary>
-    [DataMember]
     public MoneyLaunderingCheck1Code? MoneyLaunderingCheck { get; init; } 
     /// <summary>
     /// Status of an identity check to prevent money laundering. This includes the counter-terrorism check.
     /// </summary>
-    [DataMember]
     public IsoExtended350Code? ExtendedMoneyLaunderingCheck { get; init; } 
     /// <summary>
     /// Information to support Know Your Customer processes.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyProfileInformation1> InvestorProfileValidation { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyProfileInformation1? InvestorProfileValidation { get; init; } 
     /// <summary>
     /// Percentage of ownership or of beneficial ownership of the shares/units in the account. All subsequent subscriptions and or redemptions will be allocated using the same percentage.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? OwnershipBeneficiaryRate { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by an organisation, to unambiguously identify a party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClientIdentification { get; init; } 
     /// <summary>
     /// Indicates whether an owner of an investment account may benefit from a fiscal exemption or amnesty for instance for declaring overseas investments.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? FiscalExemption { get; init; } 
     /// <summary>
     /// Indicates whether the signature of the account owner is required to authorise transactions on the account.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? SignatoryRightIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Org", xmlNamespace );
+        Organisation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IndvPrsn", xmlNamespace );
+        IndividualPerson.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MoneyLaunderingCheck is MoneyLaunderingCheck1Code MoneyLaunderingCheckValue)
+        {
+            writer.WriteStartElement(null, "MnyLndrgChck", xmlNamespace );
+            writer.WriteValue(MoneyLaunderingCheckValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExtendedMoneyLaunderingCheck is IsoExtended350Code ExtendedMoneyLaunderingCheckValue)
+        {
+            writer.WriteStartElement(null, "XtndedMnyLndrgChck", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedMoneyLaunderingCheckValue)); // data type Extended350Code System.String
+            writer.WriteEndElement();
+        }
+        if (InvestorProfileValidation is PartyProfileInformation1 InvestorProfileValidationValue)
+        {
+            writer.WriteStartElement(null, "InvstrPrflVldtn", xmlNamespace );
+            InvestorProfileValidationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OwnershipBeneficiaryRate is IsoPercentageRate OwnershipBeneficiaryRateValue)
+        {
+            writer.WriteStartElement(null, "OwnrshBnfcryRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(OwnershipBeneficiaryRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ClientIdentification is IsoMax35Text ClientIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClntId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (FiscalExemption is IsoYesNoIndicator FiscalExemptionValue)
+        {
+            writer.WriteStartElement(null, "FsclXmptn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(FiscalExemptionValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SignatoryRightIndicator is IsoYesNoIndicator SignatoryRightIndicatorValue)
+        {
+            writer.WriteStartElement(null, "SgntryRghtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SignatoryRightIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static InvestmentAccountOwnershipInformation5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

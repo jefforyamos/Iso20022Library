@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of incorrect information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UnableToApplyIncorrect2
+     : IIsoXmlSerilizable<UnableToApplyIncorrect2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies which data type is incorrect in the transaction.
     /// </summary>
-    [DataMember]
     public required IncorrectData1Choice_ Type { get; init; } 
     /// <summary>
     /// Further details about the incorrect information.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? AdditionalIncorrectInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalIncorrectInformation is IsoMax140Text AdditionalIncorrectInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlIncrrctInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalIncorrectInformationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static UnableToApplyIncorrect2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

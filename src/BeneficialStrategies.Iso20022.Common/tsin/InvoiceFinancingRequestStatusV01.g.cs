@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsin.InvoiceFinancingRequestStatusV01>;
 
 namespace BeneficialStrategies.Iso20022.tsin;
 
@@ -36,10 +39,9 @@ namespace BeneficialStrategies.Iso20022.tsin;
 /// The InvoiceFinancingRequestStatus message refers to the original request(s) by means of references and a set of data elements included into the original request.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The InvoiceFinancingRequestStatus message is sent by the First Agent to the Financing Requestor, alternatively through an Intermediary Agent (relay scenario). It is used to inform the Financing Requestor about the positive or negative status of a financing request or a financing cancellation request.|Usage|The InvoiceFinancingRequestStatus message flows from the First Agent to the Financing Requestor (alternatively through an Intermediary Agent) to provide status information about a request previously sent.|Its usage will always be governed by a bilateral agreement between the First Agent and the Financing Requestor.|The InvoiceFinancingRequestStatus message can be used two fold:|- to provide information about the reception status (eg rejection, acceptance) of a request message. In this case the status message is the result of a technical validation performed by the First Agent on the request message received;|- to inform the Financing Requestor about the business status of the financing process initiated. In this case the First Agent can:|* communicate that a single financing request has been granted, is pending or has not been granted at all;|* inform that a financing cancellation request has been allowed or denied.|Note.|If the Financing Requestor requests financing for more than one instalment related to the same invoice, the First Agent can decide to finance only some of the instalments. In such case the status message contains details and status of every single instalment (financed, not financed).|The message can be used in a direct or in a relay scenario:|- In a direct scenario, the message is sent directly by the First Agent to the Financing Requestor;|- In a relay scenario, the message is sent first by the First Agent to the Intermediary Agent, who forwards it to the Financing Requestor.|The InvoiceFinancingRequestStatus message refers to the original request(s) by means of references and a set of data elements included into the original request.")]
-public partial record InvoiceFinancingRequestStatusV01 : IOuterRecord
+public partial record InvoiceFinancingRequestStatusV01 : IOuterRecord<InvoiceFinancingRequestStatusV01,InvoiceFinancingRequestStatusV01Document>
+    ,IIsoXmlSerilizable<InvoiceFinancingRequestStatusV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -51,6 +53,11 @@ public partial record InvoiceFinancingRequestStatusV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "InvcFincgReqSts";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => InvoiceFinancingRequestStatusV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -91,6 +98,35 @@ public partial record InvoiceFinancingRequestStatusV01 : IOuterRecord
     {
         return new InvoiceFinancingRequestStatusV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("InvcFincgReqSts");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "StsId", xmlNamespace );
+        StatusIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgnlReqInfAndSts", xmlNamespace );
+        OriginalRequestInformationAndStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FinancingInformationAndStatus is FinancingInformationAndStatus1 FinancingInformationAndStatusValue)
+        {
+            writer.WriteStartElement(null, "FincgInfAndSts", xmlNamespace );
+            FinancingInformationAndStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InvoiceFinancingRequestStatusV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -98,9 +134,7 @@ public partial record InvoiceFinancingRequestStatusV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvoiceFinancingRequestStatusV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record InvoiceFinancingRequestStatusV01Document : IOuterDocument<InvoiceFinancingRequestStatusV01>
+public partial record InvoiceFinancingRequestStatusV01Document : IOuterDocument<InvoiceFinancingRequestStatusV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -116,5 +150,22 @@ public partial record InvoiceFinancingRequestStatusV01Document : IOuterDocument<
     /// <summary>
     /// The instance of <seealso cref="InvoiceFinancingRequestStatusV01"/> is required.
     /// </summary>
+    [DataMember(Name=InvoiceFinancingRequestStatusV01.XmlTag)]
     public required InvoiceFinancingRequestStatusV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(InvoiceFinancingRequestStatusV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

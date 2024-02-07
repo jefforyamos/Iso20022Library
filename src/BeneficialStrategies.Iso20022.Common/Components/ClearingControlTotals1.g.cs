@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Gross clearing control totals.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ClearingControlTotals1
+     : IIsoXmlSerilizable<ClearingControlTotals1>
 {
     #nullable enable
     
     /// <summary>
     /// Number of clearing transactions. To be used for control purpose.
     /// </summary>
-    [DataMember]
     public required IsoNumber ClearingControlCount { get; init; } 
     /// <summary>
     /// Gross accumulated amount of clearing. To be used for control purpose.
     /// </summary>
-    [DataMember]
     public required Amount14 ClearingControlAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ClrCtrlCnt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(ClearingControlCount)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClrCtrlAmt", xmlNamespace );
+        ClearingControlAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ClearingControlTotals1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,62 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the transportation of goods by rail.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransportByRail3
+     : IIsoXmlSerilizable<TransportByRail3>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the location where the goods are received for transportation.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> PlaceOfReceipt { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? PlaceOfReceipt { get; init; } 
     /// <summary>
     /// Identifies the location of delivery of the goods.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> PlaceOfDelivery { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? PlaceOfDelivery { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _SuFU69p-Ed-ak6NoX_4Aeg_-1718113995
     /// <summary>
     /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RailCarrierName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceOfReceipt is IsoMax35Text PlaceOfReceiptValue)
+        {
+            writer.WriteStartElement(null, "PlcOfRct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PlaceOfReceiptValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize PlaceOfDelivery, multiplicity Unknown
+        if (RailCarrierName is IsoMax35Text RailCarrierNameValue)
+        {
+            writer.WriteStartElement(null, "RailCrrierNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RailCarrierNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TransportByRail3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

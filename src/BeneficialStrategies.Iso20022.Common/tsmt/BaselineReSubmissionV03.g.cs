@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsmt.BaselineReSubmissionV03>;
 
 namespace BeneficialStrategies.Iso20022.tsmt;
 
@@ -29,10 +32,9 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// The BaselineReSubmission message can be sent by the counterparty of a transaction to the matching application in response to a BaselineMatchReport message indicating mis-matches. The objective of the BaselineReSubmission message sent in the outlined scenario is to correct a BaselineReSubmission message submitted earlier in order to achieve the establishment of a transaction in the matching application.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The BaselineReSubmission message is sent by either the counterparty or the initiator of a transaction (baseline) to the matching application.|This message is used by the counterparty to respond on the registration of a push-through transaction in the matching application or by the initiator or counterparty to re-send earlier mis-matched baseline information.|Usage|The BaselineReSubmission message can be sent by the counterparty of a transaction to the matching application in response to a FullPushThroughReport message received from the matching application conveying the details of an InitialBaselineSubmission message. The objective of the BaselineReSubmission message sent in the outlined scenario is to achieve a successful match of two baseline initiation messages in order to establish a transaction in the matching application.|or|The BaselineReSubmission message can be sent by the initiator of a transaction to the matching application in response to a BaselineMatchReport message indicating mis-matches. The objective of the BaselineReSubmission message sent in the outlined scenario is to correct an InitialBaselineSubmission or BaselineReSubmission message submitted earlier in order to achieve the establishment of a transaction in the matching application.|or|The BaselineReSubmission message can be sent by the counterparty of a transaction to the matching application in response to a BaselineMatchReport message indicating mis-matches. The objective of the BaselineReSubmission message sent in the outlined scenario is to correct a BaselineReSubmission message submitted earlier in order to achieve the establishment of a transaction in the matching application.")]
-public partial record BaselineReSubmissionV03 : IOuterRecord
+public partial record BaselineReSubmissionV03 : IOuterRecord<BaselineReSubmissionV03,BaselineReSubmissionV03Document>
+    ,IIsoXmlSerilizable<BaselineReSubmissionV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -44,6 +46,11 @@ public partial record BaselineReSubmissionV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "BaselnReSubmissn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => BaselineReSubmissionV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -141,6 +148,62 @@ public partial record BaselineReSubmissionV03 : IOuterRecord
     {
         return new BaselineReSubmissionV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("BaselnReSubmissn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SubmissnId", xmlNamespace );
+        SubmissionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SubmitterTransactionReference is SimpleIdentificationInformation SubmitterTransactionReferenceValue)
+        {
+            writer.WriteStartElement(null, "SubmitrTxRef", xmlNamespace );
+            SubmitterTransactionReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Baseln", xmlNamespace );
+        Baseline.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BuyerContactPerson is ContactIdentification1 BuyerContactPersonValue)
+        {
+            writer.WriteStartElement(null, "BuyrCtctPrsn", xmlNamespace );
+            BuyerContactPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SellerContactPerson is ContactIdentification1 SellerContactPersonValue)
+        {
+            writer.WriteStartElement(null, "SellrCtctPrsn", xmlNamespace );
+            SellerContactPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "BuyrBkCtctPrsn", xmlNamespace );
+        BuyerBankContactPerson.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SellrBkCtctPrsn", xmlNamespace );
+        SellerBankContactPerson.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OtherBankContactPerson is ContactIdentification3 OtherBankContactPersonValue)
+        {
+            writer.WriteStartElement(null, "OthrBkCtctPrsn", xmlNamespace );
+            OtherBankContactPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BaselineReSubmissionV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -148,9 +211,7 @@ public partial record BaselineReSubmissionV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BaselineReSubmissionV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record BaselineReSubmissionV03Document : IOuterDocument<BaselineReSubmissionV03>
+public partial record BaselineReSubmissionV03Document : IOuterDocument<BaselineReSubmissionV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -166,5 +227,22 @@ public partial record BaselineReSubmissionV03Document : IOuterDocument<BaselineR
     /// <summary>
     /// The instance of <seealso cref="BaselineReSubmissionV03"/> is required.
     /// </summary>
+    [DataMember(Name=BaselineReSubmissionV03.XmlTag)]
     public required BaselineReSubmissionV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(BaselineReSubmissionV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

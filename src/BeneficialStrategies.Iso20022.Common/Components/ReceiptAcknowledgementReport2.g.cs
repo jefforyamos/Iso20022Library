@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the original request. Identifies the message being acknowledged and its status
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReceiptAcknowledgementReport2
+     : IIsoXmlSerilizable<ReceiptAcknowledgementReport2>
 {
     #nullable enable
     
     /// <summary>
     /// Reference of the request.
     /// </summary>
-    [DataMember]
     public required MessageReference1 RelatedReference { get; init; } 
     /// <summary>
     /// Gives the status of the request.
     /// </summary>
-    [DataMember]
     public required RequestHandling2 RequestHandling { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+        RelatedReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ReqHdlg", xmlNamespace );
+        RequestHandling.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ReceiptAcknowledgementReport2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

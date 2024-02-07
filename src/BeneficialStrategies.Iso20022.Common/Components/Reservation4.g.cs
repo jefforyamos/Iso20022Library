@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Liquidity set aside by the account owner for specific purposes.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Reservation4
+     : IIsoXmlSerilizable<Reservation4>
 {
     #nullable enable
     
     /// <summary>
     /// Date and time at which the reservation becomes effective.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? StartDateTime { get; init; } 
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
-    [DataMember]
     public required Amount2Choice_ Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (StartDateTime is DateAndDateTime2Choice_ StartDateTimeValue)
+        {
+            writer.WriteStartElement(null, "StartDtTm", xmlNamespace );
+            StartDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        Amount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static Reservation4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

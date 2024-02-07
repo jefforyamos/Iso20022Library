@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.colr.CollateralProposalV04>;
 
 namespace BeneficialStrategies.Iso20022.colr;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// This message is sent once the Margin Call is agreed or partially agreed and can be used for new collateral at the initiation of an exposure or for additional collateral for variation of an existing exposure. The collateral proposal can include securities, cash and other types of collateral.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The CollateralProposal message is sent by the collateral giver or its collateral manager to the collateral taker or its collateral manager, to propose the collateral to be delivered. This message is sent once the Margin Call is agreed or partially agreed and can be used for new collateral at the initiation of an exposure or for additional collateral for variation of an existing exposure. This message is used for both initial collateral proposal and subsequent counter proposals.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|This message is sent once the Margin Call is agreed or partially agreed and can be used for new collateral at the initiation of an exposure or for additional collateral for variation of an existing exposure. The collateral proposal can include securities, cash and other types of collateral.")]
-public partial record CollateralProposalV04 : IOuterRecord
+public partial record CollateralProposalV04 : IOuterRecord<CollateralProposalV04,CollateralProposalV04Document>
+    ,IIsoXmlSerilizable<CollateralProposalV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record CollateralProposalV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "CollPrpsl";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CollateralProposalV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -101,6 +108,44 @@ public partial record CollateralProposalV04 : IOuterRecord
     {
         return new CollateralProposalV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("CollPrpsl");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Oblgtn", xmlNamespace );
+        Obligation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Agreement is Agreement4 AgreementValue)
+        {
+            writer.WriteStartElement(null, "Agrmt", xmlNamespace );
+            AgreementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TpAndDtls", xmlNamespace );
+        TypeAndDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralProposalV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -108,9 +153,7 @@ public partial record CollateralProposalV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CollateralProposalV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CollateralProposalV04Document : IOuterDocument<CollateralProposalV04>
+public partial record CollateralProposalV04Document : IOuterDocument<CollateralProposalV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -126,5 +169,22 @@ public partial record CollateralProposalV04Document : IOuterDocument<CollateralP
     /// <summary>
     /// The instance of <seealso cref="CollateralProposalV04"/> is required.
     /// </summary>
+    [DataMember(Name=CollateralProposalV04.XmlTag)]
     public required CollateralProposalV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CollateralProposalV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

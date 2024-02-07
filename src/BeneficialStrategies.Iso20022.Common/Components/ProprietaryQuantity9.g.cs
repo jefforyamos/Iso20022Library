@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Proprietary quantity format.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProprietaryQuantity9
+     : IIsoXmlSerilizable<ProprietaryQuantity9>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the proprietary quantity with a decimal number.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINDecimalNumber Quantity { get; init; } 
     /// <summary>
     /// Identifies the type of proprietary quantity reported.
     /// </summary>
-    [DataMember]
     public required IsoExact4AlphaNumericText QuantityType { get; init; } 
     /// <summary>
     /// Provides information related to issuer in free format.
     /// </summary>
-    [DataMember]
     public required IsoMax4AlphaNumericText Issuer { get; init; } 
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
-    [DataMember]
     public IsoMax4AlphaNumericText? SchemeName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINDecimalNumber(Quantity)); // data type RestrictedFINDecimalNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "QtyTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(QuantityType)); // data type Exact4AlphaNumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Issr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(Issuer)); // data type Max4AlphaNumericText System.String
+        writer.WriteEndElement();
+        if (SchemeName is IsoMax4AlphaNumericText SchemeNameValue)
+        {
+            writer.WriteStartElement(null, "SchmeNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(SchemeNameValue)); // data type Max4AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ProprietaryQuantity9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

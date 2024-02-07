@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action option securities movement price details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionPriceSD1
+     : IIsoXmlSerilizable<CorporateActionPriceSD1>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Corresponding cash in lieu price as declared on the market by issuer/ offeror.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? DeclaredCashInLieuPrice { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (DeclaredCashInLieuPrice is IsoRestrictedFINActiveCurrencyAnd13DecimalAmount DeclaredCashInLieuPriceValue)
+        {
+            writer.WriteStartElement(null, "DclrdCshInLieuPric", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAnd13DecimalAmount(DeclaredCashInLieuPriceValue)); // data type RestrictedFINActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionPriceSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

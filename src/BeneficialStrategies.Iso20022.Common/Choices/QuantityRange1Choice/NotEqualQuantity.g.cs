@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.QuantityRange1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityRange1Choice;
 /// Value that a quantity must not match to be considered valid.
 /// </summary>
 public partial record NotEqualQuantity : QuantityRange1Choice_
+     , IIsoXmlSerilizable<NotEqualQuantity>
 {
-    public required IsoDecimalNumber Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Number of objects represented as a decimal number, for example 0.75 or 45.6.
+    /// </summary>
+    public required IsoDecimalNumber Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NEQQty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(Value)); // data type DecimalNumber System.UInt64
+        writer.WriteEndElement();
+    }
+    public static new NotEqualQuantity Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

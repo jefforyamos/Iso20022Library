@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates date and value at which the floating reference rate was reset.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ResetDateAndValue1
+     : IIsoXmlSerilizable<ResetDateAndValue1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the most recent date at which the floating reference rate was reset.
     /// </summary>
-    [DataMember]
     public required IsoISODate Date { get; init; } 
     /// <summary>
     /// Indicates the most recent value at which the floating reference rate was reset.
     /// </summary>
-    [DataMember]
     public IsoBaseOneRate? Value { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Dt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(Date)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (Value is IsoBaseOneRate ValueValue)
+        {
+            writer.WriteStartElement(null, "Val", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ValueValue)); // data type BaseOneRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static ResetDateAndValue1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

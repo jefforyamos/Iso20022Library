@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Charge or commission of the original individual order details that have been repaired so that the order can be accepted.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RepairedConditions3
+     : IIsoXmlSerilizable<RepairedConditions3>
 {
     #nullable enable
     
     /// <summary>
     /// Modified value of the charge applied on the order (the charge in the original individual order that has been repaired so that the order can be accepted).
     /// </summary>
-    [DataMember]
     public ValueList<Charge19> RepairedCharge { get; init; } = [];
     /// <summary>
     /// Modified value of the commission applied on the order (the commission in the original individual order that has been repaired so that the order can be accepted).
     /// </summary>
-    [DataMember]
     public ValueList<Commission11> RepairedCommission { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RprdChrg", xmlNamespace );
+        RepairedCharge.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RprdComssn", xmlNamespace );
+        RepairedCommission.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static RepairedConditions3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

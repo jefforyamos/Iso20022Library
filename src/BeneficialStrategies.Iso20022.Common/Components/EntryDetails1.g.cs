@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to identify the underlying transaction(s) and/or batched entries.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record EntryDetails1
+     : IIsoXmlSerilizable<EntryDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Set of elements used to provide details on batched transactions.
     /// </summary>
-    [DataMember]
     public BatchInformation2? Batch { get; init; } 
     /// <summary>
     /// Set of elements used to provide information on the underlying transaction(s).
     /// </summary>
-    [DataMember]
-    public ValueList<EntryTransaction2> TransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public EntryTransaction2? TransactionDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Batch is BatchInformation2 BatchValue)
+        {
+            writer.WriteStartElement(null, "Btch", xmlNamespace );
+            BatchValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionDetails is EntryTransaction2 TransactionDetailsValue)
+        {
+            writer.WriteStartElement(null, "TxDtls", xmlNamespace );
+            TransactionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static EntryDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the return indicators and the investigation result.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReturnIndicator1
+     : IIsoXmlSerilizable<ReturnIndicator1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the dates between which period the response results relate to.
     /// </summary>
-    [DataMember]
     public DateOrDateTimePeriodChoice_? ResponsePeriod { get; init; } 
     /// <summary>
     /// Identifies the authority request type as a code.
     /// </summary>
-    [DataMember]
     public required AuthorityRequestType1 AuthorityRequestType { get; init; } 
     /// <summary>
     /// Provides the investigation result.
     /// </summary>
-    [DataMember]
     public required InvestigationResult1Choice_ InvestigationResult { get; init; } 
     /// <summary>
     /// Additional information, in free text form, to complement the investigation result.
     /// </summary>
-    [DataMember]
     public IsoMax500Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ResponsePeriod is DateOrDateTimePeriodChoice_ ResponsePeriodValue)
+        {
+            writer.WriteStartElement(null, "RspnPrd", xmlNamespace );
+            ResponsePeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AuthrtyReqTp", xmlNamespace );
+        AuthorityRequestType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InvstgtnRslt", xmlNamespace );
+        InvestigationResult.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax500Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Text(AdditionalInformationValue)); // data type Max500Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ReturnIndicator1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

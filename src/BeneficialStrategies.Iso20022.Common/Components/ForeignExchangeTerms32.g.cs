@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information needed to process a currency exchange or conversion.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ForeignExchangeTerms32
+     : IIsoXmlSerilizable<ForeignExchangeTerms32>
 {
     #nullable enable
     
@@ -23,13 +24,11 @@ public partial record ForeignExchangeTerms32
     /// Currency from which the quoted currency is converted in an exchange rate calculation.
     /// 1 x <UnitCcy> = <XchgRate> x <QtdCcy>.
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode UnitCurrency { get; init; } 
     /// <summary>
     /// Currency into which the unit currency is converted in an exchange rate calculation.
     /// 1 x <UnitCcy> = <XchgRate> x <QtdCcy>.
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode QuotedCurrency { get; init; } 
     /// <summary>
     /// Factor used for the conversion of an amount from one currency into another. This reflects that amount of the quoted currency that can be purchased with one unit of the unit currency, as follows: 
@@ -40,18 +39,53 @@ public partial record ForeignExchangeTerms32
     /// nnn is the exchange rate.
     /// 1 x <UnitCcy> = <XchgRate> x <QtdCcy>.
     /// </summary>
-    [DataMember]
     public required IsoBaseOneRate ExchangeRate { get; init; } 
     /// <summary>
     /// Date and time at which an exchange rate is quoted.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? QuotationDate { get; init; } 
     /// <summary>
     /// Party that proposes a foreign exchange rate.
     /// </summary>
-    [DataMember]
     public PartyIdentification113? QuotingInstitution { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UnitCcy", xmlNamespace );
+        writer.WriteValue(UnitCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "QtdCcy", xmlNamespace );
+        writer.WriteValue(QuotedCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XchgRate", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ExchangeRate)); // data type BaseOneRate System.Decimal
+        writer.WriteEndElement();
+        if (QuotationDate is IsoISODateTime QuotationDateValue)
+        {
+            writer.WriteStartElement(null, "QtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(QuotationDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (QuotingInstitution is PartyIdentification113 QuotingInstitutionValue)
+        {
+            writer.WriteStartElement(null, "QtgInstn", xmlNamespace );
+            QuotingInstitutionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ForeignExchangeTerms32 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

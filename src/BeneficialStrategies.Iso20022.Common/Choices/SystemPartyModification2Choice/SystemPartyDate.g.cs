@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification2Choice;
 /// Specifies the opening and closing dates, as assigned by the system.
 /// </summary>
 public partial record SystemPartyDate : SystemPartyModification2Choice_
+     , IIsoXmlSerilizable<SystemPartyDate>
 {
     #nullable enable
+    
     /// <summary>
     /// Specifies the opening date of the party.
     /// </summary>
@@ -23,5 +27,35 @@ public partial record SystemPartyDate : SystemPartyModification2Choice_
     /// Specifies the closing date of the party.
     /// </summary>
     public IsoISODate? ClosingDate { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OpeningDate is IsoISODate OpeningDateValue)
+        {
+            writer.WriteStartElement(null, "OpngDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(OpeningDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ClosingDate is IsoISODate ClosingDateValue)
+        {
+            writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ClosingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static new SystemPartyDate Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

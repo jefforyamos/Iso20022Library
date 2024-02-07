@@ -7,63 +7,123 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional references linked to the order status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Reference15
+     : IIsoXmlSerilizable<Reference15>
 {
     #nullable enable
     
     /// <summary>
     /// Identification assigned by issuer of Mass Status Request to uniquely identify the request.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OrderMassStatusRequestIdentification { get; init; } 
     /// <summary>
     /// Identification assigned by issuer of Order Status Request to uniquely identify the request.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OrderStatusRequestIdentification { get; init; } 
     /// <summary>
     /// Unique identifier for Order as assigned by sell-side.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OrderIdentification { get; init; } 
     /// <summary>
     /// Host assigned entity identification that can be used to reference all components of a cross; sides + strategy + legs. The HostCrossID will be used to link together components of the Cross Order. For example, each individual Notice of Execution associated with the order will carry HostCrossID in order to tie back to the original cross order.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? HostCrossIdentification { get; init; } 
     /// <summary>
     /// Identifier for a cross order. Must be unique during a given trading day.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CrossOrderIdentification { get; init; } 
     /// <summary>
     /// Cross Identification of the previous cross order (not the initial cross order of the day) as assigned by the institution, used to identify the previous cross order in Cross Order Modification Request and Cross Order Cancellation Request.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalCrossOrderIdentification { get; init; } 
     /// <summary>
     /// Unique identifier for Order as assigned by the buy-side.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClientOrderIdentification { get; init; } 
     /// <summary>
     /// Identifier assigned by the party which accepts the order.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SecondaryOrderIdentification { get; init; } 
     /// <summary>
     /// Identifier assigned by the party which originates the order.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SecondaryClientOrderIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OrderMassStatusRequestIdentification is IsoMax35Text OrderMassStatusRequestIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrdrMassStsReqId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OrderMassStatusRequestIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OrderStatusRequestIdentification is IsoMax35Text OrderStatusRequestIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrdrStsReqId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OrderStatusRequestIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OrdrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OrderIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (HostCrossIdentification is IsoMax35Text HostCrossIdentificationValue)
+        {
+            writer.WriteStartElement(null, "HstCrossId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(HostCrossIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CrossOrderIdentification is IsoMax35Text CrossOrderIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CrossOrdrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CrossOrderIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalCrossOrderIdentification is IsoMax35Text OriginalCrossOrderIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlCrossOrdrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalCrossOrderIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClientOrderIdentification is IsoMax35Text ClientOrderIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClntOrdrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientOrderIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SecondaryOrderIdentification is IsoMax35Text SecondaryOrderIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ScndryOrdrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SecondaryOrderIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SecondaryClientOrderIdentification is IsoMax35Text SecondaryClientOrderIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ScndryClntOrdrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SecondaryClientOrderIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Reference15 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

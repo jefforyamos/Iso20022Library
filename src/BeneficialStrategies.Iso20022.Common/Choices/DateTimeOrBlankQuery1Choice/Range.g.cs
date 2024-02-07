@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.DateTimeOrBlankQuery1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.DateTimeOrBlankQuery1Choice;
 /// Indicates the date time range.
 /// </summary>
 public partial record Range : DateTimeOrBlankQuery1Choice_
+     , IIsoXmlSerilizable<Range>
 {
     #nullable enable
+    
     /// <summary>
     /// Date and time at which the period starts.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record Range : DateTimeOrBlankQuery1Choice_
     /// Date and time at which the period ends.
     /// </summary>
     public required IsoISODateTime ToDateTime { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FrDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(FromDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ToDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(ToDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+    }
+    public static new Range Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

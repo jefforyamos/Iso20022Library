@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Account23
+     : IIsoXmlSerilizable<Account23>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the account.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text AccountIdentification { get; init; } 
     /// <summary>
     /// Information about the account to which the existing account is to be linked.
     /// </summary>
-    [DataMember]
     public GenericIdentification1? RelatedAccountDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AcctId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (RelatedAccountDetails is GenericIdentification1 RelatedAccountDetailsValue)
+        {
+            writer.WriteStartElement(null, "RltdAcctDtls", xmlNamespace );
+            RelatedAccountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Account23 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

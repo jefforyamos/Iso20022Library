@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique and unambiguous way to identify a person.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PersonIdentification4
+     : IIsoXmlSerilizable<PersonIdentification4>
 {
     #nullable enable
     
     /// <summary>
     /// Identifier issued to a person for which no specific identifier has been defined.
     /// </summary>
-    [DataMember]
     public required RestrictedIdentification2 OtherIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OthrId", xmlNamespace );
+        OtherIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static PersonIdentification4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

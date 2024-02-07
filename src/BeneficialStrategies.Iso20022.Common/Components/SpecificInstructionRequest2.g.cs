@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Voting participation method at a general meeting.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SpecificInstructionRequest2
+     : IIsoXmlSerilizable<SpecificInstructionRequest2>
 {
     #nullable enable
     
     /// <summary>
     /// Method of voting participation to the general meeting.
     /// </summary>
-    [DataMember]
     public required ParticipationMethod1Choice_ ParticipationMethod { get; init; } 
     /// <summary>
     /// Indicates a request to register the securities for the meeting.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? SecuritiesRegistration { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrtcptnMtd", xmlNamespace );
+        ParticipationMethod.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecuritiesRegistration is IsoYesNoIndicator SecuritiesRegistrationValue)
+        {
+            writer.WriteStartElement(null, "SctiesRegn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SecuritiesRegistrationValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SpecificInstructionRequest2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

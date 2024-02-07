@@ -7,78 +7,156 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the customer device.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Device2
+     : IIsoXmlSerilizable<Device2>
 {
     #nullable enable
     
     /// <summary>
     /// Manufacturer of the device.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Manufacturer { get; init; } 
     /// <summary>
     /// Manufacturer's identification of the model.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? ManufacturerModelIdentification { get; init; } 
     /// <summary>
     /// Type of customer device.
     /// </summary>
-    [DataMember]
     public CustomerDeviceType2Code? Type { get; init; } 
     /// <summary>
     /// Other type of customer device in free text.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Preferred language set on the device
     /// </summary>
-    [DataMember]
     public LanguageCode? Language { get; init; } 
     /// <summary>
     /// Phone number associated with the device.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? PhoneNumber { get; init; } 
     /// <summary>
     /// Geographical location of the device.
     /// </summary>
-    [DataMember]
     public IsoGeographicPointInDecimalDegrees? GeographicLocation { get; init; } 
     /// <summary>
     /// Country of the location.
     /// </summary>
-    [DataMember]
     public ISO3NumericCountryCode? LocationCountryCode { get; init; } 
     /// <summary>
     /// Internet Protocol address associated with the device.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? IPAddress { get; init; } 
     /// <summary>
     /// Electronic mail address associated with the device.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? Email { get; init; } 
     /// <summary>
     /// Customer's name of the device.
     /// </summary>
-    [DataMember]
     public IsoMax100Text? DeviceName { get; init; } 
     /// <summary>
     /// Customer assigned device name, normalized.
     /// </summary>
-    [DataMember]
     public IsoMax100Text? DeviceNameNormalized { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Manufacturer is IsoMax70Text ManufacturerValue)
+        {
+            writer.WriteStartElement(null, "Manfctr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(ManufacturerValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (ManufacturerModelIdentification is IsoMax70Text ManufacturerModelIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ManfctrMdlId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(ManufacturerModelIdentificationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Type is CustomerDeviceType2Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherType is IsoMax35Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Language is LanguageCode LanguageValue)
+        {
+            writer.WriteStartElement(null, "Lang", xmlNamespace );
+            writer.WriteValue(LanguageValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PhoneNumber is IsoPhoneNumber PhoneNumberValue)
+        {
+            writer.WriteStartElement(null, "PhneNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(PhoneNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (GeographicLocation is IsoGeographicPointInDecimalDegrees GeographicLocationValue)
+        {
+            writer.WriteStartElement(null, "GeogcLctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoGeographicPointInDecimalDegrees(GeographicLocationValue)); // data type GeographicPointInDecimalDegrees System.String
+            writer.WriteEndElement();
+        }
+        if (LocationCountryCode is ISO3NumericCountryCode LocationCountryCodeValue)
+        {
+            writer.WriteStartElement(null, "LctnCtryCd", xmlNamespace );
+            writer.WriteValue(LocationCountryCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (IPAddress is IsoMax70Text IPAddressValue)
+        {
+            writer.WriteStartElement(null, "IPAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(IPAddressValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Email is IsoMax256Text EmailValue)
+        {
+            writer.WriteStartElement(null, "Email", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(EmailValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (DeviceName is IsoMax100Text DeviceNameValue)
+        {
+            writer.WriteStartElement(null, "DvcNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax100Text(DeviceNameValue)); // data type Max100Text System.String
+            writer.WriteEndElement();
+        }
+        if (DeviceNameNormalized is IsoMax100Text DeviceNameNormalizedValue)
+        {
+            writer.WriteStartElement(null, "DvcNmNrmlzd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax100Text(DeviceNameNormalizedValue)); // data type Max100Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Device2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

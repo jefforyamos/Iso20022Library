@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies a party that notifies a financial document, the party to be notified, and whether notified party must send an acknowledgement and to whom.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancingNotificationParties1
+     : IIsoXmlSerilizable<FinancingNotificationParties1>
 {
     #nullable enable
     
     /// <summary>
     /// Party that notifies a third party.
     /// </summary>
-    [DataMember]
     public required QualifiedPartyIdentification1 NotifyingParty { get; init; } 
     /// <summary>
     /// Party (to be) notified.
     /// </summary>
-    [DataMember]
     public required QualifiedPartyIdentification1 NotificationReceiver { get; init; } 
     /// <summary>
     /// Party to whom a notification acknowledgement has to be sent by the notification receiver.
     /// </summary>
-    [DataMember]
-    public ValueList<QualifiedPartyIdentification1> AcknowledgementReceiver { get; init; } = []; // Warning: Don't know multiplicity.
+    public QualifiedPartyIdentification1? AcknowledgementReceiver { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NtifngPty", xmlNamespace );
+        NotifyingParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NtfctnRcvr", xmlNamespace );
+        NotificationReceiver.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AcknowledgementReceiver is QualifiedPartyIdentification1 AcknowledgementReceiverValue)
+        {
+            writer.WriteStartElement(null, "AckRcvr", xmlNamespace );
+            AcknowledgementReceiverValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancingNotificationParties1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

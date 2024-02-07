@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies tax vouchers in the framework of a corporate action event.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxVoucher3
+     : IIsoXmlSerilizable<TaxVoucher3>
 {
     #nullable enable
     
     /// <summary>
     /// Unique reference for the tax voucher required by the relevant tax authorities to ensure that any claim relating to this particular tax voucher cannot be duplicated.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINXMax16Text Identification { get; init; } 
     /// <summary>
     /// Date on which a dividend reinvestment purchase was completed. If there is only one bargain involved, the time it was struck needs to be included.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeChoice_? BargainDate { get; init; } 
     /// <summary>
     /// Settlement date of the dividend reinvestment purchase transaction.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeChoice_? BargainSettlementDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(Identification)); // data type RestrictedFINXMax16Text System.String
+        writer.WriteEndElement();
+        if (BargainDate is DateAndDateTimeChoice_ BargainDateValue)
+        {
+            writer.WriteStartElement(null, "BrgnDt", xmlNamespace );
+            BargainDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BargainSettlementDate is DateAndDateTimeChoice_ BargainSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "BrgnSttlmDt", xmlNamespace );
+            BargainSettlementDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TaxVoucher3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Context of the card payment transaction
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionContext6
+     : IIsoXmlSerilizable<TransactionContext6>
 {
     #nullable enable
     
@@ -23,13 +24,40 @@ public partial record TransactionContext6
     /// Card programme or brand related to the transaction.
     /// ISO 8583:87 bit 24
     /// </summary>
-    [DataMember]
     public CardProgrammeMode1? CardProgrammeApplied { get; init; } 
     /// <summary>
     /// Type of settlement service for specific services requiring settlement.
     /// </summary>
-    [DataMember]
     public SettlementService2? SettlementService { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CardProgrammeApplied is CardProgrammeMode1 CardProgrammeAppliedValue)
+        {
+            writer.WriteStartElement(null, "CardPrgrmmApld", xmlNamespace );
+            CardProgrammeAppliedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementService is SettlementService2 SettlementServiceValue)
+        {
+            writer.WriteStartElement(null, "SttlmSvc", xmlNamespace );
+            SettlementServiceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionContext6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

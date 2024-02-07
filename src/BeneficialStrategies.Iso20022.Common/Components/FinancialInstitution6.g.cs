@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to a financial institution required by business or regulation (for example, in money or funds transfer).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstitution6
+     : IIsoXmlSerilizable<FinancialInstitution6>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the financial institution.
     /// </summary>
-    [DataMember]
     public required PartyIdentification258 Identification { get; init; } 
     /// <summary>
     /// Account number from which the funds get debited or credited.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountNumber is IsoMax35Text AccountNumberValue)
+        {
+            writer.WriteStartElement(null, "AcctNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstitution6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

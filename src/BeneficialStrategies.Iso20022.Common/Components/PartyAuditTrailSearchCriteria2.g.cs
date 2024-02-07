@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes search criteria for party audit trail query.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyAuditTrailSearchCriteria2
+     : IIsoXmlSerilizable<PartyAuditTrailSearchCriteria2>
 {
     #nullable enable
     
     /// <summary>
     /// Describes party to be queried.
     /// </summary>
-    [DataMember]
     public SystemPartyIdentification8? PartyIdentification { get; init; } 
     /// <summary>
     /// Describes date period for querying information.
     /// </summary>
-    [DataMember]
     public DatePeriodSearch1Choice_? DatePeriod { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PartyIdentification is SystemPartyIdentification8 PartyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PtyId", xmlNamespace );
+            PartyIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DatePeriod is DatePeriodSearch1Choice_ DatePeriodValue)
+        {
+            writer.WriteStartElement(null, "DtPrd", xmlNamespace );
+            DatePeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyAuditTrailSearchCriteria2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

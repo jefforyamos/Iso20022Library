@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CommodityDerivate2Choice;
 
@@ -13,11 +15,34 @@ namespace BeneficialStrategies.Iso20022.Choices.CommodityDerivate2Choice;
 /// Details specific to energy derivatives.
 /// </summary>
 public partial record Energy : CommodityDerivate2Choice_
+     , IIsoXmlSerilizable<Energy>
 {
     #nullable enable
+    
     /// <summary>
     /// Place where the delivery and the cash settlement of the base product occurs.
     /// </summary>
     public required IsoMax25Text SettlementLocation { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttlmLctn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax25Text(SettlementLocation)); // data type Max25Text System.String
+        writer.WriteEndElement();
+    }
+    public static new Energy Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

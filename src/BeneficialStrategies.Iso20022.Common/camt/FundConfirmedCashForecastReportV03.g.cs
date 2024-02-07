@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.FundConfirmedCashForecastReportV03>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// If the report provider wishes to give detailed information related to cash movements, then the FundDetailedConfirmedCashForecastReport message must be used.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|A report provider, such as a transfer agent, sends the FundConfirmedCashForecastReport message to the report user, such as an investment manager, to report the confirmed cash incomings and outgoings of one or more investment funds on one or more trade dates.|The cash movements may result from, for example, redemption, subscription, switch transactions or reinvestment of dividends.|Usage|The FundConfirmedCashForecastReport is used to report definitive cash movements, that is it is sent after the cut-off time and/or the price valuation of the fund.|This message contains incoming and outgoing cash flows that are confirmed, i.e., the price has been applied. If the price is not yet definitive, then the FundEstimatedCashForecastReport message must be used.|This message allows the report provider to report cash movements in or out of a fund, but does not allow the Sender to categorise these movements, for example by country, or to give details of the underlying orders, commission or charges.|If the report provider wishes to give detailed information related to cash movements, then the FundDetailedConfirmedCashForecastReport message must be used.")]
-public partial record FundConfirmedCashForecastReportV03 : IOuterRecord
+public partial record FundConfirmedCashForecastReportV03 : IOuterRecord<FundConfirmedCashForecastReportV03,FundConfirmedCashForecastReportV03Document>
+    ,IIsoXmlSerilizable<FundConfirmedCashForecastReportV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record FundConfirmedCashForecastReportV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "FndConfdCshFcstRptV03";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => FundConfirmedCashForecastReportV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -129,6 +136,62 @@ public partial record FundConfirmedCashForecastReportV03 : IOuterRecord
     {
         return new FundConfirmedCashForecastReportV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("FndConfdCshFcstRptV03");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PoolReference is AdditionalReference3 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousReference is AdditionalReference3 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference3 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MsgPgntn", xmlNamespace );
+        MessagePagination.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FndCshFcstDtls", xmlNamespace );
+        FundCashForecastDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ConsolidatedNetCashForecast is NetCashForecast3 ConsolidatedNetCashForecastValue)
+        {
+            writer.WriteStartElement(null, "CnsltdNetCshFcst", xmlNamespace );
+            ConsolidatedNetCashForecastValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FundConfirmedCashForecastReportV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -136,9 +199,7 @@ public partial record FundConfirmedCashForecastReportV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FundConfirmedCashForecastReportV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record FundConfirmedCashForecastReportV03Document : IOuterDocument<FundConfirmedCashForecastReportV03>
+public partial record FundConfirmedCashForecastReportV03Document : IOuterDocument<FundConfirmedCashForecastReportV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -154,5 +215,22 @@ public partial record FundConfirmedCashForecastReportV03Document : IOuterDocumen
     /// <summary>
     /// The instance of <seealso cref="FundConfirmedCashForecastReportV03"/> is required.
     /// </summary>
+    [DataMember(Name=FundConfirmedCashForecastReportV03.XmlTag)]
     public required FundConfirmedCashForecastReportV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(FundConfirmedCashForecastReportV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

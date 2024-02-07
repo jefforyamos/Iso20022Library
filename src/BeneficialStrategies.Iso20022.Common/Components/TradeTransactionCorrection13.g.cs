@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates that the report is correcting the erroneous data fields of a previously submitted position.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeTransactionCorrection13
+     : IIsoXmlSerilizable<TradeTransactionCorrection13>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
-    [DataMember]
     public required CounterpartyData88 CounterpartySpecificData { get; init; } 
     /// <summary>
     /// Details of the loan used for financing the transaction.
     /// </summary>
-    [DataMember]
     public TransactionLoanData31Choice_? LoanData { get; init; } 
     /// <summary>
     /// Provides the details of the collateral used in the transaction.
     /// </summary>
-    [DataMember]
     public TransactionCollateralData18Choice_? CollateralData { get; init; } 
     /// <summary>
     /// Information concerning the reported transaction level type.
     /// </summary>
-    [DataMember]
     public required ModificationLevel1Code LevelType { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TechnicalRecordIdentification is IsoMax140Text TechnicalRecordIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(TechnicalRecordIdentificationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CtrPtySpcfcData", xmlNamespace );
+        CounterpartySpecificData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LoanData is TransactionLoanData31Choice_ LoanDataValue)
+        {
+            writer.WriteStartElement(null, "LnData", xmlNamespace );
+            LoanDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollateralData is TransactionCollateralData18Choice_ CollateralDataValue)
+        {
+            writer.WriteStartElement(null, "CollData", xmlNamespace );
+            CollateralDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "LvlTp", xmlNamespace );
+        writer.WriteValue(LevelType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeTransactionCorrection13 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

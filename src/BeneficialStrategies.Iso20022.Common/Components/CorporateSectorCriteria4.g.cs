@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Taxonomy for financial and non financial counterparties.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateSectorCriteria4
+     : IIsoXmlSerilizable<CorporateSectorCriteria4>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates that reporting counterparty is a financial institution.
     /// </summary>
-    [DataMember]
-    public ValueList<FinancialPartySectorType2Code> FinancialInstitutionSector { get; init; } = []; // Warning: Don't know multiplicity.
+    public FinancialPartySectorType2Code? FinancialInstitutionSector { get; init; } 
     /// <summary>
     /// Indicates that reporting counterparty is a non financial institution.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoNACEDomainIdentifier> NonFinancialInstitutionSector { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoNACEDomainIdentifier? NonFinancialInstitutionSector { get; init; } 
     /// <summary>
     /// Indicates that reporting counterparty is a financial institution.
     /// </summary>
-    [DataMember]
     public NotReported1Code? NotReported { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FinancialInstitutionSector is FinancialPartySectorType2Code FinancialInstitutionSectorValue)
+        {
+            writer.WriteStartElement(null, "FISctr", xmlNamespace );
+            writer.WriteValue(FinancialInstitutionSectorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (NonFinancialInstitutionSector is IsoNACEDomainIdentifier NonFinancialInstitutionSectorValue)
+        {
+            writer.WriteStartElement(null, "NFISctr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNACEDomainIdentifier(NonFinancialInstitutionSectorValue)); // data type NACEDomainIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (NotReported is NotReported1Code NotReportedValue)
+        {
+            writer.WriteStartElement(null, "NotRptd", xmlNamespace );
+            writer.WriteValue(NotReportedValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateSectorCriteria4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

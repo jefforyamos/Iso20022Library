@@ -7,53 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Tax related to an investment fund order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Tax7
+     : IIsoXmlSerilizable<Tax7>
 {
     #nullable enable
     
     /// <summary>
     /// Type of tax applied.
     /// </summary>
-    [DataMember]
     public required TaxType2 Type { get; init; } 
     /// <summary>
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
     /// <summary>
     /// Rate used to calculate the tax.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     /// <summary>
     /// Party that receives the tax. The recipient of, and the party entitled to, the tax may be two different parties.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? RecipientIdentification { get; init; } 
     /// <summary>
     /// Indicates whether a tax exemption applies.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ExemptionIndicator { get; init; } 
     /// <summary>
     /// Reason for a tax exemption.
     /// </summary>
-    [DataMember]
     public TaxExemptionReason1? ExemptionReason { get; init; } 
     /// <summary>
     /// Information used to calculate the tax.
     /// </summary>
-    [DataMember]
     public TaxCalculationInformation3? TaxCalculationDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(Amount)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+        writer.WriteEndElement();
+        if (Rate is IsoPercentageRate RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (RecipientIdentification is PartyIdentification2Choice_ RecipientIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcptId", xmlNamespace );
+            RecipientIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "XmptnInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ExemptionIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (ExemptionReason is TaxExemptionReason1 ExemptionReasonValue)
+        {
+            writer.WriteStartElement(null, "XmptnRsn", xmlNamespace );
+            ExemptionReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxCalculationDetails is TaxCalculationInformation3 TaxCalculationDetailsValue)
+        {
+            writer.WriteStartElement(null, "TaxClctnDtls", xmlNamespace );
+            TaxCalculationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Tax7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

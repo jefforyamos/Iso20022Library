@@ -7,45 +7,81 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the card transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardTransactionDetail5
+     : IIsoXmlSerilizable<CardTransactionDetail5>
 {
     #nullable enable
     
     /// <summary>
     /// Amounts of the transaction expressed within the terminal currency.
     /// </summary>
-    [DataMember]
     public required CardTransactionAmount5 TransactionAmounts { get; init; } 
     /// <summary>
     /// Fees between acquirer and issuer exclusive of the transaction amount, and expressed in the currency of the reconciliation.
     /// </summary>
-    [DataMember]
-    public ValueList<DetailedAmount11> TransactionFees { get; init; } = []; // Warning: Don't know multiplicity.
+    public DetailedAmount11? TransactionFees { get; init; } 
     /// <summary>
     /// Additional amounts from the processor or the issuer without financial impacts on the transaction amount.
     /// </summary>
-    [DataMember]
-    public ValueList<DetailedAmount10> AdditionalAmounts { get; init; } = []; // Warning: Don't know multiplicity.
+    public DetailedAmount10? AdditionalAmounts { get; init; } 
     /// <summary>
     /// Reason to send a card acquirer to issuer message.
     /// It corresponds to ISO 8583, field number 25 for the version 93, and 9 for the version 2003.
     /// </summary>
-    [DataMember]
-    public ValueList<MessageReason1Code> MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public MessageReason1Code? MessageReason { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _ML31VXu1EeS2Z_kGi7H1VQ
     /// <summary>
     /// Data related to an integrated circuit card application.
     /// It corresponds to ISO 8583, field number 55 for the versions 93 and 2003.
     /// </summary>
-    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxAmts", xmlNamespace );
+        TransactionAmounts.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionFees is DetailedAmount11 TransactionFeesValue)
+        {
+            writer.WriteStartElement(null, "TxFees", xmlNamespace );
+            TransactionFeesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalAmounts is DetailedAmount10 AdditionalAmountsValue)
+        {
+            writer.WriteStartElement(null, "AddtlAmts", xmlNamespace );
+            AdditionalAmountsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize MessageReason, multiplicity Unknown
+        if (ICCRelatedData is IsoMax10000Binary ICCRelatedDataValue)
+        {
+            writer.WriteStartElement(null, "ICCRltdData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(ICCRelatedDataValue)); // data type Max10000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static CardTransactionDetail5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

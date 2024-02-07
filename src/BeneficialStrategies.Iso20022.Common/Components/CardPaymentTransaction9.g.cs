@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Authorisation response from the acquirer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardPaymentTransaction9
+     : IIsoXmlSerilizable<CardPaymentTransaction9>
 {
     #nullable enable
     
     /// <summary>
     /// Outcome of the authorisation, and actions to perform.
     /// </summary>
-    [DataMember]
     public required AuthorisationResult1 AuthorisationResult { get; init; } 
     /// <summary>
     /// Result of the verifications performed by the issuer to deliver or decline the authorisation.
     /// </summary>
-    [DataMember]
     public TransactionVerificationResult1? TransactionVerificationResult { get; init; } 
     /// <summary>
     /// Balance of the account, related to the payment.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? Balance { get; init; } 
     /// <summary>
     /// Currency associated with the transaction.
     /// </summary>
-    [DataMember]
     public CurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Set of actions to be performed by the POI (Point Of Interaction) system.
     /// </summary>
-    [DataMember]
-    public ValueList<Action1> Action { get; init; } = []; // Warning: Don't know multiplicity.
+    public Action1? Action { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AuthstnRslt", xmlNamespace );
+        AuthorisationResult.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionVerificationResult is TransactionVerificationResult1 TransactionVerificationResultValue)
+        {
+            writer.WriteStartElement(null, "TxVrfctnRslt", xmlNamespace );
+            TransactionVerificationResultValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Balance is IsoImpliedCurrencyAndAmount BalanceValue)
+        {
+            writer.WriteStartElement(null, "Bal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(BalanceValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Currency is CurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Action is Action1 ActionValue)
+        {
+            writer.WriteStartElement(null, "Actn", xmlNamespace );
+            ActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardPaymentTransaction9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

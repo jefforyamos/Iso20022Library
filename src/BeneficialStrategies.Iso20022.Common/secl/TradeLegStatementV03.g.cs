@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.secl.TradeLegStatementV03>;
 
 namespace BeneficialStrategies.Iso20022.secl;
 
@@ -29,10 +32,9 @@ namespace BeneficialStrategies.Iso20022.secl;
 /// - as an end of day report.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The TradeLegStatement message is sent by the central counterparty (CCP) to a clearing member to report all trades that have been executed by the trading platform.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|The TradeLegStatement message may be either sent:|- during the day (to report trades execution by batch) or|- as an end of day report.")]
-public partial record TradeLegStatementV03 : IOuterRecord
+public partial record TradeLegStatementV03 : IOuterRecord<TradeLegStatementV03,TradeLegStatementV03Document>
+    ,IIsoXmlSerilizable<TradeLegStatementV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -44,6 +46,11 @@ public partial record TradeLegStatementV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "TradLegStmt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => TradeLegStatementV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -113,6 +120,47 @@ public partial record TradeLegStatementV03 : IOuterRecord
     {
         return new TradeLegStatementV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("TradLegStmt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "StmtParams", xmlNamespace );
+        StatementParameters.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Pgntn", xmlNamespace );
+        Pagination.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClrMmb", xmlNamespace );
+        ClearingMember.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ClearingAccount is SecuritiesAccount18 ClearingAccountValue)
+        {
+            writer.WriteStartElement(null, "ClrAcct", xmlNamespace );
+            ClearingAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "StmtDtls", xmlNamespace );
+        StatementDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeLegStatementV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -120,9 +168,7 @@ public partial record TradeLegStatementV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TradeLegStatementV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record TradeLegStatementV03Document : IOuterDocument<TradeLegStatementV03>
+public partial record TradeLegStatementV03Document : IOuterDocument<TradeLegStatementV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -138,5 +184,22 @@ public partial record TradeLegStatementV03Document : IOuterDocument<TradeLegStat
     /// <summary>
     /// The instance of <seealso cref="TradeLegStatementV03"/> is required.
     /// </summary>
+    [DataMember(Name=TradeLegStatementV03.XmlTag)]
     public required TradeLegStatementV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(TradeLegStatementV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

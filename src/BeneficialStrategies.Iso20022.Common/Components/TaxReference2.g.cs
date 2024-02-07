@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Pension scheme tax reference.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxReference2
+     : IIsoXmlSerilizable<TaxReference2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of tax reference.
     /// </summary>
-    [DataMember]
     public TaxReferenceType1Choice_? Type { get; init; } 
     /// <summary>
     /// Pension scheme tax reference issued to the pension plan by a central organisation.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Reference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is TaxReferenceType1Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Ref", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Reference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static TaxReference2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

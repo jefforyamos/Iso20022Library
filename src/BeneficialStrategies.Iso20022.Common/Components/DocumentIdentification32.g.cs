@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a document as well as the document number and type of link.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DocumentIdentification32
+     : IIsoXmlSerilizable<DocumentIdentification32>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identifier of the document (message) assigned either by the account servicer or the account owner.
     /// </summary>
-    [DataMember]
     public required DocumentIdentification3Choice_ Identification { get; init; } 
     /// <summary>
     /// Identification of the type of document.
     /// </summary>
-    [DataMember]
     public DocumentNumber5Choice_? DocumentNumber { get; init; } 
     /// <summary>
     /// Specifies when this document is to be processed relative to another referred document.
     /// </summary>
-    [DataMember]
     public ProcessingPosition7Choice_? LinkageType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DocumentNumber is DocumentNumber5Choice_ DocumentNumberValue)
+        {
+            writer.WriteStartElement(null, "DocNb", xmlNamespace );
+            DocumentNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LinkageType is ProcessingPosition7Choice_ LinkageTypeValue)
+        {
+            writer.WriteStartElement(null, "LkgTp", xmlNamespace );
+            LinkageTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DocumentIdentification32 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

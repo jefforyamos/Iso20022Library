@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.supl.DTCCCAPASD1V10>;
 
 namespace BeneficialStrategies.Iso20022.supl;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// The DTCCCAPASD1 message extends ISO corporate action movement preliminary advice message with DTCC corporate action elements not covered in the standard message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The DTCCCAPASD1 message extends ISO corporate action movement preliminary advice message with DTCC corporate action elements not covered in the standard message.")]
-public partial record DTCCCAPASD1V10 : IOuterRecord
+public partial record DTCCCAPASD1V10 : IOuterRecord<DTCCCAPASD1V10,DTCCCAPASD1V10Document>
+    ,IIsoXmlSerilizable<DTCCCAPASD1V10>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record DTCCCAPASD1V10 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "DTCCCAPASD1";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => DTCCCAPASD1V10Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -110,6 +117,65 @@ public partial record DTCCCAPASD1V10 : IOuterRecord
     {
         return new DTCCCAPASD1V10Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("DTCCCAPASD1");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CorporateActionGeneralInformation is CorporateActionGeneralInformationSD50 CorporateActionGeneralInformationValue)
+        {
+            writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+            CorporateActionGeneralInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnderlyingSecurity is FinancialInstrumentAttributesSD21 UnderlyingSecurityValue)
+        {
+            writer.WriteStartElement(null, "UndrlygScty", xmlNamespace );
+            UnderlyingSecurityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CorporateActionBalanceDetails is CorporateActionBalanceSD4 CorporateActionBalanceDetailsValue)
+        {
+            writer.WriteStartElement(null, "CorpActnBalDtls", xmlNamespace );
+            CorporateActionBalanceDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CorporateActionDetails is CorporateActionSD18 CorporateActionDetailsValue)
+        {
+            writer.WriteStartElement(null, "CorpActnDtls", xmlNamespace );
+            CorporateActionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CorporateActionMovementSecuritiesMovementDetails is CorporateActionMovementSecuritiesMovementDetailsSD5 CorporateActionMovementSecuritiesMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "CorpActnMvmntSctiesMvmntDtls", xmlNamespace );
+            CorporateActionMovementSecuritiesMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CorporateActionMovementCashMovementDetails is CorporateActionMovementCashMovementDetailsSD5 CorporateActionMovementCashMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "CorpActnMvmntCshMvmntDtls", xmlNamespace );
+            CorporateActionMovementCashMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionTransactionDetails is OptionTransactionDetailsSD3 OptionTransactionDetailsValue)
+        {
+            writer.WriteStartElement(null, "OptnTxDtls", xmlNamespace );
+            OptionTransactionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DTCCCAPASD1V10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -117,9 +183,7 @@ public partial record DTCCCAPASD1V10 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCAPASD1V10"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record DTCCCAPASD1V10Document : IOuterDocument<DTCCCAPASD1V10>
+public partial record DTCCCAPASD1V10Document : IOuterDocument<DTCCCAPASD1V10>, IXmlSerializable
 {
     
     /// <summary>
@@ -135,5 +199,22 @@ public partial record DTCCCAPASD1V10Document : IOuterDocument<DTCCCAPASD1V10>
     /// <summary>
     /// The instance of <seealso cref="DTCCCAPASD1V10"/> is required.
     /// </summary>
+    [DataMember(Name=DTCCCAPASD1V10.XmlTag)]
     public required DTCCCAPASD1V10 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(DTCCCAPASD1V10.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

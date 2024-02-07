@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Card Reader Application Protocol Data Unit Response message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DeviceSendApplicationProtocolDataUnitCardReaderResponse1
+     : IIsoXmlSerilizable<DeviceSendApplicationProtocolDataUnitCardReaderResponse1>
 {
     #nullable enable
     
     /// <summary>
     /// Class field of the Application Protocol Data Unit command (CLA).
     /// </summary>
-    [DataMember]
     public IsoMin1Max256Binary? Data { get; init; } 
     /// <summary>
     /// Status of a smartcard response to a command (SW1-SW2). Reference: ISO 7816-4.
     /// </summary>
-    [DataMember]
     public required IsoMin1Max256Binary CardStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Data is IsoMin1Max256Binary DataValue)
+        {
+            writer.WriteStartElement(null, "Data", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMin1Max256Binary(DataValue)); // data type Min1Max256Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CardSts", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMin1Max256Binary(CardStatus)); // data type Min1Max256Binary System.Byte[]
+        writer.WriteEndElement();
+    }
+    public static DeviceSendApplicationProtocolDataUnitCardReaderResponse1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

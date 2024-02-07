@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Settlement service for specific settlement types of requirements.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementServiceMode1
+     : IIsoXmlSerilizable<SettlementServiceMode1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of settlement service.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Identification of settlement service.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Short name of the Settlement Service.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     /// <summary>
     /// Priority to process a settlement.
     /// </summary>
-    [DataMember]
     public Priority3Code? SettlementPriority { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is IsoMax35Text TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Identification is IsoMax35Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ShortName is IsoMax35Text ShortNameValue)
+        {
+            writer.WriteStartElement(null, "ShrtNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ShortNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SettlementPriority is Priority3Code SettlementPriorityValue)
+        {
+            writer.WriteStartElement(null, "SttlmPrty", xmlNamespace );
+            writer.WriteValue(SettlementPriorityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementServiceMode1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

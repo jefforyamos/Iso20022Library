@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the parameters of the report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReportParameters4
+     : IIsoXmlSerilizable<ReportParameters4>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification of the report.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ReportIdentification { get; init; } 
     /// <summary>
     /// Date and time of the report.
     /// </summary>
-    [DataMember]
     public required DateAndDateTimeChoice_ ReportDateAndTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ReportIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptDtAndTm", xmlNamespace );
+        ReportDateAndTime.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ReportParameters4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,263 +7,526 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Compares information related to both sides of a loan.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LoanMatchingCriteria9
+     : IIsoXmlSerilizable<LoanMatchingCriteria9>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the values for the Unique Trade Identifier (UTI) are matching or not.
     /// </summary>
-    [DataMember]
     public CompareText2? UniqueTradeIdentifier { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as ISO date are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDate3? TerminationDate { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as exposure type are matching or not.
     /// </summary>
-    [DataMember]
     public CompareExposureType3? ContractType { get; init; } 
     /// <summary>
     /// Specifies whether the information on contract clearing are matching or not.
     /// </summary>
-    [DataMember]
     public CompareClearingStatus3? ClearingStatus { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as ISO date and time are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDateTime3? ClearingDateTime { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as LEI identifier are matching or not.
     /// </summary>
-    [DataMember]
     public CompareOrganisationIdentification6? CCP { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as MIC (Market Identifier Code-ISO10383) identifier are matching or not.
     /// </summary>
-    [DataMember]
     public CompareMICIdentifier3? TradingVenue { get; init; } 
     /// <summary>
     /// Specifies whether the information on master agreement type is matching or not.
     /// </summary>
-    [DataMember]
     public CompareAgreementType2? MasterAgreementType { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as ISO date and time are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDateTime3? ExecutionDateTime { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as ISO date are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDate3? ValueDate { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as ISO date are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDate3? MaturityDate { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
-    [DataMember]
     public CompareNumber5? MinimumNoticePeriod { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as ISO date are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDate3? EarliestCallBackDate { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as type of collateral agreement are matching or not.
     /// </summary>
-    [DataMember]
     public CompareSpecialCollateral3? GeneralCollateral { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as true/false indicator are matching or not.
     /// </summary>
-    [DataMember]
     public CompareTrueFalseIndicator3? DeliveryByValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as collateral delivery method are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDeliveryMethod3? CollateralDeliveryMethod { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as true/false indicator are matching or not.
     /// </summary>
-    [DataMember]
     public CompareTrueFalseIndicator3? OpenTerm { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as repo termination option are matching or not.
     /// </summary>
-    [DataMember]
     public CompareTerminationOption3? TerminationOption { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as percentage rate are matching or not.
     /// </summary>
-    [DataMember]
     public ComparePercentageRate3? FixedInterestRate { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 5 characters are matching or not.
     /// </summary>
-    [DataMember]
     public CompareInterestComputationMethod3? DayCountBasis { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as benchmark curve name are matching or not.
     /// </summary>
-    [DataMember]
     public CompareBenchmarkCurveName3? FloatingInterestReferenceRate { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as rate basis code are matching or not.
     /// </summary>
-    [DataMember]
     public CompareRateBasis3? FloatingInterestRateTermUnit { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
-    [DataMember]
     public CompareNumber5? FloatingInterestRateTermValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as rate basis code are matching or not.
     /// </summary>
-    [DataMember]
     public CompareRateBasis3? FloatingInterestRatePaymentFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
-    [DataMember]
     public CompareNumber5? FloatingInterestRatePaymentFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as rate basis code are matching or not.
     /// </summary>
-    [DataMember]
     public CompareRateBasis3? FloatingInterestRateResetFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
-    [DataMember]
     public CompareNumber6? FloatingInterestRateResetFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 5 characters are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDecimalNumber3? BasisPointSpread { get; init; } 
     /// <summary>
     /// Data on amount and interest rates of the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareInterestRate1> MarginLoanAttribute { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareInterestRate1? MarginLoanAttribute { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
-    [DataMember]
     public CompareActiveOrHistoricCurrencyAndAmount3? PrincipalAmountValueDateAmount { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
-    [DataMember]
     public CompareActiveOrHistoricCurrencyAndAmount3? PrincipalAmountMaturityDateAmount { get; init; } 
     /// <summary>
     /// Specifies whether the information on the asset type is matching or not.
     /// </summary>
-    [DataMember]
     public SecurityCommodity7Choice_? AssetType { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
-    [DataMember]
     public CompareActiveOrHistoricCurrencyAndAmount3? LoanValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as percentage rate are matching or not.
     /// </summary>
-    [DataMember]
     public ComparePercentageRate3? FixedRebateReferenceRate { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as benchmark curve name are matching or not.
     /// </summary>
-    [DataMember]
     public CompareBenchmarkCurveName3? FloatingRebateReferenceRate { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as rate basis code are matching or not.
     /// </summary>
-    [DataMember]
     public CompareRateBasis3? FloatingRebateRateTermUnit { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
-    [DataMember]
     public CompareNumber6? FloatingRebateRateTermValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as rate basis code are matching or not.
     /// </summary>
-    [DataMember]
     public CompareRateBasis3? FloatingRebateRatePaymentFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
-    [DataMember]
     public CompareNumber6? FloatingRebateRatePaymentFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as rate basis code are matching or not.
     /// </summary>
-    [DataMember]
     public CompareRateBasis3? FloatingRebateRateResetFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
-    [DataMember]
     public CompareNumber6? FloatingRebateRateResetFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 5 characters are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDecimalNumber3? RebateRateBasisPointSpread { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as the adjusted rate are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<ComparePercentageRate3> FloatingRateAdjustment { get; init; } = []; // Warning: Don't know multiplicity.
+    public ComparePercentageRate3? FloatingRateAdjustment { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as the Rate Date are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareDate3> FloatingRateAdjustmentDate { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareDate3? FloatingRateAdjustmentDate { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as percentage rate are matching or not.
     /// </summary>
-    [DataMember]
     public ComparePercentageRate3? LendingFee { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
-    [DataMember]
     public CompareActiveOrHistoricCurrencyAndAmount3? OutstandingMarginLoanAmount { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
-    [DataMember]
     public CompareActiveOrHistoricCurrencyAndAmount3? ShortMarketValueAmount { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as transaction/position indicator are matching or not.
     /// </summary>
-    [DataMember]
     public CompareReportingLevelType3? LevelType { get; init; } 
     /// <summary>
     /// Unit of measure in which the quantity is expressed.
     /// </summary>
-    [DataMember]
     public CompareUnitOfMeasure3? UnitOfMeasure { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (UniqueTradeIdentifier is CompareText2 UniqueTradeIdentifierValue)
+        {
+            writer.WriteStartElement(null, "UnqTradIdr", xmlNamespace );
+            UniqueTradeIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TerminationDate is CompareDate3 TerminationDateValue)
+        {
+            writer.WriteStartElement(null, "TermntnDt", xmlNamespace );
+            TerminationDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContractType is CompareExposureType3 ContractTypeValue)
+        {
+            writer.WriteStartElement(null, "CtrctTp", xmlNamespace );
+            ContractTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingStatus is CompareClearingStatus3 ClearingStatusValue)
+        {
+            writer.WriteStartElement(null, "ClrSts", xmlNamespace );
+            ClearingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingDateTime is CompareDateTime3 ClearingDateTimeValue)
+        {
+            writer.WriteStartElement(null, "ClrDtTm", xmlNamespace );
+            ClearingDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CCP is CompareOrganisationIdentification6 CCPValue)
+        {
+            writer.WriteStartElement(null, "CCP", xmlNamespace );
+            CCPValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradingVenue is CompareMICIdentifier3 TradingVenueValue)
+        {
+            writer.WriteStartElement(null, "TradgVn", xmlNamespace );
+            TradingVenueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MasterAgreementType is CompareAgreementType2 MasterAgreementTypeValue)
+        {
+            writer.WriteStartElement(null, "MstrAgrmtTp", xmlNamespace );
+            MasterAgreementTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExecutionDateTime is CompareDateTime3 ExecutionDateTimeValue)
+        {
+            writer.WriteStartElement(null, "ExctnDtTm", xmlNamespace );
+            ExecutionDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValueDate is CompareDate3 ValueDateValue)
+        {
+            writer.WriteStartElement(null, "ValDt", xmlNamespace );
+            ValueDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MaturityDate is CompareDate3 MaturityDateValue)
+        {
+            writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
+            MaturityDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MinimumNoticePeriod is CompareNumber5 MinimumNoticePeriodValue)
+        {
+            writer.WriteStartElement(null, "MinNtcePrd", xmlNamespace );
+            MinimumNoticePeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EarliestCallBackDate is CompareDate3 EarliestCallBackDateValue)
+        {
+            writer.WriteStartElement(null, "EarlstCallBckDt", xmlNamespace );
+            EarliestCallBackDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GeneralCollateral is CompareSpecialCollateral3 GeneralCollateralValue)
+        {
+            writer.WriteStartElement(null, "GnlColl", xmlNamespace );
+            GeneralCollateralValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveryByValue is CompareTrueFalseIndicator3 DeliveryByValueValue)
+        {
+            writer.WriteStartElement(null, "DlvryByVal", xmlNamespace );
+            DeliveryByValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollateralDeliveryMethod is CompareDeliveryMethod3 CollateralDeliveryMethodValue)
+        {
+            writer.WriteStartElement(null, "CollDlvryMtd", xmlNamespace );
+            CollateralDeliveryMethodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OpenTerm is CompareTrueFalseIndicator3 OpenTermValue)
+        {
+            writer.WriteStartElement(null, "OpnTerm", xmlNamespace );
+            OpenTermValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TerminationOption is CompareTerminationOption3 TerminationOptionValue)
+        {
+            writer.WriteStartElement(null, "TermntnOptn", xmlNamespace );
+            TerminationOptionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FixedInterestRate is ComparePercentageRate3 FixedInterestRateValue)
+        {
+            writer.WriteStartElement(null, "FxdIntrstRate", xmlNamespace );
+            FixedInterestRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DayCountBasis is CompareInterestComputationMethod3 DayCountBasisValue)
+        {
+            writer.WriteStartElement(null, "DayCntBsis", xmlNamespace );
+            DayCountBasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingInterestReferenceRate is CompareBenchmarkCurveName3 FloatingInterestReferenceRateValue)
+        {
+            writer.WriteStartElement(null, "FltgIntrstRefRate", xmlNamespace );
+            FloatingInterestReferenceRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingInterestRateTermUnit is CompareRateBasis3 FloatingInterestRateTermUnitValue)
+        {
+            writer.WriteStartElement(null, "FltgIntrstRateTermUnit", xmlNamespace );
+            FloatingInterestRateTermUnitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingInterestRateTermValue is CompareNumber5 FloatingInterestRateTermValueValue)
+        {
+            writer.WriteStartElement(null, "FltgIntrstRateTermVal", xmlNamespace );
+            FloatingInterestRateTermValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingInterestRatePaymentFrequencyUnit is CompareRateBasis3 FloatingInterestRatePaymentFrequencyUnitValue)
+        {
+            writer.WriteStartElement(null, "FltgIntrstRatePmtFrqcyUnit", xmlNamespace );
+            FloatingInterestRatePaymentFrequencyUnitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingInterestRatePaymentFrequencyValue is CompareNumber5 FloatingInterestRatePaymentFrequencyValueValue)
+        {
+            writer.WriteStartElement(null, "FltgIntrstRatePmtFrqcyVal", xmlNamespace );
+            FloatingInterestRatePaymentFrequencyValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingInterestRateResetFrequencyUnit is CompareRateBasis3 FloatingInterestRateResetFrequencyUnitValue)
+        {
+            writer.WriteStartElement(null, "FltgIntrstRateRstFrqcyUnit", xmlNamespace );
+            FloatingInterestRateResetFrequencyUnitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingInterestRateResetFrequencyValue is CompareNumber6 FloatingInterestRateResetFrequencyValueValue)
+        {
+            writer.WriteStartElement(null, "FltgIntrstRateRstFrqcyVal", xmlNamespace );
+            FloatingInterestRateResetFrequencyValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BasisPointSpread is CompareDecimalNumber3 BasisPointSpreadValue)
+        {
+            writer.WriteStartElement(null, "BsisPtSprd", xmlNamespace );
+            BasisPointSpreadValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarginLoanAttribute is CompareInterestRate1 MarginLoanAttributeValue)
+        {
+            writer.WriteStartElement(null, "MrgnLnAttr", xmlNamespace );
+            MarginLoanAttributeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PrincipalAmountValueDateAmount is CompareActiveOrHistoricCurrencyAndAmount3 PrincipalAmountValueDateAmountValue)
+        {
+            writer.WriteStartElement(null, "PrncplAmtValDtAmt", xmlNamespace );
+            PrincipalAmountValueDateAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PrincipalAmountMaturityDateAmount is CompareActiveOrHistoricCurrencyAndAmount3 PrincipalAmountMaturityDateAmountValue)
+        {
+            writer.WriteStartElement(null, "PrncplAmtMtrtyDtAmt", xmlNamespace );
+            PrincipalAmountMaturityDateAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AssetType is SecurityCommodity7Choice_ AssetTypeValue)
+        {
+            writer.WriteStartElement(null, "AsstTp", xmlNamespace );
+            AssetTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LoanValue is CompareActiveOrHistoricCurrencyAndAmount3 LoanValueValue)
+        {
+            writer.WriteStartElement(null, "LnVal", xmlNamespace );
+            LoanValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FixedRebateReferenceRate is ComparePercentageRate3 FixedRebateReferenceRateValue)
+        {
+            writer.WriteStartElement(null, "FxdRbtRefRate", xmlNamespace );
+            FixedRebateReferenceRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingRebateReferenceRate is CompareBenchmarkCurveName3 FloatingRebateReferenceRateValue)
+        {
+            writer.WriteStartElement(null, "FltgRbtRefRate", xmlNamespace );
+            FloatingRebateReferenceRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingRebateRateTermUnit is CompareRateBasis3 FloatingRebateRateTermUnitValue)
+        {
+            writer.WriteStartElement(null, "FltgRbtRateTermUnit", xmlNamespace );
+            FloatingRebateRateTermUnitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingRebateRateTermValue is CompareNumber6 FloatingRebateRateTermValueValue)
+        {
+            writer.WriteStartElement(null, "FltgRbtRateTermVal", xmlNamespace );
+            FloatingRebateRateTermValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingRebateRatePaymentFrequencyUnit is CompareRateBasis3 FloatingRebateRatePaymentFrequencyUnitValue)
+        {
+            writer.WriteStartElement(null, "FltgRbtRatePmtFrqcyUnit", xmlNamespace );
+            FloatingRebateRatePaymentFrequencyUnitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingRebateRatePaymentFrequencyValue is CompareNumber6 FloatingRebateRatePaymentFrequencyValueValue)
+        {
+            writer.WriteStartElement(null, "FltgRbtRatePmtFrqcyVal", xmlNamespace );
+            FloatingRebateRatePaymentFrequencyValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingRebateRateResetFrequencyUnit is CompareRateBasis3 FloatingRebateRateResetFrequencyUnitValue)
+        {
+            writer.WriteStartElement(null, "FltgRbtRateRstFrqcyUnit", xmlNamespace );
+            FloatingRebateRateResetFrequencyUnitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingRebateRateResetFrequencyValue is CompareNumber6 FloatingRebateRateResetFrequencyValueValue)
+        {
+            writer.WriteStartElement(null, "FltgRbtRateRstFrqcyVal", xmlNamespace );
+            FloatingRebateRateResetFrequencyValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RebateRateBasisPointSpread is CompareDecimalNumber3 RebateRateBasisPointSpreadValue)
+        {
+            writer.WriteStartElement(null, "RbtRateBsisPtSprd", xmlNamespace );
+            RebateRateBasisPointSpreadValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingRateAdjustment is ComparePercentageRate3 FloatingRateAdjustmentValue)
+        {
+            writer.WriteStartElement(null, "FltgRateAdjstmnt", xmlNamespace );
+            FloatingRateAdjustmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingRateAdjustmentDate is CompareDate3 FloatingRateAdjustmentDateValue)
+        {
+            writer.WriteStartElement(null, "FltgRateAdjstmntDt", xmlNamespace );
+            FloatingRateAdjustmentDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LendingFee is ComparePercentageRate3 LendingFeeValue)
+        {
+            writer.WriteStartElement(null, "LndgFee", xmlNamespace );
+            LendingFeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OutstandingMarginLoanAmount is CompareActiveOrHistoricCurrencyAndAmount3 OutstandingMarginLoanAmountValue)
+        {
+            writer.WriteStartElement(null, "OutsdngMrgnLnAmt", xmlNamespace );
+            OutstandingMarginLoanAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ShortMarketValueAmount is CompareActiveOrHistoricCurrencyAndAmount3 ShortMarketValueAmountValue)
+        {
+            writer.WriteStartElement(null, "ShrtMktValAmt", xmlNamespace );
+            ShortMarketValueAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LevelType is CompareReportingLevelType3 LevelTypeValue)
+        {
+            writer.WriteStartElement(null, "LvlTp", xmlNamespace );
+            LevelTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnitOfMeasure is CompareUnitOfMeasure3 UnitOfMeasureValue)
+        {
+            writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
+            UnitOfMeasureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LoanMatchingCriteria9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

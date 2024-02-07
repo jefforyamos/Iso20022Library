@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the message and individual instruction(s) for which the cancellation was requested.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MeetingInstructionIdentification1
+     : IIsoXmlSerilizable<MeetingInstructionIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the previous meeting instruction message containing the individual instruction(s) for which the cancellation was requested.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MeetingInstructionIdentification { get; init; } 
     /// <summary>
     /// Identification of the individual instruction for which the cancellation was requested.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text SingleInstructionIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MtgInstrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MeetingInstructionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SnglInstrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(SingleInstructionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static MeetingInstructionIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

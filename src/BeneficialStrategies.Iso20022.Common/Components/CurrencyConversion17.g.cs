@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Conversion between the currency of a card acceptor and the currency of a card issuer, provided by a dedicated service provider.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CurrencyConversion17
+     : IIsoXmlSerilizable<CurrencyConversion17>
 {
     #nullable enable
     
     /// <summary>
     /// True if the cardholder has accepted the currency conversion that the acquirer has proposed.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? AcceptedByCardholder { get; init; } 
     /// <summary>
     /// Conversion between the currency of a card acceptor and the currency of a cardholder, provided by a dedicated service provider.
     /// </summary>
-    [DataMember]
     public CurrencyConversion19? Conversion { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AcceptedByCardholder is IsoTrueFalseIndicator AcceptedByCardholderValue)
+        {
+            writer.WriteStartElement(null, "AccptdByCrdhldr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AcceptedByCardholderValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Conversion is CurrencyConversion19 ConversionValue)
+        {
+            writer.WriteStartElement(null, "Convs", xmlNamespace );
+            ConversionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CurrencyConversion17 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

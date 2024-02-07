@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains transaction details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Transaction92
+     : IIsoXmlSerilizable<Transaction92>
 {
     #nullable enable
     
     /// <summary>
     /// Transaction data related to programmes and services, content and format based on bilateral agreements.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? AssociatedDataReference { get; init; } 
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
-    [DataMember]
     public required TransactionIdentification13 TransactionIdentification { get; init; } 
     /// <summary>
     /// Contains additional fees for the addendum response message.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalFee1> AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalFee1? AdditionalFees { get; init; } 
     /// <summary>
     /// Transaction data related to programmes and services, content and format based on bilateral agreements.
     /// </summary>
-    [DataMember]
     public IsoMax1000Text? TransactionDescription { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AssociatedDataReference is IsoMax70Text AssociatedDataReferenceValue)
+        {
+            writer.WriteStartElement(null, "AssoctdDataRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AssociatedDataReferenceValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalFees is AdditionalFee1 AdditionalFeesValue)
+        {
+            writer.WriteStartElement(null, "AddtlFees", xmlNamespace );
+            AdditionalFeesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionDescription is IsoMax1000Text TransactionDescriptionValue)
+        {
+            writer.WriteStartElement(null, "TxDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1000Text(TransactionDescriptionValue)); // data type Max1000Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Transaction92 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

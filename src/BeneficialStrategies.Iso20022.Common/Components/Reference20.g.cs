@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional references linked to the updated interest request such the original InterestRequest identification, and optionaly the InterestResponse identification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Reference20
+     : IIsoXmlSerilizable<Reference20>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the reference to the interest payment request.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text InterestPaymentRequestIdentification { get; init; } 
     /// <summary>
     /// Provides the reference to the interest payment response.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? InterestPaymentResponseIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IntrstPmtReqId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(InterestPaymentRequestIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (InterestPaymentResponseIdentification is IsoMax35Text InterestPaymentResponseIdentificationValue)
+        {
+            writer.WriteStartElement(null, "IntrstPmtRspnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(InterestPaymentResponseIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Reference20 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

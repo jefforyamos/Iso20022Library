@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the investment account ownership with respect to new issue allocation for a hedge fund.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NewIssueAllocation2
+     : IIsoXmlSerilizable<NewIssueAllocation2>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the investor is eligible to participate in the profits and losses from a new issue.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Restricted { get; init; } 
     /// <summary>
     /// Reason for exemption.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? ExemptPersonReason { get; init; } 
     /// <summary>
     /// Conditions applicable when the investor is covered by the "de minimis" exemption.
     /// </summary>
-    [DataMember]
     public DeMinimus1Choice_? DeMinimus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Rstrctd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Restricted)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (ExemptPersonReason is IsoMax350Text ExemptPersonReasonValue)
+        {
+            writer.WriteStartElement(null, "XmptPrsnRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(ExemptPersonReasonValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (DeMinimus is DeMinimus1Choice_ DeMinimusValue)
+        {
+            writer.WriteStartElement(null, "DeMnms", xmlNamespace );
+            DeMinimusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static NewIssueAllocation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

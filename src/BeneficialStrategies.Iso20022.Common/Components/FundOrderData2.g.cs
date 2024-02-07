@@ -7,58 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Extract of trade data for an investment fund switch order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FundOrderData2
+     : IIsoXmlSerilizable<FundOrderData2>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of money used to derive the quantity of investment fund units to be redeemed.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalRedemptionAmount { get; init; } 
     /// <summary>
     /// Amount of money used to derive the quantity of investment fund units to be subscribed.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalSubscriptionAmount { get; init; } 
     /// <summary>
     /// Amount of money to be transferred between the debtor and creditor before bank transaction charges.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     /// <summary>
     /// Method by which the transaction is settled.
     /// </summary>
-    [DataMember]
     public DeliveryReceiptType2Code? SettlementMethod { get; init; } 
     /// <summary>
     /// Additional amount of money paid by the investor in addition to the switch redemption amount.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? AdditionalCashIn { get; init; } 
     /// <summary>
     /// Amount of money that results from a switch-out, that is not reinvested in another investment fund, and is repaid to the investor.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ResultingCashOut { get; init; } 
     /// <summary>
     /// Currency in which the rate of exchange is expressed in a currency exchange. In the example 1GBP = xxxCUR, the unit currency is GBP.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? UnitCurrency { get; init; } 
     /// <summary>
     /// Currency into which the base currency is converted, in a currency exchange.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? QuotedCurrency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TotalRedemptionAmount is IsoActiveOrHistoricCurrencyAndAmount TotalRedemptionAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlRedAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalRedemptionAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TotalSubscriptionAmount is IsoActiveOrHistoricCurrencyAndAmount TotalSubscriptionAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlSbcptAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalSubscriptionAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (SettlementAmount is IsoActiveCurrencyAndAmount SettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(SettlementAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (SettlementMethod is DeliveryReceiptType2Code SettlementMethodValue)
+        {
+            writer.WriteStartElement(null, "SttlmMtd", xmlNamespace );
+            writer.WriteValue(SettlementMethodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AdditionalCashIn is IsoActiveOrHistoricCurrencyAndAmount AdditionalCashInValue)
+        {
+            writer.WriteStartElement(null, "AddtlCshIn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(AdditionalCashInValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ResultingCashOut is IsoActiveOrHistoricCurrencyAndAmount ResultingCashOutValue)
+        {
+            writer.WriteStartElement(null, "RsltgCshOut", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ResultingCashOutValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (UnitCurrency is ActiveOrHistoricCurrencyCode UnitCurrencyValue)
+        {
+            writer.WriteStartElement(null, "UnitCcy", xmlNamespace );
+            writer.WriteValue(UnitCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (QuotedCurrency is ActiveOrHistoricCurrencyCode QuotedCurrencyValue)
+        {
+            writer.WriteStartElement(null, "QtdCcy", xmlNamespace );
+            writer.WriteValue(QuotedCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static FundOrderData2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice19Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice19Choi
 /// Price expressed in units.
 /// </summary>
 public partial record Unit : SecuritiesTransactionPrice19Choice_
+     , IIsoXmlSerilizable<Unit>
 {
-    public required IsoLongFraction19DecimalNumber Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Number of objects represented as a decimal number, such as 0.75 or 45.6.
+    /// </summary>
+    public required IsoLongFraction19DecimalNumber Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Unit", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLongFraction19DecimalNumber(Value)); // data type LongFraction19DecimalNumber System.UInt64
+        writer.WriteEndElement();
+    }
+    public static new Unit Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

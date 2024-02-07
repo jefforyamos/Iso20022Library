@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.caaa.AcceptorDiagnosticRequestV05>;
 
 namespace BeneficialStrategies.Iso20022.caaa;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// The AcceptorDiagnosticRequest message is sent by an acceptor (or its agent) to the acquirer (or its agent), to check the end-to-end communication, to test the availability of this acquirer, or to validate the security environment.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The AcceptorDiagnosticRequest message is sent by an acceptor (or its agent) to the acquirer (or its agent), to check the end-to-end communication, to test the availability of this acquirer, or to validate the security environment.")]
-public partial record AcceptorDiagnosticRequestV05 : IOuterRecord
+public partial record AcceptorDiagnosticRequestV05 : IOuterRecord<AcceptorDiagnosticRequestV05,AcceptorDiagnosticRequestV05Document>
+    ,IIsoXmlSerilizable<AcceptorDiagnosticRequestV05>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record AcceptorDiagnosticRequestV05 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AccptrDgnstcReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AcceptorDiagnosticRequestV05Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -76,6 +83,35 @@ public partial record AcceptorDiagnosticRequestV05 : IOuterRecord
     {
         return new AcceptorDiagnosticRequestV05Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AccptrDgnstcReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DgnstcReq", xmlNamespace );
+        DiagnosticRequest.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecurityTrailer is ContentInformationType15 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AcceptorDiagnosticRequestV05 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -83,9 +119,7 @@ public partial record AcceptorDiagnosticRequestV05 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorDiagnosticRequestV05"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AcceptorDiagnosticRequestV05Document : IOuterDocument<AcceptorDiagnosticRequestV05>
+public partial record AcceptorDiagnosticRequestV05Document : IOuterDocument<AcceptorDiagnosticRequestV05>, IXmlSerializable
 {
     
     /// <summary>
@@ -101,5 +135,22 @@ public partial record AcceptorDiagnosticRequestV05Document : IOuterDocument<Acce
     /// <summary>
     /// The instance of <seealso cref="AcceptorDiagnosticRequestV05"/> is required.
     /// </summary>
+    [DataMember(Name=AcceptorDiagnosticRequestV05.XmlTag)]
     public required AcceptorDiagnosticRequestV05 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AcceptorDiagnosticRequestV05.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

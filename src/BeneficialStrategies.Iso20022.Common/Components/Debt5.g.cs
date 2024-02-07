@@ -7,102 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Financial instruments evidencing moneys owed by the issuer to the holder on terms as specified.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Debt5
+     : IIsoXmlSerilizable<Debt5>
 {
     #nullable enable
     
     /// <summary>
     /// Currency of the payment.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? PaymentCurrency { get; init; } 
     /// <summary>
     /// Unit value of a debt security.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? FaceAmount { get; init; } 
     /// <summary>
     /// Specifies the frequency of an interest payment.
     /// </summary>
-    [DataMember]
     public Frequency35Choice_? PaymentFrequency { get; init; } 
     /// <summary>
     /// Date/time at which the rate determination is made, also called determination date.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? InterestFixingDate { get; init; } 
     /// <summary>
     /// First date/time at which a security begins to accrue interest.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? DatedDate { get; init; } 
     /// <summary>
     /// Date/time at which the first interest payment is due to holders of the security.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? FirstPaymentDate { get; init; } 
     /// <summary>
     /// Planned final repayment date at the time of issuance.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? MaturityDate { get; init; } 
     /// <summary>
     /// Date of the coupon attached to the physical security.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? NextCouponDate { get; init; } 
     /// <summary>
     /// Date at which the holder has the right to ask for redemption of the security prior to final maturity.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? PutableDate { get; init; } 
     /// <summary>
     /// Next date/time at which the issuer has the right to pay the securitiy prior to maturity.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? NextCallableDate { get; init; } 
     /// <summary>
     /// The date that the current factor will be changed to a new factor.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? NextFactorDate { get; init; } 
     /// <summary>
     /// Date/time at which an interest bearing security becomes due and assets are to be repaid.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ExpirationDate { get; init; } 
     /// <summary>
     /// Indicates the direction of payment for asset or mortgage backed securities, ie, whether the repaid capital is distributed (payment direction is down) or capitalized (payment direction is up).
     /// </summary>
-    [DataMember]
     public IsoPaymentDirectionIndicator? PaymentDirectionIndicator { get; init; } 
     /// <summary>
     /// Per annum ratio of interest paid to the principal amount of the financial instrument for a specific period of time.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? InterestRate { get; init; } 
     /// <summary>
     /// Specifies the interest rate applicable to the next interest payment period.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? NextInterestRate { get; init; } 
     /// <summary>
     /// Specifies whether the payment of the coupon (interest) on a bond is off the normal schedule.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? OddCouponIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the issuer has the right to pay the security prior to maturity. Also called RetractableIndicator.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? CallableIndicator { get; init; } 
     /// <summary>
     /// The program under which a commercial paper is issued. The values that are most used are:
@@ -115,305 +99,724 @@ public partial record Debt5
     /// 6 = 3(a)2
     /// 99 = Other.
     /// </summary>
-    [DataMember]
     public IsoNumber? CPProgram { get; init; } 
     /// <summary>
     /// Registration type of a commercial paper issuance.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? CPRegistrationType { get; init; } 
     /// <summary>
     /// Start date used for calculating accrued interest on debt instruments which are being sold between interest payment dates. Often but not always the same as the issue date and the dated date.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? InterestAccrualDate { get; init; } 
     /// <summary>
     /// Indicates whether the holder has the right to ask for redemption of the security prior to final maturity. Also called RedeemableIndicator.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? PutableIndicator { get; init; } 
     /// <summary>
     /// Indicates whether an interest bearing instrument is being escrowed or collateralized either by direct obligations guaranteed by the US government, or by other types of securities. The maturity schedules of the securities in the escrow fund are determined in such a way to pay the maturity value, coupon, and premium payments (if any) of the refunded bonds.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? PreFundedIndicator { get; init; } 
     /// <summary>
     /// Indicates whether an interest bearing instrument is deposited in a fund that will be used to pay debt service on refunded securities.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? EscrowedIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the security has no maturity date.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? PerpetualIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the security is a subordinated security.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? SubordinatedIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the security is extendible,eg, repayment may be extended or maturity changed.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ExtendibleIndicator { get; init; } 
     /// <summary>
     /// Period during which a date might be extended.
     /// </summary>
-    [DataMember]
     public DateTimePeriod1Choice_? ExtendiblePeriod { get; init; } 
     /// <summary>
     /// Indicates whether the interest rate of an interest bearing instrument is reset periodically.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? VariableRateIndicator { get; init; } 
     /// <summary>
     /// Amount for which a security can be overalloted (as in greenshoe option).
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? OverAllotmentAmount { get; init; } 
     /// <summary>
     /// Percentage for which a security can be overalloted (as in greenshoe option).
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? OverAllotmentRate { get; init; } 
     /// <summary>
     /// Indicates whether repayment is made via regular principal and interest payments over time.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? AmortisableIndicator { get; init; } 
     /// <summary>
     /// Calculation method used to calculate interest and/or yield for a bond, for example, street convention.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? InterestCalculationMethod { get; init; } 
     /// <summary>
     /// Specifies whether the interest amount is capitalised until maturity date or paid out at each interest payment date.
     /// </summary>
-    [DataMember]
     public DistributionPolicy2Choice_? CapitalisedInterest { get; init; } 
     /// <summary>
     /// Nominal value per security unit.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoActiveCurrencyAndAmount> ActualDenominationAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoActiveCurrencyAndAmount? ActualDenominationAmount { get; init; } 
     /// <summary>
     /// Identifies the current factor expressed as a decimal between 0 and 1 defining the outstanding principal of the bond (for factored securities).
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? CurrentFactor { get; init; } 
     /// <summary>
     /// Identifies the new factor expressed as a decimal between 0 and 1 defining the outstanding principal of the bond (for factored securities).
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? NextFactor { get; init; } 
     /// <summary>
     /// Identifies the previous factor expressed as a decimal between 0 and 1 defining the outstanding principal of the bond (for factored securities).
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? PreviousFactor { get; init; } 
     /// <summary>
     /// Number of pieces composing a pool of financial assets.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? Pieces { get; init; } 
     /// <summary>
     /// Collection of assets by which a security is backed.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? PoolsMaximum { get; init; } 
     /// <summary>
     /// Indicates per million the collection of loans, mortgages or other assets assembled by an originator as the basis for a security.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? PoolsPerMillion { get; init; } 
     /// <summary>
     /// Indicates per lot the collection of loans, mortgages or other assets assembled by an originator as the basis for a security.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? PoolsPerLot { get; init; } 
     /// <summary>
     /// Indicates per trade the collection of loans, mortgages or other assets assembled by an originator as the basis for a security.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? PoolsPerTrade { get; init; } 
     /// <summary>
     /// Indicates whether a penalty might be imposed to the borrower of a mortgage in case of prepayments occurring during the lockout period.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ConstantPrePaymentPenaltyIndicator { get; init; } 
     /// <summary>
     /// Identifies the lot constituting an asset backed or mortgage backed security issue.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? LotIdentification { get; init; } 
     /// <summary>
     /// Measure of prepayment as a yield of the current outstanding loan balance.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? ConstantPrePaymentYield { get; init; } 
     /// <summary>
     /// Contains the weighted average coupon of the fixed income instrument (expressed as a percentage).
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? WeightedAverageCoupon { get; init; } 
     /// <summary>
     /// Contains the weighted average life of the fixed income instrument (expressed in months).
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? WeightedAverageLife { get; init; } 
     /// <summary>
     /// Contains the weighted average loan of the fixed income instrument (expressed in months).
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? WeightedAverageLoan { get; init; } 
     /// <summary>
     /// Contains the weighted average maturity of the fixed income instrument (expressed in months).
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? WeightedAverageMaturity { get; init; } 
     /// <summary>
     /// Indicates whether the instrument is backed by any kind of asset or not.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? InsuredIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the security is bank qualified (usually applies to loan products).
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? BankQualifiedIndicator { get; init; } 
     /// <summary>
     /// Rate of return on an investment, based on the price.
     /// </summary>
-    [DataMember]
-    public ValueList<YieldCalculation6> YieldCalculation { get; init; } = []; // Warning: Don't know multiplicity.
+    public YieldCalculation6? YieldCalculation { get; init; } 
     /// <summary>
     /// Indicates whether interest rate is fixed, variable or other.
     /// </summary>
-    [DataMember]
     public InterestType3Code? InterestType { get; init; } 
     /// <summary>
     /// Indicates the type of deal for structured finance.
     /// </summary>
-    [DataMember]
     public InstrumentSubStructureType2Choice_? InstrumentStructureType { get; init; } 
     /// <summary>
     /// Identifies if the security will be issued in New Global Note (NGN) or Classical Global Note (CGN).
     /// New Global Note (NGN): Form of global certificate which refers to the books and records of the ICSDs to determine the issue outstanding amount (IOA). 
     /// Classical Global Note (CGN): Form of global certificate which requires physical annotation on the attached schedule to reflect changes in the issue outstanding amount (IOA).
     /// </summary>
-    [DataMember]
     public GlobalNote2Choice_? GlobalType { get; init; } 
     /// <summary>
     /// Flag to indicate the security is intended to be held in a manner that could allow the Eurosystem eligibility.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? PotentialEuroSystemEligibility { get; init; } 
     /// <summary>
     /// Type of stipulation expressing geographical constraints on a fixed income instrument. It is expressed with a state or country abbreviation and a minimum or maximum percentage. Example: CA 0-80 (minimum of 80 percent in Californian assets).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Geographics { get; init; } 
     /// <summary>
     /// Range of allowed yield.
     /// </summary>
-    [DataMember]
     public AmountOrPercentageRange1? YieldRange { get; init; } 
     /// <summary>
     /// Identification of a range of coupon numbers attached to its related financial instrument.
     /// </summary>
-    [DataMember]
     public AmountOrPercentageRange1? CouponRange { get; init; } 
     /// <summary>
     /// Reason for which money is raised through the issuance of a security.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? Purpose { get; init; } 
     /// <summary>
     /// Identifies whether the issue is subject to alternative minimum taxation (used for municipal bonds).
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? AlternativeMinimumTaxIndicator { get; init; } 
     /// <summary>
     /// Indicates an instruction to reinvest dividends in the underlying security (or proceeds at maturity in a similar instrument) if the current rate is <rate> or better.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? AutoReinvestment { get; init; } 
     /// <summary>
     /// Haircut or valuation factor on the security expressed as a percentage.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Haircut { get; init; } 
     /// <summary>
     /// Indicates the conditions under which the order/trade is to be/was executed.
     /// </summary>
-    [DataMember]
     public TradeTransactionCondition7Choice_? TransactionConditions { get; init; } 
     /// <summary>
     /// Indicates an instruction or attribute giving the number of days to be included in the look-back period for the investment. For example some options allow exercise based on the underlying asset's optimal value over the look-back period.
     /// </summary>
-    [DataMember]
     public IsoNumber? LookBack { get; init; } 
     /// <summary>
     /// Maximum number of time the collateral can be substitute.
     /// </summary>
-    [DataMember]
     public IsoNumber? MaximumSubstitution { get; init; } 
     /// <summary>
     /// Indicates the minimum tradable increments of a security.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1Choice_? MinimumIncrement { get; init; } 
     /// <summary>
     /// Indicates the minimum tradable quantity of a security.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1Choice_? MinimumQuantity { get; init; } 
     /// <summary>
     /// Indicates a search criterion used when looking to buy a bond, particularly an mortgage back security (MBS), issued in a particular year.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Production { get; init; } 
     /// <summary>
     /// Identifies if the securities is restricted or not (as per Rule 144).
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? RestrictedIndicator { get; init; } 
     /// <summary>
     /// Indicates the frequency at which the bond is re-rated and therefore re-priced (bond attribute, particularly of floating rate and index linked instruments).
     /// </summary>
-    [DataMember]
     public Frequency35Choice_? PriceFrequency { get; init; } 
     /// <summary>
     /// Indicates the market sector the security is classified as for example pharmaceuticals, automobile, housing, etc.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Sector { get; init; } 
     /// <summary>
     /// Indicates the maximum number of times collateral can be substituted.
     /// </summary>
-    [DataMember]
     public Frequency35Choice_? SubstitutionFrequency { get; init; } 
     /// <summary>
     /// Number of remaining times the collateral can be substitute.
     /// </summary>
-    [DataMember]
     public IsoNumber? SubstitutionLeft { get; init; } 
     /// <summary>
     /// Indicates a search criterion when looking to buy a mortgaged backed security that either is [yes] or is not [no] an entire pool.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? WholePoolIndicator { get; init; } 
     /// <summary>
     /// Identifies the Benchmark source price (eg. BB Generic, BB Fairvalue, Brokertec.).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PriceSource { get; init; } 
     /// <summary>
     /// Indicates a search criterion used when looking to buy a bond within a particular price range.
     /// </summary>
-    [DataMember]
     public AmountOrPercentageRange1? PriceRange { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PaymentCurrency is ActiveCurrencyCode PaymentCurrencyValue)
+        {
+            writer.WriteStartElement(null, "PmtCcy", xmlNamespace );
+            writer.WriteValue(PaymentCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (FaceAmount is IsoActiveCurrencyAndAmount FaceAmountValue)
+        {
+            writer.WriteStartElement(null, "FaceAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(FaceAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PaymentFrequency is Frequency35Choice_ PaymentFrequencyValue)
+        {
+            writer.WriteStartElement(null, "PmtFrqcy", xmlNamespace );
+            PaymentFrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFixingDate is IsoISODateTime InterestFixingDateValue)
+        {
+            writer.WriteStartElement(null, "IntrstFxgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(InterestFixingDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (DatedDate is IsoISODateTime DatedDateValue)
+        {
+            writer.WriteStartElement(null, "DtdDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(DatedDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (FirstPaymentDate is IsoISODateTime FirstPaymentDateValue)
+        {
+            writer.WriteStartElement(null, "FrstPmtDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(FirstPaymentDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (MaturityDate is IsoISODateTime MaturityDateValue)
+        {
+            writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(MaturityDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (NextCouponDate is IsoISODateTime NextCouponDateValue)
+        {
+            writer.WriteStartElement(null, "NxtCpnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(NextCouponDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (PutableDate is IsoISODateTime PutableDateValue)
+        {
+            writer.WriteStartElement(null, "PutblDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(PutableDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (NextCallableDate is IsoISODateTime NextCallableDateValue)
+        {
+            writer.WriteStartElement(null, "NxtCllblDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(NextCallableDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (NextFactorDate is IsoISODateTime NextFactorDateValue)
+        {
+            writer.WriteStartElement(null, "NxtFctrDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(NextFactorDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ExpirationDate is IsoISODateTime ExpirationDateValue)
+        {
+            writer.WriteStartElement(null, "XprtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ExpirationDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (PaymentDirectionIndicator is IsoPaymentDirectionIndicator PaymentDirectionIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PmtDrctnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPaymentDirectionIndicator(PaymentDirectionIndicatorValue)); // data type PaymentDirectionIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (InterestRate is IsoPercentageRate InterestRateValue)
+        {
+            writer.WriteStartElement(null, "IntrstRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(InterestRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (NextInterestRate is IsoPercentageRate NextInterestRateValue)
+        {
+            writer.WriteStartElement(null, "NxtIntrstRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(NextInterestRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (OddCouponIndicator is IsoYesNoIndicator OddCouponIndicatorValue)
+        {
+            writer.WriteStartElement(null, "OddCpnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OddCouponIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CallableIndicator is IsoYesNoIndicator CallableIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CllblInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CallableIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CPProgram is IsoNumber CPProgramValue)
+        {
+            writer.WriteStartElement(null, "CPPrgm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(CPProgramValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (CPRegistrationType is IsoMax350Text CPRegistrationTypeValue)
+        {
+            writer.WriteStartElement(null, "CPRegnTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(CPRegistrationTypeValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (InterestAccrualDate is IsoISODateTime InterestAccrualDateValue)
+        {
+            writer.WriteStartElement(null, "IntrstAcrlDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(InterestAccrualDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (PutableIndicator is IsoYesNoIndicator PutableIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PutblInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PutableIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PreFundedIndicator is IsoYesNoIndicator PreFundedIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PreFnddInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PreFundedIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (EscrowedIndicator is IsoYesNoIndicator EscrowedIndicatorValue)
+        {
+            writer.WriteStartElement(null, "EscrwdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(EscrowedIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PerpetualIndicator is IsoYesNoIndicator PerpetualIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PerptlInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PerpetualIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SubordinatedIndicator is IsoYesNoIndicator SubordinatedIndicatorValue)
+        {
+            writer.WriteStartElement(null, "SubrdntdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SubordinatedIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ExtendibleIndicator is IsoYesNoIndicator ExtendibleIndicatorValue)
+        {
+            writer.WriteStartElement(null, "XtndblInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ExtendibleIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ExtendiblePeriod is DateTimePeriod1Choice_ ExtendiblePeriodValue)
+        {
+            writer.WriteStartElement(null, "XtndblPrd", xmlNamespace );
+            ExtendiblePeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (VariableRateIndicator is IsoYesNoIndicator VariableRateIndicatorValue)
+        {
+            writer.WriteStartElement(null, "VarblRateInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(VariableRateIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (OverAllotmentAmount is IsoActiveCurrencyAndAmount OverAllotmentAmountValue)
+        {
+            writer.WriteStartElement(null, "OverAlltmtAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(OverAllotmentAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (OverAllotmentRate is IsoPercentageRate OverAllotmentRateValue)
+        {
+            writer.WriteStartElement(null, "OverAlltmtRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(OverAllotmentRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (AmortisableIndicator is IsoYesNoIndicator AmortisableIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AmtsblInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AmortisableIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (InterestCalculationMethod is IsoMax70Text InterestCalculationMethodValue)
+        {
+            writer.WriteStartElement(null, "IntrstClctnMtd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(InterestCalculationMethodValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (CapitalisedInterest is DistributionPolicy2Choice_ CapitalisedInterestValue)
+        {
+            writer.WriteStartElement(null, "CptlsdIntrst", xmlNamespace );
+            CapitalisedInterestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ActualDenominationAmount is IsoActiveCurrencyAndAmount ActualDenominationAmountValue)
+        {
+            writer.WriteStartElement(null, "ActlDnmtnAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ActualDenominationAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CurrentFactor is IsoPercentageRate CurrentFactorValue)
+        {
+            writer.WriteStartElement(null, "CurFctr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(CurrentFactorValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (NextFactor is IsoPercentageRate NextFactorValue)
+        {
+            writer.WriteStartElement(null, "NxtFctr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(NextFactorValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PreviousFactor is IsoPercentageRate PreviousFactorValue)
+        {
+            writer.WriteStartElement(null, "PrvsFctr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PreviousFactorValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Pieces is IsoDecimalNumber PiecesValue)
+        {
+            writer.WriteStartElement(null, "Pcs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(PiecesValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (PoolsMaximum is IsoDecimalNumber PoolsMaximumValue)
+        {
+            writer.WriteStartElement(null, "PlsMax", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(PoolsMaximumValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (PoolsPerMillion is IsoDecimalNumber PoolsPerMillionValue)
+        {
+            writer.WriteStartElement(null, "PlsPerMln", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(PoolsPerMillionValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (PoolsPerLot is IsoDecimalNumber PoolsPerLotValue)
+        {
+            writer.WriteStartElement(null, "PlsPerLot", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(PoolsPerLotValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (PoolsPerTrade is IsoDecimalNumber PoolsPerTradeValue)
+        {
+            writer.WriteStartElement(null, "PlsPerTrad", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(PoolsPerTradeValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (ConstantPrePaymentPenaltyIndicator is IsoYesNoIndicator ConstantPrePaymentPenaltyIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CstPrePmtPnltyInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ConstantPrePaymentPenaltyIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (LotIdentification is IsoMax35Text LotIdentificationValue)
+        {
+            writer.WriteStartElement(null, "LotId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(LotIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ConstantPrePaymentYield is IsoPercentageRate ConstantPrePaymentYieldValue)
+        {
+            writer.WriteStartElement(null, "CstPrePmtYld", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(ConstantPrePaymentYieldValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (WeightedAverageCoupon is IsoPercentageRate WeightedAverageCouponValue)
+        {
+            writer.WriteStartElement(null, "WghtdAvrgCpn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(WeightedAverageCouponValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (WeightedAverageLife is IsoDecimalNumber WeightedAverageLifeValue)
+        {
+            writer.WriteStartElement(null, "WghtdAvrgLife", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(WeightedAverageLifeValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (WeightedAverageLoan is IsoDecimalNumber WeightedAverageLoanValue)
+        {
+            writer.WriteStartElement(null, "WghtdAvrgLn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(WeightedAverageLoanValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (WeightedAverageMaturity is IsoDecimalNumber WeightedAverageMaturityValue)
+        {
+            writer.WriteStartElement(null, "WghtdAvrgMtrty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(WeightedAverageMaturityValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (InsuredIndicator is IsoYesNoIndicator InsuredIndicatorValue)
+        {
+            writer.WriteStartElement(null, "InsrdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(InsuredIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (BankQualifiedIndicator is IsoYesNoIndicator BankQualifiedIndicatorValue)
+        {
+            writer.WriteStartElement(null, "BkQlfdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(BankQualifiedIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (YieldCalculation is YieldCalculation6 YieldCalculationValue)
+        {
+            writer.WriteStartElement(null, "YldClctn", xmlNamespace );
+            YieldCalculationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestType is InterestType3Code InterestTypeValue)
+        {
+            writer.WriteStartElement(null, "IntrstTp", xmlNamespace );
+            writer.WriteValue(InterestTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (InstrumentStructureType is InstrumentSubStructureType2Choice_ InstrumentStructureTypeValue)
+        {
+            writer.WriteStartElement(null, "InstrmStrTp", xmlNamespace );
+            InstrumentStructureTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GlobalType is GlobalNote2Choice_ GlobalTypeValue)
+        {
+            writer.WriteStartElement(null, "GblTp", xmlNamespace );
+            GlobalTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PotentialEuroSystemEligibility is IsoYesNoIndicator PotentialEuroSystemEligibilityValue)
+        {
+            writer.WriteStartElement(null, "PotntlEuroSysElgblty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PotentialEuroSystemEligibilityValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Geographics is IsoMax35Text GeographicsValue)
+        {
+            writer.WriteStartElement(null, "Geogcs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(GeographicsValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (YieldRange is AmountOrPercentageRange1 YieldRangeValue)
+        {
+            writer.WriteStartElement(null, "YldRg", xmlNamespace );
+            YieldRangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CouponRange is AmountOrPercentageRange1 CouponRangeValue)
+        {
+            writer.WriteStartElement(null, "CpnRg", xmlNamespace );
+            CouponRangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Purpose is IsoMax256Text PurposeValue)
+        {
+            writer.WriteStartElement(null, "Purp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(PurposeValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (AlternativeMinimumTaxIndicator is IsoYesNoIndicator AlternativeMinimumTaxIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AltrntvMinTaxInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AlternativeMinimumTaxIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AutoReinvestment is IsoPercentageRate AutoReinvestmentValue)
+        {
+            writer.WriteStartElement(null, "AutoRinvstmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(AutoReinvestmentValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Haircut is IsoPercentageRate HaircutValue)
+        {
+            writer.WriteStartElement(null, "Hrcut", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(HaircutValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TransactionConditions is TradeTransactionCondition7Choice_ TransactionConditionsValue)
+        {
+            writer.WriteStartElement(null, "TxConds", xmlNamespace );
+            TransactionConditionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LookBack is IsoNumber LookBackValue)
+        {
+            writer.WriteStartElement(null, "LookBck", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(LookBackValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (MaximumSubstitution is IsoNumber MaximumSubstitutionValue)
+        {
+            writer.WriteStartElement(null, "MaxSbstitn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumSubstitutionValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (MinimumIncrement is FinancialInstrumentQuantity1Choice_ MinimumIncrementValue)
+        {
+            writer.WriteStartElement(null, "MinIncrmt", xmlNamespace );
+            MinimumIncrementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MinimumQuantity is FinancialInstrumentQuantity1Choice_ MinimumQuantityValue)
+        {
+            writer.WriteStartElement(null, "MinQty", xmlNamespace );
+            MinimumQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Production is IsoMax35Text ProductionValue)
+        {
+            writer.WriteStartElement(null, "Pdctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProductionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RestrictedIndicator is IsoYesNoIndicator RestrictedIndicatorValue)
+        {
+            writer.WriteStartElement(null, "RstrctdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RestrictedIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PriceFrequency is Frequency35Choice_ PriceFrequencyValue)
+        {
+            writer.WriteStartElement(null, "PricFrqcy", xmlNamespace );
+            PriceFrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Sector is IsoMax35Text SectorValue)
+        {
+            writer.WriteStartElement(null, "Sctr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SectorValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SubstitutionFrequency is Frequency35Choice_ SubstitutionFrequencyValue)
+        {
+            writer.WriteStartElement(null, "SbstitnFrqcy", xmlNamespace );
+            SubstitutionFrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SubstitutionLeft is IsoNumber SubstitutionLeftValue)
+        {
+            writer.WriteStartElement(null, "SbstitnLft", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(SubstitutionLeftValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (WholePoolIndicator is IsoYesNoIndicator WholePoolIndicatorValue)
+        {
+            writer.WriteStartElement(null, "WhlPoolInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(WholePoolIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PriceSource is IsoMax35Text PriceSourceValue)
+        {
+            writer.WriteStartElement(null, "PricSrc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PriceSourceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PriceRange is AmountOrPercentageRange1 PriceRangeValue)
+        {
+            writer.WriteStartElement(null, "PricRg", xmlNamespace );
+            PriceRangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Debt5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

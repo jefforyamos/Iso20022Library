@@ -7,43 +7,74 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action option cash movement details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashOptionSD5
+     : IIsoXmlSerilizable<CashOptionSD5>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Unique number associated with a payout within an option.
     /// </summary>
-    [DataMember]
     public required IsoExact3NumericText PayoutNumber { get; init; } 
     /// <summary>
     /// Describes the type of payout associated with the event.
     /// </summary>
-    [DataMember]
     public required DTCCPayoutType1Code PayoutType { get; init; } 
     /// <summary>
     /// Workflow status of the payout.
     /// </summary>
-    [DataMember]
     public required WorkflowStatus1Code PayoutStatus { get; init; } 
     /// <summary>
     /// Maximum withholding rate based on the country of the sourced income.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? MaximumWithholdingTaxPercentage { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PyoutNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact3NumericText(PayoutNumber)); // data type Exact3NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PyoutTp", xmlNamespace );
+        writer.WriteValue(PayoutType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PyoutSts", xmlNamespace );
+        writer.WriteValue(PayoutStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (MaximumWithholdingTaxPercentage is IsoPercentageRate MaximumWithholdingTaxPercentageValue)
+        {
+            writer.WriteStartElement(null, "MaxWhldgTaxPctg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(MaximumWithholdingTaxPercentageValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static CashOptionSD5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

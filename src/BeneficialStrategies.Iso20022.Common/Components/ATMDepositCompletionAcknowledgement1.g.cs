@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the acknowledgement of an ATM deposit transaction from the ATM manager.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMDepositCompletionAcknowledgement1
+     : IIsoXmlSerilizable<ATMDepositCompletionAcknowledgement1>
 {
     #nullable enable
     
     /// <summary>
     /// ATM information.
     /// </summary>
-    [DataMember]
     public required AutomatedTellerMachine3 ATM { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed.
     /// </summary>
-    [DataMember]
     public required ATMContext12 Context { get; init; } 
     /// <summary>
     /// Acknowledgement of the deposit completion advice.
     /// </summary>
-    [DataMember]
     public required ATMTransaction18 Transaction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ATM", xmlNamespace );
+        ATM.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Cntxt", xmlNamespace );
+        Context.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tx", xmlNamespace );
+        Transaction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ATMDepositCompletionAcknowledgement1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

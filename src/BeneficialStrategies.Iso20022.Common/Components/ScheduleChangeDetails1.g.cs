@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Changes in the schedule.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ScheduleChangeDetails1
+     : IIsoXmlSerilizable<ScheduleChangeDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Date on which the schedule changes became effective.
     /// </summary>
-    [DataMember]
     public required IsoISODate ScheduleChangeEffectiveDate { get; init; } 
     /// <summary>
     /// Information about schedule.
     /// </summary>
-    [DataMember]
-    public ValueList<ScheduleChangeEntry1> ScheduleEntry { get; init; } = []; // Warning: Don't know multiplicity.
+    public ScheduleChangeEntry1? ScheduleEntry { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _ZLwAgBkcEeapYKOltfjd7A
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SchdlChngFctvDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ScheduleChangeEffectiveDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        // Not sure how to serialize ScheduleEntry, multiplicity Unknown
+    }
+    public static ScheduleChangeDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

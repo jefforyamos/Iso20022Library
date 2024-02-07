@@ -7,53 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information specifying the Mandate.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OperationMandate1
+     : IIsoXmlSerilizable<OperationMandate1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the mandate.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Number of required and necessary signatures by the mandate.
     /// </summary>
-    [DataMember]
     public required IsoMax15PlusSignedNumericText RequiredSignatureNumber { get; init; } 
     /// <summary>
     /// Indicator whether a certain order of signatures has to be respected or not.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator SignatureOrderIndicator { get; init; } 
     /// <summary>
     /// Holder of the mandate.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyAndCertificate1> MandateHolder { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyAndCertificate1? MandateHolder { get; init; } 
     /// <summary>
     /// Bank operation allowed by a mandate.
     /// </summary>
-    [DataMember]
-    public ValueList<BankTransactionCodeStructure4> BankOperation { get; init; } = []; // Warning: Don't know multiplicity.
+    public BankTransactionCodeStructure4? BankOperation { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _PU0TDdp-Ed-ak6NoX_4Aeg_-375361255
     /// <summary>
     /// Is the date when the mandate becomes valid.
     /// </summary>
-    [DataMember]
     public IsoISODate? StartDate { get; init; } 
     /// <summary>
     /// Is the date when the mandate stops to be valid.
     /// </summary>
-    [DataMember]
     public IsoISODate? EndDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ReqrdSgntrNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15PlusSignedNumericText(RequiredSignatureNumber)); // data type Max15PlusSignedNumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SgntrOrdrInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SignatureOrderIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (MandateHolder is PartyAndCertificate1 MandateHolderValue)
+        {
+            writer.WriteStartElement(null, "MndtHldr", xmlNamespace );
+            MandateHolderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize BankOperation, multiplicity Unknown
+        if (StartDate is IsoISODate StartDateValue)
+        {
+            writer.WriteStartElement(null, "StartDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(StartDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (EndDate is IsoISODate EndDateValue)
+        {
+            writer.WriteStartElement(null, "EndDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(EndDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static OperationMandate1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

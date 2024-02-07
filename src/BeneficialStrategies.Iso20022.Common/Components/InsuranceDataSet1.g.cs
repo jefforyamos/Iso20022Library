@@ -7,88 +7,155 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Formal document used to record a fact and used as proof of the fact that goods have been insured under an insurance policy.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InsuranceDataSet1
+     : IIsoXmlSerilizable<InsuranceDataSet1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the insurancedata set.
     /// </summary>
-    [DataMember]
     public required DocumentIdentification1 DataSetIdentification { get; init; } 
     /// <summary>
     /// Issuer of the certificate, typically the insurance company or its agent.
     /// </summary>
-    [DataMember]
     public required PartyIdentification26 Issuer { get; init; } 
     /// <summary>
     /// Issue date of the document.
     /// </summary>
-    [DataMember]
     public required IsoISODate IssueDate { get; init; } 
     /// <summary>
     /// Date upon which cover under an insurance policy becomes effective.
     /// </summary>
-    [DataMember]
     public IsoISODate? EffectiveDate { get; init; } 
     /// <summary>
     /// Place where the insurance certificate was issued.
     /// </summary>
-    [DataMember]
     public PostalAddress5? PlaceOfIssue { get; init; } 
     /// <summary>
     /// Unique identifier of the document.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text InsuranceDocumentIdentification { get; init; } 
     /// <summary>
     /// Transport information relative to the goods that are insured under the insurance policy.
     /// </summary>
-    [DataMember]
     public SingleTransport3? Transport { get; init; } 
     /// <summary>
     /// Value of the goods as insured under the insurance policy.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount InsuredAmount { get; init; } 
     /// <summary>
     /// Information about the goods and/or services of a trade transaction.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? InsuredGoodsDescription { get; init; } 
     /// <summary>
     /// Description of the conditions and exclusion clauses under which insurance is granted.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax350Text> InsuranceConditions { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax350Text? InsuranceConditions { get; init; } 
     /// <summary>
     /// Standard insurance clauses defined by the Institute of London Underwriters (or the American Institute of marine Underwriters).
     /// </summary>
-    [DataMember]
-    public ValueList<InsuranceClauses1Code> InsuranceClauses { get; init; } = []; // Warning: Don't know multiplicity.
+    public InsuranceClauses1Code? InsuranceClauses { get; init; } 
     /// <summary>
     /// Party that is covered under the assurance policy.
     /// </summary>
-    [DataMember]
     public required PartyIdentification29Choice_ Assured { get; init; } 
     /// <summary>
     /// Place where claims under the insurance policy will be paid.
     /// </summary>
-    [DataMember]
     public required PostalAddress5 ClaimsPayableAt { get; init; } 
     /// <summary>
     /// Currency in which claims, if valid, will be paid.
     /// </summary>
-    [DataMember]
     public CurrencyCode? ClaimsPayableIn { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DataSetId", xmlNamespace );
+        DataSetIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Issr", xmlNamespace );
+        Issuer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IsseDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(IssueDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (EffectiveDate is IsoISODate EffectiveDateValue)
+        {
+            writer.WriteStartElement(null, "FctvDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(EffectiveDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (PlaceOfIssue is PostalAddress5 PlaceOfIssueValue)
+        {
+            writer.WriteStartElement(null, "PlcOfIsse", xmlNamespace );
+            PlaceOfIssueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InsrncDocId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(InsuranceDocumentIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Transport is SingleTransport3 TransportValue)
+        {
+            writer.WriteStartElement(null, "Trnsprt", xmlNamespace );
+            TransportValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InsrdAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(InsuredAmount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (InsuredGoodsDescription is IsoMax70Text InsuredGoodsDescriptionValue)
+        {
+            writer.WriteStartElement(null, "InsrdGoodsDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(InsuredGoodsDescriptionValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (InsuranceConditions is IsoMax350Text InsuranceConditionsValue)
+        {
+            writer.WriteStartElement(null, "InsrncConds", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(InsuranceConditionsValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (InsuranceClauses is InsuranceClauses1Code InsuranceClausesValue)
+        {
+            writer.WriteStartElement(null, "InsrncClauses", xmlNamespace );
+            writer.WriteValue(InsuranceClausesValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Assrd", xmlNamespace );
+        Assured.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClmsPyblAt", xmlNamespace );
+        ClaimsPayableAt.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ClaimsPayableIn is CurrencyCode ClaimsPayableInValue)
+        {
+            writer.WriteStartElement(null, "ClmsPyblIn", xmlNamespace );
+            writer.WriteValue(ClaimsPayableInValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static InsuranceDataSet1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

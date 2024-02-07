@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information about the delivery details, beneficial owner details, etc.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionAdditionalInformation1
+     : IIsoXmlSerilizable<CorporateActionAdditionalInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides information about the beneficial owner of the securities.
     /// </summary>
-    [DataMember]
-    public ValueList<BeneficialOwner1> BeneficialOwnerDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public BeneficialOwner1? BeneficialOwnerDetails { get; init; } 
     /// <summary>
     /// Provides information required for the registration.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? RegistrationDetails { get; init; } 
     /// <summary>
     /// Identification of the receiver of outturned resources (cash/securities) in case the resources need to be delivered outside the CSD.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? ReceiverIdentification { get; init; } 
     /// <summary>
     /// Whether or not certification is required from the account owner. |Y: certification required |N: no certification required.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? CertificationIndicator { get; init; } 
     /// <summary>
     /// Type of certification which is required.
     /// </summary>
-    [DataMember]
     public BeneficiaryCertificationType1FormatChoice_? CertificationType { get; init; } 
     /// <summary>
     /// Provides information about the delivery details of proceeds.
     /// </summary>
-    [DataMember]
-    public ValueList<ProceedsDelivery1> DeliveryDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProceedsDelivery1? DeliveryDetails { get; init; } 
     /// <summary>
     /// Provides additional details pertaining to the corporate action instruction.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalInstruction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (BeneficialOwnerDetails is BeneficialOwner1 BeneficialOwnerDetailsValue)
+        {
+            writer.WriteStartElement(null, "BnfclOwnrDtls", xmlNamespace );
+            BeneficialOwnerDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RegistrationDetails is IsoMax350Text RegistrationDetailsValue)
+        {
+            writer.WriteStartElement(null, "RegnDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(RegistrationDetailsValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (ReceiverIdentification is PartyIdentification2Choice_ ReceiverIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcvrId", xmlNamespace );
+            ReceiverIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CertificationIndicator is IsoYesNoIndicator CertificationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CertfctnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CertificationIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CertificationType is BeneficiaryCertificationType1FormatChoice_ CertificationTypeValue)
+        {
+            writer.WriteStartElement(null, "CertfctnTp", xmlNamespace );
+            CertificationTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveryDetails is ProceedsDelivery1 DeliveryDetailsValue)
+        {
+            writer.WriteStartElement(null, "DlvryDtls", xmlNamespace );
+            DeliveryDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInstruction is IsoMax350Text AdditionalInstructionValue)
+        {
+            writer.WriteStartElement(null, "AddtlInstr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInstructionValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionAdditionalInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

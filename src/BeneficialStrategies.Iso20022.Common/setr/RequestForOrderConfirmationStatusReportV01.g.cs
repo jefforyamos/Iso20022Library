@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.setr.RequestForOrderConfirmationStatusReportV01>;
 
 namespace BeneficialStrategies.Iso20022.setr;
 
@@ -30,10 +33,9 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// When the RequestForOrderConfirmationStatusReport is used to request the status of an order confirmation message, then the message identification of the order confirmation message is identified in PreviousReference.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An executing party, for example, a transfer agent, send the RequestForOrderConfirmationStatusReport message to the instructing party, for example, an investment manager or its authorised representative, to request the status of one or several order confirmations.|Usage|The RequestForOrderConfirmationStatusReport message is used to request the status of either:|- one or several individual order confirmations, or,|- one or several order confirmation messages.|The response to a RequestForOrderConfirmationStatusReport message is the OrderConfirmationStatusReport message.|When the RequestForOrderConfirmationStatusReport message is used to request the status of several individual order confirmations or one or more order confirmation messages, the executing party may receive several OrderConfirmationStatusReport messages from the instructing party.|When the RequestForOrderConfirmationStatusReport is used to request the status of one or more individual order confirmations, each individual order confirmation is identified with its order reference. The message identification of the message in which the individual order confirmation was conveyed may also be quoted in PreviousReference.|When the RequestForOrderConfirmationStatusReport is used to request the status of an order confirmation message, then the message identification of the order confirmation message is identified in PreviousReference.")]
-public partial record RequestForOrderConfirmationStatusReportV01 : IOuterRecord
+public partial record RequestForOrderConfirmationStatusReportV01 : IOuterRecord<RequestForOrderConfirmationStatusReportV01,RequestForOrderConfirmationStatusReportV01Document>
+    ,IIsoXmlSerilizable<RequestForOrderConfirmationStatusReportV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -45,6 +47,11 @@ public partial record RequestForOrderConfirmationStatusReportV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "ReqForOrdrConfStsRptV01";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => RequestForOrderConfirmationStatusReportV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -85,6 +92,35 @@ public partial record RequestForOrderConfirmationStatusReportV01 : IOuterRecord
     {
         return new RequestForOrderConfirmationStatusReportV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("ReqForOrdrConfStsRptV01");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ReqDtls", xmlNamespace );
+        RequestDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RequestForOrderConfirmationStatusReportV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -92,9 +128,7 @@ public partial record RequestForOrderConfirmationStatusReportV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestForOrderConfirmationStatusReportV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record RequestForOrderConfirmationStatusReportV01Document : IOuterDocument<RequestForOrderConfirmationStatusReportV01>
+public partial record RequestForOrderConfirmationStatusReportV01Document : IOuterDocument<RequestForOrderConfirmationStatusReportV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -110,5 +144,22 @@ public partial record RequestForOrderConfirmationStatusReportV01Document : IOute
     /// <summary>
     /// The instance of <seealso cref="RequestForOrderConfirmationStatusReportV01"/> is required.
     /// </summary>
+    [DataMember(Name=RequestForOrderConfirmationStatusReportV01.XmlTag)]
     public required RequestForOrderConfirmationStatusReportV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(RequestForOrderConfirmationStatusReportV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

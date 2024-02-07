@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides detailed information on protect and cover protect instructions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProtectInstruction5
+     : IIsoXmlSerilizable<ProtectInstruction5>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the instruction is a protect or a cover protect instruction.
     /// </summary>
-    [DataMember]
     public required ProtectTransactionType2Code TransactionType { get; init; } 
     /// <summary>
     /// Unique reference of the protect transaction assigned by the depository and used for cover protect validation.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINMax15Text? TransactionIdentification { get; init; } 
     /// <summary>
     /// Account which submitted the original protect instruction used for cover protect instructions whereby one safekeeping account is covering on behalf of another safekeeping account.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINMax35Text? ProtectSafekeepingAccount { get; init; } 
     /// <summary>
     /// Date at which the protect instruction was created and used for cover protect validation.
     /// </summary>
-    [DataMember]
     public IsoISODate? ProtectDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxTp", xmlNamespace );
+        writer.WriteValue(TransactionType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (TransactionIdentification is IsoRestrictedFINMax15Text TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINMax15Text(TransactionIdentificationValue)); // data type RestrictedFINMax15Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProtectSafekeepingAccount is IsoRestrictedFINMax35Text ProtectSafekeepingAccountValue)
+        {
+            writer.WriteStartElement(null, "PrtctSfkpgAcct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINMax35Text(ProtectSafekeepingAccountValue)); // data type RestrictedFINMax35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProtectDate is IsoISODate ProtectDateValue)
+        {
+            writer.WriteStartElement(null, "PrtctDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ProtectDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static ProtectInstruction5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData32Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData32Choice;
 /// Details of the buy sell back transaction.
 /// </summary>
 public partial record BuySellBack : TransactionLoanData32Choice_
+     , IIsoXmlSerilizable<BuySellBack>
 {
     #nullable enable
+    
     /// <summary>
     /// Indication of the cash values to be settled as of the start and maturity date of the transaction.
     /// </summary>
@@ -64,5 +68,74 @@ public partial record BuySellBack : TransactionLoanData32Choice_
     /// Price of unit of collateral component, including accrued interest for interest-bearing securities.
     /// </summary>
     public SecuritiesTransactionPrice19Choice_? UnitPrice { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PrincipalAmount is PrincipalAmount3 PrincipalAmountValue)
+        {
+            writer.WriteStartElement(null, "PrncplAmt", xmlNamespace );
+            PrincipalAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(MaturityDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UnqTradIdr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax52Text(UniqueTradeIdentifier)); // data type Max52Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EvtDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(EventDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClrSts", xmlNamespace );
+        ClearingStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradgVn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMICIdentifier(TradingVenue)); // data type MICIdentifier System.String
+        writer.WriteEndElement();
+        if (MasterAgreement is MasterAgreement7 MasterAgreementValue)
+        {
+            writer.WriteStartElement(null, "MstrAgrmt", xmlNamespace );
+            MasterAgreementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ExctnDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(ExecutionDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ValDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ValueDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (TerminationDate is IsoISODate TerminationDateValue)
+        {
+            writer.WriteStartElement(null, "TermntnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(TerminationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (GeneralCollateral is SpecialCollateral1Code GeneralCollateralValue)
+        {
+            writer.WriteStartElement(null, "GnlColl", xmlNamespace );
+            writer.WriteValue(GeneralCollateralValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (UnitPrice is SecuritiesTransactionPrice19Choice_ UnitPriceValue)
+        {
+            writer.WriteStartElement(null, "UnitPric", xmlNamespace );
+            UnitPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new BuySellBack Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

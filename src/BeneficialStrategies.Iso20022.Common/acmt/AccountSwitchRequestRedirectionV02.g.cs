@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.acmt.AccountSwitchRequestRedirectionV02>;
 
 namespace BeneficialStrategies.Iso20022.acmt;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// The AccountSwitchRequestRedirection message is sent by the new account servicer to a central account switch servicer to set up the redirection of payment and collection transactions that are processed after completion of the account switch.  It is routed to the previous account servicer to signal that it should schedule the cancellation of all payment arrangements on the old account. This message may also be used by the new bank to amend the new account details, if the details previously provided were incorrect.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The AccountSwitchRequestRedirection message is sent by the new account servicer to a central account switch servicer to set up the redirection of payment and collection transactions that are processed after completion of the account switch.  It is routed to the previous account servicer to signal that it should schedule the cancellation of all payment arrangements on the old account. This message may also be used by the new bank to amend the new account details, if the details previously provided were incorrect.")]
-public partial record AccountSwitchRequestRedirectionV02 : IOuterRecord
+public partial record AccountSwitchRequestRedirectionV02 : IOuterRecord<AccountSwitchRequestRedirectionV02,AccountSwitchRequestRedirectionV02Document>
+    ,IIsoXmlSerilizable<AccountSwitchRequestRedirectionV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record AccountSwitchRequestRedirectionV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AcctSwtchReqRdrctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AccountSwitchRequestRedirectionV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -96,6 +103,41 @@ public partial record AccountSwitchRequestRedirectionV02 : IOuterRecord
     {
         return new AccountSwitchRequestRedirectionV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AcctSwtchReqRdrctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctSwtchDtls", xmlNamespace );
+        AccountSwitchDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NewAcct", xmlNamespace );
+        NewAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OdAcct", xmlNamespace );
+        OldAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountSwitchRequestRedirectionV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -103,9 +145,7 @@ public partial record AccountSwitchRequestRedirectionV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountSwitchRequestRedirectionV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AccountSwitchRequestRedirectionV02Document : IOuterDocument<AccountSwitchRequestRedirectionV02>
+public partial record AccountSwitchRequestRedirectionV02Document : IOuterDocument<AccountSwitchRequestRedirectionV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -121,5 +161,22 @@ public partial record AccountSwitchRequestRedirectionV02Document : IOuterDocumen
     /// <summary>
     /// The instance of <seealso cref="AccountSwitchRequestRedirectionV02"/> is required.
     /// </summary>
+    [DataMember(Name=AccountSwitchRequestRedirectionV02.XmlTag)]
     public required AccountSwitchRequestRedirectionV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AccountSwitchRequestRedirectionV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Instructs the POI (Point Of Interaction) how to contact the host of the terminal management system (TMS), to initiate the maintenance of the terminal.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TMSTrigger1
+     : IIsoXmlSerilizable<TMSTrigger1>
 {
     #nullable enable
     
     /// <summary>
     /// Level of urgency in contacting the maintenance.
     /// </summary>
-    [DataMember]
     public required TMSContactLevel1Code TMSContactLevel { get; init; } 
     /// <summary>
     /// Identification of the host to contact for the maintenance.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TMSIdentification { get; init; } 
     /// <summary>
     /// Date and time for calling the maintenance.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? TMSContactDateTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TMSCtctLvl", xmlNamespace );
+        writer.WriteValue(TMSContactLevel.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (TMSIdentification is IsoMax35Text TMSIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TMSId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TMSIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TMSContactDateTime is IsoISODateTime TMSContactDateTimeValue)
+        {
+            writer.WriteStartElement(null, "TMSCtctDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(TMSContactDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static TMSTrigger1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

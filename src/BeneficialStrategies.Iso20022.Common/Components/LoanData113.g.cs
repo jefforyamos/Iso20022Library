@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LoanData113
+     : IIsoXmlSerilizable<LoanData113>
 {
     #nullable enable
     
     /// <summary>
     /// Unique reference assigned to the transaction to identify the trade.
     /// </summary>
-    [DataMember]
     public required IsoMax52Text UniqueTradeIdentifier { get; init; } 
     /// <summary>
     /// Date on which the reportable event pertaining to the transaction and captured by the report took place. In the case of action types valuation update, collateral update, reuse update, margin update, the date for which the information contained in the report is provided.
     /// </summary>
-    [DataMember]
     public required IsoISODate EventDate { get; init; } 
     /// <summary>
     /// Market value of the securities or commodities on loan or borrowed.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection53 MarketValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UnqTradIdr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax52Text(UniqueTradeIdentifier)); // data type Max52Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EvtDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(EventDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MktVal", xmlNamespace );
+        MarketValue.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static LoanData113 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

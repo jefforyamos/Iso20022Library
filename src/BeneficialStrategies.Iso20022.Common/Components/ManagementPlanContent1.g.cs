@@ -7,23 +7,42 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the management plan.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ManagementPlanContent1
+     : IIsoXmlSerilizable<ManagementPlanContent1>
 {
     #nullable enable
     
     /// <summary>
     /// Terminal management action to be performed by the point of interaction (POI).
     /// </summary>
-    [DataMember]
-    public ValueList<TMSAction1> Action { get; init; } = []; // Warning: Don't know multiplicity.
+    public TMSAction1? Action { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _KsN70H1DEeCF8NjrBemJWQ_2003915516
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize Action, multiplicity Unknown
+    }
+    public static ManagementPlanContent1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a switch leg that is rejected or repaired.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SwitchLegReferences1
+     : IIsoXmlSerilizable<SwitchLegReferences1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique technical identifier for an instance of a leg within a switch.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text RedemptionLegIdentification { get; init; } 
     /// <summary>
     /// Unique technical identifier for an instance of a leg within a switch.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text SubscriptionLegIdentification { get; init; } 
     /// <summary>
     /// Additional information about the reason for the rejection of a leg.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? LegRejectionReason { get; init; } 
     /// <summary>
     /// Elements from the original switch order that have been repaired so that the switch order can be accepted.
     /// </summary>
-    [DataMember]
     public RepairedConditions3? RepairedConditions { get; init; } 
     /// <summary>
     /// Account identification of the switch leg that is rejected or repaired.
     /// </summary>
-    [DataMember]
     public InvestmentAccount13? InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Financial instrument identification of the switch leg that is rejected or repaired.
     /// </summary>
-    [DataMember]
     public FinancialInstrument10? FinancialInstrumentDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RedLegId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(RedemptionLegIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SbcptLegId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(SubscriptionLegIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (LegRejectionReason is IsoMax350Text LegRejectionReasonValue)
+        {
+            writer.WriteStartElement(null, "LegRjctnRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(LegRejectionReasonValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (RepairedConditions is RepairedConditions3 RepairedConditionsValue)
+        {
+            writer.WriteStartElement(null, "RprdConds", xmlNamespace );
+            RepairedConditionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestmentAccountDetails is InvestmentAccount13 InvestmentAccountDetailsValue)
+        {
+            writer.WriteStartElement(null, "InvstmtAcctDtls", xmlNamespace );
+            InvestmentAccountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentDetails is FinancialInstrument10 FinancialInstrumentDetailsValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmDtls", xmlNamespace );
+            FinancialInstrumentDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SwitchLegReferences1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

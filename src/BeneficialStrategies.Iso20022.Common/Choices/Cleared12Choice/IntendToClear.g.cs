@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Cleared12Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Cleared12Choice;
 /// Indicates that the contract has been cleared.
 /// </summary>
 public partial record IntendToClear : Cleared12Choice_
+     , IIsoXmlSerilizable<IntendToClear>
 {
     #nullable enable
+    
     /// <summary>
     /// Indicates that the contract is intended to be cleared.
     /// </summary>
@@ -27,5 +31,41 @@ public partial record IntendToClear : Cleared12Choice_
     /// Time and date when clearing took place.
     /// </summary>
     public IsoISODateTime? ClearingDateTime { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Reason is NoReasonCode ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            writer.WriteValue(ReasonValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CCP is OrganisationIdentification10Choice_ CCPValue)
+        {
+            writer.WriteStartElement(null, "CCP", xmlNamespace );
+            CCPValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingDateTime is IsoISODateTime ClearingDateTimeValue)
+        {
+            writer.WriteStartElement(null, "ClrDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ClearingDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static new IntendToClear Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

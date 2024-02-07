@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of a movement record requested in a single settlement instruction. 
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MovementRecord1
+     : IIsoXmlSerilizable<MovementRecord1>
 {
     #nullable enable
     
@@ -23,43 +24,94 @@ public partial record MovementRecord1
     /// Unique identification, as assigned by the instructing agent, and sent to the market infrastructure to unambiguously identify the specific movement record (transaction) within a settlement request.
     /// Usage: The movement identification is a point to point reference that can be used between the instructing agent and the market infrastructure to refer to the individual movement record within a settlement request. It can be included in several messages related to the movement.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// An index to identify the individual movement record entry.
     /// </summary>
-    [DataMember]
     public IsoNumber? SequenceNumber { get; init; } 
     /// <summary>
     /// Amount of money requested by the instructing agent for settlement at the market infrastructure in a single movement record entry.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection5 Amount { get; init; } 
     /// <summary>
     /// Agent in whose account the funds settle on behalf of the participant.
     /// </summary>
-    [DataMember]
     public PartyIdentification135? SettlementAgent { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the settlement agent.
     /// </summary>
-    [DataMember]
     public CashAccount40? SettlementAgentAccount { get; init; } 
     /// <summary>
     /// Identification of a participant on behalf of which the settlement agent instructs the market infrastructure to settle the obligations using accounts held in the settlement service.
     /// </summary>
-    [DataMember]
     public PartyIdentification135? Participant { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the participant held in the settlement service.
     /// </summary>
-    [DataMember]
     public CashAccount40? ParticipantAccount { get; init; } 
     /// <summary>
     /// Reference information to complement a movement record.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Reference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (SequenceNumber is IsoNumber SequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "SeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(SequenceNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        Amount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SettlementAgent is PartyIdentification135 SettlementAgentValue)
+        {
+            writer.WriteStartElement(null, "SttlmAgt", xmlNamespace );
+            SettlementAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementAgentAccount is CashAccount40 SettlementAgentAccountValue)
+        {
+            writer.WriteStartElement(null, "SttlmAgtAcct", xmlNamespace );
+            SettlementAgentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Participant is PartyIdentification135 ParticipantValue)
+        {
+            writer.WriteStartElement(null, "Ptcpt", xmlNamespace );
+            ParticipantValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ParticipantAccount is CashAccount40 ParticipantAccountValue)
+        {
+            writer.WriteStartElement(null, "PtcptAcct", xmlNamespace );
+            ParticipantAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Reference is IsoMax35Text ReferenceValue)
+        {
+            writer.WriteStartElement(null, "Ref", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static MovementRecord1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

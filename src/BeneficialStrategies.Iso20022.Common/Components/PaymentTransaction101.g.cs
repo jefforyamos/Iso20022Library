@@ -7,55 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains the details on the payment transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentTransaction101
+     : IIsoXmlSerilizable<PaymentTransaction101>
 {
     #nullable enable
     
     /// <summary>
     /// Contains the unique end to end transaction reference of a payment.
     /// </summary>
-    [DataMember]
     public required IsoUUIDv4Identifier UETR { get; init; } 
     /// <summary>
     /// Specifies the status of a transaction, in a coded form.
     /// </summary>
-    [DataMember]
     public required PaymentStatus5 TransactionStatus { get; init; } 
     /// <summary>
     /// Provides details on the status of the cancellation of a payment transaction.
     /// </summary>
-    [DataMember]
     public PaymentTransactionCancellationStatus1? CancellationStatus { get; init; } 
     /// <summary>
     /// Specifies date and time at which the message enters the tracking system (for example gpi).
     /// </summary>
-    [DataMember]
     public required IsoISODateTime InitiationTime { get; init; } 
     /// <summary>
     /// Specifies the time at which the instructed bank reports that the transaction has been completed. 
     /// Usage:
     /// Date and time based on the creation date of the status confirmation containing a final status ACSC
     /// </summary>
-    [DataMember]
     public IsoISODateTime? CompletionTime { get; init; } 
     /// <summary>
     /// Specifies last date and time at which the status of this transaction was updated.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime LastUpdateTime { get; init; } 
     /// <summary>
     /// Groups the information of an event, namely of a payment message or status confirmation update. It is repeated as many times as there are events to be returned.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentEvent7> PaymentEvent { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentEvent7? PaymentEvent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UETR", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoUUIDv4Identifier(UETR)); // data type UUIDv4Identifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxSts", xmlNamespace );
+        TransactionStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CancellationStatus is PaymentTransactionCancellationStatus1 CancellationStatusValue)
+        {
+            writer.WriteStartElement(null, "CxlSts", xmlNamespace );
+            CancellationStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InitnTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(InitiationTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (CompletionTime is IsoISODateTime CompletionTimeValue)
+        {
+            writer.WriteStartElement(null, "CmpltnTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(CompletionTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "LastUpdTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(LastUpdateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (PaymentEvent is PaymentEvent7 PaymentEventValue)
+        {
+            writer.WriteStartElement(null, "PmtEvt", xmlNamespace );
+            PaymentEventValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentTransaction101 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

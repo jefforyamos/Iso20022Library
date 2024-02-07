@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.semt.SecuritiesBalanceTransparencyReportV01>;
 
 namespace BeneficialStrategies.Iso20022.semt;
 
@@ -34,10 +37,9 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// Ultimately, the statement reaches the relevant fund company, for example, the transfer agent, that may use it for obtaining information about the custodians, distributors and commercial agreement references associated with holdings on an omnibus account in the shareholder register.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"SCOPE||An account servicer, such as a custodian, central securities depository or international central securities depository, sends the SecuritiesBalanceTransparencyReport message to provide holdings information for the accounts that it services, to disclose underlying details of holdings on an omnibus account that the sender owns or operates at the receiver. The receiver may also be a custodian, central securities depository, international central securities depository, and the ultimate receiver may be a registrar, transfer agent, fund company, official agent of the reported instrument(s) and/or other parties.||The SecuritiesBalanceTransparencyReport message provides transparency of holdings through layers of custody chains in a consolidated statement, to allow for an efficient gathering of investor data, which, in turn, may be used to measure marketing effectiveness, validation of compliance with prospectuses and regulatory requirements, and the calculation of trailer fees and other retrocessions.||USAGE||The SecuritiesBalanceTransparencyReport message is used to provide aggregated holdings information and a breakdown of holdings information.||A sender of the SecuritiesBalanceTransparencyReport message will identify its own safekeeping account (for example, an omnibus account in the ledger of the receiver) and holdings information at the level of account(s) for which the sender is the account servicer (that is, in the ledger of the sender). When relevant, the sender will aggregate its holdings information with holdings information of one or more sub levels and sub-sub levels of accounts, that is, with holdings information the sender has received from the owner(s) of the account(s) for which the sender is the account servicer. ||When the receiver of the SecuritiesBalanceTransparencyReport message is also an account servicer, it may, in turn, send a statement back to the sender of the first statement, enriched with data of its own.|Ultimately, the statement reaches the relevant fund company, for example, the transfer agent, that may use it for obtaining information about the custodians, distributors and commercial agreement references associated with holdings on an omnibus account in the shareholder register.")]
-public partial record SecuritiesBalanceTransparencyReportV01 : IOuterRecord
+public partial record SecuritiesBalanceTransparencyReportV01 : IOuterRecord<SecuritiesBalanceTransparencyReportV01,SecuritiesBalanceTransparencyReportV01Document>
+    ,IIsoXmlSerilizable<SecuritiesBalanceTransparencyReportV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -49,6 +51,11 @@ public partial record SecuritiesBalanceTransparencyReportV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesBalTrnsprncyRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesBalanceTransparencyReportV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -128,6 +135,50 @@ public partial record SecuritiesBalanceTransparencyReportV01 : IOuterRecord
     {
         return new SecuritiesBalanceTransparencyReportV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesBalTrnsprncyRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SndrId", xmlNamespace );
+        SenderIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ReceiverIdentification is PartyIdentification100 ReceiverIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcvrId", xmlNamespace );
+            ReceiverIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Pgntn", xmlNamespace );
+        Pagination.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StmtGnlDtls", xmlNamespace );
+        StatementGeneralDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SfkpgAcctAndHldgs", xmlNamespace );
+        SafekeepingAccountAndHoldings.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesBalanceTransparencyReportV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -135,9 +186,7 @@ public partial record SecuritiesBalanceTransparencyReportV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesBalanceTransparencyReportV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesBalanceTransparencyReportV01Document : IOuterDocument<SecuritiesBalanceTransparencyReportV01>
+public partial record SecuritiesBalanceTransparencyReportV01Document : IOuterDocument<SecuritiesBalanceTransparencyReportV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -153,5 +202,22 @@ public partial record SecuritiesBalanceTransparencyReportV01Document : IOuterDoc
     /// <summary>
     /// The instance of <seealso cref="SecuritiesBalanceTransparencyReportV01"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesBalanceTransparencyReportV01.XmlTag)]
     public required SecuritiesBalanceTransparencyReportV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesBalanceTransparencyReportV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

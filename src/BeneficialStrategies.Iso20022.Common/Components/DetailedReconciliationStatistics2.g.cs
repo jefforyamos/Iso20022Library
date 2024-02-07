@@ -7,63 +7,102 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed statistics on reconciliation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DetailedReconciliationStatistics2
+     : IIsoXmlSerilizable<DetailedReconciliationStatistics2>
 {
     #nullable enable
     
     /// <summary>
     /// Detailed statistics on derivatives accepted by trade repository since the beginning of reporting.
     /// </summary>
-    [DataMember]
     public required IsoMax20PositiveNumber TotalAccepted { get; init; } 
     /// <summary>
     /// Detailed statistics on derivatives that are not single-sided non-EEA and are not included in to the inter trade repository reconciliation process due to lack of compliance with LEI or the UTI specifications.
     /// </summary>
-    [DataMember]
     public required IsoMax20PositiveNumber TotalNotSubmittedToReconciliation { get; init; } 
     /// <summary>
     /// Detailed statistics on single-sided EEA unpaired derivatives.
     /// </summary>
-    [DataMember]
     public required IsoMax20PositiveNumber TotalSingleSidedEEAUnpaired { get; init; } 
     /// <summary>
     /// Detailed statistics on single-sided EEA paired derivatives.
     /// </summary>
-    [DataMember]
     public required IsoMax20PositiveNumber TotalSingleSidedEEAPaired { get; init; } 
     /// <summary>
     /// Detailed statistics on single-sided EEA matched derivatives.
     /// </summary>
-    [DataMember]
     public required IsoMax20PositiveNumber TotalSingleSidedEEAMatched { get; init; } 
     /// <summary>
     /// Detailed statistics on dual-sided non-matched derivatives.
     /// </summary>
-    [DataMember]
     public required IsoMax20PositiveNumber TotalDualSidedNonMatched { get; init; } 
     /// <summary>
     /// Detailed statistics on dual-sided matched derivatives.
     /// </summary>
-    [DataMember]
     public required IsoMax20PositiveNumber TotalDualSidedMatched { get; init; } 
     /// <summary>
     /// Detailed statistics on single-sided non-EEA derivatives.
     /// </summary>
-    [DataMember]
     public required IsoMax20PositiveNumber TotalSingleSidedNonEEA { get; init; } 
     /// <summary>
     /// Identification of the most common data field considered as reason for paired non-matched derivatives.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> TopReasonsForPairedNonMatched { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? TopReasonsForPairedNonMatched { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TtlAccptd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20PositiveNumber(TotalAccepted)); // data type Max20PositiveNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlNotSubmittdToRcncltn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20PositiveNumber(TotalNotSubmittedToReconciliation)); // data type Max20PositiveNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlSnglSddEEAUnprd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20PositiveNumber(TotalSingleSidedEEAUnpaired)); // data type Max20PositiveNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlSnglSddEEAPaird", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20PositiveNumber(TotalSingleSidedEEAPaired)); // data type Max20PositiveNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlSnglSddEEAMtchd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20PositiveNumber(TotalSingleSidedEEAMatched)); // data type Max20PositiveNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlDualSddNonMtchd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20PositiveNumber(TotalDualSidedNonMatched)); // data type Max20PositiveNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlDualSddMtchd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20PositiveNumber(TotalDualSidedMatched)); // data type Max20PositiveNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlSnglSddNonEEA", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20PositiveNumber(TotalSingleSidedNonEEA)); // data type Max20PositiveNumber System.UInt64
+        writer.WriteEndElement();
+        if (TopReasonsForPairedNonMatched is IsoMax35Text TopReasonsForPairedNonMatchedValue)
+        {
+            writer.WriteStartElement(null, "TopRsnsForPairdNonMtchd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TopReasonsForPairedNonMatchedValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static DetailedReconciliationStatistics2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

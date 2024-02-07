@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.pain.CustomerPaymentStatusReportV03>;
 
 namespace BeneficialStrategies.Iso20022.pain;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.pain;
 /// The CustomerPaymentStatusReport message can be used in domestic and cross-border scenarios.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The CustomerPaymentStatusReport message is sent by an instructed agent to the previous party in the payment chain. It is used to inform this party about the positive or negative status of an instruction (either single or file). It is also used to report on a pending instruction.|Usage|The CustomerPaymentStatusReport message is exchanged between an agent and a non-financial institution customer to provide status information on instructions previously sent. Its usage will always be governed by a bilateral agreement between the agent and the non-financial institution customer.|The CustomerPaymentStatusReport message can be used to provide information about the status (e.g. rejection, acceptance) of the initiation of a credit transfer, a direct debit, as well as on the initiation of other customer instructions.|The CustomerPaymentStatusReport message refers to the original instruction(s) by means of references only or by means of references and a set of elements from the original instruction.|The CustomerPaymentStatusReport message can be used in domestic and cross-border scenarios.")]
-public partial record CustomerPaymentStatusReportV03 : IOuterRecord
+public partial record CustomerPaymentStatusReportV03 : IOuterRecord<CustomerPaymentStatusReportV03,CustomerPaymentStatusReportV03Document>
+    ,IIsoXmlSerilizable<CustomerPaymentStatusReportV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record CustomerPaymentStatusReportV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "CstmrPmtStsRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CustomerPaymentStatusReportV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -82,6 +89,35 @@ public partial record CustomerPaymentStatusReportV03 : IOuterRecord
     {
         return new CustomerPaymentStatusReportV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("CstmrPmtStsRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
+        GroupHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgnlGrpInfAndSts", xmlNamespace );
+        OriginalGroupInformationAndStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OriginalPaymentInformationAndStatus is OriginalPaymentInformation1 OriginalPaymentInformationAndStatusValue)
+        {
+            writer.WriteStartElement(null, "OrgnlPmtInfAndSts", xmlNamespace );
+            OriginalPaymentInformationAndStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CustomerPaymentStatusReportV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -89,9 +125,7 @@ public partial record CustomerPaymentStatusReportV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CustomerPaymentStatusReportV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CustomerPaymentStatusReportV03Document : IOuterDocument<CustomerPaymentStatusReportV03>
+public partial record CustomerPaymentStatusReportV03Document : IOuterDocument<CustomerPaymentStatusReportV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -107,5 +141,22 @@ public partial record CustomerPaymentStatusReportV03Document : IOuterDocument<Cu
     /// <summary>
     /// The instance of <seealso cref="CustomerPaymentStatusReportV03"/> is required.
     /// </summary>
+    [DataMember(Name=CustomerPaymentStatusReportV03.XmlTag)]
     public required CustomerPaymentStatusReportV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CustomerPaymentStatusReportV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

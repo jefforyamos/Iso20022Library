@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide information on the original amount and currency exchange.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AmountAndCurrencyExchangeDetails5
+     : IIsoXmlSerilizable<AmountAndCurrencyExchangeDetails5>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// </summary>
-    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Set of elements used to provide details on the currency exchange.
     /// </summary>
-    [DataMember]
     public CurrencyExchange24? CurrencyExchange { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(Amount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (CurrencyExchange is CurrencyExchange24 CurrencyExchangeValue)
+        {
+            writer.WriteStartElement(null, "CcyXchg", xmlNamespace );
+            CurrencyExchangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AmountAndCurrencyExchangeDetails5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

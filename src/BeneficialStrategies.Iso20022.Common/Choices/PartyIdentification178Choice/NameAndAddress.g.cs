@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification178Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification178Choice;
 /// Name by which a party is known and which is usually used to identify that party.
 /// </summary>
 public partial record NameAndAddress : PartyIdentification178Choice_
+     , IIsoXmlSerilizable<NameAndAddress>
 {
     #nullable enable
+    
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record NameAndAddress : PartyIdentification178Choice_
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
     public required PostalAddress2 Address { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(Name)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Adr", xmlNamespace );
+        Address.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new NameAndAddress Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

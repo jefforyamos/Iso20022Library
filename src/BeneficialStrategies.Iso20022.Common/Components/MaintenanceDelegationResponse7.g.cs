@@ -7,43 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the request of maintenance delegations.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MaintenanceDelegationResponse7
+     : IIsoXmlSerilizable<MaintenanceDelegationResponse7>
 {
     #nullable enable
     
     /// <summary>
     /// Terminal manager identification.
     /// </summary>
-    [DataMember]
     public required GenericIdentification176 TMIdentification { get; init; } 
     /// <summary>
     /// Master terminal manager identification.
     /// </summary>
-    [DataMember]
     public GenericIdentification176? MasterTMIdentification { get; init; } 
     /// <summary>
     /// Date and Time of the TMS.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime TMDateTime { get; init; } 
     /// <summary>
     /// Challenge value sends by the POI to be received back in a message response.
     /// </summary>
-    [DataMember]
     public required IsoMax140Binary TMChallengeValue { get; init; } 
     /// <summary>
     /// Information on the delegation of a maintenance action.
     /// </summary>
-    [DataMember]
-    public ValueList<MaintenanceDelegation16> DelegationResponse { get; init; } = []; // Warning: Don't know multiplicity.
+    public MaintenanceDelegation16? DelegationResponse { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _uDx3pXJkEe299ZbWCkdR_w
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TMId", xmlNamespace );
+        TMIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MasterTMIdentification is GenericIdentification176 MasterTMIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MstrTMId", xmlNamespace );
+            MasterTMIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TMDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(TMDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TMChllngVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Binary(TMChallengeValue)); // data type Max140Binary System.Byte[]
+        writer.WriteEndElement();
+        // Not sure how to serialize DelegationResponse, multiplicity Unknown
+    }
+    public static MaintenanceDelegationResponse7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

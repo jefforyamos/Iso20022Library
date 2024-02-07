@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashEntry2
+     : IIsoXmlSerilizable<CashEntry2>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of money in the cash entry.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Date at which an entry is posted to an account on the account servicer's books.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? Date { get; init; } 
     /// <summary>
     /// Status of an entry on the books of the account servicer.
     /// </summary>
-    [DataMember]
     public EntryStatus1Code? Status { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an entry, as assigned by the account servicer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the account servicer, to unambiguously identify the account statement.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? StatementIdentification { get; init; } 
     /// <summary>
     /// Sequential number of the statement, as assigned by the account servicer.|Usage: The sequential number is increased incrementally for each statement sent electronically.
     /// </summary>
-    [DataMember]
     public IsoNumber? AccountServicerReference { get; init; } 
     /// <summary>
     /// Further details of the entry.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax140Text> AdditionalEntryInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax140Text? AdditionalEntryInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Amount is IsoActiveCurrencyAndAmount AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Date is DateAndDateTime2Choice_ DateValue)
+        {
+            writer.WriteStartElement(null, "Dt", xmlNamespace );
+            DateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Status is EntryStatus1Code StatusValue)
+        {
+            writer.WriteStartElement(null, "Sts", xmlNamespace );
+            writer.WriteValue(StatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Identification is IsoMax35Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (StatementIdentification is IsoMax35Text StatementIdentificationValue)
+        {
+            writer.WriteStartElement(null, "StmtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(StatementIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountServicerReference is IsoNumber AccountServicerReferenceValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(AccountServicerReferenceValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (AdditionalEntryInformation is IsoMax140Text AdditionalEntryInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlNtryInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalEntryInformationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CashEntry2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

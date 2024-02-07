@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PaymentDirection2Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentDirection2Choice;
 /// Indicates the direction of payment for asset or mortgage backed securities, ie, whether the repaid capital is distributed (payment direction is down) or capitalized (payment direction is up).
 /// </summary>
 public partial record Indicator : PaymentDirection2Choice_
+     , IIsoXmlSerilizable<Indicator>
 {
-    public required IsoPaymentDirectionIndicator Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// The direction of capital repayment for asset backed securities.
+    /// </summary>
+    public required IsoPaymentDirectionIndicator Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ind", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPaymentDirectionIndicator(Value)); // data type PaymentDirectionIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static new Indicator Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details about of a list that must be executed.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ListExecution1
+     : IIsoXmlSerilizable<ListExecution1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identifier for a list, as assigned by the trading party. The identifier must be unique within a single trading day.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ListIdentification { get; init; } 
     /// <summary>
     /// Identifies a bid made by a client, to which the list is associated.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClientBidIdentification { get; init; } 
     /// <summary>
     /// Name or number assigned by an entity to enable recognition of that entity, eg, account identifier.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text BidIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ListId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ListIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ClientBidIdentification is IsoMax35Text ClientBidIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClntBidId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientBidIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "BidId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(BidIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static ListExecution1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

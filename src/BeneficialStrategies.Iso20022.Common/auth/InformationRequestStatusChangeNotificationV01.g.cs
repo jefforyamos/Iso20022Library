@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.auth.InformationRequestStatusChangeNotificationV01>;
 
 namespace BeneficialStrategies.Iso20022.auth;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// This message is sent by the authorities (police, customs, tax authorities, enforcement authorities) to a financial institution to inform the financial institution that the confidentiality status of the investigation has changed.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"This message is sent by the authorities (police, customs, tax authorities, enforcement authorities) to a financial institution to inform the financial institution that the confidentiality status of the investigation has changed.")]
-public partial record InformationRequestStatusChangeNotificationV01 : IOuterRecord
+public partial record InformationRequestStatusChangeNotificationV01 : IOuterRecord<InformationRequestStatusChangeNotificationV01,InformationRequestStatusChangeNotificationV01Document>
+    ,IIsoXmlSerilizable<InformationRequestStatusChangeNotificationV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record InformationRequestStatusChangeNotificationV01 : IOuterReco
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "InfReqStsChngNtfctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => InformationRequestStatusChangeNotificationV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -76,6 +83,35 @@ public partial record InformationRequestStatusChangeNotificationV01 : IOuterReco
     {
         return new InformationRequestStatusChangeNotificationV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("InfReqStsChngNtfctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OrgnlBizQry", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalBusinessQuery)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CnfdtltySts", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ConfidentialityStatus)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InformationRequestStatusChangeNotificationV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -83,9 +119,7 @@ public partial record InformationRequestStatusChangeNotificationV01 : IOuterReco
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InformationRequestStatusChangeNotificationV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record InformationRequestStatusChangeNotificationV01Document : IOuterDocument<InformationRequestStatusChangeNotificationV01>
+public partial record InformationRequestStatusChangeNotificationV01Document : IOuterDocument<InformationRequestStatusChangeNotificationV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -101,5 +135,22 @@ public partial record InformationRequestStatusChangeNotificationV01Document : IO
     /// <summary>
     /// The instance of <seealso cref="InformationRequestStatusChangeNotificationV01"/> is required.
     /// </summary>
+    [DataMember(Name=InformationRequestStatusChangeNotificationV01.XmlTag)]
     public required InformationRequestStatusChangeNotificationV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(InformationRequestStatusChangeNotificationV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

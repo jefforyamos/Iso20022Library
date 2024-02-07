@@ -7,33 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies information concerning the technical error that prevented delivery of the referenced messaging by the payment gateway application.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TechnicalError1
+     : IIsoXmlSerilizable<TechnicalError1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the severity of the related error.
     /// </summary>
-    [DataMember]
     public required ErrorSeverity1Code Severity { get; init; } 
     /// <summary>
     /// Specifies the error code.
     /// </summary>
-    [DataMember]
     public required TechnicalError1Choice_ ErrorCode { get; init; } 
     /// <summary>
     /// Specification of the error, in free format.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax140Text> Description { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax140Text? Description { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _-CoNtA23EeWH49U6bkyMaA
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "svrty", xmlNamespace );
+        writer.WriteValue(Severity.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ErrCd", xmlNamespace );
+        ErrorCode.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize Description, multiplicity Unknown
+    }
+    public static TechnicalError1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

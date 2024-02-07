@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about event of a corporate action.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record EventInformation12
+     : IIsoXmlSerilizable<EventInformation12>
 {
     #nullable enable
     
     /// <summary>
     /// Reference assigned by the account servicer to unambiguously identify a corporate action event.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINXMax16Text CorporateActionEventIdentification { get; init; } 
     /// <summary>
     /// Provides the reference of the linked official corporate action event.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax16Text? OfficialCorporateActionEventIdentification { get; init; } 
     /// <summary>
     /// Type of corporate action event.
     /// </summary>
-    [DataMember]
     public required CorporateActionEventType58Choice_ EventType { get; init; } 
     /// <summary>
     /// Specifies whether the event is mandatory, mandatory with options or voluntary.
     /// </summary>
-    [DataMember]
     public required CorporateActionMandatoryVoluntary4Choice_ MandatoryVoluntaryEventType { get; init; } 
     /// <summary>
     /// Provides information about the identification of the last notification.
     /// </summary>
-    [DataMember]
     public NotificationIdentification6? LastNotificationIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CorpActnEvtId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(CorporateActionEventIdentification)); // data type RestrictedFINXMax16Text System.String
+        writer.WriteEndElement();
+        if (OfficialCorporateActionEventIdentification is IsoRestrictedFINXMax16Text OfficialCorporateActionEventIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OffclCorpActnEvtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(OfficialCorporateActionEventIdentificationValue)); // data type RestrictedFINXMax16Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "EvtTp", xmlNamespace );
+        EventType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MndtryVlntryEvtTp", xmlNamespace );
+        MandatoryVoluntaryEventType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LastNotificationIdentification is NotificationIdentification6 LastNotificationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "LastNtfctnId", xmlNamespace );
+            LastNotificationIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static EventInformation12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

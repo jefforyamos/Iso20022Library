@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Direction4Choice;
 
@@ -15,8 +17,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Direction4Choice;
 /// DirectionOfTheFirstLeg should be used for most swaps and swap-like contracts including interest rate swaps, credit total return swaps, and equity swaps (except for credit default swaps, variance, volatility, and correlation swaps) as well as for the foreign exchange swaps, forwards and non-deliverable forwards.
 /// </summary>
 public partial record Direction : Direction4Choice_
+     , IIsoXmlSerilizable<Direction>
 {
     #nullable enable
+    
     /// <summary>
     /// Identifies whether the reporting counterparty is the payer (Taker) or the receiver (Maker) of the first leg as determined at the time of transaction.
     /// </summary>
@@ -25,5 +29,32 @@ public partial record Direction : Direction4Choice_
     /// Identifies whether the reporting counterparty is the payer (Taker) or the receiver (Maker) of the second leg as determined at the time of transaction.
     /// </summary>
     public OptionParty3Code? DirectionOfTheSecondLeg { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DrctnOfTheFrstLeg", xmlNamespace );
+        writer.WriteValue(DirectionOfTheFirstLeg.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (DirectionOfTheSecondLeg is OptionParty3Code DirectionOfTheSecondLegValue)
+        {
+            writer.WriteStartElement(null, "DrctnOfTheScndLeg", xmlNamespace );
+            writer.WriteValue(DirectionOfTheSecondLegValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static new Direction Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

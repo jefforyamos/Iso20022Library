@@ -7,37 +7,34 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details of the reported transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesTransaction1
+     : IIsoXmlSerilizable<SecuritiesTransaction1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime TradeDate { get; init; } 
     /// <summary>
     /// Indication of whether the transaction results from the reporting firm carrying out matched principal trading or dealing on own account under the local regulation, or where the transaction does not result from the reporting firm carrying out matched principal trading or dealing on own account, the field shall indicate that the transaction was carried out under any other capacity.
     /// </summary>
-    [DataMember]
     public required RegulatoryTradingCapacity1Code TradingCapacity { get; init; } 
     /// <summary>
     /// Number of units of the financial instrument, or the number of derivative contracts in the transaction.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity25Choice_ Quantity { get; init; } 
     /// <summary>
     /// Indicates as to whether an increase or a decrease of notional of derivative contracts has taken place.
     /// </summary>
-    [DataMember]
     public VariationType1Code? DerivativeNotionalChange { get; init; } 
     /// <summary>
     /// Traded price of the transaction excluding, where applicable, commission and accrued interest.
@@ -48,12 +45,10 @@ public partial record SecuritiesTransaction1
     /// Where price reported in monetary terms, it shall be provided in the major currency unit.
     /// Where price is not applicable the field should be left blank.
     /// </summary>
-    [DataMember]
     public required SecuritiesTransactionPrice4Choice_ Price { get; init; } 
     /// <summary>
     /// Net amount of the transaction means the cash amount which is paid by the buyer of the debt instrument upon the settlement of the transaction.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? NetAmount { get; init; } 
     /// <summary>
     /// Identification of the venue where the transaction was executed.
@@ -62,34 +57,97 @@ public partial record SecuritiesTransaction1
     /// Use MIC code ‘XOFF’ for financial instruments admitted to trading or traded on a trading venue, where the transaction on that financial instrument is not executed on a MiFID trading venue, SI or non-EU organised trading platform, or where an investment firm does not know it is trading with another investment firm acting as an SI.
     /// Use MIC code ‘XXXX’ for financial instruments that are not admitted to trading or traded on a trading venue or for which no request for admission has been made and that are not traded on an non-EU organised trading platform but where the underlying is admitted to trading or traded on a trading venue.
     /// </summary>
-    [DataMember]
     public required IsoMICIdentifier TradeVenue { get; init; } 
     /// <summary>
     /// Country of the branch of the investment firm whose market membership was used to execute the transaction.
     /// TBC with item 46.
     /// </summary>
-    [DataMember]
     public CountryCode? CountryOfBranch { get; init; } 
     /// <summary>
     /// Monetary value of any up-front payment in basis points of notional received or paid by the seller.
     /// Where the seller receives the up-front payment, the value populated is positive. Where the seller pays the up-front payment, the value populated is negative.
     /// For increase or decrease in notional derivative contracts, the number shall reflect the absolute value of the change and shall be expressed as a positive number.
     /// </summary>
-    [DataMember]
     public AmountAndDirection53? UpFrontPayment { get; init; } 
     /// <summary>
     /// Common matching identification when executed on a trade place.
     /// Usage: Must be present when a trade venue has been provided.
     /// </summary>
-    [DataMember]
     public IsoMax52Text? TradePlaceMatchingIdentification { get; init; } 
     /// <summary>
     /// Identification, internal to the reporting party to identify all the reports related to the same execution of a combination of financial instruments. The code must be unique for the reporting party for the group of reports for the execution.
     /// Usage:
     /// Field only applies when the instrument is complex.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ComplexTradeComponentIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TradDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(TradeDate)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradgCpcty", xmlNamespace );
+        writer.WriteValue(TradingCapacity.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        Quantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DerivativeNotionalChange is VariationType1Code DerivativeNotionalChangeValue)
+        {
+            writer.WriteStartElement(null, "DerivNtnlChng", xmlNamespace );
+            writer.WriteValue(DerivativeNotionalChangeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Pric", xmlNamespace );
+        Price.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (NetAmount is IsoImpliedCurrencyAndAmount NetAmountValue)
+        {
+            writer.WriteStartElement(null, "NetAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(NetAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TradVn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMICIdentifier(TradeVenue)); // data type MICIdentifier System.String
+        writer.WriteEndElement();
+        if (CountryOfBranch is CountryCode CountryOfBranchValue)
+        {
+            writer.WriteStartElement(null, "CtryOfBrnch", xmlNamespace );
+            writer.WriteValue(CountryOfBranchValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (UpFrontPayment is AmountAndDirection53 UpFrontPaymentValue)
+        {
+            writer.WriteStartElement(null, "UpFrntPmt", xmlNamespace );
+            UpFrontPaymentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradePlaceMatchingIdentification is IsoMax52Text TradePlaceMatchingIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TradPlcMtchgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(TradePlaceMatchingIdentificationValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+        if (ComplexTradeComponentIdentification is IsoMax35Text ComplexTradeComponentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CmplxTradCmpntId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ComplexTradeComponentIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesTransaction1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

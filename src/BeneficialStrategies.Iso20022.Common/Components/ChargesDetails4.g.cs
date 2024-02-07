@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money associated with a service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ChargesDetails4
+     : IIsoXmlSerilizable<ChargesDetails4>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of charges as a code or free text.
     /// </summary>
-    [DataMember]
     public required ChargesType1Choice_ ChargesType { get; init; } 
     /// <summary>
     /// Amount of money asked or paid for the charge.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ChrgsTp", xmlNamespace );
+        ChargesType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(Amount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static ChargesDetails4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

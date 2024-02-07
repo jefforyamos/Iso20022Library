@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification information expressed as a country of fiscal domicile and a reference.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GenericIdentificationSD1
+     : IIsoXmlSerilizable<GenericIdentificationSD1>
 {
     #nullable enable
     
     /// <summary>
     /// Country in which the account owner has one's fiscal domicile.
     /// </summary>
-    [DataMember]
     public required CountryCode FiscalDomicile { get; init; } 
     /// <summary>
     /// Identification of the document assigned by the account servicer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountServicerIdentification { get; init; } 
     /// <summary>
     /// Identification of the document assigned by the account owner.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountOwnerIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FsclDmcl", xmlNamespace );
+        writer.WriteValue(FiscalDomicile.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AccountServicerIdentification is IsoMax35Text AccountServicerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountServicerIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountOwnerIdentification is IsoMax35Text AccountOwnerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountOwnerIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static GenericIdentificationSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

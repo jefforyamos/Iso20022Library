@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// References of an order confirmation and an order confirmation cancellation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestmentFundOrder11
+     : IIsoXmlSerilizable<InvestmentFundOrder11>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for the order, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OrderReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the order execution, as assigned by the confirming party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DealReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the order confirmation cancellation, as assigned by the confirming party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// Reason for the cancellation of the confirmation.
     /// </summary>
-    [DataMember]
     public CancellationReason31Choice_? CancellationReason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OrdrRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OrderReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ClientReference is IsoMax35Text ClientReferenceValue)
+        {
+            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DealReference is IsoMax35Text DealReferenceValue)
+        {
+            writer.WriteStartElement(null, "DealRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DealReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CancellationReference is IsoMax35Text CancellationReferenceValue)
+        {
+            writer.WriteStartElement(null, "CxlRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CancellationReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CancellationReason is CancellationReason31Choice_ CancellationReasonValue)
+        {
+            writer.WriteStartElement(null, "CxlRsn", xmlNamespace );
+            CancellationReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InvestmentFundOrder11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

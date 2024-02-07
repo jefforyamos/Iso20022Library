@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Maximum value that the new bank will pay to the old bank when the closing balance on the old bank is negative.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BalanceTransferFundingLimit1
+     : IIsoXmlSerilizable<BalanceTransferFundingLimit1>
 {
     #nullable enable
     
     /// <summary>
     /// Maximum value and related currency that can be sent by the new account servicer to the old account servicer in case of a negative closing balance.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount CurrencyAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CcyAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CurrencyAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static BalanceTransferFundingLimit1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

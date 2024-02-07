@@ -7,89 +7,144 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the securities transaction report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesTransactionReport4
+     : IIsoXmlSerilizable<SecuritiesTransactionReport4>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the transaction.
     /// </summary>
-    [DataMember]
     public required IsoMax52Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the entity executing the transaction.
     /// </summary>
-    [DataMember]
     public required IsoLEIIdentifier ExecutingParty { get; init; } 
     /// <summary>
     /// Indicates whether the reporting party is defined as an investment firm under the local regulation or not.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator InvestmentPartyIndicator { get; init; } 
     /// <summary>
     /// Entity submitting the transaction report to the competent authority.
     /// </summary>
-    [DataMember]
     public required IsoLEIIdentifier SubmittingParty { get; init; } 
     /// <summary>
     /// Identifies the acquirer of the legal title to the financial instrument.
     /// </summary>
-    [DataMember]
     public required PartyIdentification79 Buyer { get; init; } 
     /// <summary>
     /// Identifies the seller of the legal title to the financial instrument.
     /// </summary>
-    [DataMember]
     public required PartyIdentification79 Seller { get; init; } 
     /// <summary>
     /// Indication as to whether the transaction results from an order transmitted by the reporting of a client to a third party.
     /// Usage: Only applicable when the conditions for transmission are not satisfied.
     /// </summary>
-    [DataMember]
     public required SecuritiesTransactionTransmission2 OrderTransmission { get; init; } 
     /// <summary>
     /// Provides the details of the reported transaction.
     /// </summary>
-    [DataMember]
     public required SecuritiesTransaction1 Transaction { get; init; } 
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentAttributes3Choice_ FinancialInstrument { get; init; } 
     /// <summary>
     /// Identifies the person or algorithm which is responsible within the reporting party for the investment decision.
     /// </summary>
-    [DataMember]
     public InvestmentParty1Choice_? InvestmentDecisionPerson { get; init; } 
     /// <summary>
     /// Person or algorithm responsible for the execution of the transaction.
     /// </summary>
-    [DataMember]
     public required ExecutingParty1Choice_ ExecutingPerson { get; init; } 
     /// <summary>
     /// Provides additional indicators on the reported transaction.
     /// </summary>
-    [DataMember]
     public required SecuritiesTransactionIndicator2 AdditionalAttributes { get; init; } 
     /// <summary>
     /// Data used for exchanges between national competent authorities, not to be used by reporting entities.
     /// </summary>
-    [DataMember]
     public RecordTechnicalData1? TechnicalAttributes { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax52Text(TransactionIdentification)); // data type Max52Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ExctgPty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(ExecutingParty)); // data type LEIIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InvstmtPtyInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(InvestmentPartyIndicator)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SubmitgPty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(SubmittingParty)); // data type LEIIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Buyr", xmlNamespace );
+        Buyer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sellr", xmlNamespace );
+        Seller.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrdrTrnsmssn", xmlNamespace );
+        OrderTransmission.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tx", xmlNamespace );
+        Transaction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FinInstrm", xmlNamespace );
+        FinancialInstrument.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (InvestmentDecisionPerson is InvestmentParty1Choice_ InvestmentDecisionPersonValue)
+        {
+            writer.WriteStartElement(null, "InvstmtDcsnPrsn", xmlNamespace );
+            InvestmentDecisionPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ExctgPrsn", xmlNamespace );
+        ExecutingPerson.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AddtlAttrbts", xmlNamespace );
+        AdditionalAttributes.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TechnicalAttributes is RecordTechnicalData1 TechnicalAttributesValue)
+        {
+            writer.WriteStartElement(null, "TechAttrbts", xmlNamespace );
+            TechnicalAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesTransactionReport4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

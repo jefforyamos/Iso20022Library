@@ -7,58 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains the details of the package
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ShippingPackage1
+     : IIsoXmlSerilizable<ShippingPackage1>
 {
     #nullable enable
     
     /// <summary>
     /// Contains the identification number for the packages being shipped and is also used for pickup number. 
     /// </summary>
-    [DataMember]
     public IsoMax70Text? TrackingNumber { get; init; } 
     /// <summary>
     /// Supplier or provider of the delivery services.
     /// </summary>
-    [DataMember]
     public PartyIdentification209? Supplier { get; init; } 
     /// <summary>
     /// Contains the time the package is picked up.
     /// </summary>
-    [DataMember]
     public IsoISOTime? PickupTime { get; init; } 
     /// <summary>
     /// Delivery information. 
     /// </summary>
-    [DataMember]
     public DeliveryInformation3? Delivery { get; init; } 
     /// <summary>
     /// Weight details.
     /// </summary>
-    [DataMember]
     public UnitOfMeasure1? Weight { get; init; } 
     /// <summary>
     /// Contains the product details.
     /// </summary>
-    [DataMember]
-    public ValueList<Product7> Product { get; init; } = []; // Warning: Don't know multiplicity.
+    public Product7? Product { get; init; } 
     /// <summary>
     /// Indicates whether or not insurance was purchased. 
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? InsuranceIndicator { get; init; } 
     /// <summary>
     /// Amount of insurance.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? InsuranceAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TrackingNumber is IsoMax70Text TrackingNumberValue)
+        {
+            writer.WriteStartElement(null, "TrckgNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(TrackingNumberValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Supplier is PartyIdentification209 SupplierValue)
+        {
+            writer.WriteStartElement(null, "Spplr", xmlNamespace );
+            SupplierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PickupTime is IsoISOTime PickupTimeValue)
+        {
+            writer.WriteStartElement(null, "PckpTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(PickupTimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+        if (Delivery is DeliveryInformation3 DeliveryValue)
+        {
+            writer.WriteStartElement(null, "Dlvry", xmlNamespace );
+            DeliveryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Weight is UnitOfMeasure1 WeightValue)
+        {
+            writer.WriteStartElement(null, "Wght", xmlNamespace );
+            WeightValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Product is Product7 ProductValue)
+        {
+            writer.WriteStartElement(null, "Pdct", xmlNamespace );
+            ProductValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InsuranceIndicator is IsoTrueFalseIndicator InsuranceIndicatorValue)
+        {
+            writer.WriteStartElement(null, "InsrncInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(InsuranceIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (InsuranceAmount is IsoImpliedCurrencyAndAmount InsuranceAmountValue)
+        {
+            writer.WriteStartElement(null, "InsrncAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(InsuranceAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static ShippingPackage1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

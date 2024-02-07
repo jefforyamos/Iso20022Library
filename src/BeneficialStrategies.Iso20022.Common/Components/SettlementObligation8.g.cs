@@ -7,93 +7,165 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details about the settlement obligation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementObligation8
+     : IIsoXmlSerilizable<SettlementObligation8>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the identification of the settlement obligation.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text SettlementObligationIdentification { get; init; } 
     /// <summary>
     /// Provides details about the security identification.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification14 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Intended settlement date of the position.
     /// </summary>
-    [DataMember]
     public required DateFormat11Choice_ IntendedSettlementDate { get; init; } 
     /// <summary>
     /// Specifies the quantity related to the settlement obligation.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Provides the total amount to be settled.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection27 SettlementAmount { get; init; } 
     /// <summary>
     /// Place at which the security is traded.
     /// </summary>
-    [DataMember]
     public required MarketIdentification84 PlaceOfTrade { get; init; } 
     /// <summary>
     /// Provides the trade date.
     /// </summary>
-    [DataMember]
     public TradeDate3Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Identifies the trading capacity of seller.
     /// </summary>
-    [DataMember]
     public TradingCapacity5Code? TradingCapacity { get; init; } 
     /// <summary>
     /// Specifies the clearing account type.
     /// </summary>
-    [DataMember]
     public ClearingAccountType1Code? ClearingAccountType { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    [DataMember]
     public SafekeepingPlaceFormat7Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Clearing member account at the central securities depository.
     /// </summary>
-    [DataMember]
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Indicates if the obligation will result in a receive or a delivery of securities.
     /// </summary>
-    [DataMember]
     public ReceiveDelivery1Code? SecuritiesMovementType { get; init; } 
     /// <summary>
     /// Specifies the amount to be paid under a specific obligation.
     /// </summary>
-    [DataMember]
     public required DeliveryReceiptType2Code Payment { get; init; } 
     /// <summary>
     /// Provides details on the parties that are part of the settlement chain.
     /// </summary>
-    [DataMember]
     public SettlementParties4Choice_? SettlementParties { get; init; } 
     /// <summary>
     /// Provides additional information about the settlement obligation details.
     /// </summary>
-    [DataMember]
-    public ValueList<SettlementObligation5> AdditionalSettlementObligationDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public SettlementObligation5? AdditionalSettlementObligationDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttlmOblgtnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(SettlementObligationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IntnddSttlmDt", xmlNamespace );
+        IntendedSettlementDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        Quantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
+        SettlementAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PlcOfTrad", xmlNamespace );
+        PlaceOfTrade.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TradeDate is TradeDate3Choice_ TradeDateValue)
+        {
+            writer.WriteStartElement(null, "TradDt", xmlNamespace );
+            TradeDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradingCapacity is TradingCapacity5Code TradingCapacityValue)
+        {
+            writer.WriteStartElement(null, "TradgCpcty", xmlNamespace );
+            writer.WriteValue(TradingCapacityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ClearingAccountType is ClearingAccountType1Code ClearingAccountTypeValue)
+        {
+            writer.WriteStartElement(null, "ClrAcctTp", xmlNamespace );
+            writer.WriteValue(ClearingAccountTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SafekeepingPlace is SafekeepingPlaceFormat7Choice_ SafekeepingPlaceValue)
+        {
+            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
+            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingAccount is SecuritiesAccount19 SafekeepingAccountValue)
+        {
+            writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+            SafekeepingAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesMovementType is ReceiveDelivery1Code SecuritiesMovementTypeValue)
+        {
+            writer.WriteStartElement(null, "SctiesMvmntTp", xmlNamespace );
+            writer.WriteValue(SecuritiesMovementTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Pmt", xmlNamespace );
+        writer.WriteValue(Payment.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SettlementParties is SettlementParties4Choice_ SettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "SttlmPties", xmlNamespace );
+            SettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalSettlementObligationDetails is SettlementObligation5 AdditionalSettlementObligationDetailsValue)
+        {
+            writer.WriteStartElement(null, "AddtlSttlmOblgtnDtls", xmlNamespace );
+            AdditionalSettlementObligationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementObligation8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

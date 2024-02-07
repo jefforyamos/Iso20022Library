@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action distribution instruction details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DistributionInstructionSD1
+     : IIsoXmlSerilizable<DistributionInstructionSD1>
 {
     #nullable enable
     
     /// <summary>
     /// Tax category number assigned on the announcement to provide a breakdown at a category level on the inbound instruction to determine tax treatment as required by issuers, their agents, or tax authorities.
     /// </summary>
-    [DataMember]
     public ValueList<TaxCategory2> TaxCategory { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TaxCtgy", xmlNamespace );
+        TaxCategory.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static DistributionInstructionSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

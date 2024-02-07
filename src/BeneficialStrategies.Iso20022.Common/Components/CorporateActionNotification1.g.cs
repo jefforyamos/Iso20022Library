@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the notification advice.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionNotification1
+     : IIsoXmlSerilizable<CorporateActionNotification1>
 {
     #nullable enable
     
     /// <summary>
     /// Date/time at which the issuer announced that a corporate action event will occur.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? AnnouncementDate { get; init; } 
     /// <summary>
     /// Date/time at which additional information on the event will be announced, eg, exchange ratio announcement date.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? FurtherDetailedAnnouncementDate { get; init; } 
     /// <summary>
     /// Date/time at which the corporate action is legally announced by an official body, eg, publication by a governmental administration.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? OfficialAnnouncementPublicationDate { get; init; } 
     /// <summary>
     /// Specifies the status of the details of the event.
     /// </summary>
-    [DataMember]
     public required ProcessingStatus1FormatChoice_ ProcessingStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AnnouncementDate is DateFormat4Choice_ AnnouncementDateValue)
+        {
+            writer.WriteStartElement(null, "AnncmntDt", xmlNamespace );
+            AnnouncementDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FurtherDetailedAnnouncementDate is DateFormat4Choice_ FurtherDetailedAnnouncementDateValue)
+        {
+            writer.WriteStartElement(null, "FrthrDtldAnncmntDt", xmlNamespace );
+            FurtherDetailedAnnouncementDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OfficialAnnouncementPublicationDate is DateFormat4Choice_ OfficialAnnouncementPublicationDateValue)
+        {
+            writer.WriteStartElement(null, "OffclAnncmntPblctnDt", xmlNamespace );
+            OfficialAnnouncementPublicationDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PrcgSts", xmlNamespace );
+        ProcessingStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CorporateActionNotification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

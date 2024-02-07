@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Location information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Location2
+     : IIsoXmlSerilizable<Location2>
 {
     #nullable enable
     
     /// <summary>
     /// Country of jurisdiction.
     /// </summary>
-    [DataMember]
     public CountryCode? Country { get; init; } 
     /// <summary>
     /// Codified representation of the jurisdiction as published in ISO 3166-2.
     /// </summary>
-    [DataMember]
     public CountrySubdivision1Choice_? CountrySubDivision { get; init; } 
     /// <summary>
     /// Name of jurisdiction, for example, Frankfurt.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Text { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Country is CountryCode CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(CountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CountrySubDivision is CountrySubdivision1Choice_ CountrySubDivisionValue)
+        {
+            writer.WriteStartElement(null, "CtrySubDvsn", xmlNamespace );
+            CountrySubDivisionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Text is IsoMax35Text TextValue)
+        {
+            writer.WriteStartElement(null, "Txt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TextValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Location2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

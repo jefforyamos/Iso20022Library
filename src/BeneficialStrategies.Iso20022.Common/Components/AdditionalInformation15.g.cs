@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalInformation15
+     : IIsoXmlSerilizable<AdditionalInformation15>
 {
     #nullable enable
     
     /// <summary>
     /// Type of additional information.
     /// </summary>
-    [DataMember]
     public required GenericIdentification36 InformationType { get; init; } 
     /// <summary>
     /// Value of the additional information.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text InformationValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "InfTp", xmlNamespace );
+        InformationType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InfVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(InformationValue)); // data type Max350Text System.String
+        writer.WriteEndElement();
+    }
+    public static AdditionalInformation15 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

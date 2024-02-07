@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique identification, as assigned by the original requestor, to unambiguously identify the business query message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OriginalBusinessQuery1
+     : IIsoXmlSerilizable<OriginalBusinessQuery1>
 {
     #nullable enable
     
     /// <summary>
     /// Point to point reference, as assigned by the original initiating party, to unambiguously identify the original query message.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Specifies the query message name identifier to which the message refers.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MessageNameIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? CreationDateTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (MessageNameIdentification is IsoMax35Text MessageNameIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MsgNmId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageNameIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CreationDateTime is IsoISODateTime CreationDateTimeValue)
+        {
+            writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static OriginalBusinessQuery1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action instructed balance details at option protect level.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionInstructedBalanceOptionProtectInstructionSD4
+     : IIsoXmlSerilizable<CorporateActionInstructedBalanceOptionProtectInstructionSD4>
 {
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Option number of the protect instruction.
     /// </summary>
-    [DataMember]
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Instruction reference number assigned by DTC to the uncovered protect instruction.
     /// </summary>
-    [DataMember]
     public IsoMax15Text? ProtectIdentification { get; init; } 
     /// <summary>
     /// For cover protect instructions whereby one safekeeping account is covering on behalf of another safekeeping account. The protect safekeeping account will be the account which submitted the original protect instruction.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINMax35Text? ProtectSafekeepingAccount { get; init; } 
     /// <summary>
     /// Quantity of the protect instruction which has not been covered.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity15Choice_? ProtectIdentificationUncoveredQuantity { get; init; } 
     /// <summary>
     /// Protect oversubscription quantity.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity15Choice_? ProtectIdentificationOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Status of the protect instruction.
     /// </summary>
-    [DataMember]
     public DTCProtectInstructionStatus1Code? ProtectIdentificationStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OptnNb", xmlNamespace );
+        OptionNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ProtectIdentification is IsoMax15Text ProtectIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrtctId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15Text(ProtectIdentificationValue)); // data type Max15Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProtectSafekeepingAccount is IsoRestrictedFINMax35Text ProtectSafekeepingAccountValue)
+        {
+            writer.WriteStartElement(null, "PrtctSfkpgAcct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINMax35Text(ProtectSafekeepingAccountValue)); // data type RestrictedFINMax35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProtectIdentificationUncoveredQuantity is FinancialInstrumentQuantity15Choice_ ProtectIdentificationUncoveredQuantityValue)
+        {
+            writer.WriteStartElement(null, "PrtctIdUcvrdQty", xmlNamespace );
+            ProtectIdentificationUncoveredQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProtectIdentificationOversubscriptionQuantity is FinancialInstrumentQuantity15Choice_ ProtectIdentificationOversubscriptionQuantityValue)
+        {
+            writer.WriteStartElement(null, "PrtctIdOvrsbcptQty", xmlNamespace );
+            ProtectIdentificationOversubscriptionQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProtectIdentificationStatus is DTCProtectInstructionStatus1Code ProtectIdentificationStatusValue)
+        {
+            writer.WriteStartElement(null, "PrtctIdSts", xmlNamespace );
+            writer.WriteValue(ProtectIdentificationStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionInstructedBalanceOptionProtectInstructionSD4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

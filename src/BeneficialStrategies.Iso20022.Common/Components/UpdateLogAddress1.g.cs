@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the old and new values for an address.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UpdateLogAddress1
+     : IIsoXmlSerilizable<UpdateLogAddress1>
 {
     #nullable enable
     
     /// <summary>
     /// Old value before change
     /// </summary>
-    [DataMember]
     public required PostalAddress25 Old { get; init; } 
     /// <summary>
     /// New value after change
     /// </summary>
-    [DataMember]
     public required PostalAddress25 New { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Od", xmlNamespace );
+        Old.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "New", xmlNamespace );
+        New.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static UpdateLogAddress1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

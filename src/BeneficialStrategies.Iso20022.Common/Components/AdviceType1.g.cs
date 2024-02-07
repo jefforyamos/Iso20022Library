@@ -9,15 +9,12 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
 using System.Xml;
 using System.Xml.Linq;
-using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Components.AdviceType1>;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the type of advice to report back for the transaction.
 /// </summary>
-[DataContract(Namespace = "")]
-[XmlType]
 public partial record AdviceType1
      : IIsoXmlSerilizable<AdviceType1>
 {
@@ -26,16 +23,23 @@ public partial record AdviceType1
     /// <summary>
     /// Type of credit advice requested.
     /// </summary>
-    [DataMember]
     public AdviceType1Choice_? CreditAdvice { get; init; } 
     /// <summary>
     /// Type de debit advice requested.
     /// </summary>
-    [DataMember]
     public AdviceType1Choice_? DebitAdvice { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
     public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
     public void Serialize(XmlWriter writer, string xmlNamespace)
     {
         if (CreditAdvice is AdviceType1Choice_ CreditAdviceValue)

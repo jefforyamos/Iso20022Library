@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument20Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument20Choice;
 /// Part of the investment account to or from which cash entries are made.
 /// </summary>
 public partial record CashAccountDetails : PaymentInstrument20Choice_
+     , IIsoXmlSerilizable<CashAccountDetails>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
@@ -23,5 +27,35 @@ public partial record CashAccountDetails : PaymentInstrument20Choice_
     /// Account type.
     /// </summary>
     public InvestmentAccountType1Choice_? Type { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountIdentification is IsoMax35Text AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Type is InvestmentAccountType1Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new CashAccountDetails Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

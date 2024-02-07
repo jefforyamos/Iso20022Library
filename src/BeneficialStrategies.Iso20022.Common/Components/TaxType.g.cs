@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information on the type of tax.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxType
+     : IIsoXmlSerilizable<TaxType>
 {
     #nullable enable
     
     /// <summary>
     /// Description of the tax that is being paid, including specific representation required by taxing authority.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CategoryDescription { get; init; } 
     /// <summary>
     /// Rate used to calculate the tax.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     /// <summary>
     /// Amount of money on which the tax is based.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? TaxableBaseAmount { get; init; } 
     /// <summary>
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CategoryDescription is IsoMax35Text CategoryDescriptionValue)
+        {
+            writer.WriteStartElement(null, "CtgyDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CategoryDescriptionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Rate is IsoPercentageRate RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TaxableBaseAmount is IsoCurrencyAndAmount TaxableBaseAmountValue)
+        {
+            writer.WriteStartElement(null, "TaxblBaseAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(TaxableBaseAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Amount is IsoCurrencyAndAmount AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(AmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static TaxType Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

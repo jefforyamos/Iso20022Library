@@ -7,63 +7,123 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to the stored value card.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StoredValueData5
+     : IIsoXmlSerilizable<StoredValueData5>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the provider of the stored value account load/reload.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Provider { get; init; } 
     /// <summary>
     /// Identification of operation to proceed on the stored value account or the stored value card.
     /// </summary>
-    [DataMember]
     public required StoredValueTransactionType2Code TransactionType { get; init; } 
     /// <summary>
     /// Identification of the stored value account or the stored value card.
     /// </summary>
-    [DataMember]
     public StoredValueAccount2? AccountIdentification { get; init; } 
     /// <summary>
     /// Identification of a previous POI transaction.
     /// </summary>
-    [DataMember]
     public CardPaymentTransaction120? OriginalPOITransaction { get; init; } 
     /// <summary>
     /// Product code of item purchased with the transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ProductCode { get; init; } 
     /// <summary>
     /// Standard European Article Number Universal Product Code of item purchased with the transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35NumericText? EANUPC { get; init; } 
     /// <summary>
     /// Total amount of the item line.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? ItemAmount { get; init; } 
     /// <summary>
     /// Currency of the monetary amount.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Identification of the transaction by the host in charge of the stored value transaction.
     /// </summary>
-    [DataMember]
     public TransactionIdentifier1? HostTransactionIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Provider is IsoMax35Text ProviderValue)
+        {
+            writer.WriteStartElement(null, "Prvdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProviderValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxTp", xmlNamespace );
+        writer.WriteValue(TransactionType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AccountIdentification is StoredValueAccount2 AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            AccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalPOITransaction is CardPaymentTransaction120 OriginalPOITransactionValue)
+        {
+            writer.WriteStartElement(null, "OrgnlPOITx", xmlNamespace );
+            OriginalPOITransactionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProductCode is IsoMax35Text ProductCodeValue)
+        {
+            writer.WriteStartElement(null, "PdctCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProductCodeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (EANUPC is IsoMax35NumericText EANUPCValue)
+        {
+            writer.WriteStartElement(null, "EANUPC", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35NumericText(EANUPCValue)); // data type Max35NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (ItemAmount is IsoImpliedCurrencyAndAmount ItemAmountValue)
+        {
+            writer.WriteStartElement(null, "ItmAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ItemAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (HostTransactionIdentification is TransactionIdentifier1 HostTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "HstTxId", xmlNamespace );
+            HostTransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static StoredValueData5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

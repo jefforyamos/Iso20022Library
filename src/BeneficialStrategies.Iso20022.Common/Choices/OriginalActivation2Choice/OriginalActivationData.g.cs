@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.OriginalActivation2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalActivation2Choice;
 /// Provides the full original activation data.
 /// </summary>
 public partial record OriginalActivationData : OriginalActivation2Choice_
+     , IIsoXmlSerilizable<OriginalActivationData>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique identification, as assigned by the initiating party, to unambiguously identify the activation.
     /// Usage:
@@ -40,17 +44,17 @@ public partial record OriginalActivationData : OriginalActivation2Choice_
     /// <summary>
     /// Unique identifier of the debtor required by the creditor, for example  the reference number or customer number. Unique identification provided by the web bank or web payment services user, with which the creditor may identify the debtor in its system.
     /// </summary>
-    public Party49Choice_? CustomerIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public Party49Choice_? CustomerIdentification { get; init; } 
     /// <summary>
     /// Document format type supported to exchange the contracts.
     /// </summary>
-    public DocumentFormat2Choice_? ContractFormatType { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentFormat2Choice_? ContractFormatType { get; init; } 
     /// <summary>
     /// Code choice external/prop
     /// Description
     /// identical to the Instruction for Debtor
     /// </summary>
-    public ContractReference1? ContractReference { get; init;  } // Warning: Don't know multiplicity.
+    public ContractReference1? ContractReference { get; init; } 
     /// <summary>
     /// Party to which an amount of money is due.
     /// </summary>
@@ -75,5 +79,98 @@ public partial record OriginalActivationData : OriginalActivation2Choice_
     /// Unique, one-time code that a creditor may require from a debtor for activation purposes, and which is known only by the creditor and the debtor.
     /// </summary>
     public IsoMax35Text? DedicatedActivationCode { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DebtorActivationIdentification is IsoMax35Text DebtorActivationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "DbtrActvtnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DebtorActivationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DisplayName is IsoMax140Text DisplayNameValue)
+        {
+            writer.WriteStartElement(null, "DispNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(DisplayNameValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (UltimateDebtor is RTPPartyIdentification1 UltimateDebtorValue)
+        {
+            writer.WriteStartElement(null, "UltmtDbtr", xmlNamespace );
+            UltimateDebtorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Dbtr", xmlNamespace );
+        Debtor.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DbtrSolPrvdr", xmlNamespace );
+        DebtorSolutionProvider.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CustomerIdentification is Party49Choice_ CustomerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CstmrId", xmlNamespace );
+            CustomerIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContractFormatType is DocumentFormat2Choice_ ContractFormatTypeValue)
+        {
+            writer.WriteStartElement(null, "CtrctFrmtTp", xmlNamespace );
+            ContractFormatTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContractReference is ContractReference1 ContractReferenceValue)
+        {
+            writer.WriteStartElement(null, "CtrctRef", xmlNamespace );
+            ContractReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Cdtr", xmlNamespace );
+        Creditor.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (UltimateCreditor is RTPPartyIdentification1 UltimateCreditorValue)
+        {
+            writer.WriteStartElement(null, "UltmtCdtr", xmlNamespace );
+            UltimateCreditorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ActivationRequestDeliveryParty is RTPPartyIdentification1 ActivationRequestDeliveryPartyValue)
+        {
+            writer.WriteStartElement(null, "ActvtnReqDlvryPty", xmlNamespace );
+            ActivationRequestDeliveryPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StartDate is DateAndDateTime2Choice_ StartDateValue)
+        {
+            writer.WriteStartElement(null, "StartDt", xmlNamespace );
+            StartDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EndDate is DateAndDateTime2Choice_ EndDateValue)
+        {
+            writer.WriteStartElement(null, "EndDt", xmlNamespace );
+            EndDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DedicatedActivationCode is IsoMax35Text DedicatedActivationCodeValue)
+        {
+            writer.WriteStartElement(null, "DdctdActvtnCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DedicatedActivationCodeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new OriginalActivationData Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

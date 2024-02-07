@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account to or from which a securities entry is made.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SubAccountIdentification5
+     : IIsoXmlSerilizable<SubAccountIdentification5>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public required AccountIdentificationFormatChoice_ Identification { get; init; } 
     /// <summary>
     /// Indicates whether the securities in the account are fungible, ie, interchangeable.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator FungibleIndicator { get; init; } 
     /// <summary>
     /// Indicates whether there is activity reported in the statement.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     /// <summary>
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
     /// </summary>
-    [DataMember]
-    public ValueList<AggregateBalanceInformation4> BalanceForSubAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    public AggregateBalanceInformation4? BalanceForSubAccount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FngbInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(FungibleIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ActvtyInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ActivityIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (BalanceForSubAccount is AggregateBalanceInformation4 BalanceForSubAccountValue)
+        {
+            writer.WriteStartElement(null, "BalForSubAcct", xmlNamespace );
+            BalanceForSubAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SubAccountIdentification5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

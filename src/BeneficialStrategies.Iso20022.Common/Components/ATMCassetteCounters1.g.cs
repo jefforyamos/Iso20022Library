@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// ATM cassette counter per unit value or globally.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMCassetteCounters1
+     : IIsoXmlSerilizable<ATMCassetteCounters1>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of one media unit, if the media type is valued.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? UnitValue { get; init; } 
     /// <summary>
     /// Currency of the media, if the media type is valued and different from the currency of the requested amount.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Type of notes.
     /// </summary>
-    [DataMember]
     public ATMNoteType2Code? ItemType { get; init; } 
     /// <summary>
     /// Counters of media inside the cassette.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMCassetteCounters2> Counter { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMCassetteCounters2? Counter { get; init; } 
     /// <summary>
     /// Current number of media present in the cassette.
     /// </summary>
-    [DataMember]
     public required IsoNumber CurrentNumber { get; init; } 
     /// <summary>
     /// Current amount in the cassette.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? CurrentAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (UnitValue is IsoImpliedCurrencyAndAmount UnitValueValue)
+        {
+            writer.WriteStartElement(null, "UnitVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(UnitValueValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ItemType is ATMNoteType2Code ItemTypeValue)
+        {
+            writer.WriteStartElement(null, "ItmTp", xmlNamespace );
+            writer.WriteValue(ItemTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Counter is ATMCassetteCounters2 CounterValue)
+        {
+            writer.WriteStartElement(null, "Cntr", xmlNamespace );
+            CounterValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CurNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(CurrentNumber)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        if (CurrentAmount is IsoImpliedCurrencyAndAmount CurrentAmountValue)
+        {
+            writer.WriteStartElement(null, "CurAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(CurrentAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMCassetteCounters1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

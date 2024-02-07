@@ -7,58 +7,107 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IndividualPerson8
+     : IIsoXmlSerilizable<IndividualPerson8>
 {
     #nullable enable
     
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Name { get; init; } 
     /// <summary>
     /// First name of a person.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text GivenName { get; init; } 
     /// <summary>
     /// Specifies the terms used to formally address a person.
     /// </summary>
-    [DataMember]
     public NamePrefix1Code? NamePrefix { get; init; } 
     /// <summary>
     /// Additional information about a person that follows a person's name, for example, qualification such as Doctor of Philosophy (PhD).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? NameSuffix { get; init; } 
     /// <summary>
     /// Specifies the gender of the person.
     /// </summary>
-    [DataMember]
     public GenderCode? Gender { get; init; } 
     /// <summary>
     /// Date on which a person is born.
     /// </summary>
-    [DataMember]
     public IsoISODate? BirthDate { get; init; } 
     /// <summary>
     /// Number assigned by a social security agency.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SocialSecurityNumber { get; init; } 
     /// <summary>
     /// Postal address of a party.
     /// </summary>
-    [DataMember]
     public required PostalAddress1 IndividualInvestorAddress { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Name)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "GvnNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(GivenName)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (NamePrefix is NamePrefix1Code NamePrefixValue)
+        {
+            writer.WriteStartElement(null, "NmPrfx", xmlNamespace );
+            writer.WriteValue(NamePrefixValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (NameSuffix is IsoMax35Text NameSuffixValue)
+        {
+            writer.WriteStartElement(null, "NmSfx", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameSuffixValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Gender is GenderCode GenderValue)
+        {
+            writer.WriteStartElement(null, "Gndr", xmlNamespace );
+            writer.WriteValue(GenderValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (BirthDate is IsoISODate BirthDateValue)
+        {
+            writer.WriteStartElement(null, "BirthDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(BirthDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SocialSecurityNumber is IsoMax35Text SocialSecurityNumberValue)
+        {
+            writer.WriteStartElement(null, "SclSctyNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SocialSecurityNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "IndvInvstrAdr", xmlNamespace );
+        IndividualInvestorAddress.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static IndividualPerson8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Date parameters.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DateInformation1
+     : IIsoXmlSerilizable<DateInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Date on which a recurrent date will commence.
     /// </summary>
-    [DataMember]
     public required IsoISODate StartDate { get; init; } 
     /// <summary>
     /// Specifies the regularity of the trigger date.
     /// </summary>
-    [DataMember]
     public required ExternalDateFrequency1Code Frequency { get; init; } 
     /// <summary>
     /// Maximum number of trigger date occurrence cycles.
     /// </summary>
-    [DataMember]
     public required IsoNumber Number { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "StartDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(StartDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Frqcy", xmlNamespace );
+        writer.WriteValue(Frequency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Nb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(Number)); // data type Number System.UInt64
+        writer.WriteEndElement();
+    }
+    public static DateInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

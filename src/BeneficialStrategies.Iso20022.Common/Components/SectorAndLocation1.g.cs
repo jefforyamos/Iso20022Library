@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the identification of the reported party through the sector and the location.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SectorAndLocation1
+     : IIsoXmlSerilizable<SectorAndLocation1>
 {
     #nullable enable
     
     /// <summary>
     /// Represents the counterparty institutional section (such as non-financial corporation, central bank.).
     /// </summary>
-    [DataMember]
     public required IsoSNA2008SectorIdentifier Sector { get; init; } 
     /// <summary>
     /// Location of the country in which the counterparty is incorporated.
     /// </summary>
-    [DataMember]
     public required CountryCode Location { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sctr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoSNA2008SectorIdentifier(Sector)); // data type SNA2008SectorIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Lctn", xmlNamespace );
+        writer.WriteValue(Location.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static SectorAndLocation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

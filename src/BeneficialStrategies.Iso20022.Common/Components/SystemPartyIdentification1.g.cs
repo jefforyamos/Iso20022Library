@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique identification to unambiguously identify the party within the system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SystemPartyIdentification1
+     : IIsoXmlSerilizable<SystemPartyIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Starting date from which the identification is valid.
     /// </summary>
-    [DataMember]
     public required IsoISODate ValidFrom { get; init; } 
     /// <summary>
     /// Unique and unambiguous way to identify a system party.
     /// </summary>
-    [DataMember]
     public required IsoBICFIIdentifier Identification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "VldFr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ValidFrom)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBICFIIdentifier(Identification)); // data type BICFIIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static SystemPartyIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

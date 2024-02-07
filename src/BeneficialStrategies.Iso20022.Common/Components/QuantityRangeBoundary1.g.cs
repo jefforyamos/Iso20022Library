@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Limit for a quantity range.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record QuantityRangeBoundary1
+     : IIsoXmlSerilizable<QuantityRangeBoundary1>
 {
     #nullable enable
     
     /// <summary>
     /// Quantity value of the range limit.
     /// </summary>
-    [DataMember]
     public required IsoDecimalNumber Boundary { get; init; } 
     /// <summary>
     /// Indicates whether the boundary quantity is included in the range of quantity values.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Included { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Bdry", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(Boundary)); // data type DecimalNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Incl", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Included)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static QuantityRangeBoundary1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

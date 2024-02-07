@@ -7,48 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Movements of cash.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashMovement8
+     : IIsoXmlSerilizable<CashMovement8>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the cash amount is to be delivered or received.
     /// </summary>
-    [DataMember]
     public required CollateralEntryType1Code CashMovement { get; init; } 
     /// <summary>
     /// Amount of the cash movement
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount CashAmount { get; init; } 
     /// <summary>
     /// Account in which cash is maintained.
     /// </summary>
-    [DataMember]
     public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Specifies whether the amount is delivered/received as part of collateral or not.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator CollateralMovement { get; init; } 
     /// <summary>
     /// Reference assigned by party A to the cash movement.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClientCashMovementIdentification { get; init; } 
     /// <summary>
     /// Reference assigned by the triparty agent to the cash movement.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TripartyAgentServiceProviderCashMovementIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CshMvmnt", xmlNamespace );
+        writer.WriteValue(CashMovement.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CshAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CashAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (CashAccount is CashAccountIdentification5Choice_ CashAccountValue)
+        {
+            writer.WriteStartElement(null, "CshAcct", xmlNamespace );
+            CashAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CollMvmnt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CollateralMovement)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (ClientCashMovementIdentification is IsoMax35Text ClientCashMovementIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClntCshMvmntId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientCashMovementIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TripartyAgentServiceProviderCashMovementIdentification is IsoMax35Text TripartyAgentServiceProviderCashMovementIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TrptyAgtSvcPrvdrCshMvmntId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TripartyAgentServiceProviderCashMovementIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CashMovement8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

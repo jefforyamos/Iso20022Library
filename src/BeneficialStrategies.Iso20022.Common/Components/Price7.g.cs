@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Type and information about a price.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Price7
+     : IIsoXmlSerilizable<Price7>
 {
     #nullable enable
     
     /// <summary>
     /// Specification of the price type.
     /// </summary>
-    [DataMember]
     public required YieldedOrValueType1Choice_ Type { get; init; } 
     /// <summary>
     /// Value of the price, for example, as a currency and value.
     /// </summary>
-    [DataMember]
     public required PriceRateOrAmount3Choice_ Value { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        Value.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static Price7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

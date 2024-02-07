@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information of the device operating system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DeviceOperatingSystem1
+     : IIsoXmlSerilizable<DeviceOperatingSystem1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the operating system.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Identification { get; init; } 
     /// <summary>
     /// Type of device operating system.
     /// </summary>
-    [DataMember]
     public DeviceOperatingSystemType1Code? Type { get; init; } 
     /// <summary>
     /// Other type of operating system.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Version of device operating system.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Version { get; init; } 
     /// <summary>
     /// Build of the device operating system.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Build { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is IsoMax70Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(IdentificationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Type is DeviceOperatingSystemType1Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherType is IsoMax35Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Version is IsoMax35Text VersionValue)
+        {
+            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(VersionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Build is IsoMax70Text BuildValue)
+        {
+            writer.WriteStartElement(null, "Bld", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(BuildValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static DeviceOperatingSystem1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

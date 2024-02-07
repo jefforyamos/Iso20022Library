@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Status21Choice;
 
@@ -13,15 +15,41 @@ namespace BeneficialStrategies.Iso20022.Choices.Status21Choice;
 /// Status of the transfer cancellation is accepted or sent to next party.
 /// </summary>
 public partial record Status : Status21Choice_
+     , IIsoXmlSerilizable<Status>
 {
     #nullable enable
-    /// <summary>
-    /// Status of the transfer cancellation is accepted or sent to next party.
-    /// </summary>
-    public required CancellationStatus2Code StatusValue { get; init; } 
+    
+    public required CancellationStatus2Code Value { get; init; } 
     /// <summary>
     /// Reason for the status.
     /// </summary>
     public IsoMax350Text? Reason { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Reason is IsoMax350Text ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(ReasonValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new Status Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

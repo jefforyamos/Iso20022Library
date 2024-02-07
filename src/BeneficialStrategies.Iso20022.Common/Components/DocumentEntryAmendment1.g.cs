@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the document entry amendment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DocumentEntryAmendment1
+     : IIsoXmlSerilizable<DocumentEntryAmendment1>
 {
     #nullable enable
     
     /// <summary>
     /// Number of correcting entry.
     /// </summary>
-    [DataMember]
     public required IsoNumber CorrectingEntryNumber { get; init; } 
     /// <summary>
     /// Data related to an original document.
     /// </summary>
-    [DataMember]
     public required DocumentIdentification28 OriginalDocument { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CrrctgNtryNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(CorrectingEntryNumber)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgnlDoc", xmlNamespace );
+        OriginalDocument.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static DocumentEntryAmendment1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

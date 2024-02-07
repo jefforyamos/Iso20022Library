@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.IsabelEbanking1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.IsabelEbanking1Choice;
 /// Identification of the e-banking through a user identification.
 /// </summary>
 public partial record UserIdentification : IsabelEbanking1Choice_
+     , IIsoXmlSerilizable<UserIdentification>
 {
-    public required IsoMax13AlphaNumericText Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies an alphanumeric string with a maximum length of 13 characters.
+    /// </summary>
+    public required IsoMax13AlphaNumericText Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UsrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax13AlphaNumericText(Value)); // data type Max13AlphaNumericText System.String
+        writer.WriteEndElement();
+    }
+    public static new UserIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

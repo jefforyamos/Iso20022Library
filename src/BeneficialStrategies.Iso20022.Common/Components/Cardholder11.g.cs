@@ -7,59 +7,117 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to the cardholder.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Cardholder11
+     : IIsoXmlSerilizable<Cardholder11>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the cardholder involved in a transaction.
     /// </summary>
-    [DataMember]
     public PersonIdentification11? Identification { get; init; } 
     /// <summary>
     /// Cardholder name associated with the card.
     /// </summary>
-    [DataMember]
     public IsoMax45Text? Name { get; init; } 
     /// <summary>
     /// Language selected for the cardholder interface during the transaction.
     /// Reference ISO 639-1 (alpha-2) et ISO 639-2 (alpha-3).
     /// </summary>
-    [DataMember]
     public LanguageCode? Language { get; init; } 
     /// <summary>
     /// Postal address of the owner of the payment card.
     /// </summary>
-    [DataMember]
     public PostalAddress18? BillingAddress { get; init; } 
     /// <summary>
     /// Postal address for delivery of goods or services.
     /// </summary>
-    [DataMember]
     public PostalAddress18? ShippingAddress { get; init; } 
     /// <summary>
     /// Identification of the trip.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TripNumber { get; init; } 
     /// <summary>
     /// Information related to the vehicle used for the transaction.
     /// </summary>
-    [DataMember]
     public Vehicle1? Vehicle { get; init; } 
     /// <summary>
     /// Identifies personal data related to the cardholder.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? PersonalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is PersonIdentification11 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Name is IsoMax45Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax45Text(NameValue)); // data type Max45Text System.String
+            writer.WriteEndElement();
+        }
+        if (Language is LanguageCode LanguageValue)
+        {
+            writer.WriteStartElement(null, "Lang", xmlNamespace );
+            writer.WriteValue(LanguageValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (BillingAddress is PostalAddress18 BillingAddressValue)
+        {
+            writer.WriteStartElement(null, "BllgAdr", xmlNamespace );
+            BillingAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ShippingAddress is PostalAddress18 ShippingAddressValue)
+        {
+            writer.WriteStartElement(null, "ShppgAdr", xmlNamespace );
+            ShippingAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TripNumber is IsoMax35Text TripNumberValue)
+        {
+            writer.WriteStartElement(null, "TripNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TripNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Vehicle is Vehicle1 VehicleValue)
+        {
+            writer.WriteStartElement(null, "Vhcl", xmlNamespace );
+            VehicleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PersonalData is IsoMax70Text PersonalDataValue)
+        {
+            writer.WriteStartElement(null, "PrsnlData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(PersonalDataValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Cardholder11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Quantity of the commodity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Quantity17
+     : IIsoXmlSerilizable<Quantity17>
 {
     #nullable enable
     
     /// <summary>
     /// Fair value of the individual collateral component expressed in price currency.
     /// </summary>
-    [DataMember]
     public required IsoDecimalNumber Value { get; init; } 
     /// <summary>
     /// Unit of measure in which the quantity is expressed.
     /// </summary>
-    [DataMember]
     public required UnitOfMeasure11Code UnitOfMeasure { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(Value)); // data type DecimalNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
+        writer.WriteValue(UnitOfMeasure.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static Quantity17 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

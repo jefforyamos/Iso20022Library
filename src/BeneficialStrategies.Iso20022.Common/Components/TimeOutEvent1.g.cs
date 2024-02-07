@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes the time-out reason.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TimeOutEvent1
+     : IIsoXmlSerilizable<TimeOutEvent1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies in coded form the reason for the time-out notification.
     /// </summary>
-    [DataMember]
     public required TimeOut1Code Type { get; init; } 
     /// <summary>
     /// Additional information on the reason for the time-out.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Description is IsoMax140Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(DescriptionValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TimeOutEvent1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

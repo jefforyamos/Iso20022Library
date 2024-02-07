@@ -7,48 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of characteristics shared by all individual transactions included in the message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GroupHeader47
+     : IIsoXmlSerilizable<GroupHeader47>
 {
     #nullable enable
     
     /// <summary>
     /// Point to point reference, as assigned by the instructing party, and sent to the instructed party, to unambiguously identify the message.|Usage: The instructing party has to make sure that MessageIdentification is unique per instructed party for a pre-agreed period.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// User identification or any user key to be used to check the authority of the initiating party.||Usage: The content is not of a technical nature, but reflects the organisational structure at the initiating side. The authorisation element can typically be used in relay scenarios, payment initiations, payment returns or payment reversals that are initiated on behalf of a party different from the initiating party.
     /// </summary>
-    [DataMember]
     public ValueList<Authorisation1Choice_> Authorisation { get; init; } = [];
     /// <summary>
     /// Party that initiates the mandate message.
     /// </summary>
-    [DataMember]
     public PartyIdentification43? InitiatingParty { get; init; } 
     /// <summary>
     /// Agent that instructs the next party in the chain to carry out an instruction.||Usage Rule: |In case of amendment and cancellation request messages, the instructing agent is the party sending the amendment and cancellation request message and not the party that sent the original mandate initiation request message.|In case of acceptance report message, the instructing agent is the party sending the acceptance report message and not the party that sent the original mandate request message.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? InstructingAgent { get; init; } 
     /// <summary>
     /// Agent that is instructed by the previous party in the chain to carry out an instruction.||Usage Rule: |In case of amendment and cancellation request messages, the instructed agent is the party receiving the amendment and cancellation request message and not the party that received the original mandate initiation request message.|In case of acceptance report message, the instructed agent is the party receiving the acceptance report message and not the party that received the original mandate request message.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? InstructedAgent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Authstn", xmlNamespace );
+        Authorisation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (InitiatingParty is PartyIdentification43 InitiatingPartyValue)
+        {
+            writer.WriteStartElement(null, "InitgPty", xmlNamespace );
+            InitiatingPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructingAgent is BranchAndFinancialInstitutionIdentification5 InstructingAgentValue)
+        {
+            writer.WriteStartElement(null, "InstgAgt", xmlNamespace );
+            InstructingAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructedAgent is BranchAndFinancialInstitutionIdentification5 InstructedAgentValue)
+        {
+            writer.WriteStartElement(null, "InstdAgt", xmlNamespace );
+            InstructedAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static GroupHeader47 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

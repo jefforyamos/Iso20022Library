@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentification211
+     : IIsoXmlSerilizable<PartyIdentification211>
 {
     #nullable enable
     
     /// <summary>
     /// Financial institution-related data required by business and/or regulation (for example, money or funds transfer).
     /// </summary>
-    [DataMember]
     public FinancialInstitution4? FinancialInstitution { get; init; } 
     /// <summary>
     /// Customer-related data required by business and/or regulation (for example, money or funds transfer).
     /// </summary>
-    [DataMember]
     public Customer3? Customer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FinancialInstitution is FinancialInstitution4 FinancialInstitutionValue)
+        {
+            writer.WriteStartElement(null, "FI", xmlNamespace );
+            FinancialInstitutionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Customer is Customer3 CustomerValue)
+        {
+            writer.WriteStartElement(null, "Cstmr", xmlNamespace );
+            CustomerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyIdentification211 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Choice between a standard code or proprietary code to specify the type of interest computation method.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InterestComputationMethodFormat7
+     : IIsoXmlSerilizable<InterestComputationMethodFormat7>
 {
     #nullable enable
     
     /// <summary>
     /// Standard code to specify the method used to compute accruing interest of a financial instrument.
     /// </summary>
-    [DataMember]
     public required InterestComputationMethod4Code Code { get; init; } 
     /// <summary>
     /// The computation method can not be represented in the predefined fields.
     /// </summary>
-    [DataMember]
     public IsoMax1000Text? Narrative { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Narrative is IsoMax1000Text NarrativeValue)
+        {
+            writer.WriteStartElement(null, "Nrrtv", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1000Text(NarrativeValue)); // data type Max1000Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static InterestComputationMethodFormat7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifiers of account and account owner.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountOwnerAndIdentification1
+     : IIsoXmlSerilizable<AccountOwnerAndIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Account identifier.
     /// </summary>
-    [DataMember]
     public required CashAccount24 Account { get; init; } 
     /// <summary>
     /// Account owner identification.
     /// </summary>
-    [DataMember]
     public required FinancialInstitutionIdentification9 AccountOwner { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Acct", xmlNamespace );
+        Account.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+        AccountOwner.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static AccountOwnerAndIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

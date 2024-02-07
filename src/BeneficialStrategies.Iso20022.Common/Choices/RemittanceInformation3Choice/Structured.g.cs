@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.RemittanceInformation3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.RemittanceInformation3Choice;
 /// Information in structured form, that is supplied to enable the matching, ie, reconciliation, of a payment with the items that the payment is intended to settle, eg, commercial invoices in an account receivable system.
 /// </summary>
 public partial record Structured : RemittanceInformation3Choice_
+     , IIsoXmlSerilizable<Structured>
 {
     #nullable enable
+    
     /// <summary>
     /// Specifies the nature of the referred document/transaction, eg, invoice or credit note.
     /// </summary>
@@ -26,7 +30,7 @@ public partial record Structured : RemittanceInformation3Choice_
     /// <summary>
     /// Amount of money and currency of a document referred to in the remittance section. The amount is typically either the original amount due and payable, or the amount actually remitted for the referred document.
     /// </summary>
-    public ReferredDocumentAmount1Choice_? ReferredDocumentAmount { get; init;  } // Warning: Don't know multiplicity.
+    public ReferredDocumentAmount1Choice_? ReferredDocumentAmount { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of a document that distinguishes that document from another document referred to in the remittance information, usually assigned by the originator of the referred document/transaction.
     /// </summary>
@@ -43,5 +47,65 @@ public partial record Structured : RemittanceInformation3Choice_
     /// Identification of the party to whom an invoice is issued, when different than the originator or debtor.
     /// </summary>
     public PartyIdentification1? Invoicee { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReferredDocumentType is DocumentType1Code ReferredDocumentTypeValue)
+        {
+            writer.WriteStartElement(null, "RfrdDocTp", xmlNamespace );
+            writer.WriteValue(ReferredDocumentTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ReferredDocumentRelatedDate is IsoISODate ReferredDocumentRelatedDateValue)
+        {
+            writer.WriteStartElement(null, "RfrdDocRltdDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ReferredDocumentRelatedDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ReferredDocumentAmount is ReferredDocumentAmount1Choice_ ReferredDocumentAmountValue)
+        {
+            writer.WriteStartElement(null, "RfrdDocAmt", xmlNamespace );
+            ReferredDocumentAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DocumentReferenceNumber is IsoMax35Text DocumentReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "DocRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DocumentReferenceNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CreditorReference is IsoMax35Text CreditorReferenceValue)
+        {
+            writer.WriteStartElement(null, "CdtrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CreditorReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Invoicer is PartyIdentification1 InvoicerValue)
+        {
+            writer.WriteStartElement(null, "Invcr", xmlNamespace );
+            InvoicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Invoicee is PartyIdentification1 InvoiceeValue)
+        {
+            writer.WriteStartElement(null, "Invcee", xmlNamespace );
+            InvoiceeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Structured Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

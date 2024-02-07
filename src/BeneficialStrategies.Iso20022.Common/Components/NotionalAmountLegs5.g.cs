@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates the monetary or converted amount for the derivatives transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NotionalAmountLegs5
+     : IIsoXmlSerilizable<NotionalAmountLegs5>
 {
     #nullable enable
     
     /// <summary>
     /// Notional amount of leg 1 which indicates monetary or converted amount for the derivatives transaction.
     /// </summary>
-    [DataMember]
     public NotionalAmount5? FirstLeg { get; init; } 
     /// <summary>
     /// Notional amount of leg 2 which indicates monetary or converted amount for the derivatives transaction.
     /// </summary>
-    [DataMember]
     public NotionalAmount6? SecondLeg { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FirstLeg is NotionalAmount5 FirstLegValue)
+        {
+            writer.WriteStartElement(null, "FrstLeg", xmlNamespace );
+            FirstLegValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecondLeg is NotionalAmount6 SecondLegValue)
+        {
+            writer.WriteStartElement(null, "ScndLeg", xmlNamespace );
+            SecondLegValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static NotionalAmountLegs5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

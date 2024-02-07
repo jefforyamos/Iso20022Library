@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.GetMemberV04>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -35,10 +38,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// Additional information on the generic design of the Get/Return messages can be found in the MDR Part 1 section How to Use the Cash Management Messages.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The GetMember message is sent by a member to the transaction administrator.|It is used to request information on static data maintained by the transaction administrator and related to the participants in the system and their membership status vis-a-vis this system.|Usage|The transaction administrator is in charge of providing the members with business information. The term business information covers all information related to the management of the system, that is, not related to the transactions entered into the system. The type of business information available can vary depending on the system. Among other things, it can refer to information about the membership of the system.|At any time during the operating hours of the system, the member can query the transaction administrator to get information about the static data related to the members of the system.|The member can request information based on the following elements:|- identification of the member within the system|- membership status|- type of member|- contact details for the member: name, address|- account number of the member|- identification of contact persons for the member|This message will be replied to by a ReturnMember message.|Additional information on the generic design of the Get/Return messages can be found in the MDR Part 1 section How to Use the Cash Management Messages.")]
-public partial record GetMemberV04 : IOuterRecord
+public partial record GetMemberV04 : IOuterRecord<GetMemberV04,GetMemberV04Document>
+    ,IIsoXmlSerilizable<GetMemberV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -50,6 +52,11 @@ public partial record GetMemberV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "GetMmb";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => GetMemberV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -89,6 +96,38 @@ public partial record GetMemberV04 : IOuterRecord
     {
         return new GetMemberV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("GetMmb");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+        MessageHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MemberQueryDefinition is MemberQueryDefinition4 MemberQueryDefinitionValue)
+        {
+            writer.WriteStartElement(null, "MmbQryDef", xmlNamespace );
+            MemberQueryDefinitionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static GetMemberV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -96,9 +135,7 @@ public partial record GetMemberV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="GetMemberV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record GetMemberV04Document : IOuterDocument<GetMemberV04>
+public partial record GetMemberV04Document : IOuterDocument<GetMemberV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -114,5 +151,22 @@ public partial record GetMemberV04Document : IOuterDocument<GetMemberV04>
     /// <summary>
     /// The instance of <seealso cref="GetMemberV04"/> is required.
     /// </summary>
+    [DataMember(Name=GetMemberV04.XmlTag)]
     public required GetMemberV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(GetMemberV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

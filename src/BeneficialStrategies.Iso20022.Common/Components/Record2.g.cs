@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Message in file message identified as a batch record.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Record2
+     : IIsoXmlSerilizable<Record2>
 {
     #nullable enable
     
     /// <summary>
     /// Sequence counter of the record from 1 to n
     /// </summary>
-    [DataMember]
     public required IsoNumber SequenceCounter { get; init; } 
     /// <summary>
     /// Value of the record to use for the computation of the checksum of the batch.
     /// </summary>
-    [DataMember]
     public IsoMax140Binary? RecordChecksumInputValue { get; init; } 
     /// <summary>
     /// Information used with financial type of messages when third-party clearing is involved.
     /// </summary>
-    [DataMember]
     public ClearingRecordData2? ClearingRecordData { get; init; } 
     /// <summary>
     /// Message to be sent in a batch transfer as a record.
     /// </summary>
-    [DataMember]
     public required RecordMessage1Choice_ RecordMessage { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SeqCntr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(SequenceCounter)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        if (RecordChecksumInputValue is IsoMax140Binary RecordChecksumInputValueValue)
+        {
+            writer.WriteStartElement(null, "RcrdChcksmInptVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Binary(RecordChecksumInputValueValue)); // data type Max140Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (ClearingRecordData is ClearingRecordData2 ClearingRecordDataValue)
+        {
+            writer.WriteStartElement(null, "ClrRcrdData", xmlNamespace );
+            ClearingRecordDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RcrdMsg", xmlNamespace );
+        RecordMessage.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static Record2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

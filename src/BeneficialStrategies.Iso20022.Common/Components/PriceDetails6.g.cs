@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the prices related to a corporate action option.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PriceDetails6
+     : IIsoXmlSerilizable<PriceDetails6>
 {
     #nullable enable
     
     /// <summary>
     /// Generic cash price paid per product by the underlying security holder either as a percentage or an amount, for example, reinvestment price.
     /// </summary>
-    [DataMember]
     public PriceFormat23Choice_? GenericCashPricePaidPerProduct { get; init; } 
     /// <summary>
     /// Generic cash price received per product by the underlying security holder either as a percentage or an amount, for example, redemption price.
     /// </summary>
-    [DataMember]
     public PriceFormat20Choice_? GenericCashPriceReceivedPerProduct { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (GenericCashPricePaidPerProduct is PriceFormat23Choice_ GenericCashPricePaidPerProductValue)
+        {
+            writer.WriteStartElement(null, "GncCshPricPdPerPdct", xmlNamespace );
+            GenericCashPricePaidPerProductValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GenericCashPriceReceivedPerProduct is PriceFormat20Choice_ GenericCashPriceReceivedPerProductValue)
+        {
+            writer.WriteStartElement(null, "GncCshPricRcvdPerPdct", xmlNamespace );
+            GenericCashPriceReceivedPerProductValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PriceDetails6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

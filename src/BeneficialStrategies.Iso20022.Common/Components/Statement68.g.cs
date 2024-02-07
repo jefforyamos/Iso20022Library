@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Characteristics of the statement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Statement68
+     : IIsoXmlSerilizable<Statement68>
 {
     #nullable enable
     
     /// <summary>
     /// Identification assigned by the portfolio transfer counterpart to unambiguously identify a portfolio transfer notification.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax16Text? CounterpartyPortfolioTransferNotificationReference { get; init; } 
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
-    [DataMember]
     public Number3Choice_? ReportNumber { get; init; } 
     /// <summary>
     /// Reference common to all pages of a statement.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax16Text? StatementIdentification { get; init; } 
     /// <summary>
     /// Date and time of the statement.
     /// </summary>
-    [DataMember]
     public required DateAndDateTime2Choice_ StatementDateTime { get; init; } 
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>
-    [DataMember]
     public UpdateType16Choice_? UpdateType { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CounterpartyPortfolioTransferNotificationReference is IsoRestrictedFINXMax16Text CounterpartyPortfolioTransferNotificationReferenceValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyPrtflTrfNtfctnRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(CounterpartyPortfolioTransferNotificationReferenceValue)); // data type RestrictedFINXMax16Text System.String
+            writer.WriteEndElement();
+        }
+        if (ReportNumber is Number3Choice_ ReportNumberValue)
+        {
+            writer.WriteStartElement(null, "RptNb", xmlNamespace );
+            ReportNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StatementIdentification is IsoRestrictedFINXMax16Text StatementIdentificationValue)
+        {
+            writer.WriteStartElement(null, "StmtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(StatementIdentificationValue)); // data type RestrictedFINXMax16Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "StmtDtTm", xmlNamespace );
+        StatementDateTime.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (UpdateType is UpdateType16Choice_ UpdateTypeValue)
+        {
+            writer.WriteStartElement(null, "UpdTp", xmlNamespace );
+            UpdateTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ActvtyInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ActivityIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static Statement68 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

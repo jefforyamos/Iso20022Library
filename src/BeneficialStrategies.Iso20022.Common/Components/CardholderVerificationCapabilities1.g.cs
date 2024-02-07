@@ -7,6 +7,8 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -14,9 +16,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Cardholder verification capabilities performing the transaction at the point of service.
 /// ISO 8583:87 bit 22-3, ISO 8583;93 bit 22-2, ISO 8583:2003 bit 27-2
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardholderVerificationCapabilities1
+     : IIsoXmlSerilizable<CardholderVerificationCapabilities1>
 {
     #nullable enable
     
@@ -24,13 +25,37 @@ public partial record CardholderVerificationCapabilities1
     /// Cardholder verification capabilities performing the transaction at the point of service.
     /// ISO 8583:93 bit 22-2, ISO 8583:2003-1 bit 27-2
     /// </summary>
-    [DataMember]
     public required CardholderVerificationCapability5Code Capability { get; init; } 
     /// <summary>
     /// Other types of cardholder verification capabilities.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherCapability { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cpblty", xmlNamespace );
+        writer.WriteValue(Capability.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherCapability is IsoMax35Text OtherCapabilityValue)
+        {
+            writer.WriteStartElement(null, "OthrCpblty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherCapabilityValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CardholderVerificationCapabilities1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

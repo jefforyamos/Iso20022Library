@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// References a related message or provides another reference, such as a pool reference, linking a set of messages. The party which issued the related reference may be the Sender of the referenced message or a party other than the Sender.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalReference3
+     : IIsoXmlSerilizable<AdditionalReference3>
 {
     #nullable enable
     
     /// <summary>
     /// Business reference of a message assigned by the party issuing the message. This reference must be unique amongst all messages of the same name sent by the same party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Reference { get; init; } 
     /// <summary>
     /// Issuer of the reference.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? ReferenceIssuer { get; init; } 
     /// <summary>
     /// Name of a message.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MessageName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ref", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Reference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ReferenceIssuer is PartyIdentification2Choice_ ReferenceIssuerValue)
+        {
+            writer.WriteStartElement(null, "RefIssr", xmlNamespace );
+            ReferenceIssuerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageName is IsoMax35Text MessageNameValue)
+        {
+            writer.WriteStartElement(null, "MsgNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AdditionalReference3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

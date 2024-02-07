@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.CorporateActionEventProcessingStatusAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate).|ISO 15022 - 20022 COEXISTENCE|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account servicer sends the CorporateActionEventProcessingStatusAdvice message to an account owner or its designated agent to report processing status of a corporate action event.|The account servicer uses this message to provide a reason as to why a corporate action event has not been completed by the announced payment dates.|Usage|The message may also be used to:|- re-send a message previously sent (the sub-function of the message is Duplicate),|- provide a third party with a copy of a message for information (the sub-function of the message is Copy),|- re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate).|ISO 15022 - 20022 COEXISTENCE|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.")]
-public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterRecord
+public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterRecord<CorporateActionEventProcessingStatusAdviceV01,CorporateActionEventProcessingStatusAdviceV01Document>
+    ,IIsoXmlSerilizable<CorporateActionEventProcessingStatusAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "CorpActnEvtPrcgStsAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CorporateActionEventProcessingStatusAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -138,6 +145,68 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     {
         return new CorporateActionEventProcessingStatusAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("CorpActnEvtPrcgStsAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (NotificationIdentification is DocumentIdentification9 NotificationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "NtfctnId", xmlNamespace );
+            NotificationIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherDocumentIdentification is DocumentIdentification14 OtherDocumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OthrDocId", xmlNamespace );
+            OtherDocumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+        CorporateActionGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EvtPrcgSts", xmlNamespace );
+        EventProcessingStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalInformation is CorporateActionNarrative10 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageOriginator is PartyIdentification10Choice_ MessageOriginatorValue)
+        {
+            writer.WriteStartElement(null, "MsgOrgtr", xmlNamespace );
+            MessageOriginatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageRecipient is PartyIdentification10Choice_ MessageRecipientValue)
+        {
+            writer.WriteStartElement(null, "MsgRcpt", xmlNamespace );
+            MessageRecipientValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension2 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionEventProcessingStatusAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -145,9 +214,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CorporateActionEventProcessingStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CorporateActionEventProcessingStatusAdviceV01Document : IOuterDocument<CorporateActionEventProcessingStatusAdviceV01>
+public partial record CorporateActionEventProcessingStatusAdviceV01Document : IOuterDocument<CorporateActionEventProcessingStatusAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -163,5 +230,22 @@ public partial record CorporateActionEventProcessingStatusAdviceV01Document : IO
     /// <summary>
     /// The instance of <seealso cref="CorporateActionEventProcessingStatusAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=CorporateActionEventProcessingStatusAdviceV01.XmlTag)]
     public required CorporateActionEventProcessingStatusAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CorporateActionEventProcessingStatusAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

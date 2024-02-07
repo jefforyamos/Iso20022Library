@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.pain.CreditorPaymentActivationRequestV03>;
 
 namespace BeneficialStrategies.Iso20022.pain;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.pain;
 /// The CreditorPaymentActivationRequest message is sent by the Creditor sending party to the Debtor receiving party, directly or through agents. It is used to initiate a creditor payment activation request.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The CreditorPaymentActivationRequest message is sent by the Creditor sending party to the Debtor receiving party, directly or through agents. It is used to initiate a creditor payment activation request.")]
-public partial record CreditorPaymentActivationRequestV03 : IOuterRecord
+public partial record CreditorPaymentActivationRequestV03 : IOuterRecord<CreditorPaymentActivationRequestV03,CreditorPaymentActivationRequestV03Document>
+    ,IIsoXmlSerilizable<CreditorPaymentActivationRequestV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record CreditorPaymentActivationRequestV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "CdtrPmtActvtnReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CreditorPaymentActivationRequestV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -76,6 +83,35 @@ public partial record CreditorPaymentActivationRequestV03 : IOuterRecord
     {
         return new CreditorPaymentActivationRequestV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("CdtrPmtActvtnReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
+        GroupHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PmtInf", xmlNamespace );
+        PaymentInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CreditorPaymentActivationRequestV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -83,9 +119,7 @@ public partial record CreditorPaymentActivationRequestV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CreditorPaymentActivationRequestV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CreditorPaymentActivationRequestV03Document : IOuterDocument<CreditorPaymentActivationRequestV03>
+public partial record CreditorPaymentActivationRequestV03Document : IOuterDocument<CreditorPaymentActivationRequestV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -101,5 +135,22 @@ public partial record CreditorPaymentActivationRequestV03Document : IOuterDocume
     /// <summary>
     /// The instance of <seealso cref="CreditorPaymentActivationRequestV03"/> is required.
     /// </summary>
+    [DataMember(Name=CreditorPaymentActivationRequestV03.XmlTag)]
     public required CreditorPaymentActivationRequestV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CreditorPaymentActivationRequestV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

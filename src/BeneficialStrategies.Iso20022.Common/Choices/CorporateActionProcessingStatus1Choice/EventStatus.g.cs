@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CorporateActionProcessingStatus1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionProcessingStatus1
 /// Specifies the status of the details of the event.
 /// </summary>
 public partial record EventStatus : CorporateActionProcessingStatus1Choice_
+     , IIsoXmlSerilizable<EventStatus>
 {
     #nullable enable
+    
     /// <summary>
     /// Indicates whether the details provided about an event are complete or incomplete.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record EventStatus : CorporateActionProcessingStatus1Choice_
     /// Indicates the status of the occurrence of an event.
     /// </summary>
     public required EventConfirmationStatus1Code EventConfirmationStatus { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "EvtCmpltnsSts", xmlNamespace );
+        writer.WriteValue(EventCompletenessStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EvtConfSts", xmlNamespace );
+        writer.WriteValue(EventConfirmationStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new EventStatus Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

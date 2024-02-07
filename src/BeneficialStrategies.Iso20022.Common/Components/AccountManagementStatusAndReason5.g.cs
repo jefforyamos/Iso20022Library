@@ -7,63 +7,123 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountManagementStatusAndReason5
+     : IIsoXmlSerilizable<AccountManagementStatusAndReason5>
 {
     #nullable enable
     
     /// <summary>
     /// Status of the account management instruction that was previously received.
     /// </summary>
-    [DataMember]
     public required Status25Choice_ Status { get; init; } 
     /// <summary>
     /// Reason for the status of the account management instruction.
     /// </summary>
-    [DataMember]
-    public ValueList<AcceptedStatusReason1Choice_> StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public AcceptedStatusReason1Choice_? StatusReason { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of the account opening or modification instruction at application level.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountApplicationIdentification { get; init; } 
     /// <summary>
     /// Account to which the account opening is related.
     /// </summary>
-    [DataMember]
-    public ValueList<Account23> ExistingAccountIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public Account23? ExistingAccountIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountIdentification { get; init; } 
     /// <summary>
     /// Status of the account.
     /// </summary>
-    [DataMember]
     public AccountStatus2? AccountStatus { get; init; } 
     /// <summary>
     /// Specifies the account is blocked and other factors for the blocked account.
     /// </summary>
-    [DataMember]
     public BlockedStatusReason2Choice_? BlockedStatus { get; init; } 
     /// <summary>
     /// Date provided by the account owner to inform the account servicer of the date on which the holdings must be reported before the account is subsequently closed.
     /// </summary>
-    [DataMember]
     public IsoISODate? FATCAReportingDate { get; init; } 
     /// <summary>
     /// Date provided by the account owner to inform the account servicer of the date on which the holdings must be reported before the account is subsequently closed.
     /// </summary>
-    [DataMember]
     public IsoISODate? CRSReportingDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        Status.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (StatusReason is AcceptedStatusReason1Choice_ StatusReasonValue)
+        {
+            writer.WriteStartElement(null, "StsRsn", xmlNamespace );
+            StatusReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountApplicationIdentification is IsoMax35Text AccountApplicationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctApplId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountApplicationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ExistingAccountIdentification is Account23 ExistingAccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ExstgAcctId", xmlNamespace );
+            ExistingAccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountIdentification is IsoMax35Text AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountStatus is AccountStatus2 AccountStatusValue)
+        {
+            writer.WriteStartElement(null, "AcctSts", xmlNamespace );
+            AccountStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BlockedStatus is BlockedStatusReason2Choice_ BlockedStatusValue)
+        {
+            writer.WriteStartElement(null, "BlckdSts", xmlNamespace );
+            BlockedStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FATCAReportingDate is IsoISODate FATCAReportingDateValue)
+        {
+            writer.WriteStartElement(null, "FATCARptgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(FATCAReportingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (CRSReportingDate is IsoISODate CRSReportingDateValue)
+        {
+            writer.WriteStartElement(null, "CRSRptgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(CRSReportingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountManagementStatusAndReason5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

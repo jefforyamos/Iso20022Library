@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique identification, as assigned by the executing system, to unambiguously identify the party in the system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SystemPartyIdentification4
+     : IIsoXmlSerilizable<SystemPartyIdentification4>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification to unambiguously identify the party within the system.
     /// </summary>
-    [DataMember]
     public required IsoBICFIIdentifier Identification { get; init; } 
     /// <summary>
     /// Unique identification of the party responsible (national central bank or central securities depositary) for the party reference data.
     /// </summary>
-    [DataMember]
     public CSDOrNCB1Choice_? ResponsiblePartyIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBICFIIdentifier(Identification)); // data type BICFIIdentifier System.String
+        writer.WriteEndElement();
+        if (ResponsiblePartyIdentification is CSDOrNCB1Choice_ ResponsiblePartyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RspnsblPtyId", xmlNamespace );
+            ResponsiblePartyIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SystemPartyIdentification4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

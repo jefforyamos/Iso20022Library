@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the cardholder involved in a transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardholderIdentification1
+     : IIsoXmlSerilizable<CardholderIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification value of the cardholder involved in a transaction.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text CardholderIdentificationValue { get; init; } 
     /// <summary>
     /// Type of identification used for identifying the cardholder.
     /// </summary>
-    [DataMember]
     public required PersonIdentificationType4Code CardholderIdentificationType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CrdhldrIdVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(CardholderIdentificationValue)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CrdhldrIdTp", xmlNamespace );
+        writer.WriteValue(CardholderIdentificationType.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static CardholderIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

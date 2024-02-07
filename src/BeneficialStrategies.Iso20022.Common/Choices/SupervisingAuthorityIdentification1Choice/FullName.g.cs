@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SupervisingAuthorityIdentification1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.SupervisingAuthorityIdentificati
 /// Full name of the institution.
 /// </summary>
 public partial record FullName : SupervisingAuthorityIdentification1Choice_
+     , IIsoXmlSerilizable<FullName>
 {
-    public required IsoMax350Text Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a character string with a maximum length of 350 characters.
+    /// </summary>
+    public required IsoMax350Text Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FullNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(Value)); // data type Max350Text System.String
+        writer.WriteEndElement();
+    }
+    public static new FullName Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

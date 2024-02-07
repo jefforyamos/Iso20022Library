@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.secl.SettlementObligationReportV03>;
 
 namespace BeneficialStrategies.Iso20022.secl;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.secl;
 /// The Settlement Obligation Report message is provided per delivery account and per instrument. The report can be provided for one specific delivering party or one specific receiving party. It can also be generated per non clearing member.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The SettlementObligationReport message is sent by the central counterparty (CCP) to a clearing member to report on the settlement obligation that will be submitted for settlement.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|The SettlementObligationReport message may also be sent to a third party processing the settlement obligation(s) on behalf of more than one clearing member.|The Settlement Obligation Report message is provided per delivery account and per instrument. The report can be provided for one specific delivering party or one specific receiving party. It can also be generated per non clearing member.")]
-public partial record SettlementObligationReportV03 : IOuterRecord
+public partial record SettlementObligationReportV03 : IOuterRecord<SettlementObligationReportV03,SettlementObligationReportV03Document>
+    ,IIsoXmlSerilizable<SettlementObligationReportV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record SettlementObligationReportV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SttlmOblgtnRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SettlementObligationReportV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -130,6 +137,62 @@ public partial record SettlementObligationReportV03 : IOuterRecord
     {
         return new SettlementObligationReportV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SttlmOblgtnRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptParams", xmlNamespace );
+        ReportParameters.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Pgntn", xmlNamespace );
+        Pagination.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ClearingMember is PartyIdentification35Choice_ ClearingMemberValue)
+        {
+            writer.WriteStartElement(null, "ClrMmb", xmlNamespace );
+            ClearingMemberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingSegment is PartyIdentification35Choice_ ClearingSegmentValue)
+        {
+            writer.WriteStartElement(null, "ClrSgmt", xmlNamespace );
+            ClearingSegmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveryAccount is SecuritiesAccount19 DeliveryAccountValue)
+        {
+            writer.WriteStartElement(null, "DlvryAcct", xmlNamespace );
+            DeliveryAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RptDtls", xmlNamespace );
+        ReportDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SettlementParties is SettlementParties2Choice_ SettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "SttlmPties", xmlNamespace );
+            SettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementObligationReportV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -137,9 +200,7 @@ public partial record SettlementObligationReportV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SettlementObligationReportV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SettlementObligationReportV03Document : IOuterDocument<SettlementObligationReportV03>
+public partial record SettlementObligationReportV03Document : IOuterDocument<SettlementObligationReportV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -155,5 +216,22 @@ public partial record SettlementObligationReportV03Document : IOuterDocument<Set
     /// <summary>
     /// The instance of <seealso cref="SettlementObligationReportV03"/> is required.
     /// </summary>
+    [DataMember(Name=SettlementObligationReportV03.XmlTag)]
     public required SettlementObligationReportV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SettlementObligationReportV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

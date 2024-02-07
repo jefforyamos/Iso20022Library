@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides transaction type and identification information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementTypeAndAdditionalParameters6
+     : IIsoXmlSerilizable<SettlementTypeAndAdditionalParameters6>
 {
     #nullable enable
     
     /// <summary>
     /// Unique reference agreed upon by the two trade counterparties to identify the trade.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CommonIdentification { get; init; } 
     /// <summary>
     /// Identification assigned by the account servicer to unambiguously identify a corporate action event.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CorporateActionEventIdentification { get; init; } 
     /// <summary>
     /// Indicates whether the settlement transaction was already sent on the market and that it is only sent by an account owner to an account servicer for reconciliation purposes.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ReconciliationIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CommonIdentification is IsoMax35Text CommonIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CmonId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CommonIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CorporateActionEventIdentification is IsoMax35Text CorporateActionEventIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CorpActnEvtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CorporateActionEventIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ReconciliationIndicator is IsoYesNoIndicator ReconciliationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "RcncltnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ReconciliationIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementTypeAndAdditionalParameters6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

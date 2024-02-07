@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides narrative information about an event and the language in which it is specified.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LanguageSpecifiedNarrative1
+     : IIsoXmlSerilizable<LanguageSpecifiedNarrative1>
 {
     #nullable enable
     
     /// <summary>
     /// Language used to provide additional information and using the ISO 639-1 language code standard.
     /// </summary>
-    [DataMember]
     public required ISO2ALanguageCode Language { get; init; } 
     /// <summary>
     /// Provides additional textual information in the specified language.
     /// </summary>
-    [DataMember]
     public required IsoMax8000Text AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Lang", xmlNamespace );
+        writer.WriteValue(Language.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax8000Text(AdditionalInformation)); // data type Max8000Text System.String
+        writer.WriteEndElement();
+    }
+    public static LanguageSpecifiedNarrative1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

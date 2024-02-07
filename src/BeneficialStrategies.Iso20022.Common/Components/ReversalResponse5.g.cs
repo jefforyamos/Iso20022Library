@@ -7,58 +7,107 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Response Data to a Reversal request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReversalResponse5
+     : IIsoXmlSerilizable<ReversalResponse5>
 {
     #nullable enable
     
     /// <summary>
     /// Sale System identification of the transaction in an unambiguous way.
     /// </summary>
-    [DataMember]
     public required TransactionIdentifier1 SaleTransactionIdentification { get; init; } 
     /// <summary>
     /// Global reference of the sale transaction for the sale system.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SaleReferenceIdentification { get; init; } 
     /// <summary>
     /// POI identification of the transaction in an unambiguous way.
     /// </summary>
-    [DataMember]
     public required TransactionIdentifier1 POITransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the reconciliation period between the acceptor and the acquirer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? POIReconciliationIdentification { get; init; } 
     /// <summary>
     /// Identification of the transaction given by the Issuer.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? IssuerReferenceData { get; init; } 
     /// <summary>
     /// Result of reversal transaction.
     /// </summary>
-    [DataMember]
     public required RetailerReversalResult3 ReversalTransactionResult { get; init; } 
     /// <summary>
     /// Amount that have been reverse.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? ReversedAmount { get; init; } 
     /// <summary>
     /// Various receipts linked to the reversal.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentReceipt3> Receipt { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentReceipt3? Receipt { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SaleTxId", xmlNamespace );
+        SaleTransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SaleReferenceIdentification is IsoMax35Text SaleReferenceIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleRefId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReferenceIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "POITxId", xmlNamespace );
+        POITransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (POIReconciliationIdentification is IsoMax35Text POIReconciliationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "POIRcncltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(POIReconciliationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (IssuerReferenceData is IsoMax140Text IssuerReferenceDataValue)
+        {
+            writer.WriteStartElement(null, "IssrRefData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(IssuerReferenceDataValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RvslTxRslt", xmlNamespace );
+        ReversalTransactionResult.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ReversedAmount is IsoImpliedCurrencyAndAmount ReversedAmountValue)
+        {
+            writer.WriteStartElement(null, "RvsdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ReversedAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Receipt is PaymentReceipt3 ReceiptValue)
+        {
+            writer.WriteStartElement(null, "Rct", xmlNamespace );
+            ReceiptValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ReversalResponse5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

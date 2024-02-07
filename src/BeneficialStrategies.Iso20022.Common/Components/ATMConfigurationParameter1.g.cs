@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Configuration parameter version of the ATM.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMConfigurationParameter1
+     : IIsoXmlSerilizable<ATMConfigurationParameter1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of the ATM configuration.
     /// </summary>
-    [DataMember]
     public required DataSetCategory7Code Type { get; init; } 
     /// <summary>
     /// Active version of the configuration.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Version { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Version)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static ATMConfigurationParameter1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

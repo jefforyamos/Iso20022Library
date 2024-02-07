@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification25Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification25Choice;
 /// Identifier of a security assigned by the Japanese QUICK identification scheme for financial instruments.
 /// </summary>
 public partial record QUICK : SecurityIdentification25Choice_
+     , IIsoXmlSerilizable<QUICK>
 {
-    public required IsoQUICKIdentifier Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Identifier of a security assigned by the Japanese QUICK identification scheme for financial instruments.
+    /// </summary>
+    public required IsoQUICKIdentifier Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "QUICK", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoQUICKIdentifier(Value)); // data type QUICKIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static new QUICK Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

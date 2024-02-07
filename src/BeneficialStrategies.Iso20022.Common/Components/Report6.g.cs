@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// General characteristics related to a statement which reports information for a precise date.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Report6
+     : IIsoXmlSerilizable<Report6>
 {
     #nullable enable
     
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
-    [DataMember]
     public IsoMax5NumericText? ReportNumber { get; init; } 
     /// <summary>
     /// Gives the name and the reference of the query.
     /// </summary>
-    [DataMember]
     public QueryReference2? QueryReference { get; init; } 
     /// <summary>
     /// Reference of the report.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReportIdentification { get; init; } 
     /// <summary>
     /// Date of the statement.
     /// </summary>
-    [DataMember]
     public required DateAndDateTime1Choice_ ReportDateTime { get; init; } 
     /// <summary>
     /// Specifies the regularity of an event.
     /// </summary>
-    [DataMember]
     public Frequency25Choice_? Frequency { get; init; } 
     /// <summary>
     /// Indicates whether the report is complete or contains changes only.
     /// </summary>
-    [DataMember]
     public StatementUpdateTypeCodeAndDSSCode1Choice_? UpdateType { get; init; } 
     /// <summary>
     /// Notifies the type of report transmitted.
     /// </summary>
-    [DataMember]
     public GenericIdentification30? NoticeType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReportNumber is IsoMax5NumericText ReportNumberValue)
+        {
+            writer.WriteStartElement(null, "RptNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax5NumericText(ReportNumberValue)); // data type Max5NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (QueryReference is QueryReference2 QueryReferenceValue)
+        {
+            writer.WriteStartElement(null, "QryRef", xmlNamespace );
+            QueryReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReportIdentification is IsoMax35Text ReportIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RptId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReportIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RptDtTm", xmlNamespace );
+        ReportDateTime.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Frequency is Frequency25Choice_ FrequencyValue)
+        {
+            writer.WriteStartElement(null, "Frqcy", xmlNamespace );
+            FrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UpdateType is StatementUpdateTypeCodeAndDSSCode1Choice_ UpdateTypeValue)
+        {
+            writer.WriteStartElement(null, "UpdTp", xmlNamespace );
+            UpdateTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NoticeType is GenericIdentification30 NoticeTypeValue)
+        {
+            writer.WriteStartElement(null, "NtceTp", xmlNamespace );
+            NoticeTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Report6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

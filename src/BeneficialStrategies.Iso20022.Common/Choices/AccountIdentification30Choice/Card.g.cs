@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification30Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification30Choice;
 /// PAN of the card identifying the account.
 /// </summary>
 public partial record Card : AccountIdentification30Choice_
+     , IIsoXmlSerilizable<Card>
 {
-    public required IsoMin8Max28NumericText Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a numeric string with a minimum length of 8 digits, and a maximum length of 28 digits.
+    /// </summary>
+    public required IsoMin8Max28NumericText Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Card", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMin8Max28NumericText(Value)); // data type Min8Max28NumericText System.String
+        writer.WriteEndElement();
+    }
+    public static new Card Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

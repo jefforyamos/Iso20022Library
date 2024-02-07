@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the securities account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesAccount6
+     : IIsoXmlSerilizable<SecuritiesAccount6>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the financial instrument.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification7 SecurityIdentification { get; init; } 
     /// <summary>
     /// Idenfitication of the account where financial instruments are maintained.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text SecuritiesAccountIdentification { get; init; } 
     /// <summary>
     /// Identification of the party that owns the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Identification of the place of safekeeping.
     /// </summary>
-    [DataMember]
     public required PartyIdentification2Choice_ SafekeepingPlace { get; init; } 
     /// <summary>
     /// Provides information required for the registration of the security.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? RegistrationDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SctyId", xmlNamespace );
+        SecurityIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctiesAcctId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(SecuritiesAccountIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (AccountOwnerIdentification is PartyIdentification2Choice_ AccountOwnerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnrId", xmlNamespace );
+            AccountOwnerIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
+        SafekeepingPlace.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RegistrationDetails is IsoMax350Text RegistrationDetailsValue)
+        {
+            writer.WriteStartElement(null, "RegnDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(RegistrationDetailsValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesAccount6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

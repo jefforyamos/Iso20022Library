@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the breakdown of a reported amount that can be split across a range of assets: bonds, cash, equities, or another asset class.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReportingAssetBreakdown1
+     : IIsoXmlSerilizable<ReportingAssetBreakdown1>
 {
     #nullable enable
     
     /// <summary>
     /// Class of the asset which is a component of the breakdown.
     /// </summary>
-    [DataMember]
     public required ProductType6Code ReportingAssetType { get; init; } 
     /// <summary>
     /// Identifies the reporting asset.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? Identification { get; init; } 
     /// <summary>
     /// Value of the reporting asset.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptgAsstTp", xmlNamespace );
+        writer.WriteValue(ReportingAssetType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Identification is IsoMax350Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(IdentificationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static ReportingAssetBreakdown1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

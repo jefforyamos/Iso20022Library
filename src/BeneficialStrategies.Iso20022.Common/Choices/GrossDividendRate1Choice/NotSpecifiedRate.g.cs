@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRate1Choice;
 
@@ -13,7 +15,27 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRate1Choice;
 /// The value of the rate is not specified, eg, the rate is unknown.
 /// </summary>
 public partial record NotSpecifiedRate : GrossDividendRate1Choice_
+     , IIsoXmlSerilizable<NotSpecifiedRate>
 {
     #nullable enable
+    
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+    }
+    public static new NotSpecifiedRate Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

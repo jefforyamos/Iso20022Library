@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TimeToMaturity1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TimeToMaturity1Choice;
 /// Provides the period for the time to maturity.
 /// </summary>
 public partial record Period : TimeToMaturity1Choice_
+     , IIsoXmlSerilizable<Period>
 {
     #nullable enable
+    
     /// <summary>
     /// Specifies the start of the maturity period.
     /// </summary>
@@ -23,5 +27,35 @@ public partial record Period : TimeToMaturity1Choice_
     /// Specifies the end of the maturity period.
     /// </summary>
     public MaturityTerm2? End { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Start is MaturityTerm2 StartValue)
+        {
+            writer.WriteStartElement(null, "Start", xmlNamespace );
+            StartValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (End is MaturityTerm2 EndValue)
+        {
+            writer.WriteStartElement(null, "End", xmlNamespace );
+            EndValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Period Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

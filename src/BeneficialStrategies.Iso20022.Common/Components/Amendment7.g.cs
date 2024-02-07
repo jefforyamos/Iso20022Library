@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the amendment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Amendment7
+     : IIsoXmlSerilizable<Amendment7>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the proposed amendment.
     /// </summary>
-    [DataMember]
     public required Amendment8 AmendmentIdentification { get; init; } 
     /// <summary>
     /// Proposed undertaking amendment status.
     /// </summary>
-    [DataMember]
     public required UndertakingStatus2Code AmendmentStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AmdmntId", xmlNamespace );
+        AmendmentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AmdmntSts", xmlNamespace );
+        writer.WriteValue(AmendmentStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static Amendment7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

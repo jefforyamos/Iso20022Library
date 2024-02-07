@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the security instrument by its name and typical characteristics.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityInstrumentDescription11
+     : IIsoXmlSerilizable<SecurityInstrumentDescription11>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
-    [DataMember]
     public IsoISINOct2015Identifier? Identification { get; init; } 
     /// <summary>
     /// Full name or description of the financial instrument.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text FullName { get; init; } 
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO classification of financial instrument (CFI) codification, that is common share with voting rights, fully paid, or registered.
     /// </summary>
-    [DataMember]
     public required IsoCFIOct2015Identifier ClassificationType { get; init; } 
     /// <summary>
     /// Currency in which the notional is denominated.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? NotionalCurrency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is IsoISINOct2015Identifier IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(IdentificationValue)); // data type ISINOct2015Identifier System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FullNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(FullName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClssfctnTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCFIOct2015Identifier(ClassificationType)); // data type CFIOct2015Identifier System.String
+        writer.WriteEndElement();
+        if (NotionalCurrency is ActiveOrHistoricCurrencyCode NotionalCurrencyValue)
+        {
+            writer.WriteStartElement(null, "NtnlCcy", xmlNamespace );
+            writer.WriteValue(NotionalCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static SecurityInstrumentDescription11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

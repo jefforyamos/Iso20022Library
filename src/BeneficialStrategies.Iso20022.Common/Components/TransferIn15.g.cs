@@ -7,48 +7,89 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a transfer in transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransferIn15
+     : IIsoXmlSerilizable<TransferIn15>
 {
     #nullable enable
     
     /// <summary>
     /// Requested date at which the instructing party places the transfer instruction.
     /// </summary>
-    [DataMember]
     public DateFormat1Choice_? RequestedTransferDate { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Details of the transfer and cancellation.
     /// </summary>
-    [DataMember]
-    public ValueList<TransferIn16> TransferAndReferences { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransferIn16? TransferAndReferences { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _5lLMWSPvEeWQjryFgN2ITg
     /// <summary>
     /// Information related to the account into which the financial instrument is to be received.
     /// </summary>
-    [DataMember]
     public required InvestmentAccount56 AccountDetails { get; init; } 
     /// <summary>
     /// Information related to the delivering side of the transfer.
     /// </summary>
-    [DataMember]
     public DeliverInformation16? SettlementDetails { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<Extension1> Extension { get; init; } = []; // Warning: Don't know multiplicity.
+    public Extension1? Extension { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (RequestedTransferDate is DateFormat1Choice_ RequestedTransferDateValue)
+        {
+            writer.WriteStartElement(null, "ReqdTrfDt", xmlNamespace );
+            RequestedTransferDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize TransferAndReferences, multiplicity Unknown
+        writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
+        AccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SettlementDetails is DeliverInformation16 SettlementDetailsValue)
+        {
+            writer.WriteStartElement(null, "SttlmDtls", xmlNamespace );
+            SettlementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransferIn15 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

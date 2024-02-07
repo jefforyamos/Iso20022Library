@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform4Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform4Choice;
 /// Content of the Payment Request message.
 /// </summary>
 public partial record PaymentRequest : TransactionToPerform4Choice_
+     , IIsoXmlSerilizable<PaymentRequest>
 {
     #nullable enable
+    
     /// <summary>
     /// Data associated with the Transaction.
     /// </summary>
@@ -22,6 +26,36 @@ public partial record PaymentRequest : TransactionToPerform4Choice_
     /// <summary>
     /// Data linked to card loyalty during payment.
     /// </summary>
-    public LoyaltyRequestData3? LoyaltyData { get; init;  } // Warning: Don't know multiplicity.
+    public LoyaltyRequestData3? LoyaltyData { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PaymentTransaction is CardPaymentTransaction120 PaymentTransactionValue)
+        {
+            writer.WriteStartElement(null, "PmtTx", xmlNamespace );
+            PaymentTransactionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LoyaltyData is LoyaltyRequestData3 LoyaltyDataValue)
+        {
+            writer.WriteStartElement(null, "LltyData", xmlNamespace );
+            LoyaltyDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new PaymentRequest Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

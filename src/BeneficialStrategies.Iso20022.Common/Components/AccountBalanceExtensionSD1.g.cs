@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding account balance. Contains transaction details of the stock loans, repurchase agreements (REPOs) and undelivered trades (FAILs).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountBalanceExtensionSD1
+     : IIsoXmlSerilizable<AccountBalanceExtensionSD1>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Position that is concerned in transaction.
     /// </summary>
-    [DataMember]
     public AdjustedBalanceTypeSD1Choice_? TransactionPosition { get; init; } 
     /// <summary>
     /// Effective date of the transaction. Applicable to Fail transactions.
     /// </summary>
-    [DataMember]
     public IsoISODate? AsOfDate { get; init; } 
     /// <summary>
     /// Date of the delivery. Applicable to Fail transactions.
     /// </summary>
-    [DataMember]
     public IsoISODate? DeliveryDate { get; init; } 
     /// <summary>
     /// Transaction contra participant identification for stock loans, repurchase agreements (REPOs), securities undelivered (FAILs).
     /// </summary>
-    [DataMember]
     public IsoMax8Text? ContraParticipantNumber { get; init; } 
     /// <summary>
     /// Account number at receiver’s side. Applicable to Fail transactions.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax35Text? ReceiverAccountNumber { get; init; } 
     /// <summary>
     /// Account number at deliverer’s side. Applicable to Fail transactions.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax35Text? DelivererAccountNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (TransactionPosition is AdjustedBalanceTypeSD1Choice_ TransactionPositionValue)
+        {
+            writer.WriteStartElement(null, "TxPos", xmlNamespace );
+            TransactionPositionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AsOfDate is IsoISODate AsOfDateValue)
+        {
+            writer.WriteStartElement(null, "AsOfDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(AsOfDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (DeliveryDate is IsoISODate DeliveryDateValue)
+        {
+            writer.WriteStartElement(null, "DlvryDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DeliveryDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ContraParticipantNumber is IsoMax8Text ContraParticipantNumberValue)
+        {
+            writer.WriteStartElement(null, "ContraPtcptNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax8Text(ContraParticipantNumberValue)); // data type Max8Text System.String
+            writer.WriteEndElement();
+        }
+        if (ReceiverAccountNumber is IsoRestrictedFINXMax35Text ReceiverAccountNumberValue)
+        {
+            writer.WriteStartElement(null, "RcvrAcctNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax35Text(ReceiverAccountNumberValue)); // data type RestrictedFINXMax35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DelivererAccountNumber is IsoRestrictedFINXMax35Text DelivererAccountNumberValue)
+        {
+            writer.WriteStartElement(null, "DlvrrAcctNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax35Text(DelivererAccountNumberValue)); // data type RestrictedFINXMax35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountBalanceExtensionSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

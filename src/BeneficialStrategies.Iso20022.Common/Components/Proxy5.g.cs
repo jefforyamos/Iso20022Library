@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the elements that identify a proxy appointed to represent a party authorised to vote at a shareholders meeting.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Proxy5
+     : IIsoXmlSerilizable<Proxy5>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of proxy.
     /// </summary>
-    [DataMember]
-    public ValueList<ProxyType2Code> ProxyType { get; init; } = [];
+    public SimpleValueList<ProxyType2Code> ProxyType { get; init; } = [];
     /// <summary>
     /// Identifies an authorized proxy that has been assigned by the issuer of the meeting.
     /// </summary>
-    [DataMember]
     public IndividualPerson25? PreassignedProxy { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrxyTp", xmlNamespace );
+        writer.WriteValue(ProxyType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (PreassignedProxy is IndividualPerson25 PreassignedProxyValue)
+        {
+            writer.WriteStartElement(null, "PrssgndPrxy", xmlNamespace );
+            PreassignedProxyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Proxy5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

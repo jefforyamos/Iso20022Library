@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the business status of a cancellation request message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CancellationStatusInformation1
+     : IIsoXmlSerilizable<CancellationStatusInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Information on the business status of the cancellation.
     /// </summary>
-    [DataMember]
     public required CancellationStatus4Code Status { get; init; } 
     /// <summary>
     /// The reason for the cancellation status.
     /// </summary>
-    [DataMember]
     public StatusReason4Choice_? StatusReason { get; init; } 
     /// <summary>
     /// Further details on the cancellation status reason.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax105Text> AdditionalStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax105Text? AdditionalStatusReasonInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (StatusReason is StatusReason4Choice_ StatusReasonValue)
+        {
+            writer.WriteStartElement(null, "StsRsn", xmlNamespace );
+            StatusReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalStatusReasonInformation is IsoMax105Text AdditionalStatusReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlStsRsnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax105Text(AdditionalStatusReasonInformationValue)); // data type Max105Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CancellationStatusInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

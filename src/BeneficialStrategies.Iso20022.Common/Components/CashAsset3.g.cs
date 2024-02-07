@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a cash asset.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashAsset3
+     : IIsoXmlSerilizable<CashAsset3>
 {
     #nullable enable
     
     /// <summary>
     /// Type of cash asset.
     /// </summary>
-    [DataMember]
     public required CashAssetType1Choice_ CashAssetType { get; init; } 
     /// <summary>
     /// Currency of the asset in the holding.
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode HoldingCurrency { get; init; } 
     /// <summary>
     /// Currency of the asset in another currency.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? TransferCurrency { get; init; } 
     /// <summary>
     /// Additional information about the cash asset.
     /// </summary>
-    [DataMember]
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CshAsstTp", xmlNamespace );
+        CashAssetType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "HldgCcy", xmlNamespace );
+        writer.WriteValue(HoldingCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (TransferCurrency is ActiveCurrencyCode TransferCurrencyValue)
+        {
+            writer.WriteStartElement(null, "TrfCcy", xmlNamespace );
+            writer.WriteValue(TransferCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CashAsset3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,50 +7,92 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details of each individual secured market transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MoneyMarketTransactionStatus2
+     : IIsoXmlSerilizable<MoneyMarketTransactionStatus2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique transaction identifier will be created at the time a transaction is first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction during its lifetime.
     /// </summary>
-    [DataMember]
     public IsoMax105Text? UniqueTransactionIdentifier { get; init; } 
     /// <summary>
     /// Internal unique transaction identifier used by the reporting agent for each transaction.
     /// </summary>
-    [DataMember]
     public required IsoMax105Text ProprietaryTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous legal entity identification of the branch of the reporting agent in which the transaction has been booked.
     /// Usage: This field must only be provided if the transaction has been conducted and booked by a branch of the reporting agent and only if this branch has its own LEI that the reporting agent can clearly identify. 
     /// Where the transaction has been booked by the head office or the reporting agent cannot be identified by a unique branch-specific LEI, the reporting agent must provide the LEI of the head office.
     /// </summary>
-    [DataMember]
     public IsoLEIIdentifier? BranchIdentification { get; init; } 
     /// <summary>
     /// Defines status of the reported transaction.
     /// </summary>
-    [DataMember]
     public required StatisticalReportingStatus2Code Status { get; init; } 
     /// <summary>
     /// Provides the details of the rule which could not be validated.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericValidationRuleIdentification1> ValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericValidationRuleIdentification1? ValidationRule { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (UniqueTransactionIdentifier is IsoMax105Text UniqueTransactionIdentifierValue)
+        {
+            writer.WriteStartElement(null, "UnqTxIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax105Text(UniqueTransactionIdentifierValue)); // data type Max105Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PrtryTxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax105Text(ProprietaryTransactionIdentification)); // data type Max105Text System.String
+        writer.WriteEndElement();
+        if (BranchIdentification is IsoLEIIdentifier BranchIdentificationValue)
+        {
+            writer.WriteStartElement(null, "BrnchId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(BranchIdentificationValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ValidationRule is GenericValidationRuleIdentification1 ValidationRuleValue)
+        {
+            writer.WriteStartElement(null, "VldtnRule", xmlNamespace );
+            ValidationRuleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MoneyMarketTransactionStatus2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

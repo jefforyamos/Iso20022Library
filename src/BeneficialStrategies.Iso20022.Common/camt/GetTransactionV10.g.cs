@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.GetTransactionV10>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -45,10 +48,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// - entry debit/credit indicator (if absent, all entries should be reported).
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The GetTransaction message is sent by a member to the transaction administrator.|It is used to request information about payment instructions held at the transaction administrator. Payment instructions are either sent by the member, debiting or crediting its account at the transaction administrator or received by the transaction administrator, crediting or debiting the member's account.|Usage|Following normal business flows, transactions registered by the transaction administrator may be queued for later settlement (because of insufficient funds available, or because of risk or liquidity limits, etc.). A transaction may have a series of statuses. These can be transient (such as pending or related types) and final (such as rejected, revoked and/or settled).|Members of a system need to have information about the payments queue(s) and must have the ability to take action (that is, to cancel or modify the transaction(s) to be settled). Note, however, that actions by a member will always concern transactions in a transient status.|At any time during the operating hours of the system, the member can query the transaction administrator to get information about transactions, whatever their status.|These requests will concern either all transactions, all transactions with a particular status or a specific transaction.|The member can request information about transactions through a series of criteria, corresponding to the known information stored at the transaction administrator, based on the following elements:|- provenance or destination of the payment (payment to/payment from)|- transaction reference|- transfer value date|- payment instruction reference|- payment instruction status, as registered at the transaction administrator|- instructed amount and/or currency|- interbank settlement amount and/or currency|- credit/debit indicator of the payment instruction/transaction|- SWIFT FIN payment message used for the payment instruction|- priority of the payment transaction|- period in which the payment instruction should be processed (processing validity time)|- instructions given, related to the processing of the transaction|- type of payment instructed|- account identification (entries booked to a specific account)|- entry amount and/or currency|- entry debit/credit indicator (if absent, all entries should be reported).")]
-public partial record GetTransactionV10 : IOuterRecord
+public partial record GetTransactionV10 : IOuterRecord<GetTransactionV10,GetTransactionV10Document>
+    ,IIsoXmlSerilizable<GetTransactionV10>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -60,6 +62,11 @@ public partial record GetTransactionV10 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "GetTx";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => GetTransactionV10Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -99,6 +106,38 @@ public partial record GetTransactionV10 : IOuterRecord
     {
         return new GetTransactionV10Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("GetTx");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+        MessageHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionQueryDefinition is TransactionQuery7 TransactionQueryDefinitionValue)
+        {
+            writer.WriteStartElement(null, "TxQryDef", xmlNamespace );
+            TransactionQueryDefinitionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static GetTransactionV10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -106,9 +145,7 @@ public partial record GetTransactionV10 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="GetTransactionV10"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record GetTransactionV10Document : IOuterDocument<GetTransactionV10>
+public partial record GetTransactionV10Document : IOuterDocument<GetTransactionV10>, IXmlSerializable
 {
     
     /// <summary>
@@ -124,5 +161,22 @@ public partial record GetTransactionV10Document : IOuterDocument<GetTransactionV
     /// <summary>
     /// The instance of <seealso cref="GetTransactionV10"/> is required.
     /// </summary>
+    [DataMember(Name=GetTransactionV10.XmlTag)]
     public required GetTransactionV10 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(GetTransactionV10.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

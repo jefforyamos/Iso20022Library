@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Location information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Location3
+     : IIsoXmlSerilizable<Location3>
 {
     #nullable enable
     
     /// <summary>
     /// Contains the location code.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? LocationCode { get; init; } 
     /// <summary>
     /// Name (label) of the location.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? LocationName { get; init; } 
     /// <summary>
     /// Specific explanation of the location or directions. 
     /// </summary>
-    [DataMember]
     public IsoMax256Text? Description { get; init; } 
     /// <summary>
     /// Contains the address details. 
     /// </summary>
-    [DataMember]
     public Address1? Address { get; init; } 
     /// <summary>
     /// Local time zone.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? LocalTimeZone { get; init; } 
     /// <summary>
     /// Local currency.
     /// </summary>
-    [DataMember]
     public ISO3NumericCurrencyCode? LocalCurrency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (LocationCode is IsoMax35Text LocationCodeValue)
+        {
+            writer.WriteStartElement(null, "LctnCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(LocationCodeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (LocationName is IsoMax35Text LocationNameValue)
+        {
+            writer.WriteStartElement(null, "LctnNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(LocationNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Description is IsoMax256Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(DescriptionValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (Address is Address1 AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LocalTimeZone is IsoMax70Text LocalTimeZoneValue)
+        {
+            writer.WriteStartElement(null, "LclTmZone", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(LocalTimeZoneValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (LocalCurrency is ISO3NumericCurrencyCode LocalCurrencyValue)
+        {
+            writer.WriteStartElement(null, "LclCcy", xmlNamespace );
+            writer.WriteValue(LocalCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static Location3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

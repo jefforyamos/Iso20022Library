@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the reason why the corporate action reversal occurs.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionReversalReason3
+     : IIsoXmlSerilizable<CorporateActionReversalReason3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the reason for the reversal.
     /// </summary>
-    [DataMember]
     public required CorporateActionReversalReason3Choice_ Reason { get; init; } 
     /// <summary>
     /// Provides additional information about the processed instruction.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Rsn", xmlNamespace );
+        Reason.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalReasonInformation is IsoMax256Text AdditionalReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlRsnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(AdditionalReasonInformationValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionReversalReason3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

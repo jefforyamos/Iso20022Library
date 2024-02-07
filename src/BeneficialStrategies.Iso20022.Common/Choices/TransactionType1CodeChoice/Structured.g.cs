@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TransactionType1CodeChoice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionType1CodeChoice;
 /// Transaction type in a structured format.
 /// </summary>
 public partial record Structured : TransactionType1CodeChoice_
+     , IIsoXmlSerilizable<Structured>
 {
-    public required TransactionType2Code Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies the type of transaction.
+    /// </summary>
+    public required TransactionType2Code Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Strd", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new Structured Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,65 +7,128 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to contract attributes.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ContractType14
+     : IIsoXmlSerilizable<ContractType14>
 {
     #nullable enable
     
     /// <summary>
     /// Classification of information according to contract type.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentContractType2Code? ContractType { get; init; } 
     /// <summary>
     /// Specifies the classification according to the asset class of the contract.
     /// </summary>
-    [DataMember]
     public ProductType4Code? AssetClass { get; init; } 
     /// <summary>
     /// Specifies the classification of the derivative product.
     /// </summary>
-    [DataMember]
     public IsoCFIOct2015Identifier? ProductClassification { get; init; } 
     /// <summary>
     /// Specifies the identification of the derivative product.
     /// </summary>
-    [DataMember]
     public SecurityIdentification46? ProductIdentification { get; init; } 
     /// <summary>
     /// Unique identification to identify the direct underlying instrument based on its type.
     /// </summary>
-    [DataMember]
     public SecurityIdentification41Choice_? UnderlyingInstrument { get; init; } 
     /// <summary>
     /// Specifies the currency to be used for cash settlement of the transaction. 
     /// Usage: For multicurrency transactions that do not net, SettlementCurrency is to be considered as the first leg.
     /// </summary>
-    [DataMember]
     public CurrencyExchange23? SettlementCurrency { get; init; } 
     /// <summary>
     /// Specifies the currency second leg to be used for cash settlement of the transaction. 
     /// </summary>
-    [DataMember]
     public CurrencyExchange23? SettlementCurrencySecondLeg { get; init; } 
     /// <summary>
     /// Specifies the place where settlement of the transaction occurs as stipulated in the contract.
     /// </summary>
-    [DataMember]
     public CountryCode? PlaceOfSettlement { get; init; } 
     /// <summary>
     /// Indicator whether the derivative is based on crypto-asset.
     /// Usage: If the element is not present, the DerivativeBasedOnCryptoAsset is False.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? DerivativeBasedOnCryptoAsset { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ContractType is FinancialInstrumentContractType2Code ContractTypeValue)
+        {
+            writer.WriteStartElement(null, "CtrctTp", xmlNamespace );
+            writer.WriteValue(ContractTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AssetClass is ProductType4Code AssetClassValue)
+        {
+            writer.WriteStartElement(null, "AsstClss", xmlNamespace );
+            writer.WriteValue(AssetClassValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ProductClassification is IsoCFIOct2015Identifier ProductClassificationValue)
+        {
+            writer.WriteStartElement(null, "PdctClssfctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCFIOct2015Identifier(ProductClassificationValue)); // data type CFIOct2015Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (ProductIdentification is SecurityIdentification46 ProductIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PdctId", xmlNamespace );
+            ProductIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnderlyingInstrument is SecurityIdentification41Choice_ UnderlyingInstrumentValue)
+        {
+            writer.WriteStartElement(null, "UndrlygInstrm", xmlNamespace );
+            UnderlyingInstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementCurrency is CurrencyExchange23 SettlementCurrencyValue)
+        {
+            writer.WriteStartElement(null, "SttlmCcy", xmlNamespace );
+            SettlementCurrencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementCurrencySecondLeg is CurrencyExchange23 SettlementCurrencySecondLegValue)
+        {
+            writer.WriteStartElement(null, "SttlmCcyScndLeg", xmlNamespace );
+            SettlementCurrencySecondLegValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PlaceOfSettlement is CountryCode PlaceOfSettlementValue)
+        {
+            writer.WriteStartElement(null, "PlcOfSttlm", xmlNamespace );
+            writer.WriteValue(PlaceOfSettlementValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DerivativeBasedOnCryptoAsset is IsoTrueFalseIndicator DerivativeBasedOnCryptoAssetValue)
+        {
+            writer.WriteStartElement(null, "DerivBasedOnCrptAsst", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DerivativeBasedOnCryptoAssetValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ContractType14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

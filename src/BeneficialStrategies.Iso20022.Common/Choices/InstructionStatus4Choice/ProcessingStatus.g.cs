@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus4Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus4Choice;
 /// Status advising on the processing of the instruction.
 /// </summary>
 public partial record ProcessingStatus : InstructionStatus4Choice_
+     , IIsoXmlSerilizable<ProcessingStatus>
 {
     #nullable enable
+    
     /// <summary>
     /// Status on the processing of the instructions.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record ProcessingStatus : InstructionStatus4Choice_
     /// Additional information about the status.
     /// </summary>
     public IsoMax350Text? AdditionalInformation { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new ProcessingStatus Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

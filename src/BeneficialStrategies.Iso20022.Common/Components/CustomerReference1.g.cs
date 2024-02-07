@@ -7,6 +7,8 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -14,22 +16,48 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains customer reference values provided for this transaction and used for various reference processing at the
 /// customer site. These values represent information most prevalently provided by travel agencies for transactions booked against a lodged account or central travel account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CustomerReference1
+     : IIsoXmlSerilizable<CustomerReference1>
 {
     #nullable enable
     
     /// <summary>
     /// Defines the content of the value provided in the Customer Reference detail.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Subfield is a free-form text field containing customer reference value details about the transaction.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Detail { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is IsoMax35Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Detail is IsoMax70Text DetailValue)
+        {
+            writer.WriteStartElement(null, "Dtl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(DetailValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CustomerReference1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of breakdown of a quantity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record QuantityBreakdown33
+     : IIsoXmlSerilizable<QuantityBreakdown33>
 {
     #nullable enable
     
     /// <summary>
     /// Identification, for tax purposes, of a lot of identical securities that are bought at a certain date and at a certain price.
     /// </summary>
-    [DataMember]
     public required GenericIdentification39 LotNumber { get; init; } 
     /// <summary>
     /// Quantity of financial instruments that is part of the lot described.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity15Choice_? LotQuantity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "LotNb", xmlNamespace );
+        LotNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LotQuantity is FinancialInstrumentQuantity15Choice_ LotQuantityValue)
+        {
+            writer.WriteStartElement(null, "LotQty", xmlNamespace );
+            LotQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static QuantityBreakdown33 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

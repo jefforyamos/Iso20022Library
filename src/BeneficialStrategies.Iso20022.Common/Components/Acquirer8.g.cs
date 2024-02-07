@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Institution in charge of managing the ATM.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Acquirer8
+     : IIsoXmlSerilizable<Acquirer8>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the ATM manager.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Software version of the application.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ApplicationVersion { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ApplicationVersion is IsoMax35Text ApplicationVersionValue)
+        {
+            writer.WriteStartElement(null, "ApplVrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ApplicationVersionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Acquirer8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Further detailed information on the exchange rate that has been used in or is related to the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ExchangeRateInformation2
+     : IIsoXmlSerilizable<ExchangeRateInformation2>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the source of the rate information.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Provider { get; init; } 
     /// <summary>
     /// Identification of the specific rate, table or file that contains the rate information.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Identification { get; init; } 
     /// <summary>
     /// The date the exchange rate data is effective.
     /// </summary>
-    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// The time the exchange rate data is effective.
     /// </summary>
-    [DataMember]
     public IsoISOTime? Time { get; init; } 
     /// <summary>
     /// Details of a specific exchange rate
     /// </summary>
-    [DataMember]
     public ExchangeRateDetail1? ExchangeRateDetail { get; init; } 
     /// <summary>
     /// Rate lock details.
     /// </summary>
-    [DataMember]
     public RateLock1? RateLock { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Provider is IsoMax70Text ProviderValue)
+        {
+            writer.WriteStartElement(null, "Prvdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(ProviderValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Identification is IsoMax70Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(IdentificationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Date is IsoISODate DateValue)
+        {
+            writer.WriteStartElement(null, "Dt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Time is IsoISOTime TimeValue)
+        {
+            writer.WriteStartElement(null, "Tm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(TimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+        if (ExchangeRateDetail is ExchangeRateDetail1 ExchangeRateDetailValue)
+        {
+            writer.WriteStartElement(null, "XchgRateDtl", xmlNamespace );
+            ExchangeRateDetailValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RateLock is RateLock1 RateLockValue)
+        {
+            writer.WriteStartElement(null, "RateLck", xmlNamespace );
+            RateLockValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ExchangeRateInformation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

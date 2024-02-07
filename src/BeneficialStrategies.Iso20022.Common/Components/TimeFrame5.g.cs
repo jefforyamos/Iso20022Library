@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Time frame elements that define a period as number of days before or after a activity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TimeFrame5
+     : IIsoXmlSerilizable<TimeFrame5>
 {
     #nullable enable
     
     /// <summary>
     /// Description of the timeframe.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? OtherTimeFrameDescription { get; init; } 
     /// <summary>
     /// Number of days after the trade date (T) used for the standard timeframe for the issue of a deal confirmation.
     /// </summary>
-    [DataMember]
     public IsoNumber? TradePlus { get; init; } 
     /// <summary>
     /// Convention used for adjusting a date when it is not a business day.
     /// </summary>
-    [DataMember]
     public BusinessDayConvention1Code? NonWorkingDayAdjustment { get; init; } 
     /// <summary>
     /// For the time of the issuance of the deal confirmation, the order desk must be contacted.
     /// </summary>
-    [DataMember]
     public ReferToFundOrderDesk1Code? ReferToOrderDesk { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OtherTimeFrameDescription is IsoMax350Text OtherTimeFrameDescriptionValue)
+        {
+            writer.WriteStartElement(null, "OthrTmFrameDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(OtherTimeFrameDescriptionValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (TradePlus is IsoNumber TradePlusValue)
+        {
+            writer.WriteStartElement(null, "TPlus", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(TradePlusValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (NonWorkingDayAdjustment is BusinessDayConvention1Code NonWorkingDayAdjustmentValue)
+        {
+            writer.WriteStartElement(null, "NonWorkgDayAdjstmnt", xmlNamespace );
+            writer.WriteValue(NonWorkingDayAdjustmentValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ReferToOrderDesk is ReferToFundOrderDesk1Code ReferToOrderDeskValue)
+        {
+            writer.WriteStartElement(null, "RefrToOrdrDsk", xmlNamespace );
+            writer.WriteValue(ReferToOrderDeskValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static TimeFrame5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

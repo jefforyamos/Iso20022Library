@@ -7,93 +7,186 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment related to the reconciliation of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Environment22
+     : IIsoXmlSerilizable<Environment22>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the Acquirer.
     /// </summary>
-    [DataMember]
     public PartyIdentification263? Acquirer { get; init; } 
     /// <summary>
     /// Initiator of the process.
     /// </summary>
-    [DataMember]
     public PartyIdentification263? Originator { get; init; } 
     /// <summary>
     /// Party sending the message to another intermediary agent or to the destination.
     /// </summary>
-    [DataMember]
     public PartyIdentification263? Sender { get; init; } 
     /// <summary>
     /// Party receiving the message from the originator or another intermediary agent.
     /// </summary>
-    [DataMember]
     public PartyIdentification263? Receiver { get; init; } 
     /// <summary>
     /// Acceptor of the payment instrument.
     /// </summary>
-    [DataMember]
     public PartyIdentification254? Acceptor { get; init; } 
     /// <summary>
     /// The party providing source of funds.
     /// </summary>
-    [DataMember]
     public PartyIdentification257? Payer { get; init; } 
     /// <summary>
     /// The party receiving funds.
     /// </summary>
-    [DataMember]
     public PartyIdentification257? Payee { get; init; } 
     /// <summary>
     /// Payment terminal or ATM performing the transaction.
     /// </summary>
-    [DataMember]
     public Terminal4? Terminal { get; init; } 
     /// <summary>
     /// Information related to the issuer.
     /// </summary>
-    [DataMember]
     public PartyIdentification263? Issuer { get; init; } 
     /// <summary>
     /// Card or payment token performing the transaction.
     /// </summary>
-    [DataMember]
     public CardData8? Card { get; init; } 
     /// <summary>
     /// Destination of the message.
     /// </summary>
-    [DataMember]
     public PartyIdentification263? Destination { get; init; } 
     /// <summary>
     /// Details of the customer device.
     /// </summary>
-    [DataMember]
     public CustomerDevice4? CustomerDevice { get; init; } 
     /// <summary>
     /// Container for tenders used by the customer to perform the payment transaction.
     /// </summary>
-    [DataMember]
     public Wallet2? Wallet { get; init; } 
     /// <summary>
     /// Details of payment token.
     /// </summary>
-    [DataMember]
     public Token3? Token { get; init; } 
     /// <summary>
     /// Cardholder performing the card payment transaction.
     /// </summary>
-    [DataMember]
     public Cardholder19? Cardholder { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Acquirer is PartyIdentification263 AcquirerValue)
+        {
+            writer.WriteStartElement(null, "Acqrr", xmlNamespace );
+            AcquirerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Originator is PartyIdentification263 OriginatorValue)
+        {
+            writer.WriteStartElement(null, "Orgtr", xmlNamespace );
+            OriginatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Sender is PartyIdentification263 SenderValue)
+        {
+            writer.WriteStartElement(null, "Sndr", xmlNamespace );
+            SenderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Receiver is PartyIdentification263 ReceiverValue)
+        {
+            writer.WriteStartElement(null, "Rcvr", xmlNamespace );
+            ReceiverValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Acceptor is PartyIdentification254 AcceptorValue)
+        {
+            writer.WriteStartElement(null, "Accptr", xmlNamespace );
+            AcceptorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Payer is PartyIdentification257 PayerValue)
+        {
+            writer.WriteStartElement(null, "Pyer", xmlNamespace );
+            PayerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Payee is PartyIdentification257 PayeeValue)
+        {
+            writer.WriteStartElement(null, "Pyee", xmlNamespace );
+            PayeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Terminal is Terminal4 TerminalValue)
+        {
+            writer.WriteStartElement(null, "Termnl", xmlNamespace );
+            TerminalValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Issuer is PartyIdentification263 IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            IssuerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Card is CardData8 CardValue)
+        {
+            writer.WriteStartElement(null, "Card", xmlNamespace );
+            CardValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Destination is PartyIdentification263 DestinationValue)
+        {
+            writer.WriteStartElement(null, "Dstn", xmlNamespace );
+            DestinationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CustomerDevice is CustomerDevice4 CustomerDeviceValue)
+        {
+            writer.WriteStartElement(null, "CstmrDvc", xmlNamespace );
+            CustomerDeviceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Wallet is Wallet2 WalletValue)
+        {
+            writer.WriteStartElement(null, "Wllt", xmlNamespace );
+            WalletValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Token is Token3 TokenValue)
+        {
+            writer.WriteStartElement(null, "Tkn", xmlNamespace );
+            TokenValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Cardholder is Cardholder19 CardholderValue)
+        {
+            writer.WriteStartElement(null, "Crdhldr", xmlNamespace );
+            CardholderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Environment22 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

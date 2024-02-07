@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Diagnosis Response message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DiagnosisResponse4
+     : IIsoXmlSerilizable<DiagnosisResponse4>
 {
     #nullable enable
     
     /// <summary>
     /// Sale Terminal logged to.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> LoggedSaleIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? LoggedSaleIdentification { get; init; } 
     /// <summary>
     /// Status of the POI.
     /// </summary>
-    [DataMember]
     public StatusReportContent11? POIStatus { get; init; } 
     /// <summary>
     /// State of a Host.
     /// </summary>
-    [DataMember]
-    public ValueList<HostStatus1> HostStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    public HostStatus1? HostStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (LoggedSaleIdentification is IsoMax35Text LoggedSaleIdentificationValue)
+        {
+            writer.WriteStartElement(null, "LggdSaleId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(LoggedSaleIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (POIStatus is StatusReportContent11 POIStatusValue)
+        {
+            writer.WriteStartElement(null, "POISts", xmlNamespace );
+            POIStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (HostStatus is HostStatus1 HostStatusValue)
+        {
+            writer.WriteStartElement(null, "HstSts", xmlNamespace );
+            HostStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DiagnosisResponse4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

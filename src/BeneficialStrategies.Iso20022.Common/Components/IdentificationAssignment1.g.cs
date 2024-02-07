@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements that identify the identification assignment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IdentificationAssignment1
+     : IIsoXmlSerilizable<IdentificationAssignment1>
 {
     #nullable enable
     
@@ -23,28 +24,58 @@ public partial record IdentificationAssignment1
     /// Point to point reference, as assigned by the assigner, and sent to the next party in the chain to unambiguously identify the message.
     /// Usage: The assigner has to make sure that MessageIdentification is unique per assignee for a pre-agreed period.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the identification assignment was created.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Party that created the identification assignment.
     /// </summary>
-    [DataMember]
     public Party7Choice_? Creator { get; init; } 
     /// <summary>
     /// Party that assigns the identification assignment to another party. This is also the sender of the message.
     /// </summary>
-    [DataMember]
     public required Party7Choice_ Assigner { get; init; } 
     /// <summary>
     /// Party that the identification assignment is assigned to. This is also the receiver of the message.
     /// </summary>
-    [DataMember]
     public required Party7Choice_ Assignee { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (Creator is Party7Choice_ CreatorValue)
+        {
+            writer.WriteStartElement(null, "Cretr", xmlNamespace );
+            CreatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Assgnr", xmlNamespace );
+        Assigner.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Assgne", xmlNamespace );
+        Assignee.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static IdentificationAssignment1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

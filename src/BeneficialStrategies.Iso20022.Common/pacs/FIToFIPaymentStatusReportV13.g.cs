@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.pacs.FIToFIPaymentStatusReportV13>;
 
 namespace BeneficialStrategies.Iso20022.pacs;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.pacs;
 /// The FIToFIPaymentStatusReport may also be sent to the receiver of the payment in a real time payment scenario, as both sides of the transactions must be informed of the status of the transaction (for example either the beneficiary is credited, or the transaction is rejected).
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The FIToFIPaymentStatusReport message is sent by an instructed agent to the previous party in the payment chain. It is used to inform this party about the positive or negative status of an instruction (either single or file). It is also used to report on a pending instruction.|Usage|The FIToFIPaymentStatusReport message is exchanged between agents to provide status information about instructions previously sent. Its usage will always be governed by a bilateral agreement between the agents.|The FIToFIPaymentStatusReport message can be used to provide information about the status (e.g. rejection, acceptance) of a credit transfer instruction, a direct debit instruction, as well as other intra-agent instructions (for example FIToFIPaymentCancellationRequest).|The FIToFIPaymentStatusReport message refers to the original instruction(s) by means of references only or by means of references and a set of elements from the original instruction.|The FIToFIPaymentStatusReport message can be used in domestic and cross-border scenarios.|The FIToFIPaymentStatusReport may also be sent to the receiver of the payment in a real time payment scenario, as both sides of the transactions must be informed of the status of the transaction (for example either the beneficiary is credited, or the transaction is rejected).")]
-public partial record FIToFIPaymentStatusReportV13 : IOuterRecord
+public partial record FIToFIPaymentStatusReportV13 : IOuterRecord<FIToFIPaymentStatusReportV13,FIToFIPaymentStatusReportV13Document>
+    ,IIsoXmlSerilizable<FIToFIPaymentStatusReportV13>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record FIToFIPaymentStatusReportV13 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "FIToFIPmtStsRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => FIToFIPaymentStatusReportV13Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -91,6 +98,44 @@ public partial record FIToFIPaymentStatusReportV13 : IOuterRecord
     {
         return new FIToFIPaymentStatusReportV13Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("FIToFIPmtStsRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
+        GroupHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OriginalGroupInformationAndStatus is OriginalGroupHeader17 OriginalGroupInformationAndStatusValue)
+        {
+            writer.WriteStartElement(null, "OrgnlGrpInfAndSts", xmlNamespace );
+            OriginalGroupInformationAndStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionInformationAndStatus is PaymentTransaction142 TransactionInformationAndStatusValue)
+        {
+            writer.WriteStartElement(null, "TxInfAndSts", xmlNamespace );
+            TransactionInformationAndStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FIToFIPaymentStatusReportV13 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -98,9 +143,7 @@ public partial record FIToFIPaymentStatusReportV13 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FIToFIPaymentStatusReportV13"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record FIToFIPaymentStatusReportV13Document : IOuterDocument<FIToFIPaymentStatusReportV13>
+public partial record FIToFIPaymentStatusReportV13Document : IOuterDocument<FIToFIPaymentStatusReportV13>, IXmlSerializable
 {
     
     /// <summary>
@@ -116,5 +159,22 @@ public partial record FIToFIPaymentStatusReportV13Document : IOuterDocument<FITo
     /// <summary>
     /// The instance of <seealso cref="FIToFIPaymentStatusReportV13"/> is required.
     /// </summary>
+    [DataMember(Name=FIToFIPaymentStatusReportV13.XmlTag)]
     public required FIToFIPaymentStatusReportV13 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(FIToFIPaymentStatusReportV13.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

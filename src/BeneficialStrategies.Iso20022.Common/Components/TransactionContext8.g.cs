@@ -7,89 +7,177 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Context of the card payment transaction
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionContext8
+     : IIsoXmlSerilizable<TransactionContext8>
 {
     #nullable enable
     
     /// <summary>
     /// Category code related to the type of services or goods the merchant provides for the transaction in accordance with ISO 18245.
     /// </summary>
-    [DataMember]
     public ISO18245MerchantCategoryCode? MerchantCategoryCode { get; init; } 
     /// <summary>
     /// Further details about the merchant that is used in with the merchant category code (MCC) for the particular purchase.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MerchantCategorySpecificData { get; init; } 
     /// <summary>
     /// Specifies the initiator of the fee collection message. 
     /// </summary>
-    [DataMember]
     public FeeCollectionInitiator1Code? FeeCollectionInitiator { get; init; } 
     /// <summary>
     /// Identifies the transaction initiator.
     /// </summary>
-    [DataMember]
     public TransactionInitiator1Code? TransactionInitiator { get; init; } 
     /// <summary>
     /// Indicates the partial shipment.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? PartialShipmentIndicator { get; init; } 
     /// <summary>
     /// Indicates a delayed charge.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? DelayedChargesIndicator { get; init; } 
     /// <summary>
     /// Indicates that the cardholder failed to arrive at the property and was therefore charged a no-show fee; property was not actually rented. 
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? NoShowIndicator { get; init; } 
     /// <summary>
     /// Indicates a reauthorisation.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ReauthorisationIndicator { get; init; } 
     /// <summary>
     /// Indicates a resubmission. 
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ReSubmissionIndicator { get; init; } 
     /// <summary>
     /// Card programme or brand related to the transaction.
     /// ISO 8583:87 bit 24
     /// </summary>
-    [DataMember]
     public CardProgrammeMode3? CardProgrammeApplied { get; init; } 
     /// <summary>
     /// Contains information that identifies or is specific to a transaction jurisdiction.
     /// </summary>
-    [DataMember]
     public Jurisdiction2? Jurisdiction { get; init; } 
     /// <summary>
     /// Type of settlement service for specific services requiring settlement.
     /// </summary>
-    [DataMember]
     public SettlementService4? SettlementService { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period between the acquirer and the issuer or their respective agents.
     /// </summary>
-    [DataMember]
     public Reconciliation3? Reconciliation { get; init; } 
     /// <summary>
     /// Additional transaction context data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MerchantCategoryCode is ISO18245MerchantCategoryCode MerchantCategoryCodeValue)
+        {
+            writer.WriteStartElement(null, "MrchntCtgyCd", xmlNamespace );
+            writer.WriteValue(MerchantCategoryCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MerchantCategorySpecificData is IsoMax35Text MerchantCategorySpecificDataValue)
+        {
+            writer.WriteStartElement(null, "MrchntCtgySpcfcData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MerchantCategorySpecificDataValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (FeeCollectionInitiator is FeeCollectionInitiator1Code FeeCollectionInitiatorValue)
+        {
+            writer.WriteStartElement(null, "FeeColltnInitr", xmlNamespace );
+            writer.WriteValue(FeeCollectionInitiatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TransactionInitiator is TransactionInitiator1Code TransactionInitiatorValue)
+        {
+            writer.WriteStartElement(null, "TxInitr", xmlNamespace );
+            writer.WriteValue(TransactionInitiatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PartialShipmentIndicator is IsoTrueFalseIndicator PartialShipmentIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PrtlShipmntInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(PartialShipmentIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (DelayedChargesIndicator is IsoTrueFalseIndicator DelayedChargesIndicatorValue)
+        {
+            writer.WriteStartElement(null, "DelydChrgsInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DelayedChargesIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (NoShowIndicator is IsoTrueFalseIndicator NoShowIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NoShowInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(NoShowIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ReauthorisationIndicator is IsoTrueFalseIndicator ReauthorisationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ReauthstnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ReauthorisationIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ReSubmissionIndicator is IsoTrueFalseIndicator ReSubmissionIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ReSubmissnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ReSubmissionIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CardProgrammeApplied is CardProgrammeMode3 CardProgrammeAppliedValue)
+        {
+            writer.WriteStartElement(null, "CardPrgrmmApld", xmlNamespace );
+            CardProgrammeAppliedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Jurisdiction is Jurisdiction2 JurisdictionValue)
+        {
+            writer.WriteStartElement(null, "Jursdctn", xmlNamespace );
+            JurisdictionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementService is SettlementService4 SettlementServiceValue)
+        {
+            writer.WriteStartElement(null, "SttlmSvc", xmlNamespace );
+            SettlementServiceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Reconciliation is Reconciliation3 ReconciliationValue)
+        {
+            writer.WriteStartElement(null, "Rcncltn", xmlNamespace );
+            ReconciliationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionContext8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

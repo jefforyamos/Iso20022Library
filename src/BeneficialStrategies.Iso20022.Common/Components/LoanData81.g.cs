@@ -7,98 +7,196 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the loan data details in case of a repurchase trade transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LoanData81
+     : IIsoXmlSerilizable<LoanData81>
 {
     #nullable enable
     
     /// <summary>
     /// Unique Trade Identifier (UTI) as agreed with the other counterparty.
     /// </summary>
-    [DataMember]
     public IsoMax52Text? UniqueTradeIdentifier { get; init; } 
     /// <summary>
     /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
     /// </summary>
-    [DataMember]
     public IsoISODate? EventDate { get; init; } 
     /// <summary>
     /// Indicates the date and time when the contract was executed.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ExecutionDateTime { get; init; } 
     /// <summary>
     /// Indicates whether clearing of contract has taken place.
     /// </summary>
-    [DataMember]
     public Cleared10Choice_? ClearingStatus { get; init; } 
     /// <summary>
     /// Identification of the trading venue where the transaction was executed.
     /// </summary>
-    [DataMember]
     public IsoMICIdentifier? TradingVenue { get; init; } 
     /// <summary>
     /// Reference to master agreement under which the counterparties concluded a documented transaction.
     /// </summary>
-    [DataMember]
     public MasterAgreement6? MasterAgreement { get; init; } 
     /// <summary>
     /// Date on which the counterparties contractually agree the exchange of securities or commodities versus collateral for the opening leg (spot leg) of the secured financing transaction. In the case of rollover of transaction open term, this is the date on which the rollover settles, even if no exchange of cash takes place.
     /// </summary>
-    [DataMember]
     public IsoISODate? ValueDate { get; init; } 
     /// <summary>
     /// Minimum number of business days that one of the counterparties has to inform about the termination of the transaction.
     /// </summary>
-    [DataMember]
     public IsoMax20PositiveNumber? MinimumNoticePeriod { get; init; } 
     /// <summary>
     /// Earliest date that the cash lender has the right to call back a portion of the amount of money or to terminate the transaction.
     /// </summary>
-    [DataMember]
     public IsoISODate? EarliestCallBackDate { get; init; } 
     /// <summary>
     /// Indication whether the secured financing transaction is subject to a general or special collateral arrangement.
     /// </summary>
-    [DataMember]
     public SpecialCollateral1Code? GeneralCollateral { get; init; } 
     /// <summary>
     /// Indicates whether the transaction was settled using the Delivery-by-Value (DBV) mechanism.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? DeliveryByValue { get; init; } 
     /// <summary>
     /// Delivery method of the collateral.
     /// </summary>
-    [DataMember]
     public CollateralDeliveryMethod1Code? CollateralDeliveryMethod { get; init; } 
     /// <summary>
     /// Period before or at the end of which the loan should be repaid or renegotiated for another term. 
     /// </summary>
-    [DataMember]
-    public ValueList<ContractTerm3Choice_> Term { get; init; } = []; // Warning: Don't know multiplicity.
+    public ContractTerm3Choice_? Term { get; init; } 
     /// <summary>
     /// Interest rate of the loan.
     /// </summary>
-    [DataMember]
     public InterestRate20Choice_? InterestRate { get; init; } 
     /// <summary>
     /// Amount of money to be settled as of the start date and maturity date of the transaction.
     /// </summary>
-    [DataMember]
     public PrincipalAmount2? PrincipalAmount { get; init; } 
     /// <summary>
     /// Termination date in the case of a full early termination of the SFT.
     /// </summary>
-    [DataMember]
     public IsoISODate? TerminationDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (UniqueTradeIdentifier is IsoMax52Text UniqueTradeIdentifierValue)
+        {
+            writer.WriteStartElement(null, "UnqTradIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(UniqueTradeIdentifierValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+        if (EventDate is IsoISODate EventDateValue)
+        {
+            writer.WriteStartElement(null, "EvtDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(EventDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ExecutionDateTime is IsoISODateTime ExecutionDateTimeValue)
+        {
+            writer.WriteStartElement(null, "ExctnDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ExecutionDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ClearingStatus is Cleared10Choice_ ClearingStatusValue)
+        {
+            writer.WriteStartElement(null, "ClrSts", xmlNamespace );
+            ClearingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradingVenue is IsoMICIdentifier TradingVenueValue)
+        {
+            writer.WriteStartElement(null, "TradgVn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(TradingVenueValue)); // data type MICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (MasterAgreement is MasterAgreement6 MasterAgreementValue)
+        {
+            writer.WriteStartElement(null, "MstrAgrmt", xmlNamespace );
+            MasterAgreementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValueDate is IsoISODate ValueDateValue)
+        {
+            writer.WriteStartElement(null, "ValDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ValueDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (MinimumNoticePeriod is IsoMax20PositiveNumber MinimumNoticePeriodValue)
+        {
+            writer.WriteStartElement(null, "MinNtcePrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax20PositiveNumber(MinimumNoticePeriodValue)); // data type Max20PositiveNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (EarliestCallBackDate is IsoISODate EarliestCallBackDateValue)
+        {
+            writer.WriteStartElement(null, "EarlstCallBckDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(EarliestCallBackDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (GeneralCollateral is SpecialCollateral1Code GeneralCollateralValue)
+        {
+            writer.WriteStartElement(null, "GnlColl", xmlNamespace );
+            writer.WriteValue(GeneralCollateralValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DeliveryByValue is IsoTrueFalseIndicator DeliveryByValueValue)
+        {
+            writer.WriteStartElement(null, "DlvryByVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DeliveryByValueValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CollateralDeliveryMethod is CollateralDeliveryMethod1Code CollateralDeliveryMethodValue)
+        {
+            writer.WriteStartElement(null, "CollDlvryMtd", xmlNamespace );
+            writer.WriteValue(CollateralDeliveryMethodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Term is ContractTerm3Choice_ TermValue)
+        {
+            writer.WriteStartElement(null, "Term", xmlNamespace );
+            TermValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestRate is InterestRate20Choice_ InterestRateValue)
+        {
+            writer.WriteStartElement(null, "IntrstRate", xmlNamespace );
+            InterestRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PrincipalAmount is PrincipalAmount2 PrincipalAmountValue)
+        {
+            writer.WriteStartElement(null, "PrncplAmt", xmlNamespace );
+            PrincipalAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TerminationDate is IsoISODate TerminationDateValue)
+        {
+            writer.WriteStartElement(null, "TermntnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(TerminationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static LoanData81 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

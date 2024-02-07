@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Capabilities of the terminal.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Capabilities1
+     : IIsoXmlSerilizable<Capabilities1>
 {
     #nullable enable
     
@@ -23,48 +24,40 @@ public partial record Capabilities1
     /// Card reading capabilities of the terminal performing the transaction.
     /// ISO 8583:93 bit 22-2; ISO 8583:2003 bit 27-1
     /// </summary>
-    [DataMember]
-    public ValueList<CardDataReading7Code> CardReadingCapability { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardDataReading7Code? CardReadingCapability { get; init; } 
     /// <summary>
     /// Other types of card reading capabilities.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> OtherCardReadingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? OtherCardReadingCapabilities { get; init; } 
     /// <summary>
     /// Card writing or output capabilities of the terminal performing the transaction.
     /// ISO 8583:93 bit 22-10, ISO 8583:2003 bit 27-8_9.
     /// </summary>
-    [DataMember]
-    public ValueList<CardDataWriting1Code> CardWritingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardDataWriting1Code? CardWritingCapabilities { get; init; } 
     /// <summary>
     /// Other card writing or output capabilities of the terminal performing the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> OtherCardWritingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? OtherCardWritingCapabilities { get; init; } 
     /// <summary>
     /// Maximum number of digits that the Point of Interaction is able to accept when the cardholder enters its PIN.
     /// ISO 8583:87 bit 26, ISO 8583:93 bit 22-12, ISO 8583:2003 bit 27-11.
     /// </summary>
-    [DataMember]
     public IsoNumber? PINLengthCapabilities { get; init; } 
     /// <summary>
     /// Maximum number of characters of the approval code that the acquirer is able to manage.
     /// ISO 8583:87 & 93 bit 27,  ISO 8583:2003-1 bit 27-3
     /// </summary>
-    [DataMember]
     public IsoNumber? ApprovalCodeLength { get; init; } 
     /// <summary>
     /// Maximum data length in bytes that a card issuer can return to the ICC at the terminal.
     /// ISO 8583:2003 bit 27-8
     /// </summary>
-    [DataMember]
     public IsoNumber? MaxScriptLength { get; init; } 
     /// <summary>
     /// PIN pad is inoperative.
     /// Default: False - PIN pad is operative or not applicable.
     /// True: PIN pas is inoperative.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? PINPadInoperative { get; init; } 
     /// <summary>
     /// Indicates whether the terminal can capture cards or not.
@@ -72,25 +65,110 @@ public partial record Capabilities1
     /// False: The terminal is not able to capture cards.
     /// ISO 8583:87 bit 25, ISO 8583:93 bit 22-3, ISO 8583:2003 bit 27-10.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CardCaptureCapable { get; init; } 
     /// <summary>
     /// Capability of the terminal to go online.
     /// </summary>
-    [DataMember]
     public OnLineCapability2Code? OnLineCapabilities { get; init; } 
     /// <summary>
     /// Capability of the terminal to display or print messages to the cardholder or the merchant.
     /// ISO 8583:93 bit 22-11, ISO 8583:2003-1 bit 27-4,5, 6, 7
     /// </summary>
-    [DataMember]
-    public ValueList<DisplayCapabilities6> MessageCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    public DisplayCapabilities6? MessageCapabilities { get; init; } 
     /// <summary>
     /// Cardholder verification capabilities performing the transaction at the point of service.
     /// ISO 8583:93 bit 22-2, ISO 8583:2003 bit 27-2
     /// </summary>
-    [DataMember]
-    public ValueList<CardholderVerificationCapabilities1> CardholderVerificationCapability { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardholderVerificationCapabilities1? CardholderVerificationCapability { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CardReadingCapability is CardDataReading7Code CardReadingCapabilityValue)
+        {
+            writer.WriteStartElement(null, "CardRdngCpblty", xmlNamespace );
+            writer.WriteValue(CardReadingCapabilityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherCardReadingCapabilities is IsoMax35Text OtherCardReadingCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "OthrCardRdngCpblties", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherCardReadingCapabilitiesValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CardWritingCapabilities is CardDataWriting1Code CardWritingCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "CardWrtgCpblties", xmlNamespace );
+            writer.WriteValue(CardWritingCapabilitiesValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherCardWritingCapabilities is IsoMax35Text OtherCardWritingCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "OthrCardWrtgCpblties", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherCardWritingCapabilitiesValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PINLengthCapabilities is IsoNumber PINLengthCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "PINLngthCpblties", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(PINLengthCapabilitiesValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (ApprovalCodeLength is IsoNumber ApprovalCodeLengthValue)
+        {
+            writer.WriteStartElement(null, "ApprvlCdLngth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(ApprovalCodeLengthValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (MaxScriptLength is IsoNumber MaxScriptLengthValue)
+        {
+            writer.WriteStartElement(null, "MxScrptLngth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MaxScriptLengthValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (PINPadInoperative is IsoTrueFalseIndicator PINPadInoperativeValue)
+        {
+            writer.WriteStartElement(null, "PINPadInprtv", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(PINPadInoperativeValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CardCaptureCapable is IsoTrueFalseIndicator CardCaptureCapableValue)
+        {
+            writer.WriteStartElement(null, "CardCaptrCpbl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CardCaptureCapableValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (OnLineCapabilities is OnLineCapability2Code OnLineCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "OnLineCpblties", xmlNamespace );
+            writer.WriteValue(OnLineCapabilitiesValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MessageCapabilities is DisplayCapabilities6 MessageCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "MsgCpblties", xmlNamespace );
+            MessageCapabilitiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CardholderVerificationCapability is CardholderVerificationCapabilities1 CardholderVerificationCapabilityValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrVrfctnCpblty", xmlNamespace );
+            CardholderVerificationCapabilityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Capabilities1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

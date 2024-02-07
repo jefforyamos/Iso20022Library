@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parties used for acting parties that apply either to the whole message or to individual sides.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ConfirmationPartyDetails12
+     : IIsoXmlSerilizable<ConfirmationPartyDetails12>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution, eg, Dun & Bradstreet Identification.
     /// </summary>
-    [DataMember]
     public required PartyIdentification240Choice_ Identification { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
-    [DataMember]
     public AlternatePartyIdentification8? AlternateIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction for the party identified.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ProcessingIdentification { get; init; } 
     /// <summary>
     /// Provides additional information to a party identification.
     /// </summary>
-    [DataMember]
     public PartyTextInformation5? AdditionalInformation { get; init; } 
     /// <summary>
     /// Capacity of customer placing the order. Primarily used by futures exchanges to indicate the CTI code (customer type indicator) as required by the US CFTC (Commodity Futures Trading Commission).
     /// </summary>
-    [DataMember]
     public InvestorCapacity4Choice_? InvestorCapacity { get; init; } 
     /// <summary>
     /// Capacity of customer placing the order. Primarily used by futures exchanges to indicate the CTI code (customer type indicator) as required by the US CFTC (Commodity Futures Trading Commission).
     /// </summary>
-    [DataMember]
     public TradingPartyCapacity4Choice_? TradingPartyCapacity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AlternateIdentification is AlternatePartyIdentification8 AlternateIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AltrnId", xmlNamespace );
+            AlternateIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProcessingIdentification is IsoMax35Text ProcessingIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrcgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProcessingIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is PartyTextInformation5 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestorCapacity is InvestorCapacity4Choice_ InvestorCapacityValue)
+        {
+            writer.WriteStartElement(null, "InvstrCpcty", xmlNamespace );
+            InvestorCapacityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradingPartyCapacity is TradingPartyCapacity4Choice_ TradingPartyCapacityValue)
+        {
+            writer.WriteStartElement(null, "TradgPtyCpcty", xmlNamespace );
+            TradingPartyCapacityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ConfirmationPartyDetails12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

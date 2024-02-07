@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Key exchange transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardTransaction14
+     : IIsoXmlSerilizable<CardTransaction14>
 {
     #nullable enable
     
     /// <summary>
     /// Type of key exchange.
     /// </summary>
-    [DataMember]
     public required CardServiceType3Code KeyExchangeType { get; init; } 
     /// <summary>
     /// Date and time of the transaction.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime InitiatorDateTime { get; init; } 
     /// <summary>
     /// Key that has been verified.
     /// </summary>
-    [DataMember]
-    public ValueList<KEKIdentifier3> KeyVerification { get; init; } = []; // Warning: Don't know multiplicity.
+    public KEKIdentifier3? KeyVerification { get; init; } 
     /// <summary>
     /// Created key to be stored.
     /// </summary>
-    [DataMember]
-    public ValueList<CryptographicKey6> Key { get; init; } = []; // Warning: Don't know multiplicity.
+    public CryptographicKey6? Key { get; init; } 
     /// <summary>
     /// Response to the key exchange request.
     /// </summary>
-    [DataMember]
     public required ResponseType2 TransactionResponse { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "KeyXchgTp", xmlNamespace );
+        writer.WriteValue(KeyExchangeType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InitrDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(InitiatorDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (KeyVerification is KEKIdentifier3 KeyVerificationValue)
+        {
+            writer.WriteStartElement(null, "KeyVrfctn", xmlNamespace );
+            KeyVerificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Key is CryptographicKey6 KeyValue)
+        {
+            writer.WriteStartElement(null, "Key", xmlNamespace );
+            KeyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxRspn", xmlNamespace );
+        TransactionResponse.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CardTransaction14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

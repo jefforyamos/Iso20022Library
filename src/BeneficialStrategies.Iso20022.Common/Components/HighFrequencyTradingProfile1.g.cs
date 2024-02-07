@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a high frequency trading profile.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record HighFrequencyTradingProfile1
+     : IIsoXmlSerilizable<HighFrequencyTradingProfile1>
 {
     #nullable enable
     
     /// <summary>
     /// Date on which the investor starts high frequency trading.
     /// </summary>
-    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// Frequency of settlement.
     /// </summary>
-    [DataMember]
     public SettlementFrequency1Choice_? SettlementFrequency { get; init; } 
     /// <summary>
     /// Specifies whether consolidation is done generally or at the level of segregated account.
     /// </summary>
-    [DataMember]
     public ConsolidationType1Choice_? ConsolidationType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Date is IsoISODate DateValue)
+        {
+            writer.WriteStartElement(null, "Dt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SettlementFrequency is SettlementFrequency1Choice_ SettlementFrequencyValue)
+        {
+            writer.WriteStartElement(null, "SttlmFrqcy", xmlNamespace );
+            SettlementFrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ConsolidationType is ConsolidationType1Choice_ ConsolidationTypeValue)
+        {
+            writer.WriteStartElement(null, "CnsldtnTp", xmlNamespace );
+            ConsolidationTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static HighFrequencyTradingProfile1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

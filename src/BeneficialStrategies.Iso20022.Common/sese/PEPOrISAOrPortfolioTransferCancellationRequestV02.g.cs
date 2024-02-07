@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.PEPOrISAOrPortfolioTransferCancellationRequestV02>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// The message identification of the PEPOrISAOrPortfolioTransferInstruction may also be quoted in PreviousReference. It is also possible to request the cancellation of PEPOrISAOrPortfolioTransferInstruction by just quoting its message identification in PreviousReference.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An instructing party, eg, a (new) plan manager, sends the PEPOrISAOrPortfolioTransferCancellationRequest message to the executing party, eg, a (old) plan manager, to request the cancellation of a previously sent PEPOrISAOrPortfolioTransferInstruction.|Usage|The PEPOrISAOrPortfolioTransferCancellationRequest message is used to request the cancellation of an entire PEPOrISAOrPortfolioTransferInstruction message, ie, all the product transfers that it contained. The cancellation request can be specified either by:|- quoting the transfer references of all the product transfers listed in the PEPOrISAOrPortfolioTransferInstruction message, or,|- quoting the details of all the product transfers (this includes TransferReference) listed in PEPOrISAOrPortfolioTransferInstruction message.|The message identification of the PEPOrISAOrPortfolioTransferInstruction may also be quoted in PreviousReference. It is also possible to request the cancellation of PEPOrISAOrPortfolioTransferInstruction by just quoting its message identification in PreviousReference.")]
-public partial record PEPOrISAOrPortfolioTransferCancellationRequestV02 : IOuterRecord
+public partial record PEPOrISAOrPortfolioTransferCancellationRequestV02 : IOuterRecord<PEPOrISAOrPortfolioTransferCancellationRequestV02,PEPOrISAOrPortfolioTransferCancellationRequestV02Document>
+    ,IIsoXmlSerilizable<PEPOrISAOrPortfolioTransferCancellationRequestV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record PEPOrISAOrPortfolioTransferCancellationRequestV02 : IOuter
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "PEPOrISAOrPrtflTrfCxlReqV02";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => PEPOrISAOrPortfolioTransferCancellationRequestV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -108,6 +115,56 @@ public partial record PEPOrISAOrPortfolioTransferCancellationRequestV02 : IOuter
     {
         return new PEPOrISAOrPortfolioTransferCancellationRequestV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("PEPOrISAOrPrtflTrfCxlReqV02");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgRef", xmlNamespace );
+        MessageReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PoolReference is AdditionalReference3 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousReference is AdditionalReference3 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference3 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CancellationByTransferInstructionDetails is PEPISATransfer7 CancellationByTransferInstructionDetailsValue)
+        {
+            writer.WriteStartElement(null, "CxlByTrfInstrDtls", xmlNamespace );
+            CancellationByTransferInstructionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CancellationByReference is TransferReference3 CancellationByReferenceValue)
+        {
+            writer.WriteStartElement(null, "CxlByRef", xmlNamespace );
+            CancellationByReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PEPOrISAOrPortfolioTransferCancellationRequestV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -115,9 +172,7 @@ public partial record PEPOrISAOrPortfolioTransferCancellationRequestV02 : IOuter
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PEPOrISAOrPortfolioTransferCancellationRequestV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record PEPOrISAOrPortfolioTransferCancellationRequestV02Document : IOuterDocument<PEPOrISAOrPortfolioTransferCancellationRequestV02>
+public partial record PEPOrISAOrPortfolioTransferCancellationRequestV02Document : IOuterDocument<PEPOrISAOrPortfolioTransferCancellationRequestV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -133,5 +188,22 @@ public partial record PEPOrISAOrPortfolioTransferCancellationRequestV02Document 
     /// <summary>
     /// The instance of <seealso cref="PEPOrISAOrPortfolioTransferCancellationRequestV02"/> is required.
     /// </summary>
+    [DataMember(Name=PEPOrISAOrPortfolioTransferCancellationRequestV02.XmlTag)]
     public required PEPOrISAOrPortfolioTransferCancellationRequestV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(PEPOrISAOrPortfolioTransferCancellationRequestV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

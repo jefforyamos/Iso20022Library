@@ -7,88 +7,170 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Valuation information of the portfolio.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TotalPortfolioValuation1
+     : IIsoXmlSerilizable<TotalPortfolioValuation1>
 {
     #nullable enable
     
     /// <summary>
     /// Total value of the portfolio (sum of the assets, liabilities and unrealised gain/loss) calculated according to the accounting rules.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection30 TotalPortfolioValue { get; init; } 
     /// <summary>
     /// Previous total value of the portfolio.
     /// </summary>
-    [DataMember]
     public AmountAndDirection30? PreviousTotalPortfolioValue { get; init; } 
     /// <summary>
     /// Difference or change between the previous total portfolio value and the current total portfolio value.
     /// </summary>
-    [DataMember]
     public AmountAndRate2? TotalPortfolioValueChange { get; init; } 
     /// <summary>
     /// Net asset on balance sheet - total portfolio value minus or plus the unrealised gain or loss.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection30 TotalBookValue { get; init; } 
     /// <summary>
     /// Previous net asset on balance sheet.
     /// </summary>
-    [DataMember]
     public AmountAndDirection30? PreviousTotalBookValue { get; init; } 
     /// <summary>
     /// Difference or change between the previous net asset on balance sheet and the current net asset on balance sheet.
     /// </summary>
-    [DataMember]
     public AmountAndRate2? TotalBookValueChange { get; init; } 
     /// <summary>
     /// Total receipts attributable to the portfolio.
     /// </summary>
-    [DataMember]
     public AmountAndDirection30? TotalReceipts { get; init; } 
     /// <summary>
     /// Total disbursements attributable to the portfolio.
     /// </summary>
-    [DataMember]
     public AmountAndDirection30? TotalDisbursements { get; init; } 
     /// <summary>
     /// Income attributable to the portfolio.
     /// </summary>
-    [DataMember]
     public AmountAndDirection30? IncomeReceived { get; init; } 
     /// <summary>
     /// Expenses attributable to the portfolio.
     /// </summary>
-    [DataMember]
     public AmountAndDirection30? ExpensesPaid { get; init; } 
     /// <summary>
     /// Difference between the holding value and the book value of the portfolio.
     /// </summary>
-    [DataMember]
     public AmountAndDirection31? UnrealisedGainOrLoss { get; init; } 
     /// <summary>
     /// Difference between the realised value caused by the actual trade/re-evaluation and the book value of the portfolio.
     /// </summary>
-    [DataMember]
     public AmountAndDirection31? RealisedGainOrLoss { get; init; } 
     /// <summary>
     /// Accrued income.
     /// </summary>
-    [DataMember]
     public AmountAndDirection30? AccruedIncome { get; init; } 
     /// <summary>
     /// Valuation information of the investment fund or investment fund share class.
     /// </summary>
-    [DataMember]
-    public ValueList<InvestmentFund1> InvestmentFundDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public InvestmentFund1? InvestmentFundDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TtlPrtflVal", xmlNamespace );
+        TotalPortfolioValue.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PreviousTotalPortfolioValue is AmountAndDirection30 PreviousTotalPortfolioValueValue)
+        {
+            writer.WriteStartElement(null, "PrvsTtlPrtflVal", xmlNamespace );
+            PreviousTotalPortfolioValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalPortfolioValueChange is AmountAndRate2 TotalPortfolioValueChangeValue)
+        {
+            writer.WriteStartElement(null, "TtlPrtflValChng", xmlNamespace );
+            TotalPortfolioValueChangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TtlBookVal", xmlNamespace );
+        TotalBookValue.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PreviousTotalBookValue is AmountAndDirection30 PreviousTotalBookValueValue)
+        {
+            writer.WriteStartElement(null, "PrvsTtlBookVal", xmlNamespace );
+            PreviousTotalBookValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalBookValueChange is AmountAndRate2 TotalBookValueChangeValue)
+        {
+            writer.WriteStartElement(null, "TtlBookValChng", xmlNamespace );
+            TotalBookValueChangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalReceipts is AmountAndDirection30 TotalReceiptsValue)
+        {
+            writer.WriteStartElement(null, "TtlRcts", xmlNamespace );
+            TotalReceiptsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalDisbursements is AmountAndDirection30 TotalDisbursementsValue)
+        {
+            writer.WriteStartElement(null, "TtlDsbrsmnts", xmlNamespace );
+            TotalDisbursementsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IncomeReceived is AmountAndDirection30 IncomeReceivedValue)
+        {
+            writer.WriteStartElement(null, "IncmRcvd", xmlNamespace );
+            IncomeReceivedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExpensesPaid is AmountAndDirection30 ExpensesPaidValue)
+        {
+            writer.WriteStartElement(null, "ExpnssPd", xmlNamespace );
+            ExpensesPaidValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnrealisedGainOrLoss is AmountAndDirection31 UnrealisedGainOrLossValue)
+        {
+            writer.WriteStartElement(null, "UrlsdGnOrLoss", xmlNamespace );
+            UnrealisedGainOrLossValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RealisedGainOrLoss is AmountAndDirection31 RealisedGainOrLossValue)
+        {
+            writer.WriteStartElement(null, "RealsdGnOrLoss", xmlNamespace );
+            RealisedGainOrLossValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccruedIncome is AmountAndDirection30 AccruedIncomeValue)
+        {
+            writer.WriteStartElement(null, "AcrdIncm", xmlNamespace );
+            AccruedIncomeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestmentFundDetails is InvestmentFund1 InvestmentFundDetailsValue)
+        {
+            writer.WriteStartElement(null, "InvstmtFndDtls", xmlNamespace );
+            InvestmentFundDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TotalPortfolioValuation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

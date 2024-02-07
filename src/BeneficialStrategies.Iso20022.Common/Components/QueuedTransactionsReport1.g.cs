@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment funds transfer instructions from intraday queue.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record QueuedTransactionsReport1
+     : IIsoXmlSerilizable<QueuedTransactionsReport1>
 {
     #nullable enable
     
     /// <summary>
     /// List of queue names/ identifiers.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text QueueType { get; init; } 
     /// <summary>
     /// Number of transactions in the queue.
     /// </summary>
-    [DataMember]
     public IsoNumber? NumberOfTransactions { get; init; } 
     /// <summary>
     /// Total amount of transactions in a given queue.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalAmount { get; init; } 
     /// <summary>
     /// Transaction details sorted by counterparty account.
     /// </summary>
-    [DataMember]
-    public ValueList<QueueTransaction1> BreakdownByCounterparty { get; init; } = []; // Warning: Don't know multiplicity.
+    public QueueTransaction1? BreakdownByCounterparty { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "QTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(QueueType)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (NumberOfTransactions is IsoNumber NumberOfTransactionsValue)
+        {
+            writer.WriteStartElement(null, "NbOfTxs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfTransactionsValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (BreakdownByCounterparty is QueueTransaction1 BreakdownByCounterpartyValue)
+        {
+            writer.WriteStartElement(null, "BrkdwnByCtrPty", xmlNamespace );
+            BreakdownByCounterpartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static QueuedTransactionsReport1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

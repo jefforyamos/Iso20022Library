@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// General information about the corporate action event.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionGeneralInformation115
+     : IIsoXmlSerilizable<CorporateActionGeneralInformation115>
 {
     #nullable enable
     
     /// <summary>
     /// Reference assigned by the account servicer to unambiguously identify a corporate action event.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINXMax16Text CorporateActionEventIdentification { get; init; } 
     /// <summary>
     /// Official and unique reference assigned by the official central body/entity within each market at the beginning of a corporate action event.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax16Text? OfficialCorporateActionEventIdentification { get; init; } 
     /// <summary>
     /// Type of corporate action event.
     /// </summary>
-    [DataMember]
     public required CorporateActionEventType58Choice_ EventType { get; init; } 
     /// <summary>
     /// Security concerned by the corporate action.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentAttributes84? UnderlyingSecurity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CorpActnEvtId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(CorporateActionEventIdentification)); // data type RestrictedFINXMax16Text System.String
+        writer.WriteEndElement();
+        if (OfficialCorporateActionEventIdentification is IsoRestrictedFINXMax16Text OfficialCorporateActionEventIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OffclCorpActnEvtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(OfficialCorporateActionEventIdentificationValue)); // data type RestrictedFINXMax16Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "EvtTp", xmlNamespace );
+        EventType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (UnderlyingSecurity is FinancialInstrumentAttributes84 UnderlyingSecurityValue)
+        {
+            writer.WriteStartElement(null, "UndrlygScty", xmlNamespace );
+            UnderlyingSecurityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionGeneralInformation115 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

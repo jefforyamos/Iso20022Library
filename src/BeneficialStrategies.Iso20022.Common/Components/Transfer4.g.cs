@@ -7,58 +7,98 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Completion of a securities settlement instruction, wherein securities are delivered/debited from a securities account and received/credited to the designated securities account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Transfer4
+     : IIsoXmlSerilizable<Transfer4>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a transfer execution, as assigned by a confirming party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransferConfirmationReference { get; init; } 
     /// <summary>
     /// Reference that identifies the transfer in transaction.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransferReference { get; init; } 
     /// <summary>
     /// Date and optionally time at which a transaction is completed and cleared, ie, securities are delivered.
     /// </summary>
-    [DataMember]
     public required DateAndDateTimeChoice_ EffectiveTransferDate { get; init; } 
     /// <summary>
     /// Date when the transfer was received and processed.
     /// </summary>
-    [DataMember]
     public required IsoISODate TradeDate { get; init; } 
     /// <summary>
     /// Total quantity of securities settled.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1 TotalUnitsNumber { get; init; } 
     /// <summary>
     /// Information about the units to be transferred.
     /// </summary>
-    [DataMember]
-    public ValueList<Unit1> UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Unit1? UnitsDetails { get; init; } 
     /// <summary>
     /// Indicates whether the transfer results in a change of beneficial owner.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator OwnAccountTransferIndicator { get; init; } 
     /// <summary>
     /// Value of a security, as booked in an account. Book value is often different from the current market value of the security.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? AveragePrice { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TrfConfRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferConfirmationReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TrfRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FctvTrfDt", xmlNamespace );
+        EffectiveTransferDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(TradeDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlUnitsNb", xmlNamespace );
+        TotalUnitsNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (UnitsDetails is Unit1 UnitsDetailsValue)
+        {
+            writer.WriteStartElement(null, "UnitsDtls", xmlNamespace );
+            UnitsDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OwnAcctTrfInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OwnAccountTransferIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (AveragePrice is IsoActiveOrHistoricCurrencyAnd13DecimalAmount AveragePriceValue)
+        {
+            writer.WriteStartElement(null, "AvrgPric", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd13DecimalAmount(AveragePriceValue)); // data type ActiveOrHistoricCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static Transfer4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

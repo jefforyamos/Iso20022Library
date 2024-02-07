@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status is accepted under certain conditions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ConditionallyAcceptedStatus2
+     : IIsoXmlSerilizable<ConditionallyAcceptedStatus2>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates that there is no reason available or to report.
     /// </summary>
-    [DataMember]
     public required NoReasonCode NoSpecifiedReason { get; init; } 
     /// <summary>
     /// Reason for the conditionally accepted status.
     /// </summary>
-    [DataMember]
     public ValueList<ConditionallyAcceptedStatusReason2> ReasonDetails { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NoSpcfdRsn", xmlNamespace );
+        writer.WriteValue(NoSpecifiedReason.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RsnDtls", xmlNamespace );
+        ReasonDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ConditionallyAcceptedStatus2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

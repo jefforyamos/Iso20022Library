@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters used to report cash movements,eg, country code, currency code, BIC or a user defined parameter.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ForecastParameter2
+     : IIsoXmlSerilizable<ForecastParameter2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of parameter used for grouping the information in a report, eg, country code, currency code, BIC or a user defined parameter.
     /// </summary>
-    [DataMember]
     public required ReportParameter2Choice_ ReportParameter { get; init; } 
     /// <summary>
     /// Cash movement in to of a fund as a result of investment funds transactions, eg, subscriptions or switch-out.
     /// </summary>
-    [DataMember]
-    public ValueList<CashInForecast1> CashInForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashInForecast1? CashInForecastDetails { get; init; } 
     /// <summary>
     /// Cash movement out of a fund as a result of investment funds transactions, eg, redemptions or switch-out.
     /// </summary>
-    [DataMember]
-    public ValueList<CashOutForecast1> CashOutForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashOutForecast1? CashOutForecastDetails { get; init; } 
     /// <summary>
     /// Net cash movements to a fund as a result of investment funds transactions.
     /// </summary>
-    [DataMember]
-    public ValueList<NetCashForecast1> NetCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public NetCashForecast1? NetCashForecastDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptParam", xmlNamespace );
+        ReportParameter.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CashInForecastDetails is CashInForecast1 CashInForecastDetailsValue)
+        {
+            writer.WriteStartElement(null, "CshInFcstDtls", xmlNamespace );
+            CashInForecastDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashOutForecastDetails is CashOutForecast1 CashOutForecastDetailsValue)
+        {
+            writer.WriteStartElement(null, "CshOutFcstDtls", xmlNamespace );
+            CashOutForecastDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NetCashForecastDetails is NetCashForecast1 NetCashForecastDetailsValue)
+        {
+            writer.WriteStartElement(null, "NetCshFcstDtls", xmlNamespace );
+            NetCashForecastDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ForecastParameter2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

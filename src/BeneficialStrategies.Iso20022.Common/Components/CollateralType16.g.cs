@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information for the first side of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralType16
+     : IIsoXmlSerilizable<CollateralType16>
 {
     #nullable enable
     
     /// <summary>
     /// Data specific to securities and related fields used as a collateral.
     /// </summary>
-    [DataMember]
-    public ValueList<Security14> Security { get; init; } = []; // Warning: Don't know multiplicity.
+    public Security14? Security { get; init; } 
     /// <summary>
     /// Amount of funds provided as collateral for borrowing the securities or commodities.
     /// </summary>
-    [DataMember]
-    public ValueList<AmountHaircutMargin1> Cash { get; init; } = []; // Warning: Don't know multiplicity.
+    public AmountHaircutMargin1? Cash { get; init; } 
     /// <summary>
     /// Data specific to commodities and related fields used as a collateral.
     /// </summary>
-    [DataMember]
-    public ValueList<Commodity20> Commodity { get; init; } = []; // Warning: Don't know multiplicity.
+    public Commodity20? Commodity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Security is Security14 SecurityValue)
+        {
+            writer.WriteStartElement(null, "Scty", xmlNamespace );
+            SecurityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Cash is AmountHaircutMargin1 CashValue)
+        {
+            writer.WriteStartElement(null, "Csh", xmlNamespace );
+            CashValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Commodity is Commodity20 CommodityValue)
+        {
+            writer.WriteStartElement(null, "Cmmdty", xmlNamespace );
+            CommodityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralType16 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

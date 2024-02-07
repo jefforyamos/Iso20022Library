@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PartyOrBusinessError2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrBusinessError2Choice;
 /// Specifications of a party defined within a system.
 /// </summary>
 public partial record SystemParty : PartyOrBusinessError2Choice_
+     , IIsoXmlSerilizable<SystemParty>
 {
     #nullable enable
+    
     /// <summary>
     /// Specifies the opening date of the party.
     /// </summary>
@@ -30,11 +34,11 @@ public partial record SystemParty : PartyOrBusinessError2Choice_
     /// <summary>
     /// Unique technical address to unambiguously identify a party for receiving messages from the executing system.
     /// </summary>
-    public TechnicalIdentification1Choice_? TechnicalAddress { get; init;  } // Warning: Don't know multiplicity.
+    public TechnicalIdentification1Choice_? TechnicalAddress { get; init; } 
     /// <summary>
     /// Additional attributes defined by a central security depositary for a party.
     /// </summary>
-    public MarketSpecificAttribute1? MarketSpecificAttribute { get; init;  } // Warning: Don't know multiplicity.
+    public MarketSpecificAttribute1? MarketSpecificAttribute { get; init; } 
     /// <summary>
     /// Unique and unambiguous way to identify an organisation.
     /// </summary>
@@ -50,6 +54,78 @@ public partial record SystemParty : PartyOrBusinessError2Choice_
     /// <summary>
     /// Defines the specific processing characteristics for a party to ensure configurability of specific requirements, as prescribed by national legal and regulatory requirements and practices.
     /// </summary>
-    public SystemRestriction1? Restriction { get; init;  } // Warning: Don't know multiplicity.
+    public SystemRestriction1? Restriction { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OpeningDate is IsoISODate OpeningDateValue)
+        {
+            writer.WriteStartElement(null, "OpngDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(OpeningDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ClosingDate is IsoISODate ClosingDateValue)
+        {
+            writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ClosingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Type is SystemPartyType1Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TechnicalAddress is TechnicalIdentification1Choice_ TechnicalAddressValue)
+        {
+            writer.WriteStartElement(null, "TechAdr", xmlNamespace );
+            TechnicalAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarketSpecificAttribute is MarketSpecificAttribute1 MarketSpecificAttributeValue)
+        {
+            writer.WriteStartElement(null, "MktSpcfcAttr", xmlNamespace );
+            MarketSpecificAttributeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Identification is SystemPartyIdentification1 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Name is PartyName3 NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            NameValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Address is PostalAddress10 AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Restriction is SystemRestriction1 RestrictionValue)
+        {
+            writer.WriteStartElement(null, "Rstrctn", xmlNamespace );
+            RestrictionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new SystemParty Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.AgentCADeactivationStatusAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -24,10 +27,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// This message is used to provide a status on the deactivation instruction, especially to confirm the deactivation of a Corporate Action event or option.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|This message is sent by a CSD to an issuer (or its agent) to report the status, or a change in status, of a corporate action deactivation instruction or the status of a deactivation cancellation request.|Usage|This message is used to provide a status on the deactivation instruction, especially to confirm the deactivation of a Corporate Action event or option.")]
-public partial record AgentCADeactivationStatusAdviceV01 : IOuterRecord
+public partial record AgentCADeactivationStatusAdviceV01 : IOuterRecord<AgentCADeactivationStatusAdviceV01,AgentCADeactivationStatusAdviceV01Document>
+    ,IIsoXmlSerilizable<AgentCADeactivationStatusAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -39,6 +41,11 @@ public partial record AgentCADeactivationStatusAdviceV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AgtCADeactvtnStsAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AgentCADeactivationStatusAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -110,6 +117,41 @@ public partial record AgentCADeactivationStatusAdviceV01 : IOuterRecord
     {
         return new AgentCADeactivationStatusAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AgtCADeactvtnStsAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AgtCADeactvtnInstrId", xmlNamespace );
+        AgentCADeactivationInstructionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AgtCADeactvtnCxlReqId", xmlNamespace );
+        AgentCADeactivationCancellationRequestIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+        CorporateActionGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DeactvtnInstrSts", xmlNamespace );
+        DeactivationInstructionStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DeactvtnCxlReqSts", xmlNamespace );
+        DeactivationCancellationRequestStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static AgentCADeactivationStatusAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -117,9 +159,7 @@ public partial record AgentCADeactivationStatusAdviceV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCADeactivationStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AgentCADeactivationStatusAdviceV01Document : IOuterDocument<AgentCADeactivationStatusAdviceV01>
+public partial record AgentCADeactivationStatusAdviceV01Document : IOuterDocument<AgentCADeactivationStatusAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -135,5 +175,22 @@ public partial record AgentCADeactivationStatusAdviceV01Document : IOuterDocumen
     /// <summary>
     /// The instance of <seealso cref="AgentCADeactivationStatusAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=AgentCADeactivationStatusAdviceV01.XmlTag)]
     public required AgentCADeactivationStatusAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AgentCADeactivationStatusAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

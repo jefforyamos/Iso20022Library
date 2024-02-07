@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.FundDetailedEstimatedCashForecastReportV02>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// The FundDetailedEstimatedCashForecastReport is used to provide definitive cash movements, i.e., it is sent prior to the cutoff time and/or the price valuation of the fund.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The FundDetailedEstimatedCashForecastReport message is sent by a report provider, such as a transfer agent or a designated agent of the fund, to a report user, such as an investment manager, a fund accountant or any other interested party.|This message is used to report estimated cash incomings and outgoings, sorted by country, institution or some other criteria defined by the user. This message can be used to report the estimated cash movements of one or more investment funds, on one or more trade dates. These cash movements may result from, for example, redemption, subscription, switch transactions or dividends.|Usage|The FundDetailedEstimatedCashForecastReport is used to provide definitive cash movements, i.e., it is sent prior to the cutoff time and/or the price valuation of the fund.")]
-public partial record FundDetailedEstimatedCashForecastReportV02 : IOuterRecord
+public partial record FundDetailedEstimatedCashForecastReportV02 : IOuterRecord<FundDetailedEstimatedCashForecastReportV02,FundDetailedEstimatedCashForecastReportV02Document>
+    ,IIsoXmlSerilizable<FundDetailedEstimatedCashForecastReportV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record FundDetailedEstimatedCashForecastReportV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "camt.042.001.02";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => FundDetailedEstimatedCashForecastReportV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -97,6 +104,50 @@ public partial record FundDetailedEstimatedCashForecastReportV02 : IOuterRecord
     {
         return new FundDetailedEstimatedCashForecastReportV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("camt.042.001.02");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PoolReference is AdditionalReference3 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousReference is AdditionalReference3 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference3 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "EstmtdFndCshFcstDtls", xmlNamespace );
+        EstimatedFundCashForecastDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FundDetailedEstimatedCashForecastReportV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -104,9 +155,7 @@ public partial record FundDetailedEstimatedCashForecastReportV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FundDetailedEstimatedCashForecastReportV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record FundDetailedEstimatedCashForecastReportV02Document : IOuterDocument<FundDetailedEstimatedCashForecastReportV02>
+public partial record FundDetailedEstimatedCashForecastReportV02Document : IOuterDocument<FundDetailedEstimatedCashForecastReportV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -122,5 +171,22 @@ public partial record FundDetailedEstimatedCashForecastReportV02Document : IOute
     /// <summary>
     /// The instance of <seealso cref="FundDetailedEstimatedCashForecastReportV02"/> is required.
     /// </summary>
+    [DataMember(Name=FundDetailedEstimatedCashForecastReportV02.XmlTag)]
     public required FundDetailedEstimatedCashForecastReportV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(FundDetailedEstimatedCashForecastReportV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

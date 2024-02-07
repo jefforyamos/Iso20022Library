@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Date and identification of a trade.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeAgreement1
+     : IIsoXmlSerilizable<TradeAgreement1>
 {
     #nullable enable
     
     /// <summary>
     /// Date at which the trading parties agree on a treasury trade.
     /// </summary>
-    [DataMember]
     public required IsoISODate TradeDate { get; init; } 
     /// <summary>
     /// Identification of a notification.This identification must be unique amongst all notifications of same type confirmed by the same party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text NotificationIdentification { get; init; } 
     /// <summary>
     /// Reference common to the parties of a trade.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CommonReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TradDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(TradeDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NtfctnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(NotificationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (CommonReference is IsoMax35Text CommonReferenceValue)
+        {
+            writer.WriteStartElement(null, "CmonRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CommonReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeAgreement1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

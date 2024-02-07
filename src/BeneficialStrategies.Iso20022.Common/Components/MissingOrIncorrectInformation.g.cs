@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates the reason for the UnableToApply. It can be missing and/or incorrect information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MissingOrIncorrectInformation
+     : IIsoXmlSerilizable<MissingOrIncorrectInformation>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the missing information.
     /// </summary>
-    [DataMember]
-    public ValueList<UnableToApplyMissingInfo1Code> MissingInformation { get; init; } = [];
+    public SimpleValueList<UnableToApplyMissingInfo1Code> MissingInformation { get; init; } = [];
     /// <summary>
     /// Indicates the incorrect information.
     /// </summary>
-    [DataMember]
-    public ValueList<UnableToApplyIncorrectInfo1Code> IncorrectInformation { get; init; } = [];
+    public SimpleValueList<UnableToApplyIncorrectInfo1Code> IncorrectInformation { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MssngInf", xmlNamespace );
+        writer.WriteValue(MissingInformation.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IncrrctInf", xmlNamespace );
+        writer.WriteValue(IncorrectInformation.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static MissingOrIncorrectInformation Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

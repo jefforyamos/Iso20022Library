@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Floating rate related information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FloatingRate7
+     : IIsoXmlSerilizable<FloatingRate7>
 {
     #nullable enable
     
     /// <summary>
     /// Indication of the floating rate used.
     /// </summary>
-    [DataMember]
     public FloatingRateIdentification4Choice_? Rate { get; init; } 
     /// <summary>
     /// Information related to reference period.
     /// </summary>
-    [DataMember]
     public InterestRateContractTerm4? ReferencePeriod { get; init; } 
     /// <summary>
     /// Indicates a margin, over or under an index, which determines a price or a rate for each leg of a derivative transaction with periodic payments; or a difference between two floating leg indexes.
     /// </summary>
-    [DataMember]
     public SecuritiesTransactionPrice13Choice_? Spread { get; init; } 
     /// <summary>
     /// Identifies the computation method that determines how interest payments are calculated. It is used to compute the year fraction of the calculation period, and indicates the number of days in the calculation period divided by the number of days in the year.
     /// </summary>
-    [DataMember]
     public InterestComputationMethodFormat7? DayCount { get; init; } 
     /// <summary>
     /// Specifies the time unit associated with the frequency of payments.
     /// </summary>
-    [DataMember]
     public InterestRateFrequency3Choice_? PaymentFrequency { get; init; } 
     /// <summary>
     /// Information related to reset of payment frequency.
     /// </summary>
-    [DataMember]
     public InterestRateFrequency3Choice_? ResetFrequency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Rate is FloatingRateIdentification4Choice_ RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            RateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReferencePeriod is InterestRateContractTerm4 ReferencePeriodValue)
+        {
+            writer.WriteStartElement(null, "RefPrd", xmlNamespace );
+            ReferencePeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Spread is SecuritiesTransactionPrice13Choice_ SpreadValue)
+        {
+            writer.WriteStartElement(null, "Sprd", xmlNamespace );
+            SpreadValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DayCount is InterestComputationMethodFormat7 DayCountValue)
+        {
+            writer.WriteStartElement(null, "DayCnt", xmlNamespace );
+            DayCountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentFrequency is InterestRateFrequency3Choice_ PaymentFrequencyValue)
+        {
+            writer.WriteStartElement(null, "PmtFrqcy", xmlNamespace );
+            PaymentFrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ResetFrequency is InterestRateFrequency3Choice_ ResetFrequencyValue)
+        {
+            writer.WriteStartElement(null, "RstFrqcy", xmlNamespace );
+            ResetFrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FloatingRate7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

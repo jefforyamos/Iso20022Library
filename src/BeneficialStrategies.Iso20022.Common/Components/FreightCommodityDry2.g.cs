@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines commodity sub-product attributes of a freight derivative of type dry.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FreightCommodityDry2
+     : IIsoXmlSerilizable<FreightCommodityDry2>
 {
     #nullable enable
     
     /// <summary>
     /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
     /// </summary>
-    [DataMember]
     public required AssetClassProductType4Code BaseProduct { get; init; } 
     /// <summary>
     /// Sub-product for the underlying asset class.
     /// </summary>
-    [DataMember]
     public required AssetClassSubProductType31Code SubProduct { get; init; } 
     /// <summary>
     /// Further subproduct type related to instruments that have a non-financial instrument or commodity as underlying.
     /// </summary>
-    [DataMember]
     public required AssetClassDetailedSubProductType33Code AdditionalSubProduct { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BasePdct", xmlNamespace );
+        writer.WriteValue(BaseProduct.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SubPdct", xmlNamespace );
+        writer.WriteValue(SubProduct.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AddtlSubPdct", xmlNamespace );
+        writer.WriteValue(AdditionalSubProduct.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static FreightCommodityDry2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

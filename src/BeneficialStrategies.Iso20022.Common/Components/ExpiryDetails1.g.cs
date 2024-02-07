@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Expiry and extension information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ExpiryDetails1
+     : IIsoXmlSerilizable<ExpiryDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Terms defining when the undertaking will cease to be available.
     /// </summary>
-    [DataMember]
     public ExpiryTerms1? ExpiryTerms { get; init; } 
     /// <summary>
     /// Additional information related to the expiry and expiry extension.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax2000Text> AdditionalExpiryInformation { get; init; } = [];
+    public SimpleValueList<IsoMax2000Text> AdditionalExpiryInformation { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ExpiryTerms is ExpiryTerms1 ExpiryTermsValue)
+        {
+            writer.WriteStartElement(null, "XpryTerms", xmlNamespace );
+            ExpiryTermsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AddtlXpryInf", xmlNamespace );
+        AdditionalExpiryInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+    }
+    public static ExpiryDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

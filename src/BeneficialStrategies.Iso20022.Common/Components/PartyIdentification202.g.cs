@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentification202
+     : IIsoXmlSerilizable<PartyIdentification202>
 {
     #nullable enable
     
     /// <summary>
     /// Name and address of the party.
     /// </summary>
-    [DataMember]
     public required PersonName1 NameAndAddress { get; init; } 
     /// <summary>
     /// CONCAT
     /// </summary>
-    [DataMember]
     public required NaturalPersonIdentification1 Identification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NmAndAdr", xmlNamespace );
+        NameAndAddress.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static PartyIdentification202 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment terminal or ATM performing the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardAcceptorTerminal1
+     : IIsoXmlSerilizable<CardAcceptorTerminal1>
 {
     #nullable enable
     
@@ -23,18 +24,44 @@ public partial record CardAcceptorTerminal1
     /// Identification of the terminal. 
     /// It correspond to the ISO 8583 field number 41.
     /// </summary>
-    [DataMember]
     public required GenericIdentification32 Identification { get; init; } 
     /// <summary>
     /// Location of the terminal.
     /// </summary>
-    [DataMember]
     public PostalAddress18? Location { get; init; } 
     /// <summary>
     /// Capabilities of the terminal performing the transaction.
     /// </summary>
-    [DataMember]
     public required PointOfInteractionCapabilities4 Capabilities { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Location is PostalAddress18 LocationValue)
+        {
+            writer.WriteStartElement(null, "Lctn", xmlNamespace );
+            LocationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Cpblties", xmlNamespace );
+        Capabilities.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CardAcceptorTerminal1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

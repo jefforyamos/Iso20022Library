@@ -7,73 +7,134 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes a financing relation between two parties, for example invoice, credit, financing request, cash accounts.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancingAgreementItem1
+     : IIsoXmlSerilizable<FinancingAgreementItem1>
 {
     #nullable enable
     
     /// <summary>
     /// Parameters related to the context of the item.
     /// </summary>
-    [DataMember]
     public required FinancialItemParameters1 ItemContext { get; init; } 
     /// <summary>
     /// Code to indicate the action concerning the item.
     /// </summary>
-    [DataMember]
     public AgreementItemAction1Code? ItemAction { get; init; } 
     /// <summary>
     /// Desired payment instruction to be used by buyer.
     /// </summary>
-    [DataMember]
     public PaymentInstrumentCode? PaymentInstrument { get; init; } 
     /// <summary>
     /// Validation status of the item.
     /// </summary>
-    [DataMember]
     public ValidationStatusInformation1? ValidationStatusInformation { get; init; } 
     /// <summary>
     /// Guarantee is (to be) provided according current rating.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Rating { get; init; } 
     /// <summary>
     /// Set to yes if the agreement was rejected and needs to be re-opened for arbitrage.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ReopenIndication { get; init; } 
     /// <summary>
     /// Issuers, amounts and periods to be guaranteed. At a given date, the sum of all issuers is guaranteed, covered as specified by rank/position and excess. For each period, the maximum value at a given date is used.
     /// </summary>
-    [DataMember]
-    public ValueList<GuaranteeDetails1> Guarantee { get; init; } = []; // Warning: Don't know multiplicity.
+    public GuaranteeDetails1? Guarantee { get; init; } 
     /// <summary>
     /// Status of guarantee if applicable.
     /// </summary>
-    [DataMember]
     public ValidationStatusInformation1? GuaranteeStatus { get; init; } 
     /// <summary>
     /// Reference to the guarantee letter issued by a guarantee provider.
     /// </summary>
-    [DataMember]
     public QualifiedDocumentInformation1? RelatedGuaranteeLetter { get; init; } 
     /// <summary>
     /// Associated free form document.
     /// </summary>
-    [DataMember]
-    public ValueList<QualifiedDocumentInformation1> AssociatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1? AssociatedDocument { get; init; } 
     /// <summary>
     /// Free form textual information related to the agreement.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ItmCntxt", xmlNamespace );
+        ItemContext.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ItemAction is AgreementItemAction1Code ItemActionValue)
+        {
+            writer.WriteStartElement(null, "ItmActn", xmlNamespace );
+            writer.WriteValue(ItemActionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PaymentInstrument is PaymentInstrumentCode PaymentInstrumentValue)
+        {
+            writer.WriteStartElement(null, "PmtInstrm", xmlNamespace );
+            writer.WriteValue(PaymentInstrumentValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ValidationStatusInformation is ValidationStatusInformation1 ValidationStatusInformationValue)
+        {
+            writer.WriteStartElement(null, "VldtnStsInf", xmlNamespace );
+            ValidationStatusInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Ratg", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Rating)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ReopIndctn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ReopenIndication)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (Guarantee is GuaranteeDetails1 GuaranteeValue)
+        {
+            writer.WriteStartElement(null, "Grnt", xmlNamespace );
+            GuaranteeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GuaranteeStatus is ValidationStatusInformation1 GuaranteeStatusValue)
+        {
+            writer.WriteStartElement(null, "GrntSts", xmlNamespace );
+            GuaranteeStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedGuaranteeLetter is QualifiedDocumentInformation1 RelatedGuaranteeLetterValue)
+        {
+            writer.WriteStartElement(null, "RltdGrntLttr", xmlNamespace );
+            RelatedGuaranteeLetterValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AssociatedDocument is QualifiedDocumentInformation1 AssociatedDocumentValue)
+        {
+            writer.WriteStartElement(null, "AssoctdDoc", xmlNamespace );
+            AssociatedDocumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+    }
+    public static FinancingAgreementItem1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

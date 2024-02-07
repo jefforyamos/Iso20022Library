@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.colr.CollateralManagementCancellationRequestV03>;
 
 namespace BeneficialStrategies.Iso20022.colr;
 
@@ -31,10 +34,9 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// When the CollateralManagementCancellationRequest message is used to cancel a collateral message the reference of the original message must be specified. The rejection or acceptance of a CollateralManagementCancellationRequest message is made using a CollateralManagementCancellationStatus message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|This CollateralManagementCancellationRequest message is sent by:|- the collateral taker or its collateral manager to the collateral giver or its collateral manager,|- the collateral giver or its collateral manager to the collateral taker or its collateral manager|This message is used to request the cancellation of a previously sent MarginCallRequest message, MarginCallResponse message, CollateralProposal message, CollateralProposalResponse message, MarginCallDisputeNotification message or a CollateralSubstitutionRequest message.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|The CollateralManagementCancellationRequest message is used to request the cancellation of a collateral message. When requesting the cancellation of a message there must be a cancellation reason specified.|When the CollateralManagementCancellationRequest message is used to cancel a collateral message the reference of the original message must be specified. The rejection or acceptance of a CollateralManagementCancellationRequest message is made using a CollateralManagementCancellationStatus message.")]
-public partial record CollateralManagementCancellationRequestV03 : IOuterRecord
+public partial record CollateralManagementCancellationRequestV03 : IOuterRecord<CollateralManagementCancellationRequestV03,CollateralManagementCancellationRequestV03Document>
+    ,IIsoXmlSerilizable<CollateralManagementCancellationRequestV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -46,6 +48,11 @@ public partial record CollateralManagementCancellationRequestV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "CollMgmtCxlReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CollateralManagementCancellationRequestV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -106,6 +113,41 @@ public partial record CollateralManagementCancellationRequestV03 : IOuterRecord
     {
         return new CollateralManagementCancellationRequestV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("CollMgmtCxlReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Ref", xmlNamespace );
+        Reference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Oblgtn", xmlNamespace );
+        Obligation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CxlRsn", xmlNamespace );
+        CancellationReason.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralManagementCancellationRequestV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -113,9 +155,7 @@ public partial record CollateralManagementCancellationRequestV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CollateralManagementCancellationRequestV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CollateralManagementCancellationRequestV03Document : IOuterDocument<CollateralManagementCancellationRequestV03>
+public partial record CollateralManagementCancellationRequestV03Document : IOuterDocument<CollateralManagementCancellationRequestV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -131,5 +171,22 @@ public partial record CollateralManagementCancellationRequestV03Document : IOute
     /// <summary>
     /// The instance of <seealso cref="CollateralManagementCancellationRequestV03"/> is required.
     /// </summary>
+    [DataMember(Name=CollateralManagementCancellationRequestV03.XmlTag)]
     public required CollateralManagementCancellationRequestV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CollateralManagementCancellationRequestV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

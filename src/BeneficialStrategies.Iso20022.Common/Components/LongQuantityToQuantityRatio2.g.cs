@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Ratio expressed as a quotient of quantities.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LongQuantityToQuantityRatio2
+     : IIsoXmlSerilizable<LongQuantityToQuantityRatio2>
 {
     #nullable enable
     
     /// <summary>
     /// High precision numerator of the quotient of quantities.
     /// </summary>
-    [DataMember]
     public required IsoLongDecimalNumber LongQuantity1 { get; init; } 
     /// <summary>
     /// High precision denominator of the quotient of quantities.
     /// </summary>
-    [DataMember]
     public required IsoLongDecimalNumber LongQuantity2 { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "LngQty1", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLongDecimalNumber(LongQuantity1)); // data type LongDecimalNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "LngQty2", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLongDecimalNumber(LongQuantity2)); // data type LongDecimalNumber System.UInt64
+        writer.WriteEndElement();
+    }
+    public static LongQuantityToQuantityRatio2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

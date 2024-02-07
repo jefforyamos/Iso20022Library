@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TradingVenueIdentification1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TradingVenueIdentification1Choic
 /// Identification used where a venue does not have an already defined code type.
 /// </summary>
 public partial record Other : TradingVenueIdentification1Choice_
+     , IIsoXmlSerilizable<Other>
 {
     #nullable enable
+    
     /// <summary>
     /// Identification field of the submitting entity.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record Other : TradingVenueIdentification1Choice_
     /// Code list of venues to populate free form text identification.
     /// </summary>
     public required TradingVenue2Code Type { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax50Text(Identification)); // data type Max50Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new Other Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

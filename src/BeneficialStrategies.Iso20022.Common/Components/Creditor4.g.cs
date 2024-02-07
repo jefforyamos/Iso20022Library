@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the creditor.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Creditor4
+     : IIsoXmlSerilizable<Creditor4>
 {
     #nullable enable
     
     /// <summary>
     /// Party that receives an amount of money from the debtor. In the context of the payment model, the creditor is also the credit account owner.
     /// </summary>
-    [DataMember]
     public required PartyIdentification178Choice_ Creditor { get; init; } 
     /// <summary>
     /// Reference assigned to a creditor by its financial institution, or relevant authority, authorising the creditor to take part in a direct debit scheme.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RegistrationIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cdtr", xmlNamespace );
+        Creditor.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RegistrationIdentification is IsoMax35Text RegistrationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RegnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RegistrationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Creditor4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

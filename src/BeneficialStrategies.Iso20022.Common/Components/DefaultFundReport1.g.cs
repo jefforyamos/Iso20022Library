@@ -7,33 +7,55 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the calculation of the default fund and the collateral that has been posted by the clearing member.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DefaultFundReport1
+     : IIsoXmlSerilizable<DefaultFundReport1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides details about the calculation of the clearing member contribution to the default fund.
     /// </summary>
-    [DataMember]
-    public ValueList<DefaultFund1> DefaultFundCalculation { get; init; } = []; // Warning: Don't know multiplicity.
+    public DefaultFund1? DefaultFundCalculation { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _-ddILqMOEeCojJW5vEuTEQ_1576502363
     /// <summary>
     /// Provides details about the collateral held.
     /// </summary>
-    [DataMember]
-    public ValueList<Collateral3> CollateralDescription { get; init; } = []; // Warning: Don't know multiplicity.
+    public Collateral3? CollateralDescription { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _-ddIL6MOEeCojJW5vEuTEQ_-1115881016
     /// <summary>
     /// Excess amount that the central counterparty will restitute to the clearing member or deficit to be provided by the member for the guarantee fund.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection21 NetExcessOrDeficit { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize DefaultFundCalculation, multiplicity Unknown
+        // Not sure how to serialize CollateralDescription, multiplicity Unknown
+        writer.WriteStartElement(null, "NetXcssOrDfcit", xmlNamespace );
+        NetExcessOrDeficit.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static DefaultFundReport1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

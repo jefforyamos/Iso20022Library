@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the identification of a party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GenericIdentification81
+     : IIsoXmlSerilizable<GenericIdentification81>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a party, such as a tax or social security identifier.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Type of identification.
     /// </summary>
-    [DataMember]
     public required OtherIdentification3Choice_ IdentificationType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IdTp", xmlNamespace );
+        IdentificationType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static GenericIdentification81 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.OrganisationIdentification9Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.OrganisationIdentification9Choic
 /// Unique and unambiguous client identification of the organisation.
 /// </summary>
 public partial record ClientIdentification : OrganisationIdentification9Choice_
+     , IIsoXmlSerilizable<ClientIdentification>
 {
-    public required IsoMax50Text Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a character string with a maximum length of 50 characters.
+    /// </summary>
+    public required IsoMax50Text Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ClntId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax50Text(Value)); // data type Max50Text System.String
+        writer.WriteEndElement();
+    }
+    public static new ClientIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

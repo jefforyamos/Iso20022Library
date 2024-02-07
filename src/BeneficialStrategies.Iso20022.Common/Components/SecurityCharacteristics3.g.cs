@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide detailed information about the security.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityCharacteristics3
+     : IIsoXmlSerilizable<SecurityCharacteristics3>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification, as known by the account owner, to unambiguously identify the security.
     /// </summary>
-    [DataMember]
-    public ValueList<SecurityIdentification19> Identification { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecurityIdentification19? Identification { get; init; } 
     /// <summary>
     /// Specifies the position for the security.
     /// </summary>
-    [DataMember]
-    public ValueList<SecuritiesPosition1> Position { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecuritiesPosition1? Position { get; init; } 
     /// <summary>
     /// Specifies the price of the security for valuation purposes.
     /// </summary>
-    [DataMember]
     public required AmountPricePerFinancialInstrumentQuantity9 ValuationPrice { get; init; } 
     /// <summary>
     /// Specifies the value of the security for collateral purposes.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount CollateralValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is SecurityIdentification19 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Position is SecuritiesPosition1 PositionValue)
+        {
+            writer.WriteStartElement(null, "Pos", xmlNamespace );
+            PositionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ValtnPric", xmlNamespace );
+        ValuationPrice.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CollVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CollateralValue)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static SecurityCharacteristics3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

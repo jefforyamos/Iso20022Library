@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of characteristics defining the type of tax.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxDetails
+     : IIsoXmlSerilizable<TaxDetails>
 {
     #nullable enable
     
     /// <summary>
     /// Document issued by first agent on behalf of debtor to report withholding tax to taxing authority.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CertificateIdentification { get; init; } 
     /// <summary>
     /// Information on the type of tax.
     /// </summary>
-    [DataMember]
     public TaxType? TaxType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CertificateIdentification is IsoMax35Text CertificateIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CertId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CertificateIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TaxType is TaxType TaxTypeValue)
+        {
+            writer.WriteStartElement(null, "TaxTp", xmlNamespace );
+            TaxTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TaxDetails Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

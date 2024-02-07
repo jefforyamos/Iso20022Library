@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the type of notification required.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Notification2
+     : IIsoXmlSerilizable<Notification2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of notification.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text NotificationType { get; init; } 
     /// <summary>
     /// Indicates whether the notification is required.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Required { get; init; } 
     /// <summary>
     /// Specifies how the notification is sent.
     /// </summary>
-    [DataMember]
     public InformationDistribution1Choice_? DistributionType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NtfctnTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(NotificationType)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Reqrd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Required)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (DistributionType is InformationDistribution1Choice_ DistributionTypeValue)
+        {
+            writer.WriteStartElement(null, "DstrbtnTp", xmlNamespace );
+            DistributionTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Notification2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

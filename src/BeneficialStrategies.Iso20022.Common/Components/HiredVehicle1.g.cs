@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Vehicle for hire for passenger transport - excludes vehicles driven by a renter.  Examples include, but are not limited to, taxi, chauffered limousine, boats.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record HiredVehicle1
+     : IIsoXmlSerilizable<HiredVehicle1>
 {
     #nullable enable
     
     /// <summary>
     /// Defines the type of company or vehicle being hired (for example, private, taxi, chauffeur service, rideshare).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CompanyType { get; init; } 
     /// <summary>
     /// Contains the name of the company that provided the hired vehicle services. 
     /// </summary>
-    [DataMember]
     public IsoMax70Text? CompanyName { get; init; } 
     /// <summary>
     /// Contains the type of vehicle that was hired (for example, limousine, black, SUV). 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TypeOfVehicle { get; init; } 
     /// <summary>
     /// Contains the identifier assigned to the vehicle.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? VehicleIdentification { get; init; } 
     /// <summary>
     /// Contains the identifier assigned to the driver.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DriverIdentification { get; init; } 
     /// <summary>
     /// Contains the tax identifier assigned to the driver.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DriverTaxIdentification { get; init; } 
     /// <summary>
     /// Destination of the hired vehicle. 
     /// </summary>
-    [DataMember]
     public Destination2? Destination { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CompanyType is IsoMax35Text CompanyTypeValue)
+        {
+            writer.WriteStartElement(null, "CpnyTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CompanyTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CompanyName is IsoMax70Text CompanyNameValue)
+        {
+            writer.WriteStartElement(null, "CpnyNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(CompanyNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (TypeOfVehicle is IsoMax35Text TypeOfVehicleValue)
+        {
+            writer.WriteStartElement(null, "TpOfVhcl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TypeOfVehicleValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (VehicleIdentification is IsoMax35Text VehicleIdentificationValue)
+        {
+            writer.WriteStartElement(null, "VhclId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(VehicleIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DriverIdentification is IsoMax35Text DriverIdentificationValue)
+        {
+            writer.WriteStartElement(null, "DrvrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DriverIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DriverTaxIdentification is IsoMax35Text DriverTaxIdentificationValue)
+        {
+            writer.WriteStartElement(null, "DrvrTaxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DriverTaxIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Destination is Destination2 DestinationValue)
+        {
+            writer.WriteStartElement(null, "Dstn", xmlNamespace );
+            DestinationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static HiredVehicle1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

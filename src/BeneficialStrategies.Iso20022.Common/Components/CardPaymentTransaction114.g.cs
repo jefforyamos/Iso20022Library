@@ -7,63 +7,123 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Authorisation response from the acquirer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardPaymentTransaction114
+     : IIsoXmlSerilizable<CardPaymentTransaction114>
 {
     #nullable enable
     
     /// <summary>
     /// Outcome of the authorisation, and actions to perform.
     /// </summary>
-    [DataMember]
     public required AuthorisationResult17 AuthorisationResult { get; init; } 
     /// <summary>
     /// Result of the verifications performed by the issuer to deliver or decline the authorisation.
     /// </summary>
-    [DataMember]
-    public ValueList<TransactionVerificationResult4> TransactionVerificationResult { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransactionVerificationResult4? TransactionVerificationResult { get; init; } 
     /// <summary>
     /// Product code which are allowed by the payment card.
     /// </summary>
-    [DataMember]
-    public ValueList<Product4> AllowedProductCode { get; init; } = []; // Warning: Don't know multiplicity.
+    public Product4? AllowedProductCode { get; init; } 
     /// <summary>
     /// Product code not allowed by the payment card.
     /// </summary>
-    [DataMember]
-    public ValueList<Product4> NotAllowedProductCode { get; init; } = []; // Warning: Don't know multiplicity.
+    public Product4? NotAllowedProductCode { get; init; } 
     /// <summary>
     /// Products that may be added to the purchase after the authorisation.
     /// </summary>
-    [DataMember]
-    public ValueList<Product5> AdditionalAvailableProduct { get; init; } = []; // Warning: Don't know multiplicity.
+    public Product5? AdditionalAvailableProduct { get; init; } 
     /// <summary>
     /// Balance and currency code of the account, related to the payment.
     /// </summary>
-    [DataMember]
     public AmountAndDirection93? Balance { get; init; } 
     /// <summary>
     /// Encrypted balance of the account.
     /// </summary>
-    [DataMember]
     public ContentInformationType32? ProtectedBalance { get; init; } 
     /// <summary>
     /// Set of actions to be performed by the POI (Point Of Interaction) system.
     /// </summary>
-    [DataMember]
-    public ValueList<Action12> Action { get; init; } = []; // Warning: Don't know multiplicity.
+    public Action12? Action { get; init; } 
     /// <summary>
     /// Conversion between the currency of a card acceptor and the currency of a card issuer, provided by a dedicated service provider. The currency conversion has to be proposed to the cardholder.
     /// </summary>
-    [DataMember]
     public CurrencyConversion23? CurrencyConversionEligibility { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AuthstnRslt", xmlNamespace );
+        AuthorisationResult.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionVerificationResult is TransactionVerificationResult4 TransactionVerificationResultValue)
+        {
+            writer.WriteStartElement(null, "TxVrfctnRslt", xmlNamespace );
+            TransactionVerificationResultValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AllowedProductCode is Product4 AllowedProductCodeValue)
+        {
+            writer.WriteStartElement(null, "AllwdPdctCd", xmlNamespace );
+            AllowedProductCodeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotAllowedProductCode is Product4 NotAllowedProductCodeValue)
+        {
+            writer.WriteStartElement(null, "NotAllwdPdctCd", xmlNamespace );
+            NotAllowedProductCodeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalAvailableProduct is Product5 AdditionalAvailableProductValue)
+        {
+            writer.WriteStartElement(null, "AddtlAvlblPdct", xmlNamespace );
+            AdditionalAvailableProductValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Balance is AmountAndDirection93 BalanceValue)
+        {
+            writer.WriteStartElement(null, "Bal", xmlNamespace );
+            BalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProtectedBalance is ContentInformationType32 ProtectedBalanceValue)
+        {
+            writer.WriteStartElement(null, "PrtctdBal", xmlNamespace );
+            ProtectedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Action is Action12 ActionValue)
+        {
+            writer.WriteStartElement(null, "Actn", xmlNamespace );
+            ActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CurrencyConversionEligibility is CurrencyConversion23 CurrencyConversionEligibilityValue)
+        {
+            writer.WriteStartElement(null, "CcyConvsElgblty", xmlNamespace );
+            CurrencyConversionEligibilityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardPaymentTransaction114 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

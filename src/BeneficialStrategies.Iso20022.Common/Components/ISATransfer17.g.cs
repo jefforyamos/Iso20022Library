@@ -7,28 +7,52 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes the type of product and the assets to be transferred.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ISATransfer17
+     : IIsoXmlSerilizable<ISATransfer17>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a transfer cancellation, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// Provides information related to the asset(s) transferred.
     /// </summary>
-    [DataMember]
-    public ValueList<ISATransfer16> ProductTransfer { get; init; } = []; // Warning: Don't know multiplicity.
+    public ISATransfer16? ProductTransfer { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _sFyZAS8EEeO59oUFO5eLvw
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CancellationReference is IsoMax35Text CancellationReferenceValue)
+        {
+            writer.WriteStartElement(null, "CxlRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CancellationReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize ProductTransfer, multiplicity Unknown
+    }
+    public static ISATransfer17 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

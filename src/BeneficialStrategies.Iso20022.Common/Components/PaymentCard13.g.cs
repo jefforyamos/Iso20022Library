@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment card performing the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentCard13
+     : IIsoXmlSerilizable<PaymentCard13>
 {
     #nullable enable
     
     /// <summary>
     /// Replacement of the message element PlainCardData by a digital envelope using a cryptographic key.
     /// </summary>
-    [DataMember]
     public ContentInformationType10? ProtectedCardData { get; init; } 
     /// <summary>
     /// Sensitive data associated with the card performing the transaction.
     /// </summary>
-    [DataMember]
     public PlainCardData9? PlainCardData { get; init; } 
     /// <summary>
     /// Masked PAN to be printed the payment receipts or displayed to the cardholder. Masked digits may be absent or replaced by another character as '*'.
     /// </summary>
-    [DataMember]
     public IsoMax30Text? MaskedPAN { get; init; } 
     /// <summary>
     /// Type of card product.
     /// </summary>
-    [DataMember]
     public CardProductType1Code? CardProductType { get; init; } 
     /// <summary>
     /// Name of card product.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CardProductName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ProtectedCardData is ContentInformationType10 ProtectedCardDataValue)
+        {
+            writer.WriteStartElement(null, "PrtctdCardData", xmlNamespace );
+            ProtectedCardDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PlainCardData is PlainCardData9 PlainCardDataValue)
+        {
+            writer.WriteStartElement(null, "PlainCardData", xmlNamespace );
+            PlainCardDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MaskedPAN is IsoMax30Text MaskedPANValue)
+        {
+            writer.WriteStartElement(null, "MskdPAN", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax30Text(MaskedPANValue)); // data type Max30Text System.String
+            writer.WriteEndElement();
+        }
+        if (CardProductType is CardProductType1Code CardProductTypeValue)
+        {
+            writer.WriteStartElement(null, "CardPdctTp", xmlNamespace );
+            writer.WriteValue(CardProductTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CardProductName is IsoMax35Text CardProductNameValue)
+        {
+            writer.WriteStartElement(null, "CardPdctNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CardProductNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentCard13 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

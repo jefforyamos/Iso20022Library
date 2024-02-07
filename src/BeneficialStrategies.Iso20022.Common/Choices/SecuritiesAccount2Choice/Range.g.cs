@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccount2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccount2Choice;
 /// Range of identifications of the securities accounts.
 /// </summary>
 public partial record Range : SecuritiesAccount2Choice_
+     , IIsoXmlSerilizable<Range>
 {
     #nullable enable
+    
     /// <summary>
     /// Securities account number or code at which the range starts.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record Range : SecuritiesAccount2Choice_
     /// Securities account number or code at which the range ends.
     /// </summary>
     public required SecuritiesAccount19 To { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Fr", xmlNamespace );
+        From.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "To", xmlNamespace );
+        To.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new Range Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

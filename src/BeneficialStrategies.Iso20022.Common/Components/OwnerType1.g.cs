@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the owner type and mandate type.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OwnerType1
+     : IIsoXmlSerilizable<OwnerType1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of ownership.
     /// </summary>
-    [DataMember]
     public required AccountOwnerType1Code Type { get; init; } 
     /// <summary>
     /// Type of mandate.
     /// </summary>
-    [DataMember]
     public AccountPermissionType1Code? MandateType { get; init; } 
     /// <summary>
     /// Additional information about owner type or mandate type in proprietary format.
     /// </summary>
-    [DataMember]
     public GenericIdentification1? Proprietary { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (MandateType is AccountPermissionType1Code MandateTypeValue)
+        {
+            writer.WriteStartElement(null, "MndtTp", xmlNamespace );
+            writer.WriteValue(MandateTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Proprietary is GenericIdentification1 ProprietaryValue)
+        {
+            writer.WriteStartElement(null, "Prtry", xmlNamespace );
+            ProprietaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OwnerType1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

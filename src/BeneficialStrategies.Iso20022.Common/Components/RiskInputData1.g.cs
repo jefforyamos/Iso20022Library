@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional data to be considered for risk assessment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RiskInputData1
+     : IIsoXmlSerilizable<RiskInputData1>
 {
     #nullable enable
     
     /// <summary>
     /// Entity providing the information required for a risk assessment.
     /// </summary>
-    [DataMember]
     public RiskAssessmentDataEntityProvider1? Entity { get; init; } 
     /// <summary>
     /// Identifies the type of risk assessment associated with the input data in the message.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Value of input data for risk assessment.
     /// </summary>
-    [DataMember]
     public required IsoMax10KText Value { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Entity is RiskAssessmentDataEntityProvider1 EntityValue)
+        {
+            writer.WriteStartElement(null, "Ntty", xmlNamespace );
+            EntityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Type)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax10KText(Value)); // data type Max10KText System.String
+        writer.WriteEndElement();
+    }
+    public static RiskInputData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

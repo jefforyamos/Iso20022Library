@@ -7,68 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Consideration, such as amount of money, paid or received in exchange for an amount of money that has been invested, loaned or borrowed for a certain period.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InterestCalculation1
+     : IIsoXmlSerilizable<InterestCalculation1>
 {
     #nullable enable
     
     /// <summary>
     /// Calculation date of the interest amount.
     /// </summary>
-    [DataMember]
     public required IsoISODate CalculationDate { get; init; } 
     /// <summary>
     /// Provides the collateral amount used to calculate the interest amount.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount EffectivePrincipalAmount { get; init; } 
     /// <summary>
     /// Provides the collateral amount posted before taking into account the collateral movement amount.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? PrincipalAmount { get; init; } 
     /// <summary>
     /// Provides the additional amount of collateral posted between two calculation dates.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? MovementAmount { get; init; } 
     /// <summary>
     /// Indicates if the movement in the collateral posted is a debit or a credit amount.
     /// </summary>
-    [DataMember]
     public CreditDebitCode? MovementDirection { get; init; } 
     /// <summary>
     /// Percentage charged for the use of an amount of money, usually expressed at an annual rate. The interest rate is the ratio of the amount of interest paid during a certain period of time compared to the principal amount of the interest bearing financial instrument.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate EffectiveRate { get; init; } 
     /// <summary>
     /// Percentage charged for the use of an amount of money, usually expressed at an annual rate. The interest rate is the ratio of the amount of interest paid during a certain period of time compared to the principal amount of the interest bearing financial instrument.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? InterestRate { get; init; } 
     /// <summary>
     /// Used to express differences in interest rates.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Spread { get; init; } 
     /// <summary>
     /// Amount of money representing an interest payment.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount AccruedInterestAmount { get; init; } 
     /// <summary>
     /// Amount of money representing an interest payment.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? AggregatedInterestAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ClctnDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(CalculationDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FctvPrncplAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(EffectivePrincipalAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (PrincipalAmount is IsoActiveCurrencyAndAmount PrincipalAmountValue)
+        {
+            writer.WriteStartElement(null, "PrncplAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PrincipalAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MovementAmount is IsoActiveCurrencyAndAmount MovementAmountValue)
+        {
+            writer.WriteStartElement(null, "MvmntAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MovementAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MovementDirection is CreditDebitCode MovementDirectionValue)
+        {
+            writer.WriteStartElement(null, "MvmntDrctn", xmlNamespace );
+            writer.WriteValue(MovementDirectionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FctvRate", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(EffectiveRate)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+        if (InterestRate is IsoPercentageRate InterestRateValue)
+        {
+            writer.WriteStartElement(null, "IntrstRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(InterestRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Spread is IsoPercentageRate SpreadValue)
+        {
+            writer.WriteStartElement(null, "Sprd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(SpreadValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AcrdIntrstAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AccruedInterestAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (AggregatedInterestAmount is IsoActiveCurrencyAndAmount AggregatedInterestAmountValue)
+        {
+            writer.WriteStartElement(null, "AggtdIntrstAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AggregatedInterestAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static InterestCalculation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

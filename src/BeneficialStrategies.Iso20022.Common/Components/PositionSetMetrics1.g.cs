@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Variables used to quantify the different calculations for position sets and currency position sets reports.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PositionSetMetrics1
+     : IIsoXmlSerilizable<PositionSetMetrics1>
 {
     #nullable enable
     
     /// <summary>
     /// Refers to the total number of trades contained in the position set.
     /// </summary>
-    [DataMember]
     public PositionSetBuyerAndSeller1? Total { get; init; } 
     /// <summary>
     /// Refers to the aggregated number of trades contained in the position set.
     /// </summary>
-    [DataMember]
     public PositionSetBuyerAndSeller1? Clean { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Total is PositionSetBuyerAndSeller1 TotalValue)
+        {
+            writer.WriteStartElement(null, "Ttl", xmlNamespace );
+            TotalValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Clean is PositionSetBuyerAndSeller1 CleanValue)
+        {
+            writer.WriteStartElement(null, "Clean", xmlNamespace );
+            CleanValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PositionSetMetrics1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

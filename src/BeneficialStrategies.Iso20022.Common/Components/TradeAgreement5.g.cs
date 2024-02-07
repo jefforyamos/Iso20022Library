@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Date and identification of a trade together with references to previous events in its life.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeAgreement5
+     : IIsoXmlSerilizable<TradeAgreement5>
 {
     #nullable enable
     
     /// <summary>
     /// Date on which the trading parties agree on the trade.
     /// </summary>
-    [DataMember]
     public required IsoISODate TradeDate { get; init; } 
     /// <summary>
     /// Reference to the identification of the notification for which the status is given, as assigned by the participant that submitted the foreign exchange trade.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text NotificationIdentification { get; init; } 
     /// <summary>
     /// Reference common to both parties of the trade.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CommonReference { get; init; } 
     /// <summary>
     /// Specifies the reason for the cancellation or the amendment.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AmendOrCancelReason { get; init; } 
     /// <summary>
     /// Reference to the identification of a previous event in the life of a trade which is amended or cancelled.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RelatedReference { get; init; } 
     /// <summary>
     /// Specifies the type of underlying transaction, for example, option.
     /// </summary>
-    [DataMember]
     public IsoMax4Text? OperationType { get; init; } 
     /// <summary>
     /// Specifies the business role between the submitter and the trade party, for example, agent (AGNT).
     /// </summary>
-    [DataMember]
     public IsoMax4Text? OperationScope { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TradDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(TradeDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NtfctnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(NotificationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (CommonReference is IsoMax35Text CommonReferenceValue)
+        {
+            writer.WriteStartElement(null, "CmonRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CommonReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AmendOrCancelReason is IsoMax35Text AmendOrCancelReasonValue)
+        {
+            writer.WriteStartElement(null, "AmdOrCclRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AmendOrCancelReasonValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is IsoMax35Text RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RelatedReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OperationType is IsoMax4Text OperationTypeValue)
+        {
+            writer.WriteStartElement(null, "OprTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4Text(OperationTypeValue)); // data type Max4Text System.String
+            writer.WriteEndElement();
+        }
+        if (OperationScope is IsoMax4Text OperationScopeValue)
+        {
+            writer.WriteStartElement(null, "OprScp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4Text(OperationScopeValue)); // data type Max4Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeAgreement5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

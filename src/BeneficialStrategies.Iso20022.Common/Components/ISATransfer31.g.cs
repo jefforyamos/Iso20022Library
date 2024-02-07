@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Type of product and assets to be transferred.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ISATransfer31
+     : IIsoXmlSerilizable<ISATransfer31>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Identification assigned to the transfer of assets.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransferIdentification { get; init; } 
     /// <summary>
     /// Specifies portfolio information or government schemes, for example Individual Savings Account (ISA) in the UK.
     /// </summary>
-    [DataMember]
     public ISAPortfolio4Choice_? Portfolio { get; init; } 
     /// <summary>
     /// Specifies whether all remaining assets in a portfolio not listed for transfer should be liquidated and transferred as cash.
     /// </summary>
-    [DataMember]
     public AllOtherCash1Code? AllOtherCash { get; init; } 
     /// <summary>
     /// Specifies the underlying assets for the ISA or portfolio.
     /// </summary>
-    [DataMember]
-    public ValueList<FinancialInstrument64> FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
+    public FinancialInstrument64? FinancialInstrumentAssetForTransfer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TrfId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Portfolio is ISAPortfolio4Choice_ PortfolioValue)
+        {
+            writer.WriteStartElement(null, "Prtfl", xmlNamespace );
+            PortfolioValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AllOtherCash is AllOtherCash1Code AllOtherCashValue)
+        {
+            writer.WriteStartElement(null, "AllOthrCsh", xmlNamespace );
+            writer.WriteValue(AllOtherCashValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentAssetForTransfer is FinancialInstrument64 FinancialInstrumentAssetForTransferValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmAsstForTrf", xmlNamespace );
+            FinancialInstrumentAssetForTransferValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ISATransfer31 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

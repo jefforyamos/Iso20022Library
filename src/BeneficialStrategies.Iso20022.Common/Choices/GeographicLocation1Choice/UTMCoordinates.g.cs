@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.GeographicLocation1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.GeographicLocation1Choice;
 /// Location on the earth specified by the Universal Transverse Mercator coordinate system, using the WGS84 geodesic system.
 /// </summary>
 public partial record UTMCoordinates : GeographicLocation1Choice_
+     , IIsoXmlSerilizable<UTMCoordinates>
 {
     #nullable enable
+    
     /// <summary>
     /// UTM grid zone combination of the longitude zone (1 to 60) and the latitude band, C to X, excluding I and O (for example Eiffel tower UTM zone is 31U).
     /// </summary>
@@ -27,5 +31,32 @@ public partial record UTMCoordinates : GeographicLocation1Choice_
     /// Y-coordinate of the Universal Transverse Mercator coordinate system (for example 5 411 920m for Eiffel Tower Y-coordinate).
     /// </summary>
     public required IsoNumber UTMNorthward { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UTMZone", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax16Text(UTMZone)); // data type Max16Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UTMEstwrd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(UTMEastward)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UTMNrthwrd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(UTMNorthward)); // data type Number System.UInt64
+        writer.WriteEndElement();
+    }
+    public static new UTMCoordinates Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

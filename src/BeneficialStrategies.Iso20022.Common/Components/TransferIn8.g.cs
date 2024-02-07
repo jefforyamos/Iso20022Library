@@ -7,38 +7,69 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the confirmation of a transfer in transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransferIn8
+     : IIsoXmlSerilizable<TransferIn8>
 {
     #nullable enable
     
     /// <summary>
     /// General information related to the transfer of a financial instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<Transfer25> TransferDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Transfer25? TransferDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _RFpSFRgmEeK-_89we2b-bA
     /// <summary>
     /// Information related to the account into which the financial instrument was received.
     /// </summary>
-    [DataMember]
     public required InvestmentAccount22 AccountDetails { get; init; } 
     /// <summary>
     /// Information related to the delivering side of the transfer.
     /// </summary>
-    [DataMember]
     public DeliverInformation11? SettlementDetails { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<Extension1> Extension { get; init; } = []; // Warning: Don't know multiplicity.
+    public Extension1? Extension { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize TransferDetails, multiplicity Unknown
+        writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
+        AccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SettlementDetails is DeliverInformation11 SettlementDetailsValue)
+        {
+            writer.WriteStartElement(null, "SttlmDtls", xmlNamespace );
+            SettlementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransferIn8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

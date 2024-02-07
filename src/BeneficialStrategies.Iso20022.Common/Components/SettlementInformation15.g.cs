@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide information on the settlement of the instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementInformation15
+     : IIsoXmlSerilizable<SettlementInformation15>
 {
     #nullable enable
     
     /// <summary>
     /// Agent through which the instructing agent will reimburse the instructed agent.|Usage: If InstructingAgent and InstructedAgent have the same reimbursement agent, then only InstructingReimbursementAgent must be used.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? InstructingReimbursementAgent { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the instructing reimbursement agent account at its servicing agent in the payment chain.
     /// </summary>
-    [DataMember]
     public CashAccount16? InstructingReimbursementAgentAccount { get; init; } 
     /// <summary>
     /// Agent at which the instructed agent will be reimbursed.|Usage: If InstructedReimbursementAgent contains a branch of the InstructedAgent, then the party in InstructedAgent will claim reimbursement from that branch/will be paid by that branch.|Usage: If InstructingAgent and InstructedAgent have the same reimbursement agent, then only InstructingReimbursementAgent must be used.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? InstructedReimbursementAgent { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the instructed reimbursement agent account at its servicing agent in the payment chain.
     /// </summary>
-    [DataMember]
     public CashAccount16? InstructedReimbursementAgentAccount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (InstructingReimbursementAgent is BranchAndFinancialInstitutionIdentification4 InstructingReimbursementAgentValue)
+        {
+            writer.WriteStartElement(null, "InstgRmbrsmntAgt", xmlNamespace );
+            InstructingReimbursementAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructingReimbursementAgentAccount is CashAccount16 InstructingReimbursementAgentAccountValue)
+        {
+            writer.WriteStartElement(null, "InstgRmbrsmntAgtAcct", xmlNamespace );
+            InstructingReimbursementAgentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructedReimbursementAgent is BranchAndFinancialInstitutionIdentification4 InstructedReimbursementAgentValue)
+        {
+            writer.WriteStartElement(null, "InstdRmbrsmntAgt", xmlNamespace );
+            InstructedReimbursementAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructedReimbursementAgentAccount is CashAccount16 InstructedReimbursementAgentAccountValue)
+        {
+            writer.WriteStartElement(null, "InstdRmbrsmntAgtAcct", xmlNamespace );
+            InstructedReimbursementAgentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementInformation15 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes the time-out consequences.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TimeOutResult1
+     : IIsoXmlSerilizable<TimeOutResult1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the status of the transaction if no action is taken by the user.
     /// </summary>
-    [DataMember]
     public required TransactionStatus2 TransactionFutureStatus { get; init; } 
     /// <summary>
     /// Describes the time-out reason.
     /// </summary>
-    [DataMember]
     public TimeOutEvent1? TimeOutEvent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxFutrSts", xmlNamespace );
+        TransactionFutureStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TimeOutEvent is TimeOutEvent1 TimeOutEventValue)
+        {
+            writer.WriteStartElement(null, "TmOutEvt", xmlNamespace );
+            TimeOutEventValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TimeOutResult1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Vehicle rental service provides detailed vehicle rental information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record VehicleRentalService2
+     : IIsoXmlSerilizable<VehicleRentalService2>
 {
     #nullable enable
     
     /// <summary>
     /// Company in charge of a vehicle rental service.
     /// </summary>
-    [DataMember]
     public VehicleRentalCompany2? VehicleRentalCompany { get; init; } 
     /// <summary>
     /// Customer renting a vehicle.
     /// </summary>
-    [DataMember]
     public VehicleRentalCustomer2? Customer { get; init; } 
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     /// <summary>
     /// Agreement (contract) related to a vehicle rental service.
     /// </summary>
-    [DataMember]
     public VehicleRentalAgreement2? RentalAgreement { get; init; } 
     /// <summary>
     /// Invoice related to a vehicle rental service.
     /// </summary>
-    [DataMember]
     public VehicleRentalInvoice2? RentalInvoice { get; init; } 
     /// <summary>
     /// Additional user-defined data pertaining to the vehicle rental. 
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (VehicleRentalCompany is VehicleRentalCompany2 VehicleRentalCompanyValue)
+        {
+            writer.WriteStartElement(null, "VhclRntlCpny", xmlNamespace );
+            VehicleRentalCompanyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Customer is VehicleRentalCustomer2 CustomerValue)
+        {
+            writer.WriteStartElement(null, "Cstmr", xmlNamespace );
+            CustomerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SummaryCommodityIdentification is IsoMax35Text SummaryCommodityIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SummryCmmdtyId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SummaryCommodityIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RentalAgreement is VehicleRentalAgreement2 RentalAgreementValue)
+        {
+            writer.WriteStartElement(null, "RntlAgrmt", xmlNamespace );
+            RentalAgreementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RentalInvoice is VehicleRentalInvoice2 RentalInvoiceValue)
+        {
+            writer.WriteStartElement(null, "RntlInvc", xmlNamespace );
+            RentalInvoiceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is IsoMax350Text AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalDataValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static VehicleRentalService2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

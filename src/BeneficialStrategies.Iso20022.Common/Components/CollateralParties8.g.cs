@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Choice of format for the trading capacity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralParties8
+     : IIsoXmlSerilizable<CollateralParties8>
 {
     #nullable enable
     
     /// <summary>
     /// Instructing party sending the collateral instruction.
     /// </summary>
-    [DataMember]
     public required PartyIdentificationAndAccount202 PartyA { get; init; } 
     /// <summary>
     /// Party that instructs party A to send the message.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount193? ClientPartyA { get; init; } 
     /// <summary>
     /// Counterparty of party A. 
     /// </summary>
-    [DataMember]
     public required PartyIdentificationAndAccount203 PartyB { get; init; } 
     /// <summary>
     /// Party that instructs party B to settle the instruction on its behalf.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount193? ClientPartyB { get; init; } 
     /// <summary>
     /// Party that handles tri-party transactions.
     /// </summary>
-    [DataMember]
     public PartyIdentification136? TripartyAgent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PtyA", xmlNamespace );
+        PartyA.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ClientPartyA is PartyIdentificationAndAccount193 ClientPartyAValue)
+        {
+            writer.WriteStartElement(null, "ClntPtyA", xmlNamespace );
+            ClientPartyAValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PtyB", xmlNamespace );
+        PartyB.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ClientPartyB is PartyIdentificationAndAccount193 ClientPartyBValue)
+        {
+            writer.WriteStartElement(null, "ClntPtyB", xmlNamespace );
+            ClientPartyBValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TripartyAgent is PartyIdentification136 TripartyAgentValue)
+        {
+            writer.WriteStartElement(null, "TrptyAgt", xmlNamespace );
+            TripartyAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralParties8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

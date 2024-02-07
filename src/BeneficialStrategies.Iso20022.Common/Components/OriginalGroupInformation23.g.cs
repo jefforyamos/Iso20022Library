@@ -7,63 +7,120 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide information on the original group, to which the message refers.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OriginalGroupInformation23
+     : IIsoXmlSerilizable<OriginalGroupInformation23>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by the assigner, to unambiguously identify the group cancellation request.||Usage: The group cancellation request identification can be used for reconciliation or to link tasks related to the cancellation request.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? GroupCancellationIdentification { get; init; } 
     /// <summary>
     /// Set of elements to uniquely and unambiguously identify an exception or an investigation workflow.
     /// </summary>
-    [DataMember]
     public Case2? Case { get; init; } 
     /// <summary>
     /// Point to point reference, as assigned by the original instructing party, to unambiguously identify the original message.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OriginalMessageIdentification { get; init; } 
     /// <summary>
     /// Specifies the original message name identifier to which the message refers.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OriginalMessageNameIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the original message was created.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? OriginalCreationDateTime { get; init; } 
     /// <summary>
     /// Number of individual transactions contained in the original message.
     /// </summary>
-    [DataMember]
     public IsoMax15NumericText? NumberOfTransactions { get; init; } 
     /// <summary>
     /// Total of all individual amounts included in the message, irrespective of currencies.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? ControlSum { get; init; } 
     /// <summary>
     /// Indicates whether the cancellation request applies to a whole group of transactions or to individual transactions within an original group.
     /// </summary>
-    [DataMember]
     public IsoGroupCancellationIndicator? GroupCancellation { get; init; } 
     /// <summary>
     /// Set of elements used to provide detailed information on the cancellation reason.
     /// </summary>
-    [DataMember]
-    public ValueList<CancellationReasonInformation3> CancellationReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public CancellationReasonInformation3? CancellationReasonInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (GroupCancellationIdentification is IsoMax35Text GroupCancellationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "GrpCxlId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(GroupCancellationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Case is Case2 CaseValue)
+        {
+            writer.WriteStartElement(null, "Case", xmlNamespace );
+            CaseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OrgnlMsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalMessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgnlMsgNmId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalMessageNameIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (OriginalCreationDateTime is IsoISODateTime OriginalCreationDateTimeValue)
+        {
+            writer.WriteStartElement(null, "OrgnlCreDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(OriginalCreationDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (NumberOfTransactions is IsoMax15NumericText NumberOfTransactionsValue)
+        {
+            writer.WriteStartElement(null, "NbOfTxs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(NumberOfTransactionsValue)); // data type Max15NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (ControlSum is IsoDecimalNumber ControlSumValue)
+        {
+            writer.WriteStartElement(null, "CtrlSum", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(ControlSumValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (GroupCancellation is IsoGroupCancellationIndicator GroupCancellationValue)
+        {
+            writer.WriteStartElement(null, "GrpCxl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoGroupCancellationIndicator(GroupCancellationValue)); // data type GroupCancellationIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CancellationReasonInformation is CancellationReasonInformation3 CancellationReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "CxlRsnInf", xmlNamespace );
+            CancellationReasonInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OriginalGroupInformation23 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

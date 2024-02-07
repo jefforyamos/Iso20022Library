@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a payment instruction by its relative position in a queue of payment transactions managed by the clearing agent.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record QueueTransactionIdentification1
+     : IIsoXmlSerilizable<QueueTransactionIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the payment queue where the payment instruction resides.
     /// </summary>
-    [DataMember]
     public required IsoMax16Text QueueIdentification { get; init; } 
     /// <summary>
     /// Position of the payment instruction within the identified queue.
     /// </summary>
-    [DataMember]
     public required IsoMax16Text PositionInQueue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "QId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax16Text(QueueIdentification)); // data type Max16Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PosInQ", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax16Text(PositionInQueue)); // data type Max16Text System.String
+        writer.WriteEndElement();
+    }
+    public static QueueTransactionIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

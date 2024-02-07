@@ -7,58 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide reference and status information on the original transactions, included in the original instruction, to which the reversal message applies.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentTransactionInformation28
+     : IIsoXmlSerilizable<PaymentTransactionInformation28>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by an instructing party for an instructed party, to unambiguously identify the reversed transaction.|Usage: The instructing party is the party sending the reversal message and not the party that sent the original instruction that is being reversed.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReversalIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original instructing party for the original instructed party, to unambiguously identify the original instruction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalInstructionIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original initiating party, to unambiguously identify the original transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalEndToEndIdentification { get; init; } 
     /// <summary>
     /// Amount of money, as provided in the original transaction, to be moved between the debtor and the creditor, before deduction of charges, expressed in the currency, as ordered by the original initiating party.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? OriginalInstructedAmount { get; init; } 
     /// <summary>
     /// Amount of money to be moved between the debtor and the creditor, before deduction of charges, in the reversed transaction.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ReversedInstructedAmount { get; init; } 
     /// <summary>
     /// Specifies if the creditor and/or debtor will bear the charges associated with the processing of the payment transaction.||Usage: The ChargeBearer applies to the reversal message, not to the original instruction.
     /// </summary>
-    [DataMember]
     public ChargeBearerType1Code? ChargeBearer { get; init; } 
     /// <summary>
     /// Set of elements used to provide detailed information on the reversal reason.
     /// </summary>
-    [DataMember]
-    public ValueList<ReversalReasonInformation6> ReversalReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public ReversalReasonInformation6? ReversalReasonInformation { get; init; } 
     /// <summary>
     /// Set of key elements used to identify the original transaction that is being referred to.
     /// </summary>
-    [DataMember]
     public OriginalTransactionReference13? OriginalTransactionReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReversalIdentification is IsoMax35Text ReversalIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RvslId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReversalIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalInstructionIdentification is IsoMax35Text OriginalInstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlInstrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalInstructionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalEndToEndIdentification is IsoMax35Text OriginalEndToEndIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlEndToEndId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalEndToEndIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalInstructedAmount is IsoActiveOrHistoricCurrencyAndAmount OriginalInstructedAmountValue)
+        {
+            writer.WriteStartElement(null, "OrgnlInstdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(OriginalInstructedAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ReversedInstructedAmount is IsoActiveOrHistoricCurrencyAndAmount ReversedInstructedAmountValue)
+        {
+            writer.WriteStartElement(null, "RvsdInstdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ReversedInstructedAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ChargeBearer is ChargeBearerType1Code ChargeBearerValue)
+        {
+            writer.WriteStartElement(null, "ChrgBr", xmlNamespace );
+            writer.WriteValue(ChargeBearerValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ReversalReasonInformation is ReversalReasonInformation6 ReversalReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "RvslRsnInf", xmlNamespace );
+            ReversalReasonInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalTransactionReference is OriginalTransactionReference13 OriginalTransactionReferenceValue)
+        {
+            writer.WriteStartElement(null, "OrgnlTxRef", xmlNamespace );
+            OriginalTransactionReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentTransactionInformation28 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

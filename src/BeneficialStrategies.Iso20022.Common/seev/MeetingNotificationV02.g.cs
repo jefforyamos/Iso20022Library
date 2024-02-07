@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.MeetingNotificationV02>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// To update the resolutions of the agenda, the complete list of resolutions must be repeated in the amendment message. The resolutions that are deleted should be assigned the status Withdrawn.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|A notifying party, eg, an issuer, its agent or an intermediary, sends the MeetingNotification message to a party holding the right to vote, to announce a shareholders meeting.|Usage|The MeetingNotification message is used to announce a shareholders meeting, ie, it provides information on the participation details and requirements for the meeting, the vote parameters and the resolutions. The MeetingNotification message may also be used to announce an update.|To notify an update, the Amendment building block must be filled in. Any building block that is modified must be included in the amendment message. The information previously notified and not repeated in the amendment message remains valid.|To update the resolutions of the agenda, the complete list of resolutions must be repeated in the amendment message. The resolutions that are deleted should be assigned the status Withdrawn.")]
-public partial record MeetingNotificationV02 : IOuterRecord
+public partial record MeetingNotificationV02 : IOuterRecord<MeetingNotificationV02,MeetingNotificationV02Document>
+    ,IIsoXmlSerilizable<MeetingNotificationV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record MeetingNotificationV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MtgNtfctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => MeetingNotificationV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -89,7 +96,7 @@ public partial record MeetingNotificationV02 : IOuterRecord
     [Description(@"Dates and details of the shareholders meeting.")]
     [DataMember(Name="MtgDtls")]
     [XmlElement(ElementName="MtgDtls")]
-    public required IReadOnlyCollection<Meeting2> MeetingDetails { get; init; } = []; // Min=1, Max=5
+    public required ValueList<Meeting2> MeetingDetails { get; init; } = []; // Min=1, Max=5
     
     /// <summary>
     /// Party notifying the meeting.
@@ -118,7 +125,7 @@ public partial record MeetingNotificationV02 : IOuterRecord
     [Description(@"Agents of the issuer.")]
     [DataMember(Name="IssrAgt")]
     [XmlElement(ElementName="IssrAgt")]
-    public required IReadOnlyCollection<IssuerAgent1> IssuerAgent { get; init; } = []; // Min=0, Max=10
+    public required ValueList<IssuerAgent1> IssuerAgent { get; init; } = []; // Min=0, Max=10
     
     /// <summary>
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
@@ -127,7 +134,7 @@ public partial record MeetingNotificationV02 : IOuterRecord
     [Description(@"Net position of a segregated holding, in a single security, within the overall position held in a securities account.")]
     [DataMember(Name="Scty")]
     [XmlElement(ElementName="Scty")]
-    public required IReadOnlyCollection<SecurityPosition5> Security { get; init; } = []; // Min=1, Max=200
+    public required ValueList<SecurityPosition5> Security { get; init; } = []; // Min=1, Max=200
     
     /// <summary>
     /// Detailed information of a resolution proposed to the vote.
@@ -136,7 +143,7 @@ public partial record MeetingNotificationV02 : IOuterRecord
     [Description(@"Detailed information of a resolution proposed to the vote.")]
     [DataMember(Name="Rsltn")]
     [XmlElement(ElementName="Rsltn")]
-    public required IReadOnlyCollection<Resolution2> Resolution { get; init; } = []; // Min=0, Max=200
+    public required ValueList<Resolution2> Resolution { get; init; } = []; // Min=0, Max=200
     
     /// <summary>
     /// Specifies the conditions to be allowed to vote, the different voting methods and options, the voting deadlines and the parameters of the incentive premium.
@@ -175,6 +182,71 @@ public partial record MeetingNotificationV02 : IOuterRecord
     {
         return new MeetingNotificationV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MtgNtfctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MtgNtfctnId", xmlNamespace );
+        MeetingNotificationIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Amendment is AmendInformation1 AmendmentValue)
+        {
+            writer.WriteStartElement(null, "Amdmnt", xmlNamespace );
+            AmendmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "NtfctnSts", xmlNamespace );
+        NotificationStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Mtg", xmlNamespace );
+        Meeting.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MtgDtls", xmlNamespace );
+        MeetingDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NtifngPty", xmlNamespace );
+        NotifyingParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Issr", xmlNamespace );
+        Issuer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IssrAgt", xmlNamespace );
+        IssuerAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Scty", xmlNamespace );
+        Security.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rsltn", xmlNamespace );
+        Resolution.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Vote is VoteParameters1 VoteValue)
+        {
+            writer.WriteStartElement(null, "Vote", xmlNamespace );
+            VoteValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "EntitlmntSpcfctn", xmlNamespace );
+        EntitlementSpecification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PowerOfAttorneyRequirements is PowerOfAttorneyRequirements2 PowerOfAttorneyRequirementsValue)
+        {
+            writer.WriteStartElement(null, "PwrOfAttnyRqrmnts", xmlNamespace );
+            PowerOfAttorneyRequirementsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MeetingNotificationV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -182,9 +254,7 @@ public partial record MeetingNotificationV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingNotificationV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record MeetingNotificationV02Document : IOuterDocument<MeetingNotificationV02>
+public partial record MeetingNotificationV02Document : IOuterDocument<MeetingNotificationV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -200,5 +270,22 @@ public partial record MeetingNotificationV02Document : IOuterDocument<MeetingNot
     /// <summary>
     /// The instance of <seealso cref="MeetingNotificationV02"/> is required.
     /// </summary>
+    [DataMember(Name=MeetingNotificationV02.XmlTag)]
     public required MeetingNotificationV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(MeetingNotificationV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

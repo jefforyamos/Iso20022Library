@@ -7,68 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide information on the original group, to which the message refers.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OriginalGroupInformation24
+     : IIsoXmlSerilizable<OriginalGroupInformation24>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by the original assigner, to unambiguously identify the original group cancellation request.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalGroupCancellationIdentification { get; init; } 
     /// <summary>
     /// Identifies the case.
     /// </summary>
-    [DataMember]
     public Case2? ResolvedCase { get; init; } 
     /// <summary>
     /// Point to point reference, as assigned by the original instructing party, to unambiguously identify the original message.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OriginalMessageIdentification { get; init; } 
     /// <summary>
     /// Specifies the original message name identifier to which the message refers.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OriginalMessageNameIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the original message was created.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? OriginalCreationDateTime { get; init; } 
     /// <summary>
     /// Number of individual transactions contained in the original message.
     /// </summary>
-    [DataMember]
     public IsoMax15NumericText? OriginalNumberOfTransactions { get; init; } 
     /// <summary>
     /// Total of all individual amounts included in the original message, irrespective of currencies.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? OriginalControlSum { get; init; } 
     /// <summary>
     /// Specifies the status of a group cancellation request.
     /// </summary>
-    [DataMember]
     public GroupCancellationStatus1Code? GroupCancellationStatus { get; init; } 
     /// <summary>
     /// Set of elements used to provide detailed information on the cancellation status reason.
     /// </summary>
-    [DataMember]
-    public ValueList<CancellationStatusReasonInformation1> CancellationStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public CancellationStatusReasonInformation1? CancellationStatusReasonInformation { get; init; } 
     /// <summary>
     /// Detailed information on the number of transactions for each identical cancellation status.
     /// </summary>
-    [DataMember]
-    public ValueList<NumberOfTransactionsPerStatus1> NumberOfTransactionsPerCancellationStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    public NumberOfTransactionsPerStatus1? NumberOfTransactionsPerCancellationStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OriginalGroupCancellationIdentification is IsoMax35Text OriginalGroupCancellationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlGrpCxlId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalGroupCancellationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ResolvedCase is Case2 ResolvedCaseValue)
+        {
+            writer.WriteStartElement(null, "RslvdCase", xmlNamespace );
+            ResolvedCaseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OrgnlMsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalMessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgnlMsgNmId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalMessageNameIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (OriginalCreationDateTime is IsoISODateTime OriginalCreationDateTimeValue)
+        {
+            writer.WriteStartElement(null, "OrgnlCreDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(OriginalCreationDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (OriginalNumberOfTransactions is IsoMax15NumericText OriginalNumberOfTransactionsValue)
+        {
+            writer.WriteStartElement(null, "OrgnlNbOfTxs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(OriginalNumberOfTransactionsValue)); // data type Max15NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalControlSum is IsoDecimalNumber OriginalControlSumValue)
+        {
+            writer.WriteStartElement(null, "OrgnlCtrlSum", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(OriginalControlSumValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (GroupCancellationStatus is GroupCancellationStatus1Code GroupCancellationStatusValue)
+        {
+            writer.WriteStartElement(null, "GrpCxlSts", xmlNamespace );
+            writer.WriteValue(GroupCancellationStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CancellationStatusReasonInformation is CancellationStatusReasonInformation1 CancellationStatusReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "CxlStsRsnInf", xmlNamespace );
+            CancellationStatusReasonInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NumberOfTransactionsPerCancellationStatus is NumberOfTransactionsPerStatus1 NumberOfTransactionsPerCancellationStatusValue)
+        {
+            writer.WriteStartElement(null, "NbOfTxsPerCxlSts", xmlNamespace );
+            NumberOfTransactionsPerCancellationStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OriginalGroupInformation24 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

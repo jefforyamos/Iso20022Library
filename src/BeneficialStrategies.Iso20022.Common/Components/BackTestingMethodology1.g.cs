@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the characteristics of a backtesting methodology used to test the performance of a risk model.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BackTestingMethodology1
+     : IIsoXmlSerilizable<BackTestingMethodology1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the core model type, excluding any modifications for pro-cyclicality.
     /// </summary>
-    [DataMember]
     public required ModelType1Choice_ RiskModelType { get; init; } 
     /// <summary>
     /// Specifies the confidence interval used on a daily basis to assess the performance of the model.
     /// </summary>
-    [DataMember]
     public required IsoBaseOneRate ModelConfidenceLevel { get; init; } 
     /// <summary>
     /// Indicates whether the CCP model calculates mark-to-market changes on fixed portfolios when backtesting.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator VariationMarginCleanIndicator { get; init; } 
     /// <summary>
     /// Description of backtesting methodology.
     /// </summary>
-    [DataMember]
     public IsoMax2000Text? Description { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RskMdlTp", xmlNamespace );
+        RiskModelType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MdlCnfdncLvl", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ModelConfidenceLevel)); // data type BaseOneRate System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "VartnMrgnCleanInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(VariationMarginCleanIndicator)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        if (Description is IsoMax2000Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2000Text(DescriptionValue)); // data type Max2000Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static BackTestingMethodology1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

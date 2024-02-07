@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Transaction and document identification details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionAndDocumentIdentification1
+     : IIsoXmlSerilizable<TransactionAndDocumentIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Unambiguous identification of the transaction as know by the instructing party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identifier of the document (message) assigned by the sender of the document.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DocumentIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the transaction was created by the instructing party in its business application.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeChoice_? CreationDateTime { get; init; } 
     /// <summary>
     /// Specifies if this document is a copy, a duplicate, or a duplicate of a copy.
     /// </summary>
-    [DataMember]
     public CopyDuplicate1Code? CopyDuplicate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (DocumentIdentification is IsoMax35Text DocumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "DocId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DocumentIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CreationDateTime is DateAndDateTimeChoice_ CreationDateTimeValue)
+        {
+            writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+            CreationDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CopyDuplicate is CopyDuplicate1Code CopyDuplicateValue)
+        {
+            writer.WriteStartElement(null, "CpyDplct", xmlNamespace );
+            writer.WriteValue(CopyDuplicateValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionAndDocumentIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

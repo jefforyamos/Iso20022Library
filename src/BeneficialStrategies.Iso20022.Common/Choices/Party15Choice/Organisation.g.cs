@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Party15Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Party15Choice;
 /// Organised structure that is set up for a particular purpose, eg, a business, government body, department, charity, or financial institution.
 /// </summary>
 public partial record Organisation : Party15Choice_
+     , IIsoXmlSerilizable<Organisation>
 {
     #nullable enable
+    
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
@@ -50,7 +54,7 @@ public partial record Organisation : Party15Choice_
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
-    public IReadOnlyCollection<ModificationScope1> ModifiedPostalAddress { get; init; } = [];
+    public ValueList<ModificationScope1> ModifiedPostalAddress { get; init; } = [];
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
@@ -63,5 +67,89 @@ public partial record Organisation : Party15Choice_
     /// Additional regulatory information about the investor that is required in some markets to support anti-money laundering laws.
     /// </summary>
     public RegulatoryInformation1? AdditionalRegulatoryInformation { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(Name)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        if (Identification is PartyIdentification4Choice_ IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Purpose is IsoMax35Text PurposeValue)
+        {
+            writer.WriteStartElement(null, "Purp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PurposeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TaxationCountry is CountryCode TaxationCountryValue)
+        {
+            writer.WriteStartElement(null, "TaxtnCtry", xmlNamespace );
+            writer.WriteValue(TaxationCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (RegistrationCountry is CountryCode RegistrationCountryValue)
+        {
+            writer.WriteStartElement(null, "RegnCtry", xmlNamespace );
+            writer.WriteValue(RegistrationCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (RegistrationDate is IsoISODate RegistrationDateValue)
+        {
+            writer.WriteStartElement(null, "RegnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(RegistrationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (TaxIdentificationNumber is IsoMax35Text TaxIdentificationNumberValue)
+        {
+            writer.WriteStartElement(null, "TaxIdNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TaxIdentificationNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (NationalRegistrationNumber is IsoMax35Text NationalRegistrationNumberValue)
+        {
+            writer.WriteStartElement(null, "NtlRegnNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NationalRegistrationNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ModfdPstlAdr", xmlNamespace );
+        ModifiedPostalAddress.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PrimaryCommunicationAddress is CommunicationAddress3 PrimaryCommunicationAddressValue)
+        {
+            writer.WriteStartElement(null, "PmryComAdr", xmlNamespace );
+            PrimaryCommunicationAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecondaryCommunicationAddress is CommunicationAddress3 SecondaryCommunicationAddressValue)
+        {
+            writer.WriteStartElement(null, "ScndryComAdr", xmlNamespace );
+            SecondaryCommunicationAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalRegulatoryInformation is RegulatoryInformation1 AdditionalRegulatoryInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlRgltryInf", xmlNamespace );
+            AdditionalRegulatoryInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Organisation Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

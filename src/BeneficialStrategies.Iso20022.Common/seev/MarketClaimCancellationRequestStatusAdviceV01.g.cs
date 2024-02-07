@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.MarketClaimCancellationRequestStatusAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -23,10 +26,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// This message definition is intended for use with the Business Application Header (BAH).
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope and Usage|The MarketClaimCancellationRequestStatusAdvice message is sent by an account servicer to an account holder to provide the status of a market claim transaction cancellation request.|This message definition is intended for use with the Business Application Header (BAH).")]
-public partial record MarketClaimCancellationRequestStatusAdviceV01 : IOuterRecord
+public partial record MarketClaimCancellationRequestStatusAdviceV01 : IOuterRecord<MarketClaimCancellationRequestStatusAdviceV01,MarketClaimCancellationRequestStatusAdviceV01Document>
+    ,IIsoXmlSerilizable<MarketClaimCancellationRequestStatusAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -38,6 +40,11 @@ public partial record MarketClaimCancellationRequestStatusAdviceV01 : IOuterReco
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MktClmCxlReqStsAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => MarketClaimCancellationRequestStatusAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -107,6 +114,47 @@ public partial record MarketClaimCancellationRequestStatusAdviceV01 : IOuterReco
     {
         return new MarketClaimCancellationRequestStatusAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MktClmCxlReqStsAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MktClmCxlReqId", xmlNamespace );
+        MarketClaimCancellationRequestIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxRef", xmlNamespace );
+        TransactionReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+        CorporateActionGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MktClmCxlReqSts", xmlNamespace );
+        MarketClaimCancellationRequestStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MarketClaimDetails is CorporateActionOption185 MarketClaimDetailsValue)
+        {
+            writer.WriteStartElement(null, "MktClmDtls", xmlNamespace );
+            MarketClaimDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MarketClaimCancellationRequestStatusAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -114,9 +162,7 @@ public partial record MarketClaimCancellationRequestStatusAdviceV01 : IOuterReco
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MarketClaimCancellationRequestStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record MarketClaimCancellationRequestStatusAdviceV01Document : IOuterDocument<MarketClaimCancellationRequestStatusAdviceV01>
+public partial record MarketClaimCancellationRequestStatusAdviceV01Document : IOuterDocument<MarketClaimCancellationRequestStatusAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -132,5 +178,22 @@ public partial record MarketClaimCancellationRequestStatusAdviceV01Document : IO
     /// <summary>
     /// The instance of <seealso cref="MarketClaimCancellationRequestStatusAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=MarketClaimCancellationRequestStatusAdviceV01.XmlTag)]
     public required MarketClaimCancellationRequestStatusAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(MarketClaimCancellationRequestStatusAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

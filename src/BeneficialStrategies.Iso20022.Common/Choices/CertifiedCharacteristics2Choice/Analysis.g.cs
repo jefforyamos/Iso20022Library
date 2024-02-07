@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CertifiedCharacteristics2Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.CertifiedCharacteristics2Choice;
 /// Analysis of the goods, as proven by the certificate.
 /// </summary>
 public partial record Analysis : CertifiedCharacteristics2Choice_
+     , IIsoXmlSerilizable<Analysis>
 {
-    public required IsoMax70Text Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a character string with a maximum length of 70characters.
+    /// </summary>
+    public required IsoMax70Text Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Anlys", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(Value)); // data type Max70Text System.String
+        writer.WriteEndElement();
+    }
+    public static new Analysis Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

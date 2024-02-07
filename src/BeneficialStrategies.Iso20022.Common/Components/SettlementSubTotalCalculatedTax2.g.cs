@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the subtotal calculated tax applicable for this settlement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementSubTotalCalculatedTax2
+     : IIsoXmlSerilizable<SettlementSubTotalCalculatedTax2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of tax applied.
     /// </summary>
-    [DataMember]
     public IsoMax4Text? TypeCode { get; init; } 
     /// <summary>
     /// Rate used to calculate the amount of this tax, levy or duty.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? CalculatedRate { get; init; } 
     /// <summary>
     /// Monetary value used as the basis on which this tax, levy or duty is calculated.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoCurrencyAndAmount> BasisAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount? BasisAmount { get; init; } 
     /// <summary>
     /// Monetary value resulting from the calculation of this tax, levy or duty.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoCurrencyAndAmount> CalculatedAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount? CalculatedAmount { get; init; } 
     /// <summary>
     /// Reason for tax exemption expressed as a code, if invoice or card transaction is out of tax processing.
     /// </summary>
-    [DataMember]
     public IsoMax4Text? ExemptionReasonCode { get; init; } 
     /// <summary>
     /// Reason for a tax exemption, if invoice or card transaction is out of tax processing.
     /// </summary>
-    [DataMember]
     public IsoMax500Text? ExemptionReasonText { get; init; } 
     /// <summary>
     /// If tax currency in tax calculation is different from invoice currency, then applied exchange rate is given in this message structure.
     /// </summary>
-    [DataMember]
     public CurrencyReference3? TaxCurrencyExchange { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TypeCode is IsoMax4Text TypeCodeValue)
+        {
+            writer.WriteStartElement(null, "TpCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4Text(TypeCodeValue)); // data type Max4Text System.String
+            writer.WriteEndElement();
+        }
+        if (CalculatedRate is IsoPercentageRate CalculatedRateValue)
+        {
+            writer.WriteStartElement(null, "ClctdRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(CalculatedRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (BasisAmount is IsoCurrencyAndAmount BasisAmountValue)
+        {
+            writer.WriteStartElement(null, "BsisAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(BasisAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CalculatedAmount is IsoCurrencyAndAmount CalculatedAmountValue)
+        {
+            writer.WriteStartElement(null, "ClctdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(CalculatedAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExemptionReasonCode is IsoMax4Text ExemptionReasonCodeValue)
+        {
+            writer.WriteStartElement(null, "XmptnRsnCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4Text(ExemptionReasonCodeValue)); // data type Max4Text System.String
+            writer.WriteEndElement();
+        }
+        if (ExemptionReasonText is IsoMax500Text ExemptionReasonTextValue)
+        {
+            writer.WriteStartElement(null, "XmptnRsnTxt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Text(ExemptionReasonTextValue)); // data type Max500Text System.String
+            writer.WriteEndElement();
+        }
+        if (TaxCurrencyExchange is CurrencyReference3 TaxCurrencyExchangeValue)
+        {
+            writer.WriteStartElement(null, "TaxCcyXchg", xmlNamespace );
+            TaxCurrencyExchangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementSubTotalCalculatedTax2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

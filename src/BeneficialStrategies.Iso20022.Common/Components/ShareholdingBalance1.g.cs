@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides detailed shareholding balance information for an account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ShareholdingBalance1
+     : IIsoXmlSerilizable<ShareholdingBalance1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the category of shareholding.
     /// </summary>
-    [DataMember]
     public required ShareholdingType1Code ShareholdingType { get; init; } 
     /// <summary>
     /// Number of shares of this type of shareholding or with this date of shareholding held by the account owner.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity18Choice_ Quantity { get; init; } 
     /// <summary>
     /// Date as from when the shares have been held by the shareholder on its account.
     /// </summary>
-    [DataMember]
     public DateFormat57Choice_? InitialDateOfShareholding { get; init; } 
     /// <summary>
     /// Third party who is authorised to take specific actions on behalf of the shareholder.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyIdentification218> ThirdParty { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyIdentification218? ThirdParty { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ShrhldgTp", xmlNamespace );
+        writer.WriteValue(ShareholdingType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        Quantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (InitialDateOfShareholding is DateFormat57Choice_ InitialDateOfShareholdingValue)
+        {
+            writer.WriteStartElement(null, "InitlDtOfShrhldg", xmlNamespace );
+            InitialDateOfShareholdingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ThirdParty is PartyIdentification218 ThirdPartyValue)
+        {
+            writer.WriteStartElement(null, "ThrdPty", xmlNamespace );
+            ThirdPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ShareholdingBalance1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

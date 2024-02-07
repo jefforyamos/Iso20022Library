@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.caad.AdministrativeResponseV01>;
 
 namespace BeneficialStrategies.Iso20022.caad;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.caad;
 /// The AdministrativeResponse message is usually sent by any party (processor, clearing or settlement agent) to any party in response to a AdministrativeInitiation Message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The AdministrativeResponse message is usually sent by any party (processor, clearing or settlement agent) to any party in response to a AdministrativeInitiation Message.")]
-public partial record AdministrativeResponseV01 : IOuterRecord
+public partial record AdministrativeResponseV01 : IOuterRecord<AdministrativeResponseV01,AdministrativeResponseV01Document>
+    ,IIsoXmlSerilizable<AdministrativeResponseV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record AdministrativeResponseV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AdmstvRspn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AdministrativeResponseV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -76,6 +83,35 @@ public partial record AdministrativeResponseV01 : IOuterRecord
     {
         return new AdministrativeResponseV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AdmstvRspn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Body", xmlNamespace );
+        Body.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecurityTrailer is ContentInformationType20 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AdministrativeResponseV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -83,9 +119,7 @@ public partial record AdministrativeResponseV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AdministrativeResponseV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AdministrativeResponseV01Document : IOuterDocument<AdministrativeResponseV01>
+public partial record AdministrativeResponseV01Document : IOuterDocument<AdministrativeResponseV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -101,5 +135,22 @@ public partial record AdministrativeResponseV01Document : IOuterDocument<Adminis
     /// <summary>
     /// The instance of <seealso cref="AdministrativeResponseV01"/> is required.
     /// </summary>
+    [DataMember(Name=AdministrativeResponseV01.XmlTag)]
     public required AdministrativeResponseV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AdministrativeResponseV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

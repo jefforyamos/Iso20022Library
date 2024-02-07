@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates that the claim for non receipt is effectively a missing cover.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MissingCover
+     : IIsoXmlSerilizable<MissingCover>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether or not the claim is related to a missing cover.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator MissingCoverIndication { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MssngCoverIndctn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MissingCoverIndication)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static MissingCover Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

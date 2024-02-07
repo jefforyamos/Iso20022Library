@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Response data to a loyalty service request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LoyaltyResponse1
+     : IIsoXmlSerilizable<LoyaltyResponse1>
 {
     #nullable enable
     
     /// <summary>
     /// Sale System identification of the transaction in an unambiguous way.
     /// </summary>
-    [DataMember]
     public required TransactionIdentifier1 SaleTransactionIdentification { get; init; } 
     /// <summary>
     /// POI identification of the transaction in an unambiguous way.
     /// </summary>
-    [DataMember]
     public required TransactionIdentifier1 POITransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the reconciliation period between the acceptor and the acquirer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? POIReconciliationIdentification { get; init; } 
     /// <summary>
     /// Data related to the result of a processed loyalty transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<LoyaltyResult1> Result { get; init; } = []; // Warning: Don't know multiplicity.
+    public LoyaltyResult1? Result { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SaleTxId", xmlNamespace );
+        SaleTransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "POITxId", xmlNamespace );
+        POITransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (POIReconciliationIdentification is IsoMax35Text POIReconciliationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "POIRcncltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(POIReconciliationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Result is LoyaltyResult1 ResultValue)
+        {
+            writer.WriteStartElement(null, "Rslt", xmlNamespace );
+            ResultValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LoyaltyResponse1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

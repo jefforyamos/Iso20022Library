@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account to or from which a cash entry is made.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashAccount22
+     : IIsoXmlSerilizable<CashAccount22>
 {
     #nullable enable
     
     /// <summary>
     /// Medium of exchange of value.
     /// </summary>
-    [DataMember]
     public CurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    [DataMember]
     public required IsoBICIdentifier Servicer { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public required AccountIdentification5Choice_ Identification { get; init; } 
     /// <summary>
     /// Sub-division of a master or omnibus cash account.
     /// </summary>
-    [DataMember]
     public CashAccount21? SecondaryAccount { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text AccountTypeDescription { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Currency is CurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Svcr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBICIdentifier(Servicer)); // data type BICIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecondaryAccount is CashAccount21 SecondaryAccountValue)
+        {
+            writer.WriteStartElement(null, "ScndryAcct", xmlNamespace );
+            SecondaryAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AcctTpDesc", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountTypeDescription)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static CashAccount22 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

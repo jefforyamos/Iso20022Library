@@ -7,62 +7,107 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the payment transaction related to the underlying cover payment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CoverPaymentEvent1
+     : IIsoXmlSerilizable<CoverPaymentEvent1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the status of a transaction, in a coded form.
     /// </summary>
-    [DataMember]
     public required PaymentStatus5 TransactionStatus { get; init; } 
     /// <summary>
     /// Identifies the party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
-    [DataMember]
     public IsoAnyBICIdentifier? Debtor { get; init; } 
     /// <summary>
     /// Identifies the agent(s) currently participating in a transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentEvent2> Agent { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentEvent2? Agent { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _8jCDcT73EeiJbZ2wCAV0-w
     /// <summary>
     /// Identifies the party to which an amount of money is due.
     /// </summary>
-    [DataMember]
     public IsoAnyBICIdentifier? Creditor { get; init; } 
     /// <summary>
     /// Specifies the date and time at which the message enters the Gpi system.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime InitiationTime { get; init; } 
     /// <summary>
     /// Specifies the time at which the instructed bank reports that the transaction has been completed. 
     /// Usage:
     /// Date and time are based on the creation date of the status confirmation containing a final status ACSC.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? CompletionTime { get; init; } 
     /// <summary>
     /// Identifies the amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// Usage:
     /// This amount has to be transported unchanged through the transaction chain.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? InstructedAmount { get; init; } 
     /// <summary>
     /// Identifies the last date and time at which the status of this transaction was updated.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime LastUpdateTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxSts", xmlNamespace );
+        TransactionStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Debtor is IsoAnyBICIdentifier DebtorValue)
+        {
+            writer.WriteStartElement(null, "Dbtr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(DebtorValue)); // data type AnyBICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize Agent, multiplicity Unknown
+        if (Creditor is IsoAnyBICIdentifier CreditorValue)
+        {
+            writer.WriteStartElement(null, "Cdtr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(CreditorValue)); // data type AnyBICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InitnTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(InitiationTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (CompletionTime is IsoISODateTime CompletionTimeValue)
+        {
+            writer.WriteStartElement(null, "CmpltnTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(CompletionTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (InstructedAmount is IsoActiveOrHistoricCurrencyAndAmount InstructedAmountValue)
+        {
+            writer.WriteStartElement(null, "InstdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(InstructedAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "LastUpdTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(LastUpdateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+    }
+    public static CoverPaymentEvent1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

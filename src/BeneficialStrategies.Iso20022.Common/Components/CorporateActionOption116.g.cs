@@ -7,73 +7,137 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the corporate action option.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionOption116
+     : IIsoXmlSerilizable<CorporateActionOption116>
 {
     #nullable enable
     
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    [DataMember]
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    [DataMember]
     public required CorporateActionOption21Choice_ OptionType { get; init; } 
     /// <summary>
     /// Party that owns the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification92Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Account on which a securities entry is made.
     /// </summary>
-    [DataMember]
     public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
-    [DataMember]
     public SafekeepingPlaceFormat8Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
-    [DataMember]
     public SecurityIdentification19? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Total balance of securities eligible for this corporate action event. The entitlement calculation is based on this balance.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat7? TotalEligibleBalance { get; init; } 
     /// <summary>
     /// Balance of instructed position.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat7? InstructedBalance { get; init; } 
     /// <summary>
     /// Balance of uninstructed position.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat7? UninstructedBalance { get; init; } 
     /// <summary>
     /// Quantity of securities that has been assigned the status indicated.
     /// </summary>
-    [DataMember]
     public required Quantity6Choice_ StatusQuantity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OptnNb", xmlNamespace );
+        OptionNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+        OptionType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountOwner is PartyIdentification92Choice_ AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingAccount is IsoMax35Text SafekeepingAccountValue)
+        {
+            writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SafekeepingAccountValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CashAccount is CashAccountIdentification5Choice_ CashAccountValue)
+        {
+            writer.WriteStartElement(null, "CshAcct", xmlNamespace );
+            CashAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingPlace is SafekeepingPlaceFormat8Choice_ SafekeepingPlaceValue)
+        {
+            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
+            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentIdentification is SecurityIdentification19 FinancialInstrumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+            FinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalEligibleBalance is SignedQuantityFormat7 TotalEligibleBalanceValue)
+        {
+            writer.WriteStartElement(null, "TtlElgblBal", xmlNamespace );
+            TotalEligibleBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructedBalance is SignedQuantityFormat7 InstructedBalanceValue)
+        {
+            writer.WriteStartElement(null, "InstdBal", xmlNamespace );
+            InstructedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UninstructedBalance is SignedQuantityFormat7 UninstructedBalanceValue)
+        {
+            writer.WriteStartElement(null, "UinstdBal", xmlNamespace );
+            UninstructedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "StsQty", xmlNamespace );
+        StatusQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CorporateActionOption116 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

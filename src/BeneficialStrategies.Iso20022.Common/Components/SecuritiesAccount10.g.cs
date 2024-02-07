@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the securities account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesAccount10
+     : IIsoXmlSerilizable<SecuritiesAccount10>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the value is a debit or credit.
     /// </summary>
-    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Identification of the party that owns the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Nationality of the account owner.
     /// </summary>
-    [DataMember]
     public NationalityCode? AccountOwnerNationality { get; init; } 
     /// <summary>
     /// Idenfitication of the account.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text AccountIdentification { get; init; } 
     /// <summary>
     /// Type of balance.
     /// </summary>
-    [DataMember]
     public SecuritiesBalanceType9FormatChoice_? BalanceType { get; init; } 
     /// <summary>
     /// Specifies the form of the financial instrument.
     /// </summary>
-    [DataMember]
     public FormOfSecurity1Code? SecurityHoldingForm { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AccountOwnerIdentification is PartyIdentification2Choice_ AccountOwnerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnrId", xmlNamespace );
+            AccountOwnerIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountOwnerNationality is NationalityCode AccountOwnerNationalityValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnrNtlty", xmlNamespace );
+            writer.WriteValue(AccountOwnerNationalityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AcctId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (BalanceType is SecuritiesBalanceType9FormatChoice_ BalanceTypeValue)
+        {
+            writer.WriteStartElement(null, "BalTp", xmlNamespace );
+            BalanceTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecurityHoldingForm is FormOfSecurity1Code SecurityHoldingFormValue)
+        {
+            writer.WriteStartElement(null, "SctyHldgForm", xmlNamespace );
+            writer.WriteValue(SecurityHoldingFormValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesAccount10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

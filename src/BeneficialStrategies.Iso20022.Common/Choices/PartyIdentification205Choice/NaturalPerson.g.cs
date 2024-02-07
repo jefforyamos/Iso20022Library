@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification205Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification205Choice;
 /// Private person.
 /// </summary>
 public partial record NaturalPerson : PartyIdentification205Choice_
+     , IIsoXmlSerilizable<NaturalPerson>
 {
     #nullable enable
+    
     /// <summary>
     /// Name and address of the party.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record NaturalPerson : PartyIdentification205Choice_
     /// CONCAT
     /// </summary>
     public required NaturalPersonIdentification1 Identification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NmAndAdr", xmlNamespace );
+        NameAndAddress.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new NaturalPerson Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

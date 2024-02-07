@@ -7,218 +7,436 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies other amounts pertaining to the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OtherAmounts16
+     : IIsoXmlSerilizable<OtherAmounts16>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of money paid for the provision of financial services that cannot be categorised by another qualifier.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? ChargesFees { get; init; } 
     /// <summary>
     /// Amount of country, national or federal tax charged by the jurisdiction in which the account servicer is located.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? CountryNationalFederalTax { get; init; } 
     /// <summary>
     /// Amount of money paid to an executing broker as a commission.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? ExecutingBrokerAmount { get; init; } 
     /// <summary>
     /// Amount of money defined as a discount on a new issue or on a tranche of an existing issue.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? IssueDiscountAllowance { get; init; } 
     /// <summary>
     /// Amount of payment levy tax.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? PaymentLevyTax { get; init; } 
     /// <summary>
     /// Tax charged by the jurisdiction in which the financial instrument settles.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? LocalTax { get; init; } 
     /// <summary>
     /// Amount of commission paid to a local broker.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? LocalBrokerCommission { get; init; } 
     /// <summary>
     /// Amount of money deposited by the trading party in a margin account.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? Margin { get; init; } 
     /// <summary>
     /// An amount that is not indicated by a known business denomination.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? Other { get; init; } 
     /// <summary>
     /// Amount of money charged by a regulatory authority, for example, Securities and Exchange fees.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? RegulatoryAmount { get; init; } 
     /// <summary>
     /// Amount of drawdown or other reduction from or in addition to the deal price.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? SpecialConcession { get; init; } 
     /// <summary>
     /// Amount of stamp duty.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? StampDuty { get; init; } 
     /// <summary>
     /// Amount of stock exchange tax.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? StockExchangeTax { get; init; } 
     /// <summary>
     /// Amount of tax levied on a transfer of ownership of financial instrument.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? TransferTax { get; init; } 
     /// <summary>
     /// Amount of transaction tax.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? TransactionTax { get; init; } 
     /// <summary>
     /// Amount of value-added tax.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? ValueAddedTax { get; init; } 
     /// <summary>
     /// Amount of money that will be withheld by a tax authority.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? WithholdingTax { get; init; } 
     /// <summary>
     /// Amount representing the difference between the cost and the current price of a security. In the context of securities settlement, it is the amount paid or received when the instructions are netted or paired off.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? NetGainLoss { get; init; } 
     /// <summary>
     /// A tax on spending on goods and services.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? ConsumptionTax { get; init; } 
     /// <summary>
     /// Amount of money charged for matching and/or confirmation.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? MatchingConfirmationFee { get; init; } 
     /// <summary>
     /// Amount following a foreign exchange conversion.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? ConvertedAmount { get; init; } 
     /// <summary>
     /// Posting/settlement amount in its original currency when conversion from/into another currency has occurred.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? OriginalCurrencyAmount { get; init; } 
     /// <summary>
     /// Cost of the securities. May be requested in some countries for tax purposes.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? BookValue { get; init; } 
     /// <summary>
     /// Amount of unpaid interest (on bonds which have defaulted and have subsequently |restructured), which is capitalized and added to the original principal amount of the bond.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? AccruedCapitalisationAmount { get; init; } 
     /// <summary>
     /// Local tax as defined by the country in its market practice document.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? LocalTaxCountrySpecific1 { get; init; } 
     /// <summary>
     /// Local tax as defined by the country in its market practice document.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? LocalTaxCountrySpecific2 { get; init; } 
     /// <summary>
     /// Local tax as defined by the country in its market practice document.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? LocalTaxCountrySpecific3 { get; init; } 
     /// <summary>
     /// Local tax as defined by the country in its market practice document.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? LocalTaxCountrySpecific4 { get; init; } 
     /// <summary>
     /// Amount paid as result of transactions subject to shared brokerage commissions.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? SharedBrokerageAmount { get; init; } 
     /// <summary>
     /// Indicates the total fees related to the trade, with deduction of rebates (on brokerage, commission or differential) granted by the market member (fee amount with tax excluded).
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? MarketMemberFeeAmount { get; init; } 
     /// <summary>
     /// Specifies that this information is available upon request.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? RemunerationAmountRequest { get; init; } 
     /// <summary>
     /// Specifies the source and amount of any other remuneration received or to be received by the broker in connection with the transaction.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? RemunerationAmount { get; init; } 
     /// <summary>
     /// Amount to be paid by the lender to the borrower calculated based on the interest rate.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? BorrowingInterestAmount { get; init; } 
     /// <summary>
     /// Amount to be paid by the Borrower to the Lender for the securities borrowed calculated based on the bond loan rate.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? BorrowingFee { get; init; } 
     /// <summary>
     /// Net market value of the securities lent used to calculate the collateral amount.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? NetMarketValue { get; init; } 
     /// <summary>
     /// Remaining nominal value of a security.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? RemainingFaceValue { get; init; } 
     /// <summary>
     /// Remaining value at which an asset is carried on a balance sheet.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? RemainingBookValue { get; init; } 
     /// <summary>
     /// Amount of commission paid to a clearing broker.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? ClearingBrokerCommission { get; init; } 
     /// <summary>
     /// Difference between the deal price and another reference price.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? DifferenceInPrice { get; init; } 
     /// <summary>
     /// Specifies that the odd-lot differential or equivalent fee has been paid by such customer in connection with the execution of an order for an odd-lot number of shares or units (or principal amount) of a security and the fact that the amount of any such differential or fee will be furnished upon oral or written request.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? OddLotFee { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ChargesFees is AmountAndDirection29 ChargesFeesValue)
+        {
+            writer.WriteStartElement(null, "ChrgsFees", xmlNamespace );
+            ChargesFeesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CountryNationalFederalTax is AmountAndDirection29 CountryNationalFederalTaxValue)
+        {
+            writer.WriteStartElement(null, "CtryNtlFdrlTax", xmlNamespace );
+            CountryNationalFederalTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExecutingBrokerAmount is AmountAndDirection29 ExecutingBrokerAmountValue)
+        {
+            writer.WriteStartElement(null, "ExctgBrkrAmt", xmlNamespace );
+            ExecutingBrokerAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssueDiscountAllowance is AmountAndDirection29 IssueDiscountAllowanceValue)
+        {
+            writer.WriteStartElement(null, "IsseDscntAllwnc", xmlNamespace );
+            IssueDiscountAllowanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentLevyTax is AmountAndDirection29 PaymentLevyTaxValue)
+        {
+            writer.WriteStartElement(null, "PmtLevyTax", xmlNamespace );
+            PaymentLevyTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LocalTax is AmountAndDirection29 LocalTaxValue)
+        {
+            writer.WriteStartElement(null, "LclTax", xmlNamespace );
+            LocalTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LocalBrokerCommission is AmountAndDirection29 LocalBrokerCommissionValue)
+        {
+            writer.WriteStartElement(null, "LclBrkrComssn", xmlNamespace );
+            LocalBrokerCommissionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Margin is AmountAndDirection29 MarginValue)
+        {
+            writer.WriteStartElement(null, "Mrgn", xmlNamespace );
+            MarginValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Other is AmountAndDirection29 OtherValue)
+        {
+            writer.WriteStartElement(null, "Othr", xmlNamespace );
+            OtherValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RegulatoryAmount is AmountAndDirection29 RegulatoryAmountValue)
+        {
+            writer.WriteStartElement(null, "RgltryAmt", xmlNamespace );
+            RegulatoryAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SpecialConcession is AmountAndDirection29 SpecialConcessionValue)
+        {
+            writer.WriteStartElement(null, "SpclCncssn", xmlNamespace );
+            SpecialConcessionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StampDuty is AmountAndDirection29 StampDutyValue)
+        {
+            writer.WriteStartElement(null, "StmpDty", xmlNamespace );
+            StampDutyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StockExchangeTax is AmountAndDirection29 StockExchangeTaxValue)
+        {
+            writer.WriteStartElement(null, "StockXchgTax", xmlNamespace );
+            StockExchangeTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransferTax is AmountAndDirection29 TransferTaxValue)
+        {
+            writer.WriteStartElement(null, "TrfTax", xmlNamespace );
+            TransferTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionTax is AmountAndDirection29 TransactionTaxValue)
+        {
+            writer.WriteStartElement(null, "TxTax", xmlNamespace );
+            TransactionTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValueAddedTax is AmountAndDirection29 ValueAddedTaxValue)
+        {
+            writer.WriteStartElement(null, "ValAddedTax", xmlNamespace );
+            ValueAddedTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (WithholdingTax is AmountAndDirection29 WithholdingTaxValue)
+        {
+            writer.WriteStartElement(null, "WhldgTax", xmlNamespace );
+            WithholdingTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NetGainLoss is AmountAndDirection29 NetGainLossValue)
+        {
+            writer.WriteStartElement(null, "NetGnLoss", xmlNamespace );
+            NetGainLossValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ConsumptionTax is AmountAndDirection29 ConsumptionTaxValue)
+        {
+            writer.WriteStartElement(null, "CsmptnTax", xmlNamespace );
+            ConsumptionTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MatchingConfirmationFee is AmountAndDirection29 MatchingConfirmationFeeValue)
+        {
+            writer.WriteStartElement(null, "MtchgConfFee", xmlNamespace );
+            MatchingConfirmationFeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ConvertedAmount is AmountAndDirection29 ConvertedAmountValue)
+        {
+            writer.WriteStartElement(null, "ConvtdAmt", xmlNamespace );
+            ConvertedAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalCurrencyAmount is AmountAndDirection29 OriginalCurrencyAmountValue)
+        {
+            writer.WriteStartElement(null, "OrgnlCcyAmt", xmlNamespace );
+            OriginalCurrencyAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BookValue is AmountAndDirection29 BookValueValue)
+        {
+            writer.WriteStartElement(null, "BookVal", xmlNamespace );
+            BookValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccruedCapitalisationAmount is AmountAndDirection29 AccruedCapitalisationAmountValue)
+        {
+            writer.WriteStartElement(null, "AcrdCptlstnAmt", xmlNamespace );
+            AccruedCapitalisationAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LocalTaxCountrySpecific1 is AmountAndDirection29 LocalTaxCountrySpecific1Value)
+        {
+            writer.WriteStartElement(null, "LclTaxCtrySpcfc1", xmlNamespace );
+            LocalTaxCountrySpecific1Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LocalTaxCountrySpecific2 is AmountAndDirection29 LocalTaxCountrySpecific2Value)
+        {
+            writer.WriteStartElement(null, "LclTaxCtrySpcfc2", xmlNamespace );
+            LocalTaxCountrySpecific2Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LocalTaxCountrySpecific3 is AmountAndDirection29 LocalTaxCountrySpecific3Value)
+        {
+            writer.WriteStartElement(null, "LclTaxCtrySpcfc3", xmlNamespace );
+            LocalTaxCountrySpecific3Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LocalTaxCountrySpecific4 is AmountAndDirection29 LocalTaxCountrySpecific4Value)
+        {
+            writer.WriteStartElement(null, "LclTaxCtrySpcfc4", xmlNamespace );
+            LocalTaxCountrySpecific4Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SharedBrokerageAmount is AmountAndDirection29 SharedBrokerageAmountValue)
+        {
+            writer.WriteStartElement(null, "ShrdBrkrgAmt", xmlNamespace );
+            SharedBrokerageAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarketMemberFeeAmount is AmountAndDirection29 MarketMemberFeeAmountValue)
+        {
+            writer.WriteStartElement(null, "MktMmbFeeAmt", xmlNamespace );
+            MarketMemberFeeAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RemunerationAmountRequest is IsoYesNoIndicator RemunerationAmountRequestValue)
+        {
+            writer.WriteStartElement(null, "RmnrtnAmtReq", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RemunerationAmountRequestValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (RemunerationAmount is AmountAndDirection29 RemunerationAmountValue)
+        {
+            writer.WriteStartElement(null, "RmnrtnAmt", xmlNamespace );
+            RemunerationAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BorrowingInterestAmount is AmountAndDirection29 BorrowingInterestAmountValue)
+        {
+            writer.WriteStartElement(null, "BrrwgIntrstAmt", xmlNamespace );
+            BorrowingInterestAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BorrowingFee is AmountAndDirection29 BorrowingFeeValue)
+        {
+            writer.WriteStartElement(null, "BrrwgFee", xmlNamespace );
+            BorrowingFeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NetMarketValue is AmountAndDirection29 NetMarketValueValue)
+        {
+            writer.WriteStartElement(null, "NetMktVal", xmlNamespace );
+            NetMarketValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RemainingFaceValue is AmountAndDirection29 RemainingFaceValueValue)
+        {
+            writer.WriteStartElement(null, "RmngFaceVal", xmlNamespace );
+            RemainingFaceValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RemainingBookValue is AmountAndDirection29 RemainingBookValueValue)
+        {
+            writer.WriteStartElement(null, "RmngBookVal", xmlNamespace );
+            RemainingBookValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingBrokerCommission is AmountAndDirection29 ClearingBrokerCommissionValue)
+        {
+            writer.WriteStartElement(null, "ClrBrkrComssn", xmlNamespace );
+            ClearingBrokerCommissionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DifferenceInPrice is AmountAndDirection29 DifferenceInPriceValue)
+        {
+            writer.WriteStartElement(null, "DiffInPric", xmlNamespace );
+            DifferenceInPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OddLotFee is IsoYesNoIndicator OddLotFeeValue)
+        {
+            writer.WriteStartElement(null, "OddLotFee", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OddLotFeeValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static OtherAmounts16 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

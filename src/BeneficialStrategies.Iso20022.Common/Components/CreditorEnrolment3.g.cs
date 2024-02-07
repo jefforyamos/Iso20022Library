@@ -7,48 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the attributes of the creditor used for a creditor enrolment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CreditorEnrolment3
+     : IIsoXmlSerilizable<CreditorEnrolment3>
 {
     #nullable enable
     
     /// <summary>
     /// Detailed activation data related to the creditor enrolment.
     /// </summary>
-    [DataMember]
     public required CreditorServiceEnrolment1 Enrolment { get; init; } 
     /// <summary>
     /// Name used by a business for commercial purposes, although its registered legal name, used for contracts and other formal situations, may be another, such as the brand name.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? CreditorTradingName { get; init; } 
     /// <summary>
     /// Party to which an amount of money is due.
     /// </summary>
-    [DataMember]
     public required RTPPartyIdentification1 Creditor { get; init; } 
     /// <summary>
     /// Ultimate party to which an amount of money is due.
     /// </summary>
-    [DataMember]
     public RTPPartyIdentification1? UltimateCreditor { get; init; } 
     /// <summary>
     /// Classification of a business by the types of goods or services it provides.
     /// </summary>
-    [DataMember]
     public required IsoMerchantCategoryCodeIdentifier MerchantCategoryCode { get; init; } 
     /// <summary>
     /// Commercial logo of the creditor.
     /// </summary>
-    [DataMember]
     public IsoMax10KBinary? CreditorLogo { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Enrlmnt", xmlNamespace );
+        Enrolment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CreditorTradingName is IsoMax140Text CreditorTradingNameValue)
+        {
+            writer.WriteStartElement(null, "CdtrTradgNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(CreditorTradingNameValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Cdtr", xmlNamespace );
+        Creditor.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (UltimateCreditor is RTPPartyIdentification1 UltimateCreditorValue)
+        {
+            writer.WriteStartElement(null, "UltmtCdtr", xmlNamespace );
+            UltimateCreditorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MrchntCtgyCd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMerchantCategoryCodeIdentifier(MerchantCategoryCode)); // data type MerchantCategoryCodeIdentifier System.String
+        writer.WriteEndElement();
+        if (CreditorLogo is IsoMax10KBinary CreditorLogoValue)
+        {
+            writer.WriteStartElement(null, "CdtrLogo", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10KBinary(CreditorLogoValue)); // data type Max10KBinary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static CreditorEnrolment3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

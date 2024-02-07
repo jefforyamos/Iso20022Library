@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Encrypted personal identification number (PIN) and related information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OnLinePIN2
+     : IIsoXmlSerilizable<OnLinePIN2>
 {
     #nullable enable
     
     /// <summary>
     /// Encrypted PIN (Personal Identification Number).
     /// </summary>
-    [DataMember]
     public required ContentInformationType5 EncryptedPINBlock { get; init; } 
     /// <summary>
     /// PIN format before encryption.
     /// </summary>
-    [DataMember]
     public required PINFormat2Code PINFormat { get; init; } 
     /// <summary>
     /// Additional information required to verify the PIN.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AdditionalInput { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NcrptdPINBlck", xmlNamespace );
+        EncryptedPINBlock.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PINFrmt", xmlNamespace );
+        writer.WriteValue(PINFormat.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AdditionalInput is IsoMax35Text AdditionalInputValue)
+        {
+            writer.WriteStartElement(null, "AddtlInpt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdditionalInputValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static OnLinePIN2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

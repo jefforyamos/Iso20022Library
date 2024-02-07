@@ -5,6 +5,8 @@
 //
 
 using BeneficialStrategies.Iso20022.Components;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.ExternalSchema;
 
@@ -13,11 +15,13 @@ namespace BeneficialStrategies.Iso20022.ExternalSchema;
 ///  XML Signature Syntax and Processing (Second Edition) W3C Recommendation 10 June 2008
 /// http://www.w3.org/TR/2008/REC-xmldsig-core-20080610/.
 /// </summary>
-[DataContract]
-public partial record SignatureEnvelopeReference
+[DataContract(Namespace = "")]
+public partial record SignatureEnvelopeReference // : IIsoXmlSerilizable<SignatureEnvelopeReference>
 {
     #nullable enable
     
     
     #nullable disable
+    
+    public void Serialize(XmlWriter writer, string xmlNamespace) {} 
 }

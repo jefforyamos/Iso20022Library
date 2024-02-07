@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to an identification, for example, party identification or account identification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GenericIdentification18
+     : IIsoXmlSerilizable<GenericIdentification18>
 {
     #nullable enable
     
     /// <summary>
     /// Identification assigned by an institution.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINXMax30Text Identification { get; init; } 
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
-    [DataMember]
     public IsoMax4AlphaNumericText? SchemeName { get; init; } 
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>
-    [DataMember]
     public IsoMax4AlphaNumericText? Issuer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax30Text(Identification)); // data type RestrictedFINXMax30Text System.String
+        writer.WriteEndElement();
+        if (SchemeName is IsoMax4AlphaNumericText SchemeNameValue)
+        {
+            writer.WriteStartElement(null, "SchmeNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(SchemeNameValue)); // data type Max4AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+        if (Issuer is IsoMax4AlphaNumericText IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(IssuerValue)); // data type Max4AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static GenericIdentification18 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

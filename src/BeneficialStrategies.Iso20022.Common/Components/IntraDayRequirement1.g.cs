@@ -7,43 +7,71 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Obligations of a clearing member with respect to a central counterparty that are calculated based on intraday positions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IntraDayRequirement1
+     : IIsoXmlSerilizable<IntraDayRequirement1>
 {
     #nullable enable
     
     /// <summary>
     /// Total aggregate value of collateral called intraday, excluding repayments.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount IntraDayMarginCall { get; init; } 
     /// <summary>
     /// Peak increase in initial margin liability for the account during the day.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount PeakInitialMarginLiability { get; init; } 
     /// <summary>
     /// Peak loss uncollateralised variation margin liability on the margin account during the day.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount PeakVariationMarginLiability { get; init; } 
     /// <summary>
     /// Peak intraday liability (sum of increase in initial margin relative to end of day plus sum of decrease in variation margin relative to end of day) for a margin account during the day. Liabilities are shown as positive integers.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount AggregatePeakLiability { get; init; } 
     /// <summary>
     /// Identification of the account used to calculate margin requirements and determine intraday calls.
     /// </summary>
-    [DataMember]
     public required GenericIdentification165 MarginAccountIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IntraDayMrgnCall", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(IntraDayMarginCall)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PeakInitlMrgnLblty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PeakInitialMarginLiability)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PeakVartnMrgnLblty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PeakVariationMarginLiability)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AggtPeakLblty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AggregatePeakLiability)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MrgnAcctId", xmlNamespace );
+        MarginAccountIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static IntraDayRequirement1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,23 +7,46 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information used to calculate the tax.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxCalculationInformation1
+     : IIsoXmlSerilizable<TaxCalculationInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Basis used to determine the capital gain or loss, eg, the purchase price.
     /// </summary>
-    [DataMember]
     public TaxationBasis1? Basis { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Basis is TaxationBasis1 BasisValue)
+        {
+            writer.WriteStartElement(null, "Bsis", xmlNamespace );
+            BasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TaxCalculationInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, eg, dividend option or valuation currency.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrument18
+     : IIsoXmlSerilizable<FinancialInstrument18>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a security, as assigned under a formal or proprietary identification scheme.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification9 Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? Name { get; init; } 
     /// <summary>
     /// Date that identifies the issue of a fund series. It is typically applicable to a redemption order, subscription order confirmation or redemption order confirmation, but may be specified in the subscription order, if known.
     /// </summary>
-    [DataMember]
     public IsoISODate? SeriesIssueIdentificationDate { get; init; } 
     /// <summary>
     /// Identifies the name of a fund series. It is typically applicable to a redemption order, subscription order confirmation or redemption order confirmation, but may be specified in the subscription, if known.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SeriesName { get; init; } 
     /// <summary>
     /// Indicates that the financial instrument and/or series included in the message is a new issue.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? NewIssueIndicator { get; init; } 
     /// <summary>
     /// Additional information about a financial instrument to help identify the instrument.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SupplementaryIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Name is IsoMax350Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(NameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (SeriesIssueIdentificationDate is IsoISODate SeriesIssueIdentificationDateValue)
+        {
+            writer.WriteStartElement(null, "SrsIsseIdDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(SeriesIssueIdentificationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SeriesName is IsoMax35Text SeriesNameValue)
+        {
+            writer.WriteStartElement(null, "SrsNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SeriesNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (NewIssueIndicator is IsoYesNoIndicator NewIssueIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NewIsseInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(NewIssueIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SupplementaryIdentification is IsoMax35Text SupplementaryIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SplmtryId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SupplementaryIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstrument18 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,91 +7,173 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains transaction details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Transaction144
+     : IIsoXmlSerilizable<Transaction144>
 {
     #nullable enable
     
     /// <summary>
     /// Code that identifies an administrative type.
     /// </summary>
-    [DataMember]
     public required AdministrativeType1Code AdministrativeType { get; init; } 
     /// <summary>
     /// Other administrative type defined at private or national level.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherAdministrativeType { get; init; } 
     /// <summary>
     /// Reason or purpose to send the message.
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    [DataMember]
-    public ValueList<ISO8583MessageReasonCode> MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public ISO8583MessageReasonCode? MessageReason { get; init; } 
     /// <summary>
     /// Supports message reason codes that are not defined in external code list. 
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax256Text> AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax256Text? AlternateMessageReason { get; init; } 
     /// <summary>
     /// Additional functions or services to be performed in conjunction with the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalService2> AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalService2? AdditionalService { get; init; } 
     /// <summary>
     /// Indicates that additional data will be provided in a separate addendum message.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? AssociatedDataIndicator { get; init; } 
     /// <summary>
     /// Reference to additional transaction details to be conveyed separately from this message.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? AssociatedDataReference { get; init; } 
     /// <summary>
     /// Destination value to be used in the subsequent addendum message.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AssociatedDataDestination { get; init; } 
     /// <summary>
     /// Data to qualify for incentive or other related programmes.
     /// </summary>
-    [DataMember]
-    public ValueList<SpecialProgrammeQualification1> SpecialProgrammeQualification { get; init; } = []; // Warning: Don't know multiplicity.
+    public SpecialProgrammeQualification1? SpecialProgrammeQualification { get; init; } 
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
-    [DataMember]
     public required TransactionIdentification12 TransactionIdentification { get; init; } 
     /// <summary>
     /// Contains generic text message.
     /// </summary>
-    [DataMember]
     public IsoMax20KText? TextMessage { get; init; } 
     /// <summary>
     /// Additional Information in local language.
     /// </summary>
-    [DataMember]
-    public ValueList<LocalData9> LocalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public LocalData9? LocalData { get; init; } 
     /// <summary>
     /// Transaction data related to programmes and services, content and format based on bilateral agreements.
     /// ISO 8583:87/93 bit 104
     /// ISO 8583:2003 bit 104-71
     /// </summary>
-    [DataMember]
     public IsoMax1000Text? TransactionDescription { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData2> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData2? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AdmstvTp", xmlNamespace );
+        writer.WriteValue(AdministrativeType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherAdministrativeType is IsoMax35Text OtherAdministrativeTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrAdmstvTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherAdministrativeTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MessageReason is ISO8583MessageReasonCode MessageReasonValue)
+        {
+            writer.WriteStartElement(null, "MsgRsn", xmlNamespace );
+            writer.WriteValue(MessageReasonValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AlternateMessageReason is IsoMax256Text AlternateMessageReasonValue)
+        {
+            writer.WriteStartElement(null, "AltrnMsgRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(AlternateMessageReasonValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalService is AdditionalService2 AdditionalServiceValue)
+        {
+            writer.WriteStartElement(null, "AddtlSvc", xmlNamespace );
+            AdditionalServiceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AssociatedDataIndicator is IsoTrueFalseIndicator AssociatedDataIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AssoctdDataInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AssociatedDataIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AssociatedDataReference is IsoMax70Text AssociatedDataReferenceValue)
+        {
+            writer.WriteStartElement(null, "AssoctdDataRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AssociatedDataReferenceValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (AssociatedDataDestination is IsoMax35Text AssociatedDataDestinationValue)
+        {
+            writer.WriteStartElement(null, "AssoctdDataDstn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AssociatedDataDestinationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SpecialProgrammeQualification is SpecialProgrammeQualification1 SpecialProgrammeQualificationValue)
+        {
+            writer.WriteStartElement(null, "SpclPrgrmmQlfctn", xmlNamespace );
+            SpecialProgrammeQualificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TextMessage is IsoMax20KText TextMessageValue)
+        {
+            writer.WriteStartElement(null, "TxtMsg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax20KText(TextMessageValue)); // data type Max20KText System.String
+            writer.WriteEndElement();
+        }
+        if (LocalData is LocalData9 LocalDataValue)
+        {
+            writer.WriteStartElement(null, "LclData", xmlNamespace );
+            LocalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionDescription is IsoMax1000Text TransactionDescriptionValue)
+        {
+            writer.WriteStartElement(null, "TxDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1000Text(TransactionDescriptionValue)); // data type Max1000Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData2 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Transaction144 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

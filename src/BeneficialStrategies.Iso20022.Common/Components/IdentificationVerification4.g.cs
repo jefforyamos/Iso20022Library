@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details of the identification data that is requested to be verified.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IdentificationVerification4
+     : IIsoXmlSerilizable<IdentificationVerification4>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by a sending party, to unambiguously identify the party and account identification information group within the message.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Party and/or account identification information for which verification is requested.
     /// </summary>
-    [DataMember]
     public required IdentificationInformation4 PartyAndAccountIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PtyAndAcctId", xmlNamespace );
+        PartyAndAccountIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static IdentificationVerification4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

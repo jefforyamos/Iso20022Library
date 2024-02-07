@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PortfolioCode5Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.PortfolioCode5Choice;
 /// Collateralisation was performed on a transaction level basis or if the collateral portfolio code is not known at the time of reporting.
 /// </summary>
 public partial record NoPortfolio : PortfolioCode5Choice_
+     , IIsoXmlSerilizable<NoPortfolio>
 {
-    public required NotApplicable1Code Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies special purpose codes.
+    /// </summary>
+    public required NotApplicable1Code Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NoPrtfl", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new NoPortfolio Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

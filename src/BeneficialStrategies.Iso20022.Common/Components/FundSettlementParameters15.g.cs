@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters applied to the settlement of a security.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FundSettlementParameters15
+     : IIsoXmlSerilizable<FundSettlementParameters15>
 {
     #nullable enable
     
     /// <summary>
     /// Condition under which the order/trade is to be/was executed. This may be required for settlement through T2S.
     /// </summary>
-    [DataMember]
-    public ValueList<TradeTransactionCondition8Choice_> TradeTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
+    public TradeTransactionCondition8Choice_? TradeTransactionCondition { get; init; } 
     /// <summary>
     /// Condition under which the order/trade is to be settled. This may be required for settlement through T2S.
     /// </summary>
-    [DataMember]
-    public ValueList<SettlementTransactionCondition30Choice_> SettlementTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
+    public SettlementTransactionCondition30Choice_? SettlementTransactionCondition { get; init; } 
     /// <summary>
     /// Identification of a specific system or set of rules and/or processes to be applied at the settlement place.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SecuritiesSettlementSystemIdentification { get; init; } 
     /// <summary>
     /// Chain of delivering settlement parties.
     /// </summary>
-    [DataMember]
     public SettlementParties94? DeliveringSideDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TradeTransactionCondition is TradeTransactionCondition8Choice_ TradeTransactionConditionValue)
+        {
+            writer.WriteStartElement(null, "TradTxCond", xmlNamespace );
+            TradeTransactionConditionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementTransactionCondition is SettlementTransactionCondition30Choice_ SettlementTransactionConditionValue)
+        {
+            writer.WriteStartElement(null, "SttlmTxCond", xmlNamespace );
+            SettlementTransactionConditionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesSettlementSystemIdentification is IsoMax35Text SecuritiesSettlementSystemIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SctiesSttlmSysId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SecuritiesSettlementSystemIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DeliveringSideDetails is SettlementParties94 DeliveringSideDetailsValue)
+        {
+            writer.WriteStartElement(null, "DlvrgSdDtls", xmlNamespace );
+            DeliveringSideDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FundSettlementParameters15 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

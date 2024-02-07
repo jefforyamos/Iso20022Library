@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.semt.SecuritiesMessageRejection>;
 
 namespace BeneficialStrategies.Iso20022.semt;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// The SecuritiesMessageRejection message must not be used to reject an instruction message that cannot be processed for business reasons, eg, if information is missing in an instruction message or because securities are not available for settlement.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The SecuritiesMessageRejection message is sent by an executing party to the instructing party. Typically, this message is sent by an account servicer to the account owner.|This message is used to reject a previously received message on which action cannot be taken.|Usage|The SecuritiesMessageRejection message can be sent for the following reasons:|- the executing party does not recognise the linked reference, so the executing party cannot process the message|- the instructing party should not have sent the message. This could be because the Receiver does not expect the message, eg, there is no SLA in place between the Sender and the Receiver.|The SecuritiesMessageRejection message must not be used to reject an instruction message that cannot be processed for business reasons, eg, if information is missing in an instruction message or because securities are not available for settlement.")]
-public partial record SecuritiesMessageRejection : IOuterRecord
+public partial record SecuritiesMessageRejection : IOuterRecord<SecuritiesMessageRejection,SecuritiesMessageRejectionDocument>
+    ,IIsoXmlSerilizable<SecuritiesMessageRejection>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record SecuritiesMessageRejection : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "semt.001.001.01";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesMessageRejectionDocument.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -74,6 +81,29 @@ public partial record SecuritiesMessageRejection : IOuterRecord
     {
         return new SecuritiesMessageRejectionDocument { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("semt.001.001.01");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+        RelatedReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rsn", xmlNamespace );
+        Reason.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SecuritiesMessageRejection Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -81,9 +111,7 @@ public partial record SecuritiesMessageRejection : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesMessageRejection"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesMessageRejectionDocument : IOuterDocument<SecuritiesMessageRejection>
+public partial record SecuritiesMessageRejectionDocument : IOuterDocument<SecuritiesMessageRejection>, IXmlSerializable
 {
     
     /// <summary>
@@ -99,5 +127,22 @@ public partial record SecuritiesMessageRejectionDocument : IOuterDocument<Securi
     /// <summary>
     /// The instance of <seealso cref="SecuritiesMessageRejection"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesMessageRejection.XmlTag)]
     public required SecuritiesMessageRejection Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesMessageRejection.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

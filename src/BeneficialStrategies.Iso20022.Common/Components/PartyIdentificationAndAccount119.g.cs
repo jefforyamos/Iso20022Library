@@ -7,28 +7,48 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Party and account information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentificationAndAccount119
+     : IIsoXmlSerilizable<PartyIdentificationAndAccount119>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the party that legally owns the account.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyIdentification90> PartyIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyIdentification90? PartyIdentification { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _Bl2FIEUrEeSGWeX3z5zSZQ
     /// <summary>
     /// Identification of the account owned by the party.
     /// </summary>
-    [DataMember]
-    public ValueList<AccountIdentification30> AccountIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public AccountIdentification30? AccountIdentification { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _kNHDAEVKEeSGWeX3z5zSZQ
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize PartyIdentification, multiplicity Unknown
+        // Not sure how to serialize AccountIdentification, multiplicity Unknown
+    }
+    public static PartyIdentificationAndAccount119 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

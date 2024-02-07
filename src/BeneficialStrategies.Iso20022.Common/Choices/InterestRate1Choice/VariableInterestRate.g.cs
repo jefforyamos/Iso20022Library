@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.InterestRate1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate1Choice;
 /// Provides details about the variable rate.
 /// </summary>
 public partial record VariableInterestRate : InterestRate1Choice_
+     , IIsoXmlSerilizable<VariableInterestRate>
 {
     #nullable enable
+    
     /// <summary>
     /// Specifies the index taken into account to calculate the variable interest rate.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record VariableInterestRate : InterestRate1Choice_
     /// Used to express differences in interest rates, for example, a difference of 0.10% is equivalent to a change of 10 basis points.
     /// </summary>
     public IsoNumber? BasisPointSpread { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Indx", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Index)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (BasisPointSpread is IsoNumber BasisPointSpreadValue)
+        {
+            writer.WriteStartElement(null, "BsisPtSprd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(BasisPointSpreadValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static new VariableInterestRate Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies elements related to the confirmation sent by the central counterparty to the clearing member in the context of the buy in process.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BuyIn2
+     : IIsoXmlSerilizable<BuyIn2>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the reference of the BuyInNotification message.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? BuyInNotificationIdentification { get; init; } 
     /// <summary>
     /// Indicates the reference id of the buy in.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text BuyInIdentification { get; init; } 
     /// <summary>
     /// Provides the date at which the buy occured.
     /// </summary>
-    [DataMember]
     public required IsoISODate Date { get; init; } 
     /// <summary>
     /// Provides the price of the buy-in.
     /// </summary>
-    [DataMember]
     public Price4? Price { get; init; } 
     /// <summary>
     /// Specifies the elements related to the securities that the central counterparty had to buy in the context of the buy-in process.
     /// </summary>
-    [DataMember]
     public SecuritiesCompensation1? SecuritiesBuyIn { get; init; } 
     /// <summary>
     /// Provides details about the cash compensation required, in case the central counterparty could not buy the securities to cover the trade(s) that failed.
     /// </summary>
-    [DataMember]
     public CashCompensation1? RequiredCashCompensation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (BuyInNotificationIdentification is IsoMax35Text BuyInNotificationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "BuyInNtfctnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(BuyInNotificationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "BuyInId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(BuyInIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Dt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(Date)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (Price is Price4 PriceValue)
+        {
+            writer.WriteStartElement(null, "Pric", xmlNamespace );
+            PriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesBuyIn is SecuritiesCompensation1 SecuritiesBuyInValue)
+        {
+            writer.WriteStartElement(null, "SctiesBuyIn", xmlNamespace );
+            SecuritiesBuyInValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequiredCashCompensation is CashCompensation1 RequiredCashCompensationValue)
+        {
+            writer.WriteStartElement(null, "ReqrdCshCompstn", xmlNamespace );
+            RequiredCashCompensationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BuyIn2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reject of an exchange.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AcceptorRejection4
+     : IIsoXmlSerilizable<AcceptorRejection4>
 {
     #nullable enable
     
     /// <summary>
     /// Reject reason of the message.
     /// </summary>
-    [DataMember]
     public required RejectReason1Code RejectReason { get; init; } 
     /// <summary>
     /// Detailed description of an error that caused the rejection for further analysis.
     /// </summary>
-    [DataMember]
-    public ValueList<ErrorReporting1> ErrorReporting { get; init; } = []; // Warning: Don't know multiplicity.
+    public ErrorReporting1? ErrorReporting { get; init; } 
     /// <summary>
     /// Original request that caused the party to reject it.
     /// </summary>
-    [DataMember]
     public IsoMax100KBinary? MessageInError { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RjctRsn", xmlNamespace );
+        writer.WriteValue(RejectReason.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ErrorReporting is ErrorReporting1 ErrorReportingValue)
+        {
+            writer.WriteStartElement(null, "ErrRptg", xmlNamespace );
+            ErrorReportingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageInError is IsoMax100KBinary MessageInErrorValue)
+        {
+            writer.WriteStartElement(null, "MsgInErr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax100KBinary(MessageInErrorValue)); // data type Max100KBinary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static AcceptorRejection4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

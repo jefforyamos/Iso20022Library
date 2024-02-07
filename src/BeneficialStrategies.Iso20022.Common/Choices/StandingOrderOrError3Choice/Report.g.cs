@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.StandingOrderOrError3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingOrderOrError3Choice;
 /// Reports either on the standing order or on a business error.
 /// </summary>
 public partial record Report : StandingOrderOrError3Choice_
+     , IIsoXmlSerilizable<Report>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record Report : StandingOrderOrError3Choice_
     /// Requested information on the standing order or business error when information has not been found.
     /// </summary>
     public required StandingOrderOrError4Choice_ StandingOrderOrError { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "StgOrdrId", xmlNamespace );
+        StandingOrderIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StgOrdrOrErr", xmlNamespace );
+        StandingOrderOrError.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new Report Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

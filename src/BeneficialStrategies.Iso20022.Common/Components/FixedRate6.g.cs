@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Fixed rate related information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FixedRate6
+     : IIsoXmlSerilizable<FixedRate6>
 {
     #nullable enable
     
     /// <summary>
     /// An indication of the fixed rate used.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     /// <summary>
     /// Actual number of days in the relevant fixed rate calculation period.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DayCount { get; init; } 
     /// <summary>
     /// Information related to payment frequency.
     /// </summary>
-    [DataMember]
     public InterestRateFrequency2Choice_? PaymentFrequency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Rate is IsoPercentageRate RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (DayCount is IsoMax35Text DayCountValue)
+        {
+            writer.WriteStartElement(null, "DayCnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DayCountValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PaymentFrequency is InterestRateFrequency2Choice_ PaymentFrequencyValue)
+        {
+            writer.WriteStartElement(null, "PmtFrqcy", xmlNamespace );
+            PaymentFrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FixedRate6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.IndividualPersonIdentification1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.IndividualPersonIdentification1C
 /// Name of the person that owns the account.
 /// </summary>
 public partial record PersonName : IndividualPersonIdentification1Choice_
+     , IIsoXmlSerilizable<PersonName>
 {
     #nullable enable
+    
     /// <summary>
     /// First name of the person.
     /// </summary>
@@ -35,5 +39,50 @@ public partial record PersonName : IndividualPersonIdentification1Choice_
     /// Date on which the person is born.
     /// </summary>
     public IsoISODate? BirthDate { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (GivenName is IsoMax35Text GivenNameValue)
+        {
+            writer.WriteStartElement(null, "GvnNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(GivenNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MiddleName is IsoMax35Text MiddleNameValue)
+        {
+            writer.WriteStartElement(null, "MddlNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MiddleNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(Name)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (Gender is GenderCode GenderValue)
+        {
+            writer.WriteStartElement(null, "Gndr", xmlNamespace );
+            writer.WriteValue(GenderValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (BirthDate is IsoISODate BirthDateValue)
+        {
+            writer.WriteStartElement(null, "BirthDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(BirthDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static new PersonName Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

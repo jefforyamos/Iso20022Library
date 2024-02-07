@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.setr.RedemptionMultipleOrderCancellationInstructionV02>;
 
 namespace BeneficialStrategies.Iso20022.setr;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// The rejection or acceptance of a cancellation message instruction is made using an OrderCancellationStatusReport message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The RedemptionMultipleOrderCancellationInstruction message is sent by an instructing party, eg, an investment manager or its authorised representative, to an executing party, eg, a transfer agent. There may be one or more intermediary parties between the instructing party and the executing party. The intermediary party is, for example, an intermediary or a concentrator.|This message is sent to cancel a previously sent RedemptionMultipleOrder instruction.|Usage|The RedemptionMultipleOrderCancellationInstruction message is used to cancel the entire previously sent RedemptionMultipleOrder message and all the individual orders that it contained. There is no amendment, but a cancellation and re-instruct policy.|This message must contain the reference of the message to be cancelled. This message may also contain all the details of the message to be cancelled, but this is not recommended.|The deadline and acceptance of a cancellation instruction is subject to a service level agreement (SLA). This cancellation message is a cancellation instruction. There is no automatic acceptance of the cancellation instruction.|The rejection or acceptance of a cancellation message instruction is made using an OrderCancellationStatusReport message.")]
-public partial record RedemptionMultipleOrderCancellationInstructionV02 : IOuterRecord
+public partial record RedemptionMultipleOrderCancellationInstructionV02 : IOuterRecord<RedemptionMultipleOrderCancellationInstructionV02,RedemptionMultipleOrderCancellationInstructionV02Document>
+    ,IIsoXmlSerilizable<RedemptionMultipleOrderCancellationInstructionV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record RedemptionMultipleOrderCancellationInstructionV02 : IOuter
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "setr.005.001.02";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => RedemptionMultipleOrderCancellationInstructionV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -91,6 +98,44 @@ public partial record RedemptionMultipleOrderCancellationInstructionV02 : IOuter
     {
         return new RedemptionMultipleOrderCancellationInstructionV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("setr.005.001.02");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MasterReference is AdditionalReference3 MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            MasterReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PoolReference is AdditionalReference3 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+        PreviousReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OrderToBeCancelled is RedemptionMultipleOrderInstruction1 OrderToBeCancelledValue)
+        {
+            writer.WriteStartElement(null, "OrdrToBeCanc", xmlNamespace );
+            OrderToBeCancelledValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RedemptionMultipleOrderCancellationInstructionV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -98,9 +143,7 @@ public partial record RedemptionMultipleOrderCancellationInstructionV02 : IOuter
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RedemptionMultipleOrderCancellationInstructionV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record RedemptionMultipleOrderCancellationInstructionV02Document : IOuterDocument<RedemptionMultipleOrderCancellationInstructionV02>
+public partial record RedemptionMultipleOrderCancellationInstructionV02Document : IOuterDocument<RedemptionMultipleOrderCancellationInstructionV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -116,5 +159,22 @@ public partial record RedemptionMultipleOrderCancellationInstructionV02Document 
     /// <summary>
     /// The instance of <seealso cref="RedemptionMultipleOrderCancellationInstructionV02"/> is required.
     /// </summary>
+    [DataMember(Name=RedemptionMultipleOrderCancellationInstructionV02.XmlTag)]
     public required RedemptionMultipleOrderCancellationInstructionV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(RedemptionMultipleOrderCancellationInstructionV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

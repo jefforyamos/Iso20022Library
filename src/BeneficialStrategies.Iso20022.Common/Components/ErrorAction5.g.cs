@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Action to perform in case of error on the related action in progress.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ErrorAction5
+     : IIsoXmlSerilizable<ErrorAction5>
 {
     #nullable enable
     
     /// <summary>
     /// List of error action result codes.
     /// </summary>
-    [DataMember]
-    public ValueList<TerminalManagementActionResult5Code> ActionResult { get; init; } = []; // Warning: Don't know multiplicity.
+    public TerminalManagementActionResult5Code? ActionResult { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _C1wlkVFOEeyApZmLzm74zA
     /// <summary>
     /// Action to be processed for the related errors.
     /// </summary>
-    [DataMember]
     public required TerminalManagementErrorAction2Code ActionToProcess { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize ActionResult, multiplicity Unknown
+        writer.WriteStartElement(null, "ActnToPrc", xmlNamespace );
+        writer.WriteValue(ActionToProcess.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static ErrorAction5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

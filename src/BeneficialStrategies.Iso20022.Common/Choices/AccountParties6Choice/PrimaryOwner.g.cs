@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AccountParties6Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountParties6Choice;
 /// Single owner of the investment account or, when the ownership is split among several owners, the primary owner is the one giving its address and account details for the registration.
 /// </summary>
 public partial record PrimaryOwner : AccountParties6Choice_
+     , IIsoXmlSerilizable<PrimaryOwner>
 {
     #nullable enable
+    
     /// <summary>
     /// Information about the organisation or individual person.
     /// </summary>
@@ -42,7 +46,7 @@ public partial record PrimaryOwner : AccountParties6Choice_
     /// <summary>
     /// Information related to the party profile to be inserted or deleted.
     /// </summary>
-    public IReadOnlyCollection<ModificationScope19> ModifiedInvestorProfileValidation { get; init; } = [];
+    public ValueList<ModificationScope19> ModifiedInvestorProfileValidation { get; init; } = [];
     /// <summary>
     /// Details about the MiFID classification of the account owner.
     /// </summary>
@@ -54,10 +58,88 @@ public partial record PrimaryOwner : AccountParties6Choice_
     /// <summary>
     /// Type of Foreign Account Tax Compliance Act (FATCA) form submitted by the investor.
     /// </summary>
-    public FATCAForm1Choice_? FATCAFormType { get; init;  } // Warning: Don't know multiplicity.
+    public FATCAForm1Choice_? FATCAFormType { get; init; } 
     /// <summary>
     /// Foreign Account Tax Compliance Act (FATCA) status of the investor.
     /// </summary>
-    public FATCAStatus1? FATCAStatus { get; init;  } // Warning: Don't know multiplicity.
+    public FATCAStatus1? FATCAStatus { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Pty", xmlNamespace );
+        Party.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MoneyLaunderingCheck is MoneyLaunderingCheck1Choice_ MoneyLaunderingCheckValue)
+        {
+            writer.WriteStartElement(null, "MnyLndrgChck", xmlNamespace );
+            MoneyLaunderingCheckValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OwnershipBeneficiaryRate is IsoPercentageRate OwnershipBeneficiaryRateValue)
+        {
+            writer.WriteStartElement(null, "OwnrshBnfcryRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(OwnershipBeneficiaryRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ClientIdentification is IsoMax35Text ClientIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClntId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (FiscalExemption is IsoYesNoIndicator FiscalExemptionValue)
+        {
+            writer.WriteStartElement(null, "FsclXmptn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(FiscalExemptionValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SignatoryRightIndicator is IsoYesNoIndicator SignatoryRightIndicatorValue)
+        {
+            writer.WriteStartElement(null, "SgntryRghtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SignatoryRightIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ModfdInvstrPrflVldtn", xmlNamespace );
+        ModifiedInvestorProfileValidation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MiFIDClassification is MiFIDClassification1 MiFIDClassificationValue)
+        {
+            writer.WriteStartElement(null, "MiFIDClssfctn", xmlNamespace );
+            MiFIDClassificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InformationDistribution is InformationDistribution1Code InformationDistributionValue)
+        {
+            writer.WriteStartElement(null, "InfDstrbtn", xmlNamespace );
+            writer.WriteValue(InformationDistributionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (FATCAFormType is FATCAForm1Choice_ FATCAFormTypeValue)
+        {
+            writer.WriteStartElement(null, "FATCAFormTp", xmlNamespace );
+            FATCAFormTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FATCAStatus is FATCAStatus1 FATCAStatusValue)
+        {
+            writer.WriteStartElement(null, "FATCASts", xmlNamespace );
+            FATCAStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new PrimaryOwner Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details related to the status of the order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StatusAndReason10
+     : IIsoXmlSerilizable<StatusAndReason10>
 {
     #nullable enable
     
     /// <summary>
     /// Status of affirmation of a trade.
     /// </summary>
-    [DataMember]
     public required AffirmationStatus7Choice_ AffirmationStatus { get; init; } 
     /// <summary>
     /// Specifies the reason why the instruction has an unaffirmed status.
     /// </summary>
-    [DataMember]
     public UnaffirmedReason2Choice_? UnaffirmedReason { get; init; } 
     /// <summary>
     /// Provides additional information about the reason in narrative form.
     /// </summary>
-    [DataMember]
     public IsoMax210Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AffirmSts", xmlNamespace );
+        AffirmationStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (UnaffirmedReason is UnaffirmedReason2Choice_ UnaffirmedReasonValue)
+        {
+            writer.WriteStartElement(null, "UaffrmdRsn", xmlNamespace );
+            UnaffirmedReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalReasonInformation is IsoMax210Text AdditionalReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlRsnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax210Text(AdditionalReasonInformationValue)); // data type Max210Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static StatusAndReason10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

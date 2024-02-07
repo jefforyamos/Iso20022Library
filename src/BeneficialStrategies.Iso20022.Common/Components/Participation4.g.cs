@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the level of participation to a shareholders meeting.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Participation4
+     : IIsoXmlSerilizable<Participation4>
 {
     #nullable enable
     
     /// <summary>
     /// Number of rights admitted to the vote.
     /// </summary>
-    [DataMember]
     public IsoNumber? TotalNumberOfVotingRights { get; init; } 
     /// <summary>
     /// Percentage of rights participating to the vote versus total voting rights.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? PercentageOfVotingRights { get; init; } 
     /// <summary>
     /// Number of securities admitted to the vote, expressed as an amount and a currency.
     /// </summary>
-    [DataMember]
     public UnitOrFaceAmount1Choice_? TotalNumberOfSecuritiesOutstanding { get; init; } 
     /// <summary>
     /// Date of calculation of the total number of outstanding securities.
     /// </summary>
-    [DataMember]
     public IsoISODate? CalculationDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TotalNumberOfVotingRights is IsoNumber TotalNumberOfVotingRightsValue)
+        {
+            writer.WriteStartElement(null, "TtlNbOfVtngRghts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberOfVotingRightsValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (PercentageOfVotingRights is IsoPercentageRate PercentageOfVotingRightsValue)
+        {
+            writer.WriteStartElement(null, "PctgOfVtngRghts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PercentageOfVotingRightsValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TotalNumberOfSecuritiesOutstanding is UnitOrFaceAmount1Choice_ TotalNumberOfSecuritiesOutstandingValue)
+        {
+            writer.WriteStartElement(null, "TtlNbOfSctiesOutsdng", xmlNamespace );
+            TotalNumberOfSecuritiesOutstandingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CalculationDate is IsoISODate CalculationDateValue)
+        {
+            writer.WriteStartElement(null, "ClctnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(CalculationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static Participation4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

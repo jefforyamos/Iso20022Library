@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Further details on the shipment conditions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ShipmentAttribute1
+     : IIsoXmlSerilizable<ShipmentAttribute1>
 {
     #nullable enable
     
     /// <summary>
     /// Shipment conditions.
     /// </summary>
-    [DataMember]
     public ExternalShipmentCondition1Code? Conditions { get; init; } 
     /// <summary>
     /// Expected shipment date.
     /// </summary>
-    [DataMember]
     public IsoISODate? ExpectedDate { get; init; } 
     /// <summary>
     /// Country in which the counter party is located.
     /// </summary>
-    [DataMember]
     public required CountryCode CountryOfCounterParty { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Conditions is ExternalShipmentCondition1Code ConditionsValue)
+        {
+            writer.WriteStartElement(null, "Conds", xmlNamespace );
+            writer.WriteValue(ConditionsValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExpectedDate is IsoISODate ExpectedDateValue)
+        {
+            writer.WriteStartElement(null, "XpctdDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExpectedDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CtryOfCntrPty", xmlNamespace );
+        writer.WriteValue(CountryOfCounterParty.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static ShipmentAttribute1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

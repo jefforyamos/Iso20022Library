@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides for reporting qualitative details of equity instruments as part of Transparency calculations.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransparencyDataReport11
+     : IIsoXmlSerilizable<TransparencyDataReport11>
 {
     #nullable enable
     
@@ -24,55 +25,116 @@ public partial record TransparencyDataReport11
     /// Usage:
     /// This identification will be used in the status advice report sent back.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
-    [DataMember]
     public required IsoISINOct2015Identifier Identification { get; init; } 
     /// <summary>
     /// Full name or description of the financial instrument.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? FullName { get; init; } 
     /// <summary>
     /// Segment MIC for the trading venue where applicable, otherwise the operational MIC.
     /// </summary>
-    [DataMember]
     public IsoMICIdentifier? TradingVenue { get; init; } 
     /// <summary>
     /// Date for which the data is provided.
     /// </summary>
-    [DataMember]
     public IsoISODate? ReportingDate { get; init; } 
     /// <summary>
     /// Specifies the classification of the equity instrument.
     /// </summary>
-    [DataMember]
     public required EquityInstrumentReportingClassification1Code FinancialInstrumentClassification { get; init; } 
     /// <summary>
     /// For shares and depositary receipts, the total number of outstanding instruments. 
     /// For ETFs, the number of units issued for trading.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumberFraction5? NumberOutstandingInstruments { get; init; } 
     /// <summary>
     /// The total number of shares corresponding to holdings exceeding 5% of total voting rights of the issuer unless such a holding is held by a collective investment undertaking or a pension fund. This field is to be populated only when actual information is known.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumberFraction5? HoldingsExceedingTotalVotingRightThreshold { get; init; } 
     /// <summary>
     /// Issuance size of the certificate expressed in Euros.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? IssuanceSize { get; init; } 
     /// <summary>
     /// Before the first admission to trading of the instrument, the price of the instrument as it will stand at the start of the first day of trading.
     /// After the first admission to trading of the instrument, the price of the instrument at the last trading day of the previous year, or at the end of the day on which a corporate action is effective. The price should be expressed in Euros. To be reported for shares and depositary receipts.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? InstrumentPrice { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TechnicalRecordIdentification is IsoMax35Text TechnicalRecordIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TechnicalRecordIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(Identification)); // data type ISINOct2015Identifier System.String
+        writer.WriteEndElement();
+        if (FullName is IsoMax350Text FullNameValue)
+        {
+            writer.WriteStartElement(null, "FullNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(FullNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (TradingVenue is IsoMICIdentifier TradingVenueValue)
+        {
+            writer.WriteStartElement(null, "TradgVn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(TradingVenueValue)); // data type MICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (ReportingDate is IsoISODate ReportingDateValue)
+        {
+            writer.WriteStartElement(null, "RptgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ReportingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FinInstrmClssfctn", xmlNamespace );
+        writer.WriteValue(FinancialInstrumentClassification.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (NumberOutstandingInstruments is IsoDecimalNumberFraction5 NumberOutstandingInstrumentsValue)
+        {
+            writer.WriteStartElement(null, "NbOutsdngInstrms", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumberFraction5(NumberOutstandingInstrumentsValue)); // data type DecimalNumberFraction5 System.UInt64
+            writer.WriteEndElement();
+        }
+        if (HoldingsExceedingTotalVotingRightThreshold is IsoDecimalNumberFraction5 HoldingsExceedingTotalVotingRightThresholdValue)
+        {
+            writer.WriteStartElement(null, "HldgsExcdgTtlVtngRghtThrshld", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumberFraction5(HoldingsExceedingTotalVotingRightThresholdValue)); // data type DecimalNumberFraction5 System.UInt64
+            writer.WriteEndElement();
+        }
+        if (IssuanceSize is IsoActiveCurrencyAndAmount IssuanceSizeValue)
+        {
+            writer.WriteStartElement(null, "IssncSz", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(IssuanceSizeValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (InstrumentPrice is IsoActiveCurrencyAnd13DecimalAmount InstrumentPriceValue)
+        {
+            writer.WriteStartElement(null, "InstrmPric", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(InstrumentPriceValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static TransparencyDataReport11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

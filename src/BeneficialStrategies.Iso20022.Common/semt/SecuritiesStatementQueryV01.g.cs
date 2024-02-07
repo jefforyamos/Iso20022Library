@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.semt.SecuritiesStatementQueryV01>;
 
 namespace BeneficialStrategies.Iso20022.semt;
 
@@ -34,10 +37,9 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate).|ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account owner sends a SecuritiesStatementQuery to an account servicer to request any existing securities statement.|The account owner/servicer relationship may be:|- a global custodian which has an account with a local custodian, or|- an investment management institution which manage a fund account opened at a custodian, or|- a broker which has an account with a custodian, or|- a central securities depository participant which has an account with a central securities depository, or|- a central securities depository which has an account with a custodian, another central securities depository or another settlement market infrastructure, or|- a central counterparty or a stock exchange or a trade matching utility which need to instruct to a central securities depository or another settlement market infrastructure.|Usage|The message may also be used to:|- re-send a message previously sent (the sub-function of the message is Duplicate),|- provide a third party with a copy of a message for information (the sub-function of the message is Copy),|- re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate).|ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.")]
-public partial record SecuritiesStatementQueryV01 : IOuterRecord
+public partial record SecuritiesStatementQueryV01 : IOuterRecord<SecuritiesStatementQueryV01,SecuritiesStatementQueryV01Document>
+    ,IIsoXmlSerilizable<SecuritiesStatementQueryV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -49,6 +51,11 @@ public partial record SecuritiesStatementQueryV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesStmtQry";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesStatementQueryV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -144,6 +151,68 @@ public partial record SecuritiesStatementQueryV01 : IOuterRecord
     {
         return new SecuritiesStatementQueryV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesStmtQry");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StmtReqd", xmlNamespace );
+        StatementRequested.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (StatementGeneralDetails is Statement16 StatementGeneralDetailsValue)
+        {
+            writer.WriteStartElement(null, "StmtGnlDtls", xmlNamespace );
+            StatementGeneralDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountOwner is PartyIdentification13Choice_ AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+        SafekeepingAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalQueryParameters is AdditionalQueryParameters1 AdditionalQueryParametersValue)
+        {
+            writer.WriteStartElement(null, "AddtlQryParams", xmlNamespace );
+            AdditionalQueryParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageOriginator is PartyIdentification10Choice_ MessageOriginatorValue)
+        {
+            writer.WriteStartElement(null, "MsgOrgtr", xmlNamespace );
+            MessageOriginatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageRecipient is PartyIdentification10Choice_ MessageRecipientValue)
+        {
+            writer.WriteStartElement(null, "MsgRcpt", xmlNamespace );
+            MessageRecipientValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension2 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesStatementQueryV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -151,9 +220,7 @@ public partial record SecuritiesStatementQueryV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesStatementQueryV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesStatementQueryV01Document : IOuterDocument<SecuritiesStatementQueryV01>
+public partial record SecuritiesStatementQueryV01Document : IOuterDocument<SecuritiesStatementQueryV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -169,5 +236,22 @@ public partial record SecuritiesStatementQueryV01Document : IOuterDocument<Secur
     /// <summary>
     /// The instance of <seealso cref="SecuritiesStatementQueryV01"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesStatementQueryV01.XmlTag)]
     public required SecuritiesStatementQueryV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesStatementQueryV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

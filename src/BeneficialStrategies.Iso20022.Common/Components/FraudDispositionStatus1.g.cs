@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Disposition of previously submitted fraud report message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FraudDispositionStatus1
+     : IIsoXmlSerilizable<FraudDispositionStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the action taken as a disposition of the previously fraud report message.
     /// </summary>
-    [DataMember]
     public required ActionTaken1Code ActionTaken { get; init; } 
     /// <summary>
     /// Other action taken as defined at national or private level.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherActionTaken { get; init; } 
     /// <summary>
     /// Contains errors found in the submitted fraud report message.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax256Text> ErrorData { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax256Text? ErrorData { get; init; } 
     /// <summary>
     /// Contains warnings found in the submitted fraud report message.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax256Text> WarningData { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax256Text? WarningData { get; init; } 
     /// <summary>
     /// Additional information
     /// </summary>
-    [DataMember]
     public AdditionalInformation22? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ActnTaken", xmlNamespace );
+        writer.WriteValue(ActionTaken.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherActionTaken is IsoMax35Text OtherActionTakenValue)
+        {
+            writer.WriteStartElement(null, "OthrActnTaken", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherActionTakenValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ErrorData is IsoMax256Text ErrorDataValue)
+        {
+            writer.WriteStartElement(null, "ErrData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(ErrorDataValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (WarningData is IsoMax256Text WarningDataValue)
+        {
+            writer.WriteStartElement(null, "WrngData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(WarningDataValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation22 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FraudDispositionStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.catm.StatusReportV04>;
 
 namespace BeneficialStrategies.Iso20022.catm;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.catm;
 /// Informs the master terminal manager (MTM) or the terminal manager (TM) about the status of the acceptor system including the identification of the POI, its components and their installed versions.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Informs the master terminal manager (MTM) or the terminal manager (TM) about the status of the acceptor system including the identification of the POI, its components and their installed versions.")]
-public partial record StatusReportV04 : IOuterRecord
+public partial record StatusReportV04 : IOuterRecord<StatusReportV04,StatusReportV04Document>
+    ,IIsoXmlSerilizable<StatusReportV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record StatusReportV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "StsRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => StatusReportV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -77,6 +84,32 @@ public partial record StatusReportV04 : IOuterRecord
     {
         return new StatusReportV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("StsRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StsRpt", xmlNamespace );
+        StatusReport.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+        SecurityTrailer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static StatusReportV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -84,9 +117,7 @@ public partial record StatusReportV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatusReportV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record StatusReportV04Document : IOuterDocument<StatusReportV04>
+public partial record StatusReportV04Document : IOuterDocument<StatusReportV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -102,5 +133,22 @@ public partial record StatusReportV04Document : IOuterDocument<StatusReportV04>
     /// <summary>
     /// The instance of <seealso cref="StatusReportV04"/> is required.
     /// </summary>
+    [DataMember(Name=StatusReportV04.XmlTag)]
     public required StatusReportV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(StatusReportV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

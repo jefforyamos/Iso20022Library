@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the pledge and pledger.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PledgeInformation1
+     : IIsoXmlSerilizable<PledgeInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Entity that provide assets to a counterparty as a guarantee.
     /// </summary>
-    [DataMember]
     public required PartyIdentification232Choice_ Pledger { get; init; } 
     /// <summary>
     /// Third party, usually a bank, involved in the pledge.
     /// </summary>
-    [DataMember]
     public ThirdPartyIdentification1? ThirdParty { get; init; } 
     /// <summary>
     /// Identifies the type of pledge.
     /// </summary>
-    [DataMember]
     public required GenericIdentification36 PledgeType { get; init; } 
     /// <summary>
     /// Indicates whether the pledger is entitled to vote, otherwise the right to vote is with the right holder.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ReturnSecuritiesIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Pldgr", xmlNamespace );
+        Pledger.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ThirdParty is ThirdPartyIdentification1 ThirdPartyValue)
+        {
+            writer.WriteStartElement(null, "ThrdPty", xmlNamespace );
+            ThirdPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PldgTp", xmlNamespace );
+        PledgeType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ReturnSecuritiesIndicator is IsoYesNoIndicator ReturnSecuritiesIndicatorValue)
+        {
+            writer.WriteStartElement(null, "RtrSctiesInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ReturnSecuritiesIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PledgeInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

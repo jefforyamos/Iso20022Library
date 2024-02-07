@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Market maker profile.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MarketMakerProfile2
+     : IIsoXmlSerilizable<MarketMakerProfile2>
 {
     #nullable enable
     
     /// <summary>
     /// Period of the contract.
     /// </summary>
-    [DataMember]
     public DateTimePeriod2? ContractPeriod { get; init; } 
     /// <summary>
     /// Indicates whether the market maker is obligated to comply with the requirements of the contract it holds with the exchange or is exempt from these obligations.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? Compliance { get; init; } 
     /// <summary>
     /// Percentage of the variation between the maximum accepted minimum and maximum value of an action.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? MaximumSpread { get; init; } 
     /// <summary>
     /// Rate of discount.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Discount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ContractPeriod is DateTimePeriod2 ContractPeriodValue)
+        {
+            writer.WriteStartElement(null, "CtrctPrd", xmlNamespace );
+            ContractPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Compliance is IsoYesNoIndicator ComplianceValue)
+        {
+            writer.WriteStartElement(null, "Cmplc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ComplianceValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (MaximumSpread is IsoPercentageRate MaximumSpreadValue)
+        {
+            writer.WriteStartElement(null, "MaxSprd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(MaximumSpreadValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Discount is IsoPercentageRate DiscountValue)
+        {
+            writer.WriteStartElement(null, "Dscnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(DiscountValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static MarketMakerProfile2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

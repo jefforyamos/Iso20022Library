@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a POI (Point of Interaction) component.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PointOfInteractionComponentIdentification3
+     : IIsoXmlSerilizable<PointOfInteractionComponentIdentification3>
 {
     #nullable enable
     
     /// <summary>
     /// Hierarchical identification of a hardware component inside all the hardware component of the POI. It is composed of all item numbers of the upper level components, separated by the '.' character, ended by the item number of the current component.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ItemNumber { get; init; } 
     /// <summary>
     /// Identifies the provider of the software, hardware or parameters of the POI component.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ProviderIdentification { get; init; } 
     /// <summary>
     /// Identification of the POI component assigned by its provider.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Serial number identifying an occurrence of an hardware component.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? SerialNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ItemNumber is IsoMax35Text ItemNumberValue)
+        {
+            writer.WriteStartElement(null, "ItmNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ItemNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProviderIdentification is IsoMax35Text ProviderIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrvdrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProviderIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Identification is IsoMax35Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SerialNumber is IsoMax70Text SerialNumberValue)
+        {
+            writer.WriteStartElement(null, "SrlNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(SerialNumberValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PointOfInteractionComponentIdentification3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

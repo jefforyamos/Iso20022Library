@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SafeKeepingPlace4
+     : IIsoXmlSerilizable<SafeKeepingPlace4>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification of the party.
     /// </summary>
-    [DataMember]
     public SafekeepingPlaceFormat39Choice_? SafekeepingPlaceFormat { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for a place of safekeeping.
     /// </summary>
-    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SafekeepingPlaceFormat is SafekeepingPlaceFormat39Choice_ SafekeepingPlaceFormatValue)
+        {
+            writer.WriteStartElement(null, "SfkpgPlcFrmt", xmlNamespace );
+            SafekeepingPlaceFormatValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LEI is IsoLEIIdentifier LEIValue)
+        {
+            writer.WriteStartElement(null, "LEI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEIValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SafeKeepingPlace4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

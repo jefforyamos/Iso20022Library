@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.pain.CustomerDirectDebitInitiationV01>;
 
 namespace BeneficialStrategies.Iso20022.pain;
 
@@ -32,10 +35,9 @@ namespace BeneficialStrategies.Iso20022.pain;
 /// If it is agreed to include the payment information related to the credit side only once (i.e. Grouped mode), the PaymentInformation block will be present only once. If it is agreed to repeat the payment information related to the credit side (i.e. Single mode), the PaymentInformation block must be present once per occurrence of the DirectDebitTransactionInformation block. The CustomerDirectDebitInitiation message also allows for a Mixed mode where the PaymentInformation block can be repeated and each PaymentInformation block can contain one or several DirectDebitTransactionInformation block(s).|Single|When grouping is set to Single, information for each individual instruction is included separately. This means the|PaymentInformation block is repeated, and present for each occurrence of the Direct Debit TransactionInformation block.|Grouped|When grouping is set to Grouped, the PaymentInformation block will be present once and the Direct Debit|TransactionInformation block will be repeated.|Mixed|When grouping is set to Mixed, the PaymentInformation block may be present once or may be repeated. Each sequence|of the PaymentInformation block may contain one or several Direct Debit TransactionInformation block(s).
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The CustomerDirectDebitInitiation message is sent by the initiating party to the forwarding agent or creditor agent. It is used to request single or bulk collection(s) of funds from one or various debtor's account(s) for a creditor.|Usage|The CustomerDirectDebitInitiation message can contain one or more direct debit instructions.|The message can be used in a direct or a relay scenario:|- In a direct scenario, the message is sent directly to the creditor agent. The creditor agent is the account servicer of the creditor.|- In a relay scenario, the message is sent to a forwarding agent. The forwarding agent acts as a concentrating financial institution. It will forward the CustomerDirectDebitInitiation message to the creditor agent.|The message can also be used by an initiating party that has authority to send the message on behalf of the creditor. This caters for example for the scenario of a payments factory initiating all payments on behalf of a large corporate.|The CustomerDirectDebitInitiation message can be used in domestic and cross-border scenarios.|The CustomerDirectDebitInitiation may or may not contain mandate related information, i.e. extracts from a mandate, such as MandateIdentification or DateOfSignature. The CustomerDirectDebitInitiation message must not be considered as a mandate.|The CustomerDirectDebitInitiation message must not be used by the creditor agent to execute the direct debit instruction(s). The FIToFICustomerDirectDebit message must be used instead.|If it is agreed to include the payment information related to the credit side only once (i.e. Grouped mode), the PaymentInformation block will be present only once. If it is agreed to repeat the payment information related to the credit side (i.e. Single mode), the PaymentInformation block must be present once per occurrence of the DirectDebitTransactionInformation block. The CustomerDirectDebitInitiation message also allows for a Mixed mode where the PaymentInformation block can be repeated and each PaymentInformation block can contain one or several DirectDebitTransactionInformation block(s).|Single|When grouping is set to Single, information for each individual instruction is included separately. This means the|PaymentInformation block is repeated, and present for each occurrence of the Direct Debit TransactionInformation block.|Grouped|When grouping is set to Grouped, the PaymentInformation block will be present once and the Direct Debit|TransactionInformation block will be repeated.|Mixed|When grouping is set to Mixed, the PaymentInformation block may be present once or may be repeated. Each sequence|of the PaymentInformation block may contain one or several Direct Debit TransactionInformation block(s).")]
-public partial record CustomerDirectDebitInitiationV01 : IOuterRecord
+public partial record CustomerDirectDebitInitiationV01 : IOuterRecord<CustomerDirectDebitInitiationV01,CustomerDirectDebitInitiationV01Document>
+    ,IIsoXmlSerilizable<CustomerDirectDebitInitiationV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -47,6 +49,11 @@ public partial record CustomerDirectDebitInitiationV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "pain.008.001.01";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CustomerDirectDebitInitiationV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -78,6 +85,29 @@ public partial record CustomerDirectDebitInitiationV01 : IOuterRecord
     {
         return new CustomerDirectDebitInitiationV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("pain.008.001.01");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
+        GroupHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PmtInf", xmlNamespace );
+        PaymentInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CustomerDirectDebitInitiationV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -85,9 +115,7 @@ public partial record CustomerDirectDebitInitiationV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CustomerDirectDebitInitiationV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CustomerDirectDebitInitiationV01Document : IOuterDocument<CustomerDirectDebitInitiationV01>
+public partial record CustomerDirectDebitInitiationV01Document : IOuterDocument<CustomerDirectDebitInitiationV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -103,5 +131,22 @@ public partial record CustomerDirectDebitInitiationV01Document : IOuterDocument<
     /// <summary>
     /// The instance of <seealso cref="CustomerDirectDebitInitiationV01"/> is required.
     /// </summary>
+    [DataMember(Name=CustomerDirectDebitInitiationV01.XmlTag)]
     public required CustomerDirectDebitInitiationV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CustomerDirectDebitInitiationV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

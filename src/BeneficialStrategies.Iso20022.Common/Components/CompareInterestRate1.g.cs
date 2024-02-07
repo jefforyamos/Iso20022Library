@@ -7,73 +7,146 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies whether the values defined as part of the Margin Loan Attribute are matching or not.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CompareInterestRate1
+     : IIsoXmlSerilizable<CompareInterestRate1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
-    [DataMember]
     public CompareAmountAndDirection1? MarginLoanAmount { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as percentage rate are matching or not.
     /// </summary>
-    [DataMember]
     public ComparePercentageRate3? FixedInterestRate { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 5 characters are matching or not.
     /// </summary>
-    [DataMember]
     public CompareInterestComputationMethod3? DayCountBasis { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as benchmark curve name are matching or not.
     /// </summary>
-    [DataMember]
     public CompareBenchmarkCurveName3? FloatingInterestReferenceRate { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as rate basis code are matching or not.
     /// </summary>
-    [DataMember]
     public CompareRateBasis3? FloatingInterestRateTermUnit { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
-    [DataMember]
     public CompareNumber5? FloatingInterestRateTermValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as rate basis code are matching or not.
     /// </summary>
-    [DataMember]
     public CompareRateBasis3? FloatingInterestRatePaymentFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
-    [DataMember]
     public CompareNumber5? FloatingInterestRatePaymentFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as rate basis code are matching or not.
     /// </summary>
-    [DataMember]
     public CompareRateBasis3? FloatingInterestRateResetFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
-    [DataMember]
     public CompareNumber6? FloatingInterestRateResetFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 5 characters are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDecimalNumber3? BasisPointSpread { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MarginLoanAmount is CompareAmountAndDirection1 MarginLoanAmountValue)
+        {
+            writer.WriteStartElement(null, "MrgnLnAmt", xmlNamespace );
+            MarginLoanAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FixedInterestRate is ComparePercentageRate3 FixedInterestRateValue)
+        {
+            writer.WriteStartElement(null, "FxdIntrstRate", xmlNamespace );
+            FixedInterestRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DayCountBasis is CompareInterestComputationMethod3 DayCountBasisValue)
+        {
+            writer.WriteStartElement(null, "DayCntBsis", xmlNamespace );
+            DayCountBasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingInterestReferenceRate is CompareBenchmarkCurveName3 FloatingInterestReferenceRateValue)
+        {
+            writer.WriteStartElement(null, "FltgIntrstRefRate", xmlNamespace );
+            FloatingInterestReferenceRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingInterestRateTermUnit is CompareRateBasis3 FloatingInterestRateTermUnitValue)
+        {
+            writer.WriteStartElement(null, "FltgIntrstRateTermUnit", xmlNamespace );
+            FloatingInterestRateTermUnitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingInterestRateTermValue is CompareNumber5 FloatingInterestRateTermValueValue)
+        {
+            writer.WriteStartElement(null, "FltgIntrstRateTermVal", xmlNamespace );
+            FloatingInterestRateTermValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingInterestRatePaymentFrequencyUnit is CompareRateBasis3 FloatingInterestRatePaymentFrequencyUnitValue)
+        {
+            writer.WriteStartElement(null, "FltgIntrstRatePmtFrqcyUnit", xmlNamespace );
+            FloatingInterestRatePaymentFrequencyUnitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingInterestRatePaymentFrequencyValue is CompareNumber5 FloatingInterestRatePaymentFrequencyValueValue)
+        {
+            writer.WriteStartElement(null, "FltgIntrstRatePmtFrqcyVal", xmlNamespace );
+            FloatingInterestRatePaymentFrequencyValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingInterestRateResetFrequencyUnit is CompareRateBasis3 FloatingInterestRateResetFrequencyUnitValue)
+        {
+            writer.WriteStartElement(null, "FltgIntrstRateRstFrqcyUnit", xmlNamespace );
+            FloatingInterestRateResetFrequencyUnitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingInterestRateResetFrequencyValue is CompareNumber6 FloatingInterestRateResetFrequencyValueValue)
+        {
+            writer.WriteStartElement(null, "FltgIntrstRateRstFrqcyVal", xmlNamespace );
+            FloatingInterestRateResetFrequencyValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BasisPointSpread is CompareDecimalNumber3 BasisPointSpreadValue)
+        {
+            writer.WriteStartElement(null, "BsisPtSprd", xmlNamespace );
+            BasisPointSpreadValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CompareInterestRate1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

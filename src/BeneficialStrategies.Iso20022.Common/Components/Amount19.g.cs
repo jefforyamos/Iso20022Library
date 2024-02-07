@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains the details of the billing amount
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Amount19
+     : IIsoXmlSerilizable<Amount19>
 {
     #nullable enable
     
     /// <summary>
     /// Description of the amount details.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Description { get; init; } 
     /// <summary>
     /// Contains the amount.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// A code to indicate the tax amount is credit or debit
     /// </summary>
-    [DataMember]
     public CreditDebit3Code? CreditDebit { get; init; } 
     /// <summary>
     /// Tax applicable to the billing amount.
     /// </summary>
-    [DataMember]
-    public ValueList<Tax39> Tax { get; init; } = []; // Warning: Don't know multiplicity.
+    public Tax39? Tax { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Description is IsoMax35Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DescriptionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(Amount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (CreditDebit is CreditDebit3Code CreditDebitValue)
+        {
+            writer.WriteStartElement(null, "CdtDbt", xmlNamespace );
+            writer.WriteValue(CreditDebitValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Tax is Tax39 TaxValue)
+        {
+            writer.WriteStartElement(null, "Tax", xmlNamespace );
+            TaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Amount19 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

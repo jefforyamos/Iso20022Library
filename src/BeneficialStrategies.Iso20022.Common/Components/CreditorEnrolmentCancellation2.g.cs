@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the creditor enrolment to be cancelled.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CreditorEnrolmentCancellation2
+     : IIsoXmlSerilizable<CreditorEnrolmentCancellation2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification of the original instruction.
     /// </summary>
-    [DataMember]
     public OriginalBusinessInstruction1? OriginalBusinessInstruction { get; init; } 
     /// <summary>
     /// Provides detailed information on the cancellation reason.
     /// </summary>
-    [DataMember]
     public CreditorEnrolmentCancellationReason2? CancellationReason { get; init; } 
     /// <summary>
     /// Provides the original creditor enrolment data.
     /// </summary>
-    [DataMember]
     public required OriginalEnrolment2Choice_ OriginalEnrolment { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OriginalBusinessInstruction is OriginalBusinessInstruction1 OriginalBusinessInstructionValue)
+        {
+            writer.WriteStartElement(null, "OrgnlBizInstr", xmlNamespace );
+            OriginalBusinessInstructionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CancellationReason is CreditorEnrolmentCancellationReason2 CancellationReasonValue)
+        {
+            writer.WriteStartElement(null, "CxlRsn", xmlNamespace );
+            CancellationReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OrgnlEnrlmnt", xmlNamespace );
+        OriginalEnrolment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CreditorEnrolmentCancellation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

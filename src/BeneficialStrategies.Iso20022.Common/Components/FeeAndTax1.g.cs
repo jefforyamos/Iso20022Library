@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money associated with a service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FeeAndTax1
+     : IIsoXmlSerilizable<FeeAndTax1>
 {
     #nullable enable
     
     /// <summary>
     /// Reference to the agreement established between the fund and another party. This element, amongst others, defines the conditions of the commissions.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CommercialAgreementReference { get; init; } 
     /// <summary>
     /// Individual fee (charge/commission).
     /// </summary>
-    [DataMember]
-    public ValueList<Fee1> IndividualFee { get; init; } = []; // Warning: Don't know multiplicity.
+    public Fee1? IndividualFee { get; init; } 
     /// <summary>
     /// Individual tax amount.
     /// </summary>
-    [DataMember]
-    public ValueList<Tax30> IndividualTax { get; init; } = []; // Warning: Don't know multiplicity.
+    public Tax30? IndividualTax { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CommercialAgreementReference is IsoMax35Text CommercialAgreementReferenceValue)
+        {
+            writer.WriteStartElement(null, "ComrclAgrmtRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CommercialAgreementReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (IndividualFee is Fee1 IndividualFeeValue)
+        {
+            writer.WriteStartElement(null, "IndvFee", xmlNamespace );
+            IndividualFeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IndividualTax is Tax30 IndividualTaxValue)
+        {
+            writer.WriteStartElement(null, "IndvTax", xmlNamespace );
+            IndividualTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FeeAndTax1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

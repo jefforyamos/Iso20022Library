@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the cash-in and cash-out flows by a user defined parameter/s.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BreakdownByUserDefinedParameter1
+     : IIsoXmlSerilizable<BreakdownByUserDefinedParameter1>
 {
     #nullable enable
     
     /// <summary>
     /// Party for which the cash flow is being reported.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? Party { get; init; } 
     /// <summary>
     /// Country for which the cash flow is being reported.
     /// </summary>
-    [DataMember]
     public CountryCode? Country { get; init; } 
     /// <summary>
     /// Currency for which the cash flow is being reported.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Parameter for which the cash flow is being reported.
     /// </summary>
-    [DataMember]
     public DataFormat2Choice_? UserDefined { get; init; } 
     /// <summary>
     /// Cash movement into the fund as a result of investment funds transactions, eg, subscriptions or switch-in.
     /// </summary>
-    [DataMember]
-    public ValueList<CashInForecast3> CashInForecast { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashInForecast3? CashInForecast { get; init; } 
     /// <summary>
     /// Cash movement out of the fund as a result of investment funds transactions, eg, redemptions or switch-out.
     /// </summary>
-    [DataMember]
-    public ValueList<CashOutForecast3> CashOutForecast { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashOutForecast3? CashOutForecast { get; init; } 
     /// <summary>
     /// Net cash as a result of the cash-in and cash-out flows specified for the user defined parameter.
     /// </summary>
-    [DataMember]
-    public ValueList<NetCashForecast2> NetCashForecast { get; init; } = []; // Warning: Don't know multiplicity.
+    public NetCashForecast2? NetCashForecast { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Party is PartyIdentification2Choice_ PartyValue)
+        {
+            writer.WriteStartElement(null, "Pty", xmlNamespace );
+            PartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Country is CountryCode CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(CountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveOrHistoricCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (UserDefined is DataFormat2Choice_ UserDefinedValue)
+        {
+            writer.WriteStartElement(null, "UsrDfnd", xmlNamespace );
+            UserDefinedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashInForecast is CashInForecast3 CashInForecastValue)
+        {
+            writer.WriteStartElement(null, "CshInFcst", xmlNamespace );
+            CashInForecastValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashOutForecast is CashOutForecast3 CashOutForecastValue)
+        {
+            writer.WriteStartElement(null, "CshOutFcst", xmlNamespace );
+            CashOutForecastValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NetCashForecast is NetCashForecast2 NetCashForecastValue)
+        {
+            writer.WriteStartElement(null, "NetCshFcst", xmlNamespace );
+            NetCashForecastValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BreakdownByUserDefinedParameter1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

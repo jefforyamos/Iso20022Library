@@ -7,29 +7,54 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money expressed with a debit/credit indicator.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AmountAndDirection56
+     : IIsoXmlSerilizable<AmountAndDirection56>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of money that results in an increase (positively signed) or decrease (negatively signed), with specification of the currency.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAnd20Amount Amount { get; init; } 
     /// <summary>
     /// Indicates that the amount value is positive or negative.
     /// Usage: When absent, the amount is positive.
     /// </summary>
-    [DataMember]
     public IsoPlusOrMinusIndicator? Sign { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAnd20Amount(Amount)); // data type ImpliedCurrencyAnd20Amount System.Decimal
+        writer.WriteEndElement();
+        if (Sign is IsoPlusOrMinusIndicator SignValue)
+        {
+            writer.WriteStartElement(null, "Sgn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPlusOrMinusIndicator(SignValue)); // data type PlusOrMinusIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AmountAndDirection56 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

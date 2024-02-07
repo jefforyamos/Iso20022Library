@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty3Choice
 /// Detailed statistics per counterparty.
 /// </summary>
 public partial record Report : StatisticsPerCounterparty3Choice_
+     , IIsoXmlSerilizable<Report>
 {
     #nullable enable
+    
     /// <summary>
     /// Reference period for statistics collection.
     /// </summary>
@@ -30,6 +34,39 @@ public partial record Report : StatisticsPerCounterparty3Choice_
     /// <summary>
     /// Identification of the competent authority which supervises the reporting counterparty.
     /// </summary>
-    public CompetentAuthority1? CompetentAuthority { get; init;  } // Warning: Don't know multiplicity.
+    public CompetentAuthority1? CompetentAuthority { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptgPrd", xmlNamespace );
+        ReportingPeriod.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
+        CounterpartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RjctnSttstcs", xmlNamespace );
+        RejectionStatistics.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CompetentAuthority is CompetentAuthority1 CompetentAuthorityValue)
+        {
+            writer.WriteStartElement(null, "CmptntAuthrty", xmlNamespace );
+            CompetentAuthorityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Report Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

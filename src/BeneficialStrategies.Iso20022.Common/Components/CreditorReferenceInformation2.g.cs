@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reference information provided by the creditor to allow the identification of the underlying documents.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CreditorReferenceInformation2
+     : IIsoXmlSerilizable<CreditorReferenceInformation2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of creditor reference.
     /// </summary>
-    [DataMember]
     public CreditorReferenceType2? Type { get; init; } 
     /// <summary>
     /// Unique reference, as assigned by the creditor, to unambiguously refer to the payment transaction.||Usage: If available, the initiating party should provide this reference in the structured remittance information, to enable reconciliation by the creditor upon receipt of the amount of money.||If the business context requires the use of a creditor reference or a payment remit identification, and only one identifier can be passed through the end-to-end chain, the creditor's reference or payment remittance identification should be quoted in the end-to-end transaction identification.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Reference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is CreditorReferenceType2 TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Reference is IsoMax35Text ReferenceValue)
+        {
+            writer.WriteStartElement(null, "Ref", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CreditorReferenceInformation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

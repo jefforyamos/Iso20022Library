@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.pain.MandateCancellationRequestV01>;
 
 namespace BeneficialStrategies.Iso20022.pain;
 
@@ -29,10 +32,9 @@ namespace BeneficialStrategies.Iso20022.pain;
 /// The MandateCancellationRequest message can be used in domestic and cross-border scenarios.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The MandateCancellationRequest message is sent by the initiator of the request to his agent. The initiator can either be the debtor or the creditor.|The MandateCancellationRequest message is forwarded by the agent of the initiator to the agent of the counterparty.|A MandateCancellationRequest message is used to request the cancellation of an existing mandate. If accepted, this MandateCancellationRequest message together with the MandateAcceptanceReport message confirming the acceptance will be considered a valid cancellation of an existing mandate, agreed upon by all parties.|Usage|The MandateCancellationRequest message can contain only one request to cancel one specific mandate.|The messages can be exchanged between creditor and creditor agent or debtor and debtor agent and between creditor agent and debtor agent.|The message can also be used by an initiating party that has authority to send the message on behalf of the creditor or debtor.|The MandateCancellationRequest message can be used in domestic and cross-border scenarios.")]
-public partial record MandateCancellationRequestV01 : IOuterRecord
+public partial record MandateCancellationRequestV01 : IOuterRecord<MandateCancellationRequestV01,MandateCancellationRequestV01Document>
+    ,IIsoXmlSerilizable<MandateCancellationRequestV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -44,6 +46,11 @@ public partial record MandateCancellationRequestV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MndtCxlReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => MandateCancellationRequestV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -75,6 +82,29 @@ public partial record MandateCancellationRequestV01 : IOuterRecord
     {
         return new MandateCancellationRequestV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MndtCxlReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
+        GroupHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UndrlygCxlDtls", xmlNamespace );
+        UnderlyingCancellationDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static MandateCancellationRequestV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -82,9 +112,7 @@ public partial record MandateCancellationRequestV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MandateCancellationRequestV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record MandateCancellationRequestV01Document : IOuterDocument<MandateCancellationRequestV01>
+public partial record MandateCancellationRequestV01Document : IOuterDocument<MandateCancellationRequestV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -100,5 +128,22 @@ public partial record MandateCancellationRequestV01Document : IOuterDocument<Man
     /// <summary>
     /// The instance of <seealso cref="MandateCancellationRequestV01"/> is required.
     /// </summary>
+    [DataMember(Name=MandateCancellationRequestV01.XmlTag)]
     public required MandateCancellationRequestV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(MandateCancellationRequestV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

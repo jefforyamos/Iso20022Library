@@ -7,44 +7,84 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Outcome of the processing of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProcessingResult19
+     : IIsoXmlSerilizable<ProcessingResult19>
 {
     #nullable enable
     
     /// <summary>
     /// Information about the entity that provides the response.
     /// </summary>
-    [DataMember]
     public ApprovalEntity2? ResponseSource { get; init; } 
     /// <summary>
     /// Result of the processing.
     /// </summary>
-    [DataMember]
     public required ResultData10 ResultData { get; init; } 
     /// <summary>
     /// Error detail information
     /// </summary>
-    [DataMember]
-    public ValueList<ErrorDetails2> ErrorDetail { get; init; } = []; // Warning: Don't know multiplicity.
+    public ErrorDetails2? ErrorDetail { get; init; } 
     /// <summary>
     /// Outcome of a previous processing, for example, in response to a duplicate request.
     /// </summary>
-    [DataMember]
     public ResultData7? OriginalResultData { get; init; } 
     /// <summary>
     /// Additional information relevant for the destination.
     /// ISO 8583 bit 44
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation30> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation30? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ResponseSource is ApprovalEntity2 ResponseSourceValue)
+        {
+            writer.WriteStartElement(null, "RspnSrc", xmlNamespace );
+            ResponseSourceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RsltData", xmlNamespace );
+        ResultData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ErrorDetail is ErrorDetails2 ErrorDetailValue)
+        {
+            writer.WriteStartElement(null, "ErrDtl", xmlNamespace );
+            ErrorDetailValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalResultData is ResultData7 OriginalResultDataValue)
+        {
+            writer.WriteStartElement(null, "OrgnlRsltData", xmlNamespace );
+            OriginalResultDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation30 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ProcessingResult19 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

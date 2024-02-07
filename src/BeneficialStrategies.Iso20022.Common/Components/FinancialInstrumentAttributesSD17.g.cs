@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding underlying security details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrumentAttributesSD17
+     : IIsoXmlSerilizable<FinancialInstrumentAttributesSD17>
 {
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Represents the 'original' security identifier of the event. It is used in the scenarios like "partial call" where there are 2 events. The first event distributes into the Contra CUSIP, a temporary security; and on the second event that temporary security becomes the underlying security of the event. This element is used in the second event to point to the original CUSIP.
     /// </summary>
-    [DataMember]
     public OtherIdentification2? OriginatingSecurityIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginatingSecurityIdentification is OtherIdentification2 OriginatingSecurityIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgtgSctyId", xmlNamespace );
+            OriginatingSecurityIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstrumentAttributesSD17 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CurrencyCriteriaDefinition1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.CurrencyCriteriaDefinition1Choic
 /// Defines the criteria based on which the information is extracted.
 /// </summary>
 public partial record NewCriteria : CurrencyCriteriaDefinition1Choice_
+     , IIsoXmlSerilizable<NewCriteria>
 {
     #nullable enable
+    
     /// <summary>
     /// Name of the query defined by the search criteria and return criteria.
     /// </summary>
@@ -23,5 +27,31 @@ public partial record NewCriteria : CurrencyCriteriaDefinition1Choice_
     /// Defines the criteria based on which the information is extracted.
     /// </summary>
     public CurrencyExchangeSearchCriteria1? SearchCriteria { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _IB7705lZEeeE1Ya-LgRsuQ
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NewQueryName is IsoMax35Text NewQueryNameValue)
+        {
+            writer.WriteStartElement(null, "NewQryNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NewQueryNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize SearchCriteria, multiplicity Unknown
+    }
+    public static new NewCriteria Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

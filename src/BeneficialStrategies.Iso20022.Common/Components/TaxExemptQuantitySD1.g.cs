@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Tax exempt election details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxExemptQuantitySD1
+     : IIsoXmlSerilizable<TaxExemptQuantitySD1>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Tax control ID.
     /// </summary>
-    [DataMember]
     public required IsoMax6Text ControlIdentification { get; init; } 
     /// <summary>
     /// Elected quantity.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CtrlId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax6Text(ControlIdentification)); // data type Max6Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        Quantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static TaxExemptQuantitySD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

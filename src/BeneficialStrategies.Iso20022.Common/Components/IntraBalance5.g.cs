@@ -7,53 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the intra-balance movement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IntraBalance5
+     : IIsoXmlSerilizable<IntraBalance5>
 {
     #nullable enable
     
     /// <summary>
     /// Total amount of money to be settled.
     /// </summary>
-    [DataMember]
     public required Amount2Choice_ SettlementAmount { get; init; } 
     /// <summary>
     /// Date and time at which the amount of money is to be moved.
     /// </summary>
-    [DataMember]
     public required DateAndDateTime2Choice_ SettlementDate { get; init; } 
     /// <summary>
     /// Balance from which the amount of money is moved.
     /// </summary>
-    [DataMember]
     public required CashSubBalanceTypeAndQuantityBreakdown3 BalanceFrom { get; init; } 
     /// <summary>
     /// Balance to which the amount of money is moved.
     /// </summary>
-    [DataMember]
     public required CashSubBalanceTypeAndQuantityBreakdown3 BalanceTo { get; init; } 
     /// <summary>
     /// Number identifying a lot constituting the sub-balance.
     /// </summary>
-    [DataMember]
     public GenericIdentification37? CashSubBalanceIdentification { get; init; } 
     /// <summary>
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
-    [DataMember]
     public PriorityNumeric4Choice_? Priority { get; init; } 
     /// <summary>
     /// Provides additional settlement processing information which can not be included within the structured fields of the message.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? InstructionProcessingAdditionalDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
+        SettlementAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
+        SettlementDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BalFr", xmlNamespace );
+        BalanceFrom.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BalTo", xmlNamespace );
+        BalanceTo.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CashSubBalanceIdentification is GenericIdentification37 CashSubBalanceIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CshSubBalId", xmlNamespace );
+            CashSubBalanceIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Priority is PriorityNumeric4Choice_ PriorityValue)
+        {
+            writer.WriteStartElement(null, "Prty", xmlNamespace );
+            PriorityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructionProcessingAdditionalDetails is IsoMax350Text InstructionProcessingAdditionalDetailsValue)
+        {
+            writer.WriteStartElement(null, "InstrPrcgAddtlDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(InstructionProcessingAdditionalDetailsValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static IntraBalance5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

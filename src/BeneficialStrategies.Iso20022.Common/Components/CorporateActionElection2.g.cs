@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about a corporate action election amendment request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionElection2
+     : IIsoXmlSerilizable<CorporateActionElection2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    [DataMember]
     public required CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    [DataMember]
     public required IsoExact3NumericText OptionNumber { get; init; } 
     /// <summary>
     /// New instructed securities quantity after the amendment.
     /// </summary>
-    [DataMember]
     public required UnitOrFaceAmount1Choice_ NewInstructedQuantity { get; init; } 
     /// <summary>
     /// The reason for the amendment request.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? Reason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+        OptionType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OptnNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact3NumericText(OptionNumber)); // data type Exact3NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NewInstdQty", xmlNamespace );
+        NewInstructedQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Reason is IsoMax350Text ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(ReasonValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionElection2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

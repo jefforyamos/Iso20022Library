@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Taxable service charge amount conversions to host currency.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BillingServicesAmount3
+     : IIsoXmlSerilizable<BillingServicesAmount3>
 {
     #nullable enable
     
     /// <summary>
     /// Represents the total of all taxable services in a specific tax region for a specific currency. For example, all taxable services for a tax region in Euro would be totalled here in the Euro currency.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection34 SourceAmount { get; init; } 
     /// <summary>
     /// Represents the total of all taxable services in a specific tax region for a specific currency and is a one-to-one relationship with total taxable charge of services, but represented in the host currency after conversion.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection34 HostAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SrcAmt", xmlNamespace );
+        SourceAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "HstAmt", xmlNamespace );
+        HostAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static BillingServicesAmount3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

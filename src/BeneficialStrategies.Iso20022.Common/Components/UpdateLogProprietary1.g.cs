@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the old and new values for a proprietary field name.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UpdateLogProprietary1
+     : IIsoXmlSerilizable<UpdateLogProprietary1>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the field whose value has been changed.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text FieldName { get; init; } 
     /// <summary>
     /// Value of the field before the change.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text OldFieldValue { get; init; } 
     /// <summary>
     /// Value of the field after the change.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text NewFieldValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FldNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(FieldName)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OdFldVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(OldFieldValue)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NewFldVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(NewFieldValue)); // data type Max350Text System.String
+        writer.WriteEndElement();
+    }
+    public static UpdateLogProprietary1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

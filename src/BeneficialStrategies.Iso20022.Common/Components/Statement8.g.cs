@@ -7,53 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// General characteristics related to a statement which reports information for a defined period.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Statement8
+     : IIsoXmlSerilizable<Statement8>
 {
     #nullable enable
     
     /// <summary>
     /// Reference of the statement.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Reference { get; init; } 
     /// <summary>
     /// Period on which the statement is reporting.
     /// </summary>
-    [DataMember]
     public required DatePeriodDetails StatementPeriod { get; init; } 
     /// <summary>
     /// Creation date of the statement.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeChoice_? CreationDateTime { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
-    [DataMember]
     public EventFrequency1Code? Frequency { get; init; } 
     /// <summary>
     /// Specifies if the statement is complete or only contains changes.
     /// </summary>
-    [DataMember]
     public required StatementUpdateTypeCode UpdateType { get; init; } 
     /// <summary>
     /// Indicates whether there is activity reported in the statement.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     /// <summary>
     /// Sequential number of the statement.
     /// </summary>
-    [DataMember]
     public IsoMax5NumericText? ReportNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ref", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Reference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StmtPrd", xmlNamespace );
+        StatementPeriod.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CreationDateTime is DateAndDateTimeChoice_ CreationDateTimeValue)
+        {
+            writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+            CreationDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Frequency is EventFrequency1Code FrequencyValue)
+        {
+            writer.WriteStartElement(null, "Frqcy", xmlNamespace );
+            writer.WriteValue(FrequencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "UpdTp", xmlNamespace );
+        writer.WriteValue(UpdateType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ActvtyInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ActivityIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (ReportNumber is IsoMax5NumericText ReportNumberValue)
+        {
+            writer.WriteStartElement(null, "RptNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax5NumericText(ReportNumberValue)); // data type Max5NumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Statement8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

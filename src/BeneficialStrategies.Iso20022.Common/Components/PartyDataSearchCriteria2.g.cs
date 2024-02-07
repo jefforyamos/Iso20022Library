@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of search criteria for querying party reference data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyDataSearchCriteria2
+     : IIsoXmlSerilizable<PartyDataSearchCriteria2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the opening date of the party.
     /// </summary>
-    [DataMember]
     public DatePeriodSearch1Choice_? OpeningDate { get; init; } 
     /// <summary>
     /// Specifies the closing date of the party.
     /// </summary>
-    [DataMember]
     public DatePeriodSearch1Choice_? ClosingDate { get; init; } 
     /// <summary>
     /// Specifies the type classification of the party.
     /// </summary>
-    [DataMember]
     public SystemPartyType1Choice_? Type { get; init; } 
     /// <summary>
     /// Unique identification of the party responsible for the maintenance of the party reference data.
     /// </summary>
-    [DataMember]
     public PartyIdentification136? ResponsiblePartyIdentification { get; init; } 
     /// <summary>
     /// Unique identification to unambiguously identify the party within the system.
     /// </summary>
-    [DataMember]
     public PartyIdentification136? PartyIdentification { get; init; } 
     /// <summary>
     /// Specifies the identification of a restriction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RestrictionIdentification { get; init; } 
     /// <summary>
     /// Specifies the date when the restriction for the party has been issued.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeSearch4Choice_? RestrictionIssueDate { get; init; } 
     /// <summary>
     /// Specifies the type of residence where the party has its permanent home or principal establishment.
     /// </summary>
-    [DataMember]
     public ResidenceType1Code? ResidenceType { get; init; } 
     /// <summary>
     /// Specifies whether the party is locked or not, and the reason for this status, when required.
     /// </summary>
-    [DataMember]
     public PartyLockStatus1? LockStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OpeningDate is DatePeriodSearch1Choice_ OpeningDateValue)
+        {
+            writer.WriteStartElement(null, "OpngDt", xmlNamespace );
+            OpeningDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClosingDate is DatePeriodSearch1Choice_ ClosingDateValue)
+        {
+            writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
+            ClosingDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Type is SystemPartyType1Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ResponsiblePartyIdentification is PartyIdentification136 ResponsiblePartyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RspnsblPtyId", xmlNamespace );
+            ResponsiblePartyIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PartyIdentification is PartyIdentification136 PartyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PtyId", xmlNamespace );
+            PartyIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RestrictionIdentification is IsoMax35Text RestrictionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RstrctnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RestrictionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RestrictionIssueDate is DateAndDateTimeSearch4Choice_ RestrictionIssueDateValue)
+        {
+            writer.WriteStartElement(null, "RstrctnIsseDt", xmlNamespace );
+            RestrictionIssueDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ResidenceType is ResidenceType1Code ResidenceTypeValue)
+        {
+            writer.WriteStartElement(null, "ResTp", xmlNamespace );
+            writer.WriteValue(ResidenceTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (LockStatus is PartyLockStatus1 LockStatusValue)
+        {
+            writer.WriteStartElement(null, "LckSts", xmlNamespace );
+            LockStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyDataSearchCriteria2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

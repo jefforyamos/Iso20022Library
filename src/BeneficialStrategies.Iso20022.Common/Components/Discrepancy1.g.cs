@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a discrepancy of a demand.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Discrepancy1
+     : IIsoXmlSerilizable<Discrepancy1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the discrepancy.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Description of the discrepancy.
     /// </summary>
-    [DataMember]
     public required IsoMax20000Text Narrative { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Nrrtv", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20000Text(Narrative)); // data type Max20000Text System.String
+        writer.WriteEndElement();
+    }
+    public static Discrepancy1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

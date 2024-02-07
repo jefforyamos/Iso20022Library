@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of an underlying of a derivative or security that constitutes one lot of such derivative on an exchange.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ContractSize1
+     : IIsoXmlSerilizable<ContractSize1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the total quantity of financial product to be delivered as per the terms of the contract.
     /// </summary>
-    [DataMember]
     public required IsoPositiveNumber LotSize { get; init; } 
     /// <summary>
     /// Specifies the unit of underlying.
     /// </summary>
-    [DataMember]
     public UnitOfMeasure5Choice_? Unit { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "LotSz", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPositiveNumber(LotSize)); // data type PositiveNumber System.UInt64
+        writer.WriteEndElement();
+        if (Unit is UnitOfMeasure5Choice_ UnitValue)
+        {
+            writer.WriteStartElement(null, "Unit", xmlNamespace );
+            UnitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ContractSize1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

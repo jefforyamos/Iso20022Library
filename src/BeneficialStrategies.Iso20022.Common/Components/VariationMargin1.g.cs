@@ -7,43 +7,74 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Elements used to calculate the collateral margin call for the variation margin.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record VariationMargin1
+     : IIsoXmlSerilizable<VariationMargin1>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of unsecured exposure a counterparty will accept before issuing a margin call in the base currency.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount ThresholdAmount { get; init; } 
     /// <summary>
     /// Specifies if the threshold amount is secured or unsecured.
     /// </summary>
-    [DataMember]
     public ThresholdType1Code? ThresholdType { get; init; } 
     /// <summary>
     /// Minimum amount to pay/receive as specified in the agreement in the base currency (to avoid the need to transfer an inconveniently small amount of variation margin).
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount MinimumTransferAmount { get; init; } 
     /// <summary>
     /// Amount specified to avoid the need to transfer uneven amounts of collateral.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount RoundingAmount { get; init; } 
     /// <summary>
     /// Defines how the rounding amount was applied in the calculation. For example, should the amount of collateral required be rounded up, down, to the closer integral multiple specified or not rounded.
     /// </summary>
-    [DataMember]
     public required RoundingMethod1Code RoundingMethod { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ThrshldAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ThresholdAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (ThresholdType is ThresholdType1Code ThresholdTypeValue)
+        {
+            writer.WriteStartElement(null, "ThrshldTp", xmlNamespace );
+            writer.WriteValue(ThresholdTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MinTrfAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MinimumTransferAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RndgAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(RoundingAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RndgMtd", xmlNamespace );
+        writer.WriteValue(RoundingMethod.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static VariationMargin1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

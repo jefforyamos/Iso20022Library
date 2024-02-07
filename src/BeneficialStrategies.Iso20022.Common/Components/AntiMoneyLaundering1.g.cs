@@ -7,78 +7,156 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information requested against money laundering for a transfer transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AntiMoneyLaundering1
+     : IIsoXmlSerilizable<AntiMoneyLaundering1>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the sender.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? SenderName { get; init; } 
     /// <summary>
     /// Address of the sender.
     /// </summary>
-    [DataMember]
     public PostalAddress18? SenderAddress { get; init; } 
     /// <summary>
     /// National identifier number of the sender.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SenderNationalIdentifier { get; init; } 
     /// <summary>
     /// Country of the national identifier (ISO 3166-1 alpha-2 or alpha-3).
     /// </summary>
-    [DataMember]
     public IsoMin2Max3AlphaText? NationalIdentifierCountry { get; init; } 
     /// <summary>
     /// Passport number of the sender.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SenderPassportNumber { get; init; } 
     /// <summary>
     /// Country issuing the passport (ISO 3166-1 alpha-2 or alpha-3).
     /// </summary>
-    [DataMember]
     public IsoMin2Max3AlphaText? PassportIssuingCountry { get; init; } 
     /// <summary>
     /// Tax identifier of the sender.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SenderTaxIdentifier { get; init; } 
     /// <summary>
     /// Country of the tax (ISO 3166-1 alpha-2 or alpha-3).
     /// </summary>
-    [DataMember]
     public IsoMin2Max3AlphaText? TaxCountry { get; init; } 
     /// <summary>
     /// Customer identifier of the sender.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SenderCustomerIdentifier { get; init; } 
     /// <summary>
     /// Date and place of birth of the sender.
     /// </summary>
-    [DataMember]
     public DateAndPlaceOfBirth? SenderDateAndPlaceOfBirth { get; init; } 
     /// <summary>
     /// Name of the receiver.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? ReceiverName { get; init; } 
     /// <summary>
     /// Unique transaction reference number for sender and the receiver.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TransactionReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SenderName is IsoMax70Text SenderNameValue)
+        {
+            writer.WriteStartElement(null, "SndrNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(SenderNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (SenderAddress is PostalAddress18 SenderAddressValue)
+        {
+            writer.WriteStartElement(null, "SndrAdr", xmlNamespace );
+            SenderAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SenderNationalIdentifier is IsoMax35Text SenderNationalIdentifierValue)
+        {
+            writer.WriteStartElement(null, "SndrNtlIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SenderNationalIdentifierValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (NationalIdentifierCountry is IsoMin2Max3AlphaText NationalIdentifierCountryValue)
+        {
+            writer.WriteStartElement(null, "NtlIdrCtry", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMin2Max3AlphaText(NationalIdentifierCountryValue)); // data type Min2Max3AlphaText System.String
+            writer.WriteEndElement();
+        }
+        if (SenderPassportNumber is IsoMax35Text SenderPassportNumberValue)
+        {
+            writer.WriteStartElement(null, "SndrPsptNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SenderPassportNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PassportIssuingCountry is IsoMin2Max3AlphaText PassportIssuingCountryValue)
+        {
+            writer.WriteStartElement(null, "PsptIssgCtry", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMin2Max3AlphaText(PassportIssuingCountryValue)); // data type Min2Max3AlphaText System.String
+            writer.WriteEndElement();
+        }
+        if (SenderTaxIdentifier is IsoMax35Text SenderTaxIdentifierValue)
+        {
+            writer.WriteStartElement(null, "SndrTaxIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SenderTaxIdentifierValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TaxCountry is IsoMin2Max3AlphaText TaxCountryValue)
+        {
+            writer.WriteStartElement(null, "TaxCtry", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMin2Max3AlphaText(TaxCountryValue)); // data type Min2Max3AlphaText System.String
+            writer.WriteEndElement();
+        }
+        if (SenderCustomerIdentifier is IsoMax35Text SenderCustomerIdentifierValue)
+        {
+            writer.WriteStartElement(null, "SndrCstmrIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SenderCustomerIdentifierValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SenderDateAndPlaceOfBirth is DateAndPlaceOfBirth SenderDateAndPlaceOfBirthValue)
+        {
+            writer.WriteStartElement(null, "SndrDtAndPlcOfBirth", xmlNamespace );
+            SenderDateAndPlaceOfBirthValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReceiverName is IsoMax70Text ReceiverNameValue)
+        {
+            writer.WriteStartElement(null, "RcvrNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(ReceiverNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionReference is IsoMax35Text TransactionReferenceValue)
+        {
+            writer.WriteStartElement(null, "TxRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AntiMoneyLaundering1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

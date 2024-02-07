@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the type, date and version of the agreement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AgreementConditions1
+     : IIsoXmlSerilizable<AgreementConditions1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of agreement.
     /// </summary>
-    [DataMember]
     public required IsoMax6AlphaText AgreementCode { get; init; } 
     /// <summary>
     /// Specifies the date of the agreement.
     /// </summary>
-    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// Specifies the version of the agreement.
     /// </summary>
-    [DataMember]
     public IsoExact4NumericText? Version { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AgrmtCd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax6AlphaText(AgreementCode)); // data type Max6AlphaText System.String
+        writer.WriteEndElement();
+        if (Date is IsoISODate DateValue)
+        {
+            writer.WriteStartElement(null, "Dt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Version is IsoExact4NumericText VersionValue)
+        {
+            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact4NumericText(VersionValue)); // data type Exact4NumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AgreementConditions1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Automatic extension information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AutoExtension1
+     : IIsoXmlSerilizable<AutoExtension1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates that the undertaking is automatically extendable and the period of extension.
     /// </summary>
-    [DataMember]
     public AutoExtend1Choice_? Period { get; init; } 
     /// <summary>
     /// Final expiry date after which the undertaking will no longer be subject to automatic extension.
     /// </summary>
-    [DataMember]
     public IsoISODate? FinalExpiryDate { get; init; } 
     /// <summary>
     /// Details related to the notification of the end of the period for notification of non-extension of the expiry date.
     /// </summary>
-    [DataMember]
-    public ValueList<NonExtension1> NonExtensionNotification { get; init; } = []; // Warning: Don't know multiplicity.
+    public NonExtension1? NonExtensionNotification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Period is AutoExtend1Choice_ PeriodValue)
+        {
+            writer.WriteStartElement(null, "Prd", xmlNamespace );
+            PeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinalExpiryDate is IsoISODate FinalExpiryDateValue)
+        {
+            writer.WriteStartElement(null, "FnlXpryDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(FinalExpiryDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (NonExtensionNotification is NonExtension1 NonExtensionNotificationValue)
+        {
+            writer.WriteStartElement(null, "NonXtnsnNtfctn", xmlNamespace );
+            NonExtensionNotificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AutoExtension1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

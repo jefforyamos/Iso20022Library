@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates to the issuer the level of risk of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardTransactionRiskIndicator1
+     : IIsoXmlSerilizable<CardTransactionRiskIndicator1>
 {
     #nullable enable
     
     /// <summary>
     /// Reason to indicate a certain level of risk for the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<CardTransactionRiskReason1Code> Reason { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardTransactionRiskReason1Code? Reason { get; init; } 
     /// <summary>
     /// Level of risk, from 1 to 99.
     /// </summary>
-    [DataMember]
     public required IsoNumber Level { get; init; } 
     /// <summary>
     /// Recommended action for the issuer.
     /// </summary>
-    [DataMember]
-    public ValueList<ActionType4Code> RecommendedAction { get; init; } = []; // Warning: Don't know multiplicity.
+    public ActionType4Code? RecommendedAction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Reason is CardTransactionRiskReason1Code ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            writer.WriteValue(ReasonValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Lvl", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(Level)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        if (RecommendedAction is ActionType4Code RecommendedActionValue)
+        {
+            writer.WriteStartElement(null, "RcmmnddActn", xmlNamespace );
+            writer.WriteValue(RecommendedActionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static CardTransactionRiskIndicator1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the triparty collateral transaction deal.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DealTransactionDetails7
+     : IIsoXmlSerilizable<DealTransactionDetails7>
 {
     #nullable enable
     
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
-    [DataMember]
     public required ClosingDate4Choice_ ClosingDate { get; init; } 
     /// <summary>
     /// Provide deal amount details.
     /// </summary>
-    [DataMember]
     public CollateralAmount14? DealDetailsAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
+        ClosingDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DealDetailsAmount is CollateralAmount14 DealDetailsAmountValue)
+        {
+            writer.WriteStartElement(null, "DealDtlsAmt", xmlNamespace );
+            DealDetailsAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DealTransactionDetails7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

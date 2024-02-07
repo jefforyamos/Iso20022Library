@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of an order desk.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OrderDesk1
+     : IIsoXmlSerilizable<OrderDesk1>
 {
     #nullable enable
     
     /// <summary>
     /// Contact information for the order desk.
     /// </summary>
-    [DataMember]
     public ContactAttributes5? OrderDesk { get; init; } 
     /// <summary>
     /// Days on which the order desk is closed.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoISODate> ClosureDates { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoISODate? ClosureDates { get; init; } 
     /// <summary>
     /// Additional information about the main order desk.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OrderDesk is ContactAttributes5 OrderDeskValue)
+        {
+            writer.WriteStartElement(null, "OrdrDsk", xmlNamespace );
+            OrderDeskValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClosureDates is IsoISODate ClosureDatesValue)
+        {
+            writer.WriteStartElement(null, "ClsrDts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ClosureDatesValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OrderDesk1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Play Request message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DevicePlayResourceRequest1
+     : IIsoXmlSerilizable<DevicePlayResourceRequest1>
 {
     #nullable enable
     
     /// <summary>
     /// Message response awaited by the initiator of the Request.
     /// </summary>
-    [DataMember]
     public ResponseMode2Code? ResponseMode { get; init; } 
     /// <summary>
     /// Requested Action: Start to play a media resource, Stop to play a media resource, Set the default volume.
     /// </summary>
-    [DataMember]
     public required ResourceAction1Code ResourceAction { get; init; } 
     /// <summary>
     /// Volume of a sound, either in a percentage of the maximum volume, or 0 to mute.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? SoundVolume { get; init; } 
     /// <summary>
     /// Resolution to use.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DisplayResolution { get; init; } 
     /// <summary>
     /// Identification of the resource to use.
     /// </summary>
-    [DataMember]
     public ResourceContent1? Resource { get; init; } 
     /// <summary>
     /// Identification of the moment to manage the media resource.
     /// </summary>
-    [DataMember]
     public ProcessingPosition2Code? TimingSlot { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ResponseMode is ResponseMode2Code ResponseModeValue)
+        {
+            writer.WriteStartElement(null, "RspnMd", xmlNamespace );
+            writer.WriteValue(ResponseModeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RsrcActn", xmlNamespace );
+        writer.WriteValue(ResourceAction.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SoundVolume is IsoPercentageRate SoundVolumeValue)
+        {
+            writer.WriteStartElement(null, "SoundVol", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(SoundVolumeValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (DisplayResolution is IsoMax35Text DisplayResolutionValue)
+        {
+            writer.WriteStartElement(null, "DispRsltn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DisplayResolutionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Resource is ResourceContent1 ResourceValue)
+        {
+            writer.WriteStartElement(null, "Rsrc", xmlNamespace );
+            ResourceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TimingSlot is ProcessingPosition2Code TimingSlotValue)
+        {
+            writer.WriteStartElement(null, "TmgSlot", xmlNamespace );
+            writer.WriteValue(TimingSlotValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static DevicePlayResourceRequest1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Card transaction details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardTransaction16
+     : IIsoXmlSerilizable<CardTransaction16>
 {
     #nullable enable
     
     /// <summary>
     /// Electronic money product that provides the cardholder with a portable and specialised computer device, which typically contains a microprocessor.
     /// </summary>
-    [DataMember]
     public PaymentCard4? Card { get; init; } 
     /// <summary>
     /// Physical or logical card payment terminal containing software and hardware components.
     /// </summary>
-    [DataMember]
     public PointOfInteraction1? POI { get; init; } 
     /// <summary>
     /// Card transaction details, which can be either globalised by the acquirer or individual transaction.
     /// </summary>
-    [DataMember]
     public CardTransaction3Choice_? Transaction { get; init; } 
     /// <summary>
     /// Prepaid account for the transfer or loading of an amount of money.
     /// </summary>
-    [DataMember]
     public CashAccount24? PrePaidAccount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Card is PaymentCard4 CardValue)
+        {
+            writer.WriteStartElement(null, "Card", xmlNamespace );
+            CardValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (POI is PointOfInteraction1 POIValue)
+        {
+            writer.WriteStartElement(null, "POI", xmlNamespace );
+            POIValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Transaction is CardTransaction3Choice_ TransactionValue)
+        {
+            writer.WriteStartElement(null, "Tx", xmlNamespace );
+            TransactionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PrePaidAccount is CashAccount24 PrePaidAccountValue)
+        {
+            writer.WriteStartElement(null, "PrePdAcct", xmlNamespace );
+            PrePaidAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardTransaction16 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

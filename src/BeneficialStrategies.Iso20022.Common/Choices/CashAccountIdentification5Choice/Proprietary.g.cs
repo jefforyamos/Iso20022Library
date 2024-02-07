@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CashAccountIdentification5Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.CashAccountIdentification5Choice
 /// Unique identifier for an account. It is assigned by the account servicer using a proprietary identification scheme.
 /// </summary>
 public partial record Proprietary : CashAccountIdentification5Choice_
+     , IIsoXmlSerilizable<Proprietary>
 {
-    public required IsoMax34Text Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a character string with a maximum length of 34 characters.
+    /// </summary>
+    public required IsoMax34Text Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Prtry", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax34Text(Value)); // data type Max34Text System.String
+        writer.WriteEndElement();
+    }
+    public static new Proprietary Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

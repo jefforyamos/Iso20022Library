@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains transaction details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Transaction85
+     : IIsoXmlSerilizable<Transaction85>
 {
     #nullable enable
     
@@ -23,118 +24,245 @@ public partial record Transaction85
     /// Type of transaction associated with the main service.
     /// ISO 8583:87/93/2003 bit 3
     /// </summary>
-    [DataMember]
     public IsoExact2AlphaNumericText? TransactionType { get; init; } 
     /// <summary>
     /// Provides further granularity of purpose of TransactionType
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TransactionSubType { get; init; } 
     /// <summary>
     /// Additional functions or services to be performed in conjunction with the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalService1> AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalService1? AdditionalService { get; init; } 
     /// <summary>
     /// Attribute of the transaction.
     /// ISO 8583:87 bit 25
     /// ISO 8583:2003 bit 22-3 & bit 24
     /// </summary>
-    [DataMember]
     public TransactionAttribute1Code? TransactionAttribute { get; init; } 
     /// <summary>
     /// Other transaction attribute defined at national or private level.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherTransactionAttribute { get; init; } 
     /// <summary>
     /// Reason to send the message.
     /// ISO 8583:93/2003 bit 25
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoExact4NumericText> MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoExact4NumericText? MessageReason { get; init; } 
     /// <summary>
     /// Supports message reason codes that are not defined in external code list. 
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? AlternateMessageReason { get; init; } 
     /// <summary>
     /// Contains the period (expressed in minutes) within which a merchant is expected to complete the transaction.
     /// </summary>
-    [DataMember]
     public IsoMax6NumericText? PreAuthorisationTimeLimit { get; init; } 
     /// <summary>
     /// Reference to additional transaction details to be conveyed separately from this message.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? AssociatedDataReference { get; init; } 
     /// <summary>
     /// Data to qualify for incentive or other related programmes.
     /// </summary>
-    [DataMember]
-    public ValueList<SpecialProgrammeQualification1> SpecialProgrammeQualification { get; init; } = []; // Warning: Don't know multiplicity.
+    public SpecialProgrammeQualification1? SpecialProgrammeQualification { get; init; } 
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
-    [DataMember]
     public TransactionIdentification11? TransactionIdentification { get; init; } 
     /// <summary>
     /// Information about the dispute.
     /// </summary>
-    [DataMember]
-    public ValueList<DisputeData1> DisputeData { get; init; } = []; // Warning: Don't know multiplicity.
+    public DisputeData1? DisputeData { get; init; } 
     /// <summary>
     /// Amounts of the card transaction.
     /// </summary>
-    [DataMember]
     public TransactionAmounts1? TransactionAmounts { get; init; } 
     /// <summary>
     /// Amounts that are not part of the transaction amount and not included in reconciliation.
     /// ISO 8583 bit 54
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalAmounts1> AdditionalAmounts { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalAmounts1? AdditionalAmounts { get; init; } 
     /// <summary>
     /// Fees not included in the transaction amount.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalFee1> AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalFee1? AdditionalFees { get; init; } 
     /// <summary>
     /// Fees not included in the original transaction amount.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalFee1> OriginalAdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalFee1? OriginalAdditionalFees { get; init; } 
     /// <summary>
     /// Contains ATM deposit details.
     /// </summary>
-    [DataMember]
-    public ValueList<DepositDetails1> DepositDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public DepositDetails1? DepositDetails { get; init; } 
     /// <summary>
     /// Financial services related to the account.
     /// </summary>
-    [DataMember]
     public FundingService1? FundsServices { get; init; } 
     /// <summary>
     /// Identifies a customer account or a relationship to its account affected for debit, inquiries and the source of funding for transfers.
     /// </summary>
-    [DataMember]
     public AccountDetails2? AccountFrom { get; init; } 
     /// <summary>
     /// Identifies a customer account or a relationship to its account affected for credits, inquiries and the destination account for funds transfers.
     /// </summary>
-    [DataMember]
     public AccountDetails2? AccountTo { get; init; } 
     /// <summary>
     /// Transaction data related to programmes and services, content and format based on bilateral agreements.
     /// </summary>
-    [DataMember]
     public IsoMax1000Text? TransactionDescription { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TransactionType is IsoExact2AlphaNumericText TransactionTypeValue)
+        {
+            writer.WriteStartElement(null, "TxTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact2AlphaNumericText(TransactionTypeValue)); // data type Exact2AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionSubType is IsoMax35Text TransactionSubTypeValue)
+        {
+            writer.WriteStartElement(null, "TxSubTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionSubTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalService is AdditionalService1 AdditionalServiceValue)
+        {
+            writer.WriteStartElement(null, "AddtlSvc", xmlNamespace );
+            AdditionalServiceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionAttribute is TransactionAttribute1Code TransactionAttributeValue)
+        {
+            writer.WriteStartElement(null, "TxAttr", xmlNamespace );
+            writer.WriteValue(TransactionAttributeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherTransactionAttribute is IsoMax35Text OtherTransactionAttributeValue)
+        {
+            writer.WriteStartElement(null, "OthrTxAttr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTransactionAttributeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MessageReason is IsoExact4NumericText MessageReasonValue)
+        {
+            writer.WriteStartElement(null, "MsgRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact4NumericText(MessageReasonValue)); // data type Exact4NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (AlternateMessageReason is IsoMax35Text AlternateMessageReasonValue)
+        {
+            writer.WriteStartElement(null, "AltrnMsgRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AlternateMessageReasonValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PreAuthorisationTimeLimit is IsoMax6NumericText PreAuthorisationTimeLimitValue)
+        {
+            writer.WriteStartElement(null, "PreAuthstnTmLmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax6NumericText(PreAuthorisationTimeLimitValue)); // data type Max6NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (AssociatedDataReference is IsoMax70Text AssociatedDataReferenceValue)
+        {
+            writer.WriteStartElement(null, "AssoctdDataRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AssociatedDataReferenceValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (SpecialProgrammeQualification is SpecialProgrammeQualification1 SpecialProgrammeQualificationValue)
+        {
+            writer.WriteStartElement(null, "SpclPrgrmmQlfctn", xmlNamespace );
+            SpecialProgrammeQualificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionIdentification is TransactionIdentification11 TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            TransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DisputeData is DisputeData1 DisputeDataValue)
+        {
+            writer.WriteStartElement(null, "DsptData", xmlNamespace );
+            DisputeDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionAmounts is TransactionAmounts1 TransactionAmountsValue)
+        {
+            writer.WriteStartElement(null, "TxAmts", xmlNamespace );
+            TransactionAmountsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalAmounts is AdditionalAmounts1 AdditionalAmountsValue)
+        {
+            writer.WriteStartElement(null, "AddtlAmts", xmlNamespace );
+            AdditionalAmountsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalFees is AdditionalFee1 AdditionalFeesValue)
+        {
+            writer.WriteStartElement(null, "AddtlFees", xmlNamespace );
+            AdditionalFeesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalAdditionalFees is AdditionalFee1 OriginalAdditionalFeesValue)
+        {
+            writer.WriteStartElement(null, "OrgnlAddtlFees", xmlNamespace );
+            OriginalAdditionalFeesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DepositDetails is DepositDetails1 DepositDetailsValue)
+        {
+            writer.WriteStartElement(null, "DpstDtls", xmlNamespace );
+            DepositDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FundsServices is FundingService1 FundsServicesValue)
+        {
+            writer.WriteStartElement(null, "FndsSvcs", xmlNamespace );
+            FundsServicesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountFrom is AccountDetails2 AccountFromValue)
+        {
+            writer.WriteStartElement(null, "AcctFr", xmlNamespace );
+            AccountFromValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountTo is AccountDetails2 AccountToValue)
+        {
+            writer.WriteStartElement(null, "AcctTo", xmlNamespace );
+            AccountToValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionDescription is IsoMax1000Text TransactionDescriptionValue)
+        {
+            writer.WriteStartElement(null, "TxDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1000Text(TransactionDescriptionValue)); // data type Max1000Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Transaction85 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

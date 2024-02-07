@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Facilitates the redemption of one or more lots.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LotDetails1
+     : IIsoXmlSerilizable<LotDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Description of the lot.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? LotDescription { get; init; } 
     /// <summary>
     /// Date the units were created.
     /// </summary>
-    [DataMember]
     public required IsoISODate TradeDate { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of the original order that resulted in the lot.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OrderReference { get; init; } 
     /// <summary>
     /// Deal reference of the original subscription execution that resulted in the lot.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DealReference { get; init; } 
     /// <summary>
     /// Quantity of the lot.
     /// </summary>
-    [DataMember]
     public SidePocketQuantityAndAmount1? LotQuantityAndAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (LotDescription is IsoMax350Text LotDescriptionValue)
+        {
+            writer.WriteStartElement(null, "LotDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(LotDescriptionValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TradDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(TradeDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrdrRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OrderReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (DealReference is IsoMax35Text DealReferenceValue)
+        {
+            writer.WriteStartElement(null, "DealRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DealReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (LotQuantityAndAmount is SidePocketQuantityAndAmount1 LotQuantityAndAmountValue)
+        {
+            writer.WriteStartElement(null, "LotQtyAndAmt", xmlNamespace );
+            LotQuantityAndAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LotDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

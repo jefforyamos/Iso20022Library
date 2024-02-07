@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the acceptor configuration.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AcceptorConfigurationContent4
+     : IIsoXmlSerilizable<AcceptorConfigurationContent4>
 {
     #nullable enable
     
     /// <summary>
     /// Configuration parameters of the TMS protocol between a POI and a terminal manager.
     /// </summary>
-    [DataMember]
-    public ValueList<TMSProtocolParameters1> TMSProtocolParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public TMSProtocolParameters1? TMSProtocolParameters { get; init; } 
     /// <summary>
     /// Acceptor parameters dedicated to an acquirer protocol.
     /// </summary>
-    [DataMember]
-    public ValueList<AcquirerProtocolParameters7> AcquirerProtocolParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public AcquirerProtocolParameters7? AcquirerProtocolParameters { get; init; } 
     /// <summary>
     /// Acceptor parameters dedicated to the merchant.
     /// </summary>
-    [DataMember]
-    public ValueList<MerchantConfigurationParameters1> MerchantParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public MerchantConfigurationParameters1? MerchantParameters { get; init; } 
     /// <summary>
     /// Manufacturer configuration parameters of the point of interaction.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentTerminalParameters2> TerminalParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentTerminalParameters2? TerminalParameters { get; init; } 
     /// <summary>
     /// Acceptor parameters dedicated to a payment application of the point of interaction.
     /// </summary>
-    [DataMember]
-    public ValueList<ApplicationParameters4> ApplicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public ApplicationParameters4? ApplicationParameters { get; init; } 
     /// <summary>
     /// Acceptor parameters dedicated to the communication with an acquirer host or a terminal manager host.
     /// </summary>
-    [DataMember]
-    public ValueList<HostCommunicationParameter3> HostCommunicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public HostCommunicationParameter3? HostCommunicationParameters { get; init; } 
     /// <summary>
     /// Point of interaction parameters related to the security of software application and application protocol.
     /// </summary>
-    [DataMember]
-    public ValueList<SecurityParameters3> SecurityParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecurityParameters3? SecurityParameters { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TMSProtocolParameters is TMSProtocolParameters1 TMSProtocolParametersValue)
+        {
+            writer.WriteStartElement(null, "TMSPrtcolParams", xmlNamespace );
+            TMSProtocolParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AcquirerProtocolParameters is AcquirerProtocolParameters7 AcquirerProtocolParametersValue)
+        {
+            writer.WriteStartElement(null, "AcqrrPrtcolParams", xmlNamespace );
+            AcquirerProtocolParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MerchantParameters is MerchantConfigurationParameters1 MerchantParametersValue)
+        {
+            writer.WriteStartElement(null, "MrchntParams", xmlNamespace );
+            MerchantParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TerminalParameters is PaymentTerminalParameters2 TerminalParametersValue)
+        {
+            writer.WriteStartElement(null, "TermnlParams", xmlNamespace );
+            TerminalParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ApplicationParameters is ApplicationParameters4 ApplicationParametersValue)
+        {
+            writer.WriteStartElement(null, "ApplParams", xmlNamespace );
+            ApplicationParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (HostCommunicationParameters is HostCommunicationParameter3 HostCommunicationParametersValue)
+        {
+            writer.WriteStartElement(null, "HstComParams", xmlNamespace );
+            HostCommunicationParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecurityParameters is SecurityParameters3 SecurityParametersValue)
+        {
+            writer.WriteStartElement(null, "SctyParams", xmlNamespace );
+            SecurityParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AcceptorConfigurationContent4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

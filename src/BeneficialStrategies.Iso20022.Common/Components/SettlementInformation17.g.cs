@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Settlement of the securities in a securities transaction, that is, the instruction to deliver or receive securities, involving the payment of an amount of money or not.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementInformation17
+     : IIsoXmlSerilizable<SettlementInformation17>
 {
     #nullable enable
     
     /// <summary>
     /// Choice between formats for the quantity of security.
     /// </summary>
-    [DataMember]
     public SettlementUnitType3Choice_? SecuritiesQuantityType { get; init; } 
     /// <summary>
     /// Specifies when the contract (i.e. MBS/TBA) will settle.
     /// </summary>
-    [DataMember]
     public IsoISOYearMonth? ContractSettlementMonth { get; init; } 
     /// <summary>
     /// Indicates the minimum quantity (unit or nominal) of a security.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1Choice_? MinimumDenomination { get; init; } 
     /// <summary>
     /// Minimum multiple quantity (unit or nominal) of securities.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1Choice_? MinimumMultipleQuantity { get; init; } 
     /// <summary>
     /// Minimum quantity of securities that can be purchased without incurring a larger fee. For example, if the round lot size is 100 and the trade is for 125 shares, then 100 will be processed without a fee and the remaining 25 will incur a service fee for being an odd lot size.
     /// </summary>
-    [DataMember]
-    public ValueList<FinancialInstrumentQuantity1Choice_> DeviatingSettlementUnit { get; init; } = []; // Warning: Don't know multiplicity.
+    public FinancialInstrumentQuantity1Choice_? DeviatingSettlementUnit { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SecuritiesQuantityType is SettlementUnitType3Choice_ SecuritiesQuantityTypeValue)
+        {
+            writer.WriteStartElement(null, "SctiesQtyTp", xmlNamespace );
+            SecuritiesQuantityTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContractSettlementMonth is IsoISOYearMonth ContractSettlementMonthValue)
+        {
+            writer.WriteStartElement(null, "CtrctSttlmMnth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOYearMonth(ContractSettlementMonthValue)); // data type ISOYearMonth System.UInt16
+            writer.WriteEndElement();
+        }
+        if (MinimumDenomination is FinancialInstrumentQuantity1Choice_ MinimumDenominationValue)
+        {
+            writer.WriteStartElement(null, "MinDnmtn", xmlNamespace );
+            MinimumDenominationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MinimumMultipleQuantity is FinancialInstrumentQuantity1Choice_ MinimumMultipleQuantityValue)
+        {
+            writer.WriteStartElement(null, "MinMltplQty", xmlNamespace );
+            MinimumMultipleQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeviatingSettlementUnit is FinancialInstrumentQuantity1Choice_ DeviatingSettlementUnitValue)
+        {
+            writer.WriteStartElement(null, "DevtgSttlmUnit", xmlNamespace );
+            DeviatingSettlementUnitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementInformation17 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

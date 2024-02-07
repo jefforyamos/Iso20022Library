@@ -7,38 +7,64 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Elements characterising a financial instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrumentAttributes89
+     : IIsoXmlSerilizable<FinancialInstrumentAttributes89>
 {
     #nullable enable
     
     /// <summary>
     /// Quantity of product defined in the contract.
     /// </summary>
-    [DataMember]
     public required ContractSize1 ContractSize { get; init; } 
     /// <summary>
     /// Indicates whether the contract is cash/physical/optional settled.
     /// </summary>
-    [DataMember]
     public required PhysicalTransferType4Code DeliveryType { get; init; } 
     /// <summary>
     /// Unique identifier for underlying or deliverable financial product on which final settlement price or equivalent is calculated.
     /// </summary>
-    [DataMember]
     public required GenericIdentification165 UnderlyingIdentification { get; init; } 
     /// <summary>
     /// Specifies the currency of price of underlying.
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode PriceCurrency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CtrctSz", xmlNamespace );
+        ContractSize.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DlvryTp", xmlNamespace );
+        writer.WriteValue(DeliveryType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UndrlygId", xmlNamespace );
+        UnderlyingIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PricCcy", xmlNamespace );
+        writer.WriteValue(PriceCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static FinancialInstrumentAttributes89 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

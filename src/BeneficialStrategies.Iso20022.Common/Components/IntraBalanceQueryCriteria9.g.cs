@@ -7,93 +7,186 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria based on which information is included.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IntraBalanceQueryCriteria9
+     : IIsoXmlSerilizable<IntraBalanceQueryCriteria9>
 {
     #nullable enable
     
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
-    [DataMember]
-    public ValueList<References36Choice_> References { get; init; } = []; // Warning: Don't know multiplicity.
+    public References36Choice_? References { get; init; } 
     /// <summary>
     /// Provides the status of settlement of a transaction.
     /// </summary>
-    [DataMember]
     public IntraBalanceQueryStatus3? Status { get; init; } 
     /// <summary>
     /// Account in which cash is maintained.
     /// </summary>
-    [DataMember]
-    public ValueList<AccountIdentificationSearchCriteria2Choice_> CashAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    public AccountIdentificationSearchCriteria2Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Party that owns the account.
     /// </summary>
-    [DataMember]
-    public ValueList<SystemPartyIdentification8> CashAccountOwner { get; init; } = []; // Warning: Don't know multiplicity.
+    public SystemPartyIdentification8? CashAccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the cash account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; } 
     /// <summary>
     /// Balance to which the amount of money is moved.
     /// </summary>
-    [DataMember]
-    public ValueList<IntraBalanceType3> BalanceType { get; init; } = []; // Warning: Don't know multiplicity.
+    public IntraBalanceType3? BalanceType { get; init; } 
     /// <summary>
     /// Number identifying a lot constituting the sub-balance.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericIdentification37> CashSubBalanceIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericIdentification37? CashSubBalanceIdentification { get; init; } 
     /// <summary>
     /// Total amount of money to be settled.
     /// </summary>
-    [DataMember]
     public ImpliedCurrencyAmountRange1Choice_? SettlementAmount { get; init; } 
     /// <summary>
     /// Amount of money effectively settled and which will be credited to/debited from the account owner's cash account. It may differ from the instructed settlement amount based on market tolerance level.
     /// </summary>
-    [DataMember]
     public ImpliedCurrencyAmountRange1Choice_? SettledAmount { get; init; } 
     /// <summary>
     /// Currency in which the instructed amount is expressed.
     /// </summary>
-    [DataMember]
-    public ValueList<ActiveOrHistoricCurrencyCode> SettlementCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    public ActiveOrHistoricCurrencyCode? SettlementCurrency { get; init; } 
     /// <summary>
     /// Date and time at which the amount of money is intended to be moved.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeSearch5Choice_? IntendedSettlementDate { get; init; } 
     /// <summary>
     /// Date and time at which the amount of money is moved.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeSearch5Choice_? EffectiveSettlementDate { get; init; } 
     /// <summary>
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
-    [DataMember]
-    public ValueList<PriorityNumeric4Choice_> Priority { get; init; } = []; // Warning: Don't know multiplicity.
+    public PriorityNumeric4Choice_? Priority { get; init; } 
     /// <summary>
     /// Party that originated the message, if other than the sender.
     /// </summary>
-    [DataMember]
-    public ValueList<SystemPartyIdentification8> MessageOriginator { get; init; } = []; // Warning: Don't know multiplicity.
+    public SystemPartyIdentification8? MessageOriginator { get; init; } 
     /// <summary>
     /// Specifies the creation date/time of the intra-balance movement.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeSearch5Choice_? CreationDateTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (References is References36Choice_ ReferencesValue)
+        {
+            writer.WriteStartElement(null, "Refs", xmlNamespace );
+            ReferencesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Status is IntraBalanceQueryStatus3 StatusValue)
+        {
+            writer.WriteStartElement(null, "Sts", xmlNamespace );
+            StatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccount is AccountIdentificationSearchCriteria2Choice_ CashAccountValue)
+        {
+            writer.WriteStartElement(null, "CshAcct", xmlNamespace );
+            CashAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccountOwner is SystemPartyIdentification8 CashAccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "CshAcctOwnr", xmlNamespace );
+            CashAccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccountServicer is BranchAndFinancialInstitutionIdentification6 CashAccountServicerValue)
+        {
+            writer.WriteStartElement(null, "CshAcctSvcr", xmlNamespace );
+            CashAccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BalanceType is IntraBalanceType3 BalanceTypeValue)
+        {
+            writer.WriteStartElement(null, "BalTp", xmlNamespace );
+            BalanceTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashSubBalanceIdentification is GenericIdentification37 CashSubBalanceIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CshSubBalId", xmlNamespace );
+            CashSubBalanceIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementAmount is ImpliedCurrencyAmountRange1Choice_ SettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
+            SettlementAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettledAmount is ImpliedCurrencyAmountRange1Choice_ SettledAmountValue)
+        {
+            writer.WriteStartElement(null, "SttldAmt", xmlNamespace );
+            SettledAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementCurrency is ActiveOrHistoricCurrencyCode SettlementCurrencyValue)
+        {
+            writer.WriteStartElement(null, "SttlmCcy", xmlNamespace );
+            writer.WriteValue(SettlementCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (IntendedSettlementDate is DateAndDateTimeSearch5Choice_ IntendedSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "IntnddSttlmDt", xmlNamespace );
+            IntendedSettlementDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EffectiveSettlementDate is DateAndDateTimeSearch5Choice_ EffectiveSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "FctvSttlmDt", xmlNamespace );
+            EffectiveSettlementDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Priority is PriorityNumeric4Choice_ PriorityValue)
+        {
+            writer.WriteStartElement(null, "Prty", xmlNamespace );
+            PriorityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageOriginator is SystemPartyIdentification8 MessageOriginatorValue)
+        {
+            writer.WriteStartElement(null, "MsgOrgtr", xmlNamespace );
+            MessageOriginatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreationDateTime is DateAndDateTimeSearch5Choice_ CreationDateTimeValue)
+        {
+            writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+            CreationDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IntraBalanceQueryCriteria9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ProductCharacteristics1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.ProductCharacteristics1Choice;
 /// Specifies the type of product characteristic not present in the code list.
 /// </summary>
 public partial record OtherProductCharacteristics : ProductCharacteristics1Choice_
+     , IIsoXmlSerilizable<OtherProductCharacteristics>
 {
     #nullable enable
+    
     /// <summary>
     /// Identifier issued to a person for which no specific identifier has been defined.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record OtherProductCharacteristics : ProductCharacteristics1Choic
     /// Specifies the nature of the identifier.|Usage: IdentificationType is used to specify what kind of identifier is used. It should be used in case the identifier is different from the identifiers listed in the pre-defined identifier list.
     /// </summary>
     public required IsoMax35Text IdentificationType { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IdTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationType)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static new OtherProductCharacteristics Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

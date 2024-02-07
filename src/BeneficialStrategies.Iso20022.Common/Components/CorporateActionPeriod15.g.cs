@@ -7,93 +7,186 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies periods of a corporate action.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionPeriod15
+     : IIsoXmlSerilizable<CorporateActionPeriod15>
 {
     #nullable enable
     
     /// <summary>
     /// Period during which the price of a security is determined.
     /// </summary>
-    [DataMember]
     public Period6Choice_? PriceCalculationPeriod { get; init; } 
     /// <summary>
     /// Period during which the interest rate has been applied.
     /// </summary>
-    [DataMember]
     public Period6Choice_? InterestPeriod { get; init; } 
     /// <summary>
     /// Period during a take-over where any outstanding equity must be purchased by the take-over company.
     /// </summary>
-    [DataMember]
     public Period6Choice_? CompulsoryPurchasePeriod { get; init; } 
     /// <summary>
     /// Period assigned by the court in a class action. It determines the client's eligible transactions that will be included in the class action and used to determine the resulting entitlement.
     /// </summary>
-    [DataMember]
     public Period6Choice_? ClaimPeriod { get; init; } 
     /// <summary>
     /// Period defining the last date for which book entry transfers will be accepted and the date on which the suspension will be released and book entry transfer processing will resume.
     /// </summary>
-    [DataMember]
     public Period6Choice_? DepositorySuspensionPeriodForBookEntryTransfer { get; init; } 
     /// <summary>
     /// Period defining the last date for which deposits, into nominee name, at the agent will be accepted and the date on which the suspension will be released and deposits at agent will resume.
     /// </summary>
-    [DataMember]
     public Period6Choice_? DepositorySuspensionPeriodForDepositAtAgent { get; init; } 
     /// <summary>
     /// Period defining the last date for which deposits will be accepted and the date on which the suspension will be released and deposits will resume.
     /// </summary>
-    [DataMember]
     public Period6Choice_? DepositorySuspensionPeriodForDeposit { get; init; } 
     /// <summary>
     /// Period defining the last date for which pledges will be accepted and the date on which the suspension will be released and pledge processing will resume.
     /// </summary>
-    [DataMember]
     public Period6Choice_? DepositorySuspensionPeriodForPledge { get; init; } 
     /// <summary>
     /// Period defining the last date for which intra-position balances can be segregated and the date on which the suspension will be released and the ability to segregate intra-position balances will resume.
     /// </summary>
-    [DataMember]
     public Period6Choice_? DepositorySuspensionPeriodForSegregation { get; init; } 
     /// <summary>
     /// Period defining the last date for which withdrawals, from nominee name at the agent will be accepted and the date on which the suspension will be released and withdrawals at agent processing will resume.
     /// </summary>
-    [DataMember]
     public Period6Choice_? DepositorySuspensionPeriodForWithdrawalAtAgent { get; init; } 
     /// <summary>
     /// Period defining the last date for which physical withdrawals in the nominee's name will be accepted and the date on which the suspension will be released and physical withdrawals in the nominee's name will resume.
     /// </summary>
-    [DataMember]
     public Period6Choice_? DepositorySuspensionPeriodForWithdrawalInNomineeName { get; init; } 
     /// <summary>
     /// Period defining the last date on which withdrawal requests in street name's will be accepted on the event security and the date on which the suspension will be released and withdrawal in street name's processing on the event security will resume.
     /// </summary>
-    [DataMember]
     public Period6Choice_? DepositorySuspensionPeriodForWithdrawalInStreetName { get; init; } 
     /// <summary>
     /// Period defining the last date on which shareholder registration will be accepted by the issuer and the date on which shareholder registration will resume.
     /// </summary>
-    [DataMember]
     public Period6Choice_? BookClosurePeriod { get; init; } 
     /// <summary>
     /// Period during which the settlement activities at the co-depositories are suspended in order to stabilise the holdings at the CSD.
     /// </summary>
-    [DataMember]
     public Period6Choice_? CoDepositoriesSuspensionPeriod { get; init; } 
     /// <summary>
     /// Period during which a physical certificate can be split.
     /// </summary>
-    [DataMember]
     public Period6Choice_? SplitPeriod { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PriceCalculationPeriod is Period6Choice_ PriceCalculationPeriodValue)
+        {
+            writer.WriteStartElement(null, "PricClctnPrd", xmlNamespace );
+            PriceCalculationPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestPeriod is Period6Choice_ InterestPeriodValue)
+        {
+            writer.WriteStartElement(null, "IntrstPrd", xmlNamespace );
+            InterestPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CompulsoryPurchasePeriod is Period6Choice_ CompulsoryPurchasePeriodValue)
+        {
+            writer.WriteStartElement(null, "CmplsryPurchsPrd", xmlNamespace );
+            CompulsoryPurchasePeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClaimPeriod is Period6Choice_ ClaimPeriodValue)
+        {
+            writer.WriteStartElement(null, "ClmPrd", xmlNamespace );
+            ClaimPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DepositorySuspensionPeriodForBookEntryTransfer is Period6Choice_ DepositorySuspensionPeriodForBookEntryTransferValue)
+        {
+            writer.WriteStartElement(null, "DpstrySspnsnPrdForBookNtryTrf", xmlNamespace );
+            DepositorySuspensionPeriodForBookEntryTransferValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DepositorySuspensionPeriodForDepositAtAgent is Period6Choice_ DepositorySuspensionPeriodForDepositAtAgentValue)
+        {
+            writer.WriteStartElement(null, "DpstrySspnsnPrdForDpstAtAgt", xmlNamespace );
+            DepositorySuspensionPeriodForDepositAtAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DepositorySuspensionPeriodForDeposit is Period6Choice_ DepositorySuspensionPeriodForDepositValue)
+        {
+            writer.WriteStartElement(null, "DpstrySspnsnPrdForDpst", xmlNamespace );
+            DepositorySuspensionPeriodForDepositValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DepositorySuspensionPeriodForPledge is Period6Choice_ DepositorySuspensionPeriodForPledgeValue)
+        {
+            writer.WriteStartElement(null, "DpstrySspnsnPrdForPldg", xmlNamespace );
+            DepositorySuspensionPeriodForPledgeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DepositorySuspensionPeriodForSegregation is Period6Choice_ DepositorySuspensionPeriodForSegregationValue)
+        {
+            writer.WriteStartElement(null, "DpstrySspnsnPrdForSgrtn", xmlNamespace );
+            DepositorySuspensionPeriodForSegregationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DepositorySuspensionPeriodForWithdrawalAtAgent is Period6Choice_ DepositorySuspensionPeriodForWithdrawalAtAgentValue)
+        {
+            writer.WriteStartElement(null, "DpstrySspnsnPrdForWdrwlAtAgt", xmlNamespace );
+            DepositorySuspensionPeriodForWithdrawalAtAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DepositorySuspensionPeriodForWithdrawalInNomineeName is Period6Choice_ DepositorySuspensionPeriodForWithdrawalInNomineeNameValue)
+        {
+            writer.WriteStartElement(null, "DpstrySspnsnPrdForWdrwlInNmneeNm", xmlNamespace );
+            DepositorySuspensionPeriodForWithdrawalInNomineeNameValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DepositorySuspensionPeriodForWithdrawalInStreetName is Period6Choice_ DepositorySuspensionPeriodForWithdrawalInStreetNameValue)
+        {
+            writer.WriteStartElement(null, "DpstrySspnsnPrdForWdrwlInStrtNm", xmlNamespace );
+            DepositorySuspensionPeriodForWithdrawalInStreetNameValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BookClosurePeriod is Period6Choice_ BookClosurePeriodValue)
+        {
+            writer.WriteStartElement(null, "BookClsrPrd", xmlNamespace );
+            BookClosurePeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CoDepositoriesSuspensionPeriod is Period6Choice_ CoDepositoriesSuspensionPeriodValue)
+        {
+            writer.WriteStartElement(null, "CoDpstriesSspnsnPrd", xmlNamespace );
+            CoDepositoriesSuspensionPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SplitPeriod is Period6Choice_ SplitPeriodValue)
+        {
+            writer.WriteStartElement(null, "SpltPrd", xmlNamespace );
+            SplitPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionPeriod15 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

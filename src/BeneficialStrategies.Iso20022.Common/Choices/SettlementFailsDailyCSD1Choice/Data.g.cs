@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SettlementFailsDailyCSD1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementFailsDailyCSD1Choice;
 /// Aggregated data of settlement instructions.
 /// </summary>
 public partial record Data : SettlementFailsDailyCSD1Choice_
+     , IIsoXmlSerilizable<Data>
 {
     #nullable enable
+    
     /// <summary>
     /// Intra-CSD settlement instructions data.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record Data : SettlementFailsDailyCSD1Choice_
     /// Cross-CSD settlement instructions data.
     /// </summary>
     public required SettlementFailsDailyInstructionType1Choice_ CrossCSD { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IntraCSD", xmlNamespace );
+        IntraCSD.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CrossCSD", xmlNamespace );
+        CrossCSD.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new Data Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed information about derivatives that were received on the day of generation of the report with action type ‘New’, ‘Position component’, ‘Modification’ or ‘Correction’ whose notional amount is greater than a threshold for that class of derivatives.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AbnormalValuesTransactionData2
+     : IIsoXmlSerilizable<AbnormalValuesTransactionData2>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a transaction.
     /// </summary>
-    [DataMember]
     public required TradeTransactionIdentification24 TransactionIdentification { get; init; } 
     /// <summary>
     /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
     /// </summary>
-    [DataMember]
     public NotionalAmountLegs5? NotionalAmount { get; init; } 
     /// <summary>
     /// Indicates for each leg of the transaction the total notional quantity of the underlying asset for the term of the transaction.
     /// </summary>
-    [DataMember]
     public NotionalQuantityLegs5? NotionalQuantity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (NotionalAmount is NotionalAmountLegs5 NotionalAmountValue)
+        {
+            writer.WriteStartElement(null, "NtnlAmt", xmlNamespace );
+            NotionalAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotionalQuantity is NotionalQuantityLegs5 NotionalQuantityValue)
+        {
+            writer.WriteStartElement(null, "NtnlQty", xmlNamespace );
+            NotionalQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AbnormalValuesTransactionData2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

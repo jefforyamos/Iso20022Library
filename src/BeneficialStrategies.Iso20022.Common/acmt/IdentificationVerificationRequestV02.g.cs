@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.acmt.IdentificationVerificationRequestV02>;
 
 namespace BeneficialStrategies.Iso20022.acmt;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// The IdentificationVerificationRequest message can contain one or more verification requests.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The IdentificationVerificationRequest message is sent by an assigner to an assignee. It is used to request the verification of party and/or account identification information.|Usage|The IdentificationVerificationRequest message is sent before the sending of one or several transactions messages.|The IdentificationVerificationRequest message can contain one or more verification requests.")]
-public partial record IdentificationVerificationRequestV02 : IOuterRecord
+public partial record IdentificationVerificationRequestV02 : IOuterRecord<IdentificationVerificationRequestV02,IdentificationVerificationRequestV02Document>
+    ,IIsoXmlSerilizable<IdentificationVerificationRequestV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record IdentificationVerificationRequestV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "IdVrfctnReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => IdentificationVerificationRequestV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -80,6 +87,35 @@ public partial record IdentificationVerificationRequestV02 : IOuterRecord
     {
         return new IdentificationVerificationRequestV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("IdVrfctnReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Assgnmt", xmlNamespace );
+        Assignment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Vrfctn", xmlNamespace );
+        Verification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IdentificationVerificationRequestV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -87,9 +123,7 @@ public partial record IdentificationVerificationRequestV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IdentificationVerificationRequestV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record IdentificationVerificationRequestV02Document : IOuterDocument<IdentificationVerificationRequestV02>
+public partial record IdentificationVerificationRequestV02Document : IOuterDocument<IdentificationVerificationRequestV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -105,5 +139,22 @@ public partial record IdentificationVerificationRequestV02Document : IOuterDocum
     /// <summary>
     /// The instance of <seealso cref="IdentificationVerificationRequestV02"/> is required.
     /// </summary>
+    [DataMember(Name=IdentificationVerificationRequestV02.XmlTag)]
     public required IdentificationVerificationRequestV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(IdentificationVerificationRequestV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

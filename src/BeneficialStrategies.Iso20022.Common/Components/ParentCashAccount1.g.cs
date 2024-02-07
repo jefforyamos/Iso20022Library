@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the cash account elements of a parent cash account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ParentCashAccount1
+     : IIsoXmlSerilizable<ParentCashAccount1>
 {
     #nullable enable
     
     /// <summary>
     /// Defines the parent account level within a hierarchy.
     /// </summary>
-    [DataMember]
     public AccountLevel1Code? Level { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the parent account between the parent account owner and the parent account servicer.
     /// </summary>
-    [DataMember]
     public required CashAccount16 Identification { get; init; } 
     /// <summary>
     /// Financial institution in which the parent account resides.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? Servicer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Level is AccountLevel1Code LevelValue)
+        {
+            writer.WriteStartElement(null, "Lvl", xmlNamespace );
+            writer.WriteValue(LevelValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Servicer is BranchAndFinancialInstitutionIdentification5 ServicerValue)
+        {
+            writer.WriteStartElement(null, "Svcr", xmlNamespace );
+            ServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ParentCashAccount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

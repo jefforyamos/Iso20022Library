@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// This component define the type of admin service to be used with this message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdministrativeRequest2
+     : IIsoXmlSerilizable<AdministrativeRequest2>
 {
     #nullable enable
     
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
-    [DataMember]
     public required CardPaymentEnvironment73 Environment { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
-    [DataMember]
     public required CardPaymentContext27 Context { get; init; } 
     /// <summary>
     /// Identification of the administrative service to process.
     /// </summary>
-    [DataMember]
     public IsoMax20000Text? AdministrativeServiceIdentification { get; init; } 
     /// <summary>
     /// Additional information incorporated as an extension to the message.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Envt", xmlNamespace );
+        Environment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Cntxt", xmlNamespace );
+        Context.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdministrativeServiceIdentification is IsoMax20000Text AdministrativeServiceIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AdmstvSvcId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax20000Text(AdministrativeServiceIdentificationValue)); // data type Max20000Text System.String
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AdministrativeRequest2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

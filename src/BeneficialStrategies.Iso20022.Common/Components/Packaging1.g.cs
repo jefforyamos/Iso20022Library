@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Physical packaging of goods for transport.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Packaging1
+     : IIsoXmlSerilizable<Packaging1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of packaging as a code.
     /// </summary>
-    [DataMember]
     public ExternalPackagingType1Code? Type { get; init; } 
     /// <summary>
     /// Specifies the type of packaging as text. For instance, halogenated resin (PVC).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is ExternalPackagingType1Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Name is IsoMax35Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Packaging1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

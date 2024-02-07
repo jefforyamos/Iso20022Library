@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the information that is searched through specific criteria.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IntraBalanceQueryDefinition9
+     : IIsoXmlSerilizable<IntraBalanceQueryDefinition9>
 {
     #nullable enable
     
     /// <summary>
     /// Defines the type of query.
     /// </summary>
-    [DataMember]
     public required MovementResponseType1Code QueryType { get; init; } 
     /// <summary>
     /// Defines the criteria to extract the intra-balance movement instruction information.
     /// </summary>
-    [DataMember]
     public required IntraBalanceQueryCriteria9 SearchCriteria { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "QryTp", xmlNamespace );
+        writer.WriteValue(QueryType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SchCrit", xmlNamespace );
+        SearchCriteria.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static IntraBalanceQueryDefinition9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

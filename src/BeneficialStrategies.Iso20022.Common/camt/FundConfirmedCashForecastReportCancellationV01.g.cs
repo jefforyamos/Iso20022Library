@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.FundConfirmedCashForecastReportCancellationV01>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// This message must contain the reference of the message to be cancelled. This message may also contain details of the message to be cancelled, but this is not recommended.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The FundConfirmedCashForecastReportCancellation message is sent by a report provider, such as a transfer agent or a designated agent of the fund, to a report user, such as an investment manager, a fund accountant or any other interested party.|This message is used to cancel a previously sent FundConfirmedCashForecastReport message.|Usage|The FundConfirmedCashForecastReportCancellation message is used to cancel an entire FundConfirmedCashForecastReport message that was previously sent by the report provider.|This message must contain the reference of the message to be cancelled. This message may also contain details of the message to be cancelled, but this is not recommended.")]
-public partial record FundConfirmedCashForecastReportCancellationV01 : IOuterRecord
+public partial record FundConfirmedCashForecastReportCancellationV01 : IOuterRecord<FundConfirmedCashForecastReportCancellationV01,FundConfirmedCashForecastReportCancellationV01Document>
+    ,IIsoXmlSerilizable<FundConfirmedCashForecastReportCancellationV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record FundConfirmedCashForecastReportCancellationV01 : IOuterRec
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "camt.044.001.01";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => FundConfirmedCashForecastReportCancellationV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -89,6 +96,44 @@ public partial record FundConfirmedCashForecastReportCancellationV01 : IOuterRec
     {
         return new FundConfirmedCashForecastReportCancellationV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("camt.044.001.01");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PoolReference is AdditionalReference3 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+        PreviousReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RelatedReference is AdditionalReference3 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashForecastReportToBeCancelled is FundConfirmedCashForecastReport1 CashForecastReportToBeCancelledValue)
+        {
+            writer.WriteStartElement(null, "CshFcstRptToBeCanc", xmlNamespace );
+            CashForecastReportToBeCancelledValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FundConfirmedCashForecastReportCancellationV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -96,9 +141,7 @@ public partial record FundConfirmedCashForecastReportCancellationV01 : IOuterRec
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FundConfirmedCashForecastReportCancellationV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record FundConfirmedCashForecastReportCancellationV01Document : IOuterDocument<FundConfirmedCashForecastReportCancellationV01>
+public partial record FundConfirmedCashForecastReportCancellationV01Document : IOuterDocument<FundConfirmedCashForecastReportCancellationV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -114,5 +157,22 @@ public partial record FundConfirmedCashForecastReportCancellationV01Document : I
     /// <summary>
     /// The instance of <seealso cref="FundConfirmedCashForecastReportCancellationV01"/> is required.
     /// </summary>
+    [DataMember(Name=FundConfirmedCashForecastReportCancellationV01.XmlTag)]
     public required FundConfirmedCashForecastReportCancellationV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(FundConfirmedCashForecastReportCancellationV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

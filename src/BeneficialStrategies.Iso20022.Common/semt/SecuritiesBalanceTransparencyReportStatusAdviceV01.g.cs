@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.semt.SecuritiesBalanceTransparencyReportStatusAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.semt;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// The SecuritiesBalanceTransparencyReportStatusAdvice is used to accept (Accepted), partially accept (Accepted With Exception) or reject (Rejected) a previously received SecuritiesBalanceTransparencyReport.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"SCOPE||An account owner, such as a custodian, central securities depository, international securities depository or transfer agent, sends the SecuritiesBalanceTransparencyReportStatusAdvice message in response to a SecuritiesBalanceTransparencyReport, to accept or reject the statement of holdings as sent in a SecuritiesBalanceTransparencyReport.||USAGE|The SecuritiesBalanceTransparencyReportStatusAdvice is used to accept (Accepted), partially accept (Accepted With Exception) or reject (Rejected) a previously received SecuritiesBalanceTransparencyReport.")]
-public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOuterRecord
+public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOuterRecord<SecuritiesBalanceTransparencyReportStatusAdviceV01,SecuritiesBalanceTransparencyReportStatusAdviceV01Document>
+    ,IIsoXmlSerilizable<SecuritiesBalanceTransparencyReportStatusAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOute
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesBalTrnsprncyRptStsAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesBalanceTransparencyReportStatusAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -99,7 +106,7 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOute
     [Description(@"Number of items for each identical transaction status.")]
     [DataMember(Name="NbOfItmsPerSts")]
     [XmlElement(ElementName="NbOfItmsPerSts")]
-    public required IReadOnlyCollection<NumberOfItemsPerStatus1> NumberOfItemsPerStatus { get; init; } = []; // Min=0, Max=2
+    public required ValueList<NumberOfItemsPerStatus1> NumberOfItemsPerStatus { get; init; } = []; // Min=0, Max=2
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
@@ -119,6 +126,50 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOute
     {
         return new SecuritiesBalanceTransparencyReportStatusAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesBalTrnsprncyRptStsAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SndrId", xmlNamespace );
+        SenderIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ReceiverIdentification is PartyIdentification100 ReceiverIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcvrId", xmlNamespace );
+            ReceiverIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RltdStmt", xmlNamespace );
+        RelatedStatement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        Status.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NbOfItmsPerSts", xmlNamespace );
+        NumberOfItemsPerStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesBalanceTransparencyReportStatusAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -126,9 +177,7 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOute
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesBalanceTransparencyReportStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01Document : IOuterDocument<SecuritiesBalanceTransparencyReportStatusAdviceV01>
+public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01Document : IOuterDocument<SecuritiesBalanceTransparencyReportStatusAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -144,5 +193,22 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01Document
     /// <summary>
     /// The instance of <seealso cref="SecuritiesBalanceTransparencyReportStatusAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesBalanceTransparencyReportStatusAdviceV01.XmlTag)]
     public required SecuritiesBalanceTransparencyReportStatusAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesBalanceTransparencyReportStatusAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

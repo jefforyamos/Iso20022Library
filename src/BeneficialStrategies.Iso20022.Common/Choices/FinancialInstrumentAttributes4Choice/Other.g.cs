@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentAttributes4Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentAttributes4Ch
 /// Description of the financial instrument, such as a a derivative, when the instrument is not admitted to trading on a trading venue.
 /// </summary>
 public partial record Other : FinancialInstrumentAttributes4Choice_
+     , IIsoXmlSerilizable<Other>
 {
     #nullable enable
+    
     /// <summary>
     /// Attributes and characteristics of the financial instrument.
     /// </summary>
@@ -27,5 +31,35 @@ public partial record Other : FinancialInstrumentAttributes4Choice_
     /// Attributes specific to derivative instruments.
     /// </summary>
     public required DerivativeInstrument9 DerivativeInstrumentAttributes { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FinInstrmGnlAttrbts", xmlNamespace );
+        FinancialInstrumentGeneralAttributes.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DebtInstrumentAttributes is DebtInstrument4 DebtInstrumentAttributesValue)
+        {
+            writer.WriteStartElement(null, "DebtInstrmAttrbts", xmlNamespace );
+            DebtInstrumentAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DerivInstrmAttrbts", xmlNamespace );
+        DerivativeInstrumentAttributes.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new Other Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

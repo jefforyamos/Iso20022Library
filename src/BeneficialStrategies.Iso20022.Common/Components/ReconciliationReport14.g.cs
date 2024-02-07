@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data on transaction requiring reconciliation or pairing.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReconciliationReport14
+     : IIsoXmlSerilizable<ReconciliationReport14>
 {
     #nullable enable
     
     /// <summary>
     /// Set of information related to transactions that are subject of reconciliation.
     /// </summary>
-    [DataMember]
     public required TradeTransactionIdentification24 TransactionIdentification { get; init; } 
     /// <summary>
     /// Criteria used to match the sides of the contract.
     /// </summary>
-    [DataMember]
     public required MatchingCriteria16 MatchingCriteria { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MtchgCrit", xmlNamespace );
+        MatchingCriteria.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ReconciliationReport14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

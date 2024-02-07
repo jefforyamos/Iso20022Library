@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Summation of the call amounts either due to A or due to B.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Result1
+     : IIsoXmlSerilizable<Result1>
 {
     #nullable enable
     
     /// <summary>
     /// Amount payable by party B to party A.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? DueToPartyA { get; init; } 
     /// <summary>
     /// Amount payable by party A to party B.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? DueToPartyB { get; init; } 
     /// <summary>
     /// Provides additional information related to the collateral that may be requested.
     /// </summary>
-    [DataMember]
     public IsoMax210Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DueToPartyA is IsoActiveCurrencyAndAmount DueToPartyAValue)
+        {
+            writer.WriteStartElement(null, "DueToPtyA", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(DueToPartyAValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (DueToPartyB is IsoActiveCurrencyAndAmount DueToPartyBValue)
+        {
+            writer.WriteStartElement(null, "DueToPtyB", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(DueToPartyBValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax210Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax210Text(AdditionalInformationValue)); // data type Max210Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Result1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

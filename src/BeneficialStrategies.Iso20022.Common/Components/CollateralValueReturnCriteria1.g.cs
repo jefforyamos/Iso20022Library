@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to report on collateral.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralValueReturnCriteria1
+     : IIsoXmlSerilizable<CollateralValueReturnCriteria1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the cash account owner information is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? CashAccountOwnerIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the cash account servicer information is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? CashAccountServicerIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the securities account owner information is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? SecuritiesAccountOwnerIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the securities account servicer information is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? SecuritiesAccountServicerIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the total value of the collateral valuation information is requested..
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? TotalCollateralValuationIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the securities account information is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? SecuritiesAccountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the securities account information is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? Securities { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CashAccountOwnerIndicator is IsoRequestedIndicator CashAccountOwnerIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CshAcctOwnrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(CashAccountOwnerIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CashAccountServicerIndicator is IsoRequestedIndicator CashAccountServicerIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CshAcctSvcrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(CashAccountServicerIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SecuritiesAccountOwnerIndicator is IsoRequestedIndicator SecuritiesAccountOwnerIndicatorValue)
+        {
+            writer.WriteStartElement(null, "SctiesAcctOwnrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SecuritiesAccountOwnerIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SecuritiesAccountServicerIndicator is IsoRequestedIndicator SecuritiesAccountServicerIndicatorValue)
+        {
+            writer.WriteStartElement(null, "SctiesAcctSvcrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SecuritiesAccountServicerIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TotalCollateralValuationIndicator is IsoRequestedIndicator TotalCollateralValuationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "TtlCollValtnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(TotalCollateralValuationIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SecuritiesAccountIndicator is IsoRequestedIndicator SecuritiesAccountIndicatorValue)
+        {
+            writer.WriteStartElement(null, "SctiesAcctInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SecuritiesAccountIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Securities is IsoRequestedIndicator SecuritiesValue)
+        {
+            writer.WriteStartElement(null, "Scties", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SecuritiesValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralValueReturnCriteria1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Natural or legal person to whom an investment firm provides investment or ancillary services.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementInternaliserClientType1
+     : IIsoXmlSerilizable<SettlementInternaliserClientType1>
 {
     #nullable enable
     
     /// <summary>
     /// Professional clients as defined in the relevant legislation.
     /// </summary>
-    [DataMember]
     public required InternalisationData1 Professional { get; init; } 
     /// <summary>
     /// Clients other than professional clients.
     /// </summary>
-    [DataMember]
     public required InternalisationData1 Retail { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Prfssnl", xmlNamespace );
+        Professional.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rtl", xmlNamespace );
+        Retail.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SettlementInternaliserClientType1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

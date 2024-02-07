@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the unique transaction identifier (UTI) that was created at the time a transaction was first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction during its lifetime and optionally, the prior unique transaction identifier (PUTI). These identifiers can also be known as the Unique Swap Identifier (USI) or the Prior Unique Swap Identifier (PUSI).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UniqueTransactionIdentifier2
+     : IIsoXmlSerilizable<UniqueTransactionIdentifier2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique transaction identifier will be created at the time a transaction is first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction during its lifetime. This identifier can also be known as the Unique Swap Identifier (USI).
     /// </summary>
-    [DataMember]
     public required IsoMax52Text UniqueTransactionIdentifier { get; init; } 
     /// <summary>
     /// Prior unique transaction identifier specifies the previous unique transaction identifier (UTI) that was created at the time the transaction was executed. This identifier can also be known as the Prior Unique Swap Identifier (PUSI).
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax52Text> PriorUniqueTransactionIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax52Text? PriorUniqueTransactionIdentifier { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UnqTxIdr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax52Text(UniqueTransactionIdentifier)); // data type Max52Text System.String
+        writer.WriteEndElement();
+        if (PriorUniqueTransactionIdentifier is IsoMax52Text PriorUniqueTransactionIdentifierValue)
+        {
+            writer.WriteStartElement(null, "PrrUnqTxIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(PriorUniqueTransactionIdentifierValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static UniqueTransactionIdentifier2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

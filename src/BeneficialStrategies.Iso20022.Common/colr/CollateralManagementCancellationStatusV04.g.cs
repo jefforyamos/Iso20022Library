@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.colr.CollateralManagementCancellationStatusV04>;
 
 namespace BeneficialStrategies.Iso20022.colr;
 
@@ -30,10 +33,9 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// The CollateralManagementCancellationStatus message can be sent to provide a status for a previously received CollateralManagementCancellationRequest message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The CollateralManagementCancellationStatus message is sent by:|- the collateral taker or its collateral manager to the collateral giver or its collateral manager, or|- the collateral giver or its collateral manager to the collateral taker or its collateral manager.|This message is used to provide the status of accepted or rejected for the CollateralManagementCancellationRequest message previously received.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|The CollateralManagementCancellationStatus message can be sent to provide a status for a previously received CollateralManagementCancellationRequest message.")]
-public partial record CollateralManagementCancellationStatusV04 : IOuterRecord
+public partial record CollateralManagementCancellationStatusV04 : IOuterRecord<CollateralManagementCancellationStatusV04,CollateralManagementCancellationStatusV04Document>
+    ,IIsoXmlSerilizable<CollateralManagementCancellationStatusV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -45,6 +47,11 @@ public partial record CollateralManagementCancellationStatusV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "CollMgmtCxlSts";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CollateralManagementCancellationStatusV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -105,6 +112,41 @@ public partial record CollateralManagementCancellationStatusV04 : IOuterRecord
     {
         return new CollateralManagementCancellationStatusV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("CollMgmtCxlSts");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Ref", xmlNamespace );
+        Reference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Oblgtn", xmlNamespace );
+        Obligation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CxlSts", xmlNamespace );
+        CancellationStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralManagementCancellationStatusV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -112,9 +154,7 @@ public partial record CollateralManagementCancellationStatusV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CollateralManagementCancellationStatusV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CollateralManagementCancellationStatusV04Document : IOuterDocument<CollateralManagementCancellationStatusV04>
+public partial record CollateralManagementCancellationStatusV04Document : IOuterDocument<CollateralManagementCancellationStatusV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -130,5 +170,22 @@ public partial record CollateralManagementCancellationStatusV04Document : IOuter
     /// <summary>
     /// The instance of <seealso cref="CollateralManagementCancellationStatusV04"/> is required.
     /// </summary>
+    [DataMember(Name=CollateralManagementCancellationStatusV04.XmlTag)]
     public required CollateralManagementCancellationStatusV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CollateralManagementCancellationStatusV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

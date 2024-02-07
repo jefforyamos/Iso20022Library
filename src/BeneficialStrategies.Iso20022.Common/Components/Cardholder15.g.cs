@@ -7,22 +7,22 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unprotected sensitive detailed information about the cardholder.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Cardholder15
+     : IIsoXmlSerilizable<Cardholder15>
 {
     #nullable enable
     
     /// <summary>
     /// Contains the registered cardholder name that issuer knows to be correct.
     /// </summary>
-    [DataMember]
     public CardholderName1? CardholderName { get; init; } 
     /// <summary>
     /// Identification of the cardholder.
@@ -30,12 +30,10 @@ public partial record Cardholder15
     /// ISO 8583:93 bit 112 (TLV tag 03/dataset 73)
     /// ISO 8583:2003 bit 51 (TLV tag 03/dataset 73)
     /// </summary>
-    [DataMember]
-    public ValueList<Credentials1> Identification { get; init; } = []; // Warning: Don't know multiplicity.
+    public Credentials1? Identification { get; init; } 
     /// <summary>
     /// Complete address of the cardholder.
     /// </summary>
-    [DataMember]
     public Address1? Address { get; init; } 
     /// <summary>
     /// Contact information.
@@ -43,13 +41,58 @@ public partial record Cardholder15
     /// ISO 8583:93 bit 112 (TLV tag 02/dataset 72)
     /// ISO 8583:2003 bit 51 (TLV tag 02/dataset 72)
     /// </summary>
-    [DataMember]
     public Contact1? ContactInformation { get; init; } 
     /// <summary>
     /// Date of birth of the party.
     /// </summary>
-    [DataMember]
     public IsoISODate? DateOfBirth { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CardholderName is CardholderName1 CardholderNameValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrNm", xmlNamespace );
+            CardholderNameValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Identification is Credentials1 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Address is Address1 AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContactInformation is Contact1 ContactInformationValue)
+        {
+            writer.WriteStartElement(null, "CtctInf", xmlNamespace );
+            ContactInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DateOfBirth is IsoISODate DateOfBirthValue)
+        {
+            writer.WriteStartElement(null, "DtOfBirth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateOfBirthValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static Cardholder15 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

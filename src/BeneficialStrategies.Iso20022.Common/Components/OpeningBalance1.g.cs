@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Opening balance for the statement period (first opening balance) or of this page (intermediary opening balance).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OpeningBalance1
+     : IIsoXmlSerilizable<OpeningBalance1>
 {
     #nullable enable
     
     /// <summary>
     /// Indication that the position is short or long.
     /// </summary>
-    [DataMember]
     public required ShortLong1Code ShortLongIndicator { get; init; } 
     /// <summary>
     /// Opening balance for the statement period (first opening balance) or of this page (intermediary opening balance).
     /// </summary>
-    [DataMember]
     public required OpeningBalance1Choice_ OpeningBalance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ShrtLngInd", xmlNamespace );
+        writer.WriteValue(ShortLongIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OpngBal", xmlNamespace );
+        OpeningBalance.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static OpeningBalance1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

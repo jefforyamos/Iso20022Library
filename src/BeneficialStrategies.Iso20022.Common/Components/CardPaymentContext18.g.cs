@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Context in which the transaction is performed (payment and sale).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardPaymentContext18
+     : IIsoXmlSerilizable<CardPaymentContext18>
 {
     #nullable enable
     
     /// <summary>
     /// Context of the card payment transaction.
     /// </summary>
-    [DataMember]
     public PaymentContext18? PaymentContext { get; init; } 
     /// <summary>
     /// Context of the sale involving the card payment transaction.
     /// </summary>
-    [DataMember]
     public SaleContext2? SaleContext { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PaymentContext is PaymentContext18 PaymentContextValue)
+        {
+            writer.WriteStartElement(null, "PmtCntxt", xmlNamespace );
+            PaymentContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SaleContext is SaleContext2 SaleContextValue)
+        {
+            writer.WriteStartElement(null, "SaleCntxt", xmlNamespace );
+            SaleContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardPaymentContext18 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

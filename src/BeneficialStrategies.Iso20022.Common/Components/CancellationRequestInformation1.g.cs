@@ -7,58 +7,107 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of information related to the cancellation request, such as actors involved and identification of the original multiple invoice financing request to which the cancellation request is referring.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CancellationRequestInformation1
+     : IIsoXmlSerilizable<CancellationRequestInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier of the original financing request message as assigned by the original sending party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OriginalGroupIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the original financing request message was created.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime OriginalCreationDateTime { get; init; } 
     /// <summary>
     /// Specifies the number of single invoice financing requests included in the original financing request message.
     /// </summary>
-    [DataMember]
     public IsoMax15NumericText? NumberOfInvoiceRequests { get; init; } 
     /// <summary>
     /// Total amount of the bulk invoice financing request. It is composed by the sum of the total amounts of all invoices included in the original financing request message.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalBulkInvoiceAmount { get; init; } 
     /// <summary>
     /// Further details on the cancellation request information, in an uncoded form.
     /// </summary>
-    [DataMember]
     public required IsoMax105Text CancellationReason { get; init; } 
     /// <summary>
     /// Party that requests the cancellation of a financing request previously sent.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount6? FinancingRequestor { get; init; } 
     /// <summary>
     /// Financial institution that receives the request from the financing requestor and forwards it to the first agent for execution.
     /// </summary>
-    [DataMember]
     public FinancialInstitutionIdentification6? IntermediaryAgent { get; init; } 
     /// <summary>
     /// Financial institution of financing requestor to which an invoice financing cancellation request is addressed.
     /// </summary>
-    [DataMember]
     public FinancialInstitutionIdentification6? FirstAgent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OrgnlGrpId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalGroupIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgnlCreDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(OriginalCreationDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (NumberOfInvoiceRequests is IsoMax15NumericText NumberOfInvoiceRequestsValue)
+        {
+            writer.WriteStartElement(null, "NbOfInvcReqs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(NumberOfInvoiceRequestsValue)); // data type Max15NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (TotalBulkInvoiceAmount is IsoActiveCurrencyAndAmount TotalBulkInvoiceAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlBlkInvcAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalBulkInvoiceAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CxlRsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax105Text(CancellationReason)); // data type Max105Text System.String
+        writer.WriteEndElement();
+        if (FinancingRequestor is PartyIdentificationAndAccount6 FinancingRequestorValue)
+        {
+            writer.WriteStartElement(null, "FincgRqstr", xmlNamespace );
+            FinancingRequestorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryAgent is FinancialInstitutionIdentification6 IntermediaryAgentValue)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt", xmlNamespace );
+            IntermediaryAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FirstAgent is FinancialInstitutionIdentification6 FirstAgentValue)
+        {
+            writer.WriteStartElement(null, "FrstAgt", xmlNamespace );
+            FirstAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CancellationRequestInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

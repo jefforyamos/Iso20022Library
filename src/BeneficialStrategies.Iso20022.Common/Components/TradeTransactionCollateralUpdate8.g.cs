@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the loan used for financing the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeTransactionCollateralUpdate8
+     : IIsoXmlSerilizable<TradeTransactionCollateralUpdate8>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Counterparty and related information.
     /// </summary>
-    [DataMember]
     public required CounterpartyData88 CounterpartySpecificData { get; init; } 
     /// <summary>
     /// Data specifically related to transaction.
     /// </summary>
-    [DataMember]
     public TransactionLoanData26Choice_? LoanData { get; init; } 
     /// <summary>
     /// Provides the details of the collateral used in the transaction.
     /// </summary>
-    [DataMember]
     public required TransactionCollateralData18Choice_ CollateralData { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TechnicalRecordIdentification is IsoMax140Text TechnicalRecordIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(TechnicalRecordIdentificationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CtrPtySpcfcData", xmlNamespace );
+        CounterpartySpecificData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LoanData is TransactionLoanData26Choice_ LoanDataValue)
+        {
+            writer.WriteStartElement(null, "LnData", xmlNamespace );
+            LoanDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CollData", xmlNamespace );
+        CollateralData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeTransactionCollateralUpdate8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

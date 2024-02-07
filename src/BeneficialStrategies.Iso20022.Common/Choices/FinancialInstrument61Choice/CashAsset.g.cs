@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument61Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument61Choice;
 /// Identification of the cash asset.
 /// </summary>
 public partial record CashAsset : FinancialInstrument61Choice_
+     , IIsoXmlSerilizable<CashAsset>
 {
     #nullable enable
+    
     /// <summary>
     /// Type of cash asset.
     /// </summary>
@@ -27,5 +31,35 @@ public partial record CashAsset : FinancialInstrument61Choice_
     /// Additional information about the cash asset.
     /// </summary>
     public AdditionalInformation15? AdditionalInformation { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CshAsstTp", xmlNamespace );
+        CashAssetType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "HldgCcy", xmlNamespace );
+        writer.WriteValue(HoldingCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new CashAsset Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

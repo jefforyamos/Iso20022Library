@@ -7,29 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides detailed information concerning financial counterparties.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstitutionSector1
+     : IIsoXmlSerilizable<FinancialInstitutionSector1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the nature of the counterparty business activities. 
     /// </summary>
-    [DataMember]
-    public ValueList<FinancialPartyClassification2Choice_> Sector { get; init; } = []; // Warning: Don't know multiplicity.
+    public FinancialPartyClassification2Choice_? Sector { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _UgEEwAz2Ee2YoLD-1vFj0g
     /// <summary>
     /// Information whether the counterparty is above the clearing threshold.
     /// Usage: If the element is not present, the ClearingThreshold is False.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ClearingThreshold { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize Sector, multiplicity Unknown
+        if (ClearingThreshold is IsoTrueFalseIndicator ClearingThresholdValue)
+        {
+            writer.WriteStartElement(null, "ClrThrshld", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ClearingThresholdValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstitutionSector1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

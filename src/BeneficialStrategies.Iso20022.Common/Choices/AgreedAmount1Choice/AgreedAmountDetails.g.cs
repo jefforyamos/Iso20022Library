@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AgreedAmount1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AgreedAmount1Choice;
 /// Provides details about the agreed amount for the variation margin and optionaly the segregated independent amount.
 /// </summary>
 public partial record AgreedAmountDetails : AgreedAmount1Choice_
+     , IIsoXmlSerilizable<AgreedAmountDetails>
 {
     #nullable enable
+    
     /// <summary>
     /// Provides details about the agreed amount for the variation margin.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record AgreedAmountDetails : AgreedAmount1Choice_
     /// Provides details about the agreed amount for the segregated independent amount.
     /// </summary>
     public Amount1? SegregatedIndependentAmount { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "VartnMrgnAmt", xmlNamespace );
+        VariationMarginAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SegregatedIndependentAmount is Amount1 SegregatedIndependentAmountValue)
+        {
+            writer.WriteStartElement(null, "SgrtdIndpdntAmt", xmlNamespace );
+            SegregatedIndependentAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new AgreedAmountDetails Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction3Choice;
 /// Set of elements used to reference the details of the original payment initiation.
 /// </summary>
 public partial record Initiation : UnderlyingTransaction3Choice_
+     , IIsoXmlSerilizable<Initiation>
 {
     #nullable enable
+    
     /// <summary>
     /// Set of elements used to provide information on the original message.
     /// </summary>
@@ -43,5 +47,62 @@ public partial record Initiation : UnderlyingTransaction3Choice_
     /// Date at which the creditor requests the amount of money to be collected from the debtor.
     /// </summary>
     public IsoISODate? RequestedCollectionDate { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OriginalGroupInformation is UnderlyingGroupInformation1 OriginalGroupInformationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlGrpInf", xmlNamespace );
+            OriginalGroupInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalPaymentInformationIdentification is IsoMax35Text OriginalPaymentInformationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlPmtInfId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalPaymentInformationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalInstructionIdentification is IsoMax35Text OriginalInstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlInstrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalInstructionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalEndToEndIdentification is IsoMax35Text OriginalEndToEndIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlEndToEndId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalEndToEndIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OrgnlInstdAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(OriginalInstructedAmount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (RequestedExecutionDate is DateAndDateTimeChoice_ RequestedExecutionDateValue)
+        {
+            writer.WriteStartElement(null, "ReqdExctnDt", xmlNamespace );
+            RequestedExecutionDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequestedCollectionDate is IsoISODate RequestedCollectionDateValue)
+        {
+            writer.WriteStartElement(null, "ReqdColltnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(RequestedCollectionDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static new Initiation Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

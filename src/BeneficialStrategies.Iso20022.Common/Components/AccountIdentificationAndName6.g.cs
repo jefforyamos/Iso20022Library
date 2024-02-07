@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the account expressed with a name and an account number.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountIdentificationAndName6
+     : IIsoXmlSerilizable<AccountIdentificationAndName6>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     /// <summary>
     /// International Bank Account Number (IBAN) - identifier used internationally by financial institutions to uniquely identify the account of the customer. Further specifications of the format and content of the IBAN can be found in the standard ISO 13616 "Banking and related financial services - International Bank Account Number (IBAN)" version 1997-10-01, or later revisions.
     /// </summary>
-    [DataMember]
     public IsoIBAN2007Identifier? IBAN { get; init; } 
     /// <summary>
     /// Unique identification of the account, as assigned by the account servicer, using an identification scheme.
     /// </summary>
-    [DataMember]
     public GenericAccountIdentification1? Other { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax35Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (IBAN is IsoIBAN2007Identifier IBANValue)
+        {
+            writer.WriteStartElement(null, "IBAN", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoIBAN2007Identifier(IBANValue)); // data type IBAN2007Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (Other is GenericAccountIdentification1 OtherValue)
+        {
+            writer.WriteStartElement(null, "Othr", xmlNamespace );
+            OtherValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountIdentificationAndName6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

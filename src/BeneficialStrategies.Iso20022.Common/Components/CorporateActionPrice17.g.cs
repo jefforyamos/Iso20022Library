@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies prices of a corporate action.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionPrice17
+     : IIsoXmlSerilizable<CorporateActionPrice17>
 {
     #nullable enable
     
     /// <summary>
     /// Maximum or cap price at which a holder can bid, for example, on a Dutch auction offer.
     /// </summary>
-    [DataMember]
     public PriceFormat19Choice_? MaximumPrice { get; init; } 
     /// <summary>
     /// Minimum or floor price at which a holder can bid, for example, on a Dutch auction offer.
     /// </summary>
-    [DataMember]
     public PriceFormat19Choice_? MinimumPrice { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MaximumPrice is PriceFormat19Choice_ MaximumPriceValue)
+        {
+            writer.WriteStartElement(null, "MaxPric", xmlNamespace );
+            MaximumPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MinimumPrice is PriceFormat19Choice_ MinimumPriceValue)
+        {
+            writer.WriteStartElement(null, "MinPric", xmlNamespace );
+            MinimumPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionPrice17 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

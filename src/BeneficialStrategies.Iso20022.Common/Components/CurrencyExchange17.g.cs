@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes the details of the currency exchange.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CurrencyExchange17
+     : IIsoXmlSerilizable<CurrencyExchange17>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the cross currency, if different from the currency of delivery.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? DeliverableCrossCurrency { get; init; } 
     /// <summary>
     /// Indicates the exchange rate between the two currencies specified in the derivative transaction agreed by the counterparties at the inception of the transaction,  expressed as the rate of exchange from converting the unit currency into the quoted currency.
     /// </summary>
-    [DataMember]
     public IsoBaseOne18Rate? ExchangeRate { get; init; } 
     /// <summary>
     /// Forward exchange rate as agreed between the counterparties in the contractual agreement, expressed as a price of base currency in the quoted currency.
     /// </summary>
-    [DataMember]
     public IsoBaseOne18Rate? ForwardExchangeRate { get; init; } 
     /// <summary>
     /// Indicates, for equity options, commodity options and similar products, the currency in which the strike price is denominated.  In case of foreign exchange options, indicates the currency pair and order in which the strike price is expressed as unit currency and quoted currency.
     /// </summary>
-    [DataMember]
     public ExchangeRateBasis1Choice_? ExchangeRateBasis { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DeliverableCrossCurrency is ActiveOrHistoricCurrencyCode DeliverableCrossCurrencyValue)
+        {
+            writer.WriteStartElement(null, "DlvrblCrossCcy", xmlNamespace );
+            writer.WriteValue(DeliverableCrossCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExchangeRate is IsoBaseOne18Rate ExchangeRateValue)
+        {
+            writer.WriteStartElement(null, "XchgRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOne18Rate(ExchangeRateValue)); // data type BaseOne18Rate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ForwardExchangeRate is IsoBaseOne18Rate ForwardExchangeRateValue)
+        {
+            writer.WriteStartElement(null, "FwdXchgRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOne18Rate(ForwardExchangeRateValue)); // data type BaseOne18Rate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExchangeRateBasis is ExchangeRateBasis1Choice_ ExchangeRateBasisValue)
+        {
+            writer.WriteStartElement(null, "XchgRateBsis", xmlNamespace );
+            ExchangeRateBasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CurrencyExchange17 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

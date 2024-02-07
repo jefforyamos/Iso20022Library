@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reports on reservations.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CurrentAndDefaultReservation4
+     : IIsoXmlSerilizable<CurrentAndDefaultReservation4>
 {
     #nullable enable
     
     /// <summary>
     /// Report is given for a current reservation.
     /// </summary>
-    [DataMember]
-    public ValueList<ReservationReport6> CurrentReservation { get; init; } = []; // Warning: Don't know multiplicity.
+    public ReservationReport6? CurrentReservation { get; init; } 
     /// <summary>
     /// Report is given for a default reservation.
     /// </summary>
-    [DataMember]
-    public ValueList<ReservationReport6> DefaultReservation { get; init; } = []; // Warning: Don't know multiplicity.
+    public ReservationReport6? DefaultReservation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CurrentReservation is ReservationReport6 CurrentReservationValue)
+        {
+            writer.WriteStartElement(null, "CurRsvatn", xmlNamespace );
+            CurrentReservationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DefaultReservation is ReservationReport6 DefaultReservationValue)
+        {
+            writer.WriteStartElement(null, "DfltRsvatn", xmlNamespace );
+            DefaultReservationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CurrentAndDefaultReservation4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

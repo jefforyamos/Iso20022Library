@@ -7,73 +7,146 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides further details on the list of direct debit mandate elements that have been modified when the amendment indicator has been set.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AmendmentInformationDetails10
+     : IIsoXmlSerilizable<AmendmentInformationDetails10>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by the creditor, to unambiguously identify the original mandate.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalMandateIdentification { get; init; } 
     /// <summary>
     /// Original creditor scheme identification that has been modified.
     /// </summary>
-    [DataMember]
     public PartyIdentification43? OriginalCreditorSchemeIdentification { get; init; } 
     /// <summary>
     /// Original creditor agent that has been modified.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? OriginalCreditorAgent { get; init; } 
     /// <summary>
     /// Original creditor agent account that has been modified.
     /// </summary>
-    [DataMember]
     public CashAccount24? OriginalCreditorAgentAccount { get; init; } 
     /// <summary>
     /// Original debtor that has been modified.
     /// </summary>
-    [DataMember]
     public PartyIdentification43? OriginalDebtor { get; init; } 
     /// <summary>
     /// Original debtor account that has been modified.
     /// </summary>
-    [DataMember]
     public CashAccount24? OriginalDebtorAccount { get; init; } 
     /// <summary>
     /// Original debtor agent that has been modified.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? OriginalDebtorAgent { get; init; } 
     /// <summary>
     /// Original debtor agent account that has been modified.
     /// </summary>
-    [DataMember]
     public CashAccount24? OriginalDebtorAgentAccount { get; init; } 
     /// <summary>
     /// Original final collection date that has been modified.
     /// </summary>
-    [DataMember]
     public IsoISODate? OriginalFinalCollectionDate { get; init; } 
     /// <summary>
     /// Original frequency that has been modified.
     /// </summary>
-    [DataMember]
     public Frequency21Choice_? OriginalFrequency { get; init; } 
     /// <summary>
     /// Original reason for the mandate to allow the user to distinguish between different mandates for the same creditor.
     /// </summary>
-    [DataMember]
     public MandateSetupReason1Choice_? OriginalReason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OriginalMandateIdentification is IsoMax35Text OriginalMandateIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlMndtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalMandateIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalCreditorSchemeIdentification is PartyIdentification43 OriginalCreditorSchemeIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlCdtrSchmeId", xmlNamespace );
+            OriginalCreditorSchemeIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalCreditorAgent is BranchAndFinancialInstitutionIdentification5 OriginalCreditorAgentValue)
+        {
+            writer.WriteStartElement(null, "OrgnlCdtrAgt", xmlNamespace );
+            OriginalCreditorAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalCreditorAgentAccount is CashAccount24 OriginalCreditorAgentAccountValue)
+        {
+            writer.WriteStartElement(null, "OrgnlCdtrAgtAcct", xmlNamespace );
+            OriginalCreditorAgentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalDebtor is PartyIdentification43 OriginalDebtorValue)
+        {
+            writer.WriteStartElement(null, "OrgnlDbtr", xmlNamespace );
+            OriginalDebtorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalDebtorAccount is CashAccount24 OriginalDebtorAccountValue)
+        {
+            writer.WriteStartElement(null, "OrgnlDbtrAcct", xmlNamespace );
+            OriginalDebtorAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalDebtorAgent is BranchAndFinancialInstitutionIdentification5 OriginalDebtorAgentValue)
+        {
+            writer.WriteStartElement(null, "OrgnlDbtrAgt", xmlNamespace );
+            OriginalDebtorAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalDebtorAgentAccount is CashAccount24 OriginalDebtorAgentAccountValue)
+        {
+            writer.WriteStartElement(null, "OrgnlDbtrAgtAcct", xmlNamespace );
+            OriginalDebtorAgentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalFinalCollectionDate is IsoISODate OriginalFinalCollectionDateValue)
+        {
+            writer.WriteStartElement(null, "OrgnlFnlColltnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(OriginalFinalCollectionDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (OriginalFrequency is Frequency21Choice_ OriginalFrequencyValue)
+        {
+            writer.WriteStartElement(null, "OrgnlFrqcy", xmlNamespace );
+            OriginalFrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalReason is MandateSetupReason1Choice_ OriginalReasonValue)
+        {
+            writer.WriteStartElement(null, "OrgnlRsn", xmlNamespace );
+            OriginalReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AmendmentInformationDetails10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

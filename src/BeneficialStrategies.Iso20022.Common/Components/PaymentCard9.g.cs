@@ -7,58 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment card performing the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentCard9
+     : IIsoXmlSerilizable<PaymentCard9>
 {
     #nullable enable
     
     /// <summary>
     /// Replacement of the message element PlainCardData by a digital envelope using a cryptographic key.
     /// </summary>
-    [DataMember]
     public ContentInformationType10? ProtectedCardData { get; init; } 
     /// <summary>
     /// Sensitive data associated with the card performing the transaction.
     /// </summary>
-    [DataMember]
     public PlainCardData7? PlainCardData { get; init; } 
     /// <summary>
     /// Bank identifier number of the issuer for routing purpose.
     /// </summary>
-    [DataMember]
     public IsoMax15NumericText? IssuerBIN { get; init; } 
     /// <summary>
     /// Country code assigned to the card by the card issuer.
     /// </summary>
-    [DataMember]
     public IsoMax3Text? CardCountryCode { get; init; } 
     /// <summary>
     /// Currency code of the card issuer (ISO 4217 numeric code).
     /// </summary>
-    [DataMember]
     public IsoExact3AlphaNumericText? CardCurrencyCode { get; init; } 
     /// <summary>
     /// Defines a category of cards related to the acceptance processing rules defined by the acquirer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CardProductProfile { get; init; } 
     /// <summary>
     /// Brand name of the card.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CardBrand { get; init; } 
     /// <summary>
     /// Additional card issuer specific data.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? AdditionalCardData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ProtectedCardData is ContentInformationType10 ProtectedCardDataValue)
+        {
+            writer.WriteStartElement(null, "PrtctdCardData", xmlNamespace );
+            ProtectedCardDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PlainCardData is PlainCardData7 PlainCardDataValue)
+        {
+            writer.WriteStartElement(null, "PlainCardData", xmlNamespace );
+            PlainCardDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssuerBIN is IsoMax15NumericText IssuerBINValue)
+        {
+            writer.WriteStartElement(null, "IssrBIN", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(IssuerBINValue)); // data type Max15NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (CardCountryCode is IsoMax3Text CardCountryCodeValue)
+        {
+            writer.WriteStartElement(null, "CardCtryCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3Text(CardCountryCodeValue)); // data type Max3Text System.String
+            writer.WriteEndElement();
+        }
+        if (CardCurrencyCode is IsoExact3AlphaNumericText CardCurrencyCodeValue)
+        {
+            writer.WriteStartElement(null, "CardCcyCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact3AlphaNumericText(CardCurrencyCodeValue)); // data type Exact3AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+        if (CardProductProfile is IsoMax35Text CardProductProfileValue)
+        {
+            writer.WriteStartElement(null, "CardPdctPrfl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CardProductProfileValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CardBrand is IsoMax35Text CardBrandValue)
+        {
+            writer.WriteStartElement(null, "CardBrnd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CardBrandValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalCardData is IsoMax70Text AdditionalCardDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlCardData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AdditionalCardDataValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentCard9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

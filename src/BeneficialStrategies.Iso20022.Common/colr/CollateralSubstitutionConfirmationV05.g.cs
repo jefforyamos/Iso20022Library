@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.colr.CollateralSubstitutionConfirmationV05>;
 
 namespace BeneficialStrategies.Iso20022.colr;
 
@@ -30,10 +33,9 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// This message confirms the collateral delivery. The collateral taker will only release the return of collateral when the new piece of collateral is received. The collateral giver sends the collateral taker the notification that the collateral substitution (that is new piece(s) of collateral) have been released.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The CollateralSubstitutionConfirmation message is sent by:|- the collateral taker or its collateral manager to the collateral giver or its collateral manager, or|- the collateral giver or its collateral manager to the collateral taker or its collateral manager.|This message confirms the collateral delivery. The collateral taker will only release the return of collateral when the new piece of collateral is received. The collateral giver sends the collateral taker the notification that the collateral substitution (that is new piece(s) of collateral) have been released. In the event that multiple pieces of collateral are being delivered in place of the collateral due to be returned by the giver, this message should only be generated once all collateral pieces have been agreed between both parties. Then the taker confirms that the collateral substitution (that is all pieces have been received) and acknowledges return of collateral.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|This message confirms the collateral delivery. The collateral taker will only release the return of collateral when the new piece of collateral is received. The collateral giver sends the collateral taker the notification that the collateral substitution (that is new piece(s) of collateral) have been released.")]
-public partial record CollateralSubstitutionConfirmationV05 : IOuterRecord
+public partial record CollateralSubstitutionConfirmationV05 : IOuterRecord<CollateralSubstitutionConfirmationV05,CollateralSubstitutionConfirmationV05Document>
+    ,IIsoXmlSerilizable<CollateralSubstitutionConfirmationV05>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -45,6 +47,11 @@ public partial record CollateralSubstitutionConfirmationV05 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "CollSbstitnConf";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CollateralSubstitutionConfirmationV05Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -104,6 +111,44 @@ public partial record CollateralSubstitutionConfirmationV05 : IOuterRecord
     {
         return new CollateralSubstitutionConfirmationV05Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("CollSbstitnConf");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Oblgtn", xmlNamespace );
+        Obligation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Agreement is Agreement4 AgreementValue)
+        {
+            writer.WriteStartElement(null, "Agrmt", xmlNamespace );
+            AgreementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SbstitnConf", xmlNamespace );
+        SubstitutionConfirmation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralSubstitutionConfirmationV05 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -111,9 +156,7 @@ public partial record CollateralSubstitutionConfirmationV05 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CollateralSubstitutionConfirmationV05"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CollateralSubstitutionConfirmationV05Document : IOuterDocument<CollateralSubstitutionConfirmationV05>
+public partial record CollateralSubstitutionConfirmationV05Document : IOuterDocument<CollateralSubstitutionConfirmationV05>, IXmlSerializable
 {
     
     /// <summary>
@@ -129,5 +172,22 @@ public partial record CollateralSubstitutionConfirmationV05Document : IOuterDocu
     /// <summary>
     /// The instance of <seealso cref="CollateralSubstitutionConfirmationV05"/> is required.
     /// </summary>
+    [DataMember(Name=CollateralSubstitutionConfirmationV05.XmlTag)]
     public required CollateralSubstitutionConfirmationV05 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CollateralSubstitutionConfirmationV05.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

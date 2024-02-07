@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PriceSourceFormatChoice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceSourceFormatChoice;
 /// Source of a price quotation when it is not the local market.
 /// </summary>
 public partial record NonLocalMarketPlace : PriceSourceFormatChoice_
+     , IIsoXmlSerilizable<NonLocalMarketPlace>
 {
     #nullable enable
+    
     /// <summary>
     /// Source of the price.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record NonLocalMarketPlace : PriceSourceFormatChoice_
     /// Additional information about the source of a price.
     /// </summary>
     public IsoMax35Text? Narrative { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PricSrc", xmlNamespace );
+        writer.WriteValue(PriceSource.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Narrative is IsoMax35Text NarrativeValue)
+        {
+            writer.WriteStartElement(null, "Nrrtv", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NarrativeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new NonLocalMarketPlace Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,78 +7,150 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account to or from which a cash entry is made.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashAccount204
+     : IIsoXmlSerilizable<CashAccount204>
 {
     #nullable enable
     
     /// <summary>
     /// Currency associated with the payment instrument.
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode SettlementCurrency { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public required AccountIdentificationAndName5 Identification { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification125Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    [DataMember]
     public FinancialInstitutionIdentification11Choice_? AccountServicer { get; init; } 
     /// <summary>
     /// Information identifying a specific branch of a financial institution.||Usage: this component should be used in case the identification information in the financial institution component does not provide identification up to branch level.
     /// </summary>
-    [DataMember]
     public BranchData4? AccountServicerBranch { get; init; } 
     /// <summary>
     /// Alternative identification, for example, national registration identification number, passport number, tax identification number. This may be an account number used to further identify the beneficial owner, for example, a Central Provident Fund (CFP) account as required for Singapore.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericIdentification82> AccountOwnerOtherIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericIdentification82? AccountOwnerOtherIdentification { get; init; } 
     /// <summary>
     /// Type of account.
     /// </summary>
-    [DataMember]
     public AccountType2Choice_? InvestmentAccountType { get; init; } 
     /// <summary>
     /// Specifies if the account is for credits or debits.
     /// </summary>
-    [DataMember]
     public CreditDebit3Code? CreditDebit { get; init; } 
     /// <summary>
     /// Type of transaction for which the cash account is specified.
     /// </summary>
-    [DataMember]
     public SettlementInstructionReason1Choice_? SettlementInstructionReason { get; init; } 
     /// <summary>
     /// Purpose of the cash account.
     /// </summary>
-    [DataMember]
     public CashAccountType3Choice_? CashAccountPurpose { get; init; } 
     /// <summary>
     /// Specifies whether the account is the primary or secondary account if there are two accounts for the same purpose.
     /// </summary>
-    [DataMember]
     public AccountDesignation1Choice_? CashAccountDesignation { get; init; } 
     /// <summary>
     /// Percentage of the dividend payment not to be reinvested, that is, to be paid in cash.
     /// </summary>
-    [DataMember]
     public IsoPercentageBoundedRate? DividendPercentage { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttlmCcy", xmlNamespace );
+        writer.WriteValue(SettlementCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountOwner is PartyIdentification125Choice_ AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountServicer is FinancialInstitutionIdentification11Choice_ AccountServicerValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+            AccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountServicerBranch is BranchData4 AccountServicerBranchValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcrBrnch", xmlNamespace );
+            AccountServicerBranchValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountOwnerOtherIdentification is GenericIdentification82 AccountOwnerOtherIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnrOthrId", xmlNamespace );
+            AccountOwnerOtherIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestmentAccountType is AccountType2Choice_ InvestmentAccountTypeValue)
+        {
+            writer.WriteStartElement(null, "InvstmtAcctTp", xmlNamespace );
+            InvestmentAccountTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditDebit is CreditDebit3Code CreditDebitValue)
+        {
+            writer.WriteStartElement(null, "CdtDbt", xmlNamespace );
+            writer.WriteValue(CreditDebitValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SettlementInstructionReason is SettlementInstructionReason1Choice_ SettlementInstructionReasonValue)
+        {
+            writer.WriteStartElement(null, "SttlmInstrRsn", xmlNamespace );
+            SettlementInstructionReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccountPurpose is CashAccountType3Choice_ CashAccountPurposeValue)
+        {
+            writer.WriteStartElement(null, "CshAcctPurp", xmlNamespace );
+            CashAccountPurposeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccountDesignation is AccountDesignation1Choice_ CashAccountDesignationValue)
+        {
+            writer.WriteStartElement(null, "CshAcctDsgnt", xmlNamespace );
+            CashAccountDesignationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DividendPercentage is IsoPercentageBoundedRate DividendPercentageValue)
+        {
+            writer.WriteStartElement(null, "DvddPctg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageBoundedRate(DividendPercentageValue)); // data type PercentageBoundedRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static CashAccount204 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

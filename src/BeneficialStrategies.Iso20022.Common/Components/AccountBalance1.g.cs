@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Balance of the account involved in the card transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountBalance1
+     : IIsoXmlSerilizable<AccountBalance1>
 {
     #nullable enable
     
@@ -23,13 +24,37 @@ public partial record AccountBalance1
     /// Account for which a balance is sought.
     /// See ISO 8583 bit 54, Account type codes
     /// </summary>
-    [DataMember]
     public required IsoExact2AlphaNumericText AccountType { get; init; } 
     /// <summary>
     /// Balance of the account.
     /// </summary>
-    [DataMember]
-    public ValueList<Balance15> Balance { get; init; } = []; // Warning: Don't know multiplicity.
+    public Balance15? Balance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AcctTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact2AlphaNumericText(AccountType)); // data type Exact2AlphaNumericText System.String
+        writer.WriteEndElement();
+        if (Balance is Balance15 BalanceValue)
+        {
+            writer.WriteStartElement(null, "Bal", xmlNamespace );
+            BalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountBalance1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details on the quantity, account and other related information involved in a transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record QuantityAndAccount7
+     : IIsoXmlSerilizable<QuantityAndAccount7>
 {
     #nullable enable
     
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ SettlementQuantity { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification13Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
-    [DataMember]
     public required SecuritiesAccount13 SafekeepingAccount { get; init; } 
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    [DataMember]
     public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    [DataMember]
     public SafekeepingPlaceFormat3Choice_? SafekeepingPlace { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttlmQty", xmlNamespace );
+        SettlementQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountOwner is PartyIdentification13Choice_ AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+        SafekeepingAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CashAccount is CashAccountIdentification5Choice_ CashAccountValue)
+        {
+            writer.WriteStartElement(null, "CshAcct", xmlNamespace );
+            CashAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingPlace is SafekeepingPlaceFormat3Choice_ SafekeepingPlaceValue)
+        {
+            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
+            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static QuantityAndAccount7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

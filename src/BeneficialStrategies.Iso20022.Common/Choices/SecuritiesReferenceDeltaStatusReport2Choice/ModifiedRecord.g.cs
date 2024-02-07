@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecuritiesReferenceDeltaStatusReport2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesReferenceDeltaStatusRe
 /// Specifies data that has been modified since the previous report.
 /// </summary>
 public partial record ModifiedRecord : SecuritiesReferenceDeltaStatusReport2Choice_
+     , IIsoXmlSerilizable<ModifiedRecord>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// Usage:
@@ -33,6 +37,7 @@ public partial record ModifiedRecord : SecuritiesReferenceDeltaStatusReport2Choi
     /// Traded venue related attributes.
     /// </summary>
     public TradingVenueAttributes1? TradingVenueRelatedAttributes { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _G_iQm35aEea2k7EBUopqxw
     /// <summary>
     /// Attributes specific to debt instruments.
     /// </summary>
@@ -45,5 +50,54 @@ public partial record ModifiedRecord : SecuritiesReferenceDeltaStatusReport2Choi
     /// Technical attributes.
     /// </summary>
     public RecordTechnicalData3? TechnicalAttributes { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TechnicalRecordIdentification is IsoMax35Text TechnicalRecordIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TechnicalRecordIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FinInstrmGnlAttrbts", xmlNamespace );
+        FinancialInstrumentGeneralAttributes.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Issr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(Issuer)); // data type LEIIdentifier System.String
+        writer.WriteEndElement();
+        // Not sure how to serialize TradingVenueRelatedAttributes, multiplicity Unknown
+        if (DebtInstrumentAttributes is DebtInstrument2 DebtInstrumentAttributesValue)
+        {
+            writer.WriteStartElement(null, "DebtInstrmAttrbts", xmlNamespace );
+            DebtInstrumentAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DerivativeInstrumentAttributes is DerivativeInstrument5 DerivativeInstrumentAttributesValue)
+        {
+            writer.WriteStartElement(null, "DerivInstrmAttrbts", xmlNamespace );
+            DerivativeInstrumentAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TechnicalAttributes is RecordTechnicalData3 TechnicalAttributesValue)
+        {
+            writer.WriteStartElement(null, "TechAttrbts", xmlNamespace );
+            TechnicalAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new ModifiedRecord Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

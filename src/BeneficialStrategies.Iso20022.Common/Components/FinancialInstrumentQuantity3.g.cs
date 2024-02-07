@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Quantity of the financial instrument subscribed.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrumentQuantity3
+     : IIsoXmlSerilizable<FinancialInstrumentQuantity3>
 {
     #nullable enable
     
     /// <summary>
     /// Quantity of investment fund units redeemed.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
     /// <summary>
     /// Amount of money to be invested.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? OrderedAmount { get; init; } 
     /// <summary>
     /// Amount of money as a result of the redemption after deduction of charges, commissions and taxes.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? NetAmount { get; init; } 
     /// <summary>
     /// Amount of money as a result of the redemption before deduction of charges, commissions and taxes.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? GrossAmount { get; init; } 
     /// <summary>
     /// Amount of money as a result of the redemption.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? ExecutedAmount { get; init; } 
     /// <summary>
     /// Portion of the investor's holdings, in a specific investment fund/ fund class, that is redeemed.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? HoldingsRedemptionRate { get; init; } 
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the individual order.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UnitsNb", xmlNamespace );
+        UnitsNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OrderedAmount is IsoActiveOrHistoricCurrencyAndAmount OrderedAmountValue)
+        {
+            writer.WriteStartElement(null, "OrdrdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(OrderedAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (NetAmount is IsoActiveOrHistoricCurrencyAndAmount NetAmountValue)
+        {
+            writer.WriteStartElement(null, "NetAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(NetAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (GrossAmount is IsoActiveOrHistoricCurrencyAndAmount GrossAmountValue)
+        {
+            writer.WriteStartElement(null, "GrssAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(GrossAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExecutedAmount is IsoActiveCurrencyAndAmount ExecutedAmountValue)
+        {
+            writer.WriteStartElement(null, "ExctdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ExecutedAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (HoldingsRedemptionRate is IsoPercentageRate HoldingsRedemptionRateValue)
+        {
+            writer.WriteStartElement(null, "HldgsRedRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(HoldingsRedemptionRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (SettlementAmount is IsoActiveCurrencyAndAmount SettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(SettlementAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstrumentQuantity3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

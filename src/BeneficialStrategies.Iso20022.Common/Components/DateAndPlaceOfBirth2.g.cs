@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Date and place of birth of a person.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DateAndPlaceOfBirth2
+     : IIsoXmlSerilizable<DateAndPlaceOfBirth2>
 {
     #nullable enable
     
     /// <summary>
     /// Date on which a person is born.
     /// </summary>
-    [DataMember]
     public required IsoISODate BirthDate { get; init; } 
     /// <summary>
     /// Province where a person was born.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ProvinceOfBirth { get; init; } 
     /// <summary>
     /// City where a person was born.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CityOfBirth { get; init; } 
     /// <summary>
     /// Country where a person was born.
     /// </summary>
-    [DataMember]
     public CountryCode? CountryOfBirth { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BirthDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(BirthDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (ProvinceOfBirth is IsoMax35Text ProvinceOfBirthValue)
+        {
+            writer.WriteStartElement(null, "PrvcOfBirth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProvinceOfBirthValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CityOfBirth is IsoMax35Text CityOfBirthValue)
+        {
+            writer.WriteStartElement(null, "CityOfBirth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CityOfBirthValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CountryOfBirth is CountryCode CountryOfBirthValue)
+        {
+            writer.WriteStartElement(null, "CtryOfBirth", xmlNamespace );
+            writer.WriteValue(CountryOfBirthValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static DateAndPlaceOfBirth2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

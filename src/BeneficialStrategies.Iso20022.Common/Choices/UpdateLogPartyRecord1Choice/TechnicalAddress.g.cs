@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
 /// Unique technical address to unambiguously identify a party for receiving messages from the executing system.
 /// </summary>
 public partial record TechnicalAddress : UpdateLogPartyRecord1Choice_
+     , IIsoXmlSerilizable<TechnicalAddress>
 {
     #nullable enable
+    
     /// <summary>
     /// Old value before the update.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record TechnicalAddress : UpdateLogPartyRecord1Choice_
     /// New value after the update.
     /// </summary>
     public required TechnicalIdentification2Choice_ New { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Od", xmlNamespace );
+        Old.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "New", xmlNamespace );
+        New.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new TechnicalAddress Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,49 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Outcome of the processing of the batch.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProcessingResult13
+     : IIsoXmlSerilizable<ProcessingResult13>
 {
     #nullable enable
     
     /// <summary>
     /// The information about entity that provides the response
     /// </summary>
-    [DataMember]
     public ApprovalEntity2? ResponseSource { get; init; } 
     /// <summary>
     /// Result information related to the processing of the transaction.
     /// </summary>
-    [DataMember]
     public required ResultData8 ResultData { get; init; } 
     /// <summary>
     /// Value assigned by the entity when the transaction is approved.
     /// </summary>
-    [DataMember]
     public IsoExact6AlphaNumericText? ApprovalCode { get; init; } 
     /// <summary>
     /// Error detail information.
     /// </summary>
-    [DataMember]
-    public ValueList<ErrorDetails2> ErrorDetail { get; init; } = []; // Warning: Don't know multiplicity.
+    public ErrorDetails2? ErrorDetail { get; init; } 
     /// <summary>
     /// Outcome of a previous processing, for example, in response to a duplicate request.
     /// </summary>
-    [DataMember]
     public ResultData7? OriginalResultData { get; init; } 
     /// <summary>
     /// Additional information relevant for the destination.
     /// ISO 8583 bit 44
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation29> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation29? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ResponseSource is ApprovalEntity2 ResponseSourceValue)
+        {
+            writer.WriteStartElement(null, "RspnSrc", xmlNamespace );
+            ResponseSourceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RsltData", xmlNamespace );
+        ResultData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ApprovalCode is IsoExact6AlphaNumericText ApprovalCodeValue)
+        {
+            writer.WriteStartElement(null, "ApprvlCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact6AlphaNumericText(ApprovalCodeValue)); // data type Exact6AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+        if (ErrorDetail is ErrorDetails2 ErrorDetailValue)
+        {
+            writer.WriteStartElement(null, "ErrDtl", xmlNamespace );
+            ErrorDetailValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalResultData is ResultData7 OriginalResultDataValue)
+        {
+            writer.WriteStartElement(null, "OrgnlRsltData", xmlNamespace );
+            OriginalResultDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation29 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ProcessingResult13 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

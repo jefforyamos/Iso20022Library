@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies two values to compare for a exchange rate.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CompareExchangeRate1
+     : IIsoXmlSerilizable<CompareExchangeRate1>
 {
     #nullable enable
     
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
-    [DataMember]
     public IsoBaseOne18Rate? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
-    [DataMember]
     public IsoBaseOne18Rate? Value2 { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Value1 is IsoBaseOne18Rate Value1Value)
+        {
+            writer.WriteStartElement(null, "Val1", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOne18Rate(Value1Value)); // data type BaseOne18Rate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Value2 is IsoBaseOne18Rate Value2Value)
+        {
+            writer.WriteStartElement(null, "Val2", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOne18Rate(Value2Value)); // data type BaseOne18Rate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static CompareExchangeRate1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

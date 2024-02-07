@@ -7,78 +7,147 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Address of a party expressed in a formal structure, usually according to the country's postal services specifications.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StructuredLongPostalAddress1
+     : IIsoXmlSerilizable<StructuredLongPostalAddress1>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the building or house.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? BuildingName { get; init; } 
     /// <summary>
     /// Name of a street or thoroughfare.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? StreetName { get; init; } 
     /// <summary>
     /// Number that identifies the position of a building on a street.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? StreetBuildingIdentification { get; init; } 
     /// <summary>
     /// Floor or storey within a building.
     /// </summary>
-    [DataMember]
     public IsoMax16Text? Floor { get; init; } 
     /// <summary>
     /// Name of a built-up area, with defined boundaries, and a local government.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TownName { get; init; } 
     /// <summary>
     /// Name of a district, that is, a part of a town or region.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DistrictName { get; init; } 
     /// <summary>
     /// Identification of an administrative division of a country, state, or territory.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RegionIdentification { get; init; } 
     /// <summary>
     /// Organised political community or area forming a part of a federation.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? State { get; init; } 
     /// <summary>
     /// Identifier of a county.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CountyIdentification { get; init; } 
     /// <summary>
     /// Nation with its own government.
     /// </summary>
-    [DataMember]
     public required CountryCode Country { get; init; } 
     /// <summary>
     /// Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail.
     /// </summary>
-    [DataMember]
     public required IsoMax16Text PostCodeIdentification { get; init; } 
     /// <summary>
     /// Numbered box in a post office, assigned to a person or organisation, where letters are kept until called for.
     /// </summary>
-    [DataMember]
     public IsoMax16Text? PostOfficeBox { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (BuildingName is IsoMax35Text BuildingNameValue)
+        {
+            writer.WriteStartElement(null, "BldgNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(BuildingNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (StreetName is IsoMax35Text StreetNameValue)
+        {
+            writer.WriteStartElement(null, "StrtNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(StreetNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (StreetBuildingIdentification is IsoMax35Text StreetBuildingIdentificationValue)
+        {
+            writer.WriteStartElement(null, "StrtBldgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(StreetBuildingIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Floor is IsoMax16Text FloorValue)
+        {
+            writer.WriteStartElement(null, "Flr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax16Text(FloorValue)); // data type Max16Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TwnNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TownName)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (DistrictName is IsoMax35Text DistrictNameValue)
+        {
+            writer.WriteStartElement(null, "DstrctNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DistrictNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RegionIdentification is IsoMax35Text RegionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RgnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RegionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (State is IsoMax35Text StateValue)
+        {
+            writer.WriteStartElement(null, "Stat", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(StateValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CountyIdentification is IsoMax35Text CountyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CtyId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CountyIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Ctry", xmlNamespace );
+        writer.WriteValue(Country.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PstCdId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax16Text(PostCodeIdentification)); // data type Max16Text System.String
+        writer.WriteEndElement();
+        if (PostOfficeBox is IsoMax16Text PostOfficeBoxValue)
+        {
+            writer.WriteStartElement(null, "POB", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax16Text(PostOfficeBoxValue)); // data type Max16Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static StructuredLongPostalAddress1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

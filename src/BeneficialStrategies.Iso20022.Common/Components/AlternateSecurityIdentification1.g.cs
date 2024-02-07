@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Proprietary or domestic identification scheme that uniquely identifies a security.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AlternateSecurityIdentification1
+     : IIsoXmlSerilizable<AlternateSecurityIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier of a security.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Country of the proprietary identification scheme.
     /// </summary>
-    [DataMember]
     public required CountryCode DomesticIdentificationSource { get; init; } 
     /// <summary>
     /// Entity that issues the proprietary identification.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ProprietaryIdentificationSource { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DmstIdSrc", xmlNamespace );
+        writer.WriteValue(DomesticIdentificationSource.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PrtryIdSrc", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ProprietaryIdentificationSource)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static AlternateSecurityIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

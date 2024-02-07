@@ -7,48 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the issuer, as required by ASX.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IssuerAttributesSD1
+     : IIsoXmlSerilizable<IssuerAttributesSD1>
 {
     #nullable enable
     
     /// <summary>
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance. ||In the case of XML, this is expressed by a valid XPath.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINXMax140Text Name { get; init; } 
     /// <summary>
     /// Registered number type of the entity.
     /// </summary>
-    [DataMember]
     public RegisteredNumberType1Code? RegisteredNumberType { get; init; } 
     /// <summary>
     /// Other type of Registered Number.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherRegisteredNumberType { get; init; } 
     /// <summary>
     /// Equivalent, unique number of the entity for the Registered Number Type.
     /// </summary>
-    [DataMember]
     public required IsoMax16Text RegistrationNumber { get; init; } 
     /// <summary>
     /// ASX Issuer Code.
     /// </summary>
-    [DataMember]
     public required IsoExact3UpperCaseAlphaNumericText IssuerIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax140Text(Name)); // data type RestrictedFINXMax140Text System.String
+        writer.WriteEndElement();
+        if (RegisteredNumberType is RegisteredNumberType1Code RegisteredNumberTypeValue)
+        {
+            writer.WriteStartElement(null, "RegdNbTp", xmlNamespace );
+            writer.WriteValue(RegisteredNumberTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherRegisteredNumberType is IsoMax35Text OtherRegisteredNumberTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrRegdNbTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherRegisteredNumberTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RegnNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax16Text(RegistrationNumber)); // data type Max16Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IssrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact3UpperCaseAlphaNumericText(IssuerIdentification)); // data type Exact3UpperCaseAlphaNumericText System.String
+        writer.WriteEndElement();
+    }
+    public static IssuerAttributesSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

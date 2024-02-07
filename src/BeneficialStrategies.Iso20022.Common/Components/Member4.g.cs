@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the members of a system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Member4
+     : IIsoXmlSerilizable<Member4>
 {
     #nullable enable
     
     /// <summary>
     /// Word by which something is called or known or the family name of a person.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     /// <summary>
     /// Physical/logical address belonging to a member, segregated from its main address that is used for normal operations. The fund return address is used to route messages that require specific attention/exception handling, for example returns or rejects.
     /// </summary>
-    [DataMember]
-    public ValueList<MemberIdentification2Choice_> ReturnAddress { get; init; } = []; // Warning: Don't know multiplicity.
+    public MemberIdentification2Choice_? ReturnAddress { get; init; } 
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    [DataMember]
-    public ValueList<CashAccount24> Account { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashAccount24? Account { get; init; } 
     /// <summary>
     /// Nature of the relationship a member has with a system.
     /// </summary>
-    [DataMember]
     public MemberType1Code? Type { get; init; } 
     /// <summary>
     /// Status of a member in a system, for example enabled or deleted.
     /// </summary>
-    [DataMember]
     public MemberStatus1Code? Status { get; init; } 
     /// <summary>
     /// Person to be contacted in a given organisation.
     /// </summary>
-    [DataMember]
-    public ValueList<ContactIdentificationAndAddress1> ContactReference { get; init; } = []; // Warning: Don't know multiplicity.
+    public ContactIdentificationAndAddress1? ContactReference { get; init; } 
     /// <summary>
     /// Number, or virtual address, used for communication.
     /// </summary>
-    [DataMember]
     public CommunicationAddress8? CommunicationAddress { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax35Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ReturnAddress is MemberIdentification2Choice_ ReturnAddressValue)
+        {
+            writer.WriteStartElement(null, "RtrAdr", xmlNamespace );
+            ReturnAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Account is CashAccount24 AccountValue)
+        {
+            writer.WriteStartElement(null, "Acct", xmlNamespace );
+            AccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Type is MemberType1Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Status is MemberStatus1Code StatusValue)
+        {
+            writer.WriteStartElement(null, "Sts", xmlNamespace );
+            writer.WriteValue(StatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ContactReference is ContactIdentificationAndAddress1 ContactReferenceValue)
+        {
+            writer.WriteStartElement(null, "CtctRef", xmlNamespace );
+            ContactReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CommunicationAddress is CommunicationAddress8 CommunicationAddressValue)
+        {
+            writer.WriteStartElement(null, "ComAdr", xmlNamespace );
+            CommunicationAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Member4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

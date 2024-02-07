@@ -7,93 +7,174 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the amendment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Amendment1
+     : IIsoXmlSerilizable<Amendment1>
 {
     #nullable enable
     
     /// <summary>
     /// Sequence number assigned by the issuer to each proposed amendment of the undertaking.
     /// </summary>
-    [DataMember]
     public required IsoMax4AlphaNumericText SequenceNumber { get; init; } 
     /// <summary>
     /// Date on which the proposed amendment is issued.
     /// </summary>
-    [DataMember]
     public required IsoISODate DateOfIssuance { get; init; } 
     /// <summary>
     /// Identification of the undertaking.
     /// </summary>
-    [DataMember]
     public required Undertaking7 UndertakingIdentification { get; init; } 
     /// <summary>
     /// Party asked to advise the proposed amendment to the beneficiary or to another advising party at the request of the issuer.
     /// </summary>
-    [DataMember]
     public PartyIdentification43? AdvisingParty { get; init; } 
     /// <summary>
     /// Additional party asked to advise the proposed amendment.
     /// </summary>
-    [DataMember]
     public PartyIdentification43? SecondAdvisingParty { get; init; } 
     /// <summary>
     /// Details concerning the requested termination of the undertaking.
     /// </summary>
-    [DataMember]
     public UndertakingTermination3? TerminationDetails { get; init; } 
     /// <summary>
     /// Requested increase or decrease to the amount of for the undertaking.
     /// </summary>
-    [DataMember]
     public UndertakingAmount2? UndertakingAmountAdjustment { get; init; } 
     /// <summary>
     /// Requested new expiry terms for the undertaking.
     /// </summary>
-    [DataMember]
     public ExpiryDetails1? NewExpiryDetails { get; init; } 
     /// <summary>
     /// Requested new beneficiary of the undertaking.
     /// </summary>
-    [DataMember]
     public PartyIdentification43? NewBeneficiary { get; init; } 
     /// <summary>
     /// Requested new terms and conditions of the undertaking.
     /// </summary>
-    [DataMember]
-    public ValueList<Narrative1> NewUndertakingTermsAndConditions { get; init; } = []; // Warning: Don't know multiplicity.
+    public Narrative1? NewUndertakingTermsAndConditions { get; init; } 
     /// <summary>
     /// Amendment details related to the local undertaking.
     /// </summary>
-    [DataMember]
     public Undertaking11? LocalUndertaking { get; init; } 
     /// <summary>
     /// Indicates whether or not consent is requested from the beneficiary.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? BeneficiaryConsentRequestIndicator { get; init; } 
     /// <summary>
     /// Communication channel for delivery of the proposed amendment.
     /// </summary>
-    [DataMember]
     public CommunicationChannel1? DeliveryChannel { get; init; } 
     /// <summary>
     /// Document or template enclosed in the proposed amendment.
     /// </summary>
-    [DataMember]
-    public ValueList<Document9> EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
+    public Document9? EnclosedFile { get; init; } 
     /// <summary>
     /// Additional information related to the proposed amendment.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SeqNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(SequenceNumber)); // data type Max4AlphaNumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DtOfIssnc", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(DateOfIssuance)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UdrtkgId", xmlNamespace );
+        UndertakingIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdvisingParty is PartyIdentification43 AdvisingPartyValue)
+        {
+            writer.WriteStartElement(null, "AdvsgPty", xmlNamespace );
+            AdvisingPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecondAdvisingParty is PartyIdentification43 SecondAdvisingPartyValue)
+        {
+            writer.WriteStartElement(null, "ScndAdvsgPty", xmlNamespace );
+            SecondAdvisingPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TerminationDetails is UndertakingTermination3 TerminationDetailsValue)
+        {
+            writer.WriteStartElement(null, "TermntnDtls", xmlNamespace );
+            TerminationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UndertakingAmountAdjustment is UndertakingAmount2 UndertakingAmountAdjustmentValue)
+        {
+            writer.WriteStartElement(null, "UdrtkgAmtAdjstmnt", xmlNamespace );
+            UndertakingAmountAdjustmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewExpiryDetails is ExpiryDetails1 NewExpiryDetailsValue)
+        {
+            writer.WriteStartElement(null, "NewXpryDtls", xmlNamespace );
+            NewExpiryDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewBeneficiary is PartyIdentification43 NewBeneficiaryValue)
+        {
+            writer.WriteStartElement(null, "NewBnfcry", xmlNamespace );
+            NewBeneficiaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewUndertakingTermsAndConditions is Narrative1 NewUndertakingTermsAndConditionsValue)
+        {
+            writer.WriteStartElement(null, "NewUdrtkgTermsAndConds", xmlNamespace );
+            NewUndertakingTermsAndConditionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LocalUndertaking is Undertaking11 LocalUndertakingValue)
+        {
+            writer.WriteStartElement(null, "LclUdrtkg", xmlNamespace );
+            LocalUndertakingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BeneficiaryConsentRequestIndicator is IsoYesNoIndicator BeneficiaryConsentRequestIndicatorValue)
+        {
+            writer.WriteStartElement(null, "BnfcryCnsntReqInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(BeneficiaryConsentRequestIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (DeliveryChannel is CommunicationChannel1 DeliveryChannelValue)
+        {
+            writer.WriteStartElement(null, "DlvryChanl", xmlNamespace );
+            DeliveryChannelValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EnclosedFile is Document9 EnclosedFileValue)
+        {
+            writer.WriteStartElement(null, "NclsdFile", xmlNamespace );
+            EnclosedFileValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+    }
+    public static Amendment1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

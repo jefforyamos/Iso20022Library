@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to identify the type or operations code of a transaction entry.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BankTransactionCodeStructure4
+     : IIsoXmlSerilizable<BankTransactionCodeStructure4>
 {
     #nullable enable
     
     /// <summary>
     /// Set of elements used to provide the domain, the family and the sub-family of the bank transaction code, in a structured and hierarchical format.||Usage: If a specific family or sub-family code cannot be provided, the generic family code defined for the domain or the generic sub-family code defined for the family should be provided.
     /// </summary>
-    [DataMember]
     public BankTransactionCodeStructure5? Domain { get; init; } 
     /// <summary>
     /// Bank transaction code in a proprietary form, as defined by the issuer.
     /// </summary>
-    [DataMember]
     public ProprietaryBankTransactionCodeStructure1? Proprietary { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Domain is BankTransactionCodeStructure5 DomainValue)
+        {
+            writer.WriteStartElement(null, "Domn", xmlNamespace );
+            DomainValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Proprietary is ProprietaryBankTransactionCodeStructure1 ProprietaryValue)
+        {
+            writer.WriteStartElement(null, "Prtry", xmlNamespace );
+            ProprietaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BankTransactionCodeStructure4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

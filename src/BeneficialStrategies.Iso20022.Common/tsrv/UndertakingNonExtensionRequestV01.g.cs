@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsrv.UndertakingNonExtensionRequestV01>;
 
 namespace BeneficialStrategies.Iso20022.tsrv;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.tsrv;
 /// The UndertakingNonExtensionRequest message is sent by the party that requested issuance of the undertaking (applicant or obligor) to the party that issued the undertaking. It is used to request no further automatic extensions to the expiry of the referenced undertaking.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The UndertakingNonExtensionRequest message is sent by the party that requested issuance of the undertaking (applicant or obligor) to the party that issued the undertaking. It is used to request no further automatic extensions to the expiry of the referenced undertaking.")]
-public partial record UndertakingNonExtensionRequestV01 : IOuterRecord
+public partial record UndertakingNonExtensionRequestV01 : IOuterRecord<UndertakingNonExtensionRequestV01,UndertakingNonExtensionRequestV01Document>
+    ,IIsoXmlSerilizable<UndertakingNonExtensionRequestV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record UndertakingNonExtensionRequestV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "UdrtkgNonXtnsnReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => UndertakingNonExtensionRequestV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -66,6 +73,32 @@ public partial record UndertakingNonExtensionRequestV01 : IOuterRecord
     {
         return new UndertakingNonExtensionRequestV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("UdrtkgNonXtnsnReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UdrtkgNonXtnsnReqDtls", xmlNamespace );
+        UndertakingNonExtensionRequestDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DigitalSignature is PartyAndSignature2 DigitalSignatureValue)
+        {
+            writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
+            DigitalSignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static UndertakingNonExtensionRequestV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -73,9 +106,7 @@ public partial record UndertakingNonExtensionRequestV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingNonExtensionRequestV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record UndertakingNonExtensionRequestV01Document : IOuterDocument<UndertakingNonExtensionRequestV01>
+public partial record UndertakingNonExtensionRequestV01Document : IOuterDocument<UndertakingNonExtensionRequestV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -91,5 +122,22 @@ public partial record UndertakingNonExtensionRequestV01Document : IOuterDocument
     /// <summary>
     /// The instance of <seealso cref="UndertakingNonExtensionRequestV01"/> is required.
     /// </summary>
+    [DataMember(Name=UndertakingNonExtensionRequestV01.XmlTag)]
     public required UndertakingNonExtensionRequestV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(UndertakingNonExtensionRequestV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

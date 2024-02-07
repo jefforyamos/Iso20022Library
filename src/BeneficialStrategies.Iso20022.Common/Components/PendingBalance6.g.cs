@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about pending balance and pending transactions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PendingBalance6
+     : IIsoXmlSerilizable<PendingBalance6>
 {
     #nullable enable
     
     /// <summary>
     /// Signed quantity of balance.
     /// </summary>
-    [DataMember]
     public required SignedQuantityFormat9 Balance { get; init; } 
     /// <summary>
     /// Overall process covering the trade and settlement transactions of financial instruments.
     /// </summary>
-    [DataMember]
-    public ValueList<SettlementTypeAndIdentification26> PendingTransactions { get; init; } = []; // Warning: Don't know multiplicity.
+    public SettlementTypeAndIdentification26? PendingTransactions { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Bal", xmlNamespace );
+        Balance.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PendingTransactions is SettlementTypeAndIdentification26 PendingTransactionsValue)
+        {
+            writer.WriteStartElement(null, "PdgTxs", xmlNamespace );
+            PendingTransactionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PendingBalance6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

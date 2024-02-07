@@ -7,63 +7,55 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters applied to the settlement of a security transfer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DeliverInformation19
+     : IIsoXmlSerilizable<DeliverInformation19>
 {
     #nullable enable
     
     /// <summary>
     /// Party that delivers (transferor) securities to the receiving agent (transferee).
     /// </summary>
-    [DataMember]
     public PartyIdentification113? Transferor { get; init; } 
     /// <summary>
     /// Account from which the securities are to be delivered.
     /// </summary>
-    [DataMember]
     public Account24? TransferorRegisteredAccount { get; init; } 
     /// <summary>
     /// Identification of a related party or intermediary.
     /// </summary>
-    [DataMember]
-    public ValueList<Intermediary41> IntermediaryInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public Intermediary41? IntermediaryInformation { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be exchanged at the International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// </summary>
-    [DataMember]
     public IsoISODate? RequestedSettlementDate { get; init; } 
     /// <summary>
     /// Total amount of money paid/to be paid or received in exchange for the financial instrument.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     /// <summary>
     /// Specifies if the settlement amount includes the stamp duty amount.
     /// </summary>
-    [DataMember]
     public StampDutyType2Code? StampDuty { get; init; } 
     /// <summary>
     /// Deal amount.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? NetAmount { get; init; } 
     /// <summary>
     /// Fee related to the transfer of the financial instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<Fees1> Fees { get; init; } = []; // Warning: Don't know multiplicity.
+    public Fees1? Fees { get; init; } 
     /// <summary>
     /// Tax related to the transfer of the financial instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<Tax34> IndividualTax { get; init; } = []; // Warning: Don't know multiplicity.
+    public Tax34? IndividualTax { get; init; } 
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
     /// How the exchange rate is expressed determines which currency is the Unit Currency and Quoted Currency. If the amounts concerned are EUR 1000 and USD 1300, the exchange rate may be expressed as per either of the following examples:
@@ -76,28 +68,124 @@ public partial record DeliverInformation19
     /// QuotedCurrency EUR
     /// ExchangeRate 0.769.
     /// </summary>
-    [DataMember]
-    public ValueList<ForeignExchangeTerms33> ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public ForeignExchangeTerms33? ForeignExchangeDetails { get; init; } 
     /// <summary>
     /// Chain of parties involved in the settlement of a transaction.
     /// </summary>
-    [DataMember]
     public DeliveringPartiesAndAccount17? SettlementPartiesDetails { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>
-    [DataMember]
     public PhysicalTransferType1Code? PhysicalTransfer { get; init; } 
     /// <summary>
     /// Parameters of a physical delivery.
     /// </summary>
-    [DataMember]
     public DeliveryParameters4? PhysicalTransferDetails { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
-    [DataMember]
     public AdditionalReference8? ClientReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Transferor is PartyIdentification113 TransferorValue)
+        {
+            writer.WriteStartElement(null, "Trfr", xmlNamespace );
+            TransferorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransferorRegisteredAccount is Account24 TransferorRegisteredAccountValue)
+        {
+            writer.WriteStartElement(null, "TrfrRegdAcct", xmlNamespace );
+            TransferorRegisteredAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryInformation is Intermediary41 IntermediaryInformationValue)
+        {
+            writer.WriteStartElement(null, "IntrmyInf", xmlNamespace );
+            IntermediaryInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequestedSettlementDate is IsoISODate RequestedSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "ReqdSttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(RequestedSettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SettlementAmount is IsoActiveCurrencyAndAmount SettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(SettlementAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (StampDuty is StampDutyType2Code StampDutyValue)
+        {
+            writer.WriteStartElement(null, "StmpDty", xmlNamespace );
+            writer.WriteValue(StampDutyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (NetAmount is IsoActiveCurrencyAndAmount NetAmountValue)
+        {
+            writer.WriteStartElement(null, "NetAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(NetAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Fees is Fees1 FeesValue)
+        {
+            writer.WriteStartElement(null, "Fees", xmlNamespace );
+            FeesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IndividualTax is Tax34 IndividualTaxValue)
+        {
+            writer.WriteStartElement(null, "IndvTax", xmlNamespace );
+            IndividualTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ForeignExchangeDetails is ForeignExchangeTerms33 ForeignExchangeDetailsValue)
+        {
+            writer.WriteStartElement(null, "FXDtls", xmlNamespace );
+            ForeignExchangeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementPartiesDetails is DeliveringPartiesAndAccount17 SettlementPartiesDetailsValue)
+        {
+            writer.WriteStartElement(null, "SttlmPtiesDtls", xmlNamespace );
+            SettlementPartiesDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PhysicalTransfer is PhysicalTransferType1Code PhysicalTransferValue)
+        {
+            writer.WriteStartElement(null, "PhysTrf", xmlNamespace );
+            writer.WriteValue(PhysicalTransferValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PhysicalTransferDetails is DeliveryParameters4 PhysicalTransferDetailsValue)
+        {
+            writer.WriteStartElement(null, "PhysTrfDtls", xmlNamespace );
+            PhysicalTransferDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClientReference is AdditionalReference8 ClientReferenceValue)
+        {
+            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
+            ClientReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DeliverInformation19 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

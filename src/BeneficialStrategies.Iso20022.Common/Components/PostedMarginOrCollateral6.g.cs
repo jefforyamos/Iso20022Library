@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information on the posted margin or collateral of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PostedMarginOrCollateral6
+     : IIsoXmlSerilizable<PostedMarginOrCollateral6>
 {
     #nullable enable
     
@@ -23,33 +24,75 @@ public partial record PostedMarginOrCollateral6
     /// Value of the initial margin posted by the reporting counterparty to the other counterparty.
     /// Where initial margin is posted on a portfolio basis, this field should include the overall value of initial margin posted for the portfolio.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? InitialMarginPostedPreHaircut { get; init; } 
     /// <summary>
     /// Value of the initial margin posted by the reporting counterparty to the other counterparty.
     /// Where initial margin is posted on a portfolio basis, this field should include the overall value of initial margin posted for the portfolio.
     /// Post-haircut values of margins depend on associated risk of changes in collateral value and therefore on the nature of the collateral posted (or collected).
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? InitialMarginPostedPostHaircut { get; init; } 
     /// <summary>
     /// Value of the variation margin posted, including cash settled, by the reporting counterparty to the other counterparty.
     /// Where variation margin is posted on a portfolio basis, this field should include the overall value of variation margin posted for the portfolio.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? VariationMarginPostedPreHaircut { get; init; } 
     /// <summary>
     /// Value of the variation margin posted, including cash settled, by the reporting counterparty to the other counterparty.
     /// Where variation margin is posted on a portfolio basis, this field should include the overall value of variation margin posted for the portfolio.
     /// Post-haircut values of margins depend on associated risk of changes in collateral value and therefore on the nature of the collateral posted (or collected).
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? VariationMarginPostedPostHaircut { get; init; } 
     /// <summary>
     /// Value of collateral posted in excess of the required collateral.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? ExcessCollateralPosted { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (InitialMarginPostedPreHaircut is IsoActiveOrHistoricCurrencyAnd20DecimalAmount InitialMarginPostedPreHaircutValue)
+        {
+            writer.WriteStartElement(null, "InitlMrgnPstdPreHrcut", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd20DecimalAmount(InitialMarginPostedPreHaircutValue)); // data type ActiveOrHistoricCurrencyAnd20DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (InitialMarginPostedPostHaircut is IsoActiveOrHistoricCurrencyAnd20DecimalAmount InitialMarginPostedPostHaircutValue)
+        {
+            writer.WriteStartElement(null, "InitlMrgnPstdPstHrcut", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd20DecimalAmount(InitialMarginPostedPostHaircutValue)); // data type ActiveOrHistoricCurrencyAnd20DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (VariationMarginPostedPreHaircut is IsoActiveOrHistoricCurrencyAnd20DecimalAmount VariationMarginPostedPreHaircutValue)
+        {
+            writer.WriteStartElement(null, "VartnMrgnPstdPreHrcut", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd20DecimalAmount(VariationMarginPostedPreHaircutValue)); // data type ActiveOrHistoricCurrencyAnd20DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (VariationMarginPostedPostHaircut is IsoActiveOrHistoricCurrencyAnd20DecimalAmount VariationMarginPostedPostHaircutValue)
+        {
+            writer.WriteStartElement(null, "VartnMrgnPstdPstHrcut", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd20DecimalAmount(VariationMarginPostedPostHaircutValue)); // data type ActiveOrHistoricCurrencyAnd20DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExcessCollateralPosted is IsoActiveOrHistoricCurrencyAnd20DecimalAmount ExcessCollateralPostedValue)
+        {
+            writer.WriteStartElement(null, "XcssCollPstd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd20DecimalAmount(ExcessCollateralPostedValue)); // data type ActiveOrHistoricCurrencyAnd20DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static PostedMarginOrCollateral6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

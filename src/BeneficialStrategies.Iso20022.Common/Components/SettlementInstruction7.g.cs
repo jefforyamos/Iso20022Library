@@ -7,63 +7,123 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides further details on the settlement of the instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementInstruction7
+     : IIsoXmlSerilizable<SettlementInstruction7>
 {
     #nullable enable
     
     /// <summary>
     /// Method used to settle the (batch of) payment instructions.
     /// </summary>
-    [DataMember]
     public required SettlementMethod1Code SettlementMethod { get; init; } 
     /// <summary>
     /// A specific purpose account used to post debit and credit entries as a result of the transaction.
     /// </summary>
-    [DataMember]
     public CashAccount38? SettlementAccount { get; init; } 
     /// <summary>
     /// Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
     /// </summary>
-    [DataMember]
     public ClearingSystemIdentification3Choice_? ClearingSystem { get; init; } 
     /// <summary>
     /// Agent through which the instructing agent will reimburse the instructed agent.||Usage: If InstructingAgent and InstructedAgent have the same reimbursement agent, then only InstructingReimbursementAgent must be used.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? InstructingReimbursementAgent { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the instructing reimbursement agent account at its servicing agent in the payment chain.
     /// </summary>
-    [DataMember]
     public CashAccount38? InstructingReimbursementAgentAccount { get; init; } 
     /// <summary>
     /// Agent at which the instructed agent will be reimbursed.|Usage: If InstructedReimbursementAgent contains a branch of the InstructedAgent, then the party in InstructedAgent will claim reimbursement from that branch/will be paid by that branch.|Usage: If InstructingAgent and InstructedAgent have the same reimbursement agent, then only InstructingReimbursementAgent must be used.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? InstructedReimbursementAgent { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the instructed reimbursement agent account at its servicing agent in the payment chain.
     /// </summary>
-    [DataMember]
     public CashAccount38? InstructedReimbursementAgentAccount { get; init; } 
     /// <summary>
     /// Agent at which the instructed agent will be reimbursed.|Usage: If ThirdReimbursementAgent contains a branch of the InstructedAgent, then the party in InstructedAgent will claim reimbursement from that branch/will be paid by that branch.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? ThirdReimbursementAgent { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the third reimbursement agent account at its servicing agent in the payment chain.
     /// </summary>
-    [DataMember]
     public CashAccount38? ThirdReimbursementAgentAccount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttlmMtd", xmlNamespace );
+        writer.WriteValue(SettlementMethod.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SettlementAccount is CashAccount38 SettlementAccountValue)
+        {
+            writer.WriteStartElement(null, "SttlmAcct", xmlNamespace );
+            SettlementAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingSystem is ClearingSystemIdentification3Choice_ ClearingSystemValue)
+        {
+            writer.WriteStartElement(null, "ClrSys", xmlNamespace );
+            ClearingSystemValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructingReimbursementAgent is BranchAndFinancialInstitutionIdentification6 InstructingReimbursementAgentValue)
+        {
+            writer.WriteStartElement(null, "InstgRmbrsmntAgt", xmlNamespace );
+            InstructingReimbursementAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructingReimbursementAgentAccount is CashAccount38 InstructingReimbursementAgentAccountValue)
+        {
+            writer.WriteStartElement(null, "InstgRmbrsmntAgtAcct", xmlNamespace );
+            InstructingReimbursementAgentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructedReimbursementAgent is BranchAndFinancialInstitutionIdentification6 InstructedReimbursementAgentValue)
+        {
+            writer.WriteStartElement(null, "InstdRmbrsmntAgt", xmlNamespace );
+            InstructedReimbursementAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructedReimbursementAgentAccount is CashAccount38 InstructedReimbursementAgentAccountValue)
+        {
+            writer.WriteStartElement(null, "InstdRmbrsmntAgtAcct", xmlNamespace );
+            InstructedReimbursementAgentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ThirdReimbursementAgent is BranchAndFinancialInstitutionIdentification6 ThirdReimbursementAgentValue)
+        {
+            writer.WriteStartElement(null, "ThrdRmbrsmntAgt", xmlNamespace );
+            ThirdReimbursementAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ThirdReimbursementAgentAccount is CashAccount38 ThirdReimbursementAgentAccountValue)
+        {
+            writer.WriteStartElement(null, "ThrdRmbrsmntAgtAcct", xmlNamespace );
+            ThirdReimbursementAgentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementInstruction7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

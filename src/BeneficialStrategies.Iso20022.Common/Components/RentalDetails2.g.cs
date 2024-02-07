@@ -7,58 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of car rental service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RentalDetails2
+     : IIsoXmlSerilizable<RentalDetails2>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the car rental service.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? RentalIdentification { get; init; } 
     /// <summary>
     /// Date and time of registration of car rental service as  per folio.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? RentalDateTime { get; init; } 
     /// <summary>
     /// Details of the vehicle at the start of the rental period.
     /// </summary>
-    [DataMember]
     public ServiceStartEnd2? RentalStart { get; init; } 
     /// <summary>
     /// Details of the vehicle at the end of the rental period.
     /// </summary>
-    [DataMember]
     public ServiceStartEnd2? RentalReturn { get; init; } 
     /// <summary>
     /// Time period for the whole duration of rental.
     /// </summary>
-    [DataMember]
-    public ValueList<PeriodUnit2Code> RentalTimePeriod { get; init; } = []; // Warning: Don't know multiplicity.
+    public PeriodUnit2Code? RentalTimePeriod { get; init; } 
     /// <summary>
     /// Time period expressed in a number of units (for example, 1 week, 3 days, etc.).
     /// </summary>
-    [DataMember]
     public IsoMax4NumericText? TimePeriodUnit { get; init; } 
     /// <summary>
     /// Rate for the time period.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? TimePeriodRate { get; init; } 
     /// <summary>
     /// Currency code applied for the rental.
     /// </summary>
-    [DataMember]
     public ISO3NumericCurrencyCode? Currency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (RentalIdentification is IsoMax70Text RentalIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RntlId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(RentalIdentificationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (RentalDateTime is IsoISODateTime RentalDateTimeValue)
+        {
+            writer.WriteStartElement(null, "RntlDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(RentalDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (RentalStart is ServiceStartEnd2 RentalStartValue)
+        {
+            writer.WriteStartElement(null, "RntlStart", xmlNamespace );
+            RentalStartValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RentalReturn is ServiceStartEnd2 RentalReturnValue)
+        {
+            writer.WriteStartElement(null, "RntlRtr", xmlNamespace );
+            RentalReturnValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RentalTimePeriod is PeriodUnit2Code RentalTimePeriodValue)
+        {
+            writer.WriteStartElement(null, "RntlTmPrd", xmlNamespace );
+            writer.WriteValue(RentalTimePeriodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TimePeriodUnit is IsoMax4NumericText TimePeriodUnitValue)
+        {
+            writer.WriteStartElement(null, "TmPrdUnit", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(TimePeriodUnitValue)); // data type Max4NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (TimePeriodRate is IsoImpliedCurrencyAndAmount TimePeriodRateValue)
+        {
+            writer.WriteStartElement(null, "TmPrdRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(TimePeriodRateValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Currency is ISO3NumericCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static RentalDetails2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

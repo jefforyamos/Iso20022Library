@@ -7,55 +7,105 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the card transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardTransactionDetail4
+     : IIsoXmlSerilizable<CardTransactionDetail4>
 {
     #nullable enable
     
     /// <summary>
     /// Amounts of the transaction expressed within the terminal currency.
     /// </summary>
-    [DataMember]
     public required CardTransactionAmount4 TransactionAmounts { get; init; } 
     /// <summary>
     /// Fees between acquirer and issuer exclusive of the transaction amount, and expressed in the currency of the reconciliation.
     /// </summary>
-    [DataMember]
-    public ValueList<DetailedAmount11> TransactionFees { get; init; } = []; // Warning: Don't know multiplicity.
+    public DetailedAmount11? TransactionFees { get; init; } 
     /// <summary>
     /// Additional amounts from the processor or the issuer without financial impacts on the transaction amount.
     /// </summary>
-    [DataMember]
-    public ValueList<DetailedAmount10> AdditionalAmounts { get; init; } = []; // Warning: Don't know multiplicity.
+    public DetailedAmount10? AdditionalAmounts { get; init; } 
     /// <summary>
     /// Account involved in the card transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<CardAccount2> AccountAndBalance { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardAccount2? AccountAndBalance { get; init; } 
     /// <summary>
     /// Results of the verifications performed by the various agents during the processing of the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<TransactionVerificationResult4> TransactionVerificationResult { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransactionVerificationResult4? TransactionVerificationResult { get; init; } 
     /// <summary>
     /// Transaction authorisation deadline to complete the related payment.
     /// It corresponds to ISO 8583, field number 57 for the version 93, and 3 for the version 2003.
     /// </summary>
-    [DataMember]
     public IsoISODate? ValidityDate { get; init; } 
     /// <summary>
     /// Data related to an integrated circuit card application.
     /// It corresponds to ISO 8583, field number 55 for the versions 93 and 2003.
     /// </summary>
-    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxAmts", xmlNamespace );
+        TransactionAmounts.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionFees is DetailedAmount11 TransactionFeesValue)
+        {
+            writer.WriteStartElement(null, "TxFees", xmlNamespace );
+            TransactionFeesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalAmounts is DetailedAmount10 AdditionalAmountsValue)
+        {
+            writer.WriteStartElement(null, "AddtlAmts", xmlNamespace );
+            AdditionalAmountsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountAndBalance is CardAccount2 AccountAndBalanceValue)
+        {
+            writer.WriteStartElement(null, "AcctAndBal", xmlNamespace );
+            AccountAndBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionVerificationResult is TransactionVerificationResult4 TransactionVerificationResultValue)
+        {
+            writer.WriteStartElement(null, "TxVrfctnRslt", xmlNamespace );
+            TransactionVerificationResultValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValidityDate is IsoISODate ValidityDateValue)
+        {
+            writer.WriteStartElement(null, "VldtyDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ValidityDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ICCRelatedData is IsoMax10000Binary ICCRelatedDataValue)
+        {
+            writer.WriteStartElement(null, "ICCRltdData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(ICCRelatedDataValue)); // data type Max10000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static CardTransactionDetail4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

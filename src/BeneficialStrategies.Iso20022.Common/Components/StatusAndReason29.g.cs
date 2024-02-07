@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status and reason of a transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StatusAndReason29
+     : IIsoXmlSerilizable<StatusAndReason29>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the status of an instruction.
     /// </summary>
-    [DataMember]
     public ProcessingStatus62Choice_? ProcessingStatus { get; init; } 
     /// <summary>
     /// Provides the matching status of an instruction as known by the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).
     /// </summary>
-    [DataMember]
     public MatchingStatus32Choice_? InferredMatchingStatus { get; init; } 
     /// <summary>
     /// Provides the matching status of the instruction.
     /// </summary>
-    [DataMember]
     public MatchingStatus32Choice_? MatchingStatus { get; init; } 
     /// <summary>
     /// Provides the status of settlement of a transaction.
     /// </summary>
-    [DataMember]
     public SettlementStatus22Choice_? SettlementStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ProcessingStatus is ProcessingStatus62Choice_ ProcessingStatusValue)
+        {
+            writer.WriteStartElement(null, "PrcgSts", xmlNamespace );
+            ProcessingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InferredMatchingStatus is MatchingStatus32Choice_ InferredMatchingStatusValue)
+        {
+            writer.WriteStartElement(null, "IfrrdMtchgSts", xmlNamespace );
+            InferredMatchingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MatchingStatus is MatchingStatus32Choice_ MatchingStatusValue)
+        {
+            writer.WriteStartElement(null, "MtchgSts", xmlNamespace );
+            MatchingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementStatus is SettlementStatus22Choice_ SettlementStatusValue)
+        {
+            writer.WriteStartElement(null, "SttlmSts", xmlNamespace );
+            SettlementStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static StatusAndReason29 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

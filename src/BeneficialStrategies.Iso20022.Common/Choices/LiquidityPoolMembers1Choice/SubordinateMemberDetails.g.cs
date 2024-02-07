@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.LiquidityPoolMembers1Choice;
 
@@ -13,11 +15,33 @@ namespace BeneficialStrategies.Iso20022.Choices.LiquidityPoolMembers1Choice;
 /// List of subordinate liquidity pool member.
 /// </summary>
 public partial record SubordinateMemberDetails : LiquidityPoolMembers1Choice_
+     , IIsoXmlSerilizable<SubordinateMemberDetails>
 {
     #nullable enable
+    
     /// <summary>
     /// List of the identifier pairs.
     /// </summary>
     public AccountOwnerAndIdentification1? List { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _qhLMECDvEeav65mEytrgaA
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize List, multiplicity Unknown
+    }
+    public static new SubordinateMemberDetails Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

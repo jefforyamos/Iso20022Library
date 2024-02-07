@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account between an investor(s) and a fund manager or a fund. The account can contain holdings in any investment fund or investment fund class managed (or distributed) by the fund manager, within the same fund family.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestmentAccount69
+     : IIsoXmlSerilizable<InvestmentAccount69>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Supplementary registration information applying to a specific block of units for dealing and reporting purposes. The supplementary registration information may be used when all the units are registered, for example, to a funds supermarket, but holdings for each investor have to be reconciled individually.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Designation { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountName { get; init; } 
     /// <summary>
     /// Institution that maintains the records where the account is held.
     /// </summary>
-    [DataMember]
     public PartyIdentification132? Servicer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is IsoMax35Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Designation is IsoMax35Text DesignationValue)
+        {
+            writer.WriteStartElement(null, "Dsgnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DesignationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountName is IsoMax35Text AccountNameValue)
+        {
+            writer.WriteStartElement(null, "AcctNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Servicer is PartyIdentification132 ServicerValue)
+        {
+            writer.WriteStartElement(null, "Svcr", xmlNamespace );
+            ServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InvestmentAccount69 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

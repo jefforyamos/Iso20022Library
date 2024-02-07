@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the conditions for the execution of the payment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentCondition1
+     : IIsoXmlSerilizable<PaymentCondition1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates if the debtor is allowed to pay a different amount then the requested amount.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator AmountModificationAllowed { get; init; } 
     /// <summary>
     /// Indicates if the debtor is allowed to pay before the requested execution date.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator EarlyPaymentAllowed { get; init; } 
     /// <summary>
     /// Penalty to be applied for a delayed payment, that is when the payment is made after the requested execution date.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? DelayPenalty { get; init; } 
     /// <summary>
     /// Discount rate applied for immediate payment upon receipt of the request.
     /// </summary>
-    [DataMember]
     public AmountOrRate1Choice_? ImmediatePaymentRebate { get; init; } 
     /// <summary>
     /// Indicates if a payment guarantee is requested, assuming a payment guarantee contract exists between the different actors.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator GuaranteedPaymentRequested { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AmtModAllwd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AmountModificationAllowed)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EarlyPmtAllwd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(EarlyPaymentAllowed)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        if (DelayPenalty is IsoMax140Text DelayPenaltyValue)
+        {
+            writer.WriteStartElement(null, "DelyPnlty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(DelayPenaltyValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (ImmediatePaymentRebate is AmountOrRate1Choice_ ImmediatePaymentRebateValue)
+        {
+            writer.WriteStartElement(null, "ImdtPmtRbt", xmlNamespace );
+            ImmediatePaymentRebateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "GrntedPmtReqd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(GuaranteedPaymentRequested)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static PaymentCondition1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

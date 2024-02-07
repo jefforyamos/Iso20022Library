@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PaymentSchedule1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentSchedule1Choice;
 /// Specifies a payment sub-schedule, that is the amount of money that must be paid no sooner than the expected date and no later than the latest shipment date.
 /// </summary>
 public partial record SubSchedule : PaymentSchedule1Choice_
+     , IIsoXmlSerilizable<SubSchedule>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique and unambiguous identification of the payment schedule.
     /// </summary>
@@ -31,5 +35,41 @@ public partial record SubSchedule : PaymentSchedule1Choice_
     /// Latest date whereby the amount of money must be paid.
     /// </summary>
     public required IsoISODate DueDate { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PaymentScheduleIdentification is IsoMax35Text PaymentScheduleIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PmtSchdlId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PaymentScheduleIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (ExpectedDate is IsoISODate ExpectedDateValue)
+        {
+            writer.WriteStartElement(null, "XpctdDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExpectedDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DueDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(DueDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+    }
+    public static new SubSchedule Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

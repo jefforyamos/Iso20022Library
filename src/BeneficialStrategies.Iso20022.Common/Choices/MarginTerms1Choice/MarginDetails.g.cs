@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.MarginTerms1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.MarginTerms1Choice;
 /// Elements used to calculate the collateral margin call for the variation margin and optionally the segregated independent amount.
 /// </summary>
 public partial record MarginDetails : MarginTerms1Choice_
+     , IIsoXmlSerilizable<MarginDetails>
 {
     #nullable enable
+    
     /// <summary>
     /// Elements used to calculate the collateral margin call for the variation margin.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record MarginDetails : MarginTerms1Choice_
     /// Elements used to calculate the collateral margin call for the segregated independent amount.
     /// </summary>
     public SegregatedIndependentAmountMargin1? SegregatedIndependentAmountMargin { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "VartnMrgn", xmlNamespace );
+        VariationMargin.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SegregatedIndependentAmountMargin is SegregatedIndependentAmountMargin1 SegregatedIndependentAmountMarginValue)
+        {
+            writer.WriteStartElement(null, "SgrtdIndpdntAmtMrgn", xmlNamespace );
+            SegregatedIndependentAmountMarginValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new MarginDetails Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsrv.UndertakingAmendmentRequestV01>;
 
 namespace BeneficialStrategies.Iso20022.tsrv;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.tsrv;
 /// The UndertakingAmendmentRequest message is sent by the party that requested issuance of the undertaking (applicant or obligor) to the party that issued the undertaking to request issuance of a proposed amendment to the undertaking. The undertaking could be a demand guarantee, standby letter of credit, counter-undertaking (counter-guarantee or counter-standby), or suretyship undertaking. The message provides details on proposed changes to the undertaking, for example, to the expiry date, amount, and/or terms and conditions. It may also be used to request termination or cancellation of the undertaking.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The UndertakingAmendmentRequest message is sent by the party that requested issuance of the undertaking (applicant or obligor) to the party that issued the undertaking to request issuance of a proposed amendment to the undertaking. The undertaking could be a demand guarantee, standby letter of credit, counter-undertaking (counter-guarantee or counter-standby), or suretyship undertaking. The message provides details on proposed changes to the undertaking, for example, to the expiry date, amount, and/or terms and conditions. It may also be used to request termination or cancellation of the undertaking.")]
-public partial record UndertakingAmendmentRequestV01 : IOuterRecord
+public partial record UndertakingAmendmentRequestV01 : IOuterRecord<UndertakingAmendmentRequestV01,UndertakingAmendmentRequestV01Document>
+    ,IIsoXmlSerilizable<UndertakingAmendmentRequestV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record UndertakingAmendmentRequestV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "UdrtkgAmdmntReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => UndertakingAmendmentRequestV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -55,7 +62,7 @@ public partial record UndertakingAmendmentRequestV01 : IOuterRecord
     [Description(@"Instructions specific to the bank receiving the message.")]
     [DataMember(Name="InstrsToBk")]
     [XmlElement(ElementName="InstrsToBk")]
-    public required IReadOnlyCollection<IsoMax2000Text> InstructionsToBank { get; init; } = []; // Min=0, Max=5
+    public required SimpleValueList<IsoMax2000Text> InstructionsToBank { get; init; } = []; // Min=0, Max=5
     
     /// <summary>
     /// Digital signature of the undertaking amendment request.
@@ -75,6 +82,35 @@ public partial record UndertakingAmendmentRequestV01 : IOuterRecord
     {
         return new UndertakingAmendmentRequestV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("UdrtkgAmdmntReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UdrtkgAmdmntReqDtls", xmlNamespace );
+        UndertakingAmendmentRequestDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InstrsToBk", xmlNamespace );
+        InstructionsToBank.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+        if (DigitalSignature is PartyAndSignature2 DigitalSignatureValue)
+        {
+            writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
+            DigitalSignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static UndertakingAmendmentRequestV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -82,9 +118,7 @@ public partial record UndertakingAmendmentRequestV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingAmendmentRequestV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record UndertakingAmendmentRequestV01Document : IOuterDocument<UndertakingAmendmentRequestV01>
+public partial record UndertakingAmendmentRequestV01Document : IOuterDocument<UndertakingAmendmentRequestV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -100,5 +134,22 @@ public partial record UndertakingAmendmentRequestV01Document : IOuterDocument<Un
     /// <summary>
     /// The instance of <seealso cref="UndertakingAmendmentRequestV01"/> is required.
     /// </summary>
+    [DataMember(Name=UndertakingAmendmentRequestV01.XmlTag)]
     public required UndertakingAmendmentRequestV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(UndertakingAmendmentRequestV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.References59Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.References59Choice;
 /// Unambiguous identification of the underlying securities financing transaction (not the underlying securities financing trade) as assigned by the instructing party.
 /// </summary>
 public partial record SecuritiesFinancingTransactionIdentification : References59Choice_
+     , IIsoXmlSerilizable<SecuritiesFinancingTransactionIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Provides unambiguous transaction identification information.
     /// </summary>
@@ -27,5 +31,32 @@ public partial record SecuritiesFinancingTransactionIdentification : References5
     /// Specifies how the transaction is to be settled, for example, against payment.
     /// </summary>
     public required DeliveryReceiptType2Code Payment { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(TransactionIdentification)); // data type RestrictedFINXMax16Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctiesMvmntTp", xmlNamespace );
+        writer.WriteValue(SecuritiesMovementType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Pmt", xmlNamespace );
+        writer.WriteValue(Payment.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new SecuritiesFinancingTransactionIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

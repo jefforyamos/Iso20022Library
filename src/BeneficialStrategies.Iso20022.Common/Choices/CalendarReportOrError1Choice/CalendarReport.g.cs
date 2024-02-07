@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CalendarReportOrError1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.CalendarReportOrError1Choice;
 /// Provides the calendar information related to the system.
 /// </summary>
 public partial record CalendarReport : CalendarReportOrError1Choice_
+     , IIsoXmlSerilizable<CalendarReport>
 {
     #nullable enable
+    
     /// <summary>
     /// Identification of the service or system for which the calendar information is provided.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record CalendarReport : CalendarReportOrError1Choice_
     /// Requested information on the calendar or business error report when information has not been found.
     /// </summary>
     public required CalendarOrBusinessError1Choice_ CalendarOrError { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Service is SystemAndCurrency1 ServiceValue)
+        {
+            writer.WriteStartElement(null, "Svc", xmlNamespace );
+            ServiceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CalOrErr", xmlNamespace );
+        CalendarOrError.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new CalendarReport Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

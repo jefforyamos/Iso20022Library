@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the processing status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IndividualMovementStatus1
+     : IIsoXmlSerilizable<IndividualMovementStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the movement.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MovementIdentification { get; init; } 
     /// <summary>
     /// Provides information about the processing status of individual movement.
     /// </summary>
-    [DataMember]
     public required MovementProcessingStatus1 ProcessedStatus { get; init; } 
     /// <summary>
     /// Provides information about the rejection status.
     /// </summary>
-    [DataMember]
     public required DistributionRejectionStatus1 RejectedStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MovementIdentification is IsoMax35Text MovementIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MvmntId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MovementIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PrcdSts", xmlNamespace );
+        ProcessedStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RjctdSts", xmlNamespace );
+        RejectedStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static IndividualMovementStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

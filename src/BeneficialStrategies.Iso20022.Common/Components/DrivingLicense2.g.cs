@@ -7,68 +7,133 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of driving license.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DrivingLicense2
+     : IIsoXmlSerilizable<DrivingLicense2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of driving license.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Type { get; init; } 
     /// <summary>
     /// Form of driving license.
     /// </summary>
-    [DataMember]
     public PresentationMedium2Code? Form { get; init; } 
     /// <summary>
     /// Identification of the driver license (for example, driver license number).
     /// </summary>
-    [DataMember]
     public required IsoMax70Text Identification { get; init; } 
     /// <summary>
     /// Authority assigning an identification to a driver license.
     /// </summary>
-    [DataMember]
     public LegalStructure1Code? Assigner { get; init; } 
     /// <summary>
     /// Date of issuance of the driving license.
     /// </summary>
-    [DataMember]
     public IsoISODate? IssuanceDate { get; init; } 
     /// <summary>
     /// Expiration date of the driving license (if and when relevant).
     /// </summary>
-    [DataMember]
     public IsoISODate? ExpirationDate { get; init; } 
     /// <summary>
     /// Country issuing the driver license.
     /// </summary>
-    [DataMember]
     public ISOMax3ACountryCode? Country { get; init; } 
     /// <summary>
     /// State issuing the driver license (if and when relevant).
     /// </summary>
-    [DataMember]
     public IsoMax16Text? State { get; init; } 
     /// <summary>
     /// Province issuing the driver license (if and when relevant).
     /// </summary>
-    [DataMember]
     public IsoMax16Text? Province { get; init; } 
     /// <summary>
     /// Other authority issuing a driver license.
     /// </summary>
-    [DataMember]
     public IsoMax16Text? OtherAuthority { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is IsoMax70Text TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(TypeValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Form is PresentationMedium2Code FormValue)
+        {
+            writer.WriteStartElement(null, "Form", xmlNamespace );
+            writer.WriteValue(FormValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(Identification)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        if (Assigner is LegalStructure1Code AssignerValue)
+        {
+            writer.WriteStartElement(null, "Assgnr", xmlNamespace );
+            writer.WriteValue(AssignerValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (IssuanceDate is IsoISODate IssuanceDateValue)
+        {
+            writer.WriteStartElement(null, "IssncDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(IssuanceDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ExpirationDate is IsoISODate ExpirationDateValue)
+        {
+            writer.WriteStartElement(null, "XprtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExpirationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Country is ISOMax3ACountryCode CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(CountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (State is IsoMax16Text StateValue)
+        {
+            writer.WriteStartElement(null, "Stat", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax16Text(StateValue)); // data type Max16Text System.String
+            writer.WriteEndElement();
+        }
+        if (Province is IsoMax16Text ProvinceValue)
+        {
+            writer.WriteStartElement(null, "Prvc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax16Text(ProvinceValue)); // data type Max16Text System.String
+            writer.WriteEndElement();
+        }
+        if (OtherAuthority is IsoMax16Text OtherAuthorityValue)
+        {
+            writer.WriteStartElement(null, "OthrAuthrty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax16Text(OtherAuthorityValue)); // data type Max16Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static DrivingLicense2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

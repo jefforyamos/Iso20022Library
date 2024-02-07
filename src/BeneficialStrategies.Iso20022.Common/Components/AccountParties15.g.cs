@@ -7,88 +7,164 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a party's account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountParties15
+     : IIsoXmlSerilizable<AccountParties15>
 {
     #nullable enable
     
     /// <summary>
     /// Main party associated with the account.
     /// </summary>
-    [DataMember]
     public required AccountParties10Choice_ PrincipalAccountParty { get; init; } 
     /// <summary>
     /// Entity that is not the primary owner when the ownership of the investment account is split among several owners.
     /// </summary>
-    [DataMember]
-    public ValueList<InvestmentAccountOwnershipInformation14> SecondaryOwner { get; init; } = []; // Warning: Don't know multiplicity.
+    public InvestmentAccountOwnershipInformation14? SecondaryOwner { get; init; } 
     /// <summary>
     /// Ultimate party that is entitled to either receive the benefits of the ownership of a financial instrument, or to be paid/credited as a result of a transfer.
     /// </summary>
-    [DataMember]
-    public ValueList<InvestmentAccountOwnershipInformation14> Beneficiary { get; init; } = []; // Warning: Don't know multiplicity.
+    public InvestmentAccountOwnershipInformation14? Beneficiary { get; init; } 
     /// <summary>
     /// Entity that was given the authority by another entity to act on its behalf.
     /// </summary>
-    [DataMember]
-    public ValueList<InvestmentAccountOwnershipInformation14> PowerOfAttorney { get; init; } = []; // Warning: Don't know multiplicity.
+    public InvestmentAccountOwnershipInformation14? PowerOfAttorney { get; init; } 
     /// <summary>
     /// Entity that has been appointed by a legal authority to act on behalf of a person judged to be incapacitated.
     /// </summary>
-    [DataMember]
-    public ValueList<InvestmentAccountOwnershipInformation14> LegalGuardian { get; init; } = []; // Warning: Don't know multiplicity.
+    public InvestmentAccountOwnershipInformation14? LegalGuardian { get; init; } 
     /// <summary>
     /// Entity that holds shares/units on behalf of a legal minor. Although the account is registered under the name of the minor, the custodian retains control of the account.
     /// </summary>
-    [DataMember]
     public InvestmentAccountOwnershipInformation14? CustodianForMinor { get; init; } 
     /// <summary>
     /// Deceased's estate, or successor, to whom the respective percentage of ownership will be transferred upon the death of one of the owners.
     /// </summary>
-    [DataMember]
     public ValueList<InvestmentAccountOwnershipInformation14> SuccessorOnDeath { get; init; } = [];
     /// <summary>
     /// Entity that has been appointed by a legal authority to act on behalf of a person or organisation that has gone bankrupt.
     /// </summary>
-    [DataMember]
-    public ValueList<InvestmentAccountOwnershipInformation14> Administrator { get; init; } = []; // Warning: Don't know multiplicity.
+    public InvestmentAccountOwnershipInformation14? Administrator { get; init; } 
     /// <summary>
     /// Other type of party.
     /// </summary>
-    [DataMember]
-    public ValueList<ExtendedParty11> OtherParty { get; init; } = []; // Warning: Don't know multiplicity.
+    public ExtendedParty11? OtherParty { get; init; } 
     /// <summary>
     /// Granter role in the hedge funds industry.
     /// </summary>
-    [DataMember]
     public ValueList<InvestmentAccountOwnershipInformation14> Granter { get; init; } = [];
     /// <summary>
     /// Entity that creates a trust or contributes assets to the trust.
     /// </summary>
-    [DataMember]
     public ValueList<InvestmentAccountOwnershipInformation14> Settlor { get; init; } = [];
     /// <summary>
     /// Party that makes, or participates in the making of, decisions that affect the whole, or a substantial part, of the business of a customer of a reporting entity or that has the capacity to affect significantly the financial standing of a customer of a reporting entity. Typically, this is a controlling person of a corporate (ownership type CORP).
     /// </summary>
-    [DataMember]
-    public ValueList<InvestmentAccountOwnershipInformation14> SeniorManagingOfficial { get; init; } = []; // Warning: Don't know multiplicity.
+    public InvestmentAccountOwnershipInformation14? SeniorManagingOfficial { get; init; } 
     /// <summary>
     /// Person appointed under the trust instrument to direct or restrain the trustees in relation to their administration of the trust. Typically, this is a controlling person of a trust (ownership type TRUS) or other non-individual organisation (ownership type ONIS).
     /// </summary>
-    [DataMember]
-    public ValueList<InvestmentAccountOwnershipInformation14> Protector { get; init; } = []; // Warning: Don't know multiplicity.
+    public InvestmentAccountOwnershipInformation14? Protector { get; init; } 
     /// <summary>
     /// Party that registers its name with the issuer and the name used for the registration.
     /// </summary>
-    [DataMember]
     public RegisteredShareholderName1Choice_? RegisteredShareholderName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrncplAcctPty", xmlNamespace );
+        PrincipalAccountParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecondaryOwner is InvestmentAccountOwnershipInformation14 SecondaryOwnerValue)
+        {
+            writer.WriteStartElement(null, "ScndryOwnr", xmlNamespace );
+            SecondaryOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Beneficiary is InvestmentAccountOwnershipInformation14 BeneficiaryValue)
+        {
+            writer.WriteStartElement(null, "Bnfcry", xmlNamespace );
+            BeneficiaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PowerOfAttorney is InvestmentAccountOwnershipInformation14 PowerOfAttorneyValue)
+        {
+            writer.WriteStartElement(null, "PwrOfAttny", xmlNamespace );
+            PowerOfAttorneyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LegalGuardian is InvestmentAccountOwnershipInformation14 LegalGuardianValue)
+        {
+            writer.WriteStartElement(null, "LglGuardn", xmlNamespace );
+            LegalGuardianValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CustodianForMinor is InvestmentAccountOwnershipInformation14 CustodianForMinorValue)
+        {
+            writer.WriteStartElement(null, "CtdnForMnr", xmlNamespace );
+            CustodianForMinorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SucssrOnDth", xmlNamespace );
+        SuccessorOnDeath.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Administrator is InvestmentAccountOwnershipInformation14 AdministratorValue)
+        {
+            writer.WriteStartElement(null, "Admstr", xmlNamespace );
+            AdministratorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherParty is ExtendedParty11 OtherPartyValue)
+        {
+            writer.WriteStartElement(null, "OthrPty", xmlNamespace );
+            OtherPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Grntr", xmlNamespace );
+        Granter.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sttlr", xmlNamespace );
+        Settlor.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SeniorManagingOfficial is InvestmentAccountOwnershipInformation14 SeniorManagingOfficialValue)
+        {
+            writer.WriteStartElement(null, "SnrMggOffcl", xmlNamespace );
+            SeniorManagingOfficialValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Protector is InvestmentAccountOwnershipInformation14 ProtectorValue)
+        {
+            writer.WriteStartElement(null, "Prtctr", xmlNamespace );
+            ProtectorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RegisteredShareholderName is RegisteredShareholderName1Choice_ RegisteredShareholderNameValue)
+        {
+            writer.WriteStartElement(null, "RegdShrhldrNm", xmlNamespace );
+            RegisteredShareholderNameValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountParties15 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

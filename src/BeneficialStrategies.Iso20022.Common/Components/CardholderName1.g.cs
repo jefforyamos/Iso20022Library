@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Complete name of the cardholder.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardholderName1
+     : IIsoXmlSerilizable<CardholderName1>
 {
     #nullable enable
     
     /// <summary>
     /// Exact replication of the name of the cardholder as it appears on the card.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// First name of the cardholder.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? GivenName { get; init; } 
     /// <summary>
     /// Middle initials present in the name of a person.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MiddleInitials { get; init; } 
     /// <summary>
     /// Family name of the cardholder.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? LastName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax70Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (GivenName is IsoMax35Text GivenNameValue)
+        {
+            writer.WriteStartElement(null, "GvnNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(GivenNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MiddleInitials is IsoMax35Text MiddleInitialsValue)
+        {
+            writer.WriteStartElement(null, "MddlInitls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MiddleInitialsValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (LastName is IsoMax35Text LastNameValue)
+        {
+            writer.WriteStartElement(null, "LastNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(LastNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CardholderName1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

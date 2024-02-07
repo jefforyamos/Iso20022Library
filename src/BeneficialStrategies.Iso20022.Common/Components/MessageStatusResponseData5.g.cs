@@ -7,63 +7,117 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Message status Response.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MessageStatusResponseData5
+     : IIsoXmlSerilizable<MessageStatusResponseData5>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the requested previous message.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ExchangeIdentification { get; init; } 
     /// <summary>
     /// Party that has initiated the previous message.
     /// </summary>
-    [DataMember]
     public required GenericIdentification177 InitiatingParty { get; init; } 
     /// <summary>
     /// Specific response of the Repeated Message sent back by the POI System.
     /// </summary>
-    [DataMember]
     public required ResponseType11 TransactionResponse { get; init; } 
     /// <summary>
     /// Content of the requested Loyalty Message Response.
     /// </summary>
-    [DataMember]
     public LoyaltyResponse2? RepeatedLoyaltyResponse { get; init; } 
     /// <summary>
     /// Content of the requested Payment Message Response.
     /// </summary>
-    [DataMember]
     public PaymentResponse3? RepeatedPaymentResponse { get; init; } 
     /// <summary>
     /// Content of the requested Reversal Message Response.
     /// </summary>
-    [DataMember]
     public ReversalResponse5? RepeatedReversalResponse { get; init; } 
     /// <summary>
     /// Content of the requested StoredValue Message Response.
     /// </summary>
-    [DataMember]
     public StoredValueResponse4? RepeatedStoredValueResponse { get; init; } 
     /// <summary>
     /// Content of the requested CardAcquisition Message Response.
     /// </summary>
-    [DataMember]
     public CardAcquisitionResponse2? RepeatedCardAcquisitionResponse { get; init; } 
     /// <summary>
     /// Content of the requested SendApplicationProtocolDataUnitCardReader Message Response.
     /// </summary>
-    [DataMember]
     public DeviceSendApplicationProtocolDataUnitCardReaderResponse1? RepeatedSendApplicationProtocolDataUnitCardReaderResponse { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "XchgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ExchangeIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InitgPty", xmlNamespace );
+        InitiatingParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxRspn", xmlNamespace );
+        TransactionResponse.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RepeatedLoyaltyResponse is LoyaltyResponse2 RepeatedLoyaltyResponseValue)
+        {
+            writer.WriteStartElement(null, "RpeatdLltyRspn", xmlNamespace );
+            RepeatedLoyaltyResponseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RepeatedPaymentResponse is PaymentResponse3 RepeatedPaymentResponseValue)
+        {
+            writer.WriteStartElement(null, "RpeatdPmtRspn", xmlNamespace );
+            RepeatedPaymentResponseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RepeatedReversalResponse is ReversalResponse5 RepeatedReversalResponseValue)
+        {
+            writer.WriteStartElement(null, "RpeatdRvslRspn", xmlNamespace );
+            RepeatedReversalResponseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RepeatedStoredValueResponse is StoredValueResponse4 RepeatedStoredValueResponseValue)
+        {
+            writer.WriteStartElement(null, "RpeatdStordValRspn", xmlNamespace );
+            RepeatedStoredValueResponseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RepeatedCardAcquisitionResponse is CardAcquisitionResponse2 RepeatedCardAcquisitionResponseValue)
+        {
+            writer.WriteStartElement(null, "RpeatdCardAcqstnRspn", xmlNamespace );
+            RepeatedCardAcquisitionResponseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RepeatedSendApplicationProtocolDataUnitCardReaderResponse is DeviceSendApplicationProtocolDataUnitCardReaderResponse1 RepeatedSendApplicationProtocolDataUnitCardReaderResponseValue)
+        {
+            writer.WriteStartElement(null, "RpeatdSndApplPrtcolDataUnitCardRdrRspn", xmlNamespace );
+            RepeatedSendApplicationProtocolDataUnitCardReaderResponseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MessageStatusResponseData5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

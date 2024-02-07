@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentification2Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// Extensive branch network list of the Australian Bank State Branch (BSB) Code. The codes are used for identifying Australian financial institutions, as assigned by the Australian Payments Clearing Association (APCA).
 /// </summary>
 public partial record AustralianExtensiveBranchNetworkIdentification : ClearingSystemMemberIdentification2Choice_
+     , IIsoXmlSerilizable<AustralianExtensiveBranchNetworkIdentification>
 {
-    public required IsoExtensiveBranchNetworkIdentifier Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// The extensive branch network list of the Australian Bank State Branch (BSB) Code. The codes are used for identifying Australian financial institutions, as assigned by the Australian Payments Clearing Association (APCA).
+    /// </summary>
+    public required IsoExtensiveBranchNetworkIdentifier Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AUBSBx", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExtensiveBranchNetworkIdentifier(Value)); // data type ExtensiveBranchNetworkIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static new AustralianExtensiveBranchNetworkIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

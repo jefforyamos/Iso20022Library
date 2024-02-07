@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification3Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification3Choice;
 /// Unique and unambiguous identifier for a payment instruction, as assigned by the clearing agent or the initiating party.
 /// </summary>
 public partial record PaymentInstructionReference : PaymentIdentification3Choice_
+     , IIsoXmlSerilizable<PaymentInstructionReference>
 {
-    public required IsoMax35Text Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a character string with a maximum length of 35 characters.
+    /// </summary>
+    public required IsoMax35Text Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PmtInstrRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Value)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static new PaymentInstructionReference Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

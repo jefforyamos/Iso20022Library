@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional references linked to the quote response.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Reference5
+     : IIsoXmlSerilizable<Reference5>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identifier for quote.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? QuoteIdentification { get; init; } 
     /// <summary>
     /// Unique identifier for quote request.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? QuoteRequestIdentification { get; init; } 
     /// <summary>
     /// Unique identifier of indication of interest message.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? IOIIdentification { get; init; } 
     /// <summary>
     /// Unique identifier for order as assigned by the buy-side ( institution, broker, intermediary.).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClientOrderIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (QuoteIdentification is IsoMax35Text QuoteIdentificationValue)
+        {
+            writer.WriteStartElement(null, "QtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(QuoteIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (QuoteRequestIdentification is IsoMax35Text QuoteRequestIdentificationValue)
+        {
+            writer.WriteStartElement(null, "QtReqId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(QuoteRequestIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (IOIIdentification is IsoMax35Text IOIIdentificationValue)
+        {
+            writer.WriteStartElement(null, "IOIId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IOIIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClientOrderIdentification is IsoMax35Text ClientOrderIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClntOrdrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientOrderIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Reference5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

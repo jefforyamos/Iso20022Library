@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Balance related details for a portfolio.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BalanceDetails5
+     : IIsoXmlSerilizable<BalanceDetails5>
 {
     #nullable enable
     
     /// <summary>
     /// Balance type.
     /// </summary>
-    [DataMember]
     public required BalanceType6Choice_ Type { get; init; } 
     /// <summary>
     /// Unrealised gain or loss.
     /// </summary>
-    [DataMember]
     public Unrealised1Code? Unrealised { get; init; } 
     /// <summary>
     /// Balance amount.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection31 Amount { get; init; } 
     /// <summary>
     /// Detailed balance information.
     /// </summary>
-    [DataMember]
-    public ValueList<BalanceDetails6> DetailedBalance { get; init; } = []; // Warning: Don't know multiplicity.
+    public BalanceDetails6? DetailedBalance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Unrealised is Unrealised1Code UnrealisedValue)
+        {
+            writer.WriteStartElement(null, "Urlsd", xmlNamespace );
+            writer.WriteValue(UnrealisedValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        Amount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DetailedBalance is BalanceDetails6 DetailedBalanceValue)
+        {
+            writer.WriteStartElement(null, "DtldBal", xmlNamespace );
+            DetailedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BalanceDetails5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

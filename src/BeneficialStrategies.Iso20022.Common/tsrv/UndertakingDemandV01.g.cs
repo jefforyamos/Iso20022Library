@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsrv.UndertakingDemandV01>;
 
 namespace BeneficialStrategies.Iso20022.tsrv;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.tsrv;
 /// The UndertakingDemand message and other required documents are sent by the beneficiary to the party that issued the undertaking, either directly or via a presenting or nominated party. It is a demand for payment and may include a request to extend the undertaking expiry date. The demand itself must be contained in an enclosed file within the message or must be specified as narrative text within the message. It may contain other required documents in addition to the demand.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The UndertakingDemand message and other required documents are sent by the beneficiary to the party that issued the undertaking, either directly or via a presenting or nominated party. It is a demand for payment and may include a request to extend the undertaking expiry date. The demand itself must be contained in an enclosed file within the message or must be specified as narrative text within the message. It may contain other required documents in addition to the demand.")]
-public partial record UndertakingDemandV01 : IOuterRecord
+public partial record UndertakingDemandV01 : IOuterRecord<UndertakingDemandV01,UndertakingDemandV01Document>
+    ,IIsoXmlSerilizable<UndertakingDemandV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record UndertakingDemandV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "UdrtkgDmnd";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => UndertakingDemandV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -55,7 +62,7 @@ public partial record UndertakingDemandV01 : IOuterRecord
     [Description(@"Additional information specific to the bank-to-bank communication.")]
     [DataMember(Name="BkToBkInf")]
     [XmlElement(ElementName="BkToBkInf")]
-    public required IReadOnlyCollection<IsoMax2000Text> BankToBankInformation { get; init; } = []; // Min=0, Max=5
+    public required SimpleValueList<IsoMax2000Text> BankToBankInformation { get; init; } = []; // Min=0, Max=5
     
     /// <summary>
     /// Digital signature of the demand.
@@ -75,6 +82,35 @@ public partial record UndertakingDemandV01 : IOuterRecord
     {
         return new UndertakingDemandV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("UdrtkgDmnd");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UdrtkgDmndDtls", xmlNamespace );
+        UndertakingDemandDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BkToBkInf", xmlNamespace );
+        BankToBankInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+        if (DigitalSignature is PartyAndSignature2 DigitalSignatureValue)
+        {
+            writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
+            DigitalSignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static UndertakingDemandV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -82,9 +118,7 @@ public partial record UndertakingDemandV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingDemandV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record UndertakingDemandV01Document : IOuterDocument<UndertakingDemandV01>
+public partial record UndertakingDemandV01Document : IOuterDocument<UndertakingDemandV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -100,5 +134,22 @@ public partial record UndertakingDemandV01Document : IOuterDocument<UndertakingD
     /// <summary>
     /// The instance of <seealso cref="UndertakingDemandV01"/> is required.
     /// </summary>
+    [DataMember(Name=UndertakingDemandV01.XmlTag)]
     public required UndertakingDemandV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(UndertakingDemandV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

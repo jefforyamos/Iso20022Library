@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies a threshold level and a threshold basis for passing resolutions at general meetings.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record VotingRightsThreshold1
+     : IIsoXmlSerilizable<VotingRightsThreshold1>
 {
     #nullable enable
     
     /// <summary>
     /// Voting rights threshold required for a resolution to pass in percentage or in quantity.
     /// </summary>
-    [DataMember]
     public required NumberOrPercentage1Choice_ Threshold { get; init; } 
     /// <summary>
     /// Nature of the quantity used as a basis to set a threshold for voting on resolutions at general meetings.
     /// </summary>
-    [DataMember]
     public ThresholdBasis1Choice_? ThresholdBasis { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Thrshld", xmlNamespace );
+        Threshold.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ThresholdBasis is ThresholdBasis1Choice_ ThresholdBasisValue)
+        {
+            writer.WriteStartElement(null, "ThrshldBsis", xmlNamespace );
+            ThresholdBasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static VotingRightsThreshold1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

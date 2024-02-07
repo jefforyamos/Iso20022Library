@@ -7,73 +7,140 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Trade settlement details for this invoice which involves the payment of an outstanding debt, account, or charge.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeSettlement2
+     : IIsoXmlSerilizable<TradeSettlement2>
 {
     #nullable enable
     
     /// <summary>
     /// Payment or creditor reference.
     /// </summary>
-    [DataMember]
     public CreditorReferenceInformation2? PaymentReference { get; init; } 
     /// <summary>
     /// Date when invoice should be paid.
     /// </summary>
-    [DataMember]
     public IsoISODate? DueDate { get; init; } 
     /// <summary>
     /// Payable amount with currency code.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount DuePayableAmount { get; init; } 
     /// <summary>
     /// If invoice currency is different from local tax reporting currency, then applied exchange rate is given in this message structure.
     /// </summary>
-    [DataMember]
     public CurrencyReference3? InvoiceCurrencyExchange { get; init; } 
     /// <summary>
     /// Date when goods/services are delivered to buyer.
     /// </summary>
-    [DataMember]
     public IsoISODate? DeliveryDate { get; init; } 
     /// <summary>
     /// Period during which delivery executed or agreed invoicing period.
     /// </summary>
-    [DataMember]
     public Period2? BillingPeriod { get; init; } 
     /// <summary>
     /// Tax total amount with currency code.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount TaxTotalAmount { get; init; } 
     /// <summary>
     /// Reason for tax exemption expressed as a code, if invoice or card transaction is out of tax processing.
     /// </summary>
-    [DataMember]
     public IsoMax4Text? ExemptionReasonCode { get; init; } 
     /// <summary>
     /// Reason for a tax exemption, if invoice or card transaction is out of tax processing.
     /// </summary>
-    [DataMember]
     public IsoMax500Text? ExemptionReason { get; init; } 
     /// <summary>
     /// Calculated tax subtotal.
     /// </summary>
-    [DataMember]
-    public ValueList<SettlementSubTotalCalculatedTax2> SubTotalCalculatedTax { get; init; } = []; // Warning: Don't know multiplicity.
+    public SettlementSubTotalCalculatedTax2? SubTotalCalculatedTax { get; init; } 
     /// <summary>
     /// Details of each early payment discount.
     /// </summary>
-    [DataMember]
-    public ValueList<EarlyPayment1> EarlyPayments { get; init; } = []; // Warning: Don't know multiplicity.
+    public EarlyPayment1? EarlyPayments { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PaymentReference is CreditorReferenceInformation2 PaymentReferenceValue)
+        {
+            writer.WriteStartElement(null, "PmtRef", xmlNamespace );
+            PaymentReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DueDate is IsoISODate DueDateValue)
+        {
+            writer.WriteStartElement(null, "DueDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DueDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DuePyblAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(DuePayableAmount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (InvoiceCurrencyExchange is CurrencyReference3 InvoiceCurrencyExchangeValue)
+        {
+            writer.WriteStartElement(null, "InvcCcyXchg", xmlNamespace );
+            InvoiceCurrencyExchangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveryDate is IsoISODate DeliveryDateValue)
+        {
+            writer.WriteStartElement(null, "DlvryDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DeliveryDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (BillingPeriod is Period2 BillingPeriodValue)
+        {
+            writer.WriteStartElement(null, "BllgPrd", xmlNamespace );
+            BillingPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TaxTtlAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(TaxTotalAmount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (ExemptionReasonCode is IsoMax4Text ExemptionReasonCodeValue)
+        {
+            writer.WriteStartElement(null, "XmptnRsnCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4Text(ExemptionReasonCodeValue)); // data type Max4Text System.String
+            writer.WriteEndElement();
+        }
+        if (ExemptionReason is IsoMax500Text ExemptionReasonValue)
+        {
+            writer.WriteStartElement(null, "XmptnRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Text(ExemptionReasonValue)); // data type Max500Text System.String
+            writer.WriteEndElement();
+        }
+        if (SubTotalCalculatedTax is SettlementSubTotalCalculatedTax2 SubTotalCalculatedTaxValue)
+        {
+            writer.WriteStartElement(null, "SubTtlClctdTax", xmlNamespace );
+            SubTotalCalculatedTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EarlyPayments is EarlyPayment1 EarlyPaymentsValue)
+        {
+            writer.WriteStartElement(null, "EarlyPmts", xmlNamespace );
+            EarlyPaymentsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeSettlement2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

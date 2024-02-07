@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.SecuritiesSettlementTransactionReversalAdviceV06>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -33,10 +36,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// using the relevant elements in the Business Application Header.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account servicer sends a SecuritiesSettlementTransactionReversalAdvice to an account owner to reverse the confirmation of a partial or full delivery or receipt of financial instruments, free or against of payment, physically or by book-entry.|The account servicer/owner relationship may be:|- a central securities depository or another settlement market infrastructure acting on behalf of their participants|- an agent (sub-custodian) acting on behalf of their global custodian customer, or|- a custodian acting on behalf of an investment management institution or a broker/dealer.||Usage|The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information|using the relevant elements in the Business Application Header.")]
-public partial record SecuritiesSettlementTransactionReversalAdviceV06 : IOuterRecord
+public partial record SecuritiesSettlementTransactionReversalAdviceV06 : IOuterRecord<SecuritiesSettlementTransactionReversalAdviceV06,SecuritiesSettlementTransactionReversalAdviceV06Document>
+    ,IIsoXmlSerilizable<SecuritiesSettlementTransactionReversalAdviceV06>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -48,6 +50,11 @@ public partial record SecuritiesSettlementTransactionReversalAdviceV06 : IOuterR
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesSttlmTxRvslAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesSettlementTransactionReversalAdviceV06Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -218,6 +225,107 @@ public partial record SecuritiesSettlementTransactionReversalAdviceV06 : IOuterR
     {
         return new SecuritiesSettlementTransactionReversalAdviceV06Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesSttlmTxRvslAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxIdDtls", xmlNamespace );
+        TransactionIdentificationDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ConfRef", xmlNamespace );
+        ConfirmationReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalParameters is AdditionalParameters30 AdditionalParametersValue)
+        {
+            writer.WriteStartElement(null, "AddtlParams", xmlNamespace );
+            AdditionalParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TradDtls", xmlNamespace );
+        TradeDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FinancialInstrumentAttributes is FinancialInstrumentAttributes64 FinancialInstrumentAttributesValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmAttrbts", xmlNamespace );
+            FinancialInstrumentAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "QtyAndAcctDtls", xmlNamespace );
+        QuantityAndAccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmParams", xmlNamespace );
+        SettlementParameters.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (StandingSettlementInstructionDetails is StandingSettlementInstruction11 StandingSettlementInstructionDetailsValue)
+        {
+            writer.WriteStartElement(null, "StgSttlmInstrDtls", xmlNamespace );
+            StandingSettlementInstructionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveringSettlementParties is SettlementParties36 DeliveringSettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "DlvrgSttlmPties", xmlNamespace );
+            DeliveringSettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReceivingSettlementParties is SettlementParties36 ReceivingSettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "RcvgSttlmPties", xmlNamespace );
+            ReceivingSettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashParties is CashParties25 CashPartiesValue)
+        {
+            writer.WriteStartElement(null, "CshPties", xmlNamespace );
+            CashPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettledAmount is AmountAndDirection46 SettledAmountValue)
+        {
+            writer.WriteStartElement(null, "SttldAmt", xmlNamespace );
+            SettledAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherAmounts is OtherAmounts30 OtherAmountsValue)
+        {
+            writer.WriteStartElement(null, "OthrAmts", xmlNamespace );
+            OtherAmountsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherBusinessParties is OtherParties27 OtherBusinessPartiesValue)
+        {
+            writer.WriteStartElement(null, "OthrBizPties", xmlNamespace );
+            OtherBusinessPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalPhysicalOrRegistrationDetails is RegistrationParameters4 AdditionalPhysicalOrRegistrationDetailsValue)
+        {
+            writer.WriteStartElement(null, "AddtlPhysOrRegnDtls", xmlNamespace );
+            AdditionalPhysicalOrRegistrationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesSettlementTransactionReversalAdviceV06 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -225,9 +333,7 @@ public partial record SecuritiesSettlementTransactionReversalAdviceV06 : IOuterR
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementTransactionReversalAdviceV06"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesSettlementTransactionReversalAdviceV06Document : IOuterDocument<SecuritiesSettlementTransactionReversalAdviceV06>
+public partial record SecuritiesSettlementTransactionReversalAdviceV06Document : IOuterDocument<SecuritiesSettlementTransactionReversalAdviceV06>, IXmlSerializable
 {
     
     /// <summary>
@@ -243,5 +349,22 @@ public partial record SecuritiesSettlementTransactionReversalAdviceV06Document :
     /// <summary>
     /// The instance of <seealso cref="SecuritiesSettlementTransactionReversalAdviceV06"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesSettlementTransactionReversalAdviceV06.XmlTag)]
     public required SecuritiesSettlementTransactionReversalAdviceV06 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesSettlementTransactionReversalAdviceV06.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

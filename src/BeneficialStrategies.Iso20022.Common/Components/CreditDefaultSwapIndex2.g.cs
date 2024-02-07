@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Credit default swap derivative specific for reporting derivatives on a credit default swap index.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CreditDefaultSwapIndex2
+     : IIsoXmlSerilizable<CreditDefaultSwapIndex2>
 {
     #nullable enable
     
     /// <summary>
     /// Series number of the composition of the index if applicable.
     /// </summary>
-    [DataMember]
     public IsoNumber? Series { get; init; } 
     /// <summary>
     /// New version of a series is issued if one of the constituents defaults and the index has to be re-weighted to account for the new number of total constituents within the index.
     /// </summary>
-    [DataMember]
     public IsoNumber? Version { get; init; } 
     /// <summary>
     /// All months when the roll is expected as established by the index provider for a given year. Field should be repeated for each month in the roll.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoRestrictedMonthExact2Number> RollMonth { get; init; } = [];
+    public SimpleValueList<IsoRestrictedMonthExact2Number> RollMonth { get; init; } = [];
     /// <summary>
     /// To be populated in the case of a CDS Index or a derivative CDS Index with the next roll date of the index as established by the index provider.
     /// </summary>
-    [DataMember]
     public IsoISODate? NextRollDate { get; init; } 
     /// <summary>
     /// Currency in which the notional is denominated.
     /// </summary>
-    [DataMember]
     public required ActiveOrHistoricCurrencyCode NotionalCurrency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Series is IsoNumber SeriesValue)
+        {
+            writer.WriteStartElement(null, "Srs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(SeriesValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Version is IsoNumber VersionValue)
+        {
+            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(VersionValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RollMnth", xmlNamespace );
+        RollMonth.Serialize(writer, xmlNamespace, "RestrictedMonthExact2Number", SerializationFormatter.IsoRestrictedMonthExact2Number );
+        writer.WriteEndElement();
+        if (NextRollDate is IsoISODate NextRollDateValue)
+        {
+            writer.WriteStartElement(null, "NxtRollDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(NextRollDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "NtnlCcy", xmlNamespace );
+        writer.WriteValue(NotionalCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static CreditDefaultSwapIndex2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

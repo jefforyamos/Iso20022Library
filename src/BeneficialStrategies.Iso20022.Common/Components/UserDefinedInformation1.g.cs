@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information important for the users of the message/service, which cannot be captured in any other message component/element. For example: Warehouse number.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UserDefinedInformation1
+     : IIsoXmlSerilizable<UserDefinedInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the nature of the user information.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Label { get; init; } 
     /// <summary>
     /// Specifies the content of the user information.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text Information { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Labl", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Label)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Inf", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(Information)); // data type Max140Text System.String
+        writer.WriteEndElement();
+    }
+    public static UserDefinedInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

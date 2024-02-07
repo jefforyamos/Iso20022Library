@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsmt.BaselineReportV04>;
 
 namespace BeneficialStrategies.Iso20022.tsmt;
 
@@ -33,10 +36,9 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// - to the submitter of the data set(s) and to the counterparty in case of a data set match for a transaction established in the push-through mode.The message can be sent after a successful data-set match or after the acceptance of mis-matched data sets to inform about the actual status of the dynamic part of the baseline.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The BaselineReport message is sent by the matching application to the parties involved in an amendment request or to the parties involved in a data set match.|The message is used to report either a pre-calculation or final calculation of the dynamic part of an established baseline.|Usage|The BaselineReport message can be sent by the matching application to the parties involved in an amendment request for a transaction established in the push-through mode. In the outlined scenario, the message is sent|- to the party requested to accept or reject an amendment request after the matching application has received a BaselineAmendmentRequest message. The message informs about the provisional status of the dynamic part of the baseline.|- to the requester and the accepter of an amendment request after the matching application has received an AmendmentAcceptance message conveying the acceptance of the amendment request. The message informs about the actual status of the dynamic part of the baseline.|or|The BaselineReport message can be sent by the matching application to the party which has sent an amendment request for a transaction established in the lodge mode. In the outlined scenario the message is used to inform about the actual status of the dynamic part of the baseline.|or|The BaselineReport message can be sent by the matching application to the parties involved in a data set match. In the outlined scenario, the message is sent|- to the submitter of the data set(s) in the case of a data set match for a transaction established in the lodge mode.|- to the submitter of the data set(s) and to the counterparty in case of a data set match for a transaction established in the push-through mode.The message can be sent after a successful data-set match or after the acceptance of mis-matched data sets to inform about the actual status of the dynamic part of the baseline.")]
-public partial record BaselineReportV04 : IOuterRecord
+public partial record BaselineReportV04 : IOuterRecord<BaselineReportV04,BaselineReportV04Document>
+    ,IIsoXmlSerilizable<BaselineReportV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -48,6 +50,11 @@ public partial record BaselineReportV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "BaselnRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => BaselineReportV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -116,7 +123,7 @@ public partial record BaselineReportV04 : IOuterRecord
     [Description(@"Reference to the transaction for each financial institution which is a party to the transaction.")]
     [DataMember(Name="UsrTxRef")]
     [XmlElement(ElementName="UsrTxRef")]
-    public required IReadOnlyCollection<DocumentIdentification5> UserTransactionReference { get; init; } = []; // Min=0, Max=2
+    public required ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = []; // Min=0, Max=2
     
     /// <summary>
     /// Party that buys goods or services, or a financial instrument.
@@ -186,6 +193,68 @@ public partial record BaselineReportV04 : IOuterRecord
     {
         return new BaselineReportV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("BaselnRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptId", xmlNamespace );
+        ReportIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RelatedMessageReference is MessageIdentification1 RelatedMessageReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdMsgRef", xmlNamespace );
+            RelatedMessageReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RptTp", xmlNamespace );
+        ReportType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EstblishdBaselnId", xmlNamespace );
+        EstablishedBaselineIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxSts", xmlNamespace );
+        TransactionStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UsrTxRef", xmlNamespace );
+        UserTransactionReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Buyr", xmlNamespace );
+        Buyer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sellr", xmlNamespace );
+        Seller.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BuyrBk", xmlNamespace );
+        BuyerBank.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SellrBk", xmlNamespace );
+        SellerBank.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptdLineItm", xmlNamespace );
+        ReportedLineItem.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RequestForAction is PendingActivity2 RequestForActionValue)
+        {
+            writer.WriteStartElement(null, "ReqForActn", xmlNamespace );
+            RequestForActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BaselineReportV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -193,9 +262,7 @@ public partial record BaselineReportV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BaselineReportV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record BaselineReportV04Document : IOuterDocument<BaselineReportV04>
+public partial record BaselineReportV04Document : IOuterDocument<BaselineReportV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -211,5 +278,22 @@ public partial record BaselineReportV04Document : IOuterDocument<BaselineReportV
     /// <summary>
     /// The instance of <seealso cref="BaselineReportV04"/> is required.
     /// </summary>
+    [DataMember(Name=BaselineReportV04.XmlTag)]
     public required BaselineReportV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(BaselineReportV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,63 +7,117 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UnitPrice10
+     : IIsoXmlSerilizable<UnitPrice10>
 {
     #nullable enable
     
     /// <summary>
     /// Type and information about a price.
     /// </summary>
-    [DataMember]
     public required TypeOfPrice10Code Type { get; init; } 
     /// <summary>
     /// Type and information about a price.
     /// </summary>
-    [DataMember]
     public required IsoExtended350Code ExtendedType { get; init; } 
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
-    [DataMember]
     public required PriceValue1 Value { get; init; } 
     /// <summary>
     /// Type of pricing calculation method.
     /// </summary>
-    [DataMember]
     public PriceMethod1Code? PriceMethod { get; init; } 
     /// <summary>
     /// Specifies the number of days used for calculating the accrued interest amount.
     /// </summary>
-    [DataMember]
     public IsoNumber? NumberOfDaysAccrued { get; init; } 
     /// <summary>
     /// Amount included in the NAV that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? TaxableIncomePerShare { get; init; } 
     /// <summary>
     /// Specifies whether the fund calculates a taxable interest per share (TIS).
     /// </summary>
-    [DataMember]
     public TaxableIncomePerShareCalculated2Code? TaxableIncomePerShareCalculated { get; init; } 
     /// <summary>
     /// Specifies whether the fund calculates a taxable interest per share (TIS).
     /// </summary>
-    [DataMember]
     public IsoExtended350Code? ExtendedTaxableIncomePerShareCalculated { get; init; } 
     /// <summary>
     /// Specifies the reason why the price is different from the current market price.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PriceDifferenceReason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtndedTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedType)); // data type Extended350Code System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        Value.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PriceMethod is PriceMethod1Code PriceMethodValue)
+        {
+            writer.WriteStartElement(null, "PricMtd", xmlNamespace );
+            writer.WriteValue(PriceMethodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (NumberOfDaysAccrued is IsoNumber NumberOfDaysAccruedValue)
+        {
+            writer.WriteStartElement(null, "NbOfDaysAcrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfDaysAccruedValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (TaxableIncomePerShare is IsoActiveCurrencyAnd13DecimalAmount TaxableIncomePerShareValue)
+        {
+            writer.WriteStartElement(null, "TaxblIncmPerShr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(TaxableIncomePerShareValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TaxableIncomePerShareCalculated is TaxableIncomePerShareCalculated2Code TaxableIncomePerShareCalculatedValue)
+        {
+            writer.WriteStartElement(null, "TaxblIncmPerShrClctd", xmlNamespace );
+            writer.WriteValue(TaxableIncomePerShareCalculatedValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExtendedTaxableIncomePerShareCalculated is IsoExtended350Code ExtendedTaxableIncomePerShareCalculatedValue)
+        {
+            writer.WriteStartElement(null, "XtndedTaxblIncmPerShrClctd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedTaxableIncomePerShareCalculatedValue)); // data type Extended350Code System.String
+            writer.WriteEndElement();
+        }
+        if (PriceDifferenceReason is IsoMax350Text PriceDifferenceReasonValue)
+        {
+            writer.WriteStartElement(null, "PricDiffRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PriceDifferenceReasonValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static UnitPrice10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

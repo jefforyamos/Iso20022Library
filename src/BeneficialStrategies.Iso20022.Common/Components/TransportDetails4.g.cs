@@ -7,53 +7,92 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information on the shipment date, the charges, the routing and the goods described in the transport document.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransportDetails4
+     : IIsoXmlSerilizable<TransportDetails4>
 {
     #nullable enable
     
     /// <summary>
     /// Reference to the identification of the underlying transport document.
     /// </summary>
-    [DataMember]
-    public ValueList<DocumentIdentification7> TransportDocumentReference { get; init; } = []; // Warning: Don't know multiplicity.
+    public DocumentIdentification7? TransportDocumentReference { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _2vnswTckEeSaC-PiOaz_KQ
     /// <summary>
     /// Goods that are transported.
     /// </summary>
-    [DataMember]
-    public ValueList<TransportedGoods1> TransportedGoods { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransportedGoods1? TransportedGoods { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _2vnswzckEeSaC-PiOaz_KQ
     /// <summary>
     /// Physical packaging of goods for transport.
     /// </summary>
-    [DataMember]
     public Consignment3? Consignment { get; init; } 
     /// <summary>
     /// Information related to the conveyance of goods.
     /// </summary>
-    [DataMember]
     public required TransportMeans6 RoutingSummary { get; init; } 
     /// <summary>
     /// Shipment date, actual or proposed.
     /// </summary>
-    [DataMember]
     public required ShipmentDate1Choice_ ShipmentDate { get; init; } 
     /// <summary>
     /// Charges related to the conveyance of goods.
     /// </summary>
-    [DataMember]
     public Charge25? FreightCharges { get; init; } 
     /// <summary>
     /// Specifies the applicable Incoterm and associated location.
     /// </summary>
-    [DataMember]
     public Incoterms4? Incoterms { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize TransportDocumentReference, multiplicity Unknown
+        // Not sure how to serialize TransportedGoods, multiplicity Unknown
+        if (Consignment is Consignment3 ConsignmentValue)
+        {
+            writer.WriteStartElement(null, "Consgnmt", xmlNamespace );
+            ConsignmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RtgSummry", xmlNamespace );
+        RoutingSummary.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ShipmntDt", xmlNamespace );
+        ShipmentDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FreightCharges is Charge25 FreightChargesValue)
+        {
+            writer.WriteStartElement(null, "FrghtChrgs", xmlNamespace );
+            FreightChargesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Incoterms is Incoterms4 IncotermsValue)
+        {
+            writer.WriteStartElement(null, "Incotrms", xmlNamespace );
+            IncotermsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransportDetails4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Balance of a financial instrument for a specific statement page.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaginationBalance2
+     : IIsoXmlSerilizable<PaginationBalance2>
 {
     #nullable enable
     
     /// <summary>
     /// Opening balance of the financial instrument in the statement or of the intermediary opening balance of the page of the statement.
     /// </summary>
-    [DataMember]
     public OpeningBalance3Choice_? OpeningBalance { get; init; } 
     /// <summary>
     /// Closing balance of the financial instrument in the statement or of the intermediary closing balance of the page of the statement.
     /// </summary>
-    [DataMember]
     public ClosingBalance3Choice_? ClosingBalance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OpeningBalance is OpeningBalance3Choice_ OpeningBalanceValue)
+        {
+            writer.WriteStartElement(null, "OpngBal", xmlNamespace );
+            OpeningBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClosingBalance is ClosingBalance3Choice_ ClosingBalanceValue)
+        {
+            writer.WriteStartElement(null, "ClsgBal", xmlNamespace );
+            ClosingBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaginationBalance2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

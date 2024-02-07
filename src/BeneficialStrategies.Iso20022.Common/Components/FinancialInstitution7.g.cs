@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to a financial institution required by business or regulation (for example, in money or funds transfer).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstitution7
+     : IIsoXmlSerilizable<FinancialInstitution7>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the financial institution.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Name of the financial institution.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Address of the financial institution.
     /// </summary>
-    [DataMember]
     public Address2? Address { get; init; } 
     /// <summary>
     /// Electronic mail address of the financial institution.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? Email { get; init; } 
     /// <summary>
     /// Universal Resource Locator (URL) address of the financial institution.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? URLAddress { get; init; } 
     /// <summary>
     /// Collection of information that identifies a phone number, as defined by telecom services.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PhoneNumber { get; init; } 
     /// <summary>
     /// Phone number of the customer services.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CustomerService { get; init; } 
     /// <summary>
     /// Additional information used to facilitate contact with the financial institution, for instance dispute manager name.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? AdditionalContactInformation { get; init; } 
     /// <summary>
     /// Contains text fields in the local language.
     /// </summary>
-    [DataMember]
     public LocalData2? LocalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is IsoMax35Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Name is IsoMax70Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Address is Address2 AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Email is IsoMax256Text EmailValue)
+        {
+            writer.WriteStartElement(null, "Email", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(EmailValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (URLAddress is IsoMax256Text URLAddressValue)
+        {
+            writer.WriteStartElement(null, "URLAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(URLAddressValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (PhoneNumber is IsoMax35Text PhoneNumberValue)
+        {
+            writer.WriteStartElement(null, "PhneNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PhoneNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CustomerService is IsoMax35Text CustomerServiceValue)
+        {
+            writer.WriteStartElement(null, "CstmrSvc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CustomerServiceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalContactInformation is IsoMax256Text AdditionalContactInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlCtctInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(AdditionalContactInformationValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (LocalData is LocalData2 LocalDataValue)
+        {
+            writer.WriteStartElement(null, "LclData", xmlNamespace );
+            LocalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstitution7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

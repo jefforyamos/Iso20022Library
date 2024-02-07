@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Communication device number or electronic address used for communication.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OtherContact1
+     : IIsoXmlSerilizable<OtherContact1>
 {
     #nullable enable
     
     /// <summary>
     /// Method used to contact the financial institution’s contact for the specific tax region.
     /// </summary>
-    [DataMember]
     public required IsoMax4Text ChannelType { get; init; } 
     /// <summary>
     /// Communication value such as phone number or email address.
     /// </summary>
-    [DataMember]
     public IsoMax128Text? Identification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ChanlTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4Text(ChannelType)); // data type Max4Text System.String
+        writer.WriteEndElement();
+        if (Identification is IsoMax128Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax128Text(IdentificationValue)); // data type Max128Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static OtherContact1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

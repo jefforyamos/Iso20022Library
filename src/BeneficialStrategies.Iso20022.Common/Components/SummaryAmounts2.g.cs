@@ -7,88 +7,176 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides amounts taken in to account to calculate the collateral position.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SummaryAmounts2
+     : IIsoXmlSerilizable<SummaryAmounts2>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of unsecured exposure a counterparty will accept before issuing a margin call in the base currency.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? ThresholdAmount { get; init; } 
     /// <summary>
     /// Specifies if the threshold amount is secured or unsecured.
     /// </summary>
-    [DataMember]
     public ThresholdType1Code? ThresholdType { get; init; } 
     /// <summary>
     /// Total value of posted collateral (pre-haircut) held by the taker.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? PreHaircutCollateralValue { get; init; } 
     /// <summary>
     /// Total amount of collateral required (unrounded).
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? AdjustedExposure { get; init; } 
     /// <summary>
     /// Total amount of collateral required (rounded).
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? CollateralRequired { get; init; } 
     /// <summary>
     /// Indicates if excess cash collateral in the currency is automatically returned as per the collateral provider’s Excess Cash Margin Instruction (colr.017).
     /// </summary>
-    [DataMember]
-    public ValueList<ReturnExcessCash1> ReturnExcessCashAndCollateralCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    public ReturnExcessCash1? ReturnExcessCashAndCollateralCurrency { get; init; } 
     /// <summary>
     /// Minimum amount to pay/receive as specified in the agreement in the base currency (to avoid the need to transfer an inconveniently small amount of collateral).
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? MinimumTransferAmount { get; init; } 
     /// <summary>
     /// Amount specified to avoid the need to transfer uneven amounts of collateral.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? RoundingAmount { get; init; } 
     /// <summary>
     /// Exposure value at previous valuation.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? PreviousExposureValue { get; init; } 
     /// <summary>
     /// Value of collateral at previous valuation.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? PreviousCollateralValue { get; init; } 
     /// <summary>
     /// Value of incoming collateral, to be settled.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalPendingIncomingCollateral { get; init; } 
     /// <summary>
     /// Value of outgoing collateral, to be settled.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalPendingOutgoingCollateral { get; init; } 
     /// <summary>
     /// Sum of accrued interest.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalAccruedInterestAmount { get; init; } 
     /// <summary>
     /// Sum of fees/commissions.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalFees { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ThresholdAmount is IsoActiveCurrencyAndAmount ThresholdAmountValue)
+        {
+            writer.WriteStartElement(null, "ThrshldAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ThresholdAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ThresholdType is ThresholdType1Code ThresholdTypeValue)
+        {
+            writer.WriteStartElement(null, "ThrshldTp", xmlNamespace );
+            writer.WriteValue(ThresholdTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PreHaircutCollateralValue is IsoActiveCurrencyAndAmount PreHaircutCollateralValueValue)
+        {
+            writer.WriteStartElement(null, "PreHrcutCollVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PreHaircutCollateralValueValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (AdjustedExposure is IsoActiveCurrencyAndAmount AdjustedExposureValue)
+        {
+            writer.WriteStartElement(null, "AdjstdXpsr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AdjustedExposureValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CollateralRequired is IsoActiveCurrencyAndAmount CollateralRequiredValue)
+        {
+            writer.WriteStartElement(null, "CollReqrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CollateralRequiredValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ReturnExcessCashAndCollateralCurrency is ReturnExcessCash1 ReturnExcessCashAndCollateralCurrencyValue)
+        {
+            writer.WriteStartElement(null, "RtrXcssCshAndCollCcy", xmlNamespace );
+            ReturnExcessCashAndCollateralCurrencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MinimumTransferAmount is IsoActiveCurrencyAndAmount MinimumTransferAmountValue)
+        {
+            writer.WriteStartElement(null, "MinTrfAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MinimumTransferAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (RoundingAmount is IsoActiveCurrencyAndAmount RoundingAmountValue)
+        {
+            writer.WriteStartElement(null, "RndgAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(RoundingAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PreviousExposureValue is IsoActiveCurrencyAndAmount PreviousExposureValueValue)
+        {
+            writer.WriteStartElement(null, "PrvsXpsrVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PreviousExposureValueValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PreviousCollateralValue is IsoActiveCurrencyAndAmount PreviousCollateralValueValue)
+        {
+            writer.WriteStartElement(null, "PrvsCollVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PreviousCollateralValueValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TotalPendingIncomingCollateral is IsoActiveCurrencyAndAmount TotalPendingIncomingCollateralValue)
+        {
+            writer.WriteStartElement(null, "TtlPdgIncmgColl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalPendingIncomingCollateralValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TotalPendingOutgoingCollateral is IsoActiveCurrencyAndAmount TotalPendingOutgoingCollateralValue)
+        {
+            writer.WriteStartElement(null, "TtlPdgOutgngColl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalPendingOutgoingCollateralValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TotalAccruedInterestAmount is IsoActiveCurrencyAndAmount TotalAccruedInterestAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlAcrdIntrstAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalAccruedInterestAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TotalFees is IsoActiveCurrencyAndAmount TotalFeesValue)
+        {
+            writer.WriteStartElement(null, "TtlFees", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalFeesValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static SummaryAmounts2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

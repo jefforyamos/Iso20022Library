@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Structure to encrypt data elements.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record EncryptedDataElement1
+     : IIsoXmlSerilizable<EncryptedDataElement1>
 {
     #nullable enable
     
@@ -23,28 +24,67 @@ public partial record EncryptedDataElement1
     /// Identifies the element that has been encrypted.
     /// These codes have the same value as the tag assignments shown in ISO 13492 for the data encryption dataset.  The codes are variable in length and conform to ISO/IEC 8825-1.
     /// </summary>
-    [DataMember]
     public ExternalEncryptedElementIdentification1Code? Identification { get; init; } 
     /// <summary>
     /// Other identification scheme for identifying the element that has been encrypted.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherIdentification { get; init; } 
     /// <summary>
     /// Encrypted data element.
     /// </summary>
-    [DataMember]
     public required EncryptedData1Choice_ EncryptedData { get; init; } 
     /// <summary>
     /// Format of the raw data prior to encryption.
     /// </summary>
-    [DataMember]
     public EncryptedDataFormat1Code? ClearTextDataFormat { get; init; } 
     /// <summary>
     /// Other national or private format of the raw data prior to encryption.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherClearTextDataFormat { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is ExternalEncryptedElementIdentification1Code IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(IdentificationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherIdentification is IsoMax35Text OtherIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OthrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "NcrptdData", xmlNamespace );
+        EncryptedData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ClearTextDataFormat is EncryptedDataFormat1Code ClearTextDataFormatValue)
+        {
+            writer.WriteStartElement(null, "ClearTxtDataFrmt", xmlNamespace );
+            writer.WriteValue(ClearTextDataFormatValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherClearTextDataFormat is IsoMax35Text OtherClearTextDataFormatValue)
+        {
+            writer.WriteStartElement(null, "OthrClearTxtDataFrmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherClearTextDataFormatValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static EncryptedDataElement1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

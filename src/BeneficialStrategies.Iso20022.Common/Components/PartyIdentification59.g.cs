@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a party. The party can be identified by providing the party's name and optionally, the BIC, account number, address, clearing system identification or LEI can also be provided.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentification59
+     : IIsoXmlSerilizable<PartyIdentification59>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the party expressed as the party's name.
     /// </summary>
-    [DataMember]
     public IsoMax34Text? PartyName { get; init; } 
     /// <summary>
     /// Identification of the party expressed as a BIC and an optional alternative identifier.
     /// </summary>
-    [DataMember]
     public PartyIdentification44? AnyBIC { get; init; } 
     /// <summary>
     /// Identification of the party's account number.
     /// </summary>
-    [DataMember]
     public IsoMax34Text? AccountNumber { get; init; } 
     /// <summary>
     /// Identification of the party's address.
     /// </summary>
-    [DataMember]
     public IsoMax105Text? Address { get; init; } 
     /// <summary>
     /// Choice of a clearing system identifier.
     /// </summary>
-    [DataMember]
     public ClearingSystemIdentification2Choice_? ClearingSystemIdentification { get; init; } 
     /// <summary>
     /// Identification of the Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>
-    [DataMember]
     public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PartyName is IsoMax34Text PartyNameValue)
+        {
+            writer.WriteStartElement(null, "PtyNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax34Text(PartyNameValue)); // data type Max34Text System.String
+            writer.WriteEndElement();
+        }
+        if (AnyBIC is PartyIdentification44 AnyBICValue)
+        {
+            writer.WriteStartElement(null, "AnyBIC", xmlNamespace );
+            AnyBICValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountNumber is IsoMax34Text AccountNumberValue)
+        {
+            writer.WriteStartElement(null, "AcctNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax34Text(AccountNumberValue)); // data type Max34Text System.String
+            writer.WriteEndElement();
+        }
+        if (Address is IsoMax105Text AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax105Text(AddressValue)); // data type Max105Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClearingSystemIdentification is ClearingSystemIdentification2Choice_ ClearingSystemIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClrSysId", xmlNamespace );
+            ClearingSystemIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LegalEntityIdentifier is IsoLEIIdentifier LegalEntityIdentifierValue)
+        {
+            writer.WriteStartElement(null, "LglNttyIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LegalEntityIdentifierValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyIdentification59 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details relative to the submission of the certificate data set.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RequiredSubmission6
+     : IIsoXmlSerilizable<RequiredSubmission6>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies with party(ies) is authorised to submit the data set as part of the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<BICIdentification1> Submitter { get; init; } = []; // Warning: Don't know multiplicity.
+    public BICIdentification1? Submitter { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _77-b8QgIEeSeS5xdjFfOTw
     /// <summary>
     /// Specifies the type of the certificate, in 4 letters, for example BENE for beneficiary certificate, SHIP for shipping line certifcate.
     /// </summary>
-    [DataMember]
     public required IsoExact4AlphaNumericText CertificateType { get; init; } 
     /// <summary>
     /// Description of the certificate type required.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text CertificateTypeDescription { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize Submitter, multiplicity Unknown
+        writer.WriteStartElement(null, "CertTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(CertificateType)); // data type Exact4AlphaNumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CertTpDesc", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(CertificateTypeDescription)); // data type Max140Text System.String
+        writer.WriteEndElement();
+    }
+    public static RequiredSubmission6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

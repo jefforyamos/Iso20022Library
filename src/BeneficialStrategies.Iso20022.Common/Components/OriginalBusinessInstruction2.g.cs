@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique identification, as assigned by the original requestor, to unambiguously identify the business instruction message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OriginalBusinessInstruction2
+     : IIsoXmlSerilizable<OriginalBusinessInstruction2>
 {
     #nullable enable
     
     /// <summary>
     /// Point to point reference, as assigned by the original initiating party, to unambiguously identify the original instruction message.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax35Text? MessageIdentification { get; init; } 
     /// <summary>
     /// Specifies the instruction message name identifier to which the message refers.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax35Text? MessageNameIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MessageIdentification is IsoRestrictedFINXMax35Text MessageIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MsgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax35Text(MessageIdentificationValue)); // data type RestrictedFINXMax35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MessageNameIdentification is IsoRestrictedFINXMax35Text MessageNameIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MsgNmId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax35Text(MessageNameIdentificationValue)); // data type RestrictedFINXMax35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static OriginalBusinessInstruction2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

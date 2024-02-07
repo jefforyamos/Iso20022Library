@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides further details on the reason of the cancellation request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentCancellationReason3
+     : IIsoXmlSerilizable<PaymentCancellationReason3>
 {
     #nullable enable
     
     /// <summary>
     /// Party that issues the cancellation request.
     /// </summary>
-    [DataMember]
     public PartyIdentification43? Originator { get; init; } 
     /// <summary>
     /// Specifies the reason for the cancellation.
     /// </summary>
-    [DataMember]
     public CancellationReason33Choice_? Reason { get; init; } 
     /// <summary>
     /// Further details on the cancellation request reason.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax105Text> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax105Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Originator is PartyIdentification43 OriginatorValue)
+        {
+            writer.WriteStartElement(null, "Orgtr", xmlNamespace );
+            OriginatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Reason is CancellationReason33Choice_ ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            ReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax105Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax105Text(AdditionalInformationValue)); // data type Max105Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentCancellationReason3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

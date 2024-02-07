@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Configuration parameters in use by the security device.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMSecurityConfiguration1
+     : IIsoXmlSerilizable<ATMSecurityConfiguration1>
 {
     #nullable enable
     
     /// <summary>
     /// Configuration of the cryptographic keys.
     /// </summary>
-    [DataMember]
     public ATMSecurityConfiguration2? Keys { get; init; } 
     /// <summary>
     /// Configuration of the encryption or digital envelope, if the security module is able to perform encryption.
     /// </summary>
-    [DataMember]
     public ATMSecurityConfiguration3? Encryption { get; init; } 
     /// <summary>
     /// MAC (Message Authentication Code) algorithm the security module is able to manage.
     /// </summary>
-    [DataMember]
-    public ValueList<Algorithm12Code> MACAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
+    public Algorithm12Code? MACAlgorithm { get; init; } 
     /// <summary>
     /// Digest algorithm the security module is able to manage.
     /// </summary>
-    [DataMember]
-    public ValueList<Algorithm11Code> DigestAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
+    public Algorithm11Code? DigestAlgorithm { get; init; } 
     /// <summary>
     /// Configuration of the digital signatures if the security module is able to perform digital signatures with an asymmetric key.
     /// </summary>
-    [DataMember]
     public ATMSecurityConfiguration4? DigitalSignature { get; init; } 
     /// <summary>
     /// Configuration of the PIN online verification.
     /// </summary>
-    [DataMember]
     public ATMSecurityConfiguration5? PIN { get; init; } 
     /// <summary>
     /// Mechanism used to protect the message of the ATM protocol.
     /// </summary>
-    [DataMember]
-    public ValueList<MessageProtection1Code> MessageProtection { get; init; } = []; // Warning: Don't know multiplicity.
+    public MessageProtection1Code? MessageProtection { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Keys is ATMSecurityConfiguration2 KeysValue)
+        {
+            writer.WriteStartElement(null, "Keys", xmlNamespace );
+            KeysValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Encryption is ATMSecurityConfiguration3 EncryptionValue)
+        {
+            writer.WriteStartElement(null, "Ncrptn", xmlNamespace );
+            EncryptionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MACAlgorithm is Algorithm12Code MACAlgorithmValue)
+        {
+            writer.WriteStartElement(null, "MACAlgo", xmlNamespace );
+            writer.WriteValue(MACAlgorithmValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DigestAlgorithm is Algorithm11Code DigestAlgorithmValue)
+        {
+            writer.WriteStartElement(null, "DgstAlgo", xmlNamespace );
+            writer.WriteValue(DigestAlgorithmValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DigitalSignature is ATMSecurityConfiguration4 DigitalSignatureValue)
+        {
+            writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
+            DigitalSignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PIN is ATMSecurityConfiguration5 PINValue)
+        {
+            writer.WriteStartElement(null, "PIN", xmlNamespace );
+            PINValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageProtection is MessageProtection1Code MessageProtectionValue)
+        {
+            writer.WriteStartElement(null, "MsgPrtcn", xmlNamespace );
+            writer.WriteValue(MessageProtectionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMSecurityConfiguration1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

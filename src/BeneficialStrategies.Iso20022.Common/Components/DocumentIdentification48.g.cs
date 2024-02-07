@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the message number and the query identification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DocumentIdentification48
+     : IIsoXmlSerilizable<DocumentIdentification48>
 {
     #nullable enable
     
     /// <summary>
     /// Message type number/message identifier of the message referenced in the linkage sequence.
     /// </summary>
-    [DataMember]
     public DocumentNumber6Choice_? MessageNumber { get; init; } 
     /// <summary>
     /// Reference to the query identification.
     /// </summary>
-    [DataMember]
     public required Identification16 Reference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MessageNumber is DocumentNumber6Choice_ MessageNumberValue)
+        {
+            writer.WriteStartElement(null, "MsgNb", xmlNamespace );
+            MessageNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Ref", xmlNamespace );
+        Reference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static DocumentIdentification48 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,48 +7,78 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Instrument that has or represents monetary value and is used to process a payment instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentInstrument8
+     : IIsoXmlSerilizable<PaymentInstrument8>
 {
     #nullable enable
     
     /// <summary>
     /// Currency associated with the payment instrument.
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode SettlementCurrency { get; init; } 
     /// <summary>
     /// Cash account to debit for the payment of a subscription or of a savings plan to an investment fund.
     /// </summary>
-    [DataMember]
     public ValueList<CashAccount4> CashAccountDetails { get; init; } = [];
     /// <summary>
     /// Settlement instructions for a payment by card.
     /// </summary>
-    [DataMember]
     public required PaymentCard2 PaymentCardDetails { get; init; } 
     /// <summary>
     /// Settlement instructions for a payment by direct debit.
     /// </summary>
-    [DataMember]
     public required DirectDebitMandate4 DirectDebitDetails { get; init; } 
     /// <summary>
     /// Indicates whether the payment is done via cheque.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Cheque { get; init; } 
     /// <summary>
     /// Indicates whether the payment is done via draft.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator BankersDraft { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttlmCcy", xmlNamespace );
+        writer.WriteValue(SettlementCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CshAcctDtls", xmlNamespace );
+        CashAccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PmtCardDtls", xmlNamespace );
+        PaymentCardDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DrctDbtDtls", xmlNamespace );
+        DirectDebitDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Chq", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Cheque)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BkrsDrft", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(BankersDraft)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static PaymentInstrument8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

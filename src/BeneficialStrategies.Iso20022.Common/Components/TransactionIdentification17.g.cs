@@ -7,90 +7,164 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the transaction for network management.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionIdentification17
+     : IIsoXmlSerilizable<TransactionIdentification17>
 {
     #nullable enable
     
     /// <summary>
     /// Local date the transaction takes place at the card acceptor location.
     /// </summary>
-    [DataMember]
     public required IsoISODate LocalDate { get; init; } 
     /// <summary>
     /// Local time the transaction takes place at the card acceptor location.
     /// </summary>
-    [DataMember]
     public IsoISOTime? LocalTime { get; init; } 
     /// <summary>
     /// Time zone name (for example, as defined by IANA - Internet Assigned Numbers Authority - in the time zone database.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? TimeZone { get; init; } 
     /// <summary>
     /// Identification of the transaction by the card acceptor. It may appear on the receipt of the cardholder. It remains unchanged throughout the lifetime of the transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TransactionReference { get; init; } 
     /// <summary>
     /// Date and time expressed in UTC of the message as sent by the initiator.
     /// ISO 8583 bit 7
     /// </summary>
-    [DataMember]
     public IsoISODateTime? TransmissionDateTime { get; init; } 
     /// <summary>
     /// A number assigned by a transaction originator to assist in identifying a transaction uniquely. The trace number remains unchanged for all messages within a two-message exchange (for example,  request/repeat and response)
     /// ISO 8583 bit 11.
     /// </summary>
-    [DataMember]
     public required IsoMax12NumericText SystemTraceAuditNumber { get; init; } 
     /// <summary>
     /// Reference supplied by the system retaining the original source information and used to assist in locating that information or a copy thereof.
     /// ISO 8583 bit 37
     /// </summary>
-    [DataMember]
     public required IsoExact12Text RetrievalReferenceNumber { get; init; } 
     /// <summary>
     /// Indicate the point in the transaction lifecycle at which the lifecycle identifier was assigned.
     /// </summary>
-    [DataMember]
     public IsoExact2NumericText? LifeCycleSupportIndicator { get; init; } 
     /// <summary>
     /// Unique global identification structure used to match transactions throughout their lifecycle.
     /// ISO 8583:2003 bit 21
     /// </summary>
-    [DataMember]
     public TransactionLifeCycleIdentification1? LifeCycleTraceIdentificationData { get; init; } 
     /// <summary>
     /// Reason for not providing a lifecycle trace identification information.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? LifeCycleTraceIdentificationMissing { get; init; } 
     /// <summary>
     /// Data supplied by an acquirer in an authorisation or financial request, advice or notification that may be required to be provided in a subsequent transaction.
     /// ISO 8583:93 bit 31
     /// </summary>
-    [DataMember]
     public IsoMax140Text? AcquirerReferenceData { get; init; } 
     /// <summary>
     /// Data supplied by an acquirer to assist in identifying a transaction (for example, for researching retrievals and chargebacks).
     /// ISO 8583:2003 bit 31
     /// </summary>
-    [DataMember]
     public IsoMax23NumericText? AcquirerReferenceNumber { get; init; } 
     /// <summary>
     /// Data supplied by a card issuer in an authorisation response, financial response message or in a chargeback transaction that the acquirer may be required to provide in subsequent transactions.
     /// ISO 8583:1993 and ISO 8583:2003 bit 95.
     /// </summary>
-    [DataMember]
     public IsoMax1000Text? CardIssuerReferenceData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "LclDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(LocalDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (LocalTime is IsoISOTime LocalTimeValue)
+        {
+            writer.WriteStartElement(null, "LclTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(LocalTimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+        if (TimeZone is IsoMax70Text TimeZoneValue)
+        {
+            writer.WriteStartElement(null, "TmZone", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(TimeZoneValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionReference is IsoMax35Text TransactionReferenceValue)
+        {
+            writer.WriteStartElement(null, "TxRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TransmissionDateTime is IsoISODateTime TransmissionDateTimeValue)
+        {
+            writer.WriteStartElement(null, "TrnsmssnDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(TransmissionDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SysTracAudtNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax12NumericText(SystemTraceAuditNumber)); // data type Max12NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RtrvlRefNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact12Text(RetrievalReferenceNumber)); // data type Exact12Text System.String
+        writer.WriteEndElement();
+        if (LifeCycleSupportIndicator is IsoExact2NumericText LifeCycleSupportIndicatorValue)
+        {
+            writer.WriteStartElement(null, "LifeCyclSpprtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact2NumericText(LifeCycleSupportIndicatorValue)); // data type Exact2NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (LifeCycleTraceIdentificationData is TransactionLifeCycleIdentification1 LifeCycleTraceIdentificationDataValue)
+        {
+            writer.WriteStartElement(null, "LifeCyclTracIdData", xmlNamespace );
+            LifeCycleTraceIdentificationDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LifeCycleTraceIdentificationMissing is IsoMax70Text LifeCycleTraceIdentificationMissingValue)
+        {
+            writer.WriteStartElement(null, "LifeCyclTracIdMssng", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(LifeCycleTraceIdentificationMissingValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (AcquirerReferenceData is IsoMax140Text AcquirerReferenceDataValue)
+        {
+            writer.WriteStartElement(null, "AcqrrRefData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(AcquirerReferenceDataValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (AcquirerReferenceNumber is IsoMax23NumericText AcquirerReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "AcqrrRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax23NumericText(AcquirerReferenceNumberValue)); // data type Max23NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (CardIssuerReferenceData is IsoMax1000Text CardIssuerReferenceDataValue)
+        {
+            writer.WriteStartElement(null, "CardIssrRefData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1000Text(CardIssuerReferenceDataValue)); // data type Max1000Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionIdentification17 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

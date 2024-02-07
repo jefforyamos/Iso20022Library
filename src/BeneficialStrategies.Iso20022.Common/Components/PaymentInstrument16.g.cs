@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment instrument for a type of order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentInstrument16
+     : IIsoXmlSerilizable<PaymentInstrument16>
 {
     #nullable enable
     
     /// <summary>
     /// Type of order to which the payment instrument applies.
     /// </summary>
-    [DataMember]
     public required FundOrderType5Choice_ OrderType { get; init; } 
     /// <summary>
     /// Payment instrument for the order type.
     /// </summary>
-    [DataMember]
     public required FundPaymentType1Choice_ InstrumentType { get; init; } 
     /// <summary>
     /// Additional information about the payment.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OrdrTp", xmlNamespace );
+        OrderType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InstrmTp", xmlNamespace );
+        InstrumentType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentInstrument16 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

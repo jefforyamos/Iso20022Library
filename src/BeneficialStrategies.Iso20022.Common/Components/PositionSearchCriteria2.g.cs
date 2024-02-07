@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the securities account position query criteria.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PositionSearchCriteria2
+     : IIsoXmlSerilizable<PositionSearchCriteria2>
 {
     #nullable enable
     
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification100? AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification100? AccountServicer { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
-    [DataMember]
     public SecuritiesAccount2Choice_? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-à-vis the issuer.
     /// </summary>
-    [DataMember]
     public SecurityIdentification19? FinancialInstrument { get; init; } 
     /// <summary>
     /// Country where the security is issued.
     /// </summary>
-    [DataMember]
     public CountryCode? CountryOfIssue { get; init; } 
     /// <summary>
     /// Defines specific restriction characteristics for a securities position.
     /// </summary>
-    [DataMember]
     public SecuritiesBalanceType7Choice_? SubBalanceType { get; init; } 
     /// <summary>
     /// Option to provide output zero position in the results.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator ReturnZeroPosition { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountOwner is PartyIdentification100 AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountServicer is PartyIdentification100 AccountServicerValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+            AccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingAccount is SecuritiesAccount2Choice_ SafekeepingAccountValue)
+        {
+            writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+            SafekeepingAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrument is SecurityIdentification19 FinancialInstrumentValue)
+        {
+            writer.WriteStartElement(null, "FinInstrm", xmlNamespace );
+            FinancialInstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CountryOfIssue is CountryCode CountryOfIssueValue)
+        {
+            writer.WriteStartElement(null, "CtryOfIsse", xmlNamespace );
+            writer.WriteValue(CountryOfIssueValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SubBalanceType is SecuritiesBalanceType7Choice_ SubBalanceTypeValue)
+        {
+            writer.WriteStartElement(null, "SubBalTp", xmlNamespace );
+            SubBalanceTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RtrZeroPos", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ReturnZeroPosition)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static PositionSearchCriteria2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

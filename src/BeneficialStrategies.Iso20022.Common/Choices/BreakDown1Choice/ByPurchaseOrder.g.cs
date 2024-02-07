@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.BreakDown1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.BreakDown1Choice;
 /// The intention to pay is based on a purchase order.
 /// </summary>
 public partial record ByPurchaseOrder : BreakDown1Choice_
+     , IIsoXmlSerilizable<ByPurchaseOrder>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique identification of the purchase order, assigned by the buyer.
     /// </summary>
@@ -22,10 +26,40 @@ public partial record ByPurchaseOrder : BreakDown1Choice_
     /// <summary>
     /// Specifies the adjustments applied to obtain the net amount.
     /// </summary>
-    public Adjustment6? Adjustment { get; init;  } // Warning: Don't know multiplicity.
+    public Adjustment6? Adjustment { get; init; } 
     /// <summary>
     /// Net amount, after adjustments, intended to be paid.
     /// </summary>
     public required IsoCurrencyAndAmount NetAmount { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PurchsOrdrRef", xmlNamespace );
+        PurchaseOrderReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Adjustment is Adjustment6 AdjustmentValue)
+        {
+            writer.WriteStartElement(null, "Adjstmnt", xmlNamespace );
+            AdjustmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "NetAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(NetAmount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static new ByPurchaseOrder Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

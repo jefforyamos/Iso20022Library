@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment for a card transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Environment10
+     : IIsoXmlSerilizable<Environment10>
 {
     #nullable enable
     
     /// <summary>
     /// Party in contract with an acceptor to acquire card payment transactions.
     /// </summary>
-    [DataMember]
     public PartyIdentification197? Acquirer { get; init; } 
     /// <summary>
     /// Party sending the message to another intermediary agent or to the final destination.
     /// </summary>
-    [DataMember]
     public PartyIdentification197? Sender { get; init; } 
     /// <summary>
     /// Party receiving the message from the originator or another intermediary agent.
     /// </summary>
-    [DataMember]
     public PartyIdentification197? Receiver { get; init; } 
     /// <summary>
     /// Card or payment token performing the transaction.
     /// </summary>
-    [DataMember]
     public CardData3? Card { get; init; } 
     /// <summary>
     /// Cardholder performing the card payment transaction.
     /// </summary>
-    [DataMember]
     public Cardholder15? Cardholder { get; init; } 
     /// <summary>
     /// Details of payment token.
     /// </summary>
-    [DataMember]
     public Token1? Token { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Acquirer is PartyIdentification197 AcquirerValue)
+        {
+            writer.WriteStartElement(null, "Acqrr", xmlNamespace );
+            AcquirerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Sender is PartyIdentification197 SenderValue)
+        {
+            writer.WriteStartElement(null, "Sndr", xmlNamespace );
+            SenderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Receiver is PartyIdentification197 ReceiverValue)
+        {
+            writer.WriteStartElement(null, "Rcvr", xmlNamespace );
+            ReceiverValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Card is CardData3 CardValue)
+        {
+            writer.WriteStartElement(null, "Card", xmlNamespace );
+            CardValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Cardholder is Cardholder15 CardholderValue)
+        {
+            writer.WriteStartElement(null, "Crdhldr", xmlNamespace );
+            CardholderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Token is Token1 TokenValue)
+        {
+            writer.WriteStartElement(null, "Tkn", xmlNamespace );
+            TokenValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Environment10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

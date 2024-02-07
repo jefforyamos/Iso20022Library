@@ -7,33 +7,59 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the new account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NewAccount1
+     : IIsoXmlSerilizable<NewAccount1>
 {
     #nullable enable
     
     /// <summary>
     /// Details of the new account.
     /// </summary>
-    [DataMember]
     public required CashAccount36 Account { get; init; } 
     /// <summary>
     /// Party or parties to be identified in the context of account operations.
     /// </summary>
-    [DataMember]
-    public ValueList<IndividualPerson19> AccountParty { get; init; } = []; // Warning: Don't know multiplicity.
+    public IndividualPerson19? AccountParty { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _UbCz0A2kEeSNWNtJlXOAhg
     /// <summary>
     /// Organised structure that is set up for a particular purpose, for example, a business, government body, department, charity, or financial institution.
     /// </summary>
-    [DataMember]
     public Organisation20? Organisation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Acct", xmlNamespace );
+        Account.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize AccountParty, multiplicity Unknown
+        if (Organisation is Organisation20 OrganisationValue)
+        {
+            writer.WriteStartElement(null, "Org", xmlNamespace );
+            OrganisationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static NewAccount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

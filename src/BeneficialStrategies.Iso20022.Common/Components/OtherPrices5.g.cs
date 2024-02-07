@@ -7,93 +7,186 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the type of price and information about the price.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OtherPrices5
+     : IIsoXmlSerilizable<OtherPrices5>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the maximum price.
     /// </summary>
-    [DataMember]
     public Price14? Maximum { get; init; } 
     /// <summary>
     /// Specifies the transaction price.
     /// </summary>
-    [DataMember]
     public Price14? Transaction { get; init; } 
     /// <summary>
     /// Market price including or excluding the broker's commission.
     /// </summary>
-    [DataMember]
     public Price14? MarketBrokerCommission { get; init; } 
     /// <summary>
     /// In case of an order to buy, the price that the broker paid on the market plus the broker's commission.
     /// </summary>
-    [DataMember]
     public Price14? MarkedUp { get; init; } 
     /// <summary>
     /// In case of an order to sell, the price the broker receives in the market minus the broker's commission.
     /// </summary>
-    [DataMember]
     public Price14? MarkedDown { get; init; } 
     /// <summary>
     /// Price is net to the disclosed client.
     /// </summary>
-    [DataMember]
     public Price14? NetDisclosed { get; init; } 
     /// <summary>
     /// Price is net to the client undisclosed (used in the UK market).
     /// </summary>
-    [DataMember]
     public Price14? NetUndisclosed { get; init; } 
     /// <summary>
     /// Price is notional gross (used in the UK market).
     /// </summary>
-    [DataMember]
     public Price14? NotionalGross { get; init; } 
     /// <summary>
     /// Price is weighted average price of the benchmark prices at the time of each partial fill.
     /// </summary>
-    [DataMember]
     public Price14? BenchmarkWeightedAverage { get; init; } 
     /// <summary>
     /// Price is weighted average price of all market executions during the completion of the order.
     /// </summary>
-    [DataMember]
     public Price14? AllMarketsWeightedAverage { get; init; } 
     /// <summary>
     /// Price is a benchmark price relating to the current partial fills (eg, last trade tick from market).
     /// </summary>
-    [DataMember]
     public Price14? Benchmark { get; init; } 
     /// <summary>
     /// Type of price that is not defined explicitly.
     /// </summary>
-    [DataMember]
     public Price14? OtherPrice { get; init; } 
     /// <summary>
     /// Price of securities representing a particular market or a portion of it.
     /// </summary>
-    [DataMember]
     public Price14? IndexPrice { get; init; } 
     /// <summary>
     /// Price used to differentiate from price on a confirmation of a marked up or marked down principal trade.
     /// </summary>
-    [DataMember]
     public Price14? ReportedPrice { get; init; } 
     /// <summary>
     /// Price of reference of the concerned financial instrument.
     /// </summary>
-    [DataMember]
     public PriceInformation28? ReferencePrice { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Maximum is Price14 MaximumValue)
+        {
+            writer.WriteStartElement(null, "Max", xmlNamespace );
+            MaximumValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Transaction is Price14 TransactionValue)
+        {
+            writer.WriteStartElement(null, "Tx", xmlNamespace );
+            TransactionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarketBrokerCommission is Price14 MarketBrokerCommissionValue)
+        {
+            writer.WriteStartElement(null, "MktBrkrComssn", xmlNamespace );
+            MarketBrokerCommissionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarkedUp is Price14 MarkedUpValue)
+        {
+            writer.WriteStartElement(null, "MrkdUp", xmlNamespace );
+            MarkedUpValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarkedDown is Price14 MarkedDownValue)
+        {
+            writer.WriteStartElement(null, "MrkdDwn", xmlNamespace );
+            MarkedDownValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NetDisclosed is Price14 NetDisclosedValue)
+        {
+            writer.WriteStartElement(null, "NetDscld", xmlNamespace );
+            NetDisclosedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NetUndisclosed is Price14 NetUndisclosedValue)
+        {
+            writer.WriteStartElement(null, "NetUdscld", xmlNamespace );
+            NetUndisclosedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotionalGross is Price14 NotionalGrossValue)
+        {
+            writer.WriteStartElement(null, "NtnlGrss", xmlNamespace );
+            NotionalGrossValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BenchmarkWeightedAverage is Price14 BenchmarkWeightedAverageValue)
+        {
+            writer.WriteStartElement(null, "BchmkWghtdAvrg", xmlNamespace );
+            BenchmarkWeightedAverageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AllMarketsWeightedAverage is Price14 AllMarketsWeightedAverageValue)
+        {
+            writer.WriteStartElement(null, "AllMktsWghtdAvrg", xmlNamespace );
+            AllMarketsWeightedAverageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Benchmark is Price14 BenchmarkValue)
+        {
+            writer.WriteStartElement(null, "Bchmk", xmlNamespace );
+            BenchmarkValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherPrice is Price14 OtherPriceValue)
+        {
+            writer.WriteStartElement(null, "OthrPric", xmlNamespace );
+            OtherPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IndexPrice is Price14 IndexPriceValue)
+        {
+            writer.WriteStartElement(null, "IndxPric", xmlNamespace );
+            IndexPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReportedPrice is Price14 ReportedPriceValue)
+        {
+            writer.WriteStartElement(null, "RptdPric", xmlNamespace );
+            ReportedPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReferencePrice is PriceInformation28 ReferencePriceValue)
+        {
+            writer.WriteStartElement(null, "RefPric", xmlNamespace );
+            ReferencePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OtherPrices5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

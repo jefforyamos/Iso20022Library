@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentification4Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// Canadian Payments Association Routing Number - identifies Canadian financial institutions on the Canadian national clearing system.
 /// </summary>
 public partial record CanadianPaymentsAssociationRoutingNumberIdentification : ClearingSystemMemberIdentification4Choice_
+     , IIsoXmlSerilizable<CanadianPaymentsAssociationRoutingNumberIdentification>
 {
-    public required IsoCanadianPaymentsARNIdentifier Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Canadian Payments Association Routing Number. Identifies Canadian financial institutions on the Canadian national clearing system.
+    /// </summary>
+    public required IsoCanadianPaymentsARNIdentifier Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CACPA", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCanadianPaymentsARNIdentifier(Value)); // data type CanadianPaymentsARNIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static new CanadianPaymentsAssociationRoutingNumberIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

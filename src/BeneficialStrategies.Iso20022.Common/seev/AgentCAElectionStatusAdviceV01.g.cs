@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.AgentCAElectionStatusAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -30,10 +33,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// - Agent Corporation Action Election Amendment Request to provide the status of the amendment request, in which case, the building blocks Election Amendment Request Identification and the Election Amendment Request Status must be present.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|This message is sent by an issuer (or its agent) to the CSD to report the status, or a change in status, of:|- a corporate action election advice;|- an election cancellation request; or|- an election amendment request.|Usage|This message must be sent in response to an:|- Agent Corporation Action Election Advice to provide the status of an election advice in the case of a rejection. However, it may also be used in all other situations, in which case, the building blocks Election Advice Identification and the Election Advice Status must be present.|- Agent Corporation Action Election Cancellation Request to provide the status of the cancellation request, in which case, the building blocks Election Cancellation Request Identification and the Election Cancellation Request Status must be present.|- Agent Corporation Action Election Amendment Request to provide the status of the amendment request, in which case, the building blocks Election Amendment Request Identification and the Election Amendment Request Status must be present.")]
-public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord
+public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord<AgentCAElectionStatusAdviceV01,AgentCAElectionStatusAdviceV01Document>
+    ,IIsoXmlSerilizable<AgentCAElectionStatusAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -45,6 +47,11 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AgtCAElctnStsAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AgentCAElectionStatusAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -136,6 +143,47 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord
     {
         return new AgentCAElectionStatusAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AgtCAElctnStsAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AgtCAElctnAdvcId", xmlNamespace );
+        AgentCAElectionAdviceIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AgtCAElctnCxlReqId", xmlNamespace );
+        AgentCAElectionCancellationRequestIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AgtCAElctnAmdmntReqId", xmlNamespace );
+        AgentCAElectionAmendmentRequestIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+        CorporateActionGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ElctnAdvcSts", xmlNamespace );
+        ElectionAdviceStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ElctnCxlReqSts", xmlNamespace );
+        ElectionCancellationRequestStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ElctnAmdmntReqSts", xmlNamespace );
+        ElectionAmendmentRequestStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static AgentCAElectionStatusAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -143,9 +191,7 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAElectionStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AgentCAElectionStatusAdviceV01Document : IOuterDocument<AgentCAElectionStatusAdviceV01>
+public partial record AgentCAElectionStatusAdviceV01Document : IOuterDocument<AgentCAElectionStatusAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -161,5 +207,22 @@ public partial record AgentCAElectionStatusAdviceV01Document : IOuterDocument<Ag
     /// <summary>
     /// The instance of <seealso cref="AgentCAElectionStatusAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=AgentCAElectionStatusAdviceV01.XmlTag)]
     public required AgentCAElectionStatusAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AgentCAElectionStatusAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

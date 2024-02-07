@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information that serves as a basis to debit an account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CreditorEnrolmentAmendment4
+     : IIsoXmlSerilizable<CreditorEnrolmentAmendment4>
 {
     #nullable enable
     
     /// <summary>
     /// Specific attributes of the creditor and service enrolment provided by the creditor for its enrolment.
     /// </summary>
-    [DataMember]
     public CreditorEnrolment4? CreditorEnrolment { get; init; } 
     /// <summary>
     /// Specific attributes requested from the debtor for its activation as specified by the creditor in the creditor enrolment request.
     /// </summary>
-    [DataMember]
     public CreditorInvoice4? ActivationData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CreditorEnrolment is CreditorEnrolment4 CreditorEnrolmentValue)
+        {
+            writer.WriteStartElement(null, "CdtrEnrlmnt", xmlNamespace );
+            CreditorEnrolmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ActivationData is CreditorInvoice4 ActivationDataValue)
+        {
+            writer.WriteStartElement(null, "ActvtnData", xmlNamespace );
+            ActivationDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CreditorEnrolmentAmendment4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Further details on the contract collateral.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ContractCollateral1
+     : IIsoXmlSerilizable<ContractCollateral1>
 {
     #nullable enable
     
     /// <summary>
     /// Total amount of the collateral as defined in the contract.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalAmount { get; init; } 
     /// <summary>
     /// Detailed description of the collateral.
     /// </summary>
-    [DataMember]
-    public ValueList<CashCollateral5> CollateralDescription { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashCollateral5? CollateralDescription { get; init; } 
     /// <summary>
     /// Further information on the contract collateral.
     /// </summary>
-    [DataMember]
     public IsoMax1025Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (CollateralDescription is CashCollateral5 CollateralDescriptionValue)
+        {
+            writer.WriteStartElement(null, "CollDesc", xmlNamespace );
+            CollateralDescriptionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax1025Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1025Text(AdditionalInformationValue)); // data type Max1025Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ContractCollateral1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

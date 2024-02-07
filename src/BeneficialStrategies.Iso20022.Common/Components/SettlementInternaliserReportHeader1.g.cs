@@ -7,38 +7,64 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies parameters of the report 
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementInternaliserReportHeader1
+     : IIsoXmlSerilizable<SettlementInternaliserReportHeader1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the reporting timestamp, when the report was submitted from the Settlement Internaliser to the Competent Authority.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Last day of the reporting period.
     /// </summary>
-    [DataMember]
     public required IsoISODate ReportingDate { get; init; } 
     /// <summary>
     /// Specifies the currency of the reported transactions.
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Provides the status of the report.
     /// </summary>
-    [DataMember]
     public required TransactionOperationType4Code ReportStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptgDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ReportingDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Ccy", xmlNamespace );
+        writer.WriteValue(Currency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptSts", xmlNamespace );
+        writer.WriteValue(ReportStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static SettlementInternaliserReportHeader1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

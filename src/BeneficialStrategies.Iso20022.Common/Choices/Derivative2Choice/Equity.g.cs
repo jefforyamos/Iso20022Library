@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Derivative2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative2Choice;
 /// Details specific for Equity derivatives.
 /// </summary>
 public partial record Equity : Derivative2Choice_
+     , IIsoXmlSerilizable<Equity>
 {
     #nullable enable
+    
     /// <summary>
     /// Underlying type of the equity derivative.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record Equity : Derivative2Choice_
     /// Return parameter for the equity derivative.
     /// </summary>
     public EquityReturnParameter1Code? Parameter { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UndrlygTp", xmlNamespace );
+        UnderlyingType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Parameter is EquityReturnParameter1Code ParameterValue)
+        {
+            writer.WriteStartElement(null, "Param", xmlNamespace );
+            writer.WriteValue(ParameterValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static new Equity Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

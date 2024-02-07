@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters applied to the settlement of a security transfer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReceivingPartiesAndAccount3
+     : IIsoXmlSerilizable<ReceivingPartiesAndAccount3>
 {
     #nullable enable
     
     /// <summary>
     /// Party that acts on behalf of the buyer of securities when the buyer does not have a direct relationship with the receiving agent.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount3? ReceiversCustodianDetails { get; init; } 
     /// <summary>
     /// Party that the Receiver's custodian uses to effect the receipt of a security, when the Receiver's custodian does not have a direct relationship with the Receiver agent.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount3? ReceiversIntermediaryDetails { get; init; } 
     /// <summary>
     /// Party that receives securities from the delivering agent at the place of settlement, eg, central securities depository.
     /// </summary>
-    [DataMember]
     public required PartyIdentificationAndAccount3 ReceivingAgentDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReceiversCustodianDetails is PartyIdentificationAndAccount3 ReceiversCustodianDetailsValue)
+        {
+            writer.WriteStartElement(null, "RcvrsCtdnDtls", xmlNamespace );
+            ReceiversCustodianDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReceiversIntermediaryDetails is PartyIdentificationAndAccount3 ReceiversIntermediaryDetailsValue)
+        {
+            writer.WriteStartElement(null, "RcvrsIntrmyDtls", xmlNamespace );
+            ReceiversIntermediaryDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RcvgAgtDtls", xmlNamespace );
+        ReceivingAgentDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ReceivingPartiesAndAccount3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

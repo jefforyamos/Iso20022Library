@@ -7,23 +7,46 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters associated to a mask generator cryptographic function.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Parameter3
+     : IIsoXmlSerilizable<Parameter3>
 {
     #nullable enable
     
     /// <summary>
     /// Digest algorithm used in the mask generator function.
     /// </summary>
-    [DataMember]
     public Algorithm5Code? DigestAlgorithm { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DigestAlgorithm is Algorithm5Code DigestAlgorithmValue)
+        {
+            writer.WriteStartElement(null, "DgstAlgo", xmlNamespace );
+            writer.WriteValue(DigestAlgorithmValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static Parameter3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

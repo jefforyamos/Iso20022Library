@@ -7,63 +7,120 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Characteristics of the report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IntraBalanceReport5
+     : IIsoXmlSerilizable<IntraBalanceReport5>
 {
     #nullable enable
     
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
-    [DataMember]
     public Number3Choice_? ReportNumber { get; init; } 
     /// <summary>
     /// Identification of the query message sent to request this statement.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? QueryReference { get; init; } 
     /// <summary>
     /// Reference common to all pages of a statement.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReportIdentification { get; init; } 
     /// <summary>
     /// Date and time when the report was created.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? ReportDateTime { get; init; } 
     /// <summary>
     /// Period for the statement.
     /// </summary>
-    [DataMember]
     public Period7Choice_? ReportPeriod { get; init; } 
     /// <summary>
     /// Defines the type of query.
     /// </summary>
-    [DataMember]
     public MovementResponseType1Code? QueryType { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
-    [DataMember]
     public Frequency22Choice_? Frequency { get; init; } 
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>
-    [DataMember]
     public required UpdateType15Choice_ UpdateType { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReportNumber is Number3Choice_ ReportNumberValue)
+        {
+            writer.WriteStartElement(null, "RptNb", xmlNamespace );
+            ReportNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (QueryReference is IsoMax35Text QueryReferenceValue)
+        {
+            writer.WriteStartElement(null, "QryRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(QueryReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ReportIdentification is IsoMax35Text ReportIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RptId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReportIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ReportDateTime is DateAndDateTime2Choice_ ReportDateTimeValue)
+        {
+            writer.WriteStartElement(null, "RptDtTm", xmlNamespace );
+            ReportDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReportPeriod is Period7Choice_ ReportPeriodValue)
+        {
+            writer.WriteStartElement(null, "RptPrd", xmlNamespace );
+            ReportPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (QueryType is MovementResponseType1Code QueryTypeValue)
+        {
+            writer.WriteStartElement(null, "QryTp", xmlNamespace );
+            writer.WriteValue(QueryTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Frequency is Frequency22Choice_ FrequencyValue)
+        {
+            writer.WriteStartElement(null, "Frqcy", xmlNamespace );
+            FrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "UpdTp", xmlNamespace );
+        UpdateType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ActvtyInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ActivityIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static IntraBalanceReport5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

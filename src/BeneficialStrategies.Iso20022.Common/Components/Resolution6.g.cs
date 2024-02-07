@@ -7,93 +7,177 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Resolutions at the agenda of a meeting and type of resolution.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Resolution6
+     : IIsoXmlSerilizable<Resolution6>
 {
     #nullable enable
     
     /// <summary>
     /// Number of the resolution as specified by the issuer or its agent.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text IssuerLabel { get; init; } 
     /// <summary>
     /// Language, title and textual description of an agenda resolution. 
     /// </summary>
-    [DataMember]
-    public ValueList<ItemDescription1> Description { get; init; } = []; // Warning: Don't know multiplicity.
+    public ItemDescription1? Description { get; init; } 
     /// <summary>
     /// Identifies under the same label a group of agenda resolutions for which a vote in favour can be assigned to only one resolution of that group.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ListingGroupResolutionLabel { get; init; } 
     /// <summary>
     /// Type of resolution.
     /// </summary>
-    [DataMember]
     public ResolutionType2Code? Type { get; init; } 
     /// <summary>
     /// Indicates whether the resolution is listed for information or for voting.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ForInformationOnly { get; init; } 
     /// <summary>
     /// Impact of vote results on an agenda resolution.
     /// </summary>
-    [DataMember]
     public VoteType1Code? VoteType { get; init; } 
     /// <summary>
     /// Specifies whether the resolution is active or withdrawn.
     /// </summary>
-    [DataMember]
     public required ResolutionStatus1Code Status { get; init; } 
     /// <summary>
     /// Indicates whether the resolution has been submitted by the security holder.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? SubmittedBySecurityHolder { get; init; } 
     /// <summary>
     /// Indicates whether a client who has not voted in favour of the resolutions which is finally approved, has the right to withdraw from a related corporate action event.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? RightToWithdrawIndicator { get; init; } 
     /// <summary>
     /// Vote options allowed at the resolution level. When specified, it supersedes the vote options given for the meeting.
     /// </summary>
-    [DataMember]
-    public ValueList<VoteInstructionType1> VoteInstructionType { get; init; } = []; // Warning: Don't know multiplicity.
+    public VoteInstructionType1? VoteInstructionType { get; init; } 
     /// <summary>
     /// Specifies how the management of the issuing company wishes the security holders to vote.
     /// </summary>
-    [DataMember]
     public VoteInstruction5Code? ManagementRecommendation { get; init; } 
     /// <summary>
     /// Specifies how the notifying party recommends that the security holders vote.
     /// </summary>
-    [DataMember]
     public VoteInstruction5Code? NotifyingPartyRecommendation { get; init; } 
     /// <summary>
     /// Number of votes assigned per resolution to one security.
     /// </summary>
-    [DataMember]
     public Entitlement1Choice_? Entitlement { get; init; } 
     /// <summary>
     /// Voting rights threshold and threshold basis to have a meeting resolution approved.
     /// </summary>
-    [DataMember]
-    public ValueList<VotingRightsThreshold1> VotingRightsThresholdForApproval { get; init; } = []; // Warning: Don't know multiplicity.
+    public VotingRightsThreshold1? VotingRightsThresholdForApproval { get; init; } 
     /// <summary>
     /// Address to use over the www (HTTP) service where specific additional information on meeting resolutions may be found.
     /// </summary>
-    [DataMember]
     public IsoMax2048Text? URLAddress { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IssrLabl", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerLabel)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Description is ItemDescription1 DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            DescriptionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ListingGroupResolutionLabel is IsoMax35Text ListingGroupResolutionLabelValue)
+        {
+            writer.WriteStartElement(null, "ListgGrpRsltnLabl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ListingGroupResolutionLabelValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Type is ResolutionType2Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ForInfOnly", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ForInformationOnly)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (VoteType is VoteType1Code VoteTypeValue)
+        {
+            writer.WriteStartElement(null, "VoteTp", xmlNamespace );
+            writer.WriteValue(VoteTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SubmittedBySecurityHolder is IsoYesNoIndicator SubmittedBySecurityHolderValue)
+        {
+            writer.WriteStartElement(null, "SubmittdBySctyHldr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SubmittedBySecurityHolderValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (RightToWithdrawIndicator is IsoYesNoIndicator RightToWithdrawIndicatorValue)
+        {
+            writer.WriteStartElement(null, "RghtToWdrwInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RightToWithdrawIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (VoteInstructionType is VoteInstructionType1 VoteInstructionTypeValue)
+        {
+            writer.WriteStartElement(null, "VoteInstrTp", xmlNamespace );
+            VoteInstructionTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ManagementRecommendation is VoteInstruction5Code ManagementRecommendationValue)
+        {
+            writer.WriteStartElement(null, "MgmtRcmmndtn", xmlNamespace );
+            writer.WriteValue(ManagementRecommendationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (NotifyingPartyRecommendation is VoteInstruction5Code NotifyingPartyRecommendationValue)
+        {
+            writer.WriteStartElement(null, "NtifngPtyRcmmndtn", xmlNamespace );
+            writer.WriteValue(NotifyingPartyRecommendationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Entitlement is Entitlement1Choice_ EntitlementValue)
+        {
+            writer.WriteStartElement(null, "Entitlmnt", xmlNamespace );
+            EntitlementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (VotingRightsThresholdForApproval is VotingRightsThreshold1 VotingRightsThresholdForApprovalValue)
+        {
+            writer.WriteStartElement(null, "VtngRghtsThrshldForApprvl", xmlNamespace );
+            VotingRightsThresholdForApprovalValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (URLAddress is IsoMax2048Text URLAddressValue)
+        {
+            writer.WriteStartElement(null, "URLAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2048Text(URLAddressValue)); // data type Max2048Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Resolution6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

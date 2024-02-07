@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the  fraud reporting response message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FraudReportingResponse1
+     : IIsoXmlSerilizable<FraudReportingResponse1>
 {
     #nullable enable
     
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
-    [DataMember]
     public required Environment10 Environment { get; init; } 
     /// <summary>
     /// Contains or describes conditions and characteristics of the transaction.
     /// </summary>
-    [DataMember]
     public Context8? Context { get; init; } 
     /// <summary>
     /// Transaction details of fraud reporting response.
     /// </summary>
-    [DataMember]
     public required Transaction93 Transaction { get; init; } 
     /// <summary>
     /// Outcome of processing of the fraud reporting.
     /// </summary>
-    [DataMember]
     public required ProcessingResult4 ProcessingResult { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Envt", xmlNamespace );
+        Environment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Context is Context8 ContextValue)
+        {
+            writer.WriteStartElement(null, "Cntxt", xmlNamespace );
+            ContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Tx", xmlNamespace );
+        Transaction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PrcgRslt", xmlNamespace );
+        ProcessingResult.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FraudReportingResponse1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

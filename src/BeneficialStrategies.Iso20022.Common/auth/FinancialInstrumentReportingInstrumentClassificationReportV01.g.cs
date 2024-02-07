@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.auth.FinancialInstrumentReportingInstrumentClassificationReportV01>;
 
 namespace BeneficialStrategies.Iso20022.auth;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// The FinancialInstrumentReportingInstrumentClassificationReport message is sent by ESMA to all national competent authorities and provides all valid combinations for classification of financial instruments (CFI) as per ISO 10962.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The FinancialInstrumentReportingInstrumentClassificationReport message is sent by ESMA to all national competent authorities and provides all valid combinations for classification of financial instruments (CFI) as per ISO 10962.")]
-public partial record FinancialInstrumentReportingInstrumentClassificationReportV01 : IOuterRecord
+public partial record FinancialInstrumentReportingInstrumentClassificationReportV01 : IOuterRecord<FinancialInstrumentReportingInstrumentClassificationReportV01,FinancialInstrumentReportingInstrumentClassificationReportV01Document>
+    ,IIsoXmlSerilizable<FinancialInstrumentReportingInstrumentClassificationReportV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record FinancialInstrumentReportingInstrumentClassificationReport
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "FinInstrmRptgInstrmClssfctnRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => FinancialInstrumentReportingInstrumentClassificationReportV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -66,6 +73,32 @@ public partial record FinancialInstrumentReportingInstrumentClassificationReport
     {
         return new FinancialInstrumentReportingInstrumentClassificationReportV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("FinInstrmRptgInstrmClssfctnRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "InstrmClssfctn", xmlNamespace );
+        InstrumentClassification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstrumentReportingInstrumentClassificationReportV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -73,9 +106,7 @@ public partial record FinancialInstrumentReportingInstrumentClassificationReport
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInstrumentReportingInstrumentClassificationReportV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record FinancialInstrumentReportingInstrumentClassificationReportV01Document : IOuterDocument<FinancialInstrumentReportingInstrumentClassificationReportV01>
+public partial record FinancialInstrumentReportingInstrumentClassificationReportV01Document : IOuterDocument<FinancialInstrumentReportingInstrumentClassificationReportV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -91,5 +122,22 @@ public partial record FinancialInstrumentReportingInstrumentClassificationReport
     /// <summary>
     /// The instance of <seealso cref="FinancialInstrumentReportingInstrumentClassificationReportV01"/> is required.
     /// </summary>
+    [DataMember(Name=FinancialInstrumentReportingInstrumentClassificationReportV01.XmlTag)]
     public required FinancialInstrumentReportingInstrumentClassificationReportV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(FinancialInstrumentReportingInstrumentClassificationReportV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the value, type and source of price.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Price6
+     : IIsoXmlSerilizable<Price6>
 {
     #nullable enable
     
     /// <summary>
     /// Value of the price expressed as a currency and value or as a rate.
     /// </summary>
-    [DataMember]
     public required PriceRateOrAmountChoice_ RateOrAmount { get; init; } 
     /// <summary>
     /// Specification of the price type.
     /// </summary>
-    [DataMember]
     public required TypeOfPrice13Code Type { get; init; } 
     /// <summary>
     /// Source for the price valuation.
     /// </summary>
-    [DataMember]
     public required PriceSource2Code Source { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RateOrAmt", xmlNamespace );
+        RateOrAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Src", xmlNamespace );
+        writer.WriteValue(Source.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static Price6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

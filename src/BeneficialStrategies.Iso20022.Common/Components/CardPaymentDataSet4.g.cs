@@ -7,48 +7,85 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of transactions to capture, sharing common characteristics.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardPaymentDataSet4
+     : IIsoXmlSerilizable<CardPaymentDataSet4>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the data set.
     /// </summary>
-    [DataMember]
     public required DataSetIdentification1 DataSetIdentification { get; init; } 
     /// <summary>
     /// Identification of partners involved in the data set building.
     /// </summary>
-    [DataMember]
-    public ValueList<Traceability1> Traceability { get; init; } = []; // Warning: Don't know multiplicity.
+    public Traceability1? Traceability { get; init; } 
     /// <summary>
     /// Initiator of the data set.
     /// </summary>
-    [DataMember]
     public GenericIdentification32? DataSetInitiator { get; init; } 
     /// <summary>
     /// Transaction totals of the data set.
     /// </summary>
-    [DataMember]
-    public ValueList<TransactionTotals2> TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransactionTotals2? TransactionTotals { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _1Et1bQvZEeKzJ69IWwzB9Q
     /// <summary>
     /// Data common to all transactions of the data set.
     /// </summary>
-    [DataMember]
     public CommonData2? CommonData { get; init; } 
     /// <summary>
     /// Set of transaction to Process.
     /// </summary>
-    [DataMember]
-    public ValueList<CardPaymentDataSetTransaction1Choice_> Transaction { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardPaymentDataSetTransaction1Choice_? Transaction { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _lpQ7sC8SEeKW5usMQLtzqw
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DataSetId", xmlNamespace );
+        DataSetIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Traceability is Traceability1 TraceabilityValue)
+        {
+            writer.WriteStartElement(null, "Tracblt", xmlNamespace );
+            TraceabilityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DataSetInitiator is GenericIdentification32 DataSetInitiatorValue)
+        {
+            writer.WriteStartElement(null, "DataSetInitr", xmlNamespace );
+            DataSetInitiatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize TransactionTotals, multiplicity Unknown
+        if (CommonData is CommonData2 CommonDataValue)
+        {
+            writer.WriteStartElement(null, "CmonData", xmlNamespace );
+            CommonDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize Transaction, multiplicity Unknown
+    }
+    public static CardPaymentDataSet4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

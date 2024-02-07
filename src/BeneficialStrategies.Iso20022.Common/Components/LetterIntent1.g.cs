@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies information about the letter of intent.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LetterIntent1
+     : IIsoXmlSerilizable<LetterIntent1>
 {
     #nullable enable
     
     /// <summary>
     /// Reference of a letter of intent program, in which sales commissions are reduced based on the aggregate of a customer's actual purchase and anticipated purchases, over a specific period of time, and as agreed by the customer.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text LetterIntentReference { get; init; } 
     /// <summary>
     /// Amount stated on the letter of intent.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? Amount { get; init; } 
     /// <summary>
     /// Start date stated on the letter of intent.
     /// </summary>
-    [DataMember]
     public IsoISODate? StartDate { get; init; } 
     /// <summary>
     /// End date stated on the letter of intent.
     /// </summary>
-    [DataMember]
     public IsoISODate? EndDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "LttrInttRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(LetterIntentReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Amount is IsoActiveCurrencyAnd13DecimalAmount AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(AmountValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (StartDate is IsoISODate StartDateValue)
+        {
+            writer.WriteStartElement(null, "StartDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(StartDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (EndDate is IsoISODate EndDateValue)
+        {
+            writer.WriteStartElement(null, "EndDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(EndDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static LetterIntent1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

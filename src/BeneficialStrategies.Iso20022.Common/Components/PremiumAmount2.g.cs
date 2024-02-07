@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Commercial agreement in which the buyer agrees to pay the seller an amount of cash. Some aspects of the payment may be defined in the agreement, eg, the method of the payment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PremiumAmount2
+     : IIsoXmlSerilizable<PremiumAmount2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the calculation method of the premium amount.
     /// </summary>
-    [DataMember]
     public PremiumQuote1Choice_? PremiumQuote { get; init; } 
     /// <summary>
     /// Result of the calculation of the premium amount on the basis of the premium quote and one of the amounts of the underlying foreign exchange trade.
     /// </summary>
-    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Date on which the premium must be settled.
     /// </summary>
-    [DataMember]
     public required IsoISODate SettlementDate { get; init; } 
     /// <summary>
     /// Party that settles the premium amount on behalf of the paying party. It may contain the BIC of a central settlement system, eg. CLSBUS33.
     /// </summary>
-    [DataMember]
     public PartyIdentification8Choice_? SettlementParty { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PremiumQuote is PremiumQuote1Choice_ PremiumQuoteValue)
+        {
+            writer.WriteStartElement(null, "PrmQt", xmlNamespace );
+            PremiumQuoteValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(Amount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(SettlementDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (SettlementParty is PartyIdentification8Choice_ SettlementPartyValue)
+        {
+            writer.WriteStartElement(null, "SttlmPty", xmlNamespace );
+            SettlementPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PremiumAmount2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

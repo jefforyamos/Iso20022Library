@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment of Retailer for this message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RetailerSaleEnvironment2
+     : IIsoXmlSerilizable<RetailerSaleEnvironment2>
 {
     #nullable enable
     
     /// <summary>
     /// Capabilities of the Sale system.
     /// </summary>
-    [DataMember]
-    public ValueList<SaleCapabilities1Code> SaleCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    public SaleCapabilities1Code? SaleCapabilities { get; init; } 
     /// <summary>
     /// Default currency associated with the sale system.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Minimum amount the Sale System is allowed to deliver for this payment.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? MinimumAmountToDeliver { get; init; } 
     /// <summary>
     /// Maximum amount which could be requested for cash-back.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? MaximumCashBackAmount { get; init; } 
     /// <summary>
     /// Minimum amount to split a sale transaction.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? MinimumSplitAmount { get; init; } 
     /// <summary>
     /// Flag if preferred type of payment is a debit transaction.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? DebitPreferredFlag { get; init; } 
     /// <summary>
     /// Way of Loyalty handling.
     /// </summary>
-    [DataMember]
     public LoyaltyHandling1Code? LoyaltyHandling { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SaleCapabilities is SaleCapabilities1Code SaleCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "SaleCpblties", xmlNamespace );
+            writer.WriteValue(SaleCapabilitiesValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MinimumAmountToDeliver is IsoImpliedCurrencyAndAmount MinimumAmountToDeliverValue)
+        {
+            writer.WriteStartElement(null, "MinAmtToDlvr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MinimumAmountToDeliverValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MaximumCashBackAmount is IsoImpliedCurrencyAndAmount MaximumCashBackAmountValue)
+        {
+            writer.WriteStartElement(null, "MaxCshBckAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MaximumCashBackAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MinimumSplitAmount is IsoImpliedCurrencyAndAmount MinimumSplitAmountValue)
+        {
+            writer.WriteStartElement(null, "MinSpltAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MinimumSplitAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (DebitPreferredFlag is IsoTrueFalseIndicator DebitPreferredFlagValue)
+        {
+            writer.WriteStartElement(null, "DbtPrefrdFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DebitPreferredFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (LoyaltyHandling is LoyaltyHandling1Code LoyaltyHandlingValue)
+        {
+            writer.WriteStartElement(null, "LltyHdlg", xmlNamespace );
+            writer.WriteValue(LoyaltyHandlingValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static RetailerSaleEnvironment2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

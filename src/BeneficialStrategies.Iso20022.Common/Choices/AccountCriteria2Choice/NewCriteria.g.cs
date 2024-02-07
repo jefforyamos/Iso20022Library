@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AccountCriteria2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountCriteria2Choice;
 /// Explicitly defines the query criteria.
 /// </summary>
 public partial record NewCriteria : AccountCriteria2Choice_
+     , IIsoXmlSerilizable<NewCriteria>
 {
     #nullable enable
+    
     /// <summary>
     /// Name of the query defined by the search criteria and return criteria.
     /// </summary>
@@ -22,10 +26,46 @@ public partial record NewCriteria : AccountCriteria2Choice_
     /// <summary>
     /// Defines the criteria to be used to extract the account information.
     /// </summary>
-    public CashAccountSearchCriteria6? SearchCriteria { get; init;  } // Warning: Don't know multiplicity.
+    public CashAccountSearchCriteria6? SearchCriteria { get; init; } 
     /// <summary>
     /// Defines the expected account report.
     /// </summary>
     public CashAccountReturnCriteria4? ReturnCriteria { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NewQueryName is IsoMax35Text NewQueryNameValue)
+        {
+            writer.WriteStartElement(null, "NewQryNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NewQueryNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SearchCriteria is CashAccountSearchCriteria6 SearchCriteriaValue)
+        {
+            writer.WriteStartElement(null, "SchCrit", xmlNamespace );
+            SearchCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReturnCriteria is CashAccountReturnCriteria4 ReturnCriteriaValue)
+        {
+            writer.WriteStartElement(null, "RtrCrit", xmlNamespace );
+            ReturnCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new NewCriteria Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

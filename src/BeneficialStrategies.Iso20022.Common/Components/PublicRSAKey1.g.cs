@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Value of the public component of a RSA key.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PublicRSAKey1
+     : IIsoXmlSerilizable<PublicRSAKey1>
 {
     #nullable enable
     
     /// <summary>
     /// Modulus of the RSA key.
     /// </summary>
-    [DataMember]
     public required IsoMax5000Binary Modulus { get; init; } 
     /// <summary>
     /// Public exponent of the RSA key.
     /// </summary>
-    [DataMember]
     public required IsoMax5000Binary Exponent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Mdlus", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax5000Binary(Modulus)); // data type Max5000Binary System.Byte[]
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Expnt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax5000Binary(Exponent)); // data type Max5000Binary System.Byte[]
+        writer.WriteEndElement();
+    }
+    public static PublicRSAKey1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

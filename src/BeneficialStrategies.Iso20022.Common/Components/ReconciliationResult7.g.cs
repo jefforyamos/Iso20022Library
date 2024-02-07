@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indication that the reports subject of reconciliation do not match.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReconciliationResult7
+     : IIsoXmlSerilizable<ReconciliationResult7>
 {
     #nullable enable
     
     /// <summary>
     /// First side of the contract that needs to be matched.
     /// </summary>
-    [DataMember]
     public required OrganisationIdentification9Choice_ Counterparty1 { get; init; } 
     /// <summary>
     /// Second side of the contract that needs to be matched.
     /// </summary>
-    [DataMember]
     public required OrganisationIdentification9Choice_ Counterparty2 { get; init; } 
     /// <summary>
     /// Criteria used to match the sides of the contract.
     /// </summary>
-    [DataMember]
     public required MatchingCriteria7 MatchingCriteria { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CtrPty1", xmlNamespace );
+        Counterparty1.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CtrPty2", xmlNamespace );
+        Counterparty2.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MtchgCrit", xmlNamespace );
+        MatchingCriteria.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ReconciliationResult7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

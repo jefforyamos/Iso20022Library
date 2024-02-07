@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional functions or services to be performed in conjunction with the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DepositDetails1
+     : IIsoXmlSerilizable<DepositDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Funding source used for deposit.
     /// </summary>
-    [DataMember]
     public required CardDepositType1Code Type { get; init; } 
     /// <summary>
     /// Other funding source used for deposit.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Amount of the deposit.
     /// </summary>
-    [DataMember]
     public Amount5? Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherType is IsoMax35Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Amount is Amount5 AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            AmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DepositDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

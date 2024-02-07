@@ -7,73 +7,137 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information to support the Know Your Customer processes.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyProfileInformation1
+     : IIsoXmlSerilizable<PartyProfileInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the certificate type has been obtained and verified.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator CertificationIndicator { get; init; } 
     /// <summary>
     /// Identification of the person who validated the document.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? ValidatingParty { get; init; } 
     /// <summary>
     /// Identification of the person who checked the document.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? CheckingParty { get; init; } 
     /// <summary>
     /// Identification of the person who is responsible for the document.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? ResponsibleParty { get; init; } 
     /// <summary>
     /// Identifies the type of certificate.
     /// </summary>
-    [DataMember]
     public required CertificateType1Code CertificateType { get; init; } 
     /// <summary>
     /// Identifies the type of certificate.
     /// </summary>
-    [DataMember]
     public required IsoExtended350Code ExtendedCertificateType { get; init; } 
     /// <summary>
     /// Date at which the certification check has been performed.
     /// </summary>
-    [DataMember]
     public IsoISODate? CheckingDate { get; init; } 
     /// <summary>
     /// Specifies how frequently the check is performed.
     /// </summary>
-    [DataMember]
     public EventFrequency1Code? CheckingFrequency { get; init; } 
     /// <summary>
     /// Specifies the date at which the next certification check will be performed.
     /// </summary>
-    [DataMember]
     public IsoISODate? NextRevisionDate { get; init; } 
     /// <summary>
     /// Limits between which a person's salary is estimated.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SalaryRange { get; init; } 
     /// <summary>
     /// Indicates the main source of revenue.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? SourceOfWealth { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CertfctnInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CertificationIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (ValidatingParty is IsoMax140Text ValidatingPartyValue)
+        {
+            writer.WriteStartElement(null, "VldtngPty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(ValidatingPartyValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (CheckingParty is IsoMax140Text CheckingPartyValue)
+        {
+            writer.WriteStartElement(null, "ChckngPty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(CheckingPartyValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (ResponsibleParty is IsoMax140Text ResponsiblePartyValue)
+        {
+            writer.WriteStartElement(null, "RspnsblPty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(ResponsiblePartyValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CertTp", xmlNamespace );
+        writer.WriteValue(CertificateType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtndedCertTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedCertificateType)); // data type Extended350Code System.String
+        writer.WriteEndElement();
+        if (CheckingDate is IsoISODate CheckingDateValue)
+        {
+            writer.WriteStartElement(null, "ChckngDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(CheckingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (CheckingFrequency is EventFrequency1Code CheckingFrequencyValue)
+        {
+            writer.WriteStartElement(null, "ChckngFrqcy", xmlNamespace );
+            writer.WriteValue(CheckingFrequencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (NextRevisionDate is IsoISODate NextRevisionDateValue)
+        {
+            writer.WriteStartElement(null, "NxtRvsnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(NextRevisionDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SalaryRange is IsoMax35Text SalaryRangeValue)
+        {
+            writer.WriteStartElement(null, "SlryRg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SalaryRangeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SourceOfWealth is IsoMax140Text SourceOfWealthValue)
+        {
+            writer.WriteStartElement(null, "SrcOfWlth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(SourceOfWealthValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyProfileInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

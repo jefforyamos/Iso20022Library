@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.reda.SecurityCreationRequestV01>;
 
 namespace BeneficialStrategies.Iso20022.reda;
 
@@ -34,10 +37,9 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// Initiator: instructing party.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"SCOPE|An instructing party sends a SecurityCreationRequest message to an executing/servicing party to request the creation of financial instrument static details in their system.||The instructing party - executing/servicing party relationship may be:|- Central Securities Depositories (CSD) who would like to publish security static data, or |- a Corporate, or|- a Bank, or|- a Market Infrastructure, or |- a Market Data Provider.||USAGE|The request is sent when the instructing party identified a gap in the securities coverage of the executing/servicing party. The instructing party needs this security to be set-up at the executing /servicing party to perform its activities.||Initiator: instructing party.")]
-public partial record SecurityCreationRequestV01 : IOuterRecord
+public partial record SecurityCreationRequestV01 : IOuterRecord<SecurityCreationRequestV01,SecurityCreationRequestV01Document>
+    ,IIsoXmlSerilizable<SecurityCreationRequestV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -49,6 +51,11 @@ public partial record SecurityCreationRequestV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctyCreReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecurityCreationRequestV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -88,6 +95,38 @@ public partial record SecurityCreationRequestV01 : IOuterRecord
     {
         return new SecurityCreationRequestV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctyCreReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MessageHeader is MessageHeader1 MessageHeaderValue)
+        {
+            writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+            MessageHeaderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Scty", xmlNamespace );
+        Security.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecurityCreationRequestV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -95,9 +134,7 @@ public partial record SecurityCreationRequestV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecurityCreationRequestV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecurityCreationRequestV01Document : IOuterDocument<SecurityCreationRequestV01>
+public partial record SecurityCreationRequestV01Document : IOuterDocument<SecurityCreationRequestV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -113,5 +150,22 @@ public partial record SecurityCreationRequestV01Document : IOuterDocument<Securi
     /// <summary>
     /// The instance of <seealso cref="SecurityCreationRequestV01"/> is required.
     /// </summary>
+    [DataMember(Name=SecurityCreationRequestV01.XmlTag)]
     public required SecurityCreationRequestV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecurityCreationRequestV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,38 +7,64 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Transaction for whose batch capture has been rejected.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardPaymentDataSet11
+     : IIsoXmlSerilizable<CardPaymentDataSet11>
 {
     #nullable enable
     
     /// <summary>
     /// Sequential counter of the transaction.
     /// </summary>
-    [DataMember]
     public required IsoMax9NumericText TransactionSequenceCounter { get; init; } 
     /// <summary>
     /// Response to the capture of the transaction.
     /// </summary>
-    [DataMember]
     public required ResponseType1 TransactionResponse { get; init; } 
     /// <summary>
     /// Data related to the environment of the transaction.
     /// </summary>
-    [DataMember]
     public required CardPaymentEnvironment33 Environment { get; init; } 
     /// <summary>
     /// Transaction that has been rejected.
     /// </summary>
-    [DataMember]
     public required CardPaymentTransactionAdviceResponse5 Transaction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxSeqCntr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax9NumericText(TransactionSequenceCounter)); // data type Max9NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxRspn", xmlNamespace );
+        TransactionResponse.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Envt", xmlNamespace );
+        Environment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tx", xmlNamespace );
+        Transaction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CardPaymentDataSet11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

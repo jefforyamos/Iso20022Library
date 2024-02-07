@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.AgentCAElectionAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// Note: this information can be also sent separately in the Agent Corporate Action Information advice message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|This message is sent by a CSD to the issuer (or its agent) to provide information about the clients' election instruction, the registration details, the delivery details, etc. In case of an election with underlying resource movements, it also confirms that these have been completed. This message may also be sent in case of an amendment of an election, once the CSD has completed the required resource movements.|Usage|This message can be used for a new election advice or an amended election advice.|If this message is used for a new election advice, the function of the message must be 'new election'.|If this message is used for an amended election advice, the function of the message must be 'option change' and the identification of the previously sent election advice must be present.|This message can include the cash movements and/or securities movements in the case of an election with underlying resource movements. Additionally, this message can include delivery, certification and beneficial owner details.|Note: this information can be also sent separately in the Agent Corporate Action Information advice message.")]
-public partial record AgentCAElectionAdviceV01 : IOuterRecord
+public partial record AgentCAElectionAdviceV01 : IOuterRecord<AgentCAElectionAdviceV01,AgentCAElectionAdviceV01Document>
+    ,IIsoXmlSerilizable<AgentCAElectionAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record AgentCAElectionAdviceV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AgtCAElctnAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AgentCAElectionAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -112,6 +119,47 @@ public partial record AgentCAElectionAdviceV01 : IOuterRecord
     {
         return new AgentCAElectionAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AgtCAElctnAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ElctnAdvcTpAndLkg", xmlNamespace );
+        ElectionAdviceTypeAndLinkage.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+        CorporateActionGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ElctnDtls", xmlNamespace );
+        ElectionDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalInformation is CorporateActionAdditionalInformation1 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContactDetails is ContactPerson1 ContactDetailsValue)
+        {
+            writer.WriteStartElement(null, "CtctDtls", xmlNamespace );
+            ContactDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AgentCAElectionAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -119,9 +167,7 @@ public partial record AgentCAElectionAdviceV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAElectionAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AgentCAElectionAdviceV01Document : IOuterDocument<AgentCAElectionAdviceV01>
+public partial record AgentCAElectionAdviceV01Document : IOuterDocument<AgentCAElectionAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -137,5 +183,22 @@ public partial record AgentCAElectionAdviceV01Document : IOuterDocument<AgentCAE
     /// <summary>
     /// The instance of <seealso cref="AgentCAElectionAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=AgentCAElectionAdviceV01.XmlTag)]
     public required AgentCAElectionAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AgentCAElectionAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

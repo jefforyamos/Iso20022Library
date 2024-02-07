@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Bank used by a central counterparty to allow for the convenient settlement of obligations between a central counterparty and a clearing member, typically in commercial bank money.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementAgent1
+     : IIsoXmlSerilizable<SettlementAgent1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the settlement agent.
     /// </summary>
-    [DataMember]
     public required IsoLEIIdentifier Identification { get; init; } 
     /// <summary>
     /// CCP’s account at the settlement agent.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentAccount1> Account { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentAccount1? Account { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _cMw3ULIjEeaYqc4G3TTwhA
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(Identification)); // data type LEIIdentifier System.String
+        writer.WriteEndElement();
+        // Not sure how to serialize Account, multiplicity Unknown
+    }
+    public static SettlementAgent1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

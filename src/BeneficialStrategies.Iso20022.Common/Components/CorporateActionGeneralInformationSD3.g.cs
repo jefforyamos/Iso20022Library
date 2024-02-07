@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action general information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionGeneralInformationSD3
+     : IIsoXmlSerilizable<CorporateActionGeneralInformationSD3>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification15 SecurityIdentification { get; init; } 
     /// <summary>
     /// Date at which positions are stuck at the end of the day to note which parties will receive the relevant amount of entitlement, due to be distributed on payment date. DTC (The Depository Trust Corporation) and its Participants may use this as a reference.
     /// </summary>
-    [DataMember]
     public IsoISODate? RecordDate { get; init; } 
     /// <summary>
     /// Date/time at which the movement was due to take place (cash and/or securities).
     /// </summary>
-    [DataMember]
     public DateFormat22Choice_? PaymentDate { get; init; } 
     /// <summary>
     /// Additional information about the corporate action event.
     /// </summary>
-    [DataMember]
-    public ValueList<CorporateActionUnallocatedDetailsSD1> UnallocatedDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CorporateActionUnallocatedDetailsSD1? UnallocatedDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctyId", xmlNamespace );
+        SecurityIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RecordDate is IsoISODate RecordDateValue)
+        {
+            writer.WriteStartElement(null, "RcrdDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(RecordDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (PaymentDate is DateFormat22Choice_ PaymentDateValue)
+        {
+            writer.WriteStartElement(null, "PmtDt", xmlNamespace );
+            PaymentDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnallocatedDetails is CorporateActionUnallocatedDetailsSD1 UnallocatedDetailsValue)
+        {
+            writer.WriteStartElement(null, "UallctdDtls", xmlNamespace );
+            UnallocatedDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionGeneralInformationSD3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

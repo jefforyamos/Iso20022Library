@@ -7,48 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the physical parameters of a shareholders meeting. Several dates and places can be defined for a meeting.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Meeting2
+     : IIsoXmlSerilizable<Meeting2>
 {
     #nullable enable
     
     /// <summary>
     /// Date and time at which the meeting will take place.
     /// </summary>
-    [DataMember]
     public required DateFormat2Choice_ DateAndTime { get; init; } 
     /// <summary>
     /// Indicates the status of a meeting date.
     /// </summary>
-    [DataMember]
     public MeetingDateStatus1Code? DateStatus { get; init; } 
     /// <summary>
     /// Specifies whether a minimum number of security representation is required to hold a meeting.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator QuorumRequired { get; init; } 
     /// <summary>
     /// Specifies location where meeting will take place.
     /// </summary>
-    [DataMember]
     public ValueList<LocationFormat1Choice_> Location { get; init; } = [];
     /// <summary>
     /// Minimum quantity of securities required to hold a meeting.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? QuorumQuantity { get; init; } 
     /// <summary>
     /// Minimum quantity of securities, expressed as a percentage, required to hold a meeting.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? QuorumQuantityPercentage { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DtAndTm", xmlNamespace );
+        DateAndTime.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DateStatus is MeetingDateStatus1Code DateStatusValue)
+        {
+            writer.WriteStartElement(null, "DtSts", xmlNamespace );
+            writer.WriteValue(DateStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "QrmReqrd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(QuorumRequired)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Lctn", xmlNamespace );
+        Location.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (QuorumQuantity is IsoMax35Text QuorumQuantityValue)
+        {
+            writer.WriteStartElement(null, "QrmQty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(QuorumQuantityValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (QuorumQuantityPercentage is IsoPercentageRate QuorumQuantityPercentageValue)
+        {
+            writer.WriteStartElement(null, "QrmQtyPctg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(QuorumQuantityPercentageValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static Meeting2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

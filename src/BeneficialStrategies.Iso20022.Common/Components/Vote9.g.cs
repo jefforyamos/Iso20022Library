@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Decision of the voting party for one resolution.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Vote9
+     : IIsoXmlSerilizable<Vote9>
 {
     #nullable enable
     
     /// <summary>
     /// Numbering of the resolution as specified by the issuer or its agent.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text IssuerLabel { get; init; } 
     /// <summary>
     /// Specifies the different instructions that can be used to vote.
     /// </summary>
-    [DataMember]
     public required VoteInstruction3Code VoteOption { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IssrLabl", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerLabel)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "VoteOptn", xmlNamespace );
+        writer.WriteValue(VoteOption.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static Vote9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

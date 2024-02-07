@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.EventProcessingStatus5Choice;
 
@@ -13,11 +15,34 @@ namespace BeneficialStrategies.Iso20022.Choices.EventProcessingStatus5Choice;
 /// Specifies that a corporate action event processing has been completed.
 /// </summary>
 public partial record Complete : EventProcessingStatus5Choice_
+     , IIsoXmlSerilizable<Complete>
 {
     #nullable enable
+    
     /// <summary>
     /// Indicates that there is no reason available or to report.
     /// </summary>
     public required NoReasonCode NoSpecifiedReason { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NoSpcfdRsn", xmlNamespace );
+        writer.WriteValue(NoSpecifiedReason.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new Complete Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

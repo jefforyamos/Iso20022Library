@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information about mergers.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MergerDetailsType1
+     : IIsoXmlSerilizable<MergerDetailsType1>
 {
     #nullable enable
     
@@ -23,31 +24,73 @@ public partial record MergerDetailsType1
     /// Differentiation of different types of merger.
     /// 合併/株式交換/株式移転の区分.
     /// </summary>
-    [DataMember]
     public MergerTypeCode? MergerType { get; init; } 
     /// <summary>
     /// Information about the counterparty in case of [sankaku] gappei: the scenario where a third party is involved as one of the counterparties in the merger but there is no security movement from the third party.
     /// </summary>
-    [DataMember]
-    public ValueList<CounterpartyDetailsType1> CounterpartyDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CounterpartyDetailsType1? CounterpartyDetails { get; init; } 
     /// <summary>
     /// Classification of the simplified merger regulatory condition of the parent company.
     /// 簡易区分.
     /// </summary>
-    [DataMember]
     public MergerCode? SimplifiedMergerClassification { get; init; } 
     /// <summary>
     /// Classification of the short form merger regulatory condition of the subsidiary company.
     /// 略式区分.
     /// </summary>
-    [DataMember]
     public MergerCode? ShortFormMergerClassification { get; init; } 
     /// <summary>
     /// Share unit quantity of the shares of the new company.
     /// 新設会社の単元株数.
     /// </summary>
-    [DataMember]
     public IsoNumber? ShareUnitQuantityOfNewCompany { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MergerType is MergerTypeCode MergerTypeValue)
+        {
+            writer.WriteStartElement(null, "MrgrTp", xmlNamespace );
+            writer.WriteValue(MergerTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CounterpartyDetails is CounterpartyDetailsType1 CounterpartyDetailsValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyDtls", xmlNamespace );
+            CounterpartyDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SimplifiedMergerClassification is MergerCode SimplifiedMergerClassificationValue)
+        {
+            writer.WriteStartElement(null, "SmplfdMrgrClssfctn", xmlNamespace );
+            writer.WriteValue(SimplifiedMergerClassificationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ShortFormMergerClassification is MergerCode ShortFormMergerClassificationValue)
+        {
+            writer.WriteStartElement(null, "ShrtFormMrgrClssfctn", xmlNamespace );
+            writer.WriteValue(ShortFormMergerClassificationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ShareUnitQuantityOfNewCompany is IsoNumber ShareUnitQuantityOfNewCompanyValue)
+        {
+            writer.WriteStartElement(null, "ShrUnitQtyOfNewCpny", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(ShareUnitQuantityOfNewCompanyValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static MergerDetailsType1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

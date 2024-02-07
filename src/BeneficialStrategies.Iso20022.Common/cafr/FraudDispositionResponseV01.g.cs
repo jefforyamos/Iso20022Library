@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.cafr.FraudDispositionResponseV01>;
 
 namespace BeneficialStrategies.Iso20022.cafr;
 
@@ -22,10 +25,9 @@ namespace BeneficialStrategies.Iso20022.cafr;
 /// 
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"A FraudDispositionResponse message is sent by an issuer or acquirer to an agent (processor, agent) in response to a FraudDispositionInitiation message.||")]
-public partial record FraudDispositionResponseV01 : IOuterRecord
+public partial record FraudDispositionResponseV01 : IOuterRecord<FraudDispositionResponseV01,FraudDispositionResponseV01Document>
+    ,IIsoXmlSerilizable<FraudDispositionResponseV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -37,6 +39,11 @@ public partial record FraudDispositionResponseV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "FrdDspstnRspn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => FraudDispositionResponseV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -77,6 +84,35 @@ public partial record FraudDispositionResponseV01 : IOuterRecord
     {
         return new FraudDispositionResponseV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("FrdDspstnRspn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Body", xmlNamespace );
+        Body.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecurityTrailer is ContentInformationType20 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FraudDispositionResponseV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -84,9 +120,7 @@ public partial record FraudDispositionResponseV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FraudDispositionResponseV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record FraudDispositionResponseV01Document : IOuterDocument<FraudDispositionResponseV01>
+public partial record FraudDispositionResponseV01Document : IOuterDocument<FraudDispositionResponseV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -102,5 +136,22 @@ public partial record FraudDispositionResponseV01Document : IOuterDocument<Fraud
     /// <summary>
     /// The instance of <seealso cref="FraudDispositionResponseV01"/> is required.
     /// </summary>
+    [DataMember(Name=FraudDispositionResponseV01.XmlTag)]
     public required FraudDispositionResponseV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(FraudDispositionResponseV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

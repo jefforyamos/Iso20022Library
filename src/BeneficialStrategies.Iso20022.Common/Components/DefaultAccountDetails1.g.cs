@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details about successor account for automated default funds transfer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DefaultAccountDetails1
+     : IIsoXmlSerilizable<DefaultAccountDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Account owner identification.
     /// </summary>
-    [DataMember]
     public required FinancialInstitutionIdentification9 AccountOwner { get; init; } 
     /// <summary>
     /// Account identification.
     /// </summary>
-    [DataMember]
     public required CashAccount24 Account { get; init; } 
     /// <summary>
     /// Information about time and event fund transfer.
     /// </summary>
-    [DataMember]
     public DailyFundTransfer1Choice_? DailyFundTransfer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+        AccountOwner.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Acct", xmlNamespace );
+        Account.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DailyFundTransfer is DailyFundTransfer1Choice_ DailyFundTransferValue)
+        {
+            writer.WriteStartElement(null, "DalyFndTrf", xmlNamespace );
+            DailyFundTransferValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DefaultAccountDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

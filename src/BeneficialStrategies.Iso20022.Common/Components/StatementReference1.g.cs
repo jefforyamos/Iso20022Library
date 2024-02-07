@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the reference of the statment by a unique identifier and the date (and time).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StatementReference1
+     : IIsoXmlSerilizable<StatementReference1>
 {
     #nullable enable
     
     /// <summary>
     /// Reference common to all pages of the statement for which the status advice is sent.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text StatementIdentification { get; init; } 
     /// <summary>
     /// Date and time the statement was created.
     /// </summary>
-    [DataMember]
     public required DateAndDateTimeChoice_ StatementDateTime { get; init; } 
     /// <summary>
     /// Page number of the related message (within the statement) and continuation indicator to indicate that the statement is to continue or that the related message is the last page of the statement.
     /// </summary>
-    [DataMember]
     public Pagination? Pagination { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "StmtId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(StatementIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StmtDtTm", xmlNamespace );
+        StatementDateTime.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Pagination is Pagination PaginationValue)
+        {
+            writer.WriteStartElement(null, "Pgntn", xmlNamespace );
+            PaginationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static StatementReference1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

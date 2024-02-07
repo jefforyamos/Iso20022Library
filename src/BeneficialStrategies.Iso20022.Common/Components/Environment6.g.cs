@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Environment6
+     : IIsoXmlSerilizable<Environment6>
 {
     #nullable enable
     
@@ -23,65 +24,139 @@ public partial record Environment6
     /// Identification of the acquirer.
     /// ISO 8583 bit 32.
     /// </summary>
-    [DataMember]
     public PartyIdentification198? Acquirer { get; init; } 
     /// <summary>
     /// Party sending the message to another intermediary agent or to the final destination.
     /// ISO 8583 bit 33
     /// </summary>
-    [DataMember]
     public PartyIdentification198? Sender { get; init; } 
     /// <summary>
     /// Party receiving the message from the origin or from an intermediary agent.
     /// ISO 8583 bit 100.
     /// </summary>
-    [DataMember]
     public PartyIdentification198? Receiver { get; init; } 
     /// <summary>
     /// Card acceptor performing the card transaction.
     /// </summary>
-    [DataMember]
     public PartyIdentification199? Acceptor { get; init; } 
     /// <summary>
     /// Person initiating a payment to the benefit of a payee.
     /// </summary>
-    [DataMember]
     public PartyIdentification211? Payer { get; init; } 
     /// <summary>
     /// Person to the benefit of whom a payment is performed.
     /// </summary>
-    [DataMember]
     public PartyIdentification211? Payee { get; init; } 
     /// <summary>
     /// Payment terminal or ATM performing the transaction.
     /// </summary>
-    [DataMember]
     public Terminal3? Terminal { get; init; } 
     /// <summary>
     /// Card or payment token performing the transaction.
     /// </summary>
-    [DataMember]
     public required CardData3 Card { get; init; } 
     /// <summary>
     /// Identification of the customer device performing the transaction.
     /// </summary>
-    [DataMember]
     public CustomerDevice2? CustomerDevice { get; init; } 
     /// <summary>
     /// Container for tenders used by the customer to perform the payment transaction.
     /// </summary>
-    [DataMember]
     public Wallet1? Wallet { get; init; } 
     /// <summary>
     /// Details of payment token.
     /// </summary>
-    [DataMember]
     public Token1? Token { get; init; } 
     /// <summary>
     /// Cardholder performing the card payment transaction.
     /// </summary>
-    [DataMember]
     public Cardholder15? Cardholder { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Acquirer is PartyIdentification198 AcquirerValue)
+        {
+            writer.WriteStartElement(null, "Acqrr", xmlNamespace );
+            AcquirerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Sender is PartyIdentification198 SenderValue)
+        {
+            writer.WriteStartElement(null, "Sndr", xmlNamespace );
+            SenderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Receiver is PartyIdentification198 ReceiverValue)
+        {
+            writer.WriteStartElement(null, "Rcvr", xmlNamespace );
+            ReceiverValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Acceptor is PartyIdentification199 AcceptorValue)
+        {
+            writer.WriteStartElement(null, "Accptr", xmlNamespace );
+            AcceptorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Payer is PartyIdentification211 PayerValue)
+        {
+            writer.WriteStartElement(null, "Pyer", xmlNamespace );
+            PayerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Payee is PartyIdentification211 PayeeValue)
+        {
+            writer.WriteStartElement(null, "Pyee", xmlNamespace );
+            PayeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Terminal is Terminal3 TerminalValue)
+        {
+            writer.WriteStartElement(null, "Termnl", xmlNamespace );
+            TerminalValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Card", xmlNamespace );
+        Card.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CustomerDevice is CustomerDevice2 CustomerDeviceValue)
+        {
+            writer.WriteStartElement(null, "CstmrDvc", xmlNamespace );
+            CustomerDeviceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Wallet is Wallet1 WalletValue)
+        {
+            writer.WriteStartElement(null, "Wllt", xmlNamespace );
+            WalletValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Token is Token1 TokenValue)
+        {
+            writer.WriteStartElement(null, "Tkn", xmlNamespace );
+            TokenValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Cardholder is Cardholder15 CardholderValue)
+        {
+            writer.WriteStartElement(null, "Crdhldr", xmlNamespace );
+            CardholderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Environment6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

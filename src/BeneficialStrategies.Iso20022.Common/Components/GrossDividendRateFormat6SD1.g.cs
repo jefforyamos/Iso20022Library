@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Extension to choose between an amount or an unspecified rate.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GrossDividendRateFormat6SD1
+     : IIsoXmlSerilizable<GrossDividendRateFormat6SD1>
 {
     #nullable enable
     
@@ -23,18 +24,50 @@ public partial record GrossDividendRateFormat6SD1
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance. 
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Provides the maximum dividend rate as announced by the Issuer.
     /// </summary>
-    [DataMember]
     public RateAndAmountFormat16Choice_? MaximumDividendRate { get; init; } 
     /// <summary>
     /// Provides the minimum dividend rate as announced by the Issuer.
     /// </summary>
-    [DataMember]
     public RateAndAmountFormat16Choice_? MinimumDividendRate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (MaximumDividendRate is RateAndAmountFormat16Choice_ MaximumDividendRateValue)
+        {
+            writer.WriteStartElement(null, "MaxDvddRate", xmlNamespace );
+            MaximumDividendRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MinimumDividendRate is RateAndAmountFormat16Choice_ MinimumDividendRateValue)
+        {
+            writer.WriteStartElement(null, "MinDvddRate", xmlNamespace );
+            MinimumDividendRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static GrossDividendRateFormat6SD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

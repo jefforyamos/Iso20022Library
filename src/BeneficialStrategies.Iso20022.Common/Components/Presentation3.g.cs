@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Electronic presentation information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Presentation3
+     : IIsoXmlSerilizable<Presentation3>
 {
     #nullable enable
     
     /// <summary>
     /// Format for presentation documents that are submitted electronically.
     /// </summary>
-    [DataMember]
     public DocumentFormat1Choice_? Format { get; init; } 
     /// <summary>
     /// Channel through which presentation documents are submitted electronically, such as SWIFT, Web upload, or secure email.
     /// </summary>
-    [DataMember]
     public Channel1Choice_? Channel { get; init; } 
     /// <summary>
     /// Uniform Resource Identifier (URI), such as a web or an email address, specifying where the presentation can be addressed.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? Address { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Format is DocumentFormat1Choice_ FormatValue)
+        {
+            writer.WriteStartElement(null, "Frmt", xmlNamespace );
+            FormatValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Channel is Channel1Choice_ ChannelValue)
+        {
+            writer.WriteStartElement(null, "Chanl", xmlNamespace );
+            ChannelValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Address is IsoMax256Text AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(AddressValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Presentation3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

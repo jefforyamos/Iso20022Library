@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of an entity involved in an activity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentification127
+     : IIsoXmlSerilizable<PartyIdentification127>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous way to identify an organisation.
     /// </summary>
-    [DataMember]
     public required PartyIdentification44Choice_ Identification { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for a party.
     /// </summary>
-    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
-    [DataMember]
     public AlternatePartyIdentification7? AlternateIdentification { get; init; } 
     /// <summary>
     /// Date/time at which the instruction was processed by the specified party.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? ProcessingDate { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction for the party identified.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ProcessingIdentification { get; init; } 
     /// <summary>
     /// Provides additional information to a party identification.
     /// </summary>
-    [DataMember]
     public PartyTextInformation1? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LEI is IsoLEIIdentifier LEIValue)
+        {
+            writer.WriteStartElement(null, "LEI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEIValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (AlternateIdentification is AlternatePartyIdentification7 AlternateIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AltrnId", xmlNamespace );
+            AlternateIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProcessingDate is DateAndDateTime2Choice_ ProcessingDateValue)
+        {
+            writer.WriteStartElement(null, "PrcgDt", xmlNamespace );
+            ProcessingDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProcessingIdentification is IsoMax35Text ProcessingIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrcgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProcessingIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is PartyTextInformation1 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyIdentification127 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

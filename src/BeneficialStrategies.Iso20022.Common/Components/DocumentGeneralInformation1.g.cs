@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// General information that unambiguously identifies a document, such as identification number and issue date time.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DocumentGeneralInformation1
+     : IIsoXmlSerilizable<DocumentGeneralInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of the document, for example commercial invoice.
     /// </summary>
-    [DataMember]
     public required DocumentType4Code DocumentType { get; init; } 
     /// <summary>
     /// Unique identifier of the document.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text DocumentNumber { get; init; } 
     /// <summary>
     /// Specifies the identification sequence number for a specific couple sender/receiver.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? SenderReceiverSequenceIdentification { get; init; } 
     /// <summary>
     /// Issue date of the document.
     /// </summary>
-    [DataMember]
     public required IsoISODate IssueDate { get; init; } 
     /// <summary>
     /// URL (Uniform Resource Locator) related to the document.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? URL { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DocTp", xmlNamespace );
+        writer.WriteValue(DocumentType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DocNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(DocumentNumber)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (SenderReceiverSequenceIdentification is IsoMax140Text SenderReceiverSequenceIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SndrRcvrSeqId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(SenderReceiverSequenceIdentificationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "IsseDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(IssueDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (URL is IsoMax256Text URLValue)
+        {
+            writer.WriteStartElement(null, "URL", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(URLValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static DocumentGeneralInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

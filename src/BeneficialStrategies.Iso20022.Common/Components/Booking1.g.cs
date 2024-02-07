@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information used to book the executions of a trade.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Booking1
+     : IIsoXmlSerilizable<Booking1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether or not automatic booking can occur.
     /// </summary>
-    [DataMember]
     public DayBookingInstruction1Code? DayBooking { get; init; } 
     /// <summary>
     /// Indicates what constitutes a bookable unit, ie, a partial execution, or an aggregated execution.
     /// </summary>
-    [DataMember]
     public BookingUnit1Choice_? BookingUnit { get; init; } 
     /// <summary>
     /// Indicates the method of preallocation.
     /// </summary>
-    [DataMember]
     public PreAllocationMethod1Code? PreAllocationMethod { get; init; } 
     /// <summary>
     /// Method for booking out an order.
     /// </summary>
-    [DataMember]
     public BookingType1Code? BookingType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DayBooking is DayBookingInstruction1Code DayBookingValue)
+        {
+            writer.WriteStartElement(null, "DayBookg", xmlNamespace );
+            writer.WriteValue(DayBookingValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (BookingUnit is BookingUnit1Choice_ BookingUnitValue)
+        {
+            writer.WriteStartElement(null, "BookgUnit", xmlNamespace );
+            BookingUnitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreAllocationMethod is PreAllocationMethod1Code PreAllocationMethodValue)
+        {
+            writer.WriteStartElement(null, "PreAllcnMtd", xmlNamespace );
+            writer.WriteValue(PreAllocationMethodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (BookingType is BookingType1Code BookingTypeValue)
+        {
+            writer.WriteStartElement(null, "BookgTp", xmlNamespace );
+            writer.WriteValue(BookingTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static Booking1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

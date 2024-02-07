@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the expected collateral type and direction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ExpectedCollateralMovement1
+     : IIsoXmlSerilizable<ExpectedCollateralMovement1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of collateral that will be delivered.
     /// </summary>
-    [DataMember]
-    public ValueList<CollateralType1Code> Delivery { get; init; } = []; // Warning: Don't know multiplicity.
+    public CollateralType1Code? Delivery { get; init; } 
     /// <summary>
     /// Type of collateral that will be returned.
     /// </summary>
-    [DataMember]
-    public ValueList<CollateralType1Code> Return { get; init; } = []; // Warning: Don't know multiplicity.
+    public CollateralType1Code? Return { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Delivery is CollateralType1Code DeliveryValue)
+        {
+            writer.WriteStartElement(null, "Dlvry", xmlNamespace );
+            writer.WriteValue(DeliveryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Return is CollateralType1Code ReturnValue)
+        {
+            writer.WriteStartElement(null, "Rtr", xmlNamespace );
+            writer.WriteValue(ReturnValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static ExpectedCollateralMovement1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

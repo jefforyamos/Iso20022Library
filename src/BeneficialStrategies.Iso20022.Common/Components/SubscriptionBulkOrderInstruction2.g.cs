@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a subscription bulk order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SubscriptionBulkOrderInstruction2
+     : IIsoXmlSerilizable<SubscriptionBulkOrderInstruction2>
 {
     #nullable enable
     
     /// <summary>
     /// Common information related to all the orders to be cancelled.
     /// </summary>
-    [DataMember]
     public required SubscriptionBulkOrder3 BulkOrderDetails { get; init; } 
     /// <summary>
     /// Information about parties related to the transaction.
     /// </summary>
-    [DataMember]
     public ValueList<Intermediary8> RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<Extension1> Extension { get; init; } = []; // Warning: Don't know multiplicity.
+    public Extension1? Extension { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BlkOrdrDtls", xmlNamespace );
+        BulkOrderDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RltdPtyDtls", xmlNamespace );
+        RelatedPartyDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SubscriptionBulkOrderInstruction2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

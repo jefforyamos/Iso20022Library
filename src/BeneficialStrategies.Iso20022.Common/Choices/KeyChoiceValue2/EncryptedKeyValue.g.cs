@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.KeyChoiceValue2;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.KeyChoiceValue2;
 /// Encrypted value of the cryptographic key.
 /// </summary>
 public partial record EncryptedKeyValue : KeyChoiceValue2_
+     , IIsoXmlSerilizable<EncryptedKeyValue>
 {
     #nullable enable
+    
     /// <summary>
     /// Type of data protection.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record EncryptedKeyValue : KeyChoiceValue2_
     /// Data protection by encryption or by a digital envelope, with an encryption key.
     /// </summary>
     public required EnvelopedData4 EnvelopedData { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CnttTp", xmlNamespace );
+        writer.WriteValue(ContentType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EnvlpdData", xmlNamespace );
+        EnvelopedData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new EncryptedKeyValue Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

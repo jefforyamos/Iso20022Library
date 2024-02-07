@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acceptor parameters dedicated to the merchant.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MerchantConfigurationParameters1
+     : IIsoXmlSerilizable<MerchantConfigurationParameters1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the merchant for the MTM, if the POI manages several merchants.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MerchantIdentification { get; init; } 
     /// <summary>
     /// Version of the merchant parameters.
     /// </summary>
-    [DataMember]
     public required IsoMax256Text Version { get; init; } 
     /// <summary>
     /// Merchant parameters.
     /// </summary>
-    [DataMember]
     public required IsoMax10000Binary Parameters { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MerchantIdentification is IsoMax35Text MerchantIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MrchntId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MerchantIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax256Text(Version)); // data type Max256Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Params", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax10000Binary(Parameters)); // data type Max10000Binary System.Byte[]
+        writer.WriteEndElement();
+    }
+    public static MerchantConfigurationParameters1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

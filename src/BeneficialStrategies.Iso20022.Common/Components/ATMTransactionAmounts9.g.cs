@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Limit of deposited media for the customer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMTransactionAmounts9
+     : IIsoXmlSerilizable<ATMTransactionAmounts9>
 {
     #nullable enable
     
     /// <summary>
     /// Type of media.
     /// </summary>
-    [DataMember]
     public required ATMMediaType2Code MediaType { get; init; } 
     /// <summary>
     /// Currency of the media.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Minimum number of media.
     /// </summary>
-    [DataMember]
     public IsoNumber? MinimumNumber { get; init; } 
     /// <summary>
     /// Maximum number of media.
     /// </summary>
-    [DataMember]
     public IsoNumber? MaximumNumber { get; init; } 
     /// <summary>
     /// True if limits may be displayed to the customer on the ATM.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? DisplayFlag { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MdiaTp", xmlNamespace );
+        writer.WriteValue(MediaType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MinimumNumber is IsoNumber MinimumNumberValue)
+        {
+            writer.WriteStartElement(null, "MinNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MinimumNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (MaximumNumber is IsoNumber MaximumNumberValue)
+        {
+            writer.WriteStartElement(null, "MaxNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (DisplayFlag is IsoTrueFalseIndicator DisplayFlagValue)
+        {
+            writer.WriteStartElement(null, "DispFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DisplayFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMTransactionAmounts9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

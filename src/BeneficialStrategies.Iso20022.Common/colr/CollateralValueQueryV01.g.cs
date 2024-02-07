@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.colr.CollateralValueQueryV01>;
 
 namespace BeneficialStrategies.Iso20022.colr;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// The CollateralValueQuery message is sent by a system member (such as a directly connected party) to the system transaction administrator to query the current available value of securities for auto collateralisation for one specific or several cash accounts.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The CollateralValueQuery message is sent by a system member (such as a directly connected party) to the system transaction administrator to query the current available value of securities for auto collateralisation for one specific or several cash accounts.")]
-public partial record CollateralValueQueryV01 : IOuterRecord
+public partial record CollateralValueQueryV01 : IOuterRecord<CollateralValueQueryV01,CollateralValueQueryV01Document>
+    ,IIsoXmlSerilizable<CollateralValueQueryV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record CollateralValueQueryV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "CollValQry";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CollateralValueQueryV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -75,6 +82,38 @@ public partial record CollateralValueQueryV01 : IOuterRecord
     {
         return new CollateralValueQueryV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("CollValQry");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+        MessageHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CollateralValueQueryDefinition is CollateralValueCriteriaDefinition3Choice_ CollateralValueQueryDefinitionValue)
+        {
+            writer.WriteStartElement(null, "CollValQryDef", xmlNamespace );
+            CollateralValueQueryDefinitionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralValueQueryV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -82,9 +121,7 @@ public partial record CollateralValueQueryV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CollateralValueQueryV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CollateralValueQueryV01Document : IOuterDocument<CollateralValueQueryV01>
+public partial record CollateralValueQueryV01Document : IOuterDocument<CollateralValueQueryV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -100,5 +137,22 @@ public partial record CollateralValueQueryV01Document : IOuterDocument<Collatera
     /// <summary>
     /// The instance of <seealso cref="CollateralValueQueryV01"/> is required.
     /// </summary>
+    [DataMember(Name=CollateralValueQueryV01.XmlTag)]
     public required CollateralValueQueryV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CollateralValueQueryV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

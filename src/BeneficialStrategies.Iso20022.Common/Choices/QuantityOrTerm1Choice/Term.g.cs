@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.QuantityOrTerm1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityOrTerm1Choice;
 /// Frequency expressed in tenor notation.
 /// </summary>
 public partial record Term : QuantityOrTerm1Choice_
+     , IIsoXmlSerilizable<Term>
 {
     #nullable enable
+    
     /// <summary>
     /// Number of units of the financial instrument, that is, the nominal value.
     /// </summary>
@@ -31,5 +35,47 @@ public partial record Term : QuantityOrTerm1Choice_
     /// Unit for the frequency period.
     /// </summary>
     public Frequency19Code? TimeUnit { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Quantity is IsoLongFraction19DecimalNumber QuantityValue)
+        {
+            writer.WriteStartElement(null, "Qty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLongFraction19DecimalNumber(QuantityValue)); // data type LongFraction19DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (UnitOfMeasure is UnitOfMeasure8Choice_ UnitOfMeasureValue)
+        {
+            writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
+            UnitOfMeasureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Value is IsoMax3Number ValueValue)
+        {
+            writer.WriteStartElement(null, "Val", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3Number(ValueValue)); // data type Max3Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (TimeUnit is Frequency19Code TimeUnitValue)
+        {
+            writer.WriteStartElement(null, "TmUnit", xmlNamespace );
+            writer.WriteValue(TimeUnitValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static new Term Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

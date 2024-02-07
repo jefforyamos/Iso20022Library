@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.ModifyTransactionV09>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -35,10 +38,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// To verify the outcome of the request, the member may submit a GetTransaction message with the appropriate search criteria.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The ModifyTransaction message is sent by a member to the transaction administrator.|It is used to request one modification in one payment instruction held at the transaction administrator and sent by the member, debiting or crediting its account at the transaction administrator.|Usage|Following normal business flows, transactions registered by the transaction administrator may be queued for later settlement (because of insufficient funds available, or because of risk or liquidity limits, etc.). A transaction may have a series of statuses. These can be transient (such as pending or related types) and final (such as rejected, revoked and/or settled).|Members of a system need to have information about the payments queue(s) and must have the ability to take action (that is, to cancel or modify the transaction(s) to be settled). Note, however, that actions by a member will always concern transactions in a transient status.|For this reason, at any time during the operating hours of the system, the member can request modifications to the features of transient transactions.|The member will submit a message requesting modifications in one or more of the following criteria:|- instruction given, related to the processing of the transaction|- type of payment instructed|- priority of payment period in which the payment instruction should be processed (processing validity time)|The ModifyTransaction message will contain the new values that the member wants to see applied to the features of the transaction identified in the message.|Based on the criteria received within the ModifyTransaction message, the transaction administrator will execute or reject the requested modifications.|The transaction administrator may send a Receipt message as a reply to the ModifyTransaction request.|To verify the outcome of the request, the member may submit a GetTransaction message with the appropriate search criteria.")]
-public partial record ModifyTransactionV09 : IOuterRecord
+public partial record ModifyTransactionV09 : IOuterRecord<ModifyTransactionV09,ModifyTransactionV09Document>
+    ,IIsoXmlSerilizable<ModifyTransactionV09>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -50,6 +52,11 @@ public partial record ModifyTransactionV09 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "ModfyTx";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ModifyTransactionV09Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -90,6 +97,35 @@ public partial record ModifyTransactionV09 : IOuterRecord
     {
         return new ModifyTransactionV09Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("ModfyTx");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+        MessageHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Mod", xmlNamespace );
+        Modification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ModifyTransactionV09 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -97,9 +133,7 @@ public partial record ModifyTransactionV09 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ModifyTransactionV09"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ModifyTransactionV09Document : IOuterDocument<ModifyTransactionV09>
+public partial record ModifyTransactionV09Document : IOuterDocument<ModifyTransactionV09>, IXmlSerializable
 {
     
     /// <summary>
@@ -115,5 +149,22 @@ public partial record ModifyTransactionV09Document : IOuterDocument<ModifyTransa
     /// <summary>
     /// The instance of <seealso cref="ModifyTransactionV09"/> is required.
     /// </summary>
+    [DataMember(Name=ModifyTransactionV09.XmlTag)]
     public required ModifyTransactionV09 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ModifyTransactionV09.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

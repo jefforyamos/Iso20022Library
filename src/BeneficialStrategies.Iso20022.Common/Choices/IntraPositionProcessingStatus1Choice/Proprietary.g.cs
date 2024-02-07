@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.IntraPositionProcessingStatus1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraPositionProcessingStatus1Ch
 /// Specifies a choice of status for the processing of an intra-position movement.
 /// </summary>
 public partial record Proprietary : IntraPositionProcessingStatus1Choice_
+     , IIsoXmlSerilizable<Proprietary>
 {
     #nullable enable
+    
     /// <summary>
     /// Proprietary identification of the status related to an instruction.
     /// </summary>
@@ -22,6 +26,33 @@ public partial record Proprietary : IntraPositionProcessingStatus1Choice_
     /// <summary>
     /// Proprietary identification of the reason related to a proprietary status.
     /// </summary>
-    public ProprietaryReason1? ProprietaryReason { get; init;  } // Warning: Don't know multiplicity.
+    public ProprietaryReason1? ProprietaryReason { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrtrySts", xmlNamespace );
+        ProprietaryStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ProprietaryReason is ProprietaryReason1 ProprietaryReasonValue)
+        {
+            writer.WriteStartElement(null, "PrtryRsn", xmlNamespace );
+            ProprietaryReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Proprietary Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

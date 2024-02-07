@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed information about single invoice/instalment financing result, such as result of request (financed or not financed), amount, percentage applied.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvoiceFinancingDetails1
+     : IIsoXmlSerilizable<InvoiceFinancingDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// General information that unambiguously identifies the invoice contained in the original request.
     /// </summary>
-    [DataMember]
     public required OriginalInvoiceInformation1 OriginalInvoiceInformation { get; init; } 
     /// <summary>
     /// Person or organization that represents the creditor for the invoice to be financed.
     /// </summary>
-    [DataMember]
     public PartyIdentification8? Supplier { get; init; } 
     /// <summary>
     /// Information about result of invoice financing request.
     /// </summary>
-    [DataMember]
     public required FinancingResult1 InvoiceFinancingResult { get; init; } 
     /// <summary>
     /// Includes details about a single instalment within an invoice, such as identification and amount.
     /// </summary>
-    [DataMember]
-    public ValueList<InstalmentFinancingInformation1> InstalmentFinancingInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public InstalmentFinancingInformation1? InstalmentFinancingInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OrgnlInvcInf", xmlNamespace );
+        OriginalInvoiceInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Supplier is PartyIdentification8 SupplierValue)
+        {
+            writer.WriteStartElement(null, "Spplr", xmlNamespace );
+            SupplierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InvcFincgRslt", xmlNamespace );
+        InvoiceFinancingResult.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (InstalmentFinancingInformation is InstalmentFinancingInformation1 InstalmentFinancingInformationValue)
+        {
+            writer.WriteStartElement(null, "InstlmtFincgInf", xmlNamespace );
+            InstalmentFinancingInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InvoiceFinancingDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

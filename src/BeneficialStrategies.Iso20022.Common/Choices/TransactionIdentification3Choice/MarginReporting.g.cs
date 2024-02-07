@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TransactionIdentification3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionIdentification3Choice
 /// Provides identification of the margin reporting.
 /// </summary>
 public partial record MarginReporting : TransactionIdentification3Choice_
+     , IIsoXmlSerilizable<MarginReporting>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
@@ -35,5 +39,47 @@ public partial record MarginReporting : TransactionIdentification3Choice_
     /// Unique and unambiguous identification of the collateral portfolio.
     /// </summary>
     public IsoMax52Text? CollateralPortfolioIdentification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TechnicalRecordIdentification is IsoMax140Text TechnicalRecordIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(TechnicalRecordIdentificationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RptgCtrPty", xmlNamespace );
+        ReportingCounterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrCtrPty", xmlNamespace );
+        OtherCounterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (EntityResponsibleForReport is OrganisationIdentification15Choice_ EntityResponsibleForReportValue)
+        {
+            writer.WriteStartElement(null, "NttyRspnsblForRpt", xmlNamespace );
+            EntityResponsibleForReportValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollateralPortfolioIdentification is IsoMax52Text CollateralPortfolioIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CollPrtflId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(CollateralPortfolioIdentificationValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new MarginReporting Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

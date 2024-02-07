@@ -7,58 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Previous employment information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record EmploymentDetails1
+     : IIsoXmlSerilizable<EmploymentDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Current tax code.
     /// </summary>
-    [DataMember]
     public GenericIdentification36? TaxCode { get; init; } 
     /// <summary>
     /// Indicates whether or not another tax code exists.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? OtherTaxCodeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether tax is cumulative or non-cumulative. In the UK, this is known as the W1M1 indicator.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? CumulativeTaxIndicator { get; init; } 
     /// <summary>
     /// Amount of the previous pay.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? PreviousPay { get; init; } 
     /// <summary>
     /// Amount of the previous tax.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? PreviousTax { get; init; } 
     /// <summary>
     /// Start date of the employment period.
     /// </summary>
-    [DataMember]
     public DateFormat42Choice_? StartDate { get; init; } 
     /// <summary>
     /// End date of the employment period.
     /// </summary>
-    [DataMember]
     public DateFormat42Choice_? EndDate { get; init; } 
     /// <summary>
     /// Additional information about the employment.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TaxCode is GenericIdentification36 TaxCodeValue)
+        {
+            writer.WriteStartElement(null, "TaxCd", xmlNamespace );
+            TaxCodeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherTaxCodeIndicator is IsoYesNoIndicator OtherTaxCodeIndicatorValue)
+        {
+            writer.WriteStartElement(null, "OthrTaxCdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OtherTaxCodeIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CumulativeTaxIndicator is IsoYesNoIndicator CumulativeTaxIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CmltvTaxInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CumulativeTaxIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PreviousPay is IsoActiveCurrencyAndAmount PreviousPayValue)
+        {
+            writer.WriteStartElement(null, "PrvsPay", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PreviousPayValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PreviousTax is IsoActiveCurrencyAndAmount PreviousTaxValue)
+        {
+            writer.WriteStartElement(null, "PrvsTax", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PreviousTaxValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (StartDate is DateFormat42Choice_ StartDateValue)
+        {
+            writer.WriteStartElement(null, "StartDt", xmlNamespace );
+            StartDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EndDate is DateFormat42Choice_ EndDateValue)
+        {
+            writer.WriteStartElement(null, "EndDt", xmlNamespace );
+            EndDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static EmploymentDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

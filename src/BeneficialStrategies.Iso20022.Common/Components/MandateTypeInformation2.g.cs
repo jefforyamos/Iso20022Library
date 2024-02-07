@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to further detail the information related to the type of payment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MandateTypeInformation2
+     : IIsoXmlSerilizable<MandateTypeInformation2>
 {
     #nullable enable
     
     /// <summary>
     /// Agreement under which or rules under which the mandate resides.
     /// </summary>
-    [DataMember]
     public ServiceLevel8Choice_? ServiceLevel { get; init; } 
     /// <summary>
     /// User community specific instrument.|Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.
     /// </summary>
-    [DataMember]
     public LocalInstrument2Choice_? LocalInstrument { get; init; } 
     /// <summary>
     /// Specifies the high level purpose of the mandate based on a set of pre-defined categories.
     /// </summary>
-    [DataMember]
     public CategoryPurpose1Choice_? CategoryPurpose { get; init; } 
     /// <summary>
     /// Type of direct debit instruction.
     /// </summary>
-    [DataMember]
     public MandateClassification1Choice_? Classification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ServiceLevel is ServiceLevel8Choice_ ServiceLevelValue)
+        {
+            writer.WriteStartElement(null, "SvcLvl", xmlNamespace );
+            ServiceLevelValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LocalInstrument is LocalInstrument2Choice_ LocalInstrumentValue)
+        {
+            writer.WriteStartElement(null, "LclInstrm", xmlNamespace );
+            LocalInstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CategoryPurpose is CategoryPurpose1Choice_ CategoryPurposeValue)
+        {
+            writer.WriteStartElement(null, "CtgyPurp", xmlNamespace );
+            CategoryPurposeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Classification is MandateClassification1Choice_ ClassificationValue)
+        {
+            writer.WriteStartElement(null, "Clssfctn", xmlNamespace );
+            ClassificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MandateTypeInformation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

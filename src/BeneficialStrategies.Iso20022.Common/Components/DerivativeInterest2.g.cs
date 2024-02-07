@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies a multi-leg interest derivative.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DerivativeInterest2
+     : IIsoXmlSerilizable<DerivativeInterest2>
 {
     #nullable enable
     
@@ -23,8 +24,27 @@ public partial record DerivativeInterest2
     /// Currency in which leg 2 of the contract is denominated, in case of multi-currency or cross-currency swaps.
     /// Currency in which leg 2 of the swap is denominated, in case of swaptions where the underlying swap is multi-currency.
     /// </summary>
-    [DataMember]
     public required ActiveOrHistoricCurrencyCode OtherNotionalCurrency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OthrNtnlCcy", xmlNamespace );
+        writer.WriteValue(OtherNotionalCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static DerivativeInterest2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

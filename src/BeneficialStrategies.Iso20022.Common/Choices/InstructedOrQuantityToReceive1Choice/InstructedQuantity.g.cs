@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.InstructedOrQuantityToReceive1Choice;
 
@@ -13,7 +15,27 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructedOrQuantityToReceive1Ch
 /// Quantity of underlying securities to which this instruction applies.
 /// </summary>
 public partial record InstructedQuantity : InstructedOrQuantityToReceive1Choice_
+     , IIsoXmlSerilizable<InstructedQuantity>
 {
     #nullable enable
+    
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+    }
+    public static new InstructedQuantity Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

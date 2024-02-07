@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.InstrumentIdentification1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.InstrumentIdentification1Choice;
 /// Other identification of a security assigned by an institution or organisation.
 /// </summary>
 public partial record OtherIdentification : InstrumentIdentification1Choice_
+     , IIsoXmlSerilizable<OtherIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Proprietary information, often a code, issued by the data source scheme issuer.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record OtherIdentification : InstrumentIdentification1Choice_
     /// Indicates the source of the identifier that represent the constituents of a custom basket.
     /// </summary>
     public required IsoMax35Text Source { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Src", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Source)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static new OtherIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

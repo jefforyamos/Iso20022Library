@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specific trade account for recording debits and credits to general accounting, cost accounting or budget accounting.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountingAccount1
+     : IIsoXmlSerilizable<AccountingAccount1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Template describing the mask of the structure for the format of the accounting account identifier for example AABBBBCC where AA represents the country, BBBB the service classification, CC the sales area.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CostReferencePattern { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (CostReferencePattern is IsoMax35Text CostReferencePatternValue)
+        {
+            writer.WriteStartElement(null, "CostRefPttrn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CostReferencePatternValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountingAccount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

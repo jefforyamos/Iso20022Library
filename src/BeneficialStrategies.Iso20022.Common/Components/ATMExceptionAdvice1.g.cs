@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to exceptions occurring on the ATM.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMExceptionAdvice1
+     : IIsoXmlSerilizable<ATMExceptionAdvice1>
 {
     #nullable enable
     
     /// <summary>
     /// Environment of the exception.
     /// </summary>
-    [DataMember]
     public ATMEnvironment16? Environment { get; init; } 
     /// <summary>
     /// Context of the exception.
     /// </summary>
-    [DataMember]
     public ATMContext20? Context { get; init; } 
     /// <summary>
     /// Transaction for which the exception is sent.
     /// </summary>
-    [DataMember]
     public required ATMTransaction27 Transaction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Environment is ATMEnvironment16 EnvironmentValue)
+        {
+            writer.WriteStartElement(null, "Envt", xmlNamespace );
+            EnvironmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Context is ATMContext20 ContextValue)
+        {
+            writer.WriteStartElement(null, "Cntxt", xmlNamespace );
+            ContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Tx", xmlNamespace );
+        Transaction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ATMExceptionAdvice1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

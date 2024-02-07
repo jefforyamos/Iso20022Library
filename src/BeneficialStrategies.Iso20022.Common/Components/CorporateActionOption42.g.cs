@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the corporate action option.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionOption42
+     : IIsoXmlSerilizable<CorporateActionOption42>
 {
     #nullable enable
     
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    [DataMember]
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    [DataMember]
     public required CorporateActionOption12Choice_ OptionType { get; init; } 
     /// <summary>
     /// Specifies whether the quantity of financial instrument is a quantity of securities instructed or a quantity to receive.
     /// </summary>
-    [DataMember]
     public required InstructedOrQuantityToReceive1Choice_ InstructedOrQuantityToReceive { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OptnNb", xmlNamespace );
+        OptionNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+        OptionType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InstdOrQtyToRcv", xmlNamespace );
+        InstructedOrQuantityToReceive.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CorporateActionOption42 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

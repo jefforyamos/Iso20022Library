@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the identification of the relevant supervising authority.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SupervisingAuthorityIdentification1
+     : IIsoXmlSerilizable<SupervisingAuthorityIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification of the institution.
     /// </summary>
-    [DataMember]
     public SupervisingAuthorityIdentification1Choice_? Identification { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for an institution.
     /// </summary>
-    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is SupervisingAuthorityIdentification1Choice_ IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LEI is IsoLEIIdentifier LEIValue)
+        {
+            writer.WriteStartElement(null, "LEI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEIValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SupervisingAuthorityIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

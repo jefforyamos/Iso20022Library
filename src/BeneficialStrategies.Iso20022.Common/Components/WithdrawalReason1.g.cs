@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the withdrawal reason code and optionally a withdrawal reason sub code.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record WithdrawalReason1
+     : IIsoXmlSerilizable<WithdrawalReason1>
 {
     #nullable enable
     
     /// <summary>
     /// Withdrawal reason expressed as a code.
     /// </summary>
-    [DataMember]
     public required WithdrawalReason1Code WithdrawalReasonCode { get; init; } 
     /// <summary>
     /// Further withdrawal reason information expressed as a code.
     /// </summary>
-    [DataMember]
     public IsoMax4Text? WithdrawalReasonSubCode { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "WdrwlRsnCd", xmlNamespace );
+        writer.WriteValue(WithdrawalReasonCode.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (WithdrawalReasonSubCode is IsoMax4Text WithdrawalReasonSubCodeValue)
+        {
+            writer.WriteStartElement(null, "WdrwlRsnSubCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4Text(WithdrawalReasonSubCodeValue)); // data type Max4Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static WithdrawalReason1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

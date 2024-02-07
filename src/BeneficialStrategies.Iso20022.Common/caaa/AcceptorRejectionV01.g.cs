@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.caaa.AcceptorRejectionV01>;
 
 namespace BeneficialStrategies.Iso20022.caaa;
 
@@ -24,10 +27,9 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// The AcceptorRejection message is used to indicate that the received message could not be processed by the acquirer (for example, unable to read or process the message, security error, duplicate message).
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The AcceptorRejection message is used by the acquirer to reject a message received from the card acceptor. The acquirer uses this message as a substitute to a response or an advice response message sent to the card acceptor.|Usage|The AcceptorRejection message is used to indicate that the received message could not be processed by the acquirer (for example, unable to read or process the message, security error, duplicate message).")]
-public partial record AcceptorRejectionV01 : IOuterRecord
+public partial record AcceptorRejectionV01 : IOuterRecord<AcceptorRejectionV01,AcceptorRejectionV01Document>
+    ,IIsoXmlSerilizable<AcceptorRejectionV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -39,6 +41,11 @@ public partial record AcceptorRejectionV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AccptrRjctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AcceptorRejectionV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -70,6 +77,29 @@ public partial record AcceptorRejectionV01 : IOuterRecord
     {
         return new AcceptorRejectionV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AccptrRjctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rjct", xmlNamespace );
+        Reject.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static AcceptorRejectionV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -77,9 +107,7 @@ public partial record AcceptorRejectionV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorRejectionV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AcceptorRejectionV01Document : IOuterDocument<AcceptorRejectionV01>
+public partial record AcceptorRejectionV01Document : IOuterDocument<AcceptorRejectionV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -95,5 +123,22 @@ public partial record AcceptorRejectionV01Document : IOuterDocument<AcceptorReje
     /// <summary>
     /// The instance of <seealso cref="AcceptorRejectionV01"/> is required.
     /// </summary>
+    [DataMember(Name=AcceptorRejectionV01.XmlTag)]
     public required AcceptorRejectionV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AcceptorRejectionV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

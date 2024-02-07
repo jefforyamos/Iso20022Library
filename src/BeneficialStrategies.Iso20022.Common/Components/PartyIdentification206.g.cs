@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentification206
+     : IIsoXmlSerilizable<PartyIdentification206>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the customer.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Identification of the customer.
     /// </summary>
-    [DataMember]
     public PartyIdentification197? Identification { get; init; } 
     /// <summary>
     /// Address of the customer.
     /// </summary>
-    [DataMember]
     public Address1? Address { get; init; } 
     /// <summary>
     /// Contact information related to the customer.
     /// </summary>
-    [DataMember]
     public Contact3? Contact { get; init; } 
     /// <summary>
     /// Identification of the customer recognized by the taxation authority.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? TaxRegistrationIdentification { get; init; } 
     /// <summary>
     /// Additional information about the seller. 
     /// </summary>
-    [DataMember]
     public IsoMax1000Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax70Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Identification is PartyIdentification197 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Address is Address1 AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Contact is Contact3 ContactValue)
+        {
+            writer.WriteStartElement(null, "Ctct", xmlNamespace );
+            ContactValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxRegistrationIdentification is IsoMax70Text TaxRegistrationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TaxRegnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(TaxRegistrationIdentificationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax1000Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1000Text(AdditionalInformationValue)); // data type Max1000Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyIdentification206 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

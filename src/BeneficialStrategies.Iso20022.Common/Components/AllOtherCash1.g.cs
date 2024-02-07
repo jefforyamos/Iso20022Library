@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies whether all remaining assets in a portfolio not listed for transfer should be liquidated and transferred as cash
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AllOtherCash1
+     : IIsoXmlSerilizable<AllOtherCash1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether all remaining assets in a portfolio not listed for transfer should be liquidated and transferred as cash.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Indicator { get; init; } 
     /// <summary>
     /// Currency of the cash.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ind", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Indicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static AllOtherCash1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

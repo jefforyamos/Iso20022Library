@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the customer
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Customer8
+     : IIsoXmlSerilizable<Customer8>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the customer.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Details of the party identification.
     /// </summary>
-    [DataMember]
     public required PartyIdentification208 Identification { get; init; } 
     /// <summary>
     /// Number or code assigned by an airline, company or other party to track or uniquely identify a person, department or project.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? CustomerFileReferenceNumber { get; init; } 
     /// <summary>
     /// Age of the customer.
     /// </summary>
-    [DataMember]
     public IsoMax2NumericText? Age { get; init; } 
     /// <summary>
     /// Address details of the customer.
     /// </summary>
-    [DataMember]
     public Address2? Address { get; init; } 
     /// <summary>
     /// Contact information related to the customer.
     /// </summary>
-    [DataMember]
     public Contact6? Contact { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax70Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CustomerFileReferenceNumber is IsoMax70Text CustomerFileReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "CstmrFileRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(CustomerFileReferenceNumberValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Age is IsoMax2NumericText AgeValue)
+        {
+            writer.WriteStartElement(null, "Age", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2NumericText(AgeValue)); // data type Max2NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (Address is Address2 AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Contact is Contact6 ContactValue)
+        {
+            writer.WriteStartElement(null, "Ctct", xmlNamespace );
+            ContactValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Customer8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

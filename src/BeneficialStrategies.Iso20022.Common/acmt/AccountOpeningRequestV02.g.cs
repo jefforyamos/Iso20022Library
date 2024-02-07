@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.acmt.AccountOpeningRequestV02>;
 
 namespace BeneficialStrategies.Iso20022.acmt;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// The AccountOpeningRequest message is sent from an organisation to a financial institution as part of the account opening process. It is the initial request message to open an account.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The AccountOpeningRequest message is sent from an organisation to a financial institution as part of the account opening process. It is the initial request message to open an account.")]
-public partial record AccountOpeningRequestV02 : IOuterRecord
+public partial record AccountOpeningRequestV02 : IOuterRecord<AccountOpeningRequestV02,AccountOpeningRequestV02Document>
+    ,IIsoXmlSerilizable<AccountOpeningRequestV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record AccountOpeningRequestV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AcctOpngReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AccountOpeningRequestV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -159,6 +166,83 @@ public partial record AccountOpeningRequestV02 : IOuterRecord
     {
         return new AccountOpeningRequestV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AcctOpngReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Refs", xmlNamespace );
+        References.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (From is OrganisationIdentification8 FromValue)
+        {
+            writer.WriteStartElement(null, "Fr", xmlNamespace );
+            FromValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Acct", xmlNamespace );
+        Account.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ContractDates is AccountContract2 ContractDatesValue)
+        {
+            writer.WriteStartElement(null, "CtrctDts", xmlNamespace );
+            ContractDatesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnderlyingMasterAgreement is ContractDocument1 UnderlyingMasterAgreementValue)
+        {
+            writer.WriteStartElement(null, "UndrlygMstrAgrmt", xmlNamespace );
+            UnderlyingMasterAgreementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AcctSvcrId", xmlNamespace );
+        AccountServicerIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Org", xmlNamespace );
+        Organisation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Mandate is OperationMandate2 MandateValue)
+        {
+            writer.WriteStartElement(null, "Mndt", xmlNamespace );
+            MandateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Group is Group1 GroupValue)
+        {
+            writer.WriteStartElement(null, "Grp", xmlNamespace );
+            GroupValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReferenceAccount is CashAccount24 ReferenceAccountValue)
+        {
+            writer.WriteStartElement(null, "RefAcct", xmlNamespace );
+            ReferenceAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DigitalSignature is PartyAndSignature2 DigitalSignatureValue)
+        {
+            writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
+            DigitalSignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountOpeningRequestV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -166,9 +250,7 @@ public partial record AccountOpeningRequestV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountOpeningRequestV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AccountOpeningRequestV02Document : IOuterDocument<AccountOpeningRequestV02>
+public partial record AccountOpeningRequestV02Document : IOuterDocument<AccountOpeningRequestV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -184,5 +266,22 @@ public partial record AccountOpeningRequestV02Document : IOuterDocument<AccountO
     /// <summary>
     /// The instance of <seealso cref="AccountOpeningRequestV02"/> is required.
     /// </summary>
+    [DataMember(Name=AccountOpeningRequestV02.XmlTag)]
     public required AccountOpeningRequestV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AccountOpeningRequestV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

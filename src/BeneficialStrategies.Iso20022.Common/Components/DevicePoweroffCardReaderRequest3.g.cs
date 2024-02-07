@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Power-Off Card Reader Request message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DevicePoweroffCardReaderRequest3
+     : IIsoXmlSerilizable<DevicePoweroffCardReaderRequest3>
 {
     #nullable enable
     
     /// <summary>
     /// Maximum time to wait for the request processing in seconds.
     /// </summary>
-    [DataMember]
     public IsoNumber? PowerOffMaximumWaitingTime { get; init; } 
     /// <summary>
     /// Optional message before Power-Off.
     /// </summary>
-    [DataMember]
     public ActionMessage8? DisplayOutput { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PowerOffMaximumWaitingTime is IsoNumber PowerOffMaximumWaitingTimeValue)
+        {
+            writer.WriteStartElement(null, "PwrOffMaxWtgTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(PowerOffMaximumWaitingTimeValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (DisplayOutput is ActionMessage8 DisplayOutputValue)
+        {
+            writer.WriteStartElement(null, "DispOutpt", xmlNamespace );
+            DisplayOutputValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DevicePoweroffCardReaderRequest3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

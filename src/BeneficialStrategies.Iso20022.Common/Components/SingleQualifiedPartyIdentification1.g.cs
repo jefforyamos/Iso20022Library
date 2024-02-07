@@ -7,6 +7,8 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -16,22 +18,42 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Such references can occur in sequence. The last occurrence of RelativeIdentifier is the local identifier at the party recursively defined by the PrefixParty and all preceding occurrences of RelativeIdentifier.
 /// Technical note: The sequence of relative identifiers is used to avoid a recursive definition in the catalogue.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SingleQualifiedPartyIdentification1
+     : IIsoXmlSerilizable<SingleQualifiedPartyIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Party identification recognisable by parties in the trade.
     /// </summary>
-    [DataMember]
     public required TradeParty1 BaseParty { get; init; } 
     /// <summary>
     /// Identifies a party, each identifier is recursively defined relative to the party identified by the base party and the preceding part of the list.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> RelativeIdentifier { get; init; } = [];
+    public SimpleValueList<IsoMax35Text> RelativeIdentifier { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BasePty", xmlNamespace );
+        BaseParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RltvIdr", xmlNamespace );
+        RelativeIdentifier.Serialize(writer, xmlNamespace, "Max35Text", SerializationFormatter.IsoMax35Text );
+        writer.WriteEndElement();
+    }
+    public static SingleQualifiedPartyIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

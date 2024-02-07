@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Individual cost or charge associated with the distribution or selling of a financial instrument. It may be one-off or recurring charge. It may be intended (ex ante) or actual (ex post).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IndividualCostOrCharge2
+     : IIsoXmlSerilizable<IndividualCostOrCharge2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of cost or charge.
     /// </summary>
-    [DataMember]
     public required ChargeType8Choice_ CostType { get; init; } 
     /// <summary>
     /// Specifies if the cost or charge is ex ante (intended) or post ante (actual).
     /// </summary>
-    [DataMember]
     public required IntendedOrActual2Code ExAnteOrExPost { get; init; } 
     /// <summary>
     /// Amount of the cost or charge.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? Amount { get; init; } 
     /// <summary>
     /// Indicates a negative amount.
     /// </summary>
-    [DataMember]
     public IsoPlusOrMinusIndicator? Sign { get; init; } 
     /// <summary>
     /// Rate of the cost or charge.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     /// <summary>
     /// Start date and end date of the reference period for the ex post cost or charge. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 08090 and 08100.
     /// </summary>
-    [DataMember]
     public Period15? ReferencePeriod { get; init; } 
     /// <summary>
     /// Additional information about the individual cost or charge.
     /// </summary>
-    [DataMember]
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CostTp", xmlNamespace );
+        CostType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ExAnteOrExPst", xmlNamespace );
+        writer.WriteValue(ExAnteOrExPost.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Amount is IsoActiveCurrencyAnd13DecimalAmount AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(AmountValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Sign is IsoPlusOrMinusIndicator SignValue)
+        {
+            writer.WriteStartElement(null, "Sgn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPlusOrMinusIndicator(SignValue)); // data type PlusOrMinusIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Rate is IsoPercentageRate RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ReferencePeriod is Period15 ReferencePeriodValue)
+        {
+            writer.WriteStartElement(null, "RefPrd", xmlNamespace );
+            ReferencePeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IndividualCostOrCharge2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

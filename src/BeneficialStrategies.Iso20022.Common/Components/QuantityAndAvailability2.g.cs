@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Net position of a segregated holding of a single security within the overall position held in the securities account, for example, sub-balance per status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record QuantityAndAvailability2
+     : IIsoXmlSerilizable<QuantityAndAvailability2>
 {
     #nullable enable
     
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
     /// <summary>
     /// Indicates whether the quantity of securities on the sub-balance is available.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator AvailabilityIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        Quantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AvlbtyInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AvailabilityIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static QuantityAndAvailability2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

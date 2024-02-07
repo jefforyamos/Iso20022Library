@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the message reference of the message for which the status is requested and the business reference of the order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MessageAndBusinessReference2
+     : IIsoXmlSerilizable<MessageAndBusinessReference2>
 {
     #nullable enable
     
     /// <summary>
     /// Reference to a linked message sent in a proprietary way or reference of a system.
     /// </summary>
-    [DataMember]
     public required AdditionalReference3 OtherReference { get; init; } 
     /// <summary>
     /// Reference to a linked message that was previously sent.
     /// </summary>
-    [DataMember]
     public required AdditionalReference3 PreviousReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> IndividualOrderReference { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? IndividualOrderReference { get; init; } 
     /// <summary>
     /// Account information of the order message for which the status is requested.
     /// </summary>
-    [DataMember]
     public InvestmentAccount13? InvestmentAccount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OthrRef", xmlNamespace );
+        OtherReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+        PreviousReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (IndividualOrderReference is IsoMax35Text IndividualOrderReferenceValue)
+        {
+            writer.WriteStartElement(null, "IndvOrdrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IndividualOrderReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (InvestmentAccount is InvestmentAccount13 InvestmentAccountValue)
+        {
+            writer.WriteStartElement(null, "InvstmtAcct", xmlNamespace );
+            InvestmentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MessageAndBusinessReference2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

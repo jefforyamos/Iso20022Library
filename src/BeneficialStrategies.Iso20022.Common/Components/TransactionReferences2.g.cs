@@ -7,68 +7,136 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to identify the underlying transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionReferences2
+     : IIsoXmlSerilizable<TransactionReferences2>
 {
     #nullable enable
     
     /// <summary>
     /// Point to point reference, as assigned by the instructing party of the underlying message.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MessageIdentification { get; init; } 
     /// <summary>
     /// Unique reference, as assigned by the account servicing institution, to unambiguously identify the instruction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountServicerReference { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by a sending party, to unambiguously identify the payment information group within the message.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PaymentInformationIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by an instructing party for an instructed party, to unambiguously identify the instruction.||Usage: The instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? InstructionIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the initiating party, to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain.||Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction. It can be included in several messages related to the transaction.||Usage: In case there are technical limitations to pass on multiple references, the end-to-end identification must be passed on throughout the entire end-to-end chain.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? EndToEndIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain. |Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. |Usage: The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the creditor, to unambiguously identify the mandate.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MandateIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a cheque as assigned by the agent.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ChequeNumber { get; init; } 
     /// <summary>
     /// Unique reference, as assigned by a clearing system, to unambiguously identify the instruction.|Usage: In case there are technical limitations to pass on multiple references, the end-to-end identification must be passed on throughout the entire end-to-end chain.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClearingSystemReference { get; init; } 
     /// <summary>
     /// Proprietary reference related to the underlying transaction.
     /// </summary>
-    [DataMember]
     public ProprietaryReference1? Proprietary { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MessageIdentification is IsoMax35Text MessageIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MsgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountServicerReference is IsoMax35Text AccountServicerReferenceValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountServicerReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PaymentInformationIdentification is IsoMax35Text PaymentInformationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PmtInfId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PaymentInformationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (InstructionIdentification is IsoMax35Text InstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "InstrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(InstructionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (EndToEndIdentification is IsoMax35Text EndToEndIdentificationValue)
+        {
+            writer.WriteStartElement(null, "EndToEndId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(EndToEndIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionIdentification is IsoMax35Text TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MandateIdentification is IsoMax35Text MandateIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MndtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MandateIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ChequeNumber is IsoMax35Text ChequeNumberValue)
+        {
+            writer.WriteStartElement(null, "ChqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ChequeNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClearingSystemReference is IsoMax35Text ClearingSystemReferenceValue)
+        {
+            writer.WriteStartElement(null, "ClrSysRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClearingSystemReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Proprietary is ProprietaryReference1 ProprietaryValue)
+        {
+            writer.WriteStartElement(null, "Prtry", xmlNamespace );
+            ProprietaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionReferences2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

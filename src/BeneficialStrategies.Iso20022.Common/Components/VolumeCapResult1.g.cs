@@ -7,53 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of result of a volume capping.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record VolumeCapResult1
+     : IIsoXmlSerilizable<VolumeCapResult1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
-    [DataMember]
     public required IsoISINOct2015Identifier Identification { get; init; } 
     /// <summary>
     /// Date or date range the report relates to.
     /// </summary>
-    [DataMember]
     public required Period4Choice_ ReportingPeriod { get; init; } 
     /// <summary>
     /// Last date for which the data was updated for this instrument and reporting period.
     /// </summary>
-    [DataMember]
     public IsoISODate? LastUpdateDate { get; init; } 
     /// <summary>
     /// Total traded volume of the instrument in this specific reporting period.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalTradingVolume { get; init; } 
     /// <summary>
     /// Total percentage of trading under waiver of the instrument in this specific reporting period.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate TradingUnderWaiverPercentage { get; init; } 
     /// <summary>
     /// Percentage of trading under waiver of the instrument in this specific reporting period broken down by trading venue.
     /// </summary>
-    [DataMember]
-    public ValueList<TradingUnderWaiversPercentage1> TradingUnderWaiverBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
+    public TradingUnderWaiversPercentage1? TradingUnderWaiverBreakdown { get; init; } 
     /// <summary>
     /// Information for interpreting the result.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? Disclaimer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(Identification)); // data type ISINOct2015Identifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptgPrd", xmlNamespace );
+        ReportingPeriod.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LastUpdateDate is IsoISODate LastUpdateDateValue)
+        {
+            writer.WriteStartElement(null, "LastUpdDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(LastUpdateDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TtlTradgVol", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalTradingVolume)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradgUdrWvrPctg", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(TradingUnderWaiverPercentage)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+        if (TradingUnderWaiverBreakdown is TradingUnderWaiversPercentage1 TradingUnderWaiverBreakdownValue)
+        {
+            writer.WriteStartElement(null, "TradgUdrWvrBrkdwn", xmlNamespace );
+            TradingUnderWaiverBreakdownValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Disclaimer is IsoMax350Text DisclaimerValue)
+        {
+            writer.WriteStartElement(null, "Dsclmr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(DisclaimerValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static VolumeCapResult1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

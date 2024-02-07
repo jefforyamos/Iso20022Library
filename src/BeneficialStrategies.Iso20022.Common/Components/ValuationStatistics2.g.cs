@@ -7,48 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Statistical data related to the price change of a security.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ValuationStatistics2
+     : IIsoXmlSerilizable<ValuationStatistics2>
 {
     #nullable enable
     
     /// <summary>
     /// Currency of the valuation statistics.
     /// </summary>
-    [DataMember]
     public required ActiveOrHistoricCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Type of price from which the change is calculated, eg, bid, offer, or single.
     /// </summary>
-    [DataMember]
     public required PriceType2 PriceTypeChangeBasis { get; init; } 
     /// <summary>
     /// Change in price since the last valuation.
     /// </summary>
-    [DataMember]
     public required PriceValue2 PriceChange { get; init; } 
     /// <summary>
     /// Rate of income from the financial instrument, usually calculated as total dividends or coupon interest available to investors in the last year,divided by the current price.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Yield { get; init; } 
     /// <summary>
     /// Information related to price variations, expressed using pre-defined periods.
     /// </summary>
-    [DataMember]
     public StatisticsByPredefinedTimePeriods1? ByPredefinedTimePeriods { get; init; } 
     /// <summary>
     /// Information related to price variations, expressed using user-defined periods.
     /// </summary>
-    [DataMember]
-    public ValueList<StatisticsByUserDefinedTimePeriod1> ByUserDefinedTimePeriod { get; init; } = []; // Warning: Don't know multiplicity.
+    public StatisticsByUserDefinedTimePeriod1? ByUserDefinedTimePeriod { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ccy", xmlNamespace );
+        writer.WriteValue(Currency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PricTpChngBsis", xmlNamespace );
+        PriceTypeChangeBasis.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PricChng", xmlNamespace );
+        PriceChange.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Yield is IsoPercentageRate YieldValue)
+        {
+            writer.WriteStartElement(null, "Yld", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(YieldValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ByPredefinedTimePeriods is StatisticsByPredefinedTimePeriods1 ByPredefinedTimePeriodsValue)
+        {
+            writer.WriteStartElement(null, "ByPrdfndTmPrds", xmlNamespace );
+            ByPredefinedTimePeriodsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ByUserDefinedTimePeriod is StatisticsByUserDefinedTimePeriod1 ByUserDefinedTimePeriodValue)
+        {
+            writer.WriteStartElement(null, "ByUsrDfndTmPrd", xmlNamespace );
+            ByUserDefinedTimePeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ValuationStatistics2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to indicate when the booked amount of money will become available, ie can be accessed and start generating interest.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashBalanceAvailability1
+     : IIsoXmlSerilizable<CashBalanceAvailability1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates when the amount of money will become available.
     /// </summary>
-    [DataMember]
     public required CashBalanceAvailabilityDate1 Date { get; init; } 
     /// <summary>
     /// Identifies the available amount.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether the availability balance is a credit or a debit balance. A zero balance is considered to be a credit balance.
     /// </summary>
-    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Dt", xmlNamespace );
+        Date.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(Amount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static CashBalanceAvailability1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides input capability for multiple instructions on elective corporate action events via a single instruction message through using Transaction Sequence Number.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InstructionsTransactionsSequence2
+     : IIsoXmlSerilizable<InstructionsTransactionsSequence2>
 {
     #nullable enable
     
     /// <summary>
     /// Number which further identifies DTC instruction reference number. Not applicable to reorganisation / custody deposits.
     /// </summary>
-    [DataMember]
     public IsoMax3NumericText? TransactionSequenceNumber { get; init; } 
     /// <summary>
     /// Instruction quantity for a given transaction sequence number.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity31Choice_? InstructionQuantity { get; init; } 
     /// <summary>
     /// For rights subscription events with an oversubscription feature, the quantity of the oversubscription for the given instruction.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity31Choice_? OversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Customer identification entered by client upon instruction submission.
     /// </summary>
-    [DataMember]
     public IsoMax30Text? CustomerReferenceIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TransactionSequenceNumber is IsoMax3NumericText TransactionSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "TxSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(TransactionSequenceNumberValue)); // data type Max3NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (InstructionQuantity is FinancialInstrumentQuantity31Choice_ InstructionQuantityValue)
+        {
+            writer.WriteStartElement(null, "InstrQty", xmlNamespace );
+            InstructionQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OversubscriptionQuantity is FinancialInstrumentQuantity31Choice_ OversubscriptionQuantityValue)
+        {
+            writer.WriteStartElement(null, "OvrsbcptQty", xmlNamespace );
+            OversubscriptionQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CustomerReferenceIdentification is IsoMax30Text CustomerReferenceIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CstmrRefId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax30Text(CustomerReferenceIdentificationValue)); // data type Max30Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static InstructionsTransactionsSequence2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

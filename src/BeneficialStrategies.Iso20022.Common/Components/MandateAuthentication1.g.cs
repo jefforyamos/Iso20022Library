@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the transport authentication details related to the mandate.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MandateAuthentication1
+     : IIsoXmlSerilizable<MandateAuthentication1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies a piece of information used to authenticate a message, that is to confirm that the message came from the stated sender (its authenticity) and has not been changed in transit (its integrity).
     /// </summary>
-    [DataMember]
     public IsoMax16Text? MessageAuthenticationCode { get; init; } 
     /// <summary>
     /// Date when the authentication was conducted.
     /// </summary>
-    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// Channel used to transmit the authentication information.
     /// </summary>
-    [DataMember]
     public AuthenticationChannel1Choice_? Channel { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MessageAuthenticationCode is IsoMax16Text MessageAuthenticationCodeValue)
+        {
+            writer.WriteStartElement(null, "MsgAuthntcnCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax16Text(MessageAuthenticationCodeValue)); // data type Max16Text System.String
+            writer.WriteEndElement();
+        }
+        if (Date is IsoISODate DateValue)
+        {
+            writer.WriteStartElement(null, "Dt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Channel is AuthenticationChannel1Choice_ ChannelValue)
+        {
+            writer.WriteStartElement(null, "Chanl", xmlNamespace );
+            ChannelValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MandateAuthentication1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

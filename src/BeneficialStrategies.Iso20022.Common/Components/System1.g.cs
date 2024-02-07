@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Search for a system and a member of a system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record System1
+     : IIsoXmlSerilizable<System1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a particular cash clearing system.
     /// </summary>
-    [DataMember]
     public MarketInfrastructureIdentification1Choice_? SystemIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of a member within a system, assigned using the member identification scheme of the system.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? MemberIdentification { get; init; } 
     /// <summary>
     /// Country in which the system is located.
     /// </summary>
-    [DataMember]
     public CountryCode? Country { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public AccountIdentification4Choice_? AccountIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SystemIdentification is MarketInfrastructureIdentification1Choice_ SystemIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SysId", xmlNamespace );
+            SystemIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MemberIdentification is BranchAndFinancialInstitutionIdentification5 MemberIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MmbId", xmlNamespace );
+            MemberIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Country is CountryCode CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(CountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AccountIdentification is AccountIdentification4Choice_ AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            AccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static System1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

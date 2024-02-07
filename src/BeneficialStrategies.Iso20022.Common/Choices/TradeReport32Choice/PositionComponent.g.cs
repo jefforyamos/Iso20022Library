@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TradeReport32Choice;
 
@@ -13,12 +15,14 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReport32Choice;
 /// Indicates a derivative contract that is to be reported as a new trade and also included in a separate position report on the same day.
 /// </summary>
 public partial record PositionComponent : TradeReport32Choice_
+     , IIsoXmlSerilizable<PositionComponent>
 {
     #nullable enable
+    
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
-    public IReadOnlyCollection<CounterpartySpecificData36> CounterpartySpecificData { get; init; } = [];
+    public ValueList<CounterpartySpecificData36> CounterpartySpecificData { get; init; } = [];
     /// <summary>
     /// Data specifically related to transaction.
     /// </summary>
@@ -39,6 +43,54 @@ public partial record PositionComponent : TradeReport32Choice_
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CtrPtySpcfcData", xmlNamespace );
+        CounterpartySpecificData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CmonTradData", xmlNamespace );
+        CommonTradeData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Level is ModificationLevel1Code LevelValue)
+        {
+            writer.WriteStartElement(null, "Lvl", xmlNamespace );
+            writer.WriteValue(LevelValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TechnicalAttributes is TechnicalAttributes5 TechnicalAttributesValue)
+        {
+            writer.WriteStartElement(null, "TechAttrbts", xmlNamespace );
+            TechnicalAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PublicDisseminationData is DisseminationData1 PublicDisseminationDataValue)
+        {
+            writer.WriteStartElement(null, "PblcDssmntnData", xmlNamespace );
+            PublicDisseminationDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new PositionComponent Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

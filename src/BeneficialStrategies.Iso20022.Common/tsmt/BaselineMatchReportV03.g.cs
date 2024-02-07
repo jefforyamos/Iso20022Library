@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsmt.BaselineMatchReportV03>;
 
 namespace BeneficialStrategies.Iso20022.tsmt;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// - the party establishing a transaction in the lodge mode, that is the sender of an InitialBaselineSubmission message including the instruction lodge. In the outlined scenario the message is used to inform about the successful establishment of a transaction in the matching application.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The BaselineMatchReport message is sent by the matching application to the parties involved in the establishment of a transaction.|The message is used to inform about either the successful establishment of a transaction (baseline) or the mis-matches found between two baseline initiation messages.|Usage|The BaselineMatchReport message can be sent by the matching application to|- the parties involved in the establishment of a transaction in the push-through mode, that is the senders of InitialBaselineSubmission and BaselineReSubmission messages including the instruction push-through. In the outlined scenario the message is used to inform either about the successful establishment of a transaction in the matching application or about mis-matches found between two baseline initiation messages,or|- the party establishing a transaction in the lodge mode, that is the sender of an InitialBaselineSubmission message including the instruction lodge. In the outlined scenario the message is used to inform about the successful establishment of a transaction in the matching application.")]
-public partial record BaselineMatchReportV03 : IOuterRecord
+public partial record BaselineMatchReportV03 : IOuterRecord<BaselineMatchReportV03,BaselineMatchReportV03Document>
+    ,IIsoXmlSerilizable<BaselineMatchReportV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record BaselineMatchReportV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "BaselnMtchRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => BaselineMatchReportV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -90,7 +97,7 @@ public partial record BaselineMatchReportV03 : IOuterRecord
     [Description(@"Reference to the transaction for each financial institution which is a party to the transaction.")]
     [DataMember(Name="UsrTxRef")]
     [XmlElement(ElementName="UsrTxRef")]
-    public required IReadOnlyCollection<DocumentIdentification5> UserTransactionReference { get; init; } = []; // Min=0, Max=2
+    public required ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = []; // Min=0, Max=2
     
     /// <summary>
     /// Party that buys goods or services, or a financial instrument.
@@ -149,7 +156,7 @@ public partial record BaselineMatchReportV03 : IOuterRecord
     [Description(@"Identifies the two baselines compared in this report.")]
     [DataMember(Name="CmpardDocRef")]
     [XmlElement(ElementName="CmpardDocRef")]
-    public required IReadOnlyCollection<DocumentIdentification4> ComparedDocumentReference { get; init; } = []; // Min=2, Max=2
+    public required ValueList<DocumentIdentification4> ComparedDocumentReference { get; init; } = []; // Min=2, Max=2
     
     /// <summary>
     /// Description of the differences between the two proposed baselines.
@@ -179,6 +186,68 @@ public partial record BaselineMatchReportV03 : IOuterRecord
     {
         return new BaselineMatchReportV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("BaselnMtchRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptId", xmlNamespace );
+        ReportIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (EstablishedBaselineIdentification is DocumentIdentification3 EstablishedBaselineIdentificationValue)
+        {
+            writer.WriteStartElement(null, "EstblishdBaselnId", xmlNamespace );
+            EstablishedBaselineIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxSts", xmlNamespace );
+        TransactionStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UsrTxRef", xmlNamespace );
+        UserTransactionReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Buyr", xmlNamespace );
+        Buyer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sellr", xmlNamespace );
+        Seller.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BuyrBk", xmlNamespace );
+        BuyerBank.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SellrBk", xmlNamespace );
+        SellerBank.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BaselnEstblishmtTrils", xmlNamespace );
+        BaselineEstablishmentTrials.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CmpardDocRef", xmlNamespace );
+        ComparedDocumentReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rpt", xmlNamespace );
+        Report.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RequestForAction is PendingActivity2 RequestForActionValue)
+        {
+            writer.WriteStartElement(null, "ReqForActn", xmlNamespace );
+            RequestForActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BaselineMatchReportV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -186,9 +255,7 @@ public partial record BaselineMatchReportV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BaselineMatchReportV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record BaselineMatchReportV03Document : IOuterDocument<BaselineMatchReportV03>
+public partial record BaselineMatchReportV03Document : IOuterDocument<BaselineMatchReportV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -204,5 +271,22 @@ public partial record BaselineMatchReportV03Document : IOuterDocument<BaselineMa
     /// <summary>
     /// The instance of <seealso cref="BaselineMatchReportV03"/> is required.
     /// </summary>
+    [DataMember(Name=BaselineMatchReportV03.XmlTag)]
     public required BaselineMatchReportV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(BaselineMatchReportV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

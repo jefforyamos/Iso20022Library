@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PositionSetReport3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PositionSetReport3Choice;
 /// Detailed aggregated position set report between a pair of counterparties.
 /// </summary>
 public partial record Report : PositionSetReport3Choice_
+     , IIsoXmlSerilizable<Report>
 {
     #nullable enable
+    
     /// <summary>
     /// Reference date for statistics collection.
     /// </summary>
@@ -22,22 +26,73 @@ public partial record Report : PositionSetReport3Choice_
     /// <summary>
     /// Report containing aggregation of loan and collateral exposures between counterparties by Securities Financing Transaction type, for a limited number of fields.
     /// </summary>
-    public PositionSet16? GeneralInformation { get; init;  } // Warning: Don't know multiplicity.
+    public PositionSet16? GeneralInformation { get; init; } 
     /// <summary>
     /// Aggregation of data for all transactions pertaining to the loan side, by Securities Financing Transaction type.
     /// </summary>
-    public PositionSet17? Loan { get; init;  } // Warning: Don't know multiplicity.
+    public PositionSet17? Loan { get; init; } 
     /// <summary>
     /// Aggregation of data for all submissions pertaining to the collateral side, by Securities Financing Transaction type.
     /// </summary>
-    public PositionSet18? Collateral { get; init;  } // Warning: Don't know multiplicity.
+    public PositionSet18? Collateral { get; init; } 
     /// <summary>
     /// Aggregation of data related to margin reported for cleared Securities Financing Transactions at the level of each pair of entities and portfolio code.
     /// </summary>
-    public PositionSet20? Margin { get; init;  } // Warning: Don't know multiplicity.
+    public PositionSet20? Margin { get; init; } 
     /// <summary>
     /// Aggregation of data on collateral reuse transactions, at entity level.
     /// </summary>
-    public PositionSet19? Reuse { get; init;  } // Warning: Don't know multiplicity.
+    public PositionSet19? Reuse { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RefDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ReferenceDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (GeneralInformation is PositionSet16 GeneralInformationValue)
+        {
+            writer.WriteStartElement(null, "GnlInf", xmlNamespace );
+            GeneralInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Loan is PositionSet17 LoanValue)
+        {
+            writer.WriteStartElement(null, "Ln", xmlNamespace );
+            LoanValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Collateral is PositionSet18 CollateralValue)
+        {
+            writer.WriteStartElement(null, "Coll", xmlNamespace );
+            CollateralValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Margin is PositionSet20 MarginValue)
+        {
+            writer.WriteStartElement(null, "Mrgn", xmlNamespace );
+            MarginValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Reuse is PositionSet19 ReuseValue)
+        {
+            writer.WriteStartElement(null, "Reuse", xmlNamespace );
+            ReuseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Report Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

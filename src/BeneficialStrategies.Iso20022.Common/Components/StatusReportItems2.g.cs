@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes a transaction and its status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StatusReportItems2
+     : IIsoXmlSerilizable<StatusReportItems2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Entity for which the matching application has generated a report.
     /// </summary>
-    [DataMember]
     public ValueList<BICIdentification1> ReportedEntity { get; init; } = [];
     /// <summary>
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
-    [DataMember]
     public required BaselineStatus3Code Status { get; init; } 
     /// <summary>
     /// Further description of the transaction status.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? SubStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptdNtty", xmlNamespace );
+        ReportedEntity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SubStatus is IsoMax140Text SubStatusValue)
+        {
+            writer.WriteStartElement(null, "SubSts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(SubStatusValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static StatusReportItems2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

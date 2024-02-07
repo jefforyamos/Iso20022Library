@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment related to the reconciliation of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Environment33
+     : IIsoXmlSerilizable<Environment33>
 {
     #nullable enable
     
     /// <summary>
     /// Initiator of the process.
     /// </summary>
-    [DataMember]
     public PartyIdentification263? Originator { get; init; } 
     /// <summary>
     /// Party sending the message to another intermediary agent or to the destination.
     /// </summary>
-    [DataMember]
     public PartyIdentification263? Sender { get; init; } 
     /// <summary>
     /// Party receiving the message from the originator or another intermediary agent.
     /// </summary>
-    [DataMember]
     public PartyIdentification263? Receiver { get; init; } 
     /// <summary>
     /// Destination of the message.
     /// </summary>
-    [DataMember]
     public PartyIdentification263? Destination { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Originator is PartyIdentification263 OriginatorValue)
+        {
+            writer.WriteStartElement(null, "Orgtr", xmlNamespace );
+            OriginatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Sender is PartyIdentification263 SenderValue)
+        {
+            writer.WriteStartElement(null, "Sndr", xmlNamespace );
+            SenderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Receiver is PartyIdentification263 ReceiverValue)
+        {
+            writer.WriteStartElement(null, "Rcvr", xmlNamespace );
+            ReceiverValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Destination is PartyIdentification263 DestinationValue)
+        {
+            writer.WriteStartElement(null, "Dstn", xmlNamespace );
+            DestinationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Environment33 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

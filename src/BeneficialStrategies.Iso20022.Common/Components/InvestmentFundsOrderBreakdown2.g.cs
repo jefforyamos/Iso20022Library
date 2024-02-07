@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// An investor's instruction to either subscribe or redeem an amount of money or its equivalent, for example, other assets, into or out of an investment fund.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestmentFundsOrderBreakdown2
+     : IIsoXmlSerilizable<InvestmentFundsOrderBreakdown2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of order breakdown.
     /// </summary>
-    [DataMember]
     public required OrderBreakdownType1Choice_ OrderBreakdownType { get; init; } 
     /// <summary>
     /// Portion of the net amount that is attributed to an order type.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OrdrBrkdwnTp", xmlNamespace );
+        OrderBreakdownType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static InvestmentFundsOrderBreakdown2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

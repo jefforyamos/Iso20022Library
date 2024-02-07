@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a data set.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DataSetIdentification6
+     : IIsoXmlSerilizable<DataSetIdentification6>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the data set.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? Name { get; init; } 
     /// <summary>
     /// Category of data set.
     /// </summary>
-    [DataMember]
     public required DataSetCategory9Code Type { get; init; } 
     /// <summary>
     /// Version of the data set.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? Version { get; init; } 
     /// <summary>
     /// Date and time of creation of the data set.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? CreationDateTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax256Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(NameValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Version is IsoMax256Text VersionValue)
+        {
+            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(VersionValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (CreationDateTime is IsoISODateTime CreationDateTimeValue)
+        {
+            writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static DataSetIdentification6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

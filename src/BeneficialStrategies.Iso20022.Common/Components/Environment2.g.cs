@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment of a card transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Environment2
+     : IIsoXmlSerilizable<Environment2>
 {
     #nullable enable
     
@@ -23,45 +24,99 @@ public partial record Environment2
     /// Party in a contractual relationship with an acceptor to acquire card payment transactions.
     /// ISO 8583 bit 32.
     /// </summary>
-    [DataMember]
     public required PartyIdentification197 Acquirer { get; init; } 
     /// <summary>
     /// Party sending the message to another intermediary agent or to the final destination.
     /// ISO 8583 bit 33
     /// </summary>
-    [DataMember]
     public PartyIdentification197? Sender { get; init; } 
     /// <summary>
     /// Party receiving the message from the origin or from an intermediary agent.
     /// ISO 8583 bit 100.
     /// </summary>
-    [DataMember]
     public PartyIdentification197? Receiver { get; init; } 
     /// <summary>
     /// Card acceptor performing the card transaction.
     /// </summary>
-    [DataMember]
     public PartyIdentification197? Acceptor { get; init; } 
     /// <summary>
     /// Payment terminal or ATM performing the transaction.
     /// </summary>
-    [DataMember]
     public Terminal2? Terminal { get; init; } 
     /// <summary>
     /// Card or payment token performing the transaction.
     /// </summary>
-    [DataMember]
     public CardData4? Card { get; init; } 
     /// <summary>
     /// Container for tenders used by the customer to perform the payment transaction.
     /// </summary>
-    [DataMember]
     public Wallet1? Wallet { get; init; } 
     /// <summary>
     /// Details of payment token.
     /// </summary>
-    [DataMember]
     public Token1? Token { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Acqrr", xmlNamespace );
+        Acquirer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Sender is PartyIdentification197 SenderValue)
+        {
+            writer.WriteStartElement(null, "Sndr", xmlNamespace );
+            SenderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Receiver is PartyIdentification197 ReceiverValue)
+        {
+            writer.WriteStartElement(null, "Rcvr", xmlNamespace );
+            ReceiverValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Acceptor is PartyIdentification197 AcceptorValue)
+        {
+            writer.WriteStartElement(null, "Accptr", xmlNamespace );
+            AcceptorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Terminal is Terminal2 TerminalValue)
+        {
+            writer.WriteStartElement(null, "Termnl", xmlNamespace );
+            TerminalValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Card is CardData4 CardValue)
+        {
+            writer.WriteStartElement(null, "Card", xmlNamespace );
+            CardValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Wallet is Wallet1 WalletValue)
+        {
+            writer.WriteStartElement(null, "Wllt", xmlNamespace );
+            WalletValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Token is Token1 TokenValue)
+        {
+            writer.WriteStartElement(null, "Tkn", xmlNamespace );
+            TokenValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Environment2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

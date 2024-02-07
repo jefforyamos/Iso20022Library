@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AmountType3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountType3Choice;
 /// Amount of money to be moved between the debtor and creditor, expressed in the currency of the debtor's account, and the currency in which the amount is to be moved.
 /// </summary>
 public partial record EquivalentAmount : AmountType3Choice_
+     , IIsoXmlSerilizable<EquivalentAmount>
 {
     #nullable enable
+    
     /// <summary>
     /// Amount of money to be moved between debtor and creditor, before deduction of charges, expressed in the currency of the debtor's account, and to be moved in a different currency.|Usage: The first agent will convert the equivalent amount into the amount to be moved.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record EquivalentAmount : AmountType3Choice_
     /// Specifies the currency of the to be transferred amount, which is different from the currency of the debtor's account.
     /// </summary>
     public required ActiveOrHistoricCurrencyCode CurrencyOfTransfer { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(Amount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CcyOfTrf", xmlNamespace );
+        writer.WriteValue(CurrencyOfTransfer.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new EquivalentAmount Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

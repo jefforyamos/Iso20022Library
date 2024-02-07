@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information such as the information conditions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionNarrative19
+     : IIsoXmlSerilizable<CorporateActionNarrative19>
 {
     #nullable enable
     
     /// <summary>
     /// Provides additional information or specifies in more detail the content of a message. This field may only be used when the information to be transmitted, cannot be coded.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoRestrictedFINXMax350Text> AdditionalText { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax350Text? AdditionalText { get; init; } 
     /// <summary>
     /// Provides additional information regarding the party, for example, the contact unit or person responsible for the transaction identified in the message.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoRestrictedFINXMax350Text> PartyContactNarrative { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax350Text? PartyContactNarrative { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AdditionalText is IsoRestrictedFINXMax350Text AdditionalTextValue)
+        {
+            writer.WriteStartElement(null, "AddtlTxt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(AdditionalTextValue)); // data type RestrictedFINXMax350Text System.String
+            writer.WriteEndElement();
+        }
+        if (PartyContactNarrative is IsoRestrictedFINXMax350Text PartyContactNarrativeValue)
+        {
+            writer.WriteStartElement(null, "PtyCtctNrrtv", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(PartyContactNarrativeValue)); // data type RestrictedFINXMax350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionNarrative19 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

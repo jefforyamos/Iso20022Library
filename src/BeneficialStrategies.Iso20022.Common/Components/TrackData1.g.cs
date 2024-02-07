@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Magnetic track or equivalent payment card data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TrackData1
+     : IIsoXmlSerilizable<TrackData1>
 {
     #nullable enable
     
     /// <summary>
     /// Track number of the card.
     /// </summary>
-    [DataMember]
     public IsoExact1NumericText? TrackNumber { get; init; } 
     /// <summary>
     /// Card track content or equivalent.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text TrackValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TrackNumber is IsoExact1NumericText TrackNumberValue)
+        {
+            writer.WriteStartElement(null, "TrckNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact1NumericText(TrackNumberValue)); // data type Exact1NumericText System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TrckVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(TrackValue)); // data type Max140Text System.String
+        writer.WriteEndElement();
+    }
+    public static TrackData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

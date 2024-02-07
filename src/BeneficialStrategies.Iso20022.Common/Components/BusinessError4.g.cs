@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the business error details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BusinessError4
+     : IIsoXmlSerilizable<BusinessError4>
 {
     #nullable enable
     
     /// <summary>
     /// Way(s) of identifying the security.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification39 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Provides the business error.
     /// </summary>
-    [DataMember]
-    public ValueList<ErrorHandling5> BusinessError { get; init; } = []; // Warning: Don't know multiplicity.
+    public ErrorHandling5? BusinessError { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _P-BGc5JKEeuAlLVx8pyt3w
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize BusinessError, multiplicity Unknown
+    }
+    public static BusinessError4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

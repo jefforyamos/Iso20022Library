@@ -7,58 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to report on the cash entry.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountCashEntryReturnCriteria3
+     : IIsoXmlSerilizable<AccountCashEntryReturnCriteria3>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the entry reference is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? EntryReferenceIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account type is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? AccountTypeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the entry amount is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? EntryAmountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account currency is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? AccountCurrencyIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the entry status is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? EntryStatusIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the entry date is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? EntryDateIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account servicer is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? AccountServicerIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account owner is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? AccountOwnerIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (EntryReferenceIndicator is IsoRequestedIndicator EntryReferenceIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NtryRefInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(EntryReferenceIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AccountTypeIndicator is IsoRequestedIndicator AccountTypeIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AcctTpInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(AccountTypeIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (EntryAmountIndicator is IsoRequestedIndicator EntryAmountIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NtryAmtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(EntryAmountIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AccountCurrencyIndicator is IsoRequestedIndicator AccountCurrencyIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AcctCcyInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(AccountCurrencyIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (EntryStatusIndicator is IsoRequestedIndicator EntryStatusIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NtryStsInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(EntryStatusIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (EntryDateIndicator is IsoRequestedIndicator EntryDateIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NtryDtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(EntryDateIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AccountServicerIndicator is IsoRequestedIndicator AccountServicerIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(AccountServicerIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AccountOwnerIndicator is IsoRequestedIndicator AccountOwnerIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(AccountOwnerIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountCashEntryReturnCriteria3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

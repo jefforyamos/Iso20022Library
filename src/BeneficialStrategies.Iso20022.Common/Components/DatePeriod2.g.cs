@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Range of time defined by a start date and an end date.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DatePeriod2
+     : IIsoXmlSerilizable<DatePeriod2>
 {
     #nullable enable
     
     /// <summary>
     /// Start date of the range.
     /// </summary>
-    [DataMember]
     public required IsoISODate FromDate { get; init; } 
     /// <summary>
     /// End date of the range.
     /// </summary>
-    [DataMember]
     public required IsoISODate ToDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FrDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(FromDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ToDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ToDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+    }
+    public static DatePeriod2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

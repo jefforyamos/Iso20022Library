@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Card payment transactions from one or several data set of transactions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardPaymentBatchTransfer3
+     : IIsoXmlSerilizable<CardPaymentBatchTransfer3>
 {
     #nullable enable
     
     /// <summary>
     /// Totals of transactions of all the data sets.
     /// </summary>
-    [DataMember]
-    public ValueList<TransactionTotals3> TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransactionTotals3? TransactionTotals { get; init; } 
     /// <summary>
     /// Card payment transactions from one data set of transactions.
     /// </summary>
-    [DataMember]
-    public ValueList<CardPaymentDataSet10> DataSet { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardPaymentDataSet10? DataSet { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TransactionTotals is TransactionTotals3 TransactionTotalsValue)
+        {
+            writer.WriteStartElement(null, "TxTtls", xmlNamespace );
+            TransactionTotalsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DataSet is CardPaymentDataSet10 DataSetValue)
+        {
+            writer.WriteStartElement(null, "DataSet", xmlNamespace );
+            DataSetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardPaymentBatchTransfer3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

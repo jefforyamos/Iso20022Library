@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.reda.RequestToPayCreditorEnrolmentAmendmentRequestV01>;
 
 namespace BeneficialStrategies.Iso20022.reda;
 
@@ -22,10 +25,9 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// The message may also be forwarded to any authorised third party, as defined in the local scheme
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The RequestToPayCreditorEnrolmentAmendmentRequest message is sent by the creditor RTP (Request To Pay) provider to an RTP directory provider and optionally by the creditor to a creditor RTP provider to request for the amendment of the creditor registration in the RTP directory. |The message may also be forwarded to any authorised third party, as defined in the local scheme")]
-public partial record RequestToPayCreditorEnrolmentAmendmentRequestV01 : IOuterRecord
+public partial record RequestToPayCreditorEnrolmentAmendmentRequestV01 : IOuterRecord<RequestToPayCreditorEnrolmentAmendmentRequestV01,RequestToPayCreditorEnrolmentAmendmentRequestV01Document>
+    ,IIsoXmlSerilizable<RequestToPayCreditorEnrolmentAmendmentRequestV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -37,6 +39,11 @@ public partial record RequestToPayCreditorEnrolmentAmendmentRequestV01 : IOuterR
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "ReqToPayCdtrEnrlmntAmdmntReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => RequestToPayCreditorEnrolmentAmendmentRequestV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -77,6 +84,35 @@ public partial record RequestToPayCreditorEnrolmentAmendmentRequestV01 : IOuterR
     {
         return new RequestToPayCreditorEnrolmentAmendmentRequestV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("ReqToPayCdtrEnrlmntAmdmntReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AmdmntData", xmlNamespace );
+        AmendmentData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RequestToPayCreditorEnrolmentAmendmentRequestV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -84,9 +120,7 @@ public partial record RequestToPayCreditorEnrolmentAmendmentRequestV01 : IOuterR
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestToPayCreditorEnrolmentAmendmentRequestV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record RequestToPayCreditorEnrolmentAmendmentRequestV01Document : IOuterDocument<RequestToPayCreditorEnrolmentAmendmentRequestV01>
+public partial record RequestToPayCreditorEnrolmentAmendmentRequestV01Document : IOuterDocument<RequestToPayCreditorEnrolmentAmendmentRequestV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -102,5 +136,22 @@ public partial record RequestToPayCreditorEnrolmentAmendmentRequestV01Document :
     /// <summary>
     /// The instance of <seealso cref="RequestToPayCreditorEnrolmentAmendmentRequestV01"/> is required.
     /// </summary>
+    [DataMember(Name=RequestToPayCreditorEnrolmentAmendmentRequestV01.XmlTag)]
     public required RequestToPayCreditorEnrolmentAmendmentRequestV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(RequestToPayCreditorEnrolmentAmendmentRequestV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

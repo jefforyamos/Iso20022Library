@@ -7,103 +7,196 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acceptor parameters dedicated to the acquirer protocol.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AcquirerProtocolParameters7
+     : IIsoXmlSerilizable<AcquirerProtocolParameters7>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the acquirer using this protocol.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericIdentification53> AcquirerIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericIdentification53? AcquirerIdentification { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _5GqxwWprEeSMqvBfBY1c9A
     /// <summary>
     /// Version of the acquirer protocol parameters.
     /// </summary>
-    [DataMember]
     public required IsoMax256Text Version { get; init; } 
     /// <summary>
     /// Identification of the payment application, user of the acquirer protocol.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> ApplicationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? ApplicationIdentification { get; init; } 
     /// <summary>
     /// Acquirer host configuration.
     /// </summary>
-    [DataMember]
-    public ValueList<AcquirerHostConfiguration3> Host { get; init; } = []; // Warning: Don't know multiplicity.
+    public AcquirerHostConfiguration3? Host { get; init; } 
     /// <summary>
     /// Acquirer protocol parameters of transactions performing an online authorisation.
     /// </summary>
-    [DataMember]
     public AcquirerProtocolParameters8? OnLineTransaction { get; init; } 
     /// <summary>
     /// Acquirer protocol parameters of transactions performing an offline authorisation.
     /// </summary>
-    [DataMember]
     public AcquirerProtocolParameters8? OffLineTransaction { get; init; } 
     /// <summary>
     /// Configuration parameters of reconciliation exchanges.
     /// </summary>
-    [DataMember]
     public ExchangeConfiguration6? ReconciliationExchange { get; init; } 
     /// <summary>
     /// Indicates the reconciliation period is assigned by the acquirer instead of the acceptor.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ReconciliationByAcquirer { get; init; } 
     /// <summary>
     /// Indicates the reconciliation total amounts are computed per currency.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? TotalsPerCurrency { get; init; } 
     /// <summary>
     /// Indicates that totals in reconciliation or batch must be split per group of points of interaction and card product profiles when these information are present in the transactions.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? SplitTotals { get; init; } 
     /// <summary>
     /// True if the POI must send card data (protected or plain card data) in the AcceptorCompletionAdvice message following an authorisation exchange.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CardDataVerification { get; init; } 
     /// <summary>
     /// Send a cancellation advice for offline transactions not yet captured.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? NotifyOffLineCancellation { get; init; } 
     /// <summary>
     /// Types of transaction to include in the batch.
     /// </summary>
-    [DataMember]
-    public ValueList<BatchTransactionType1Code> BatchTransferContent { get; init; } = []; // Warning: Don't know multiplicity.
+    public BatchTransactionType1Code? BatchTransferContent { get; init; } 
     /// <summary>
     /// BatchTransfer are exchanged per file transfer protocol rather than per message.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? FileTransferBatch { get; init; } 
     /// <summary>
     /// BatchTransfer are authenticated by digital signature rather than a MAC (Message Authentication Code).
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? BatchDigitalSignature { get; init; } 
     /// <summary>
     /// Configuration of a message item.
     /// </summary>
-    [DataMember]
-    public ValueList<MessageItemCondition1> MessageItem { get; init; } = []; // Warning: Don't know multiplicity.
+    public MessageItemCondition1? MessageItem { get; init; } 
     /// <summary>
     /// Indicator to require protection of sensitive card data in messages.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator ProtectCardData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize AcquirerIdentification, multiplicity Unknown
+        writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax256Text(Version)); // data type Max256Text System.String
+        writer.WriteEndElement();
+        if (ApplicationIdentification is IsoMax35Text ApplicationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ApplId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ApplicationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Host is AcquirerHostConfiguration3 HostValue)
+        {
+            writer.WriteStartElement(null, "Hst", xmlNamespace );
+            HostValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OnLineTransaction is AcquirerProtocolParameters8 OnLineTransactionValue)
+        {
+            writer.WriteStartElement(null, "OnLineTx", xmlNamespace );
+            OnLineTransactionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OffLineTransaction is AcquirerProtocolParameters8 OffLineTransactionValue)
+        {
+            writer.WriteStartElement(null, "OffLineTx", xmlNamespace );
+            OffLineTransactionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReconciliationExchange is ExchangeConfiguration6 ReconciliationExchangeValue)
+        {
+            writer.WriteStartElement(null, "RcncltnXchg", xmlNamespace );
+            ReconciliationExchangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReconciliationByAcquirer is IsoTrueFalseIndicator ReconciliationByAcquirerValue)
+        {
+            writer.WriteStartElement(null, "RcncltnByAcqrr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ReconciliationByAcquirerValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TotalsPerCurrency is IsoTrueFalseIndicator TotalsPerCurrencyValue)
+        {
+            writer.WriteStartElement(null, "TtlsPerCcy", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TotalsPerCurrencyValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SplitTotals is IsoTrueFalseIndicator SplitTotalsValue)
+        {
+            writer.WriteStartElement(null, "SpltTtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(SplitTotalsValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CardDataVerification is IsoTrueFalseIndicator CardDataVerificationValue)
+        {
+            writer.WriteStartElement(null, "CardDataVrfctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CardDataVerificationValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (NotifyOffLineCancellation is IsoTrueFalseIndicator NotifyOffLineCancellationValue)
+        {
+            writer.WriteStartElement(null, "NtfyOffLineCxl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(NotifyOffLineCancellationValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (BatchTransferContent is BatchTransactionType1Code BatchTransferContentValue)
+        {
+            writer.WriteStartElement(null, "BtchTrfCntt", xmlNamespace );
+            writer.WriteValue(BatchTransferContentValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (FileTransferBatch is IsoTrueFalseIndicator FileTransferBatchValue)
+        {
+            writer.WriteStartElement(null, "FileTrfBtch", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(FileTransferBatchValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (BatchDigitalSignature is IsoTrueFalseIndicator BatchDigitalSignatureValue)
+        {
+            writer.WriteStartElement(null, "BtchDgtlSgntr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(BatchDigitalSignatureValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (MessageItem is MessageItemCondition1 MessageItemValue)
+        {
+            writer.WriteStartElement(null, "MsgItm", xmlNamespace );
+            MessageItemValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PrtctCardData", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ProtectCardData)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static AcquirerProtocolParameters7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

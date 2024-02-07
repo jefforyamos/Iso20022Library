@@ -7,39 +7,71 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of characteristics shared by all individual transactions included in the message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TrackerHeader4
+     : IIsoXmlSerilizable<TrackerHeader4>
 {
     #nullable enable
     
     /// <summary>
     /// Point to point reference, as assigned by the tracker informing party and sent by the tracker to unambiguously identify the message.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINXMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Original reference, as assigned by the informer and sent to the tracker to unambiguously identify the tracker update message.
     /// Usage: this element may only be present when the alert notification is related to a payment status tracker update.
     /// </summary>
-    [DataMember]
     public OriginalBusinessInstruction3? OriginalTrackerUpdate { get; init; } 
     /// <summary>
     /// Agreement under which or rules under which the tracker update must be processed.
     /// </summary>
-    [DataMember]
     public TransactionServiceLevel1? ServiceLevel { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax35Text(MessageIdentification)); // data type RestrictedFINXMax35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (OriginalTrackerUpdate is OriginalBusinessInstruction3 OriginalTrackerUpdateValue)
+        {
+            writer.WriteStartElement(null, "OrgnlTrckrUpd", xmlNamespace );
+            OriginalTrackerUpdateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ServiceLevel is TransactionServiceLevel1 ServiceLevelValue)
+        {
+            writer.WriteStartElement(null, "SvcLvl", xmlNamespace );
+            ServiceLevelValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TrackerHeader4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

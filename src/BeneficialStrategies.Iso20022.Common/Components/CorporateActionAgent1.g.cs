@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the agent.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionAgent1
+     : IIsoXmlSerilizable<CorporateActionAgent1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the agent.
     /// </summary>
-    [DataMember]
     public required PartyIdentification2Choice_ AgentIdentification { get; init; } 
     /// <summary>
     /// Role played by the agent.
     /// </summary>
-    [DataMember]
     public required AgentRole1FormatChoice_ AgentRole { get; init; } 
     /// <summary>
     /// Contact person at the agent.
     /// </summary>
-    [DataMember]
     public NameAndAddress5? ContactPerson { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AgtId", xmlNamespace );
+        AgentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AgtRole", xmlNamespace );
+        AgentRole.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ContactPerson is NameAndAddress5 ContactPersonValue)
+        {
+            writer.WriteStartElement(null, "CtctPrsn", xmlNamespace );
+            ContactPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionAgent1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

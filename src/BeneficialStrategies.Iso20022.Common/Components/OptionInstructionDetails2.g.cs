@@ -7,78 +7,144 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Instructions information received for a given option.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OptionInstructionDetails2
+     : IIsoXmlSerilizable<OptionInstructionDetails2>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the instruction or protect instruction.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINMax15Text InstructionIdentification { get; init; } 
     /// <summary>
     /// Provides the sequence number of the instruction.
     /// </summary>
-    [DataMember]
     public IsoMax3NumericText? InstructionSequenceNumber { get; init; } 
     /// <summary>
     /// Indicates whether the instruction is a protect or a cover protect instruction.
     /// </summary>
-    [DataMember]
     public ProtectTransactionType2Code? ProtectIndicator { get; init; } 
     /// <summary>
     /// Securities quantity instructed in the instruction.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity15Choice_ InstructionQuantity { get; init; } 
     /// <summary>
     /// Date of the instruction.
     /// </summary>
-    [DataMember]
     public required IsoISODate InstructionDate { get; init; } 
     /// <summary>
     /// Date of the client protect instruction.
     /// </summary>
-    [DataMember]
     public IsoISODate? ProtectDate { get; init; } 
     /// <summary>
     /// Date of the cover protect Instruction
     /// </summary>
-    [DataMember]
     public IsoISODate? CoverProtectDate { get; init; } 
     /// <summary>
     /// Bid price of the instruction.
     /// </summary>
-    [DataMember]
     public PriceFormat57Choice_? BidPrice { get; init; } 
     /// <summary>
     /// Conditional quantity of the instruction.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity15Choice_? ConditionalQuantity { get; init; } 
     /// <summary>
     /// Customer related narrative information.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINMax15Text? CustomerReference { get; init; } 
     /// <summary>
     /// Narrative information from the submitted instruction.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax350Text? InstructionNarrative { get; init; } 
     /// <summary>
     /// Status of a particular instruction.
     /// </summary>
-    [DataMember]
     public required InstructionProcessingStatus36Choice_ InstructionStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "InstrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINMax15Text(InstructionIdentification)); // data type RestrictedFINMax15Text System.String
+        writer.WriteEndElement();
+        if (InstructionSequenceNumber is IsoMax3NumericText InstructionSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "InstrSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(InstructionSequenceNumberValue)); // data type Max3NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (ProtectIndicator is ProtectTransactionType2Code ProtectIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PrtctInd", xmlNamespace );
+            writer.WriteValue(ProtectIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InstrQty", xmlNamespace );
+        InstructionQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InstrDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(InstructionDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (ProtectDate is IsoISODate ProtectDateValue)
+        {
+            writer.WriteStartElement(null, "PrtctDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ProtectDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (CoverProtectDate is IsoISODate CoverProtectDateValue)
+        {
+            writer.WriteStartElement(null, "CoverPrtctDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(CoverProtectDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (BidPrice is PriceFormat57Choice_ BidPriceValue)
+        {
+            writer.WriteStartElement(null, "BidPric", xmlNamespace );
+            BidPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ConditionalQuantity is FinancialInstrumentQuantity15Choice_ ConditionalQuantityValue)
+        {
+            writer.WriteStartElement(null, "CondlQty", xmlNamespace );
+            ConditionalQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CustomerReference is IsoRestrictedFINMax15Text CustomerReferenceValue)
+        {
+            writer.WriteStartElement(null, "CstmrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINMax15Text(CustomerReferenceValue)); // data type RestrictedFINMax15Text System.String
+            writer.WriteEndElement();
+        }
+        if (InstructionNarrative is IsoRestrictedFINXMax350Text InstructionNarrativeValue)
+        {
+            writer.WriteStartElement(null, "InstrNrrtv", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(InstructionNarrativeValue)); // data type RestrictedFINXMax350Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InstrSts", xmlNamespace );
+        InstructionStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static OptionInstructionDetails2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

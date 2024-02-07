@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the proceeds movements.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProceedsMovement1
+     : IIsoXmlSerilizable<ProceedsMovement1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides information about the movement of the cash proceeds.
     /// </summary>
-    [DataMember]
-    public ValueList<CashProceeds1> CashProceedsMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashProceeds1? CashProceedsMovementDetails { get; init; } 
     /// <summary>
     /// Provides information about the movement of the securities proceeds.
     /// </summary>
-    [DataMember]
-    public ValueList<SecuritiesProceeds1> SecuritiesProceedsMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecuritiesProceeds1? SecuritiesProceedsMovementDetails { get; init; } 
     /// <summary>
     /// Provides information about the tax voucher.
     /// </summary>
-    [DataMember]
     public TaxVoucher1? TaxDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CashProceedsMovementDetails is CashProceeds1 CashProceedsMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "CshPrcdsMvmntDtls", xmlNamespace );
+            CashProceedsMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesProceedsMovementDetails is SecuritiesProceeds1 SecuritiesProceedsMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "SctiesPrcdsMvmntDtls", xmlNamespace );
+            SecuritiesProceedsMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxDetails is TaxVoucher1 TaxDetailsValue)
+        {
+            writer.WriteStartElement(null, "TaxDtls", xmlNamespace );
+            TaxDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ProceedsMovement1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

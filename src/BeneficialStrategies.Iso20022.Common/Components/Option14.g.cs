@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Derivative instrument that gives the buyer the right but not the obligation to purchase a set of quantity of a financial instrument at a future date.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Option14
+     : IIsoXmlSerilizable<Option14>
 {
     #nullable enable
     
     /// <summary>
     /// Expiration style of the option.
     /// </summary>
-    [DataMember]
-    public ValueList<OptionStyle5Code> ExpirationStyle { get; init; } = [];
+    public SimpleValueList<OptionStyle5Code> ExpirationStyle { get; init; } = [];
     /// <summary>
     /// Specifies how the option can be exercised.
     /// </summary>
-    [DataMember]
     public ExoticOptionStyle1Code? OptionStyle { get; init; } 
     /// <summary>
     /// Specifies whether the option is a call or a put.
     /// </summary>
-    [DataMember]
     public OptionType1Code? OptionType { get; init; } 
     /// <summary>
     /// Indicates whether the option has a barrier.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? BarrierIndicator { get; init; } 
     /// <summary>
     /// Specifies the event in the life of the option.
     /// </summary>
-    [DataMember]
     public OptionEvent2? EventType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "XprtnStyle", xmlNamespace );
+        writer.WriteValue(ExpirationStyle.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OptionStyle is ExoticOptionStyle1Code OptionStyleValue)
+        {
+            writer.WriteStartElement(null, "OptnStyle", xmlNamespace );
+            writer.WriteValue(OptionStyleValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OptionType is OptionType1Code OptionTypeValue)
+        {
+            writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+            writer.WriteValue(OptionTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (BarrierIndicator is IsoTrueFalseIndicator BarrierIndicatorValue)
+        {
+            writer.WriteStartElement(null, "BrrrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(BarrierIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (EventType is OptionEvent2 EventTypeValue)
+        {
+            writer.WriteStartElement(null, "EvtTp", xmlNamespace );
+            EventTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Option14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

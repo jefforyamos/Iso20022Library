@@ -7,68 +7,133 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Organised structure that is set up for a particular purpose, for example, a business, government body, department, charity, or financial institution.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Organisation30
+     : IIsoXmlSerilizable<Organisation30>
 {
     #nullable enable
     
     /// <summary>
     /// Name by which the organisation is known and which is usually used to identify that organisation.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? Name { get; init; } 
     /// <summary>
     /// Name of the organisation in short form.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the organisation.
     /// </summary>
-    [DataMember]
     public PartyIdentification72Choice_? Identification { get; init; } 
     /// <summary>
     /// Identification of the organisation with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>
-    [DataMember]
     public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
     /// <summary>
     /// Purpose of the organisation, for example, charity.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Purpose { get; init; } 
     /// <summary>
     /// Country in which the organisation is registered.
     /// </summary>
-    [DataMember]
     public CountryCode? RegistrationCountry { get; init; } 
     /// <summary>
     /// Date and time at which a given organisation was officially registered.
     /// </summary>
-    [DataMember]
     public IsoISODate? RegistrationDate { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
-    [DataMember]
     public ValueList<PostalAddress21> PostalAddress { get; init; } = [];
     /// <summary>
     /// Type of organisation.
     /// </summary>
-    [DataMember]
     public OrganisationType1Choice_? TypeOfOrganisation { get; init; } 
     /// <summary>
     /// Place of listing for shares in the organisation.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMICIdentifier> PlaceOfListing { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMICIdentifier? PlaceOfListing { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax350Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(NameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (ShortName is IsoMax35Text ShortNameValue)
+        {
+            writer.WriteStartElement(null, "ShrtNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ShortNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Identification is PartyIdentification72Choice_ IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LegalEntityIdentifier is IsoLEIIdentifier LegalEntityIdentifierValue)
+        {
+            writer.WriteStartElement(null, "LglNttyIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LegalEntityIdentifierValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (Purpose is IsoMax35Text PurposeValue)
+        {
+            writer.WriteStartElement(null, "Purp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PurposeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RegistrationCountry is CountryCode RegistrationCountryValue)
+        {
+            writer.WriteStartElement(null, "RegnCtry", xmlNamespace );
+            writer.WriteValue(RegistrationCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (RegistrationDate is IsoISODate RegistrationDateValue)
+        {
+            writer.WriteStartElement(null, "RegnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(RegistrationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PstlAdr", xmlNamespace );
+        PostalAddress.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TypeOfOrganisation is OrganisationType1Choice_ TypeOfOrganisationValue)
+        {
+            writer.WriteStartElement(null, "TpOfOrg", xmlNamespace );
+            TypeOfOrganisationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PlaceOfListing is IsoMICIdentifier PlaceOfListingValue)
+        {
+            writer.WriteStartElement(null, "PlcOfListg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(PlaceOfListingValue)); // data type MICIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Organisation30 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,48 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the payment terms of the underlying transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record EarlyPayment1
+     : IIsoXmlSerilizable<EarlyPayment1>
 {
     #nullable enable
     
     /// <summary>
     /// Date before which the early payment discount is valid for payment.
     /// </summary>
-    [DataMember]
     public required IsoISODate EarlyPaymentDate { get; init; } 
     /// <summary>
     /// Discount percent for early payment.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate DiscountPercent { get; init; } 
     /// <summary>
     /// Early payment discount with tax, with currency.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount DiscountAmount { get; init; } 
     /// <summary>
     /// In tax specification for early payment discount one defined the applied tax rates for specific early payment. VAT stands for value added tax.
     /// </summary>
-    [DataMember]
-    public ValueList<EarlyPaymentsVAT1> EarlyPaymentTaxSpecification { get; init; } = []; // Warning: Don't know multiplicity.
+    public EarlyPaymentsVAT1? EarlyPaymentTaxSpecification { get; init; } 
     /// <summary>
     /// Tax total in early payment, with currency.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? EarlyPaymentTaxTotal { get; init; } 
     /// <summary>
     /// Payable amount with discount of early payment, with currency.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? DuePayableAmountWithEarlyPayment { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "EarlyPmtDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(EarlyPaymentDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DscntPct", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(DiscountPercent)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DscntAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(DiscountAmount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (EarlyPaymentTaxSpecification is EarlyPaymentsVAT1 EarlyPaymentTaxSpecificationValue)
+        {
+            writer.WriteStartElement(null, "EarlyPmtTaxSpcfctn", xmlNamespace );
+            EarlyPaymentTaxSpecificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EarlyPaymentTaxTotal is IsoCurrencyAndAmount EarlyPaymentTaxTotalValue)
+        {
+            writer.WriteStartElement(null, "EarlyPmtTaxTtl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(EarlyPaymentTaxTotalValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (DuePayableAmountWithEarlyPayment is IsoCurrencyAndAmount DuePayableAmountWithEarlyPaymentValue)
+        {
+            writer.WriteStartElement(null, "DuePyblAmtWthEarlyPmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(DuePayableAmountWithEarlyPaymentValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static EarlyPayment1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

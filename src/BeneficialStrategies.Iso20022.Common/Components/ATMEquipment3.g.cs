@@ -7,58 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Hardware security module information, so called EPP for Encrypted PIN Pad.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMEquipment3
+     : IIsoXmlSerilizable<ATMEquipment3>
 {
     #nullable enable
     
     /// <summary>
     /// ATM Manufacturer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Manufacturer { get; init; } 
     /// <summary>
     /// Model of ATM.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Model { get; init; } 
     /// <summary>
     /// Version of the device model.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Version { get; init; } 
     /// <summary>
     /// Serial number of the ATM.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SerialNumber { get; init; } 
     /// <summary>
     /// Signature of the serial number of the device. The signature may contain the serial number with the signature.
     /// </summary>
-    [DataMember]
     public ContentInformationType14? SignedSerialNumber { get; init; } 
     /// <summary>
     /// Provider of the firmware.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? FirmwareProvider { get; init; } 
     /// <summary>
     /// Identification of the firmware.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? FirmwareIdentification { get; init; } 
     /// <summary>
     /// Version of the firmware.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? FirmwareVersion { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Manufacturer is IsoMax35Text ManufacturerValue)
+        {
+            writer.WriteStartElement(null, "Manfctr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ManufacturerValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Model is IsoMax35Text ModelValue)
+        {
+            writer.WriteStartElement(null, "Mdl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ModelValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Version is IsoMax35Text VersionValue)
+        {
+            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(VersionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SerialNumber is IsoMax35Text SerialNumberValue)
+        {
+            writer.WriteStartElement(null, "SrlNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SerialNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SignedSerialNumber is ContentInformationType14 SignedSerialNumberValue)
+        {
+            writer.WriteStartElement(null, "SgndSrlNb", xmlNamespace );
+            SignedSerialNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FirmwareProvider is IsoMax35Text FirmwareProviderValue)
+        {
+            writer.WriteStartElement(null, "FrmwrPrvdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(FirmwareProviderValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (FirmwareIdentification is IsoMax35Text FirmwareIdentificationValue)
+        {
+            writer.WriteStartElement(null, "FrmwrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(FirmwareIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (FirmwareVersion is IsoMax35Text FirmwareVersionValue)
+        {
+            writer.WriteStartElement(null, "FrmwrVrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(FirmwareVersionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMEquipment3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

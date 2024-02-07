@@ -7,58 +7,113 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides remittance information about a payment for garnishment-related purposes.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Garnishment1
+     : IIsoXmlSerilizable<Garnishment1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of garnishment.
     /// </summary>
-    [DataMember]
     public required GarnishmentType1 Type { get; init; } 
     /// <summary>
     /// Ultimate party that owes an amount of money to the (ultimate) creditor, in this case, to the garnisher.
     /// </summary>
-    [DataMember]
     public PartyIdentification43? Garnishee { get; init; } 
     /// <summary>
     /// Party on the credit side of the transaction who administers the garnishment on behalf of the ultimate beneficiary.
     /// </summary>
-    [DataMember]
     public PartyIdentification43? GarnishmentAdministrator { get; init; } 
     /// <summary>
     /// Reference information that is specific to the agency receiving the garnishment.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? ReferenceNumber { get; init; } 
     /// <summary>
     /// Date of payment which garnishment was taken from.
     /// </summary>
-    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// Amount of money remitted for the referred document.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? RemittedAmount { get; init; } 
     /// <summary>
     /// Indicates if the person to whom the garnishment applies (that is, the ultimate debtor) has family medical insurance coverage available.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? FamilyMedicalInsuranceIndicator { get; init; } 
     /// <summary>
     /// Indicates if the employment of the person to whom the garnishment applies (that is, the ultimate debtor) has been terminated.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? EmployeeTerminationIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Garnishee is PartyIdentification43 GarnisheeValue)
+        {
+            writer.WriteStartElement(null, "Grnshee", xmlNamespace );
+            GarnisheeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GarnishmentAdministrator is PartyIdentification43 GarnishmentAdministratorValue)
+        {
+            writer.WriteStartElement(null, "GrnshmtAdmstr", xmlNamespace );
+            GarnishmentAdministratorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReferenceNumber is IsoMax140Text ReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "RefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(ReferenceNumberValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (Date is IsoISODate DateValue)
+        {
+            writer.WriteStartElement(null, "Dt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (RemittedAmount is IsoActiveOrHistoricCurrencyAndAmount RemittedAmountValue)
+        {
+            writer.WriteStartElement(null, "RmtdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(RemittedAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (FamilyMedicalInsuranceIndicator is IsoTrueFalseIndicator FamilyMedicalInsuranceIndicatorValue)
+        {
+            writer.WriteStartElement(null, "FmlyMdclInsrncInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(FamilyMedicalInsuranceIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (EmployeeTerminationIndicator is IsoTrueFalseIndicator EmployeeTerminationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "MplyeeTermntnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(EmployeeTerminationIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Garnishment1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

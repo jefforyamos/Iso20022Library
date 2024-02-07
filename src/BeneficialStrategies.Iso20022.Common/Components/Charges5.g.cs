@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Charges related to a payment obligation contracted between two financial institutions related to the financing of a commercial transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Charges5
+     : IIsoXmlSerilizable<Charges5>
 {
     #nullable enable
     
     /// <summary>
     /// Bank which will pay the charges.
     /// </summary>
-    [DataMember]
     public required BankRole1Code ChargesPayer { get; init; } 
     /// <summary>
     /// Bank which will receive the charges.
     /// </summary>
-    [DataMember]
     public required BankRole1Code ChargesPayee { get; init; } 
     /// <summary>
     /// Amount of the charges taken by the payer.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Amount of the charges expressed as a percentage of the amount paid by the obligor bank.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Percentage { get; init; } 
     /// <summary>
     /// Type of charges. For example: transaction charges, financing charges, deferred payment, interests.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ChrgsPyer", xmlNamespace );
+        writer.WriteValue(ChargesPayer.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ChrgsPyee", xmlNamespace );
+        writer.WriteValue(ChargesPayee.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Amount is IsoCurrencyAndAmount AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(AmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Percentage is IsoPercentageRate PercentageValue)
+        {
+            writer.WriteStartElement(null, "Pctg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PercentageValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Type is IsoMax35Text TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Charges5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

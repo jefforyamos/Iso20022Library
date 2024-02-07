@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PledgeeFormat4Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PledgeeFormat4Choice;
 /// Identification of the entity to which the financial instruments are pledged expressed as a code and a BIC.
 /// </summary>
 public partial record TypeAndIdentification : PledgeeFormat4Choice_
+     , IIsoXmlSerilizable<TypeAndIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Identification of the entity to which the financial instruments are pledged, expressed as a BIC.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record TypeAndIdentification : PledgeeFormat4Choice_
     /// Entity to which the financial instruments are pledged expressed as a code.
     /// </summary>
     public required PledgeeType1Code PledgeeType { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(Identification)); // data type AnyBICIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PldgeeTp", xmlNamespace );
+        writer.WriteValue(PledgeeType.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new TypeAndIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

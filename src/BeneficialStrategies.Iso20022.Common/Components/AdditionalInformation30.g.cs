@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional information relevant to the destination.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalInformation30
+     : IIsoXmlSerilizable<AdditionalInformation30>
 {
     #nullable enable
     
     /// <summary>
     /// Recipient of the additional information to display, print, send or store.
     /// </summary>
-    [DataMember]
     public PartyType19Code? Recipient { get; init; } 
     /// <summary>
     /// Target of the additional information to print, display, send or store.
     /// </summary>
-    [DataMember]
-    public ValueList<UserInterface8Code> Target { get; init; } = []; // Warning: Don't know multiplicity.
+    public UserInterface8Code? Target { get; init; } 
     /// <summary>
     /// Format of the additional information.
     /// </summary>
-    [DataMember]
     public OutputFormat4Code? Format { get; init; } 
     /// <summary>
     /// Defines the type of the value.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// The language code conforming to ISO 639-1 that identifies the language in which the fields are expressed in this component.
     /// </summary>
-    [DataMember]
     public required ISOMax3ALanguageCode Language { get; init; } 
     /// <summary>
     /// Content of or reference to the message.
     /// </summary>
-    [DataMember]
     public required IsoMax20KText Value { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Recipient is PartyType19Code RecipientValue)
+        {
+            writer.WriteStartElement(null, "Rcpt", xmlNamespace );
+            writer.WriteValue(RecipientValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Target is UserInterface8Code TargetValue)
+        {
+            writer.WriteStartElement(null, "Trgt", xmlNamespace );
+            writer.WriteValue(TargetValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Format is OutputFormat4Code FormatValue)
+        {
+            writer.WriteStartElement(null, "Frmt", xmlNamespace );
+            writer.WriteValue(FormatValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Type is IsoMax35Text TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Lang", xmlNamespace );
+        writer.WriteValue(Language.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20KText(Value)); // data type Max20KText System.String
+        writer.WriteEndElement();
+    }
+    public static AdditionalInformation30 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

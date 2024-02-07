@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies additional parameters to the message or transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalParameters31
+     : IIsoXmlSerilizable<AdditionalParameters31>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether there exists a pre-confirmation.
     /// </summary>
-    [DataMember]
     public PreConfirmation1Code? PreConfirmation { get; init; } 
     /// <summary>
     /// Specifies partial settlement information.
     /// </summary>
-    [DataMember]
     public PartialSettlement2Code? PartialSettlement { get; init; } 
     /// <summary>
     /// Identification of the confirmation previously sent to confirm the partial settlement of a transaction.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax16Text? PreviousPartialConfirmationIdentification { get; init; } 
     /// <summary>
     /// Unique identification identifying the triparty collateral management transaction from the triparty-agent's/service-provider's point of view.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax16Text? TripartyAgentServiceProviderCollateralTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique reference identifying the triparty collateral management transaction from the client's point of view.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax16Text? ClientTripartyCollateralTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identification assigned to the instruction by the client.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax16Text? ClientCollateralInstructionIdentification { get; init; } 
     /// <summary>
     /// Unique identification assigned to the instruction by the triparty-agent/service-provider.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax16Text? TripartyAgentServiceProviderCollateralInstructionIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PreConfirmation is PreConfirmation1Code PreConfirmationValue)
+        {
+            writer.WriteStartElement(null, "PreConf", xmlNamespace );
+            writer.WriteValue(PreConfirmationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PartialSettlement is PartialSettlement2Code PartialSettlementValue)
+        {
+            writer.WriteStartElement(null, "PrtlSttlm", xmlNamespace );
+            writer.WriteValue(PartialSettlementValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PreviousPartialConfirmationIdentification is IsoRestrictedFINXMax16Text PreviousPartialConfirmationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrvsPrtlConfId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(PreviousPartialConfirmationIdentificationValue)); // data type RestrictedFINXMax16Text System.String
+            writer.WriteEndElement();
+        }
+        if (TripartyAgentServiceProviderCollateralTransactionIdentification is IsoRestrictedFINXMax16Text TripartyAgentServiceProviderCollateralTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TrptyAgtSvcPrvdrCollTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(TripartyAgentServiceProviderCollateralTransactionIdentificationValue)); // data type RestrictedFINXMax16Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClientTripartyCollateralTransactionIdentification is IsoRestrictedFINXMax16Text ClientTripartyCollateralTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClntTrptyCollTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(ClientTripartyCollateralTransactionIdentificationValue)); // data type RestrictedFINXMax16Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClientCollateralInstructionIdentification is IsoRestrictedFINXMax16Text ClientCollateralInstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClntCollInstrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(ClientCollateralInstructionIdentificationValue)); // data type RestrictedFINXMax16Text System.String
+            writer.WriteEndElement();
+        }
+        if (TripartyAgentServiceProviderCollateralInstructionIdentification is IsoRestrictedFINXMax16Text TripartyAgentServiceProviderCollateralInstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TrptyAgtSvcPrvdrCollInstrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(TripartyAgentServiceProviderCollateralInstructionIdentificationValue)); // data type RestrictedFINXMax16Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AdditionalParameters31 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

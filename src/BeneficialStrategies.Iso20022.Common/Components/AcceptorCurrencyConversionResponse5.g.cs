@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Currency conversion outcome from the service provider.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AcceptorCurrencyConversionResponse5
+     : IIsoXmlSerilizable<AcceptorCurrencyConversionResponse5>
 {
     #nullable enable
     
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
-    [DataMember]
     public required CardPaymentEnvironment69 Environment { get; init; } 
     /// <summary>
     /// Currency conversion of a card payment transaction between an acceptor and an acquirer.
     /// </summary>
-    [DataMember]
     public required CardPaymentTransaction77 Transaction { get; init; } 
     /// <summary>
     /// Details of the currency conversion.
     /// </summary>
-    [DataMember]
     public required CurrencyConversion16 CurrencyConversionResult { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Envt", xmlNamespace );
+        Environment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tx", xmlNamespace );
+        Transaction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CcyConvsRslt", xmlNamespace );
+        CurrencyConversionResult.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static AcceptorCurrencyConversionResponse5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

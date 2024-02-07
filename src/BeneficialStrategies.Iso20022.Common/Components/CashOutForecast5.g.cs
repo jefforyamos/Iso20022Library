@@ -7,49 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Cash movements out of a fund as a result of investment funds transactions, eg, redemptions or switch-out.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashOutForecast5
+     : IIsoXmlSerilizable<CashOutForecast5>
 {
     #nullable enable
     
     /// <summary>
     /// Date on which cash is available.
     /// </summary>
-    [DataMember]
     public required IsoISODate CashSettlementDate { get; init; } 
     /// <summary>
     /// Sub-total amount of the cash flow out, expressed as an amount of money.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? SubTotalAmount { get; init; } 
     /// <summary>
     /// Sub-total amount of the cash flow out, expressed as a number of units.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1? SubTotalUnitsNumber { get; init; } 
     /// <summary>
     /// Indicates whether the estimated cash flow out is exceptional.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ExceptionalCashFlowIndicator { get; init; } 
     /// <summary>
     /// Breakdown of cash out amounts by transaction and order type.
     /// </summary>
-    [DataMember]
-    public ValueList<FundCashOutBreakdown3> CashOutBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public FundCashOutBreakdown3? CashOutBreakdownDetails { get; init; } 
     /// <summary>
     /// Additional balances for cash amounts and number of units. 
     /// In an estimated report, the total cash derived from orders placed as a number of units is an estimated cash amount and the total number of units derived from orders placed as a cash amount is an estimated number of units.
     /// </summary>
-    [DataMember]
     public FundBalance1? AdditionalBalance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CshSttlmDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(CashSettlementDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (SubTotalAmount is IsoActiveOrHistoricCurrencyAndAmount SubTotalAmountValue)
+        {
+            writer.WriteStartElement(null, "SubTtlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(SubTotalAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (SubTotalUnitsNumber is FinancialInstrumentQuantity1 SubTotalUnitsNumberValue)
+        {
+            writer.WriteStartElement(null, "SubTtlUnitsNb", xmlNamespace );
+            SubTotalUnitsNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExceptionalCashFlowIndicator is IsoYesNoIndicator ExceptionalCashFlowIndicatorValue)
+        {
+            writer.WriteStartElement(null, "XcptnlCshFlowInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ExceptionalCashFlowIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CashOutBreakdownDetails is FundCashOutBreakdown3 CashOutBreakdownDetailsValue)
+        {
+            writer.WriteStartElement(null, "CshOutBrkdwnDtls", xmlNamespace );
+            CashOutBreakdownDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalBalance is FundBalance1 AdditionalBalanceValue)
+        {
+            writer.WriteStartElement(null, "AddtlBal", xmlNamespace );
+            AdditionalBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CashOutForecast5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

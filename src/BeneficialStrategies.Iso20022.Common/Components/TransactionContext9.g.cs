@@ -7,27 +7,26 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Context of the card payment transaction
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionContext9
+     : IIsoXmlSerilizable<TransactionContext9>
 {
     #nullable enable
     
     /// <summary>
     /// Category code related to the type of services or goods the merchant provides for the transaction in accordance with ISO 18245.
     /// </summary>
-    [DataMember]
     public ISO18245MerchantCategoryCode? MerchantCategoryCode { get; init; } 
     /// <summary>
     /// Further details about the merchant that is used in with the merchant category code (MCC) for the particular purchase.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MerchantCategorySpecificData { get; init; } 
     /// <summary>
     /// Indicates a deferred delivery as defined by each specific implementation.
@@ -35,79 +34,183 @@ public partial record TransactionContext9
     /// False: Delivery is not identified as deffered.
     /// Default: False.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? DeferredDeliveryIndicator { get; init; } 
     /// <summary>
     /// Indicates the partial shipment.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? PartialShipmentIndicator { get; init; } 
     /// <summary>
     /// Indicates a delayed charge.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? DelayedChargesIndicator { get; init; } 
     /// <summary>
     /// Indicates that the cardholder failed to arrive at the property and was therefore charged a no-show fee; property was not actually rented. 
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? NoShowIndicator { get; init; } 
     /// <summary>
     /// Indicates a reauthorisation.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ReauthorisationIndicator { get; init; } 
     /// <summary>
     /// Indicates a resubmission. 
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ReSubmissionIndicator { get; init; } 
     /// <summary>
     /// Identifies the transaction initiator.
     /// </summary>
-    [DataMember]
     public TransactionInitiator1Code? TransactionInitiator { get; init; } 
     /// <summary>
     /// Indicates that the consumer authentication process is temporarily unavailable in the acceptance, acquirer or agent environment for this request.  It does not indicate an outage in the issuer processing domain (including agents acting on behalf of the issuer).
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? AuthenticationOutageIndicator { get; init; } 
     /// <summary>
     /// Card programme or brand related to the transaction.
     /// </summary>
-    [DataMember]
     public CardProgramme2? CardProgramme { get; init; } 
     /// <summary>
     /// Contains information that identifies or is specific to a transaction jurisdiction.
     /// </summary>
-    [DataMember]
     public Jurisdiction2? Jurisdiction { get; init; } 
     /// <summary>
     /// Type of settlement service for specific services requiring settlement.
     /// </summary>
-    [DataMember]
     public SettlementService3? SettlementService { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period between the acquirer and the issuer or their respective agents.
     /// </summary>
-    [DataMember]
     public Reconciliation3? Reconciliation { get; init; } 
     /// <summary>
     /// Date the transaction was completed and captured.
     /// ISO 8583 bit 17
     /// </summary>
-    [DataMember]
     public IsoISODate? CaptureDate { get; init; } 
     /// <summary>
     /// The date on which the sale or purchase is expected to occur.
     /// </summary>
-    [DataMember]
     public IsoISODate? DateAnticipated { get; init; } 
     /// <summary>
     /// Additional transaction context data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MerchantCategoryCode is ISO18245MerchantCategoryCode MerchantCategoryCodeValue)
+        {
+            writer.WriteStartElement(null, "MrchntCtgyCd", xmlNamespace );
+            writer.WriteValue(MerchantCategoryCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MerchantCategorySpecificData is IsoMax35Text MerchantCategorySpecificDataValue)
+        {
+            writer.WriteStartElement(null, "MrchntCtgySpcfcData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MerchantCategorySpecificDataValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DeferredDeliveryIndicator is IsoTrueFalseIndicator DeferredDeliveryIndicatorValue)
+        {
+            writer.WriteStartElement(null, "DfrrdDlvryInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DeferredDeliveryIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PartialShipmentIndicator is IsoTrueFalseIndicator PartialShipmentIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PrtlShipmntInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(PartialShipmentIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (DelayedChargesIndicator is IsoTrueFalseIndicator DelayedChargesIndicatorValue)
+        {
+            writer.WriteStartElement(null, "DelydChrgsInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DelayedChargesIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (NoShowIndicator is IsoTrueFalseIndicator NoShowIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NoShowInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(NoShowIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ReauthorisationIndicator is IsoTrueFalseIndicator ReauthorisationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ReauthstnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ReauthorisationIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ReSubmissionIndicator is IsoTrueFalseIndicator ReSubmissionIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ReSubmissnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ReSubmissionIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionInitiator is TransactionInitiator1Code TransactionInitiatorValue)
+        {
+            writer.WriteStartElement(null, "TxInitr", xmlNamespace );
+            writer.WriteValue(TransactionInitiatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AuthenticationOutageIndicator is IsoTrueFalseIndicator AuthenticationOutageIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AuthntcnOutgInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AuthenticationOutageIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CardProgramme is CardProgramme2 CardProgrammeValue)
+        {
+            writer.WriteStartElement(null, "CardPrgrmm", xmlNamespace );
+            CardProgrammeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Jurisdiction is Jurisdiction2 JurisdictionValue)
+        {
+            writer.WriteStartElement(null, "Jursdctn", xmlNamespace );
+            JurisdictionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementService is SettlementService3 SettlementServiceValue)
+        {
+            writer.WriteStartElement(null, "SttlmSvc", xmlNamespace );
+            SettlementServiceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Reconciliation is Reconciliation3 ReconciliationValue)
+        {
+            writer.WriteStartElement(null, "Rcncltn", xmlNamespace );
+            ReconciliationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CaptureDate is IsoISODate CaptureDateValue)
+        {
+            writer.WriteStartElement(null, "CaptrDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(CaptureDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (DateAnticipated is IsoISODate DateAnticipatedValue)
+        {
+            writer.WriteStartElement(null, "DtAntcptd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateAnticipatedValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionContext9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the identification of an individual person.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GenericIdentification55
+     : IIsoXmlSerilizable<GenericIdentification55>
 {
     #nullable enable
     
     /// <summary>
     /// Name or number assigned by an entity to enable recognition of that entity, for example, account identifier.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Specifies the nature of the identification.
     /// </summary>
-    [DataMember]
     public required OtherIdentification2Choice_ Type { get; init; } 
     /// <summary>
     /// Entity that assigns the identifier.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     /// <summary>
     /// Date at which the identification was issued.
     /// </summary>
-    [DataMember]
     public IsoISODate? IssueDate { get; init; } 
     /// <summary>
     /// Date at which the identification expires.
     /// </summary>
-    [DataMember]
     public IsoISODate? ExpiryDate { get; init; } 
     /// <summary>
     /// Country that issued the identification document.
     /// </summary>
-    [DataMember]
     public CountryCode? IssuerCountry { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Issuer is IsoMax35Text IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (IssueDate is IsoISODate IssueDateValue)
+        {
+            writer.WriteStartElement(null, "IsseDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(IssueDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ExpiryDate is IsoISODate ExpiryDateValue)
+        {
+            writer.WriteStartElement(null, "XpryDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExpiryDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (IssuerCountry is CountryCode IssuerCountryValue)
+        {
+            writer.WriteStartElement(null, "IssrCtry", xmlNamespace );
+            writer.WriteValue(IssuerCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static GenericIdentification55 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

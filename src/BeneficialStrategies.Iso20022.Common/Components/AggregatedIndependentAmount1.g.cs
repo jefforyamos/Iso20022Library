@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Independent amount could be defined at a trade level or portfolio level. It is assumed that their treatment will be based on the exposure convention that is whether netted together or treated on a gross basis.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AggregatedIndependentAmount1
+     : IIsoXmlSerilizable<AggregatedIndependentAmount1>
 {
     #nullable enable
     
     /// <summary>
     /// Total independent amount defined in the confirmations of individual trades.
     /// </summary>
-    [DataMember]
     public IndependentAmount1? Trade { get; init; } 
     /// <summary>
     /// Portfolio level independent amount that reflects portfolio change over a short time period using statistical techniques such as volatility and risk factor correlations.
     /// </summary>
-    [DataMember]
     public IndependentAmount1? ValueAtRisk { get; init; } 
     /// <summary>
     /// Portfolio level independent amount related to parties net open position. Net open position means the total of the net long FX and the net options in respect of each currency where: net long FX for any currency shall be the net amount (if any) of that currency which the party “A” is long as against party “B” in respect of all FX transactions.
     /// </summary>
-    [DataMember]
     public IndependentAmount1? NetOpenPosition { get; init; } 
     /// <summary>
     /// Any other amount that should be considered to calculate the independent amount.
     /// </summary>
-    [DataMember]
-    public ValueList<IndependentAmount2> OtherAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public IndependentAmount2? OtherAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Trade is IndependentAmount1 TradeValue)
+        {
+            writer.WriteStartElement(null, "Trad", xmlNamespace );
+            TradeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValueAtRisk is IndependentAmount1 ValueAtRiskValue)
+        {
+            writer.WriteStartElement(null, "ValAtRsk", xmlNamespace );
+            ValueAtRiskValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NetOpenPosition is IndependentAmount1 NetOpenPositionValue)
+        {
+            writer.WriteStartElement(null, "NetOpnPos", xmlNamespace );
+            NetOpenPositionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherAmount is IndependentAmount2 OtherAmountValue)
+        {
+            writer.WriteStartElement(null, "OthrAmt", xmlNamespace );
+            OtherAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AggregatedIndependentAmount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

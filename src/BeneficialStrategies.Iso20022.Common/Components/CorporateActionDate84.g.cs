@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies corporate action dates.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionDate84
+     : IIsoXmlSerilizable<CorporateActionDate84>
 {
     #nullable enable
     
     /// <summary>
     /// Date/time on which the movement is due to take place (cash and/or securities).
     /// </summary>
-    [DataMember]
     public required DateFormat30Choice_ PaymentDate { get; init; } 
     /// <summary>
     /// Date/time when calculating economic benefit for a cash amount.
     /// </summary>
-    [DataMember]
     public DateFormat57Choice_? ValueDate { get; init; } 
     /// <summary>
     /// Date/time at which a foreign exchange rate will be determined.
     /// </summary>
-    [DataMember]
     public DateFormat43Choice_? ForeignExchangeRateFixingDate { get; init; } 
     /// <summary>
     /// Date/time on which a payment can be made, for example, if payment date is a non-business day or to indicate the first payment date of an offer.
     /// </summary>
-    [DataMember]
     public DateFormat30Choice_? EarliestPaymentDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PmtDt", xmlNamespace );
+        PaymentDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ValueDate is DateFormat57Choice_ ValueDateValue)
+        {
+            writer.WriteStartElement(null, "ValDt", xmlNamespace );
+            ValueDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ForeignExchangeRateFixingDate is DateFormat43Choice_ ForeignExchangeRateFixingDateValue)
+        {
+            writer.WriteStartElement(null, "FXRateFxgDt", xmlNamespace );
+            ForeignExchangeRateFixingDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EarliestPaymentDate is DateFormat30Choice_ EarliestPaymentDateValue)
+        {
+            writer.WriteStartElement(null, "EarlstPmtDt", xmlNamespace );
+            EarliestPaymentDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionDate84 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

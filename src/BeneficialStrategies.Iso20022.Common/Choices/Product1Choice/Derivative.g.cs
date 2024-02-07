@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Product1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Product1Choice;
 /// Derivative specific attributes.
 /// </summary>
 public partial record Derivative : Product1Choice_
+     , IIsoXmlSerilizable<Derivative>
 {
     #nullable enable
+    
     /// <summary>
     /// Hierarchy of classification of a derivative.
     /// </summary>
@@ -22,10 +26,40 @@ public partial record Derivative : Product1Choice_
     /// <summary>
     /// Rate(s) that determine(s)) the value of the swap during the lifetime of the trade. Where both rates are fixed this does not need to be reported.
     /// </summary>
-    public IReadOnlyCollection<DerivativeUnderlyingLeg1> DerivativeUnderlyingLeg { get; init; } = [];
+    public ValueList<DerivativeUnderlyingLeg1> DerivativeUnderlyingLeg { get; init; } = [];
     /// <summary>
     /// Option specific attributes.
     /// </summary>
     public Option14? OptionAttributes { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DerivClssfctn", xmlNamespace );
+        DerivativeClassification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DerivUndrlygLeg", xmlNamespace );
+        DerivativeUnderlyingLeg.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OptionAttributes is Option14 OptionAttributesValue)
+        {
+            writer.WriteStartElement(null, "OptnAttrbts", xmlNamespace );
+            OptionAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Derivative Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

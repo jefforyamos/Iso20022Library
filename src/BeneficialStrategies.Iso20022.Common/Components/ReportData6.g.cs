@@ -7,88 +7,176 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the attributes of a report and its content.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReportData6
+     : IIsoXmlSerilizable<ReportData6>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the report.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Name { get; init; } 
     /// <summary>
     /// Report identification.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Identification { get; init; } 
     /// <summary>
     /// Additional specific information to ID (Country, Service, etc.)
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Qualifier { get; init; } 
     /// <summary>
     /// Date of the report.
     /// </summary>
-    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// Time of the report.
     /// </summary>
-    [DataMember]
     public IsoISOTime? Time { get; init; } 
     /// <summary>
     /// Contains the specific instance of the report (e.g., sequence “2” of the report within a specific time frame).
     /// </summary>
-    [DataMember]
     public IsoMax5NumericText? Sequence { get; init; } 
     /// <summary>
     /// Contains the expected total number of occurrences of the report within a specific time frame.
     /// </summary>
-    [DataMember]
     public IsoMax5NumericText? TotalOccurrences { get; init; } 
     /// <summary>
     /// Report frequency.
     /// </summary>
-    [DataMember]
     public Frequency17Code? Frequency { get; init; } 
     /// <summary>
     /// Identifies that is a corrected version of a report that was previously sent.
     /// </summary>
-    [DataMember]
     public CorrectionIdentification1? Correction { get; init; } 
     /// <summary>
     /// Indicates that report is not complete.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ContinuationIndicator { get; init; } 
     /// <summary>
     /// Additional report attributes or information.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     /// <summary>
     /// Report format.
     /// </summary>
-    [DataMember]
     public OutputFormat5Code? Format { get; init; } 
     /// <summary>
     /// Other report format defined by national organization or by bi-lateral agreement.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherFormat { get; init; } 
     /// <summary>
     /// Contains the content of a report.
     /// </summary>
-    [DataMember]
-    public ValueList<ReportContent1> Content { get; init; } = []; // Warning: Don't know multiplicity.
+    public ReportContent1? Content { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax140Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(NameValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (Identification is IsoMax140Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(IdentificationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (Qualifier is IsoMax70Text QualifierValue)
+        {
+            writer.WriteStartElement(null, "Qlfr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(QualifierValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Date is IsoISODate DateValue)
+        {
+            writer.WriteStartElement(null, "Dt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Time is IsoISOTime TimeValue)
+        {
+            writer.WriteStartElement(null, "Tm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(TimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+        if (Sequence is IsoMax5NumericText SequenceValue)
+        {
+            writer.WriteStartElement(null, "Seq", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax5NumericText(SequenceValue)); // data type Max5NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (TotalOccurrences is IsoMax5NumericText TotalOccurrencesValue)
+        {
+            writer.WriteStartElement(null, "TtlOcrncs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax5NumericText(TotalOccurrencesValue)); // data type Max5NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (Frequency is Frequency17Code FrequencyValue)
+        {
+            writer.WriteStartElement(null, "Frqcy", xmlNamespace );
+            writer.WriteValue(FrequencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Correction is CorrectionIdentification1 CorrectionValue)
+        {
+            writer.WriteStartElement(null, "Crrctn", xmlNamespace );
+            CorrectionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContinuationIndicator is IsoTrueFalseIndicator ContinuationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ConttnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ContinuationIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Format is OutputFormat5Code FormatValue)
+        {
+            writer.WriteStartElement(null, "Frmt", xmlNamespace );
+            writer.WriteValue(FormatValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherFormat is IsoMax35Text OtherFormatValue)
+        {
+            writer.WriteStartElement(null, "OthrFrmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherFormatValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Content is ReportContent1 ContentValue)
+        {
+            writer.WriteStartElement(null, "Cntt", xmlNamespace );
+            ContentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ReportData6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

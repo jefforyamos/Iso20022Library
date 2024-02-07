@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the value date and the amounts traded in a foreign exchange option trade.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AmountsAndValueDate3
+     : IIsoXmlSerilizable<AmountsAndValueDate3>
 {
     #nullable enable
     
     /// <summary>
     /// Call amount and currency of a foreign exchange option trade.
     /// </summary>
-    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount CallAmount { get; init; } 
     /// <summary>
     /// Put amount and currency of a foreign exchange option trade.
     /// </summary>
-    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount PutAmount { get; init; } 
     /// <summary>
     /// Date on which the trade is settled, ie, the amounts are due.
     /// </summary>
-    [DataMember]
     public IsoISODate? FinalSettlementDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CallAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(CallAmount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PutAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(PutAmount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (FinalSettlementDate is IsoISODate FinalSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "FnlSttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(FinalSettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static AmountsAndValueDate3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

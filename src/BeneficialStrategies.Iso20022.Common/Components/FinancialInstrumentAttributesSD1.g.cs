@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action option securities movement security details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrumentAttributesSD1
+     : IIsoXmlSerilizable<FinancialInstrumentAttributesSD1>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Indicates whether or not the newly issued securities are transferable by the agent. This flag is specific to DTC (The Depository Trust Corporation).
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? DTCSecurityTransferableFlag { get; init; } 
     /// <summary>
     /// Details of security that is being distributed as a result of a corporate action as declared by the issuer or offeror on the market.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentAttributesSD2? DeclaredDisbursedSecurityDetails { get; init; } 
     /// <summary>
     /// Further classification of DTC disbursed security instruments into (issue) asset types at DTC (The Depository Trust Corporation).
     /// </summary>
-    [DataMember]
     public DTCAssetType1Code? DTCDisbursedSecurityAssetType { get; init; } 
     /// <summary>
     /// Classification of DTC disbursed security instruments into asset classes at DTC (The Depository Trust Corporation).
     /// </summary>
-    [DataMember]
     public AssetClass1Code? DTCDisbursedSecurityAssetClass { get; init; } 
     /// <summary>
     /// Dollar amount attributed to the bond when the par value is less than 1000.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? BabyBondDenomination { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (DTCSecurityTransferableFlag is IsoYesNoIndicator DTCSecurityTransferableFlagValue)
+        {
+            writer.WriteStartElement(null, "DTCSctyTrfblFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DTCSecurityTransferableFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (DeclaredDisbursedSecurityDetails is FinancialInstrumentAttributesSD2 DeclaredDisbursedSecurityDetailsValue)
+        {
+            writer.WriteStartElement(null, "DclrdDsbrsdSctyDtls", xmlNamespace );
+            DeclaredDisbursedSecurityDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DTCDisbursedSecurityAssetType is DTCAssetType1Code DTCDisbursedSecurityAssetTypeValue)
+        {
+            writer.WriteStartElement(null, "DTCDsbrsdSctyAsstTp", xmlNamespace );
+            writer.WriteValue(DTCDisbursedSecurityAssetTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DTCDisbursedSecurityAssetClass is AssetClass1Code DTCDisbursedSecurityAssetClassValue)
+        {
+            writer.WriteStartElement(null, "DTCDsbrsdSctyAsstClss", xmlNamespace );
+            writer.WriteValue(DTCDisbursedSecurityAssetClassValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (BabyBondDenomination is IsoDecimalNumber BabyBondDenominationValue)
+        {
+            writer.WriteStartElement(null, "BabyBdDnmtn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(BabyBondDenominationValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstrumentAttributesSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

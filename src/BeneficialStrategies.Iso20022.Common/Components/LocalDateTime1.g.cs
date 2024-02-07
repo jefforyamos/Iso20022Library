@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Local time offset to UTC (Coordinated Universal Time).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LocalDateTime1
+     : IIsoXmlSerilizable<LocalDateTime1>
 {
     #nullable enable
     
     /// <summary>
     /// Date time of the beginning of the period (inclusive).
     /// </summary>
-    [DataMember]
     public IsoISODateTime? FromDateTime { get; init; } 
     /// <summary>
     /// Date time of the end of the period (exclusive).
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ToDateTime { get; init; } 
     /// <summary>
     /// UTC offset in minutes, of the local time during the period. For instance, 120 for Central European Time, -720 for Central Standard Time (North America).
     /// </summary>
-    [DataMember]
     public required IsoNumber UTCOffset { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FromDateTime is IsoISODateTime FromDateTimeValue)
+        {
+            writer.WriteStartElement(null, "FrDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(FromDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ToDateTime is IsoISODateTime ToDateTimeValue)
+        {
+            writer.WriteStartElement(null, "ToDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ToDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "UTCOffset", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(UTCOffset)); // data type Number System.UInt64
+        writer.WriteEndElement();
+    }
+    public static LocalDateTime1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

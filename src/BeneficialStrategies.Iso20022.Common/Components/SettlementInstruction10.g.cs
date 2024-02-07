@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides further details on the settlement of the instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementInstruction10
+     : IIsoXmlSerilizable<SettlementInstruction10>
 {
     #nullable enable
     
     /// <summary>
     /// Method used to settle the (batch of) payment instructions.
     /// </summary>
-    [DataMember]
     public required SettlementMethod1Code SettlementMethod { get; init; } 
     /// <summary>
     /// Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
     /// </summary>
-    [DataMember]
     public TrackerClearingSystemIdentification1? ClearingSystem { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttlmMtd", xmlNamespace );
+        writer.WriteValue(SettlementMethod.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ClearingSystem is TrackerClearingSystemIdentification1 ClearingSystemValue)
+        {
+            writer.WriteStartElement(null, "ClrSys", xmlNamespace );
+            ClearingSystemValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementInstruction10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

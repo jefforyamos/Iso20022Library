@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Value given to a positive or negative price change.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PriceValueChange1
+     : IIsoXmlSerilizable<PriceValueChange1>
 {
     #nullable enable
     
     /// <summary>
     /// Amount by which the price has changed.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? Amount { get; init; } 
     /// <summary>
     /// Indicates a positive or negative amount change.
     /// </summary>
-    [DataMember]
     public IsoPlusOrMinusIndicator? AmountSign { get; init; } 
     /// <summary>
     /// Rate by which the price has changed.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Amount is IsoActiveOrHistoricCurrencyAnd13DecimalAmount AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd13DecimalAmount(AmountValue)); // data type ActiveOrHistoricCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (AmountSign is IsoPlusOrMinusIndicator AmountSignValue)
+        {
+            writer.WriteStartElement(null, "AmtSgn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPlusOrMinusIndicator(AmountSignValue)); // data type PlusOrMinusIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Rate is IsoPercentageRate RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static PriceValueChange1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

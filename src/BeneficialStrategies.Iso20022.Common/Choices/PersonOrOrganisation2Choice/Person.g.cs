@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PersonOrOrganisation2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonOrOrganisation2Choice;
 /// Identification of a person.
 /// </summary>
 public partial record Person : PersonOrOrganisation2Choice_
+     , IIsoXmlSerilizable<Person>
 {
     #nullable enable
+    
     /// <summary>
     /// First name of a person (also known as given name).
     /// </summary>
@@ -31,5 +35,35 @@ public partial record Person : PersonOrOrganisation2Choice_
     /// Unique identification of a person, as assigned by an institution, using an identification scheme.
     /// </summary>
     public required GenericPersonIdentification1 Other { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FrstNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(FirstName)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(Name)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BirthDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(BirthDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Othr", xmlNamespace );
+        Other.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new Person Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

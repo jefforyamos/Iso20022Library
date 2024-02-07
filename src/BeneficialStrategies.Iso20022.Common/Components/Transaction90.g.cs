@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of transaction for a file action.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Transaction90
+     : IIsoXmlSerilizable<Transaction90>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
-    [DataMember]
     public required TransactionIdentification10 TransactionIdentification { get; init; } 
     /// <summary>
     /// Fees not included in the transaction amount.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalFee1> AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalFee1? AdditionalFees { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalFees is AdditionalFee1 AdditionalFeesValue)
+        {
+            writer.WriteStartElement(null, "AddtlFees", xmlNamespace );
+            AdditionalFeesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Transaction90 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

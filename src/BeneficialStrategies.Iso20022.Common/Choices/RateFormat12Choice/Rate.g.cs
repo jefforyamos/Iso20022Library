@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.RateFormat12Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.RateFormat12Choice;
 /// Value is expressed as a rate.
 /// </summary>
 public partial record Rate : RateFormat12Choice_
+     , IIsoXmlSerilizable<Rate>
 {
-    public required IsoBaseOne14Rate Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Rate expressed as a decimal, for example, 0.7 is 7/10 and 70% with 13 fractional digits maximum and 14 total digits.
+    /// </summary>
+    public required IsoBaseOne14Rate Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Rate", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBaseOne14Rate(Value)); // data type BaseOne14Rate System.Decimal
+        writer.WriteEndElement();
+    }
+    public static new Rate Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

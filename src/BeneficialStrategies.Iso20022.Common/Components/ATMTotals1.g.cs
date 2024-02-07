@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Current totals of the ATM.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMTotals1
+     : IIsoXmlSerilizable<ATMTotals1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of media inside the cassette.
     /// </summary>
-    [DataMember]
     public ATMMediaType1Code? MediaType { get; init; } 
     /// <summary>
     /// Currency of the totals.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Total balance of the ATM including reject cassette, but excluding the retract cassette.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? ATMBalance { get; init; } 
     /// <summary>
     /// Available amount for dispense in the ATM.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? ATMCurrent { get; init; } 
     /// <summary>
     /// Total number of units for non-valued media, including reject cassette.
     /// </summary>
-    [DataMember]
     public IsoNumber? ATMBalanceNumber { get; init; } 
     /// <summary>
     /// Total number of units for non-valued media, excluding reject cassette.
     /// </summary>
-    [DataMember]
     public IsoNumber? ATMCurrentNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MediaType is ATMMediaType1Code MediaTypeValue)
+        {
+            writer.WriteStartElement(null, "MdiaTp", xmlNamespace );
+            writer.WriteValue(MediaTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ATMBalance is IsoImpliedCurrencyAndAmount ATMBalanceValue)
+        {
+            writer.WriteStartElement(null, "ATMBal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ATMBalanceValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ATMCurrent is IsoImpliedCurrencyAndAmount ATMCurrentValue)
+        {
+            writer.WriteStartElement(null, "ATMCur", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ATMCurrentValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ATMBalanceNumber is IsoNumber ATMBalanceNumberValue)
+        {
+            writer.WriteStartElement(null, "ATMBalNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(ATMBalanceNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (ATMCurrentNumber is IsoNumber ATMCurrentNumberValue)
+        {
+            writer.WriteStartElement(null, "ATMCurNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(ATMCurrentNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMTotals1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

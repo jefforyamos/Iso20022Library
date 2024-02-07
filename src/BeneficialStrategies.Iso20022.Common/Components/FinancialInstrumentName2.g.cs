@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Name of the security.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrumentName2
+     : IIsoXmlSerilizable<FinancialInstrumentName2>
 {
     #nullable enable
     
     /// <summary>
     /// Short name of the security expressed as ISO 18773/18774.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ISOShortName { get; init; } 
     /// <summary>
     /// Name of the security.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? ISOLongName { get; init; } 
     /// <summary>
     /// Defines the date since when the name of the security is valid.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? ValidFrom { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ISOShortName is IsoMax35Text ISOShortNameValue)
+        {
+            writer.WriteStartElement(null, "ISOShrtNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ISOShortNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ISOLongName is IsoMax350Text ISOLongNameValue)
+        {
+            writer.WriteStartElement(null, "ISOLngNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(ISOLongNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (ValidFrom is DateAndDateTime2Choice_ ValidFromValue)
+        {
+            writer.WriteStartElement(null, "VldFr", xmlNamespace );
+            ValidFromValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstrumentName2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

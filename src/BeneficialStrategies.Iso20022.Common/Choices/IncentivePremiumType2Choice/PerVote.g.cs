@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.IncentivePremiumType2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.IncentivePremiumType2Choice;
 /// Quantity of votes per type of vote giving right to a premium.
 /// </summary>
 public partial record PerVote : IncentivePremiumType2Choice_
+     , IIsoXmlSerilizable<PerVote>
 {
     #nullable enable
+    
     /// <summary>
     /// Types of vote instruction allowed for resolutions to be voted on in general meeting.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record PerVote : IncentivePremiumType2Choice_
     /// Quantity of vote expressed for the specified type of vote instruction.
     /// </summary>
     public required IsoNumber VoteQuantity { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "VoteInstrTp", xmlNamespace );
+        VoteInstructionType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "VoteQty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(VoteQuantity)); // data type Number System.UInt64
+        writer.WriteEndElement();
+    }
+    public static new PerVote Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

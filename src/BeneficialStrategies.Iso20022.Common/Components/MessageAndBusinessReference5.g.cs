@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information to identify the funds order confirmations.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MessageAndBusinessReference5
+     : IIsoXmlSerilizable<MessageAndBusinessReference5>
 {
     #nullable enable
     
     /// <summary>
     /// Reference to a linked message sent in a proprietary way or reference of a system.
     /// </summary>
-    [DataMember]
     public AdditionalReference3? OtherReference { get; init; } 
     /// <summary>
     /// Reference to a linked message that was previously sent.
     /// </summary>
-    [DataMember]
     public AdditionalReference3? PreviousReference { get; init; } 
     /// <summary>
     /// Reference to a linked message that was previously received.
     /// </summary>
-    [DataMember]
     public AdditionalReference3? RelatedReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifiers of one or more individual order instructions.
     /// </summary>
-    [DataMember]
-    public ValueList<InvestmentFundOrder3> OrderReference { get; init; } = []; // Warning: Don't know multiplicity.
+    public InvestmentFundOrder3? OrderReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OtherReference is AdditionalReference3 OtherReferenceValue)
+        {
+            writer.WriteStartElement(null, "OthrRef", xmlNamespace );
+            OtherReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousReference is AdditionalReference3 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference3 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OrderReference is InvestmentFundOrder3 OrderReferenceValue)
+        {
+            writer.WriteStartElement(null, "OrdrRef", xmlNamespace );
+            OrderReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MessageAndBusinessReference5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

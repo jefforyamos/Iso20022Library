@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details about the collateral held, in transit or that still needs to be agreed by both parties.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MarginCollateral1
+     : IIsoXmlSerilizable<MarginCollateral1>
 {
     #nullable enable
     
     /// <summary>
     /// Post haircut market value of all margin collateral held by party A.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? HeldByPartyA { get; init; } 
     /// <summary>
     /// Post haircut market value of all margin collateral held by party B.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? HeldByPartyB { get; init; } 
     /// <summary>
     /// Sum of all margin agreed amounts due to party A from prior days’ collateral calls where collateral movements have not yet been agreed.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? PriorAgreedToPartyA { get; init; } 
     /// <summary>
     /// Sum of all margin agreed amounts due to party B from prior days’ collateral calls where collateral movements have not yet been agreed.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? PriorAgreedToPartyB { get; init; } 
     /// <summary>
     /// Sum of all margin collateral movements due to party A in progress but not yet settled.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? InTransitToPartyA { get; init; } 
     /// <summary>
     /// Sum of all margin collateral movements due to party B in progress but not yet settled.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? InTransitToPartyB { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (HeldByPartyA is IsoActiveCurrencyAndAmount HeldByPartyAValue)
+        {
+            writer.WriteStartElement(null, "HeldByPtyA", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(HeldByPartyAValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (HeldByPartyB is IsoActiveCurrencyAndAmount HeldByPartyBValue)
+        {
+            writer.WriteStartElement(null, "HeldByPtyB", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(HeldByPartyBValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PriorAgreedToPartyA is IsoActiveCurrencyAndAmount PriorAgreedToPartyAValue)
+        {
+            writer.WriteStartElement(null, "PrrAgrdToPtyA", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PriorAgreedToPartyAValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PriorAgreedToPartyB is IsoActiveCurrencyAndAmount PriorAgreedToPartyBValue)
+        {
+            writer.WriteStartElement(null, "PrrAgrdToPtyB", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PriorAgreedToPartyBValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (InTransitToPartyA is IsoActiveCurrencyAndAmount InTransitToPartyAValue)
+        {
+            writer.WriteStartElement(null, "InTrnstToPtyA", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(InTransitToPartyAValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (InTransitToPartyB is IsoActiveCurrencyAndAmount InTransitToPartyBValue)
+        {
+            writer.WriteStartElement(null, "InTrnstToPtyB", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(InTransitToPartyBValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static MarginCollateral1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

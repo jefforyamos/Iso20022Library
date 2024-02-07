@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SystemPartyIdentification1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyIdentification1Choice
 /// Identifies the party with the combined identification of both the responsible entity and the party itself.
 /// </summary>
 public partial record CombinedIdentification : SystemPartyIdentification1Choice_
+     , IIsoXmlSerilizable<CombinedIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique identification to unambiguously identify the party within the system.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record CombinedIdentification : SystemPartyIdentification1Choice_
     /// Unique identification of the party responsible for the maintenance of the party reference data.
     /// </summary>
     public required IsoBICFIIdentifier ResponsiblePartyIdentification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RltdPtyId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBICFIIdentifier(RelatedPartyIdentification)); // data type BICFIIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RspnsblPtyId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBICFIIdentifier(ResponsiblePartyIdentification)); // data type BICFIIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static new CombinedIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

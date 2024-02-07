@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Tax related to an investment fund order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Tax20
+     : IIsoXmlSerilizable<Tax20>
 {
     #nullable enable
     
     /// <summary>
     /// Type of tax applied.
     /// </summary>
-    [DataMember]
     public required TaxType14Code Type { get; init; } 
     /// <summary>
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether a tax exemption applies.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ExemptionIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAnd13DecimalAmount(Amount)); // data type RestrictedFINActiveCurrencyAnd13DecimalAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XmptnInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ExemptionIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static Tax20 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

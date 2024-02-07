@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of characteristics related to a cheque instruction, such as cheque type or cheque number.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Cheque4
+     : IIsoXmlSerilizable<Cheque4>
 {
     #nullable enable
     
     /// <summary>
     /// Party to which a cheque is made payable.
     /// </summary>
-    [DataMember]
     public required NameAndAddress5 PayeeIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PyeeId", xmlNamespace );
+        PayeeIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static Cheque4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

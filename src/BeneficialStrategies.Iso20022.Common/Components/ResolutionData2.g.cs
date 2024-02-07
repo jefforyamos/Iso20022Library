@@ -7,58 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies additional information as expected by the party that the investigation performs the expected actions for its resolution.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ResolutionData2
+     : IIsoXmlSerilizable<ResolutionData2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by the original initiating party, to unambiguously identify the original transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? EndToEndIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original first instructing agent, to unambiguously identify the transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TransactionIdentification { get; init; } 
     /// <summary>
     /// Universally unique identifier to provide an end-to-end reference of a payment transaction.
     /// </summary>
-    [DataMember]
     public IsoUUIDv4Identifier? UETR { get; init; } 
     /// <summary>
     /// Amount of money moved between the instructing agent and the instructed agent.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? InterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
-    [DataMember]
     public IsoISODate? InterbankSettlementDate { get; init; } 
     /// <summary>
     /// Specifies the clearing channel to be used to process the payment instruction.
     /// </summary>
-    [DataMember]
     public ClearingChannel2Code? ClearingChannel { get; init; } 
     /// <summary>
     /// Provides the details of the compensation made due to the modification or cancellation of a previous payment.
     /// </summary>
-    [DataMember]
     public Compensation3? Compensation { get; init; } 
     /// <summary>
     /// Provides information on the charges to be paid by the charge bearer(s) related to the payment transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<Charges8> Charges { get; init; } = []; // Warning: Don't know multiplicity.
+    public Charges8? Charges { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (EndToEndIdentification is IsoMax35Text EndToEndIdentificationValue)
+        {
+            writer.WriteStartElement(null, "EndToEndId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(EndToEndIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionIdentification is IsoMax35Text TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (UETR is IsoUUIDv4Identifier UETRValue)
+        {
+            writer.WriteStartElement(null, "UETR", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoUUIDv4Identifier(UETRValue)); // data type UUIDv4Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (InterbankSettlementAmount is IsoActiveOrHistoricCurrencyAndAmount InterbankSettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "IntrBkSttlmAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(InterbankSettlementAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (InterbankSettlementDate is IsoISODate InterbankSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "IntrBkSttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(InterbankSettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ClearingChannel is ClearingChannel2Code ClearingChannelValue)
+        {
+            writer.WriteStartElement(null, "ClrChanl", xmlNamespace );
+            writer.WriteValue(ClearingChannelValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Compensation is Compensation3 CompensationValue)
+        {
+            writer.WriteStartElement(null, "Compstn", xmlNamespace );
+            CompensationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Charges is Charges8 ChargesValue)
+        {
+            writer.WriteStartElement(null, "Chrgs", xmlNamespace );
+            ChargesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ResolutionData2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

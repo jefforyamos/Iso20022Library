@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to report on limit.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LimitReturnCriteria2
+     : IIsoXmlSerilizable<LimitReturnCriteria2>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the limit start date time is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? StartDateTimeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the limit status is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? StatusIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the limit used amount is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? UsedAmountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the limit used percentage is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? UsedPercentageIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (StartDateTimeIndicator is IsoRequestedIndicator StartDateTimeIndicatorValue)
+        {
+            writer.WriteStartElement(null, "StartDtTmInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(StartDateTimeIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (StatusIndicator is IsoRequestedIndicator StatusIndicatorValue)
+        {
+            writer.WriteStartElement(null, "StsInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(StatusIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (UsedAmountIndicator is IsoRequestedIndicator UsedAmountIndicatorValue)
+        {
+            writer.WriteStartElement(null, "UsdAmtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(UsedAmountIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (UsedPercentageIndicator is IsoRequestedIndicator UsedPercentageIndicatorValue)
+        {
+            writer.WriteStartElement(null, "UsdPctgInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(UsedPercentageIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static LimitReturnCriteria2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

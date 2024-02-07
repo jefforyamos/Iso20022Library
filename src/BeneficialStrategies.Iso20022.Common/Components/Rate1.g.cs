@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements qualifying the interest rate.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Rate1
+     : IIsoXmlSerilizable<Rate1>
 {
     #nullable enable
     
     /// <summary>
     /// Percentage charged for the use of an amount of money, usually expressed at an annual rate. The interest rate is the ratio of the amount of interest paid during a certain period of time compared to the principal amount of the interest bearing financial instrument. |Example percentage rate: Rate expressed as a percentage, ie, in hundredths, eg, 0.7 is 7/10 of a percent, and 7.0 is 7%.|Example Textual rate: Rate is expressed as a text.
     /// </summary>
-    [DataMember]
     public required RateTypeChoice_ Rate { get; init; } 
     /// <summary>
     /// An amount range where the interest rate is applicable.
     /// </summary>
-    [DataMember]
     public CurrencyAndAmountRange? ValidityRange { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Rate", xmlNamespace );
+        Rate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ValidityRange is CurrencyAndAmountRange ValidityRangeValue)
+        {
+            writer.WriteStartElement(null, "VldtyRg", xmlNamespace );
+            ValidityRangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Rate1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

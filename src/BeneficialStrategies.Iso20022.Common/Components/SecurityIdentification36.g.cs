@@ -7,82 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, for example, dividend option or valuation currency.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityIdentification36
+     : IIsoXmlSerilizable<SecurityIdentification36>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the security, typically by an ISIN.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification19 Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text Name { get; init; } 
     /// <summary>
     /// Financial Instrument Short Name (FISN) expressed in conformance with the ISO 18774 standard.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     /// <summary>
     /// Features of units offered by a fund. For example, a unit may have a specific load structure, for example, front end or back end, an income policy, for example, pay out or accumulate, or a trailer policy, for example, with or without. Fund classes are typically denoted by a single character, for example, 'Class A', 'Class 2'.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClassType { get; init; } 
     /// <summary>
     /// Name of the umbrella fund in which the financial instrument is contained.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? UmbrellaName { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is part of a new umbrella.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? NewUmbrella { get; init; } 
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, for example, common share with voting rights, fully paid, or registered.
     /// </summary>
-    [DataMember]
     public SecurityClassificationType2Choice_? ClassificationType { get; init; } 
     /// <summary>
     /// Currency of the investment fund class.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? BaseCurrency { get; init; } 
     /// <summary>
     /// Country where the fund has legal domicile.
     /// </summary>
-    [DataMember]
     public CountryCode? CountryOfDomicile { get; init; } 
     /// <summary>
     /// Country where the fund is registered for distribution.
     /// </summary>
-    [DataMember]
-    public ValueList<CountryCode> RegisteredDistributionCountry { get; init; } = []; // Warning: Don't know multiplicity.
+    public CountryCode? RegisteredDistributionCountry { get; init; } 
     /// <summary>
     /// Legal structure of the financial instrument. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00060.
     /// </summary>
-    [DataMember]
     public LegalStructure1Choice_? LegalStructure { get; init; } 
     /// <summary>
     /// Issuer of the financial instrument. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00070.
     /// </summary>
-    [DataMember]
     public ContactAttributes5? Issuer { get; init; } 
     /// <summary>
     /// Governance procedure that must be followed. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00075.
     /// </summary>
-    [DataMember]
     public GovernanceProcess1Choice_? IssuerProductGovernanceProcess { get; init; } 
     /// <summary>
     /// Designation of the product category or nature, for example, Pacific Equity, Equity Fund, Money Market Fund. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00090. If the product is a structured security product, the European Structured Investment Products Association (EUSIPA) code should be used as defined in the scope of European MiFID Template (EMT) reference 00095. 
@@ -90,24 +78,133 @@ public partial record SecurityIdentification36
     /// In EMT v2, this is 'Designation of the respective product category or nature for Germany’.
     /// If the financial instrument is distributed in the German market, then the German classification of financial instruments code should be used.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? ProductCategory { get; init; } 
     /// <summary>
     /// When the financial instrument is a structured security, specifies if the ex-ante and ex-post costs and charges are specified as an absolute figure, that is, a currency and amount, or as a percentage rate, related to the specific reference value. 
     /// When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT v2) reference 00096 or the European MiFID Template (EMT v1) reference 07010.
     /// </summary>
-    [DataMember]
     public QuotationType1Choice_? QuotationType { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is leveraged or has contingent liability. This enables reporting on the depreciation of leveraged financial instruments or contingent liability transactions in accordance with Art. 62 of the MiFID II's Delegated Regulation as defined in the scope of European MiFID Template (EMT) reference 00100.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? LeveragedOrContigentLiability { get; init; } 
     /// <summary>
     /// Additional information about the security.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(Name)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (ShortName is IsoMax35Text ShortNameValue)
+        {
+            writer.WriteStartElement(null, "ShrtNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ShortNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClassType is IsoMax35Text ClassTypeValue)
+        {
+            writer.WriteStartElement(null, "ClssTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClassTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (UmbrellaName is IsoMax35Text UmbrellaNameValue)
+        {
+            writer.WriteStartElement(null, "UmbrllNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(UmbrellaNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (NewUmbrella is IsoYesNoIndicator NewUmbrellaValue)
+        {
+            writer.WriteStartElement(null, "NewUmbrll", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(NewUmbrellaValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ClassificationType is SecurityClassificationType2Choice_ ClassificationTypeValue)
+        {
+            writer.WriteStartElement(null, "ClssfctnTp", xmlNamespace );
+            ClassificationTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BaseCurrency is ActiveCurrencyCode BaseCurrencyValue)
+        {
+            writer.WriteStartElement(null, "BaseCcy", xmlNamespace );
+            writer.WriteValue(BaseCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CountryOfDomicile is CountryCode CountryOfDomicileValue)
+        {
+            writer.WriteStartElement(null, "CtryOfDmcl", xmlNamespace );
+            writer.WriteValue(CountryOfDomicileValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (RegisteredDistributionCountry is CountryCode RegisteredDistributionCountryValue)
+        {
+            writer.WriteStartElement(null, "RegdDstrbtnCtry", xmlNamespace );
+            writer.WriteValue(RegisteredDistributionCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (LegalStructure is LegalStructure1Choice_ LegalStructureValue)
+        {
+            writer.WriteStartElement(null, "LglStr", xmlNamespace );
+            LegalStructureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Issuer is ContactAttributes5 IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            IssuerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssuerProductGovernanceProcess is GovernanceProcess1Choice_ IssuerProductGovernanceProcessValue)
+        {
+            writer.WriteStartElement(null, "IssrPdctGovncPrc", xmlNamespace );
+            IssuerProductGovernanceProcessValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProductCategory is IsoMax140Text ProductCategoryValue)
+        {
+            writer.WriteStartElement(null, "PdctCtgy", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(ProductCategoryValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (QuotationType is QuotationType1Choice_ QuotationTypeValue)
+        {
+            writer.WriteStartElement(null, "QtnTp", xmlNamespace );
+            QuotationTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LeveragedOrContigentLiability is IsoYesNoIndicator LeveragedOrContigentLiabilityValue)
+        {
+            writer.WriteStartElement(null, "LvrgdOrCntgntLblty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(LeveragedOrContigentLiabilityValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecurityIdentification36 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

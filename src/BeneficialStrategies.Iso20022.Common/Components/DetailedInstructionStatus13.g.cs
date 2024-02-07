@@ -7,68 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a meeting instruction vote.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DetailedInstructionStatus13
+     : IIsoXmlSerilizable<DetailedInstructionStatus13>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the specific individual instruction from the original meeting instruction message for which the confirmation is provided.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text SingleInstructionIdentification { get; init; } 
     /// <summary>
     /// Identification of the safekeeping account.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountIdentification { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification228Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Identification of the subaccount within the safekeeping account.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SubAccountIdentification { get; init; } 
     /// <summary>
     /// Owner of the voting rights.
     /// </summary>
-    [DataMember]
     public ValueList<PartyIdentification227Choice_> RightsHolder { get; init; } = [];
     /// <summary>
     /// Identification of the person appointed by the security holder as the proxy.
     /// </summary>
-    [DataMember]
     public PartyIdentification223Choice_? Proxy { get; init; } 
     /// <summary>
     /// Indicates whether standing instructions have been applied or not.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? StandingInstruction { get; init; } 
     /// <summary>
     /// Modality through which the votes that have been recorded and counted were received by the issuer, including whether this is ahead of the meeting or at the meeting.
     /// </summary>
-    [DataMember]
     public required ModalityOfCounting1Choice_ ModalityOfCounting { get; init; } 
     /// <summary>
     /// Date or date and time at which the votes that have been recorded and counted were received.
     /// </summary>
-    [DataMember]
     public DateAndDateTime1Choice_? VoteReceiptDateTime { get; init; } 
     /// <summary>
     /// Details of the vote.
     /// </summary>
-    [DataMember]
     public ValueList<Vote13> VotePerResolution { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SnglInstrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(SingleInstructionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (AccountIdentification is IsoMax35Text AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountOwner is PartyIdentification228Choice_ AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SubAccountIdentification is IsoMax35Text SubAccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SubAcctId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SubAccountIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RghtsHldr", xmlNamespace );
+        RightsHolder.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Proxy is PartyIdentification223Choice_ ProxyValue)
+        {
+            writer.WriteStartElement(null, "Prxy", xmlNamespace );
+            ProxyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StandingInstruction is IsoYesNoIndicator StandingInstructionValue)
+        {
+            writer.WriteStartElement(null, "StgInstr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(StandingInstructionValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ModltyOfCntg", xmlNamespace );
+        ModalityOfCounting.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (VoteReceiptDateTime is DateAndDateTime1Choice_ VoteReceiptDateTimeValue)
+        {
+            writer.WriteStartElement(null, "VoteRctDtTm", xmlNamespace );
+            VoteReceiptDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "VotePerRsltn", xmlNamespace );
+        VotePerResolution.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static DetailedInstructionStatus13 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

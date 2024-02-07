@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Signed amount in a given numeric currency
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Amount16
+     : IIsoXmlSerilizable<Amount16>
 {
     #nullable enable
     
     /// <summary>
     /// Amount value.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Sign of the amount.
     /// </summary>
-    [DataMember]
     public CreditDebit3Code? CreditDebit { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(Amount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (CreditDebit is CreditDebit3Code CreditDebitValue)
+        {
+            writer.WriteStartElement(null, "CdtDbt", xmlNamespace );
+            writer.WriteValue(CreditDebitValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static Amount16 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Variables related to derivatives that are used to group derivatives together into positions for position sets.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PositionSetDimensions15
+     : IIsoXmlSerilizable<PositionSetDimensions15>
 {
     #nullable enable
     
     /// <summary>
     /// Information describing the reporting counterparty.
     /// </summary>
-    [DataMember]
     public OrganisationIdentification15Choice_? ReportingCounterparty { get; init; } 
     /// <summary>
     /// Data specific to other counterparties and related fields.
     /// </summary>
-    [DataMember]
     public OrganisationIdentification15Choice_? OtherCounterparty { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the collateral portfolio.
     /// </summary>
-    [DataMember]
     public IsoMax52Text? CollateralPortfolioIdentification { get; init; } 
     /// <summary>
     /// Flag to identify whether the reported Securities Financing Transaction position contains abnormal values.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? OutliersIncluded { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReportingCounterparty is OrganisationIdentification15Choice_ ReportingCounterpartyValue)
+        {
+            writer.WriteStartElement(null, "RptgCtrPty", xmlNamespace );
+            ReportingCounterpartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherCounterparty is OrganisationIdentification15Choice_ OtherCounterpartyValue)
+        {
+            writer.WriteStartElement(null, "OthrCtrPty", xmlNamespace );
+            OtherCounterpartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollateralPortfolioIdentification is IsoMax52Text CollateralPortfolioIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CollPrtflId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(CollateralPortfolioIdentificationValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+        if (OutliersIncluded is IsoTrueFalseIndicator OutliersIncludedValue)
+        {
+            writer.WriteStartElement(null, "OtlrsIncl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(OutliersIncludedValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PositionSetDimensions15 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

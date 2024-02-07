@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TransactionPrice1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionPrice1Choice;
 /// Proprietary price specification of the underlying transaction.
 /// </summary>
 public partial record Proprietary : TransactionPrice1Choice_
+     , IIsoXmlSerilizable<Proprietary>
 {
     #nullable enable
+    
     /// <summary>
     /// Identifies the type of price reported.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record Proprietary : TransactionPrice1Choice_
     /// Proprietary price specification related to the underlying transaction.
     /// </summary>
     public required IsoCurrencyAndAmount Price { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Type)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Pric", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(Price)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static new Proprietary Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the token data on which the signature is calculated by the LRCI client.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IsabelEpaymentTokenResponse1
+     : IIsoXmlSerilizable<IsabelEpaymentTokenResponse1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous transaction identification of the group of signed payment files.
     /// </summary>
-    [DataMember]
     public required IsoMax50Binary LRCITransactionIdentification { get; init; } 
     /// <summary>
     /// Individual record holding all data related to a payment file that is being used during the signature process.
     /// </summary>
-    [DataMember]
     public ValueList<IsabelLRCIPaymentInformation1> PaymentInformation { get; init; } = [];
     /// <summary>
     /// Mathematical scheme for demonstrating the authenticity of the original server challenge exchanged by the LRCI protocol during the signature process.
     /// </summary>
-    [DataMember]
     public required IsoMax1kBinary ServerSignature { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "LRCITxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax50Binary(LRCITransactionIdentification)); // data type Max50Binary System.Byte[]
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PmtInf", xmlNamespace );
+        PaymentInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SvrSgntr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax1kBinary(ServerSignature)); // data type Max1kBinary System.Byte[]
+        writer.WriteEndElement();
+    }
+    public static IsabelEpaymentTokenResponse1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

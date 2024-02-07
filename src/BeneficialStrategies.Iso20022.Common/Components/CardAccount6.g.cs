@@ -7,79 +7,157 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Customer account information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardAccount6
+     : IIsoXmlSerilizable<CardAccount6>
 {
     #nullable enable
     
     /// <summary>
     /// Type of cardholder account used for the transaction.
     /// </summary>
-    [DataMember]
     public CardAccountType2Code? AccountType { get; init; } 
     /// <summary>
     /// Name of the account, as assigned by the account servicing institution, in agreement with the account owner in order to provide an additional means of identification of the account.
     /// Usage: The account name is different from the account owner name. The account name is used in certain user communities to provide a means of identifying the account, in addition to the account owner's identity and the account number.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? AccountName { get; init; } 
     /// <summary>
     /// Identification of the currency in which the account is held.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Unique identifier of the account, as assigned by the account servicer.
     /// </summary>
-    [DataMember]
     public AccountIdentification31Choice_? AccountIdentifier { get; init; } 
     /// <summary>
     /// Internal account reference in case of credit account.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CreditReference { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification72Choice_? Servicer { get; init; } 
     /// <summary>
     /// Balance of the account.
     /// </summary>
-    [DataMember]
     public AmountAndDirection43? Balance { get; init; } 
     /// <summary>
     /// Indicates if the balance must be displayed to the customer on the ATM.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? BalanceDisplayFlag { get; init; } 
     /// <summary>
     /// Indicates if this is the default account.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? DefaultAccountIndicator { get; init; } 
     /// <summary>
     /// Services allowed on the account.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMServiceType4Code> AllowedServices { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMServiceType4Code? AllowedServices { get; init; } 
     /// <summary>
     /// Withdrawal limits for the account.
     /// </summary>
-    [DataMember]
     public ATMTransactionAmounts4? WithdrawalLimits { get; init; } 
     /// <summary>
     /// Deposit limits for the account.
     /// </summary>
-    [DataMember]
     public ATMTransactionAmounts5? DepositLimits { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountType is CardAccountType2Code AccountTypeValue)
+        {
+            writer.WriteStartElement(null, "AcctTp", xmlNamespace );
+            writer.WriteValue(AccountTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AccountName is IsoMax70Text AccountNameValue)
+        {
+            writer.WriteStartElement(null, "AcctNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AccountNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AccountIdentifier is AccountIdentification31Choice_ AccountIdentifierValue)
+        {
+            writer.WriteStartElement(null, "AcctIdr", xmlNamespace );
+            AccountIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditReference is IsoMax35Text CreditReferenceValue)
+        {
+            writer.WriteStartElement(null, "CdtRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CreditReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Servicer is PartyIdentification72Choice_ ServicerValue)
+        {
+            writer.WriteStartElement(null, "Svcr", xmlNamespace );
+            ServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Balance is AmountAndDirection43 BalanceValue)
+        {
+            writer.WriteStartElement(null, "Bal", xmlNamespace );
+            BalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BalanceDisplayFlag is IsoTrueFalseIndicator BalanceDisplayFlagValue)
+        {
+            writer.WriteStartElement(null, "BalDispFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(BalanceDisplayFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (DefaultAccountIndicator is IsoTrueFalseIndicator DefaultAccountIndicatorValue)
+        {
+            writer.WriteStartElement(null, "DfltAcctInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DefaultAccountIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AllowedServices is ATMServiceType4Code AllowedServicesValue)
+        {
+            writer.WriteStartElement(null, "AllwdSvcs", xmlNamespace );
+            writer.WriteValue(AllowedServicesValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (WithdrawalLimits is ATMTransactionAmounts4 WithdrawalLimitsValue)
+        {
+            writer.WriteStartElement(null, "WdrwlLmts", xmlNamespace );
+            WithdrawalLimitsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DepositLimits is ATMTransactionAmounts5 DepositLimitsValue)
+        {
+            writer.WriteStartElement(null, "DpstLmts", xmlNamespace );
+            DepositLimitsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardAccount6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

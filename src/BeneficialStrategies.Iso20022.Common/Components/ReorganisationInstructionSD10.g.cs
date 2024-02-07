@@ -7,75 +7,145 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action reorganisation instruction details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReorganisationInstructionSD10
+     : IIsoXmlSerilizable<ReorganisationInstructionSD10>
 {
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Identifies the reorganisation transaction type.
     /// </summary>
-    [DataMember]
     public ReorganisationTransactionType2Code? TransactionType { get; init; } 
     /// <summary>
     /// Enable input of multiple voluntary instructions for rights or voluntary puts events via a single instruction message through using Transaction Sequence Number.
     /// </summary>
-    [DataMember]
     public ValueList<InstructionsTransactionsSequence1> TransactionSequence { get; init; } = [];
     /// <summary>
     /// Total oversubscription quantity of all transaction sequence instructions.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity4? TotalOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Acknowledgement information relative to corporate action reorganisation instructions.
     /// </summary>
-    [DataMember]
     public CorporateActionAcknowledgementSD1? AcknowledgementDetails { get; init; } 
     /// <summary>
     /// Party contact information for the given instruction; required for a voluntary offer instruction transaction (VOIT), protect transaction (PROT) and protect on behalf of another participant transaction (PROP); not required for cover protect instructions like a cover protect transaction (COVR), cover protect directly to agent transaction (COVA) and cover protect on behalf of another participant transaction (COVP).
     /// </summary>
-    [DataMember]
     public ContactIdentification5? ContactPerson { get; init; } 
     /// <summary>
     /// Unique identification of the transaction used by the transmitting party.
     /// </summary>
-    [DataMember]
     public IsoMax6Text? UserReferenceNumber { get; init; } 
     /// <summary>
     /// Warrant subscription amount entered by client when instructing on a warrant exercise instruction.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINActiveCurrencyAndAmount? WarrantSubscriptionChargeAmount { get; init; } 
     /// <summary>
     /// Indicates whether the DTC participant is willing to accept penalties as a result of processing instructions prior to maturity of CD redemptions events.
     /// Yes: participant accepts penalties.
     /// No: participant does not accept penalties.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? NonExemptInstructionsAllowedIndicator { get; init; } 
     /// <summary>
     /// Certificate information for a given instruction.
     /// </summary>
-    [DataMember]
     public CorporateActionCertificateSD1? Certificate { get; init; } 
     /// <summary>
     /// Beneficial owner information related to CD early redemption instructions.
     /// </summary>
-    [DataMember]
     public DeceasedStatusSD1? DeceasedBeneficialOwnerDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionType is ReorganisationTransactionType2Code TransactionTypeValue)
+        {
+            writer.WriteStartElement(null, "TxTp", xmlNamespace );
+            writer.WriteValue(TransactionTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxSeq", xmlNamespace );
+        TransactionSequence.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TotalOversubscriptionQuantity is FinancialInstrumentQuantity4 TotalOversubscriptionQuantityValue)
+        {
+            writer.WriteStartElement(null, "TtlOvrsbcptQty", xmlNamespace );
+            TotalOversubscriptionQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AcknowledgementDetails is CorporateActionAcknowledgementSD1 AcknowledgementDetailsValue)
+        {
+            writer.WriteStartElement(null, "AckDtls", xmlNamespace );
+            AcknowledgementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContactPerson is ContactIdentification5 ContactPersonValue)
+        {
+            writer.WriteStartElement(null, "CtctPrsn", xmlNamespace );
+            ContactPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UserReferenceNumber is IsoMax6Text UserReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "UsrRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax6Text(UserReferenceNumberValue)); // data type Max6Text System.String
+            writer.WriteEndElement();
+        }
+        if (WarrantSubscriptionChargeAmount is IsoRestrictedFINActiveCurrencyAndAmount WarrantSubscriptionChargeAmountValue)
+        {
+            writer.WriteStartElement(null, "WarrtSbcptChrgAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAndAmount(WarrantSubscriptionChargeAmountValue)); // data type RestrictedFINActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (NonExemptInstructionsAllowedIndicator is IsoYesNoIndicator NonExemptInstructionsAllowedIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NonXmptInstrsAllwdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(NonExemptInstructionsAllowedIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Certificate is CorporateActionCertificateSD1 CertificateValue)
+        {
+            writer.WriteStartElement(null, "Cert", xmlNamespace );
+            CertificateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeceasedBeneficialOwnerDetails is DeceasedStatusSD1 DeceasedBeneficialOwnerDetailsValue)
+        {
+            writer.WriteStartElement(null, "DcsdBnfclOwnrDtls", xmlNamespace );
+            DeceasedBeneficialOwnerDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ReorganisationInstructionSD10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

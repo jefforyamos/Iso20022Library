@@ -7,113 +7,208 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the details of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IntraBalancePending6
+     : IIsoXmlSerilizable<IntraBalancePending6>
 {
     #nullable enable
     
     /// <summary>
     /// Status and status reason of the transaction.
     /// </summary>
-    [DataMember]
     public PendingStatusAndReason2? StatusAndReason { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account owner (or the instructing party managing the account).
     /// </summary>
-    [DataMember]
     public required IsoMax35Text AccountOwnerTransactionIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account servicer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountServicerTransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MarketInfrastructureTransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the transaction as assigned by the processor.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ProcessorTransactionIdentification { get; init; } 
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PoolIdentification { get; init; } 
     /// <summary>
     /// Identification assigned by the account servicer to unambiguously identify a corporate action event.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CorporateActionEventIdentification { get; init; } 
     /// <summary>
     /// Balance from which the amount of money is moved.
     /// </summary>
-    [DataMember]
     public required CashSubBalanceTypeAndQuantityBreakdown3 BalanceFrom { get; init; } 
     /// <summary>
     /// Balance to which the amount of money is moved.
     /// </summary>
-    [DataMember]
     public required CashSubBalanceTypeAndQuantityBreakdown3 BalanceTo { get; init; } 
     /// <summary>
     /// Amount of money effectively settled and which will be credited to/debited from the account owner's cash account. It may differ from the instructed settlement amount based on market tolerance level.
     /// </summary>
-    [DataMember]
     public required Amount2Choice_ SettlementAmount { get; init; } 
     /// <summary>
     /// Date and time at which the amount of money is intended to be moved.
     /// </summary>
-    [DataMember]
     public required DateAndDateTime2Choice_ IntendedSettlementDate { get; init; } 
     /// <summary>
     /// Date and time at which the status was assigned.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? StatusDate { get; init; } 
     /// <summary>
     /// Number identifying a lot constituting the sub-balance.
     /// </summary>
-    [DataMember]
     public GenericIdentification37? CashSubBalanceIdentification { get; init; } 
     /// <summary>
     /// Link to another transaction that must be processed after, before or at the same time.
     /// </summary>
-    [DataMember]
-    public ValueList<Linkages57> Linkages { get; init; } = []; // Warning: Don't know multiplicity.
+    public Linkages57? Linkages { get; init; } 
     /// <summary>
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
-    [DataMember]
     public PriorityNumeric4Choice_? Priority { get; init; } 
     /// <summary>
     /// Party that originated the message, if other than the sender.
     /// </summary>
-    [DataMember]
     public SystemPartyIdentification8? MessageOriginator { get; init; } 
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Provides additional settlement processing information which can not be included within the structured fields of the message.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? InstructionProcessingAdditionalDetails { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (StatusAndReason is PendingStatusAndReason2 StatusAndReasonValue)
+        {
+            writer.WriteStartElement(null, "StsAndRsn", xmlNamespace );
+            StatusAndReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AcctOwnrTxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountOwnerTransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (AccountServicerTransactionIdentification is IsoMax35Text AccountServicerTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcrTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountServicerTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MarketInfrastructureTransactionIdentification is IsoMax35Text MarketInfrastructureTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MktInfrstrctrTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MarketInfrastructureTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProcessorTransactionIdentification is IsoMax35Text ProcessorTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrcrTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProcessorTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PoolIdentification is IsoMax35Text PoolIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PoolId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PoolIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CorporateActionEventIdentification is IsoMax35Text CorporateActionEventIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CorpActnEvtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CorporateActionEventIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "BalFr", xmlNamespace );
+        BalanceFrom.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BalTo", xmlNamespace );
+        BalanceTo.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
+        SettlementAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IntnddSttlmDt", xmlNamespace );
+        IntendedSettlementDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (StatusDate is IsoISODateTime StatusDateValue)
+        {
+            writer.WriteStartElement(null, "StsDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(StatusDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (CashSubBalanceIdentification is GenericIdentification37 CashSubBalanceIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CshSubBalId", xmlNamespace );
+            CashSubBalanceIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Linkages is Linkages57 LinkagesValue)
+        {
+            writer.WriteStartElement(null, "Lnkgs", xmlNamespace );
+            LinkagesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Priority is PriorityNumeric4Choice_ PriorityValue)
+        {
+            writer.WriteStartElement(null, "Prty", xmlNamespace );
+            PriorityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageOriginator is SystemPartyIdentification8 MessageOriginatorValue)
+        {
+            writer.WriteStartElement(null, "MsgOrgtr", xmlNamespace );
+            MessageOriginatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (InstructionProcessingAdditionalDetails is IsoMax350Text InstructionProcessingAdditionalDetailsValue)
+        {
+            writer.WriteStartElement(null, "InstrPrcgAddtlDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(InstructionProcessingAdditionalDetailsValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IntraBalancePending6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

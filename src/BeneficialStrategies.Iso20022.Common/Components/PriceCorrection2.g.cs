@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Original and corrected price information of an investment fund.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PriceCorrection2
+     : IIsoXmlSerilizable<PriceCorrection2>
 {
     #nullable enable
     
     /// <summary>
     /// Information related to the price valuation of a financial instrument sent in a previous price report.
     /// </summary>
-    [DataMember]
     public required PriceValuation2 PreviouslySentPriceDetails { get; init; } 
     /// <summary>
     /// Information related to the new price valuation of a financial instrument, which overrides previously sent information.
     /// </summary>
-    [DataMember]
     public PriceValuation2? CorrectedPriceDetails { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<Extension1> Extension { get; init; } = []; // Warning: Don't know multiplicity.
+    public Extension1? Extension { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrevslySntPricDtls", xmlNamespace );
+        PreviouslySentPriceDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CorrectedPriceDetails is PriceValuation2 CorrectedPriceDetailsValue)
+        {
+            writer.WriteStartElement(null, "CrrctdPricDtls", xmlNamespace );
+            CorrectedPriceDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PriceCorrection2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

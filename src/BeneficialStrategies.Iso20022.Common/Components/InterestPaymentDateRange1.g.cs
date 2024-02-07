@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies an expected date and a due date for the interest payment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InterestPaymentDateRange1
+     : IIsoXmlSerilizable<InterestPaymentDateRange1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the interest payment schedule.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? InterestScheduleIdentification { get; init; } 
     /// <summary>
     /// Expected interest payment date.
     /// </summary>
-    [DataMember]
     public IsoISODate? ExpectedDate { get; init; } 
     /// <summary>
     /// Latest date whereby the interest must be paid.
     /// </summary>
-    [DataMember]
     public IsoISODate? DueDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (InterestScheduleIdentification is IsoMax35Text InterestScheduleIdentificationValue)
+        {
+            writer.WriteStartElement(null, "IntrstSchdlId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(InterestScheduleIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ExpectedDate is IsoISODate ExpectedDateValue)
+        {
+            writer.WriteStartElement(null, "XpctdDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExpectedDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (DueDate is IsoISODate DueDateValue)
+        {
+            writer.WriteStartElement(null, "DueDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DueDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static InterestPaymentDateRange1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

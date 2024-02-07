@@ -7,48 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes the type of product and the assets to be transferred.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ISATransfer6
+     : IIsoXmlSerilizable<ISATransfer6>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Identification assigned by the new plan manager to each transfer of asset.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransferIdentification { get; init; } 
     /// <summary>
     /// Indicates whether there is cash in the account that is awaiting investment.
     /// </summary>
-    [DataMember]
     public ResidualCash1Code? ResidualCash { get; init; } 
     /// <summary>
     /// Specifies portfolio information or government schemes, for example Individual Savings Account (ISA) in the UK.
     /// </summary>
-    [DataMember]
     public required ISAPortfolio1Choice_ Portfolio { get; init; } 
     /// <summary>
     /// Indicator that all remaining assets in a portfolio not listed for transfer should be liquidated and transferred as cash.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator AllOtherCash { get; init; } 
     /// <summary>
     /// Specifies the underlying assets for the ISA or portfolio.
     /// </summary>
-    [DataMember]
-    public ValueList<FinancialInstrument30> FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
+    public FinancialInstrument30? FinancialInstrumentAssetForTransfer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TrfId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ResidualCash is ResidualCash1Code ResidualCashValue)
+        {
+            writer.WriteStartElement(null, "RsdlCsh", xmlNamespace );
+            writer.WriteValue(ResidualCashValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Prtfl", xmlNamespace );
+        Portfolio.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AllOthrCsh", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AllOtherCash)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (FinancialInstrumentAssetForTransfer is FinancialInstrument30 FinancialInstrumentAssetForTransferValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmAsstForTrf", xmlNamespace );
+            FinancialInstrumentAssetForTransferValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ISATransfer6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

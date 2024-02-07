@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.setr.OrderCancellationStatusReportV04>;
 
 namespace BeneficialStrategies.Iso20022.setr;
 
@@ -33,10 +36,9 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// When the cancellation is rejected, the reason for the rejection must be specified.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The OrderCancellationStatusReport message is sent by an executing party, for example, a transfer agent, to the instructing party, for example, an investment manager or its authorised representative, to report the status of an order cancellation request that was previously received.|Usage|The OrderCancellationStatusReport message is used to provide the status of:|- one or more individual order cancellation requests by using IndividualCancellationStatusReport, or,|- an order cancellation request message by using CancellationStatusReport.|If the OrderCancellationStatusReport message is used to report the status of an individual order cancellation request, then the repetitive IndividualCancellationStatusReport sequence is used and the order reference of the individual order is quoted in OrderReference. The message identification of the message in which the individual order was conveyed may also be quoted in RelatedReference but this is not recommended.|If the OrderCancellationStatusReport message is used to report the status of an entire order cancellation request message, for example, the SubscriptionBulkOrderCancellationRequest, or a SubscriptionOrderCancellationRequest containing several orders, then the CancellationStatusReport sequence is used. The message identification of the order cancellation request message may also be quoted in RelatedReference but this is not recommended. All the order cancellation requests within the message must have the same status.|One of the following statuses can be reported: |- the order cancellation is pending, or,|- the order cancellation request is rejected, or,|- the order is cancelled.|When the cancellation is rejected, the reason for the rejection must be specified.")]
-public partial record OrderCancellationStatusReportV04 : IOuterRecord
+public partial record OrderCancellationStatusReportV04 : IOuterRecord<OrderCancellationStatusReportV04,OrderCancellationStatusReportV04Document>
+    ,IIsoXmlSerilizable<OrderCancellationStatusReportV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -48,6 +50,11 @@ public partial record OrderCancellationStatusReportV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "OrdrCxlStsRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => OrderCancellationStatusReportV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -97,6 +104,41 @@ public partial record OrderCancellationStatusReportV04 : IOuterRecord
     {
         return new OrderCancellationStatusReportV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("OrdrCxlStsRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Reference is References61Choice_ ReferenceValue)
+        {
+            writer.WriteStartElement(null, "Ref", xmlNamespace );
+            ReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "StsRpt", xmlNamespace );
+        StatusReport.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OrderCancellationStatusReportV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -104,9 +146,7 @@ public partial record OrderCancellationStatusReportV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="OrderCancellationStatusReportV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record OrderCancellationStatusReportV04Document : IOuterDocument<OrderCancellationStatusReportV04>
+public partial record OrderCancellationStatusReportV04Document : IOuterDocument<OrderCancellationStatusReportV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -122,5 +162,22 @@ public partial record OrderCancellationStatusReportV04Document : IOuterDocument<
     /// <summary>
     /// The instance of <seealso cref="OrderCancellationStatusReportV04"/> is required.
     /// </summary>
+    [DataMember(Name=OrderCancellationStatusReportV04.XmlTag)]
     public required OrderCancellationStatusReportV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(OrderCancellationStatusReportV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

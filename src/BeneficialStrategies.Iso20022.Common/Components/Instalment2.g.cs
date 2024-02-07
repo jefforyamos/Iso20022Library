@@ -7,6 +7,8 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -14,32 +16,59 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies a single instalment related to an invoice settlement and optional reconciliation information.
 /// Reconciliation information is used to indicate the amount to be allocated to a particular instalment of a financial document.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Instalment2
+     : IIsoXmlSerilizable<Instalment2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the progressive number of the single instalment related to an invoice.
     /// </summary>
-    [DataMember]
     public required IsoMax70Text SequenceIdentification { get; init; } 
     /// <summary>
     /// Due date for the payment of the financing item instalment.
     /// </summary>
-    [DataMember]
     public required IsoISODate PaymentDueDate { get; init; } 
     /// <summary>
     /// Amount of a single instalment related to an invoice.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Desired payment instrument to be used for the instalment.
     /// </summary>
-    [DataMember]
     public PaymentMeans1? PaymentInstrument { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SeqId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(SequenceIdentification)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PmtDueDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(PaymentDueDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (PaymentInstrument is PaymentMeans1 PaymentInstrumentValue)
+        {
+            writer.WriteStartElement(null, "PmtInstrm", xmlNamespace );
+            PaymentInstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Instalment2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

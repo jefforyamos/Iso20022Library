@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Numeric characters of the cardholder's address for verification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AddressVerification1
+     : IIsoXmlSerilizable<AddressVerification1>
 {
     #nullable enable
     
     /// <summary>
     /// Numeric characters from the cardholder's address excluding the postal code (that is street number).
     /// </summary>
-    [DataMember]
     public IsoMax5NumericText? AddressDigits { get; init; } 
     /// <summary>
     /// Numeric characters from the cardholder's postal code.
     /// </summary>
-    [DataMember]
     public IsoMax5NumericText? PostalCodeDigits { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AddressDigits is IsoMax5NumericText AddressDigitsValue)
+        {
+            writer.WriteStartElement(null, "AdrDgts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax5NumericText(AddressDigitsValue)); // data type Max5NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (PostalCodeDigits is IsoMax5NumericText PostalCodeDigitsValue)
+        {
+            writer.WriteStartElement(null, "PstlCdDgts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax5NumericText(PostalCodeDigitsValue)); // data type Max5NumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AddressVerification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to search for calendar data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CalendarSearchCriteria1
+     : IIsoXmlSerilizable<CalendarSearchCriteria1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the year for which the calendar information must be returned.
     /// </summary>
-    [DataMember]
     public IsoISOYear? Year { get; init; } 
     /// <summary>
     /// Specifies the month for which the calendar information must be returned.
     /// </summary>
-    [DataMember]
     public IsoISOMonth? Month { get; init; } 
     /// <summary>
     /// Specifies the service or system for which the calendar information must be returned.
     /// </summary>
-    [DataMember]
     public SystemAndCurrency1? Service { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Year is IsoISOYear YearValue)
+        {
+            writer.WriteStartElement(null, "Yr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOYear(YearValue)); // data type ISOYear System.UInt16
+            writer.WriteEndElement();
+        }
+        if (Month is IsoISOMonth MonthValue)
+        {
+            writer.WriteStartElement(null, "Mnth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOMonth(MonthValue)); // data type ISOMonth System.Byte
+            writer.WriteEndElement();
+        }
+        if (Service is SystemAndCurrency1 ServiceValue)
+        {
+            writer.WriteStartElement(null, "Svc", xmlNamespace );
+            ServiceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CalendarSearchCriteria1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

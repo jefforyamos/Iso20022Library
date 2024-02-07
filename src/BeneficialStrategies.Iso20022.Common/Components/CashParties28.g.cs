@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies cash parties in the framework of a corporate action event.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashParties28
+     : IIsoXmlSerilizable<CashParties28>
 {
     #nullable enable
     
     /// <summary>
     /// Party to which an amount of money is due.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount120? Creditor { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount121? CreditorAgent { get; init; } 
     /// <summary>
     /// Party that has reimbursed the account owner with funds to which they were legally entitled.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount120? MarketClaimCounterparty { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Creditor is PartyIdentificationAndAccount120 CreditorValue)
+        {
+            writer.WriteStartElement(null, "Cdtr", xmlNamespace );
+            CreditorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditorAgent is PartyIdentificationAndAccount121 CreditorAgentValue)
+        {
+            writer.WriteStartElement(null, "CdtrAgt", xmlNamespace );
+            CreditorAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarketClaimCounterparty is PartyIdentificationAndAccount120 MarketClaimCounterpartyValue)
+        {
+            writer.WriteStartElement(null, "MktClmCtrPty", xmlNamespace );
+            MarketClaimCounterpartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CashParties28 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,43 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details for the tax calculation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxCalculation1
+     : IIsoXmlSerilizable<TaxCalculation1>
 {
     #nullable enable
     
     /// <summary>
     /// Currency that all totals for taxable services must be converted to for calculating taxes owed for this tax region. This also is the currency in which the payment of tax obligations is usually submitted to the taxing authority.
     /// </summary>
-    [DataMember]
     public required ActiveOrHistoricCurrencyCode HostCurrency { get; init; } 
     /// <summary>
     /// Taxable service charge amount conversions to host currency. ||Usage: One occurrence must be present for each different service pricing currency in the statement.
     /// </summary>
-    [DataMember]
-    public ValueList<BillingServicesAmount3> TaxableServiceChargeConversion { get; init; } = []; // Warning: Don't know multiplicity.
+    public BillingServicesAmount3? TaxableServiceChargeConversion { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _6R49bJqlEeGSON8vddiWzQ_1186516095
     /// <summary>
     /// Total of all services subject to tax for a specific tax region. ||Usage: |This field will equal the sum of all the separate host tax charge for service equivalent totals for each individual currency. It is expressed in the tax region’s Host currency. This total is used to determine the tax due by calculating using each tax identifications rate.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection34 TotalTaxableServiceChargeHostAmount { get; init; } 
     /// <summary>
     /// Provides for the specific tax identification within the same tax region. ||Usage: A maximum of three specific tax identifications may be provided. These elements use the total host currency taxable amount as the basis of the calculation. |This element is only valid for method C.
     /// </summary>
-    [DataMember]
     public ValueList<BillingServicesTax3> TaxIdentification { get; init; } = [];
     /// <summary>
     /// Total amount of all taxes for a specific customer within the tax region. This is a sum of all individual total tax amounts for tax identification ’s expressed in the tax region’s host currency.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection34 TotalTax { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "HstCcy", xmlNamespace );
+        writer.WriteValue(HostCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        // Not sure how to serialize TaxableServiceChargeConversion, multiplicity Unknown
+        writer.WriteStartElement(null, "TtlTaxblSvcChrgHstAmt", xmlNamespace );
+        TotalTaxableServiceChargeHostAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TaxId", xmlNamespace );
+        TaxIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlTax", xmlNamespace );
+        TotalTax.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static TaxCalculation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Card Acquisition Response message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardAcquisitionResponse3
+     : IIsoXmlSerilizable<CardAcquisitionResponse3>
 {
     #nullable enable
     
     /// <summary>
     /// Sale System identification of the transaction in an unambiguous way.
     /// </summary>
-    [DataMember]
     public TransactionIdentifier1? SaleTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identification of a POI transaction.
     /// </summary>
-    [DataMember]
     public required TransactionIdentifier1 POITransactionIdentification { get; init; } 
     /// <summary>
     /// Type of payment card.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> PaymentBrand { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? PaymentBrand { get; init; } 
     /// <summary>
     /// Language used to display messages to the customer.
     /// </summary>
-    [DataMember]
     public LanguageCode? CustomerLanguage { get; init; } 
     /// <summary>
     /// Loyalty account information.
     /// </summary>
-    [DataMember]
-    public ValueList<LoyaltyAccount3> LoyaltyAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    public LoyaltyAccount3? LoyaltyAccount { get; init; } 
     /// <summary>
     /// Customer order attached to a customer, recorded in the POI system.
     /// </summary>
-    [DataMember]
-    public ValueList<CustomerOrder1> CustomerOrder { get; init; } = []; // Warning: Don't know multiplicity.
+    public CustomerOrder1? CustomerOrder { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SaleTransactionIdentification is TransactionIdentifier1 SaleTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleTxId", xmlNamespace );
+            SaleTransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "POITxId", xmlNamespace );
+        POITransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PaymentBrand is IsoMax35Text PaymentBrandValue)
+        {
+            writer.WriteStartElement(null, "PmtBrnd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PaymentBrandValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CustomerLanguage is LanguageCode CustomerLanguageValue)
+        {
+            writer.WriteStartElement(null, "CstmrLang", xmlNamespace );
+            writer.WriteValue(CustomerLanguageValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (LoyaltyAccount is LoyaltyAccount3 LoyaltyAccountValue)
+        {
+            writer.WriteStartElement(null, "LltyAcct", xmlNamespace );
+            LoyaltyAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CustomerOrder is CustomerOrder1 CustomerOrderValue)
+        {
+            writer.WriteStartElement(null, "CstmrOrdr", xmlNamespace );
+            CustomerOrderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardAcquisitionResponse3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

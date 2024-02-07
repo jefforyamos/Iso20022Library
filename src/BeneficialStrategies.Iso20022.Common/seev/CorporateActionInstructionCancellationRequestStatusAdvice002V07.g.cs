@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.CorporateActionInstructionCancellationRequestStatusAdvice002V07>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// using the relevant elements in the business application header (BAH).
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account servicer sends the CorporateActionInstructionCancellationRequestStatusAdvice message to an account owner or its designated agent to report status of a previously received CorporateActionInstructionCancellationRequest message sent by the account owner. This will include the acknowledgement/rejection of a request to cancel an outstanding instruction. |Usage|The message may also be used to:|- re-send a message previously sent (the sub-function of the message is Duplicate),|- provide a third party with a copy of a message for information (the sub-function of the message is Copy),|- re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate),|using the relevant elements in the business application header (BAH).")]
-public partial record CorporateActionInstructionCancellationRequestStatusAdvice002V07 : IOuterRecord
+public partial record CorporateActionInstructionCancellationRequestStatusAdvice002V07 : IOuterRecord<CorporateActionInstructionCancellationRequestStatusAdvice002V07,CorporateActionInstructionCancellationRequestStatusAdvice002V07Document>
+    ,IIsoXmlSerilizable<CorporateActionInstructionCancellationRequestStatusAdvice002V07>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record CorporateActionInstructionCancellationRequestStatusAdvice0
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "CorpActnInstrCxlReqStsAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CorporateActionInstructionCancellationRequestStatusAdvice002V07Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -119,6 +126,59 @@ public partial record CorporateActionInstructionCancellationRequestStatusAdvice0
     {
         return new CorporateActionInstructionCancellationRequestStatusAdvice002V07Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("CorpActnInstrCxlReqStsAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (InstructionCancellationRequestIdentification is DocumentIdentification17 InstructionCancellationRequestIdentificationValue)
+        {
+            writer.WriteStartElement(null, "InstrCxlReqId", xmlNamespace );
+            InstructionCancellationRequestIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherDocumentIdentification is DocumentIdentification34 OtherDocumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OthrDocId", xmlNamespace );
+            OtherDocumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+        CorporateActionGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InstrCxlReqSts", xmlNamespace );
+        InstructionCancellationRequestStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CorporateActionInstruction is CorporateActionOption121 CorporateActionInstructionValue)
+        {
+            writer.WriteStartElement(null, "CorpActnInstr", xmlNamespace );
+            CorporateActionInstructionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is CorporateActionNarrative19 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionInstructionCancellationRequestStatusAdvice002V07 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -126,9 +186,7 @@ public partial record CorporateActionInstructionCancellationRequestStatusAdvice0
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CorporateActionInstructionCancellationRequestStatusAdvice002V07"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CorporateActionInstructionCancellationRequestStatusAdvice002V07Document : IOuterDocument<CorporateActionInstructionCancellationRequestStatusAdvice002V07>
+public partial record CorporateActionInstructionCancellationRequestStatusAdvice002V07Document : IOuterDocument<CorporateActionInstructionCancellationRequestStatusAdvice002V07>, IXmlSerializable
 {
     
     /// <summary>
@@ -144,5 +202,22 @@ public partial record CorporateActionInstructionCancellationRequestStatusAdvice0
     /// <summary>
     /// The instance of <seealso cref="CorporateActionInstructionCancellationRequestStatusAdvice002V07"/> is required.
     /// </summary>
+    [DataMember(Name=CorporateActionInstructionCancellationRequestStatusAdvice002V07.XmlTag)]
     public required CorporateActionInstructionCancellationRequestStatusAdvice002V07 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CorporateActionInstructionCancellationRequestStatusAdvice002V07.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

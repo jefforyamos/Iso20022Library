@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityFertilizer4Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityFertilizer4Ch
 /// Diammonium phosphate fertilizer commodity derivative.
 /// </summary>
 public partial record DiammoniumPhosphate : AssetClassCommodityFertilizer4Choice_
+     , IIsoXmlSerilizable<DiammoniumPhosphate>
 {
     #nullable enable
+    
     /// <summary>
     /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record DiammoniumPhosphate : AssetClassCommodityFertilizer4Choice
     /// Sub-product for the underlying asset class.
     /// </summary>
     public AssetClassSubProductType40Code? SubProduct { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BasePdct", xmlNamespace );
+        writer.WriteValue(BaseProduct.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SubProduct is AssetClassSubProductType40Code SubProductValue)
+        {
+            writer.WriteStartElement(null, "SubPdct", xmlNamespace );
+            writer.WriteValue(SubProductValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static new DiammoniumPhosphate Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

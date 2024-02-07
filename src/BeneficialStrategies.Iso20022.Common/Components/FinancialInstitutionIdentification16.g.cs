@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a financial institution.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstitutionIdentification16
+     : IIsoXmlSerilizable<FinancialInstitutionIdentification16>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the financial institution expressed as a BIC.
     /// </summary>
-    [DataMember]
     public IsoBICFIDec2014Identifier? BICFI { get; init; } 
     /// <summary>
     /// Information used to identify a member within a clearing system.
     /// </summary>
-    [DataMember]
     public ClearingSystemMemberIdentification4Choice_? ClearingSystemMemberIdentification { get; init; } 
     /// <summary>
     /// Name and address of the party.
     /// </summary>
-    [DataMember]
     public NameAndAddress5? NameAndAddress { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for the party.
     /// </summary>
-    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier, as assigned to a financial institution using a proprietary identification scheme.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ProprietaryIdentification { get; init; } 
     /// <summary>
     /// Identification of a specific branch of the financial institution.
     /// </summary>
-    [DataMember]
     public BranchData2? BranchIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (BICFI is IsoBICFIDec2014Identifier BICFIValue)
+        {
+            writer.WriteStartElement(null, "BICFI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBICFIDec2014Identifier(BICFIValue)); // data type BICFIDec2014Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (ClearingSystemMemberIdentification is ClearingSystemMemberIdentification4Choice_ ClearingSystemMemberIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClrSysMmbId", xmlNamespace );
+            ClearingSystemMemberIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NameAndAddress is NameAndAddress5 NameAndAddressValue)
+        {
+            writer.WriteStartElement(null, "NmAndAdr", xmlNamespace );
+            NameAndAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LEI is IsoLEIIdentifier LEIValue)
+        {
+            writer.WriteStartElement(null, "LEI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEIValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (ProprietaryIdentification is IsoMax35Text ProprietaryIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrtryId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProprietaryIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (BranchIdentification is BranchData2 BranchIdentificationValue)
+        {
+            writer.WriteStartElement(null, "BrnchId", xmlNamespace );
+            BranchIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstitutionIdentification16 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

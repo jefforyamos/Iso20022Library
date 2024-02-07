@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information for tax reporting.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxReporting3
+     : IIsoXmlSerilizable<TaxReporting3>
 {
     #nullable enable
     
     /// <summary>
     /// Country of taxation of the organisation or individual person.
     /// </summary>
-    [DataMember]
     public required CountryCode TaxationCountry { get; init; } 
     /// <summary>
     /// Tax rate to be applied.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? TaxRate { get; init; } 
     /// <summary>
     /// Party that pays the tax.
     /// </summary>
-    [DataMember]
     public PartyIdentification125Choice_? TaxPayer { get; init; } 
     /// <summary>
     /// Party that receives the tax.
     /// </summary>
-    [DataMember]
     public PartyIdentification125Choice_? TaxRecipient { get; init; } 
     /// <summary>
     /// Cash account information for the payment of tax.
     /// </summary>
-    [DataMember]
     public CashAccount204? CashAccountDetails { get; init; } 
     /// <summary>
     /// Additional information for the reporting of tax.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? Description { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TaxtnCtry", xmlNamespace );
+        writer.WriteValue(TaxationCountry.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (TaxRate is IsoPercentageRate TaxRateValue)
+        {
+            writer.WriteStartElement(null, "TaxRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(TaxRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TaxPayer is PartyIdentification125Choice_ TaxPayerValue)
+        {
+            writer.WriteStartElement(null, "TaxPyer", xmlNamespace );
+            TaxPayerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxRecipient is PartyIdentification125Choice_ TaxRecipientValue)
+        {
+            writer.WriteStartElement(null, "TaxRcpt", xmlNamespace );
+            TaxRecipientValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccountDetails is CashAccount204 CashAccountDetailsValue)
+        {
+            writer.WriteStartElement(null, "CshAcctDtls", xmlNamespace );
+            CashAccountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Description is IsoMax350Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(DescriptionValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TaxReporting3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -97,7 +97,15 @@ public partial record CustomerCreditTransferInitiationV11 : IOuterRecord<Custome
         return new CustomerCreditTransferInitiationV11Document { Message = this };
     }
     public static XName RootElement => Helper.CreateXName("CstmrCdtTrfInitn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
     public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
     public void Serialize(XmlWriter writer, string xmlNamespace)
     {
         writer.WriteStartElement(null, "GrpHdr", xmlNamespace );

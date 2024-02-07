@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Entity that has delivered or declined the card payment authorisation (the party may be unidentified).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ApprovalEntity1
+     : IIsoXmlSerilizable<ApprovalEntity1>
 {
     #nullable enable
     
@@ -23,35 +24,79 @@ public partial record ApprovalEntity1
     /// Identification of the entity.
     /// ISO 8583:93/2003 bit 58
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Type of entity having declined or delivered the card payment authorisation.
     /// </summary>
-    [DataMember]
     public required PartyType26Code Type { get; init; } 
     /// <summary>
     /// Other type of party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Entity in charge of assigning the identification.
     /// </summary>
-    [DataMember]
     public PartyType9Code? Assigner { get; init; } 
     /// <summary>
     /// Country of the entity declining or delivering the authorisation.
     /// ISO 3166-1 alpha-2 or alpha-3.
     /// ISO 8583:93 bit 70
     /// </summary>
-    [DataMember]
     public IsoMin2Max3AlphaText? Country { get; init; } 
     /// <summary>
     /// Short name of the entity delivering or declining the authorisation.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is IsoMax35Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherType is IsoMax35Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Assigner is PartyType9Code AssignerValue)
+        {
+            writer.WriteStartElement(null, "Assgnr", xmlNamespace );
+            writer.WriteValue(AssignerValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Country is IsoMin2Max3AlphaText CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMin2Max3AlphaText(CountryValue)); // data type Min2Max3AlphaText System.String
+            writer.WriteEndElement();
+        }
+        if (ShortName is IsoMax35Text ShortNameValue)
+        {
+            writer.WriteStartElement(null, "ShrtNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ShortNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ApprovalEntity1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

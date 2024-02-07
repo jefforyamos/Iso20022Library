@@ -7,143 +7,286 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies corporate action dates.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionDate2
+     : IIsoXmlSerilizable<CorporateActionDate2>
 {
     #nullable enable
     
     /// <summary>
     /// Date on which positions are struck at the end of the day to note which parties will receive the relevant amount of entitlement, due to be distributed on payment date.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? RecordDate { get; init; } 
     /// <summary>
     /// Date on which a process is to be completed or becomes effective.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? EffectiveDate { get; init; } 
     /// <summary>
     /// Last day a holder can deliver the securities that it had previously protected.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? CoverExpirationDate { get; init; } 
     /// <summary>
     /// Date on which all or part of any holding bought in a unit trust is subject to being treated as capital rather than income. This is normally one day after the previous distribution's ex date.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? EqualisationDate { get; init; } 
     /// <summary>
     /// Date/time at which the margin rate will be determined.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? MarginFixingDate { get; init; } 
     /// <summary>
     /// Date on which the lottery is run and applied to the holder's positions. This is also applicable to partial calls.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? LotteryDate { get; init; } 
     /// <summary>
     /// Last date a holder can request to defer delivery of securities pursuant to a notice of guaranteed delivery or other required documentation.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? ProtectDate { get; init; } 
     /// <summary>
     /// Date upon which the terms of the take-over become unconditional as to acceptances.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? UnconditionalDate { get; init; } 
     /// <summary>
     /// Date on which all conditions, including regulatory, legal etc. pertaining to the take-over, have been met.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? WhollyUnconditionalDate { get; init; } 
     /// <summary>
     /// Date on which results are published, eg, results of an offer.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? ResultsPublicationDate { get; init; } 
     /// <summary>
     /// Date/time upon which the High Court provided approval.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? CourtApprovalDate { get; init; } 
     /// <summary>
     /// First possible early closing date of an offer if different from the expiry date.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? EarlyClosingDate { get; init; } 
     /// <summary>
     /// Date/time as from which trading (including exchange and OTC trading) occurs on the underlying security without the benefit.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? ExDividendDate { get; init; } 
     /// <summary>
     /// Date/time at which an index rate will be determined.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? IndexFixingDate { get; init; } 
     /// <summary>
     /// Date on which an interest bearing financial instrument becomes due and principal is repaid by the issuer to the investor.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? MaturityDate { get; init; } 
     /// <summary>
     /// Date on which trading of a security is suspended as the result of an event.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? TradingSuspendedDate { get; init; } 
     /// <summary>
     /// Deadline by which the beneficial ownership of securities must be declared.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? CertificationDeadline { get; init; } 
     /// <summary>
     /// Date/time at which the securities will be redeemed (early) for payment of principal.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? RedemptionDate { get; init; } 
     /// <summary>
     /// Date on which instructions to register or registration details will be accepted.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? RegistrationDeadline { get; init; } 
     /// <summary>
     /// Date (and time) at which an issuer will determine the proration amount/quantity of an offer.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? ProrationDate { get; init; } 
     /// <summary>
     /// Date on until which tax breakdown instructions will be accepted.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? DeadlineForTaxBreakdownInstruction { get; init; } 
     /// <summary>
     /// Date/time at which an event/offer is terminated or lapsed.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? LapsedDate { get; init; } 
     /// <summary>
     /// Last date/time by which a buying counterparty to a trade can be sure that it will have the right to participate in an event.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? GuaranteedParticipationDate { get; init; } 
     /// <summary>
     /// Deadline by which an entitled holder needs to advise their counterparty to a transaction of their election for a corporate action event.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? ElectionToCounterpartyDeadline { get; init; } 
     /// <summary>
     /// Date/time as from which 'special processing' can start to be used by participants for that event. Special processing is a means of marking a transaction, that would normally be traded ex or cum, as being traded cum or ex respectively, eg, a transaction dealt 'special' after the ex date would result in the buyer being eligible for the entitlement. This is typically used in the UK and Irish markets.
     /// </summary>
-    [DataMember]
     public DateFormat4Choice_? SpecialExDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (RecordDate is DateFormat4Choice_ RecordDateValue)
+        {
+            writer.WriteStartElement(null, "RcrdDt", xmlNamespace );
+            RecordDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EffectiveDate is DateFormat4Choice_ EffectiveDateValue)
+        {
+            writer.WriteStartElement(null, "FctvDt", xmlNamespace );
+            EffectiveDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CoverExpirationDate is DateFormat4Choice_ CoverExpirationDateValue)
+        {
+            writer.WriteStartElement(null, "CoverXprtnDt", xmlNamespace );
+            CoverExpirationDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EqualisationDate is DateFormat4Choice_ EqualisationDateValue)
+        {
+            writer.WriteStartElement(null, "EqulstnDt", xmlNamespace );
+            EqualisationDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarginFixingDate is DateFormat4Choice_ MarginFixingDateValue)
+        {
+            writer.WriteStartElement(null, "MrgnFxgDt", xmlNamespace );
+            MarginFixingDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LotteryDate is DateFormat4Choice_ LotteryDateValue)
+        {
+            writer.WriteStartElement(null, "LtryDt", xmlNamespace );
+            LotteryDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProtectDate is DateFormat4Choice_ ProtectDateValue)
+        {
+            writer.WriteStartElement(null, "PrtctDt", xmlNamespace );
+            ProtectDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnconditionalDate is DateFormat4Choice_ UnconditionalDateValue)
+        {
+            writer.WriteStartElement(null, "UcondlDt", xmlNamespace );
+            UnconditionalDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (WhollyUnconditionalDate is DateFormat4Choice_ WhollyUnconditionalDateValue)
+        {
+            writer.WriteStartElement(null, "WhlyUcondlDt", xmlNamespace );
+            WhollyUnconditionalDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ResultsPublicationDate is DateFormat4Choice_ ResultsPublicationDateValue)
+        {
+            writer.WriteStartElement(null, "RsltsPblctnDt", xmlNamespace );
+            ResultsPublicationDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CourtApprovalDate is DateFormat4Choice_ CourtApprovalDateValue)
+        {
+            writer.WriteStartElement(null, "CrtApprvlDt", xmlNamespace );
+            CourtApprovalDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EarlyClosingDate is DateFormat4Choice_ EarlyClosingDateValue)
+        {
+            writer.WriteStartElement(null, "EarlyClsgDt", xmlNamespace );
+            EarlyClosingDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExDividendDate is DateFormat4Choice_ ExDividendDateValue)
+        {
+            writer.WriteStartElement(null, "ExDvddDt", xmlNamespace );
+            ExDividendDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IndexFixingDate is DateFormat4Choice_ IndexFixingDateValue)
+        {
+            writer.WriteStartElement(null, "IndxFxgDt", xmlNamespace );
+            IndexFixingDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MaturityDate is DateFormat4Choice_ MaturityDateValue)
+        {
+            writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
+            MaturityDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradingSuspendedDate is DateFormat4Choice_ TradingSuspendedDateValue)
+        {
+            writer.WriteStartElement(null, "TradgSspdDt", xmlNamespace );
+            TradingSuspendedDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CertificationDeadline is DateFormat4Choice_ CertificationDeadlineValue)
+        {
+            writer.WriteStartElement(null, "CertfctnDdln", xmlNamespace );
+            CertificationDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RedemptionDate is DateFormat4Choice_ RedemptionDateValue)
+        {
+            writer.WriteStartElement(null, "RedDt", xmlNamespace );
+            RedemptionDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RegistrationDeadline is DateFormat4Choice_ RegistrationDeadlineValue)
+        {
+            writer.WriteStartElement(null, "RegnDdln", xmlNamespace );
+            RegistrationDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProrationDate is DateFormat4Choice_ ProrationDateValue)
+        {
+            writer.WriteStartElement(null, "PrratnDt", xmlNamespace );
+            ProrationDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeadlineForTaxBreakdownInstruction is DateFormat4Choice_ DeadlineForTaxBreakdownInstructionValue)
+        {
+            writer.WriteStartElement(null, "DdlnForTaxBrkdwnInstr", xmlNamespace );
+            DeadlineForTaxBreakdownInstructionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LapsedDate is DateFormat4Choice_ LapsedDateValue)
+        {
+            writer.WriteStartElement(null, "LpsdDt", xmlNamespace );
+            LapsedDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GuaranteedParticipationDate is DateFormat4Choice_ GuaranteedParticipationDateValue)
+        {
+            writer.WriteStartElement(null, "GrntedPrtcptnDt", xmlNamespace );
+            GuaranteedParticipationDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ElectionToCounterpartyDeadline is DateFormat4Choice_ ElectionToCounterpartyDeadlineValue)
+        {
+            writer.WriteStartElement(null, "ElctnToCtrPtyDdln", xmlNamespace );
+            ElectionToCounterpartyDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SpecialExDate is DateFormat4Choice_ SpecialExDateValue)
+        {
+            writer.WriteStartElement(null, "SpclExDt", xmlNamespace );
+            SpecialExDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionDate2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

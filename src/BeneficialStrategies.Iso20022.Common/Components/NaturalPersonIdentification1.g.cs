@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification number and identification type of a natural person.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NaturalPersonIdentification1
+     : IIsoXmlSerilizable<NaturalPersonIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Natural person local identification.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Type of local identification for a natural person.
     /// </summary>
-    [DataMember]
     public IdentificationType45Choice_? IdentificationType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (IdentificationType is IdentificationType45Choice_ IdentificationTypeValue)
+        {
+            writer.WriteStartElement(null, "IdTp", xmlNamespace );
+            IdentificationTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static NaturalPersonIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

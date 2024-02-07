@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Proprietary date information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProprietaryDate1
+     : IIsoXmlSerilizable<ProprietaryDate1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the type of date reported.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Date in ISO format.
     /// </summary>
-    [DataMember]
     public required IsoISODate Date { get; init; } 
     /// <summary>
     /// Date and time in ISO format.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime DateTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Type)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Dt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(Date)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(DateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+    }
+    public static ProprietaryDate1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

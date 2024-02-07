@@ -7,48 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Totals of the ATM.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMTotals3
+     : IIsoXmlSerilizable<ATMTotals3>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the type of transaction. The following values are predefined: Withdrawal, QuickWithdrawal, WithdrawalForDisabledPerson, CashDeposit, Transfer, InternationalTransfer, PeriodicTransfer, CheckCommand, MobileTopUp, Moneo.
     /// </summary>
-    [DataMember]
     public required IsoMax70Text Identification { get; init; } 
     /// <summary>
     /// Additional identification of the type of transaction. The following values are predefined: Vodaphone, TMobile, Verizon.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? AdditionalIdentification { get; init; } 
     /// <summary>
     /// Period of computation for the counters.
     /// </summary>
-    [DataMember]
     public required ATMCounterType2Code Period { get; init; } 
     /// <summary>
     /// Currency of the totals.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Number of transaction with the defined currency.
     /// </summary>
-    [DataMember]
     public required IsoNumber Count { get; init; } 
     /// <summary>
     /// Amount of transaction with the defined currency.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(Identification)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        if (AdditionalIdentification is IsoMax70Text AdditionalIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AddtlId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AdditionalIdentificationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Prd", xmlNamespace );
+        writer.WriteValue(Period.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Cnt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(Count)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        if (Amount is IsoImpliedCurrencyAndAmount AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(AmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMTotals3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

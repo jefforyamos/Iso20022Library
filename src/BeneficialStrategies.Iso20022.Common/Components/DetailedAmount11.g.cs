@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Fees between acquirer and issuer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DetailedAmount11
+     : IIsoXmlSerilizable<DetailedAmount11>
 {
     #nullable enable
     
     /// <summary>
     /// Type or class of amount.
     /// </summary>
-    [DataMember]
     public required TypeOfAmount7Code Type { get; init; } 
     /// <summary>
     /// Additional information to specify the type of amount.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AdditionalType { get; init; } 
     /// <summary>
     /// Amount value.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection41 Amount { get; init; } 
     /// <summary>
     /// Original value of the amount.
     /// </summary>
-    [DataMember]
     public AmountAndDirection41? OriginalAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AdditionalType is IsoMax35Text AdditionalTypeValue)
+        {
+            writer.WriteStartElement(null, "AddtlTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdditionalTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        Amount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OriginalAmount is AmountAndDirection41 OriginalAmountValue)
+        {
+            writer.WriteStartElement(null, "OrgnlAmt", xmlNamespace );
+            OriginalAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DetailedAmount11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

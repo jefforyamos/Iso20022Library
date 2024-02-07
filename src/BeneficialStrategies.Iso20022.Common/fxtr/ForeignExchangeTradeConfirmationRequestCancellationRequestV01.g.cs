@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.fxtr.ForeignExchangeTradeConfirmationRequestCancellationRequestV01>;
 
 namespace BeneficialStrategies.Iso20022.fxtr;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.fxtr;
 /// The request is sent by the market participants to the CMU after the confirmation is requested.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The ForeignExchangeTradeConfirmationRequestCancellationRequest message is sent from a market participant to a Central matching utility (CMU) to amend the ForeignExchangeTradeConfirmationRequest previously sent.||Usage|The request is sent by the market participants to the CMU after the confirmation is requested.")]
-public partial record ForeignExchangeTradeConfirmationRequestCancellationRequestV01 : IOuterRecord
+public partial record ForeignExchangeTradeConfirmationRequestCancellationRequestV01 : IOuterRecord<ForeignExchangeTradeConfirmationRequestCancellationRequestV01,ForeignExchangeTradeConfirmationRequestCancellationRequestV01Document>
+    ,IIsoXmlSerilizable<ForeignExchangeTradeConfirmationRequestCancellationRequestV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record ForeignExchangeTradeConfirmationRequestCancellationRequest
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "FXTradConfReqCxlReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ForeignExchangeTradeConfirmationRequestCancellationRequestV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -119,6 +126,50 @@ public partial record ForeignExchangeTradeConfirmationRequestCancellationRequest
     {
         return new ForeignExchangeTradeConfirmationRequestCancellationRequestV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("FXTradConfReqCxlReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CancellationRequestIdentification is MessageIdentification1 CancellationRequestIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CxlReqId", xmlNamespace );
+            CancellationRequestIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TradgSdId", xmlNamespace );
+        TradingSideIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CtrPtyRoleId", xmlNamespace );
+        CounterpartyRoleIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TradeIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UndrlygPdctTp", xmlNamespace );
+        writer.WriteValue(UnderlyingProductType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ForeignExchangeTradeConfirmationRequestCancellationRequestV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -126,9 +177,7 @@ public partial record ForeignExchangeTradeConfirmationRequestCancellationRequest
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeConfirmationRequestCancellationRequestV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ForeignExchangeTradeConfirmationRequestCancellationRequestV01Document : IOuterDocument<ForeignExchangeTradeConfirmationRequestCancellationRequestV01>
+public partial record ForeignExchangeTradeConfirmationRequestCancellationRequestV01Document : IOuterDocument<ForeignExchangeTradeConfirmationRequestCancellationRequestV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -144,5 +193,22 @@ public partial record ForeignExchangeTradeConfirmationRequestCancellationRequest
     /// <summary>
     /// The instance of <seealso cref="ForeignExchangeTradeConfirmationRequestCancellationRequestV01"/> is required.
     /// </summary>
+    [DataMember(Name=ForeignExchangeTradeConfirmationRequestCancellationRequestV01.XmlTag)]
     public required ForeignExchangeTradeConfirmationRequestCancellationRequestV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ForeignExchangeTradeConfirmationRequestCancellationRequestV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

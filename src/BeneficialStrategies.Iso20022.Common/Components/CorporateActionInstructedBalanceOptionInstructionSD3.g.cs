@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action instructed balance details at option level.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionInstructedBalanceOptionInstructionSD3
+     : IIsoXmlSerilizable<CorporateActionInstructedBalanceOptionInstructionSD3>
 {
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    [DataMember]
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Contra CUSIP Identification of the option instruction.
     /// </summary>
-    [DataMember]
     public OtherIdentification2? TransactionContraCUSIP { get; init; } 
     /// <summary>
     /// Quantity relating only to the oversubscription.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity15Choice_? TransactionIdentificationOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Status of the instruction.
     /// </summary>
-    [DataMember]
     public required DTCInstructionStatus2Code TransactionIdentificationStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OptnNb", xmlNamespace );
+        OptionNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionContraCUSIP is OtherIdentification2 TransactionContraCUSIPValue)
+        {
+            writer.WriteStartElement(null, "TxContraCUSIP", xmlNamespace );
+            TransactionContraCUSIPValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionIdentificationOversubscriptionQuantity is FinancialInstrumentQuantity15Choice_ TransactionIdentificationOversubscriptionQuantityValue)
+        {
+            writer.WriteStartElement(null, "TxIdOvrsbcptQty", xmlNamespace );
+            TransactionIdentificationOversubscriptionQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxIdSts", xmlNamespace );
+        writer.WriteValue(TransactionIdentificationStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static CorporateActionInstructedBalanceOptionInstructionSD3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.admi.SystemEventAcknowledgementV01>;
 
 namespace BeneficialStrategies.Iso20022.admi;
 
@@ -22,10 +25,9 @@ namespace BeneficialStrategies.Iso20022.admi;
 /// 
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The SystemEventAcknowledgement message is sent by a participant of a central system to the central system to acknowledge the notification of an occurrence of an event in a central system.|")]
-public partial record SystemEventAcknowledgementV01 : IOuterRecord
+public partial record SystemEventAcknowledgementV01 : IOuterRecord<SystemEventAcknowledgementV01,SystemEventAcknowledgementV01Document>
+    ,IIsoXmlSerilizable<SystemEventAcknowledgementV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -37,6 +39,11 @@ public partial record SystemEventAcknowledgementV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SysEvtAck";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SystemEventAcknowledgementV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -94,6 +101,50 @@ public partial record SystemEventAcknowledgementV01 : IOuterRecord
     {
         return new SystemEventAcknowledgementV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SysEvtAck");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (OriginatorReference is IsoMax35Text OriginatorReferenceValue)
+        {
+            writer.WriteStartElement(null, "OrgtrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginatorReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SettlementSessionIdentifier is IsoExact4AlphaNumericText SettlementSessionIdentifierValue)
+        {
+            writer.WriteStartElement(null, "SttlmSsnIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(SettlementSessionIdentifierValue)); // data type Exact4AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+        if (AcknowledgementDetails is Event1 AcknowledgementDetailsValue)
+        {
+            writer.WriteStartElement(null, "AckDtls", xmlNamespace );
+            AcknowledgementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SystemEventAcknowledgementV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -101,9 +152,7 @@ public partial record SystemEventAcknowledgementV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SystemEventAcknowledgementV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SystemEventAcknowledgementV01Document : IOuterDocument<SystemEventAcknowledgementV01>
+public partial record SystemEventAcknowledgementV01Document : IOuterDocument<SystemEventAcknowledgementV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -119,5 +168,22 @@ public partial record SystemEventAcknowledgementV01Document : IOuterDocument<Sys
     /// <summary>
     /// The instance of <seealso cref="SystemEventAcknowledgementV01"/> is required.
     /// </summary>
+    [DataMember(Name=SystemEventAcknowledgementV01.XmlTag)]
     public required SystemEventAcknowledgementV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SystemEventAcknowledgementV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

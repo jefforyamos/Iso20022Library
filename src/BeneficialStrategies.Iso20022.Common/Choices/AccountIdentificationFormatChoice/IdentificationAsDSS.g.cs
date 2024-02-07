@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AccountIdentificationFormatChoice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentificationFormatChoic
 /// Identification of the account expressed with a data source scheme, a code used within the data source scheme and the account identification.
 /// </summary>
 public partial record IdentificationAsDSS : AccountIdentificationFormatChoice_
+     , IIsoXmlSerilizable<IdentificationAsDSS>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
@@ -27,5 +31,32 @@ public partial record IdentificationAsDSS : AccountIdentificationFormatChoice_
     /// Proprietary information, often a code, issued by the data source scheme issuer.
     /// </summary>
     public required IsoExact4AlphaNumericText Information { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Issr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax8Text(Issuer)); // data type Max8Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Inf", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(Information)); // data type Exact4AlphaNumericText System.String
+        writer.WriteEndElement();
+    }
+    public static new IdentificationAsDSS Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

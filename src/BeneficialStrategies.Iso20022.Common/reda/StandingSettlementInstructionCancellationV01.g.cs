@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.reda.StandingSettlementInstructionCancellationV01>;
 
 namespace BeneficialStrategies.Iso20022.reda;
 
@@ -36,10 +39,9 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// • A vendor's application communicating on behalf of the account owner or counterparty.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An instructing party sends the StandingSettlementInstructionCancellation message to the receiver to cancel a previously sent StandingSettlementInstruction message. The message can also be used to notify a counterparty of the deletion of a standing settlement information.||Usage|The instructing party (initiator) is:|• An account servicer, for example, a global custodian or prime broker|• A counterparty in a transaction, for example:|	- an investment manager (executing broker),|	- a global custodian (executing broker, prime broker)|• A vendor's application communicating on behalf of an account servicer or counterparty|The receiver is:|• An account owner, for example, an investment manager, hedge fund administrator or a party to which SSI operations have been outsourced|• A counterparty, for example:|	- an investment manager (executing broker)|	- a global custodian (executing broker, prime broker)|• A vendor's application communicating on behalf of the account owner or counterparty.")]
-public partial record StandingSettlementInstructionCancellationV01 : IOuterRecord
+public partial record StandingSettlementInstructionCancellationV01 : IOuterRecord<StandingSettlementInstructionCancellationV01,StandingSettlementInstructionCancellationV01Document>
+    ,IIsoXmlSerilizable<StandingSettlementInstructionCancellationV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -51,6 +53,11 @@ public partial record StandingSettlementInstructionCancellationV01 : IOuterRecor
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "StgSttlmInstrCxl";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => StandingSettlementInstructionCancellationV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -131,6 +138,50 @@ public partial record StandingSettlementInstructionCancellationV01 : IOuterRecor
     {
         return new StandingSettlementInstructionCancellationV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("StgSttlmInstrCxl");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgRefId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageReferenceIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (EffectiveDateDetails is EffectiveDate1 EffectiveDateDetailsValue)
+        {
+            writer.WriteStartElement(null, "FctvDtDtls", xmlNamespace );
+            EffectiveDateDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AcctId", xmlNamespace );
+        AccountIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MktId", xmlNamespace );
+        MarketIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmDtls", xmlNamespace );
+        SettlementDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PrvsMsgRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(PreviousMessageReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static StandingSettlementInstructionCancellationV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -138,9 +189,7 @@ public partial record StandingSettlementInstructionCancellationV01 : IOuterRecor
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StandingSettlementInstructionCancellationV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record StandingSettlementInstructionCancellationV01Document : IOuterDocument<StandingSettlementInstructionCancellationV01>
+public partial record StandingSettlementInstructionCancellationV01Document : IOuterDocument<StandingSettlementInstructionCancellationV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -156,5 +205,22 @@ public partial record StandingSettlementInstructionCancellationV01Document : IOu
     /// <summary>
     /// The instance of <seealso cref="StandingSettlementInstructionCancellationV01"/> is required.
     /// </summary>
+    [DataMember(Name=StandingSettlementInstructionCancellationV01.XmlTag)]
     public required StandingSettlementInstructionCancellationV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(StandingSettlementInstructionCancellationV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

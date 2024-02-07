@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status of a system and the period of time during which the status is valid.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SystemStatus3
+     : IIsoXmlSerilizable<SystemStatus3>
 {
     #nullable enable
     
     /// <summary>
     /// Current status of a system.
     /// </summary>
-    [DataMember]
     public required SystemStatus2Choice_ Status { get; init; } 
     /// <summary>
     /// Period of time during which the status of the system is valid.
     /// </summary>
-    [DataMember]
     public DateTimePeriod1Choice_? ValidityTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        Status.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ValidityTime is DateTimePeriod1Choice_ ValidityTimeValue)
+        {
+            writer.WriteStartElement(null, "VldtyTm", xmlNamespace );
+            ValidityTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SystemStatus3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

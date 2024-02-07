@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Party32Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Party32Choice;
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
 public partial record IndividualPerson : Party32Choice_
+     , IIsoXmlSerilizable<IndividualPerson>
 {
     #nullable enable
+    
     /// <summary>
     /// Term used to address the person.
     /// </summary>
@@ -62,11 +66,11 @@ public partial record IndividualPerson : Party32Choice_
     /// <summary>
     /// Address of the person.
     /// </summary>
-    public IReadOnlyCollection<PostalAddress21> PostalAddress { get; init; } = [];
+    public ValueList<PostalAddress21> PostalAddress { get; init; } = [];
     /// <summary>
     /// Nationality and legal status (minor or major).
     /// </summary>
-    public IReadOnlyCollection<CitizenshipInformation2> Citizenship { get; init; } = [];
+    public ValueList<CitizenshipInformation2> Citizenship { get; init; } = [];
     /// <summary>
     /// Organisation represented by a person, or for which a person works.
     /// </summary>
@@ -95,5 +99,134 @@ public partial record IndividualPerson : Party32Choice_
     /// Information related to the person.
     /// </summary>
     public PersonalInformation1? FamilyInformation { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NamePrefix is NamePrefix1Choice_ NamePrefixValue)
+        {
+            writer.WriteStartElement(null, "NmPrfx", xmlNamespace );
+            NamePrefixValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GivenName is IsoMax35Text GivenNameValue)
+        {
+            writer.WriteStartElement(null, "GvnNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(GivenNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MiddleName is IsoMax35Text MiddleNameValue)
+        {
+            writer.WriteStartElement(null, "MddlNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MiddleNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(Name)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (NameSuffix is IsoMax35Text NameSuffixValue)
+        {
+            writer.WriteStartElement(null, "NmSfx", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameSuffixValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Gender is Gender1Code GenderValue)
+        {
+            writer.WriteStartElement(null, "Gndr", xmlNamespace );
+            writer.WriteValue(GenderValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (BirthDate is IsoISODate BirthDateValue)
+        {
+            writer.WriteStartElement(null, "BirthDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(BirthDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (CountryOfBirth is CountryCode CountryOfBirthValue)
+        {
+            writer.WriteStartElement(null, "CtryOfBirth", xmlNamespace );
+            writer.WriteValue(CountryOfBirthValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ProvinceOfBirth is IsoMax35Text ProvinceOfBirthValue)
+        {
+            writer.WriteStartElement(null, "PrvcOfBirth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProvinceOfBirthValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CityOfBirth is IsoMax35Text CityOfBirthValue)
+        {
+            writer.WriteStartElement(null, "CityOfBirth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CityOfBirthValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Profession is IsoMax35Text ProfessionValue)
+        {
+            writer.WriteStartElement(null, "Prfssn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProfessionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PstlAdr", xmlNamespace );
+        PostalAddress.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Ctznsh", xmlNamespace );
+        Citizenship.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (EmployingCompany is IsoMax140Text EmployingCompanyValue)
+        {
+            writer.WriteStartElement(null, "EmplngCpny", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(EmployingCompanyValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (BusinessFunction is IsoMax35Text BusinessFunctionValue)
+        {
+            writer.WriteStartElement(null, "BizFctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(BusinessFunctionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PoliticallyExposedPersonType is PoliticalExposureType1Choice_ PoliticallyExposedPersonTypeValue)
+        {
+            writer.WriteStartElement(null, "PltclyXpsdPrsnTp", xmlNamespace );
+            PoliticallyExposedPersonTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeathDate is IsoISODate DeathDateValue)
+        {
+            writer.WriteStartElement(null, "DthDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DeathDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (CivilStatus is CivilStatus1Choice_ CivilStatusValue)
+        {
+            writer.WriteStartElement(null, "CvlSts", xmlNamespace );
+            CivilStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EducationLevel is IsoMax35Text EducationLevelValue)
+        {
+            writer.WriteStartElement(null, "EdctnLvl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(EducationLevelValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (FamilyInformation is PersonalInformation1 FamilyInformationValue)
+        {
+            writer.WriteStartElement(null, "FmlyInf", xmlNamespace );
+            FamilyInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new IndividualPerson Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

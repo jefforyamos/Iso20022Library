@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account between an investor(s) and a fund manager or a fund. The account can contain holdings in any investment fund or investment fund class managed (or distributed) by the fund manager, within the same fund family.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Account33
+     : IIsoXmlSerilizable<Account33>
 {
     #nullable enable
     
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification132? OwnerIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountIdentification { get; init; } 
     /// <summary>
     /// Supplementary registration information applying to a specific block of units for dealing and reporting purposes. The supplementary registration information may be used when all the units are registered, for example, to a funds supermarket, but holdings for each investor have to be reconciled individually.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountDesignation { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountName { get; init; } 
     /// <summary>
     /// Specifies the type of securities account.
     /// </summary>
-    [DataMember]
     public GenericIdentification30? Type { get; init; } 
     /// <summary>
     /// Institution that maintains the records where the account is held.
     /// </summary>
-    [DataMember]
     public PartyIdentification132? Servicer { get; init; } 
     /// <summary>
     /// Sub-account of the master or omnibus account.
     /// </summary>
-    [DataMember]
     public SubAccount5? SubAccountDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OwnerIdentification is PartyIdentification132 OwnerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OwnrId", xmlNamespace );
+            OwnerIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountIdentification is IsoMax35Text AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountDesignation is IsoMax35Text AccountDesignationValue)
+        {
+            writer.WriteStartElement(null, "AcctDsgnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountDesignationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountName is IsoMax35Text AccountNameValue)
+        {
+            writer.WriteStartElement(null, "AcctNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Type is GenericIdentification30 TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Servicer is PartyIdentification132 ServicerValue)
+        {
+            writer.WriteStartElement(null, "Svcr", xmlNamespace );
+            ServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SubAccountDetails is SubAccount5 SubAccountDetailsValue)
+        {
+            writer.WriteStartElement(null, "SubAcctDtls", xmlNamespace );
+            SubAccountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Account33 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

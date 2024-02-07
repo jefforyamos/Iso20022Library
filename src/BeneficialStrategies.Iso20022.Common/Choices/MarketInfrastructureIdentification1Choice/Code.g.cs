@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.MarketInfrastructureIdentification1Choice;
 
@@ -13,6 +15,37 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketInfrastructureIdentificati
 /// Infrastructure through which the payment instruction is processed, as published in an external clearing system identification code list.
 /// </summary>
 public partial record Code : MarketInfrastructureIdentification1Choice_
+     , IIsoXmlSerilizable<Code>
 {
-    public required ExternalMarketInfrastructure1Code Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies the market infrastructure identification, as published in an external market infrastructure code list.
+    /// This is a synonym of the external cash clearing system code list, extended outside the pure cash domains.
+    /// External code sets can be downloaded from www.iso20022.org.
+    /// </summary>
+    public required ExternalMarketInfrastructure1Code Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new Code Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

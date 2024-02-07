@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the status of a creditor enrolment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record EnrolmentStatus2
+     : IIsoXmlSerilizable<EnrolmentStatus2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification of the original instruction.
     /// </summary>
-    [DataMember]
     public OriginalBusinessInstruction1? OriginalBusinessInstruction { get; init; } 
     /// <summary>
     /// Provides detailed information on the status for the request.
     /// </summary>
-    [DataMember]
     public required ServiceStatus1Choice_ Status { get; init; } 
     /// <summary>
     /// Specifies the reason for the status of the enrolment request.
     /// </summary>
-    [DataMember]
     public CreditorEnrolmentStatusReason2? StatusReason { get; init; } 
     /// <summary>
     /// Provides the original creditor enrolment data.
     /// </summary>
-    [DataMember]
     public OriginalEnrolment2Choice_? OriginalEnrolmentReference { get; init; } 
     /// <summary>
     /// Actual date when the creditor enrolment was executed.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? EffectiveEnrolmentDate { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OriginalBusinessInstruction is OriginalBusinessInstruction1 OriginalBusinessInstructionValue)
+        {
+            writer.WriteStartElement(null, "OrgnlBizInstr", xmlNamespace );
+            OriginalBusinessInstructionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        Status.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (StatusReason is CreditorEnrolmentStatusReason2 StatusReasonValue)
+        {
+            writer.WriteStartElement(null, "StsRsn", xmlNamespace );
+            StatusReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalEnrolmentReference is OriginalEnrolment2Choice_ OriginalEnrolmentReferenceValue)
+        {
+            writer.WriteStartElement(null, "OrgnlEnrlmntRef", xmlNamespace );
+            OriginalEnrolmentReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EffectiveEnrolmentDate is DateAndDateTime2Choice_ EffectiveEnrolmentDateValue)
+        {
+            writer.WriteStartElement(null, "FctvEnrlmntDt", xmlNamespace );
+            EffectiveEnrolmentDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static EnrolmentStatus2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

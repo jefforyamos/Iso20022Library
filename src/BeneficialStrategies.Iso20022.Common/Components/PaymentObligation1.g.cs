@@ -7,68 +7,121 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment obligation contracted between two financial institutions related to the financing of a commercial transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentObligation1
+     : IIsoXmlSerilizable<PaymentObligation1>
 {
     #nullable enable
     
     /// <summary>
     /// Bank that has to pay under the obligation.
     /// </summary>
-    [DataMember]
     public required BICIdentification1 ObligorBank { get; init; } 
     /// <summary>
     /// Bank that will be paid under the obligation.
     /// </summary>
-    [DataMember]
     public required BICIdentification1 RecipientBank { get; init; } 
     /// <summary>
     /// Maximum amount that will be paid under the obligation.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Maximum amount that will be paid under the obligation, expressed as a percentage of the purchase order net amount.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate Percentage { get; init; } 
     /// <summary>
     /// Amount of the charges taken by the obligor bank.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? ChargesAmount { get; init; } 
     /// <summary>
     /// Amount of the charges expressed as a percentage of the amount paid by the obligor bank.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? ChargesPercentage { get; init; } 
     /// <summary>
     /// Date at which the obligation will expire.
     /// </summary>
-    [DataMember]
     public required IsoISODate ExpiryDate { get; init; } 
     /// <summary>
     /// Country of which the law governs the bank payment obligation.
     /// </summary>
-    [DataMember]
     public CountryCode? ApplicableLaw { get; init; } 
     /// <summary>
     /// Payment processes required to transfer cash from the debtor to the creditor.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentTerms2> PaymentTerms { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentTerms2? PaymentTerms { get; init; } 
     /// <summary>
     /// Instruction between two clearing agents stipulating the cash transfer characteristics between the two parties.
     /// </summary>
-    [DataMember]
     public SettlementTerms2? SettlementTerms { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OblgrBk", xmlNamespace );
+        ObligorBank.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RcptBk", xmlNamespace );
+        RecipientBank.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(Amount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Pctg", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(Percentage)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+        if (ChargesAmount is IsoCurrencyAndAmount ChargesAmountValue)
+        {
+            writer.WriteStartElement(null, "ChrgsAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(ChargesAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ChargesPercentage is IsoPercentageRate ChargesPercentageValue)
+        {
+            writer.WriteStartElement(null, "ChrgsPctg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(ChargesPercentageValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "XpryDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ExpiryDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (ApplicableLaw is CountryCode ApplicableLawValue)
+        {
+            writer.WriteStartElement(null, "AplblLaw", xmlNamespace );
+            writer.WriteValue(ApplicableLawValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PaymentTerms is PaymentTerms2 PaymentTermsValue)
+        {
+            writer.WriteStartElement(null, "PmtTerms", xmlNamespace );
+            PaymentTermsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementTerms is SettlementTerms2 SettlementTermsValue)
+        {
+            writer.WriteStartElement(null, "SttlmTerms", xmlNamespace );
+            SettlementTermsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentObligation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

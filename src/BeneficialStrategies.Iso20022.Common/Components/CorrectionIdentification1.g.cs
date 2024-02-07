@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies a correction has occurred.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorrectionIdentification1
+     : IIsoXmlSerilizable<CorrectionIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the message contains an updated version of a message that was previously sent.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? Indicator { get; init; } 
     /// <summary>
     /// Contains the date of the update.
     /// </summary>
-    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// Contains the time of the update.
     /// </summary>
-    [DataMember]
     public IsoISOTime? Time { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Indicator is IsoTrueFalseIndicator IndicatorValue)
+        {
+            writer.WriteStartElement(null, "Ind", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(IndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Date is IsoISODate DateValue)
+        {
+            writer.WriteStartElement(null, "Dt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Time is IsoISOTime TimeValue)
+        {
+            writer.WriteStartElement(null, "Tm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(TimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static CorrectionIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

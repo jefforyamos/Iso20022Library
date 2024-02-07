@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details of the collateral reference data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralValue1
+     : IIsoXmlSerilizable<CollateralValue1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a security by an ISIN.
     /// </summary>
-    [DataMember]
     public required IsoISINIdentifier SecurityIdentification { get; init; } 
     /// <summary>
     /// Valuation date for the price.
     /// </summary>
-    [DataMember]
     public required IsoISODate ValuationDate { get; init; } 
     /// <summary>
     /// Provides details of the currency of the valuation.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? ValuationCurrency { get; init; } 
     /// <summary>
     /// Provides details of the price provided for the security.
     /// </summary>
-    [DataMember]
     public required AmountOrCoefficientPrice1Choice_ ValuationPrice { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SctyId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISINIdentifier(SecurityIdentification)); // data type ISINIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ValtnDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ValuationDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (ValuationCurrency is ActiveCurrencyCode ValuationCurrencyValue)
+        {
+            writer.WriteStartElement(null, "ValtnCcy", xmlNamespace );
+            writer.WriteValue(ValuationCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ValtnPric", xmlNamespace );
+        ValuationPrice.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CollateralValue1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

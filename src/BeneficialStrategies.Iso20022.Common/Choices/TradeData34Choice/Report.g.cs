@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TradeData34Choice;
 
@@ -13,19 +15,53 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData34Choice;
 /// Information concerning the reporting at transaction level.
 /// </summary>
 public partial record Report : TradeData34Choice_
+     , IIsoXmlSerilizable<Report>
 {
     #nullable enable
+    
     /// <summary>
     /// Status of the required transactions reconciliation or pairing.
     /// </summary>
-    public NumberOfReportsPerStatus4? PairingReconciliationStatus { get; init;  } // Warning: Don't know multiplicity.
+    public NumberOfReportsPerStatus4? PairingReconciliationStatus { get; init; } 
     /// <summary>
     /// Data on transaction requiring reconciliation or pairing. 
     /// </summary>
     public ReconciliationReport8? ReconciliationReport { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _AtBHY8K3EeuFNp8LZAnorg
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PairingReconciliationStatus is NumberOfReportsPerStatus4 PairingReconciliationStatusValue)
+        {
+            writer.WriteStartElement(null, "PairgRcncltnSts", xmlNamespace );
+            PairingReconciliationStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize ReconciliationReport, multiplicity Unknown
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Report Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

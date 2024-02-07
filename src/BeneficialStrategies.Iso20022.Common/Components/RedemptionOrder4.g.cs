@@ -7,118 +7,218 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Instruction from an investor to sell investment fund units back to the fund.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RedemptionOrder4
+     : IIsoXmlSerilizable<RedemptionOrder4>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OrderReference { get; init; } 
     /// <summary>
     /// Specifies the category of the investment fund order.
     /// </summary>
-    [DataMember]
-    public ValueList<FundOrderType1> OrderType { get; init; } = []; // Warning: Don't know multiplicity.
+    public FundOrderType1? OrderType { get; init; } 
     /// <summary>
     /// Investment fund class related to an order.
     /// </summary>
-    [DataMember]
     public required FinancialInstrument6 FinancialInstrumentDetails { get; init; } 
     /// <summary>
     /// Quantity of investment fund units redeemed.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
     /// <summary>
     /// Amount of money used to derive the quantity of investment fund units to be sold.
     /// </summary>
-    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount NetAmount { get; init; } 
     /// <summary>
     /// Portion of the investor's holdings, in a specific investment fund/ fund class, that is redeemed.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate HoldingsRedemptionRate { get; init; } 
     /// <summary>
     /// Indicates the rounding direction applied to nearest unit.
     /// </summary>
-    [DataMember]
     public RoundingDirection2Code? Rounding { get; init; } 
     /// <summary>
     /// Amount of money used to derive the quantity of investment fund units to be sold, including all charges, commissions, and tax.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? GrossAmount { get; init; } 
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
     /// </summary>
-    [DataMember]
     public ForeignExchangeTerms5? ForeignExchangeDetails { get; init; } 
     /// <summary>
     /// Dividend option chosen by the account owner based on the options offered in the prospectus.
     /// </summary>
-    [DataMember]
     public IncomePreference1Code? IncomePreference { get; init; } 
     /// <summary>
     /// Tax group to which the purchased investment fund units belong. The investor indicates to the intermediary operating pooled nominees, which type of unit is to be sold.
     /// </summary>
-    [DataMember]
     public UKTaxGroupUnitCode? Group1Or2Units { get; init; } 
     /// <summary>
     /// Charge for the placement of an order.
     /// </summary>
-    [DataMember]
-    public ValueList<Charge8> ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Charge8? ChargeDetails { get; init; } 
     /// <summary>
     /// Commission linked to the execution of an investment fund order.
     /// </summary>
-    [DataMember]
-    public ValueList<Commission6> CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Commission6? CommissionDetails { get; init; } 
     /// <summary>
     /// Tax applicable to an investment fund order.
     /// </summary>
-    [DataMember]
-    public ValueList<Tax6> TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Tax6? TaxDetails { get; init; } 
     /// <summary>
     /// Parameters used to execute the settlement of an investment fund order.
     /// </summary>
-    [DataMember]
     public FundSettlementParameters3? SettlementAndCustodyDetails { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator PhysicalDeliveryIndicator { get; init; } 
     /// <summary>
     /// Information related to physical delivery of the securities.
     /// </summary>
-    [DataMember]
     public DeliveryParameters3? PhysicalDeliveryDetails { get; init; } 
     /// <summary>
     /// Currency requested for settlement of cash proceeds.
     /// </summary>
-    [DataMember]
     public CurrencyCode? RequestedSettlementCurrency { get; init; } 
     /// <summary>
     /// Currency to be used for pricing the fund. This currency must be among the set of currencies in which the price may be expressed, as stated in the prospectus.
     /// </summary>
-    [DataMember]
     public CurrencyCode? RequestedNAVCurrency { get; init; } 
     /// <summary>
     /// Payment transaction resulting from the investment fund order execution.
     /// </summary>
-    [DataMember]
     public PaymentTransaction15? CashSettlementDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OrdrRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OrderReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (OrderType is FundOrderType1 OrderTypeValue)
+        {
+            writer.WriteStartElement(null, "OrdrTp", xmlNamespace );
+            OrderTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FinInstrmDtls", xmlNamespace );
+        FinancialInstrumentDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UnitsNb", xmlNamespace );
+        UnitsNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NetAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(NetAmount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "HldgsRedRate", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(HoldingsRedemptionRate)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+        if (Rounding is RoundingDirection2Code RoundingValue)
+        {
+            writer.WriteStartElement(null, "Rndg", xmlNamespace );
+            writer.WriteValue(RoundingValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (GrossAmount is IsoActiveOrHistoricCurrencyAndAmount GrossAmountValue)
+        {
+            writer.WriteStartElement(null, "GrssAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(GrossAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ForeignExchangeDetails is ForeignExchangeTerms5 ForeignExchangeDetailsValue)
+        {
+            writer.WriteStartElement(null, "FXDtls", xmlNamespace );
+            ForeignExchangeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IncomePreference is IncomePreference1Code IncomePreferenceValue)
+        {
+            writer.WriteStartElement(null, "IncmPref", xmlNamespace );
+            writer.WriteValue(IncomePreferenceValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Group1Or2Units is UKTaxGroupUnitCode Group1Or2UnitsValue)
+        {
+            writer.WriteStartElement(null, "Grp1Or2Units", xmlNamespace );
+            writer.WriteValue(Group1Or2UnitsValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ChargeDetails is Charge8 ChargeDetailsValue)
+        {
+            writer.WriteStartElement(null, "ChrgDtls", xmlNamespace );
+            ChargeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CommissionDetails is Commission6 CommissionDetailsValue)
+        {
+            writer.WriteStartElement(null, "ComssnDtls", xmlNamespace );
+            CommissionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxDetails is Tax6 TaxDetailsValue)
+        {
+            writer.WriteStartElement(null, "TaxDtls", xmlNamespace );
+            TaxDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementAndCustodyDetails is FundSettlementParameters3 SettlementAndCustodyDetailsValue)
+        {
+            writer.WriteStartElement(null, "SttlmAndCtdyDtls", xmlNamespace );
+            SettlementAndCustodyDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PhysDlvryInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PhysicalDeliveryIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (PhysicalDeliveryDetails is DeliveryParameters3 PhysicalDeliveryDetailsValue)
+        {
+            writer.WriteStartElement(null, "PhysDlvryDtls", xmlNamespace );
+            PhysicalDeliveryDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequestedSettlementCurrency is CurrencyCode RequestedSettlementCurrencyValue)
+        {
+            writer.WriteStartElement(null, "ReqdSttlmCcy", xmlNamespace );
+            writer.WriteValue(RequestedSettlementCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (RequestedNAVCurrency is CurrencyCode RequestedNAVCurrencyValue)
+        {
+            writer.WriteStartElement(null, "ReqdNAVCcy", xmlNamespace );
+            writer.WriteValue(RequestedNAVCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CashSettlementDetails is PaymentTransaction15 CashSettlementDetailsValue)
+        {
+            writer.WriteStartElement(null, "CshSttlmDtls", xmlNamespace );
+            CashSettlementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RedemptionOrder4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

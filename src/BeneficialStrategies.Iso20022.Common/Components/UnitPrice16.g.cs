@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UnitPrice16
+     : IIsoXmlSerilizable<UnitPrice16>
 {
     #nullable enable
     
     /// <summary>
     /// Type of price.
     /// </summary>
-    [DataMember]
     public required UnitPriceType1Choice_ UnitPriceType { get; init; } 
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
-    [DataMember]
     public required PriceValue1 Value { get; init; } 
     /// <summary>
     /// Amount included in the NAV that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? TaxableIncomePerShare { get; init; } 
     /// <summary>
     /// Taxable income per share calculated.
     /// </summary>
-    [DataMember]
     public TaxableIncomePerShareCalculatedType1Choice_? TaxableIncomePerShareCalculated { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UnitPricTp", xmlNamespace );
+        UnitPriceType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        Value.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TaxableIncomePerShare is IsoActiveCurrencyAnd13DecimalAmount TaxableIncomePerShareValue)
+        {
+            writer.WriteStartElement(null, "TaxblIncmPerShr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(TaxableIncomePerShareValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TaxableIncomePerShareCalculated is TaxableIncomePerShareCalculatedType1Choice_ TaxableIncomePerShareCalculatedValue)
+        {
+            writer.WriteStartElement(null, "TaxblIncmPerShrClctd", xmlNamespace );
+            TaxableIncomePerShareCalculatedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static UnitPrice16 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

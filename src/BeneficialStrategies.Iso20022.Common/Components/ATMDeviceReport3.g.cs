@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the report from an ATM device.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMDeviceReport3
+     : IIsoXmlSerilizable<ATMDeviceReport3>
 {
     #nullable enable
     
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
-    [DataMember]
     public required ATMEnvironment6 Environment { get; init; } 
     /// <summary>
     /// Global status of the ATM.
     /// </summary>
-    [DataMember]
     public required ATMStatus1 ATMGlobalStatus { get; init; } 
     /// <summary>
     /// Result of a maintenance command performed by the ATM.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMCommand11> CommandResult { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMCommand11? CommandResult { get; init; } 
     /// <summary>
     /// Maintenance command which has requested the device report.
     /// </summary>
-    [DataMember]
     public ATMCommand12? CommandContext { get; init; } 
     /// <summary>
     /// Information related to security commands.
     /// </summary>
-    [DataMember]
     public ATMSecurityContext5? ATMSecurityContext { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Envt", xmlNamespace );
+        Environment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ATMGblSts", xmlNamespace );
+        ATMGlobalStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CommandResult is ATMCommand11 CommandResultValue)
+        {
+            writer.WriteStartElement(null, "CmdRslt", xmlNamespace );
+            CommandResultValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CommandContext is ATMCommand12 CommandContextValue)
+        {
+            writer.WriteStartElement(null, "CmdCntxt", xmlNamespace );
+            CommandContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ATMSecurityContext is ATMSecurityContext5 ATMSecurityContextValue)
+        {
+            writer.WriteStartElement(null, "ATMSctyCntxt", xmlNamespace );
+            ATMSecurityContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMDeviceReport3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

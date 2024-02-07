@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TransactionIdentification3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionIdentification3Choice
 /// Identifies the collateral reuse.
 /// </summary>
 public partial record CollateralReuse : TransactionIdentification3Choice_
+     , IIsoXmlSerilizable<CollateralReuse>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
@@ -31,5 +35,41 @@ public partial record CollateralReuse : TransactionIdentification3Choice_
     /// Unique code identifying that the Financial counterparty responsible for reporting on behalf of the other counterparty.
     /// </summary>
     public OrganisationIdentification15Choice_? EntityResponsibleForReport { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TechnicalRecordIdentification is IsoMax140Text TechnicalRecordIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(TechnicalRecordIdentificationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RptgCtrPty", xmlNamespace );
+        ReportingCounterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptSubmitgNtty", xmlNamespace );
+        ReportSubmittingEntity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (EntityResponsibleForReport is OrganisationIdentification15Choice_ EntityResponsibleForReportValue)
+        {
+            writer.WriteStartElement(null, "NttyRspnsblForRpt", xmlNamespace );
+            EntityResponsibleForReportValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new CollateralReuse Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

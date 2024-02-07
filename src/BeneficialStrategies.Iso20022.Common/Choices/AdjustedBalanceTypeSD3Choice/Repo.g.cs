@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AdjustedBalanceTypeSD3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AdjustedBalanceTypeSD3Choice;
 /// Repurchase agreement (REPO) between a seller and a buyer whereby the seller agrees to repurchase the securities at an agreed upon price, and usually at a stated time.
 /// </summary>
 public partial record Repo : AdjustedBalanceTypeSD3Choice_
+     , IIsoXmlSerilizable<Repo>
 {
     #nullable enable
+    
     /// <summary>
     /// Sign of the quantity of security.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record Repo : AdjustedBalanceTypeSD3Choice_
     /// Quantity of security.
     /// </summary>
     public required FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ShrtLngPos", xmlNamespace );
+        writer.WriteValue(ShortLongPosition.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        Quantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new Repo Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

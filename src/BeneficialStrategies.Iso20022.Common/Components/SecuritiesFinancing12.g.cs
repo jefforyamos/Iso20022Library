@@ -7,218 +7,436 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the closing of the securities financing transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesFinancing12
+     : IIsoXmlSerilizable<SecuritiesFinancing12>
 {
     #nullable enable
     
     /// <summary>
     /// Date/Time at which rate change has taken place.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? RateChangeDate { get; init; } 
     /// <summary>
     /// Specifies whether the rate is fixed or variable.
     /// </summary>
-    [DataMember]
     public RateType35Choice_? RateType { get; init; } 
     /// <summary>
     /// Specifies whether the collateral position should be subject to automatic revaluation by the account servicer.
     /// </summary>
-    [DataMember]
     public Revaluation3Choice_? Revaluation { get; init; } 
     /// <summary>
     /// Legal framework of the transaction.
     /// </summary>
-    [DataMember]
     public LegalFramework1Code? LegalFramework { get; init; } 
     /// <summary>
     /// Identifies the computation method of accrued interest of the related financial instrument.
     /// </summary>
-    [DataMember]
     public InterestComputationMethod3Choice_? InterestComputationMethod { get; init; } 
     /// <summary>
     /// Index or support rate used together with the spread to calculate the repurchase rate.
     /// </summary>
-    [DataMember]
     public RateName1? VariableRateSupport { get; init; } 
     /// <summary>
     /// Repurchase rate used to calculate the repurchase amount.
     /// </summary>
-    [DataMember]
     public Rate2? RepurchaseRate { get; init; } 
     /// <summary>
     /// Percentage mark-up on a loan consideration used to reflect the lender's risk.
     /// </summary>
-    [DataMember]
     public Rate2? StockLoanMargin { get; init; } 
     /// <summary>
     /// Haircut or valuation factor on the security expressed as a percentage.
     /// </summary>
-    [DataMember]
     public Rate2? SecuritiesHaircut { get; init; } 
     /// <summary>
     /// Interest rate to be paid on the transaction amount, as agreed between the counterparties.
     /// </summary>
-    [DataMember]
     public RateOrName1Choice_? PricingRate { get; init; } 
     /// <summary>
     /// Margin over or under an index that determines the repurchase rate, expressed as a rate or an amount.
     /// </summary>
-    [DataMember]
     public SpreadRate1? SpreadRate { get; init; } 
     /// <summary>
     /// Indicates whether or not the trade is callable.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? CallableTradeIndicator { get; init; } 
     /// <summary>
     /// Minimum number of days' notice a counterparty needs for terminating the transaction.
     /// </summary>
-    [DataMember]
     public IsoMax3NumericText? TransactionCallDelay { get; init; } 
     /// <summary>
     /// Interest amount that has accrued in between two periods, for example, in between interest payment periods.
     /// </summary>
-    [DataMember]
     public AmountAndDirection5? AccruedInterestAmount { get; init; } 
     /// <summary>
     /// Interest rate that has been accrued in between coupon payment periods.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? AccruedInterestPercentage { get; init; } 
     /// <summary>
     /// Fixed amount of money that has to be paid (instead of interest) in the case of a recall or at the closing date.
     /// </summary>
-    [DataMember]
     public AmountAndDirection5? ForfeitAmount { get; init; } 
     /// <summary>
     /// Difference between the amount of money of the first leg and the amount of the second leg of the transaction.
     /// </summary>
-    [DataMember]
     public AmountAndDirection5? PremiumAmount { get; init; } 
     /// <summary>
     /// Amount of money to be settled per piece of collateral to close the transaction.
     /// </summary>
-    [DataMember]
     public AmountAndDirection5? ClosingAmountPerPiecesOfCollateral { get; init; } 
     /// <summary>
     /// Indicates the total Number of collateral instructions involved in the transaction.
     /// </summary>
-    [DataMember]
     public IsoMax3NumericText? TotalNumberOfCollateralInstructions { get; init; } 
     /// <summary>
     /// Provides details for the securities financing transaction.
     /// </summary>
-    [DataMember]
     public Agreement5? FinancingAgreement { get; init; } 
     /// <summary>
     /// Method applied to a lending transaction.
     /// </summary>
-    [DataMember]
     public LendingTransactionMethod2Choice_? LendingTransactionMethod { get; init; } 
     /// <summary>
     /// Indicates if the contract is with or without an exchange of collateral.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? LendingWithCollateral { get; init; } 
     /// <summary>
     /// Identifies the underlying reason for the borrowing, for instance, sale on my behalf or on behalf of a third party.
     /// </summary>
-    [DataMember]
     public BorrowingReason2Choice_? BorrowingReason { get; init; } 
     /// <summary>
     /// Indicates the type of collateral, for insatnce, security, bond, etc.
     /// </summary>
-    [DataMember]
     public CollateralType4Choice_? CollateralType { get; init; } 
     /// <summary>
     /// Indicates whether or not the contract terms changed.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ContractTermsModificationChanged { get; init; } 
     /// <summary>
     /// Interest rate to be paid as agreed between the counterparties.
     /// </summary>
-    [DataMember]
     public Rate2? InterestRate { get; init; } 
     /// <summary>
     /// Rate to be paid by the Borrower to the Lender for the securities borrowed.
     /// </summary>
-    [DataMember]
     public Rate2? BorrowingRate { get; init; } 
     /// <summary>
     /// Method used to calculate the standard collateral amount.
     /// </summary>
-    [DataMember]
     public Rate2? StandardCollateralRatio { get; init; } 
     /// <summary>
     /// Percentage of earnings paid to shareholders in dividends.
     /// </summary>
-    [DataMember]
     public Rate2? DividendRatio { get; init; } 
     /// <summary>
     /// Number of days the securities are lent or borrowed where the contract has an agreed closing date.
     /// </summary>
-    [DataMember]
     public Number24Choice_? NumberOfDaysLendingBorrowing { get; init; } 
     /// <summary>
     /// Specifies the standard collateral amount.
     /// </summary>
-    [DataMember]
     public AmountAndDirection5? StandardCollateralAmount { get; init; } 
     /// <summary>
     /// Interest rate tax that has been accrued in between coupon payment periods.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? AccruedInterestTax { get; init; } 
     /// <summary>
     /// Number of days accrued at the instant of closing trade.
     /// </summary>
-    [DataMember]
     public IsoMax3Number? EndNumberOfDaysAccrued { get; init; } 
     /// <summary>
     /// End ratio of principal outstanding to the original balance.
     /// </summary>
-    [DataMember]
     public IsoBaseOneRate? EndFactor { get; init; } 
     /// <summary>
     /// Type of securities lending.
     /// </summary>
-    [DataMember]
     public SecuritiesLendingType2Choice_? SecuritiesLendingType { get; init; } 
     /// <summary>
     /// Indicates the possibility to terminate the securitiesc lending contract either by the borrower or lender before the expiration date.
     /// </summary>
-    [DataMember]
     public Reversible2Choice_? Reversible { get; init; } 
     /// <summary>
     /// This is the minimum date at which the Borrower is allowed to give back the securities.
     /// </summary>
-    [DataMember]
     public IsoISODate? MinimumDateForCallBack { get; init; } 
     /// <summary>
     /// Indicates that the contract can be rolled over.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? RollOver { get; init; } 
     /// <summary>
     /// Indicates whether the securities lending fees can be paid periodically or at the end of the contract.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? PeriodicPayment { get; init; } 
     /// <summary>
     /// Indicates whether the trade is executed ex coupon.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ExCoupon { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (RateChangeDate is IsoISODateTime RateChangeDateValue)
+        {
+            writer.WriteStartElement(null, "RateChngDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(RateChangeDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (RateType is RateType35Choice_ RateTypeValue)
+        {
+            writer.WriteStartElement(null, "RateTp", xmlNamespace );
+            RateTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Revaluation is Revaluation3Choice_ RevaluationValue)
+        {
+            writer.WriteStartElement(null, "Rvaltn", xmlNamespace );
+            RevaluationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LegalFramework is LegalFramework1Code LegalFrameworkValue)
+        {
+            writer.WriteStartElement(null, "LglFrmwk", xmlNamespace );
+            writer.WriteValue(LegalFrameworkValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (InterestComputationMethod is InterestComputationMethod3Choice_ InterestComputationMethodValue)
+        {
+            writer.WriteStartElement(null, "IntrstCmptnMtd", xmlNamespace );
+            InterestComputationMethodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (VariableRateSupport is RateName1 VariableRateSupportValue)
+        {
+            writer.WriteStartElement(null, "VarblRateSpprt", xmlNamespace );
+            VariableRateSupportValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RepurchaseRate is Rate2 RepurchaseRateValue)
+        {
+            writer.WriteStartElement(null, "RpRate", xmlNamespace );
+            RepurchaseRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StockLoanMargin is Rate2 StockLoanMarginValue)
+        {
+            writer.WriteStartElement(null, "StockLnMrgn", xmlNamespace );
+            StockLoanMarginValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesHaircut is Rate2 SecuritiesHaircutValue)
+        {
+            writer.WriteStartElement(null, "SctiesHrcut", xmlNamespace );
+            SecuritiesHaircutValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PricingRate is RateOrName1Choice_ PricingRateValue)
+        {
+            writer.WriteStartElement(null, "PricgRate", xmlNamespace );
+            PricingRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SpreadRate is SpreadRate1 SpreadRateValue)
+        {
+            writer.WriteStartElement(null, "SprdRate", xmlNamespace );
+            SpreadRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CallableTradeIndicator is IsoYesNoIndicator CallableTradeIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CllblTradInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CallableTradeIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionCallDelay is IsoMax3NumericText TransactionCallDelayValue)
+        {
+            writer.WriteStartElement(null, "TxCallDely", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(TransactionCallDelayValue)); // data type Max3NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (AccruedInterestAmount is AmountAndDirection5 AccruedInterestAmountValue)
+        {
+            writer.WriteStartElement(null, "AcrdIntrstAmt", xmlNamespace );
+            AccruedInterestAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccruedInterestPercentage is IsoPercentageRate AccruedInterestPercentageValue)
+        {
+            writer.WriteStartElement(null, "AcrdIntrstPctg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(AccruedInterestPercentageValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ForfeitAmount is AmountAndDirection5 ForfeitAmountValue)
+        {
+            writer.WriteStartElement(null, "FrftAmt", xmlNamespace );
+            ForfeitAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PremiumAmount is AmountAndDirection5 PremiumAmountValue)
+        {
+            writer.WriteStartElement(null, "PrmAmt", xmlNamespace );
+            PremiumAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClosingAmountPerPiecesOfCollateral is AmountAndDirection5 ClosingAmountPerPiecesOfCollateralValue)
+        {
+            writer.WriteStartElement(null, "ClsgAmtPerPcsOfColl", xmlNamespace );
+            ClosingAmountPerPiecesOfCollateralValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalNumberOfCollateralInstructions is IsoMax3NumericText TotalNumberOfCollateralInstructionsValue)
+        {
+            writer.WriteStartElement(null, "TtlNbOfCollInstrs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(TotalNumberOfCollateralInstructionsValue)); // data type Max3NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (FinancingAgreement is Agreement5 FinancingAgreementValue)
+        {
+            writer.WriteStartElement(null, "FincgAgrmt", xmlNamespace );
+            FinancingAgreementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LendingTransactionMethod is LendingTransactionMethod2Choice_ LendingTransactionMethodValue)
+        {
+            writer.WriteStartElement(null, "LndgTxMtd", xmlNamespace );
+            LendingTransactionMethodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LendingWithCollateral is IsoYesNoIndicator LendingWithCollateralValue)
+        {
+            writer.WriteStartElement(null, "LndgWthColl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(LendingWithCollateralValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (BorrowingReason is BorrowingReason2Choice_ BorrowingReasonValue)
+        {
+            writer.WriteStartElement(null, "BrrwgRsn", xmlNamespace );
+            BorrowingReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollateralType is CollateralType4Choice_ CollateralTypeValue)
+        {
+            writer.WriteStartElement(null, "CollTp", xmlNamespace );
+            CollateralTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContractTermsModificationChanged is IsoYesNoIndicator ContractTermsModificationChangedValue)
+        {
+            writer.WriteStartElement(null, "CtrctTermsModChngd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ContractTermsModificationChangedValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (InterestRate is Rate2 InterestRateValue)
+        {
+            writer.WriteStartElement(null, "IntrstRate", xmlNamespace );
+            InterestRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BorrowingRate is Rate2 BorrowingRateValue)
+        {
+            writer.WriteStartElement(null, "BrrwgRate", xmlNamespace );
+            BorrowingRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StandardCollateralRatio is Rate2 StandardCollateralRatioValue)
+        {
+            writer.WriteStartElement(null, "StdCollRatio", xmlNamespace );
+            StandardCollateralRatioValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DividendRatio is Rate2 DividendRatioValue)
+        {
+            writer.WriteStartElement(null, "DvddRatio", xmlNamespace );
+            DividendRatioValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NumberOfDaysLendingBorrowing is Number24Choice_ NumberOfDaysLendingBorrowingValue)
+        {
+            writer.WriteStartElement(null, "NbOfDaysLndgBrrwg", xmlNamespace );
+            NumberOfDaysLendingBorrowingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StandardCollateralAmount is AmountAndDirection5 StandardCollateralAmountValue)
+        {
+            writer.WriteStartElement(null, "StdCollAmt", xmlNamespace );
+            StandardCollateralAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccruedInterestTax is IsoYesNoIndicator AccruedInterestTaxValue)
+        {
+            writer.WriteStartElement(null, "AcrdIntrstTax", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AccruedInterestTaxValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (EndNumberOfDaysAccrued is IsoMax3Number EndNumberOfDaysAccruedValue)
+        {
+            writer.WriteStartElement(null, "EndNbOfDaysAcrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3Number(EndNumberOfDaysAccruedValue)); // data type Max3Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (EndFactor is IsoBaseOneRate EndFactorValue)
+        {
+            writer.WriteStartElement(null, "EndFctr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(EndFactorValue)); // data type BaseOneRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (SecuritiesLendingType is SecuritiesLendingType2Choice_ SecuritiesLendingTypeValue)
+        {
+            writer.WriteStartElement(null, "SctiesLndgTp", xmlNamespace );
+            SecuritiesLendingTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Reversible is Reversible2Choice_ ReversibleValue)
+        {
+            writer.WriteStartElement(null, "Rvsbl", xmlNamespace );
+            ReversibleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MinimumDateForCallBack is IsoISODate MinimumDateForCallBackValue)
+        {
+            writer.WriteStartElement(null, "MinDtForCallBck", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(MinimumDateForCallBackValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (RollOver is IsoYesNoIndicator RollOverValue)
+        {
+            writer.WriteStartElement(null, "RollOver", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RollOverValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PeriodicPayment is IsoYesNoIndicator PeriodicPaymentValue)
+        {
+            writer.WriteStartElement(null, "PrdcPmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PeriodicPaymentValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ExCoupon is IsoYesNoIndicator ExCouponValue)
+        {
+            writer.WriteStartElement(null, "ExCpn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ExCouponValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesFinancing12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

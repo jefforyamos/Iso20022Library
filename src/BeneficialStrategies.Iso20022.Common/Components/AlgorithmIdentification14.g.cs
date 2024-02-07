@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Cryptographic algorithm and parameters for encryptions with a symmetric cryptographic key.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AlgorithmIdentification14
+     : IIsoXmlSerilizable<AlgorithmIdentification14>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the encryption algorithm.
     /// </summary>
-    [DataMember]
     public required Algorithm15Code Algorithm { get; init; } 
     /// <summary>
     /// Parameters associated with the CBC (Chain Block Chaining) encryption algorithm.
     /// </summary>
-    [DataMember]
     public Parameter6? Parameter { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Algo", xmlNamespace );
+        writer.WriteValue(Algorithm.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Parameter is Parameter6 ParameterValue)
+        {
+            writer.WriteStartElement(null, "Param", xmlNamespace );
+            ParameterValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AlgorithmIdentification14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

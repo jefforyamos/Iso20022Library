@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status and reason of an instructed order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StatusAndReason2
+     : IIsoXmlSerilizable<StatusAndReason2>
 {
     #nullable enable
     
     /// <summary>
     /// Status and reason for the transaction.
     /// </summary>
-    [DataMember]
     public required Status2Choice_ StatusAndReason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "StsAndRsn", xmlNamespace );
+        StatusAndReason.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static StatusAndReason2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

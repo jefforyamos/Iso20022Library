@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRate1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRate1Choice;
 /// Value is expressed as an amount related to an underlying securities, eg, underlying security for which an interest is paid.
 /// </summary>
 public partial record RateTypeAmount : GrossDividendRate1Choice_
+     , IIsoXmlSerilizable<RateTypeAmount>
 {
     #nullable enable
+    
     /// <summary>
     /// Type of underlying securities to which the rate is related, eg, underlying security for which an interest is paid.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record RateTypeAmount : GrossDividendRate1Choice_
     /// Value expressed as an amount.
     /// </summary>
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RateTp", xmlNamespace );
+        RateType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static new RateTypeAmount Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

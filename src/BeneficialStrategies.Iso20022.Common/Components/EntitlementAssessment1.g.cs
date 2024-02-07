@@ -7,83 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the parameters, such as dates, used to calculate the entitlement to vote at a general meeting.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record EntitlementAssessment1
+     : IIsoXmlSerilizable<EntitlementAssessment1>
 {
     #nullable enable
     
     /// <summary>
     /// Date by which the securities should be blocked. This deadline is set by an intermediary.
     /// </summary>
-    [DataMember]
     public DateFormat2Choice_? SecuritiesBlockingDeadline { get; init; } 
     /// <summary>
     /// Date by which the securities should be blocked. This deadline is set by the issuer. (STP mode).
     /// </summary>
-    [DataMember]
     public DateFormat2Choice_? SecuritiesBlockingSTPDeadline { get; init; } 
     /// <summary>
     /// Date by which the securities should be blocked. This deadline is set by the issuer.
     /// </summary>
-    [DataMember]
     public DateFormat2Choice_? SecuritiesBlockingMarketDeadline { get; init; } 
     /// <summary>
     /// Date by which the blocking period for the securities should end.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? SecuritiesBlockingPeriodEndDate { get; init; } 
     /// <summary>
     /// Date at which the positions are struck to note which parties will receive the entitlement, e.g. record date, book close date.
     /// </summary>
-    [DataMember]
     public DateFormat3Choice_? EntitlementFixingDate { get; init; } 
     /// <summary>
     /// Date by which the securities have to be registered. This deadline is specified by an intermediary.
     /// </summary>
-    [DataMember]
     public DateFormat2Choice_? RegistrationSecuritiesDeadline { get; init; } 
     /// <summary>
     /// Date by which the securities have to be registered. This deadline is specified by an intermediary (STP mode).
     /// </summary>
-    [DataMember]
     public DateFormat2Choice_? RegistrationSecuritiesSTPDeadline { get; init; } 
     /// <summary>
     /// Date by which the securities have to be registered. This deadline is set by the issuer.
     /// </summary>
-    [DataMember]
     public DateFormat2Choice_? RegistrationSecuritiesMarketDeadline { get; init; } 
     /// <summary>
     /// Date by which the holder needs to register its intention to participate in the meeting process in order to be allowed to participate in the meeting event. This deadline is specified by an intermediary.
     /// </summary>
-    [DataMember]
     public DateFormat2Choice_? RegistrationParticipationDeadline { get; init; } 
     /// <summary>
     /// Date by which the holder needs to register its intention to participate in the meeting process in order to be allowed to participate in the meeting event. This deadline is specified by an intermediary (STP mode).
     /// </summary>
-    [DataMember]
     public DateFormat2Choice_? RegistrationParticipationSTPDeadline { get; init; } 
     /// <summary>
     /// Date by which the holder needs to register its intention to participate in the meeting process in order to be allowed to participate in the meeting event. This deadline is set by the issuer.
     /// </summary>
-    [DataMember]
     public DateFormat2Choice_? RegistrationParticipationMarketDeadline { get; init; } 
     /// <summary>
     /// Specifies the calculation method of the number of votes assigned to one security. This element should be used when the entitlement calculation rule is complex.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? EntitlementDescription { get; init; } 
     /// <summary>
     /// Number of votes assigned to one security.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? EntitlementRatio { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SecuritiesBlockingDeadline is DateFormat2Choice_ SecuritiesBlockingDeadlineValue)
+        {
+            writer.WriteStartElement(null, "SctiesBlckgDdln", xmlNamespace );
+            SecuritiesBlockingDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesBlockingSTPDeadline is DateFormat2Choice_ SecuritiesBlockingSTPDeadlineValue)
+        {
+            writer.WriteStartElement(null, "SctiesBlckgSTPDdln", xmlNamespace );
+            SecuritiesBlockingSTPDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesBlockingMarketDeadline is DateFormat2Choice_ SecuritiesBlockingMarketDeadlineValue)
+        {
+            writer.WriteStartElement(null, "SctiesBlckgMktDdln", xmlNamespace );
+            SecuritiesBlockingMarketDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesBlockingPeriodEndDate is IsoISODateTime SecuritiesBlockingPeriodEndDateValue)
+        {
+            writer.WriteStartElement(null, "SctiesBlckgPrdEndDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(SecuritiesBlockingPeriodEndDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (EntitlementFixingDate is DateFormat3Choice_ EntitlementFixingDateValue)
+        {
+            writer.WriteStartElement(null, "EntitlmntFxgDt", xmlNamespace );
+            EntitlementFixingDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RegistrationSecuritiesDeadline is DateFormat2Choice_ RegistrationSecuritiesDeadlineValue)
+        {
+            writer.WriteStartElement(null, "RegnSctiesDdln", xmlNamespace );
+            RegistrationSecuritiesDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RegistrationSecuritiesSTPDeadline is DateFormat2Choice_ RegistrationSecuritiesSTPDeadlineValue)
+        {
+            writer.WriteStartElement(null, "RegnSctiesSTPDdln", xmlNamespace );
+            RegistrationSecuritiesSTPDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RegistrationSecuritiesMarketDeadline is DateFormat2Choice_ RegistrationSecuritiesMarketDeadlineValue)
+        {
+            writer.WriteStartElement(null, "RegnSctiesMktDdln", xmlNamespace );
+            RegistrationSecuritiesMarketDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RegistrationParticipationDeadline is DateFormat2Choice_ RegistrationParticipationDeadlineValue)
+        {
+            writer.WriteStartElement(null, "RegnPrtcptnDdln", xmlNamespace );
+            RegistrationParticipationDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RegistrationParticipationSTPDeadline is DateFormat2Choice_ RegistrationParticipationSTPDeadlineValue)
+        {
+            writer.WriteStartElement(null, "RegnPrtcptnSTPDdln", xmlNamespace );
+            RegistrationParticipationSTPDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RegistrationParticipationMarketDeadline is DateFormat2Choice_ RegistrationParticipationMarketDeadlineValue)
+        {
+            writer.WriteStartElement(null, "RegnPrtcptnMktDdln", xmlNamespace );
+            RegistrationParticipationMarketDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EntitlementDescription is IsoMax350Text EntitlementDescriptionValue)
+        {
+            writer.WriteStartElement(null, "EntitlmntDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(EntitlementDescriptionValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (EntitlementRatio is IsoDecimalNumber EntitlementRatioValue)
+        {
+            writer.WriteStartElement(null, "EntitlmntRatio", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(EntitlementRatioValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static EntitlementAssessment1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

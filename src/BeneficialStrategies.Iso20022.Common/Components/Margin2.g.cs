@@ -7,63 +7,117 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the calculation of the margin.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Margin2
+     : IIsoXmlSerilizable<Margin2>
 {
     #nullable enable
     
     /// <summary>
     /// Provides details about the security identification.
     /// </summary>
-    [DataMember]
     public SecurityIdentification14? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Net total of the transaction exposure of all outstanding deals.
     /// </summary>
-    [DataMember]
     public Amount2? ExposureAmount { get; init; } 
     /// <summary>
     /// Total margin requirement (expressed in the reporting currency) that must be provided by the clearing member to the central counterparty. This is the total requirement calculated to cover the initial margin and the variation margin.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalMarginAmount { get; init; } 
     /// <summary>
     /// Provides details on the calculation of the variation margin.
     /// </summary>
-    [DataMember]
     public required VariationMargin2 VariationMargin { get; init; } 
     /// <summary>
     /// Margin required for absorbing future market price fluctuations (market risks) occurring between the default of a member and close-out of unsettled securities positions by the central counterparty.
     /// </summary>
-    [DataMember]
     public required Amount2 InitialMargin { get; init; } 
     /// <summary>
     /// Additional amount (expressed in the reporting currency) that the clearing member will have to provide to cover a risk increase. This results from a risk management decision depending on Central counterparty specific criteria.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? IncreaseCoverage { get; init; } 
     /// <summary>
     /// Minimum requirement (expressed in the reporting currency) for a participant if their requirement falls below a specific amount set by the Central counterparty.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? MinimumRequirementDeposit { get; init; } 
     /// <summary>
     /// Provides details on the valuation of the collateral on deposit.
     /// </summary>
-    [DataMember]
     public Collateral3? CollateralOnDeposit { get; init; } 
     /// <summary>
     /// Provides details on the margin result.
     /// </summary>
-    [DataMember]
     public MarginResult1Choice_? MarginResult { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FinancialInstrumentIdentification is SecurityIdentification14 FinancialInstrumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+            FinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExposureAmount is Amount2 ExposureAmountValue)
+        {
+            writer.WriteStartElement(null, "XpsrAmt", xmlNamespace );
+            ExposureAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TtlMrgnAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalMarginAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "VartnMrgn", xmlNamespace );
+        VariationMargin.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InitlMrgn", xmlNamespace );
+        InitialMargin.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (IncreaseCoverage is IsoActiveCurrencyAndAmount IncreaseCoverageValue)
+        {
+            writer.WriteStartElement(null, "IncrCvrg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(IncreaseCoverageValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MinimumRequirementDeposit is IsoActiveCurrencyAndAmount MinimumRequirementDepositValue)
+        {
+            writer.WriteStartElement(null, "MinRqrmntDpst", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MinimumRequirementDepositValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CollateralOnDeposit is Collateral3 CollateralOnDepositValue)
+        {
+            writer.WriteStartElement(null, "CollOnDpst", xmlNamespace );
+            CollateralOnDepositValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarginResult is MarginResult1Choice_ MarginResultValue)
+        {
+            writer.WriteStartElement(null, "MrgnRslt", xmlNamespace );
+            MarginResultValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Margin2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

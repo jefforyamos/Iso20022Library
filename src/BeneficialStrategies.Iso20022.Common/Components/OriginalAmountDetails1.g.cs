@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// The OriginalAmountDetails contains all amount information in the acceptor currency code necessary to manage currency conversion in the cardholder currency code.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OriginalAmountDetails1
+     : IIsoXmlSerilizable<OriginalAmountDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Actual amount to be converted.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? ActualAmount { get; init; } 
     /// <summary>
     /// Minimum amount for conversion (in case of range of amounts).
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? MinimumAmount { get; init; } 
     /// <summary>
     /// Maximum amount for conversion (in case of range of amounts).
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? MaximumAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ActualAmount is IsoImpliedCurrencyAndAmount ActualAmountValue)
+        {
+            writer.WriteStartElement(null, "ActlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ActualAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MinimumAmount is IsoImpliedCurrencyAndAmount MinimumAmountValue)
+        {
+            writer.WriteStartElement(null, "MinAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MinimumAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MaximumAmount is IsoImpliedCurrencyAndAmount MaximumAmountValue)
+        {
+            writer.WriteStartElement(null, "MaxAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MaximumAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static OriginalAmountDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

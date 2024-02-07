@@ -7,48 +7,81 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the parameters of the report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReportParameters3
+     : IIsoXmlSerilizable<ReportParameters3>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification of the report.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ReportIdentification { get; init; } 
     /// <summary>
     /// Date (and time) and time of the report.
     /// </summary>
-    [DataMember]
     public required DateAndDateTimeChoice_ ReportDateAndTime { get; init; } 
     /// <summary>
     /// Currency used for the calculation of the margin.
     /// </summary>
-    [DataMember]
     public required CurrencyCode ReportCurrency { get; init; } 
     /// <summary>
     /// Date of calculation of the margin.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime CalculationDateAndTime { get; init; } 
     /// <summary>
     /// Frequency of the report.
     /// </summary>
-    [DataMember]
     public required EventFrequency6Code Frequency { get; init; } 
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
-    [DataMember]
     public IsoExact5NumericText? ReportNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ReportIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptDtAndTm", xmlNamespace );
+        ReportDateAndTime.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptCcy", xmlNamespace );
+        writer.WriteValue(ReportCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClctnDtAndTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CalculationDateAndTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Frqcy", xmlNamespace );
+        writer.WriteValue(Frequency.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ReportNumber is IsoExact5NumericText ReportNumberValue)
+        {
+            writer.WriteStartElement(null, "RptNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact5NumericText(ReportNumberValue)); // data type Exact5NumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ReportParameters3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

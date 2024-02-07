@@ -7,53 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money associated with a service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Charge20
+     : IIsoXmlSerilizable<Charge20>
 {
     #nullable enable
     
     /// <summary>
     /// Type of service for which a charge is asked or paid.
     /// </summary>
-    [DataMember]
     public required ChargeType12Code Type { get; init; } 
     /// <summary>
     /// Type of service for which a charge is asked or paid.
     /// </summary>
-    [DataMember]
     public required IsoExtended350Code ExtendedType { get; init; } 
     /// <summary>
     /// Amount of money asked or paid for the charge.
     /// </summary>
-    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Method used to calculate a charge.
     /// </summary>
-    [DataMember]
     public TaxationBasis2Code? ChargeBasis { get; init; } 
     /// <summary>
     /// Method used to calculate a charge.
     /// </summary>
-    [DataMember]
     public IsoExtended350Code? ExtendedChargeBasis { get; init; } 
     /// <summary>
     /// Specifies the party that will bear the charges associated with a transfer.
     /// </summary>
-    [DataMember]
     public ChargeBearer1Code? ChargeBearer { get; init; } 
     /// <summary>
     /// Party entitled to the amount of money resulting from a charge.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? RecipientIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtndedTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedType)); // data type Extended350Code System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(Amount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (ChargeBasis is TaxationBasis2Code ChargeBasisValue)
+        {
+            writer.WriteStartElement(null, "ChrgBsis", xmlNamespace );
+            writer.WriteValue(ChargeBasisValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExtendedChargeBasis is IsoExtended350Code ExtendedChargeBasisValue)
+        {
+            writer.WriteStartElement(null, "XtndedChrgBsis", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedChargeBasisValue)); // data type Extended350Code System.String
+            writer.WriteEndElement();
+        }
+        if (ChargeBearer is ChargeBearer1Code ChargeBearerValue)
+        {
+            writer.WriteStartElement(null, "ChrgBr", xmlNamespace );
+            writer.WriteValue(ChargeBearerValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (RecipientIdentification is PartyIdentification2Choice_ RecipientIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcptId", xmlNamespace );
+            RecipientIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Charge20 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

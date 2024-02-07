@@ -7,53 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the status of a transfer instruction and its reason.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransferStatusAndReason
+     : IIsoXmlSerilizable<TransferStatusAndReason>
 {
     #nullable enable
     
     /// <summary>
     /// Business reference of the transfer instruction.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransferReference { get; init; } 
     /// <summary>
     /// Instruction status and the reason for the status.
     /// </summary>
-    [DataMember]
     public required TransferInstructionStatus Status { get; init; } 
     /// <summary>
     /// Status of the transfer instruction is pending settlement.
     /// </summary>
-    [DataMember]
     public required PendingSettlementStatusChoice_ PendingSettlement { get; init; } 
     /// <summary>
     /// Status of the transfer instruction is unmatched.
     /// </summary>
-    [DataMember]
     public required TransferUnmatchedStatus Unmatched { get; init; } 
     /// <summary>
     /// Status is in repair.
     /// </summary>
-    [DataMember]
     public required InRepairStatus2Choice_ InRepair { get; init; } 
     /// <summary>
     /// Status of the transfer instructed is rejected.
     /// </summary>
-    [DataMember]
     public required RejectedStatus3Choice_ Rejected { get; init; } 
     /// <summary>
     /// Party that initiates the status.
     /// </summary>
-    [DataMember]
     public PartyIdentification1Choice_? StatusInitiator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TrfRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        Status.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PdgSttlm", xmlNamespace );
+        PendingSettlement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Umtchd", xmlNamespace );
+        Unmatched.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InRpr", xmlNamespace );
+        InRepair.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rjctd", xmlNamespace );
+        Rejected.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (StatusInitiator is PartyIdentification1Choice_ StatusInitiatorValue)
+        {
+            writer.WriteStartElement(null, "StsInitr", xmlNamespace );
+            StatusInitiatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransferStatusAndReason Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

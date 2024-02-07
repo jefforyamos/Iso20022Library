@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ExchangeRateReportOrError4Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.ExchangeRateReportOrError4Choice
 /// Requested business information.
 /// </summary>
 public partial record CurrencyExchange : ExchangeRateReportOrError4Choice_
+     , IIsoXmlSerilizable<CurrencyExchange>
 {
     #nullable enable
+    
     /// <summary>
     /// The value of one currency expressed in relation to another currency. ExchangeRate expresses the ratio between UnitCurrency and QuotedCurrency (ExchangeRate = UnitCurrency/QuotedCurrency).
     /// </summary>
@@ -37,5 +41,44 @@ public partial record CurrencyExchange : ExchangeRateReportOrError4Choice_
     /// Usage: The currency authority publishes the exchange rate based on the price formed in the foreign exchange market, allowing it to float up and down within the prescribed fluctuation range. It is the highest exchange rate supported in foreign exchange market transactions.
     /// </summary>
     public ExchangeRateOrPercentage1Choice_? HighLimit { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "XchgRate", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ExchangeRate)); // data type BaseOneRate System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "QtdCcy", xmlNamespace );
+        writer.WriteValue(QuotedCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "QtnDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(QuotationDate)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (LowLimit is ExchangeRateOrPercentage1Choice_ LowLimitValue)
+        {
+            writer.WriteStartElement(null, "LwLmt", xmlNamespace );
+            LowLimitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (HighLimit is ExchangeRateOrPercentage1Choice_ HighLimitValue)
+        {
+            writer.WriteStartElement(null, "HghLmt", xmlNamespace );
+            HighLimitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new CurrencyExchange Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

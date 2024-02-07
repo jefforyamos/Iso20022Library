@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification237Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification237Choice;
 /// Private person.
 /// </summary>
 public partial record NaturalPerson : PartyIdentification237Choice_
+     , IIsoXmlSerilizable<NaturalPerson>
 {
     #nullable enable
+    
     /// <summary>
     /// Name and address of the party.
     /// </summary>
@@ -39,5 +43,56 @@ public partial record NaturalPerson : PartyIdentification237Choice_
     /// Identification of the shareholder in the company share register.
     /// </summary>
     public IsoMax35Text? CompanyRegisterShareholderIdentification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NmAndAdr", xmlNamespace );
+        NameAndAddress.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (EmailAddress is IsoMax256Text EmailAddressValue)
+        {
+            writer.WriteStartElement(null, "EmailAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(EmailAddressValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (Identification is NaturalPersonIdentification1 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Nationality is CountryCode NationalityValue)
+        {
+            writer.WriteStartElement(null, "Ntlty", xmlNamespace );
+            writer.WriteValue(NationalityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DateAndPlaceOfBirth is DateAndPlaceOfBirth2 DateAndPlaceOfBirthValue)
+        {
+            writer.WriteStartElement(null, "DtAndPlcOfBirth", xmlNamespace );
+            DateAndPlaceOfBirthValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CompanyRegisterShareholderIdentification is IsoMax35Text CompanyRegisterShareholderIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CpnyRegrShrhldrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CompanyRegisterShareholderIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new NaturalPerson Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

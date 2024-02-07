@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to identify the documents referred to in the remittance information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReferredDocumentInformation7
+     : IIsoXmlSerilizable<ReferredDocumentInformation7>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of referred document.
     /// </summary>
-    [DataMember]
     public ReferredDocumentType4? Type { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the referred document.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Number { get; init; } 
     /// <summary>
     /// Date associated with the referred document.
     /// </summary>
-    [DataMember]
     public IsoISODate? RelatedDate { get; init; } 
     /// <summary>
     /// Set of elements used to provide the content of the referred document line.
     /// </summary>
-    [DataMember]
-    public ValueList<DocumentLineInformation1> LineDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public DocumentLineInformation1? LineDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is ReferredDocumentType4 TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Number is IsoMax35Text NumberValue)
+        {
+            writer.WriteStartElement(null, "Nb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RelatedDate is IsoISODate RelatedDateValue)
+        {
+            writer.WriteStartElement(null, "RltdDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(RelatedDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (LineDetails is DocumentLineInformation1 LineDetailsValue)
+        {
+            writer.WriteStartElement(null, "LineDtls", xmlNamespace );
+            LineDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ReferredDocumentInformation7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

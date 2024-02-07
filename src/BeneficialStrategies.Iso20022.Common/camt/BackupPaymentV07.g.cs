@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.BackupPaymentV07>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -33,10 +36,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// To verify the outcome of the request, the member may submit a GetTransaction or GetAccount message with the appropriate search criteria.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The BackupPayment message is sent by a member to the transaction administrator.|It is used to request a liquidity transfer from the member to another participant in the system when the user is in recovery mode.|Usage|Under very specific circumstances, the transaction administrator can accept direct input of transactions as part of its cash management functionalities. This possibility is available only when a declared incident has been reported to the transaction administrator This could be the case, for example, when the internal systems of the member are having problems sending out payments or when the continuity of the whole system is put at risk.|The purpose of the BackupPayment message is to prevent the consequences of a specific failure affecting not only the member experiencing problems but also its counterparties. Members can therefore input transactions directly in order to ensure the stability of the system and smooth exchanges.|At any time during the operating hours of the system, and under the agreed circumstances, the member can request a backup payment to be effected.|The member can request the transfer by identifying the following elements:|- party (account owner) that will receive the funds|- the financial institution that will receive the funds on behalf of the account owner|Based on the criteria received within the BackupPayment message, the transaction administrator will execute or reject the requested funds transfer.|The transaction administrator may send a Receipt message as a reply to the BackupPayment request.|To verify the outcome of the request, the member may submit a GetTransaction or GetAccount message with the appropriate search criteria.")]
-public partial record BackupPaymentV07 : IOuterRecord
+public partial record BackupPaymentV07 : IOuterRecord<BackupPaymentV07,BackupPaymentV07Document>
+    ,IIsoXmlSerilizable<BackupPaymentV07>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -48,6 +50,11 @@ public partial record BackupPaymentV07 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "BckpPmt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => BackupPaymentV07Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -134,6 +141,62 @@ public partial record BackupPaymentV07 : IOuterRecord
     {
         return new BackupPaymentV07Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("BckpPmt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+        MessageHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OriginalMessageIdentification is MessageHeader1 OriginalMessageIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlMsgId", xmlNamespace );
+            OriginalMessageIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructionInformation is PaymentInstruction13 InstructionInformationValue)
+        {
+            writer.WriteStartElement(null, "InstrInf", xmlNamespace );
+            InstructionInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TrfdAmt", xmlNamespace );
+        TransferredAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Cdtr", xmlNamespace );
+        Creditor.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CreditorAgent is SystemMember3 CreditorAgentValue)
+        {
+            writer.WriteStartElement(null, "CdtrAgt", xmlNamespace );
+            CreditorAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DebtorAgent is SystemMember3 DebtorAgentValue)
+        {
+            writer.WriteStartElement(null, "DbtrAgt", xmlNamespace );
+            DebtorAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BackupPaymentV07 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -141,9 +204,7 @@ public partial record BackupPaymentV07 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BackupPaymentV07"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record BackupPaymentV07Document : IOuterDocument<BackupPaymentV07>
+public partial record BackupPaymentV07Document : IOuterDocument<BackupPaymentV07>, IXmlSerializable
 {
     
     /// <summary>
@@ -159,5 +220,22 @@ public partial record BackupPaymentV07Document : IOuterDocument<BackupPaymentV07
     /// <summary>
     /// The instance of <seealso cref="BackupPaymentV07"/> is required.
     /// </summary>
+    [DataMember(Name=BackupPaymentV07.XmlTag)]
     public required BackupPaymentV07 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(BackupPaymentV07.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

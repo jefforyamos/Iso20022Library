@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the identification of the issuer of a security.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityIssuer4
+     : IIsoXmlSerilizable<SecurityIssuer4>
 {
     #nullable enable
     
     /// <summary>
     /// Legal entity identification of the issuer of the security.
     /// </summary>
-    [DataMember]
     public OrganisationIdentification15Choice_? Identification { get; init; } 
     /// <summary>
     /// Jurisdiction of the issuer of the security used as collateral. In case of securities issued by a foreign subsidiary, the jurisdiction of the ultimate parent company shall be reported or, if not known, jurisdiction of the subsidiary.
     /// </summary>
-    [DataMember]
     public required CountryCode JurisdictionCountry { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is OrganisationIdentification15Choice_ IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "JursdctnCtry", xmlNamespace );
+        writer.WriteValue(JurisdictionCountry.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static SecurityIssuer4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

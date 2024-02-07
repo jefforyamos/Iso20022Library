@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// General information about the reason of the rejection.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RejectionReason2
+     : IIsoXmlSerilizable<RejectionReason2>
 {
     #nullable enable
     
     /// <summary>
     /// Reason of the rejection provided by the rejecting party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text RejectingPartyReason { get; init; } 
     /// <summary>
     /// Date and time at which the rejection was generated.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? RejectionDateTime { get; init; } 
     /// <summary>
     /// Description of the precise location of the potential error in a message.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? ErrorLocation { get; init; } 
     /// <summary>
     /// Detailed description of the rejection reason.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? ReasonDescription { get; init; } 
     /// <summary>
     /// Additional information related to the rejection and meant to allow for the precise identification of the rejection reason. This could include a copy of the rejected message in part or in full.
     /// </summary>
-    [DataMember]
     public IsoMax20000Text? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RjctgPtyRsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(RejectingPartyReason)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (RejectionDateTime is IsoISODateTime RejectionDateTimeValue)
+        {
+            writer.WriteStartElement(null, "RjctnDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(RejectionDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ErrorLocation is IsoMax350Text ErrorLocationValue)
+        {
+            writer.WriteStartElement(null, "ErrLctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(ErrorLocationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (ReasonDescription is IsoMax350Text ReasonDescriptionValue)
+        {
+            writer.WriteStartElement(null, "RsnDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(ReasonDescriptionValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is IsoMax20000Text AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax20000Text(AdditionalDataValue)); // data type Max20000Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static RejectionReason2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

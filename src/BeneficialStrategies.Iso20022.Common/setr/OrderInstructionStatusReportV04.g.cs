@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.setr.OrderInstructionStatusReportV04>;
 
 namespace BeneficialStrategies.Iso20022.setr;
 
@@ -52,10 +55,9 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// - information related to the order, for example, settlement amount, number of units, expected trade date.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The OrderInstructionStatusReport message is sent by an executing party, for example, a transfer agent, to the instructing party, for example, an investment manager or its authorised representative, to report the status of an order from the time the executing party receives the order until the time the order is executed.|Usage|The OrderInstructionStatusReport message is used to report on the status of a subscription, redemption or a switch order.|The OrderInstructionStatusReport message may be used to give the status of:|- one order message by using OrderDetailsReport or,|- one or more individual order instructions by using IndividualOrderDetailsReport, or|- one or more switch orders by using SwitchOrderDetailsReport.|If the OrderInstructionStatusReport message is used to report the status of an individual order, then IndividualOrderDetailsReport is used and the order reference of the individual order is quoted in OrderReference. The message identification of the message in which the individual order was conveyed may also be quoted in RelatedReference but this is not recommended.|If the OrderInstructionStatusReport message is used to report the status of a switch order, then SwitchOrderDetailsReport is used and the order reference of the switch order is quoted in OrderReference. The message identification of the message in which the switch order was conveyed may also be quoted in RelatedReference but this is not recommended.|If the OrderInstructionStatusReport message is used to report the status of an entire order message, for example, the SubscriptionBulkOrder, or a SubscriptionOrder containing several orders, then OrderDetailsReport is used and the message identification of the order message is quoted in RelatedReference. All the orders within the message must have the same status.|One of the following statuses can be reported:|- an accepted status, or,|- an already executed status, or,|- a sent to next party status, or,|- a received status, or,|- a settled status, or,|- a communication problem with next party status, or,|- a confirmation amendment status, or,|- a done for the day status, or,|- a partially done status, or,|- an open status, or,|- a cancelled status, or|- a conditionally accepted status, or,|- a rejected status, or,|- a suspended status, or,|- a partially settled status, or,|- an in-repair status (only for an individual or switch order).|For a switch order, the OrderInstructionStatusReport message provides the status of the whole switch order, that is, it is not possible to accept one leg and to reject the other leg: the entire switch order has to be rejected. In order to identify the legs within the switch that are causing the problem, the leg is identified in either the RedemptionLegIdentification or SubscriptionLegIdentification elements.|When the OrderInstructionStatusReport is used to give the status of an individual or a switch order, the following can be specified:|- repaired conditions (for a switch, this is at the level of a leg),|- information related to the order, for example, settlement amount, number of units, expected trade date.")]
-public partial record OrderInstructionStatusReportV04 : IOuterRecord
+public partial record OrderInstructionStatusReportV04 : IOuterRecord<OrderInstructionStatusReportV04,OrderInstructionStatusReportV04Document>
+    ,IIsoXmlSerilizable<OrderInstructionStatusReportV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -67,6 +69,11 @@ public partial record OrderInstructionStatusReportV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "OrdrInstrStsRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => OrderInstructionStatusReportV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -116,6 +123,41 @@ public partial record OrderInstructionStatusReportV04 : IOuterRecord
     {
         return new OrderInstructionStatusReportV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("OrdrInstrStsRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Reference is References61Choice_ ReferenceValue)
+        {
+            writer.WriteStartElement(null, "Ref", xmlNamespace );
+            ReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "StsRpt", xmlNamespace );
+        StatusReport.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OrderInstructionStatusReportV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -123,9 +165,7 @@ public partial record OrderInstructionStatusReportV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="OrderInstructionStatusReportV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record OrderInstructionStatusReportV04Document : IOuterDocument<OrderInstructionStatusReportV04>
+public partial record OrderInstructionStatusReportV04Document : IOuterDocument<OrderInstructionStatusReportV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -141,5 +181,22 @@ public partial record OrderInstructionStatusReportV04Document : IOuterDocument<O
     /// <summary>
     /// The instance of <seealso cref="OrderInstructionStatusReportV04"/> is required.
     /// </summary>
+    [DataMember(Name=OrderInstructionStatusReportV04.XmlTag)]
     public required OrderInstructionStatusReportV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(OrderInstructionStatusReportV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Digital account where digital assets or digital tokens can be stored and where an entry is made.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BlockChainAddressWallet3
+     : IIsoXmlSerilizable<BlockChainAddressWallet3>
 {
     #nullable enable
     
     /// <summary>
     /// Unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text Identification { get; init; } 
     /// <summary>
     /// Specifies the type of securities account.
     /// </summary>
-    [DataMember]
     public GenericIdentification30? Type { get; init; } 
     /// <summary>
     /// Description of the account.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(Identification)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        if (Type is GenericIdentification30 TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Name is IsoMax70Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static BlockChainAddressWallet3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

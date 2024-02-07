@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies corporate action date.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionDate91
+     : IIsoXmlSerilizable<CorporateActionDate91>
 {
     #nullable enable
     
     /// <summary>
     /// Last day a holder can deliver the securities that it had elected on and/or previously protected.
     /// </summary>
-    [DataMember]
     public DateFormat43Choice_? CoverExpirationDeadline { get; init; } 
     /// <summary>
     /// Date/time at which the deal (rights) was agreed.
     /// </summary>
-    [DataMember]
     public DateFormat49Choice_? TradingDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CoverExpirationDeadline is DateFormat43Choice_ CoverExpirationDeadlineValue)
+        {
+            writer.WriteStartElement(null, "CoverXprtnDdln", xmlNamespace );
+            CoverExpirationDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradingDate is DateFormat49Choice_ TradingDateValue)
+        {
+            writer.WriteStartElement(null, "TradgDt", xmlNamespace );
+            TradingDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionDate91 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

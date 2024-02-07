@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action details rates and amounts details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionRateSD1
+     : IIsoXmlSerilizable<CorporateActionRateSD1>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Applicable to structured securities where there is a set schedule of principal and interest payments for the life of the issue. A portion of the scheduled interest payment will not be paid at the time of distribution.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? DeferredInterestRate { get; init; } 
     /// <summary>
     /// Applicable for structured security issues where there is a set schedule of principal and interest payments for the life of the issue. An interest shortfall occurs when scheduled interest is not paid to the investor as scheduled.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? InterestShortfallRate { get; init; } 
     /// <summary>
     /// Applicable to structured securities where there is a set schedule of principal and interest payments for the life of the issue. This term refers specifically to the principal payment of a mortgage. One or more mortgages within the pool are in default.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? RealisedLossRate { get; init; } 
     /// <summary>
     /// American or Global Depository Receipt(s) per ordinary share(s) ratio.
     /// </summary>
-    [DataMember]
     public CorporateActionRateSD2? AmericanOrGlobalDepositReceiptRatio { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (DeferredInterestRate is IsoPercentageRate DeferredInterestRateValue)
+        {
+            writer.WriteStartElement(null, "DfrrdIntrstRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(DeferredInterestRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (InterestShortfallRate is IsoPercentageRate InterestShortfallRateValue)
+        {
+            writer.WriteStartElement(null, "IntrstShrtfllRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(InterestShortfallRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (RealisedLossRate is IsoPercentageRate RealisedLossRateValue)
+        {
+            writer.WriteStartElement(null, "RealsdLossRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RealisedLossRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (AmericanOrGlobalDepositReceiptRatio is CorporateActionRateSD2 AmericanOrGlobalDepositReceiptRatioValue)
+        {
+            writer.WriteStartElement(null, "AmrcnOrGblDpstRctRatio", xmlNamespace );
+            AmericanOrGlobalDepositReceiptRatioValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionRateSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

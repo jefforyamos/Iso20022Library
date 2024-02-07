@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reference of the trade transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionDetails2
+     : IIsoXmlSerilizable<TransactionDetails2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification assigned to a trade once it is received or matched by an executing system.
     /// </summary>
-    [DataMember]
     public required IsoMax70Text TradeReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TradRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(TradeReference)); // data type Max70Text System.String
+        writer.WriteEndElement();
+    }
+    public static TransactionDetails2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

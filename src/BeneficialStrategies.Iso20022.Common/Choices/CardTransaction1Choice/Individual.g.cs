@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CardTransaction1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.CardTransaction1Choice;
 /// Card transaction details for the individual transaction, as recorded at the POI (point of interaction).
 /// </summary>
 public partial record Individual : CardTransaction1Choice_
+     , IIsoXmlSerilizable<Individual>
 {
     #nullable enable
+    
     /// <summary>
     /// Service in addition to the main service.
     /// </summary>
@@ -52,5 +56,77 @@ public partial record Individual : CardTransaction1Choice_
     /// Usage: The sequential number is increased incrementally for each transaction.
     /// </summary>
     public IsoMax35Text? ValidationSequenceNumber { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AdditionalService is CardPaymentServiceType2Code AdditionalServiceValue)
+        {
+            writer.WriteStartElement(null, "AddtlSvc", xmlNamespace );
+            writer.WriteValue(AdditionalServiceValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TransactionCategory is ExternalCardTransactionCategory1Code TransactionCategoryValue)
+        {
+            writer.WriteStartElement(null, "TxCtgy", xmlNamespace );
+            writer.WriteValue(TransactionCategoryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SaleReconciliationIdentification is IsoMax35Text SaleReconciliationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleRcncltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReconciliationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SaleReferenceNumber is IsoMax35Text SaleReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "SaleRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReferenceNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SequenceNumber is IsoMax35Text SequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "SeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SequenceNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionIdentification is TransactionIdentifier1 TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            TransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Product is Product2 ProductValue)
+        {
+            writer.WriteStartElement(null, "Pdct", xmlNamespace );
+            ProductValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValidationDate is IsoISODate ValidationDateValue)
+        {
+            writer.WriteStartElement(null, "VldtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ValidationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ValidationSequenceNumber is IsoMax35Text ValidationSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "VldtnSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ValidationSequenceNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new Individual Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

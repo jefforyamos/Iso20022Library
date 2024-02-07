@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the status of the cancellation of the underlying payments event.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UnderlyingCancellationDetails2
+     : IIsoXmlSerilizable<UnderlyingCancellationDetails2>
 {
     #nullable enable
     
     /// <summary>
     /// Provides information from the cancellation request.
     /// </summary>
-    [DataMember]
     public CancellationRequest1? CancellationRequestDetails { get; init; } 
     /// <summary>
     /// Provides information from the cancellation response.
     /// </summary>
-    [DataMember]
     public CancellationResponse1? CancellationResponseDetails { get; init; } 
     /// <summary>
     /// Specifies the status of the cancellation request.
     /// </summary>
-    [DataMember]
     public PaymentCancellationStatusReason2Code? CancellationRequestTrackingStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CancellationRequestDetails is CancellationRequest1 CancellationRequestDetailsValue)
+        {
+            writer.WriteStartElement(null, "CxlReqDtls", xmlNamespace );
+            CancellationRequestDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CancellationResponseDetails is CancellationResponse1 CancellationResponseDetailsValue)
+        {
+            writer.WriteStartElement(null, "CxlRspnDtls", xmlNamespace );
+            CancellationResponseDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CancellationRequestTrackingStatus is PaymentCancellationStatusReason2Code CancellationRequestTrackingStatusValue)
+        {
+            writer.WriteStartElement(null, "CxlReqTrckgSts", xmlNamespace );
+            writer.WriteValue(CancellationRequestTrackingStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static UnderlyingCancellationDetails2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

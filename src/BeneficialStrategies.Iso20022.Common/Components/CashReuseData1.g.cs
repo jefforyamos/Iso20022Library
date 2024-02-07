@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the type and amount of the cash reinvestment in a given currency and on the cash reinvestment rate.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashReuseData1
+     : IIsoXmlSerilizable<CashReuseData1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides details on the type and amount of the cash reinvestment in a given currency.
     /// </summary>
-    [DataMember]
-    public ValueList<ReinvestedCashTypeAndAmount1> ReinvestedCash { get; init; } = []; // Warning: Don't know multiplicity.
+    public ReinvestedCashTypeAndAmount1? ReinvestedCash { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _P73YgJLiEeelrYORFsXWZg
     /// <summary>
     /// Average interest rate received on cash collateral reinvestment by the lender for reinvestment of cash collateral.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate CashReinvestmentRate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize ReinvestedCash, multiplicity Unknown
+        writer.WriteStartElement(null, "CshRinvstmtRate", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(CashReinvestmentRate)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+    }
+    public static CashReuseData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

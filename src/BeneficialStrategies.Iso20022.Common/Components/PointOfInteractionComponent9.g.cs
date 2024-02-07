@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to a component of the POI (Point Of Interaction) performing the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PointOfInteractionComponent9
+     : IIsoXmlSerilizable<PointOfInteractionComponent9>
 {
     #nullable enable
     
     /// <summary>
     /// Type of component belonging to a POI (Point Of Interaction) Terminal.
     /// </summary>
-    [DataMember]
     public required POIComponentType5Code Type { get; init; } 
     /// <summary>
     /// Additional information regarding the type of the component.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? SubTypeInformation { get; init; } 
     /// <summary>
     /// Identification of the POI (Point Of Interaction) component.
     /// </summary>
-    [DataMember]
     public required PointOfInteractionComponentIdentification1 Identification { get; init; } 
     /// <summary>
     /// Status of the POI (Point Of Interaction) component.
     /// </summary>
-    [DataMember]
     public PointOfInteractionComponentStatus3? Status { get; init; } 
     /// <summary>
     /// Identification of the standard for which the component complies with.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericIdentification48> StandardCompliance { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericIdentification48? StandardCompliance { get; init; } 
     /// <summary>
     /// Characteristics of a POI (Point Of Interaction) component.
     /// </summary>
-    [DataMember]
     public PointOfInteractionComponentCharacteristics5? Characteristics { get; init; } 
     /// <summary>
     /// Assessments for the component of the point of interaction.
     /// </summary>
-    [DataMember]
-    public ValueList<PointOfInteractionComponentAssessment1> Assessment { get; init; } = []; // Warning: Don't know multiplicity.
+    public PointOfInteractionComponentAssessment1? Assessment { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SubTypeInformation is IsoMax70Text SubTypeInformationValue)
+        {
+            writer.WriteStartElement(null, "SubTpInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(SubTypeInformationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Status is PointOfInteractionComponentStatus3 StatusValue)
+        {
+            writer.WriteStartElement(null, "Sts", xmlNamespace );
+            StatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StandardCompliance is GenericIdentification48 StandardComplianceValue)
+        {
+            writer.WriteStartElement(null, "StdCmplc", xmlNamespace );
+            StandardComplianceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Characteristics is PointOfInteractionComponentCharacteristics5 CharacteristicsValue)
+        {
+            writer.WriteStartElement(null, "Chrtcs", xmlNamespace );
+            CharacteristicsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Assessment is PointOfInteractionComponentAssessment1 AssessmentValue)
+        {
+            writer.WriteStartElement(null, "Assmnt", xmlNamespace );
+            AssessmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PointOfInteractionComponent9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

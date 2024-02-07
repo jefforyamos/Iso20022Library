@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Group of parties with their related security certificate.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Group4
+     : IIsoXmlSerilizable<Group4>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the identification of the group.
     /// </summary>
-    [DataMember]
     public required IsoMax4AlphaNumericText GroupIdentification { get; init; } 
     /// <summary>
     /// Specifies a party and related certificate.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyAndCertificate4> Party { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyAndCertificate4? Party { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _I5uXo249EeiU9cctagi5ow
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(GroupIdentification)); // data type Max4AlphaNumericText System.String
+        writer.WriteEndElement();
+        // Not sure how to serialize Party, multiplicity Unknown
+    }
+    public static Group4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

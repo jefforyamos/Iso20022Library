@@ -7,173 +7,346 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unit of information showing the related provision of products and/or services and monetary summations reported as a discrete line items.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LineItem10
+     : IIsoXmlSerilizable<LineItem10>
 {
     #nullable enable
     
     /// <summary>
     /// The unique identification of this invoice line item.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Something that is produced and sold as the result of an industrial process.
     /// </summary>
-    [DataMember]
     public TradeProduct1? TradeProduct { get; init; } 
     /// <summary>
     /// Purchase order reference assigned by the buyer related to the provision of products and/or services for this line item.
     /// </summary>
-    [DataMember]
     public DocumentIdentification23? BuyerOrderIdentification { get; init; } 
     /// <summary>
     /// Contract reference related to the provision of products and/or services for this line item.
     /// </summary>
-    [DataMember]
     public DocumentIdentification22? ContractIdentification { get; init; } 
     /// <summary>
     /// Specific purchase account for recording debits and credits for accounting purposes.
     /// </summary>
-    [DataMember]
-    public ValueList<AccountingAccount1> PurchaseAccountingAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    public AccountingAccount1? PurchaseAccountingAccount { get; init; } 
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoCurrencyAndAmount> NetPrice { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount? NetPrice { get; init; } 
     /// <summary>
     /// Quantity and conversion factor on which the net price is based for this line item product and/or service.
     /// </summary>
-    [DataMember]
     public Quantity4? NetPriceQuantity { get; init; } 
     /// <summary>
     /// Allowance or charge applied to the net price.
     /// </summary>
-    [DataMember]
-    public ValueList<LineItemAllowanceCharge1> NetPriceAllowanceCharge { get; init; } = []; // Warning: Don't know multiplicity.
+    public LineItemAllowanceCharge1? NetPriceAllowanceCharge { get; init; } 
     /// <summary>
     /// Net weight of the product.
     /// </summary>
-    [DataMember]
     public Quantity3? NetWeight { get; init; } 
     /// <summary>
     /// Gross price of the product and/or service.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoCurrencyAndAmount> GrossPrice { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount? GrossPrice { get; init; } 
     /// <summary>
     /// Quantity and conversion factor on which the gross price is based for this line item product and/or service.
     /// </summary>
-    [DataMember]
     public Quantity4? GrossPriceQuantity { get; init; } 
     /// <summary>
     /// Gross weight of the product.
     /// </summary>
-    [DataMember]
     public Quantity3? GrossWeight { get; init; } 
     /// <summary>
     /// Logistics service charge for this line item.
     /// </summary>
-    [DataMember]
-    public ValueList<ChargesDetails2> LogisticsCharge { get; init; } = []; // Warning: Don't know multiplicity.
+    public ChargesDetails2? LogisticsCharge { get; init; } 
     /// <summary>
     /// Amount of money due to the government or tax authority, according to various pre-defined parameters such as thresholds or income.
     /// </summary>
-    [DataMember]
-    public ValueList<LineItemTax1> Tax { get; init; } = []; // Warning: Don't know multiplicity.
+    public LineItemTax1? Tax { get; init; } 
     /// <summary>
     /// Allowance or charge specified for this line item.
     /// </summary>
-    [DataMember]
-    public ValueList<LineItemAllowanceCharge1> AllowanceCharge { get; init; } = []; // Warning: Don't know multiplicity.
+    public LineItemAllowanceCharge1? AllowanceCharge { get; init; } 
     /// <summary>
     /// Modification on the value of goods and / or services. For example: rebate, discount, surcharge.
     /// </summary>
-    [DataMember]
-    public ValueList<Adjustment4> FinancialAdjustment { get; init; } = []; // Warning: Don't know multiplicity.
+    public Adjustment4? FinancialAdjustment { get; init; } 
     /// <summary>
     /// Quantity billed for this line item.
     /// </summary>
-    [DataMember]
     public Quantity3? BilledQuantity { get; init; } 
     /// <summary>
     /// Number of product packages delivered.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? PackageQuantity { get; init; } 
     /// <summary>
     /// Number of units per package in this line item for a supply chain trade delivery.
     /// </summary>
-    [DataMember]
     public Quantity3? PerPackageUnitQuantity { get; init; } 
     /// <summary>
     /// Physical packaging of the product.
     /// </summary>
-    [DataMember]
-    public ValueList<Packaging1> Packaging { get; init; } = []; // Warning: Don't know multiplicity.
+    public Packaging1? Packaging { get; init; } 
     /// <summary>
     /// Quantity that is free of charge for this line item.
     /// </summary>
-    [DataMember]
     public Quantity3? ChargeFreeQuantity { get; init; } 
     /// <summary>
     /// Quantity value on which the quantity measurement started for a line item. For instance the start amount of a meter reading for an electricity supplier.
     /// </summary>
-    [DataMember]
     public Quantity3? MeasureQuantityStart { get; init; } 
     /// <summary>
     /// Quantity value on which the quantity measurement ended for a line item. For instance the end amount of a meter reading for an electricity supplier.
     /// </summary>
-    [DataMember]
     public Quantity3? MeasureQuantityEnd { get; init; } 
     /// <summary>
     /// Date/time on which the clock time measure started for a line item.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? MeasureDateTimeStart { get; init; } 
     /// <summary>
     /// Date/time on which the clock time measure ended for a line item.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? MeasureDateTimeEnd { get; init; } 
     /// <summary>
     /// Party to whom the goods must be delivered in the end.
     /// </summary>
-    [DataMember]
     public TradeParty1? ShipTo { get; init; } 
     /// <summary>
     /// Specifies the applicable Incoterm and associated location.
     /// </summary>
-    [DataMember]
     public Incoterms3? Incoterms { get; init; } 
     /// <summary>
     /// Actual delivery date/time of the products and/or services for this line item.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? DeliveryDateTime { get; init; } 
     /// <summary>
     /// Delivery note related to the delivery of the products and/or services for this line item.
     /// </summary>
-    [DataMember]
     public DocumentIdentification22? DeliveryNoteIdentification { get; init; } 
     /// <summary>
     /// Monetary totals for this line item.
     /// </summary>
-    [DataMember]
     public LineItemMonetarySummation1? MonetarySummation { get; init; } 
     /// <summary>
     /// Note included in this line item.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation1> IncludedNote { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation1? IncludedNote { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is IsoMax35Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TradeProduct is TradeProduct1 TradeProductValue)
+        {
+            writer.WriteStartElement(null, "TradPdct", xmlNamespace );
+            TradeProductValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BuyerOrderIdentification is DocumentIdentification23 BuyerOrderIdentificationValue)
+        {
+            writer.WriteStartElement(null, "BuyrOrdrId", xmlNamespace );
+            BuyerOrderIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContractIdentification is DocumentIdentification22 ContractIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CtrctId", xmlNamespace );
+            ContractIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PurchaseAccountingAccount is AccountingAccount1 PurchaseAccountingAccountValue)
+        {
+            writer.WriteStartElement(null, "PurchsAcctgAcct", xmlNamespace );
+            PurchaseAccountingAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NetPrice is IsoCurrencyAndAmount NetPriceValue)
+        {
+            writer.WriteStartElement(null, "NetPric", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(NetPriceValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (NetPriceQuantity is Quantity4 NetPriceQuantityValue)
+        {
+            writer.WriteStartElement(null, "NetPricQty", xmlNamespace );
+            NetPriceQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NetPriceAllowanceCharge is LineItemAllowanceCharge1 NetPriceAllowanceChargeValue)
+        {
+            writer.WriteStartElement(null, "NetPricAllwncChrg", xmlNamespace );
+            NetPriceAllowanceChargeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NetWeight is Quantity3 NetWeightValue)
+        {
+            writer.WriteStartElement(null, "NetWght", xmlNamespace );
+            NetWeightValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GrossPrice is IsoCurrencyAndAmount GrossPriceValue)
+        {
+            writer.WriteStartElement(null, "GrssPric", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(GrossPriceValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (GrossPriceQuantity is Quantity4 GrossPriceQuantityValue)
+        {
+            writer.WriteStartElement(null, "GrssPricQty", xmlNamespace );
+            GrossPriceQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GrossWeight is Quantity3 GrossWeightValue)
+        {
+            writer.WriteStartElement(null, "GrssWght", xmlNamespace );
+            GrossWeightValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LogisticsCharge is ChargesDetails2 LogisticsChargeValue)
+        {
+            writer.WriteStartElement(null, "LogstcsChrg", xmlNamespace );
+            LogisticsChargeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Tax is LineItemTax1 TaxValue)
+        {
+            writer.WriteStartElement(null, "Tax", xmlNamespace );
+            TaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AllowanceCharge is LineItemAllowanceCharge1 AllowanceChargeValue)
+        {
+            writer.WriteStartElement(null, "AllwncChrg", xmlNamespace );
+            AllowanceChargeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialAdjustment is Adjustment4 FinancialAdjustmentValue)
+        {
+            writer.WriteStartElement(null, "FinAdjstmnt", xmlNamespace );
+            FinancialAdjustmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BilledQuantity is Quantity3 BilledQuantityValue)
+        {
+            writer.WriteStartElement(null, "BlldQty", xmlNamespace );
+            BilledQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PackageQuantity is IsoDecimalNumber PackageQuantityValue)
+        {
+            writer.WriteStartElement(null, "PackgQty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(PackageQuantityValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (PerPackageUnitQuantity is Quantity3 PerPackageUnitQuantityValue)
+        {
+            writer.WriteStartElement(null, "PerPackgUnitQty", xmlNamespace );
+            PerPackageUnitQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Packaging is Packaging1 PackagingValue)
+        {
+            writer.WriteStartElement(null, "Packgng", xmlNamespace );
+            PackagingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ChargeFreeQuantity is Quantity3 ChargeFreeQuantityValue)
+        {
+            writer.WriteStartElement(null, "ChrgFreeQty", xmlNamespace );
+            ChargeFreeQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MeasureQuantityStart is Quantity3 MeasureQuantityStartValue)
+        {
+            writer.WriteStartElement(null, "MeasrQtyStart", xmlNamespace );
+            MeasureQuantityStartValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MeasureQuantityEnd is Quantity3 MeasureQuantityEndValue)
+        {
+            writer.WriteStartElement(null, "MeasrQtyEnd", xmlNamespace );
+            MeasureQuantityEndValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MeasureDateTimeStart is IsoISODateTime MeasureDateTimeStartValue)
+        {
+            writer.WriteStartElement(null, "MeasrDtTmStart", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(MeasureDateTimeStartValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (MeasureDateTimeEnd is IsoISODateTime MeasureDateTimeEndValue)
+        {
+            writer.WriteStartElement(null, "MeasrDtTmEnd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(MeasureDateTimeEndValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ShipTo is TradeParty1 ShipToValue)
+        {
+            writer.WriteStartElement(null, "ShipTo", xmlNamespace );
+            ShipToValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Incoterms is Incoterms3 IncotermsValue)
+        {
+            writer.WriteStartElement(null, "Incotrms", xmlNamespace );
+            IncotermsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveryDateTime is IsoISODateTime DeliveryDateTimeValue)
+        {
+            writer.WriteStartElement(null, "DlvryDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(DeliveryDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (DeliveryNoteIdentification is DocumentIdentification22 DeliveryNoteIdentificationValue)
+        {
+            writer.WriteStartElement(null, "DlvryNoteId", xmlNamespace );
+            DeliveryNoteIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MonetarySummation is LineItemMonetarySummation1 MonetarySummationValue)
+        {
+            writer.WriteStartElement(null, "MntrySummtn", xmlNamespace );
+            MonetarySummationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IncludedNote is AdditionalInformation1 IncludedNoteValue)
+        {
+            writer.WriteStartElement(null, "InclNote", xmlNamespace );
+            IncludedNoteValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LineItem10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

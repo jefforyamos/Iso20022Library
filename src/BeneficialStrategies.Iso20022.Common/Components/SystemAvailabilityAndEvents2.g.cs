@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details about the system availability and the related system events that might impact the availability.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SystemAvailabilityAndEvents2
+     : IIsoXmlSerilizable<SystemAvailabilityAndEvents2>
 {
     #nullable enable
     
     /// <summary>
     /// Currency which may be processed by the system. A system may process transactions in a single currency or in multiple currencies.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? SystemCurrency { get; init; } 
     /// <summary>
     /// Time window of system activity.
     /// </summary>
-    [DataMember]
     public TimePeriod1? SessionPeriod { get; init; } 
     /// <summary>
     /// Detailed information about an event occurring on a system, whether planned, such as the cut-off time for a specific type of eligible transfer, or unplanned (an unsolicited failure), as stipulated in the specifications of the system.
     /// </summary>
-    [DataMember]
-    public ValueList<SystemEvent2> Event { get; init; } = []; // Warning: Don't know multiplicity.
+    public SystemEvent2? Event { get; init; } 
     /// <summary>
     /// Information regarding the closure time of a system.
     /// </summary>
-    [DataMember]
-    public ValueList<SystemClosure2> ClosureInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public SystemClosure2? ClosureInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SystemCurrency is ActiveCurrencyCode SystemCurrencyValue)
+        {
+            writer.WriteStartElement(null, "SysCcy", xmlNamespace );
+            writer.WriteValue(SystemCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SessionPeriod is TimePeriod1 SessionPeriodValue)
+        {
+            writer.WriteStartElement(null, "SsnPrd", xmlNamespace );
+            SessionPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Event is SystemEvent2 EventValue)
+        {
+            writer.WriteStartElement(null, "Evt", xmlNamespace );
+            EventValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClosureInformation is SystemClosure2 ClosureInformationValue)
+        {
+            writer.WriteStartElement(null, "ClsrInf", xmlNamespace );
+            ClosureInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SystemAvailabilityAndEvents2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

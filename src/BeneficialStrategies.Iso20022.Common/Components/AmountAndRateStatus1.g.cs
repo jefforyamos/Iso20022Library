@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies an amount and a rate status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AmountAndRateStatus1
+     : IIsoXmlSerilizable<AmountAndRateStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Value expressed as an amount.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
     /// <summary>
     /// Value expressed as a rate status.
     /// </summary>
-    [DataMember]
     public required RateStatus1Code RateStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(Amount)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RateSts", xmlNamespace );
+        writer.WriteValue(RateStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static AmountAndRateStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

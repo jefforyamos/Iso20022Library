@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.SecuritiesSettlementTransactionAllegementNotificationV05>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -33,10 +36,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// using the relevant elements in the Business Application Header.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account servicer sends a SecuritiesSettlementTransactionAllegementNotification to an account owner to advise the account owner that a counterparty has alleged an instruction against the account owner's account at the account servicer and that the account servicer could not find the corresponding instruction of the account owner.|The account servicer/owner relationship may be:|- a central securities depository or another settlement market infrastructure acting on behalf of their participants|- an agent (sub-custodian) acting on behalf of their global custodian customer, or|- a custodian acting on behalf of an investment management institution or a broker/dealer.||Usage|The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information|using the relevant elements in the Business Application Header.")]
-public partial record SecuritiesSettlementTransactionAllegementNotificationV05 : IOuterRecord
+public partial record SecuritiesSettlementTransactionAllegementNotificationV05 : IOuterRecord<SecuritiesSettlementTransactionAllegementNotificationV05,SecuritiesSettlementTransactionAllegementNotificationV05Document>
+    ,IIsoXmlSerilizable<SecuritiesSettlementTransactionAllegementNotificationV05>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -48,6 +50,11 @@ public partial record SecuritiesSettlementTransactionAllegementNotificationV05 :
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesSttlmTxAllgmtNtfctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesSettlementTransactionAllegementNotificationV05Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -209,6 +216,101 @@ public partial record SecuritiesSettlementTransactionAllegementNotificationV05 :
     {
         return new SecuritiesSettlementTransactionAllegementNotificationV05Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesSttlmTxAllgmtNtfctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmTpAndAddtlParams", xmlNamespace );
+        SettlementTypeAndAdditionalParameters.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MarketInfrastructureTransactionIdentification is Identification14 MarketInfrastructureTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MktInfrstrctrTxId", xmlNamespace );
+            MarketInfrastructureTransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TradDtls", xmlNamespace );
+        TradeDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FinancialInstrumentAttributes is FinancialInstrumentAttributes64 FinancialInstrumentAttributesValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmAttrbts", xmlNamespace );
+            FinancialInstrumentAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "QtyAndAcctDtls", xmlNamespace );
+        QuantityAndAccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecuritiesFinancingDetails is SecuritiesFinancingTransactionDetails29 SecuritiesFinancingDetailsValue)
+        {
+            writer.WriteStartElement(null, "SctiesFincgDtls", xmlNamespace );
+            SecuritiesFinancingDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SttlmParams", xmlNamespace );
+        SettlementParameters.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DeliveringSettlementParties is SettlementParties36 DeliveringSettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "DlvrgSttlmPties", xmlNamespace );
+            DeliveringSettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReceivingSettlementParties is SettlementParties36 ReceivingSettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "RcvgSttlmPties", xmlNamespace );
+            ReceivingSettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashParties is CashParties25 CashPartiesValue)
+        {
+            writer.WriteStartElement(null, "CshPties", xmlNamespace );
+            CashPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementAmount is AmountAndDirection48 SettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
+            SettlementAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherAmounts is OtherAmounts32 OtherAmountsValue)
+        {
+            writer.WriteStartElement(null, "OthrAmts", xmlNamespace );
+            OtherAmountsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherBusinessParties is OtherParties28 OtherBusinessPartiesValue)
+        {
+            writer.WriteStartElement(null, "OthrBizPties", xmlNamespace );
+            OtherBusinessPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesSettlementTransactionAllegementNotificationV05 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -216,9 +318,7 @@ public partial record SecuritiesSettlementTransactionAllegementNotificationV05 :
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementTransactionAllegementNotificationV05"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesSettlementTransactionAllegementNotificationV05Document : IOuterDocument<SecuritiesSettlementTransactionAllegementNotificationV05>
+public partial record SecuritiesSettlementTransactionAllegementNotificationV05Document : IOuterDocument<SecuritiesSettlementTransactionAllegementNotificationV05>, IXmlSerializable
 {
     
     /// <summary>
@@ -234,5 +334,22 @@ public partial record SecuritiesSettlementTransactionAllegementNotificationV05Do
     /// <summary>
     /// The instance of <seealso cref="SecuritiesSettlementTransactionAllegementNotificationV05"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesSettlementTransactionAllegementNotificationV05.XmlTag)]
     public required SecuritiesSettlementTransactionAllegementNotificationV05 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesSettlementTransactionAllegementNotificationV05.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

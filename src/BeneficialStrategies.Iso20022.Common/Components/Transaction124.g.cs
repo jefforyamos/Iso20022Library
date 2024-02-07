@@ -7,119 +7,216 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the transactions reported.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Transaction124
+     : IIsoXmlSerilizable<Transaction124>
 {
     #nullable enable
     
     /// <summary>
     /// Unique reference identifying the triparty collateral management transaction from the client's point of view.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClientTripartyCollateralTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique reference identifying the triparty-agent/service-provider collateral management transaction from the triparty-agent's/service-provider's point of view.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TripartyAgentServiceProviderCollateralTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique collateral transaction reference assigned by counterparty.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CounterpartyCollateralTransactionReference { get; init; } 
     /// <summary>
     /// Unique identification (UTI) agreed upon by the two trade counterparties to identify the trade.
     /// </summary>
-    [DataMember]
     public IsoMax52Text? CommonTransactionIdentification { get; init; } 
     /// <summary>
     /// Specifies the underlying business area/type of trade causing the exposure.
     /// </summary>
-    [DataMember]
     public required ExposureType23Choice_ ExposureType { get; init; } 
     /// <summary>
     /// Specifies whether it is a Call option (right to purchase a specific underlying asset) or a Put option (right to sell a specific underlying asset).
     /// </summary>
-    [DataMember]
     public OptionType6Choice_? OptionType { get; init; } 
     /// <summary>
     /// Indication whether the counterparties to the transaction have agreed to an evergreen or extendable repo.
     /// </summary>
-    [DataMember]
     public RepoTerminationOption1Code? TerminationOption { get; init; } 
     /// <summary>
     /// Provides information on the baskets identification and the Eligiblity Set Profile.
     /// </summary>
-    [DataMember]
     public BasketIdentificationAndEligibilitySetProfile1? BasketIdentificationAndEligibilitySetProfile { get; init; } 
     /// <summary>
     /// Identifies the chain of collateral parties.
     /// </summary>
-    [DataMember]
     public required CollateralParties11 CollateralParties { get; init; } 
     /// <summary>
     /// Date/time at which the party requested the initiation instruction to be executed.
     /// </summary>
-    [DataMember]
     public required ClosingDate4Choice_ ExecutionRequestedDate { get; init; } 
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
-    [DataMember]
     public required ClosingDate4Choice_ ClosingDate { get; init; } 
     /// <summary>
     /// Provides details on the collateral valuation.
     /// </summary>
-    [DataMember]
     public required CollateralAmount17 ValuationAmounts { get; init; } 
     /// <summary>
     /// Interest rate to be paid on the transaction amount, as agreed between the counterparties.
     /// </summary>
-    [DataMember]
     public RateOrName4Choice_? PricingRate { get; init; } 
     /// <summary>
     /// The collateral excess/shortage expressed in the percentage of the collateral required.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? MarginRate { get; init; } 
     /// <summary>
     /// Margin rate over or under an index.
     /// Feedback 
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? SpreadRate { get; init; } 
     /// <summary>
     /// Specifies the computation method of (accrued) interest of the financial instrument.
     /// </summary>
-    [DataMember]
     public InterestComputationMethodFormat4Choice_? DayCountBasis { get; init; } 
     /// <summary>
     /// Specifies whether the allocation of the collateral is manual or automatic.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? AutomaticAllocation { get; init; } 
     /// <summary>
     /// Provides the status of a  transaction.
     /// </summary>
-    [DataMember]
     public ValueList<TransactionStatus6> TransactionStatus { get; init; } = [];
     /// <summary>
     /// Quantity of securities assigned as collateral position.
     /// </summary>
-    [DataMember]
-    public ValueList<SecuritiesBalance3> SecuritiesBalance { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecuritiesBalance3? SecuritiesBalance { get; init; } 
     /// <summary>
     /// Amount of cash assigned as collateral position.
     /// </summary>
-    [DataMember]
-    public ValueList<CashBalance15> CashBalance { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashBalance15? CashBalance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ClientTripartyCollateralTransactionIdentification is IsoMax35Text ClientTripartyCollateralTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClntTrptyCollTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientTripartyCollateralTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TrptyAgtSvcPrvdrCollTxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TripartyAgentServiceProviderCollateralTransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (CounterpartyCollateralTransactionReference is IsoMax35Text CounterpartyCollateralTransactionReferenceValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyCollTxRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CounterpartyCollateralTransactionReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CommonTransactionIdentification is IsoMax52Text CommonTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CmonTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(CommonTransactionIdentificationValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "XpsrTp", xmlNamespace );
+        ExposureType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OptionType is OptionType6Choice_ OptionTypeValue)
+        {
+            writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+            OptionTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TerminationOption is RepoTerminationOption1Code TerminationOptionValue)
+        {
+            writer.WriteStartElement(null, "TermntnOptn", xmlNamespace );
+            writer.WriteValue(TerminationOptionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (BasketIdentificationAndEligibilitySetProfile is BasketIdentificationAndEligibilitySetProfile1 BasketIdentificationAndEligibilitySetProfileValue)
+        {
+            writer.WriteStartElement(null, "BsktIdAndElgbltySetPrfl", xmlNamespace );
+            BasketIdentificationAndEligibilitySetProfileValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CollPties", xmlNamespace );
+        CollateralParties.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ExctnReqdDt", xmlNamespace );
+        ExecutionRequestedDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
+        ClosingDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ValtnAmts", xmlNamespace );
+        ValuationAmounts.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PricingRate is RateOrName4Choice_ PricingRateValue)
+        {
+            writer.WriteStartElement(null, "PricgRate", xmlNamespace );
+            PricingRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarginRate is IsoPercentageRate MarginRateValue)
+        {
+            writer.WriteStartElement(null, "MrgnRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(MarginRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (SpreadRate is IsoPercentageRate SpreadRateValue)
+        {
+            writer.WriteStartElement(null, "SprdRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(SpreadRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (DayCountBasis is InterestComputationMethodFormat4Choice_ DayCountBasisValue)
+        {
+            writer.WriteStartElement(null, "DayCntBsis", xmlNamespace );
+            DayCountBasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AutomaticAllocation is IsoYesNoIndicator AutomaticAllocationValue)
+        {
+            writer.WriteStartElement(null, "AutomtcAllcn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AutomaticAllocationValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxSts", xmlNamespace );
+        TransactionStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecuritiesBalance is SecuritiesBalance3 SecuritiesBalanceValue)
+        {
+            writer.WriteStartElement(null, "SctiesBal", xmlNamespace );
+            SecuritiesBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashBalance is CashBalance15 CashBalanceValue)
+        {
+            writer.WriteStartElement(null, "CshBal", xmlNamespace );
+            CashBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Transaction124 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the underlying (group of) transaction(s) to which the investigation applies.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UnderlyingTransaction27
+     : IIsoXmlSerilizable<UnderlyingTransaction27>
 {
     #nullable enable
     
     /// <summary>
     /// Provides information on the original message, to which the cancellation refers.
     /// </summary>
-    [DataMember]
     public OriginalGroupHeader15? OriginalGroupInformationAndCancellation { get; init; } 
     /// <summary>
     /// Provides information on the original (group of) transactions, to which the cancellation request refers.
     /// </summary>
-    [DataMember]
-    public ValueList<OriginalPaymentInstruction36> OriginalPaymentInformationAndCancellation { get; init; } = []; // Warning: Don't know multiplicity.
+    public OriginalPaymentInstruction36? OriginalPaymentInformationAndCancellation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OriginalGroupInformationAndCancellation is OriginalGroupHeader15 OriginalGroupInformationAndCancellationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlGrpInfAndCxl", xmlNamespace );
+            OriginalGroupInformationAndCancellationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalPaymentInformationAndCancellation is OriginalPaymentInstruction36 OriginalPaymentInformationAndCancellationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlPmtInfAndCxl", xmlNamespace );
+            OriginalPaymentInformationAndCancellationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static UnderlyingTransaction27 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

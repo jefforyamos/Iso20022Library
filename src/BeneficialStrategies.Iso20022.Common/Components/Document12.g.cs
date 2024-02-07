@@ -7,63 +7,111 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a document.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Document12
+     : IIsoXmlSerilizable<Document12>
 {
     #nullable enable
     
     /// <summary>
     /// Type of document or template.
     /// </summary>
-    [DataMember]
     public required DocumentType1Choice_ Type { get; init; } 
     /// <summary>
     /// Identification of the document or template.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Issue date or date time of the document.
     /// </summary>
-    [DataMember]
     public required DateAndDateTime2Choice_ IssueDate { get; init; } 
     /// <summary>
     /// Name of document or transaction, for example, tax invoice.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Name { get; init; } 
     /// <summary>
     /// Unique identifier for a language used in the document.
     /// </summary>
-    [DataMember]
     public LanguageCode? LanguageCode { get; init; } 
     /// <summary>
     /// Format of the document or template, such as PDF, XML, XSLT.
     /// </summary>
-    [DataMember]
     public required DocumentFormat1Choice_ Format { get; init; } 
     /// <summary>
     /// Technical name of the file.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? FileName { get; init; } 
     /// <summary>
     /// Digital signature of the enclosed binary file.
     /// </summary>
-    [DataMember]
     public PartyAndSignature3? DigitalSignature { get; init; } 
     /// <summary>
     /// Binary file representing the enclosed document or template, such as a PDF file, image file, XML file, MT message.
     /// </summary>
-    [DataMember]
     public required IsoMax10MbBinary Enclosure { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IsseDt", xmlNamespace );
+        IssueDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Name is IsoMax140Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(NameValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (LanguageCode is LanguageCode LanguageCodeValue)
+        {
+            writer.WriteStartElement(null, "LangCd", xmlNamespace );
+            writer.WriteValue(LanguageCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Frmt", xmlNamespace );
+        Format.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FileName is IsoMax140Text FileNameValue)
+        {
+            writer.WriteStartElement(null, "FileNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(FileNameValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (DigitalSignature is PartyAndSignature3 DigitalSignatureValue)
+        {
+            writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
+            DigitalSignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Nclsr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax10MbBinary(Enclosure)); // data type Max10MbBinary System.Byte[]
+        writer.WriteEndElement();
+    }
+    public static Document12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

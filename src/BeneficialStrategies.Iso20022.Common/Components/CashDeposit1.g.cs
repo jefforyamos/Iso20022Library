@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Deposit of an amount of money defined in cash notes and/or coins.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashDeposit1
+     : IIsoXmlSerilizable<CashDeposit1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the note or coin denomination, including the currency, such as a 50 euro note.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount NoteDenomination { get; init; } 
     /// <summary>
     /// Specifies the number of notes of the same denomination in the deposit.
     /// </summary>
-    [DataMember]
     public required IsoMax15NumericText NumberOfNotes { get; init; } 
     /// <summary>
     /// Specifies the total amount of money in the cash deposit, that is the note denomination times the number of notes.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NoteDnmtn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(NoteDenomination)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NbOfNotes", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(NumberOfNotes)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static CashDeposit1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

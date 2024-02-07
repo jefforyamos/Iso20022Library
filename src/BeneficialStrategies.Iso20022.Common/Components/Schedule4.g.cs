@@ -7,35 +7,62 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates the unadjusted effective and end date of the schedule.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Schedule4
+     : IIsoXmlSerilizable<Schedule4>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the unadjusted date at which obligations under the  derivative transaction come into effect, as included in the confirmation.
     /// </summary>
-    [DataMember]
     public required IsoISODate UnadjustedEffectiveDate { get; init; } 
     /// <summary>
     /// Indicates the end date agreed in the derivative transaction without adjustment.
     /// </summary>
-    [DataMember]
     public IsoISODate? UnadjustedEndDate { get; init; } 
     /// <summary>
     /// Specifies the predetermined price at which the owner of the option can buy or sell the underlying instrument.
     /// Usage: For foreign exchange options, specifies the exchange rate at which the option can be exercised as the rate of exchange from converting the unit currency into the quoted currency.
     /// For volatility and variance swaps, specify the volatility strike price.
     /// </summary>
-    [DataMember]
     public required SecuritiesTransactionPrice17Choice_ Price { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UadjstdFctvDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(UnadjustedEffectiveDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (UnadjustedEndDate is IsoISODate UnadjustedEndDateValue)
+        {
+            writer.WriteStartElement(null, "UadjstdEndDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(UnadjustedEndDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Pric", xmlNamespace );
+        Price.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static Schedule4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.DeMinimus1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.DeMinimus1Choice;
 /// Conditions applicable when the investor is covered by the "de minimis" exemption.
 /// </summary>
 public partial record DeMinimusApplicable : DeMinimus1Choice_
+     , IIsoXmlSerilizable<DeMinimusApplicable>
 {
     #nullable enable
+    
     /// <summary>
     /// Indicates whether the investor permits its beneficial owners that are restricted persons, if any, to participate in profits and losses allocated to the investor that are attribute to new issue securities.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record DeMinimusApplicable : DeMinimus1Choice_
     /// Percentage of the new issue profits and losses that it receives to beneficial owners that are restricted persons.
     /// </summary>
     public IsoPercentageRate? Percentage { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NewIssePrmssn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(NewIssuePermission)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (Percentage is IsoPercentageRate PercentageValue)
+        {
+            writer.WriteStartElement(null, "Pctg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PercentageValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static new DeMinimusApplicable Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

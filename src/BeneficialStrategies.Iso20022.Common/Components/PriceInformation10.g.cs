@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PriceInformation10
+     : IIsoXmlSerilizable<PriceInformation10>
 {
     #nullable enable
     
     /// <summary>
     /// Current value of the price, eg, as a currency and value.
     /// </summary>
-    [DataMember]
     public required IsoActiveOrHistoricCurrencyAnd13DecimalAmount CurrentPrice { get; init; } 
     /// <summary>
     /// Specifies the type of price and information about the price.
     /// </summary>
-    [DataMember]
     public required TypeOfPrice27Choice_ Type { get; init; } 
     /// <summary>
     /// Previous value of the price, eg, as a currency and value.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? PreviousPrice { get; init; } 
     /// <summary>
     /// Difference or change between the previous price value and the current price value.
     /// </summary>
-    [DataMember]
     public PriceValueAndRate4? AmountOfChange { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CurPric", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd13DecimalAmount(CurrentPrice)); // data type ActiveOrHistoricCurrencyAnd13DecimalAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PreviousPrice is IsoActiveOrHistoricCurrencyAnd13DecimalAmount PreviousPriceValue)
+        {
+            writer.WriteStartElement(null, "PrvsPric", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd13DecimalAmount(PreviousPriceValue)); // data type ActiveOrHistoricCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (AmountOfChange is PriceValueAndRate4 AmountOfChangeValue)
+        {
+            writer.WriteStartElement(null, "AmtOfChng", xmlNamespace );
+            AmountOfChangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PriceInformation10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

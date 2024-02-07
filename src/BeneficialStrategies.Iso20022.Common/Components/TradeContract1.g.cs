@@ -7,78 +7,133 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Agreement between the parties, stipulating the terms and conditions of the delivery of goods or services.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeContract1
+     : IIsoXmlSerilizable<TradeContract1>
 {
     #nullable enable
     
     /// <summary>
     /// Contract document referenced from this trade agreement.
     /// </summary>
-    [DataMember]
     public DocumentIdentification22? ContractDocumentIdentification { get; init; } 
     /// <summary>
     /// Amount of the trade contract.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Party that is specified as the buyer for this trade agreement.
     /// </summary>
-    [DataMember]
-    public ValueList<TradeParty2> Buyer { get; init; } = []; // Warning: Don't know multiplicity.
+    public TradeParty2? Buyer { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _RZltc9NDEeSDLevdaFPXHw
     /// <summary>
     /// Party that is specified as the seller for this trade agreement.
     /// </summary>
-    [DataMember]
-    public ValueList<TradeParty2> Seller { get; init; } = []; // Warning: Don't know multiplicity.
+    public TradeParty2? Seller { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _RZltdNNDEeSDLevdaFPXHw
     /// <summary>
     /// Planned final payment date at the time of issuance.
     /// </summary>
-    [DataMember]
     public required IsoISODate MaturityDate { get; init; } 
     /// <summary>
     /// Indicates whether the contract duration is extended or not.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator ProlongationFlag { get; init; } 
     /// <summary>
     /// Start date of the trade contract.
     /// </summary>
-    [DataMember]
     public required IsoISODate StartDate { get; init; } 
     /// <summary>
     /// Currency in which the trade is being settled.
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode SettlementCurrency { get; init; } 
     /// <summary>
     /// Provides details on the currency exchange rate and contract.
     /// </summary>
-    [DataMember]
     public ExchangeRate1? ExchangeRateInformation { get; init; } 
     /// <summary>
     /// Schedule of the payments defined for the trade contract.
     /// </summary>
-    [DataMember]
     public InterestPaymentDateRange1? PaymentSchedule { get; init; } 
     /// <summary>
     /// Schedule of the shipment.
     /// </summary>
-    [DataMember]
     public ShipmentSchedule2Choice_? ShipmentSchedule { get; init; } 
     /// <summary>
     /// Documents provided as attachments to the trade contract.
     /// </summary>
-    [DataMember]
-    public ValueList<DocumentGeneralInformation3> Attachment { get; init; } = []; // Warning: Don't know multiplicity.
+    public DocumentGeneralInformation3? Attachment { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ContractDocumentIdentification is DocumentIdentification22 ContractDocumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CtrctDocId", xmlNamespace );
+            ContractDocumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        // Not sure how to serialize Buyer, multiplicity Unknown
+        // Not sure how to serialize Seller, multiplicity Unknown
+        writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(MaturityDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PrlngtnFlg", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ProlongationFlag)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StartDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(StartDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmCcy", xmlNamespace );
+        writer.WriteValue(SettlementCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ExchangeRateInformation is ExchangeRate1 ExchangeRateInformationValue)
+        {
+            writer.WriteStartElement(null, "XchgRateInf", xmlNamespace );
+            ExchangeRateInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentSchedule is InterestPaymentDateRange1 PaymentScheduleValue)
+        {
+            writer.WriteStartElement(null, "PmtSchdl", xmlNamespace );
+            PaymentScheduleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ShipmentSchedule is ShipmentSchedule2Choice_ ShipmentScheduleValue)
+        {
+            writer.WriteStartElement(null, "ShipmntSchdl", xmlNamespace );
+            ShipmentScheduleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Attachment is DocumentGeneralInformation3 AttachmentValue)
+        {
+            writer.WriteStartElement(null, "Attchmnt", xmlNamespace );
+            AttachmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeContract1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

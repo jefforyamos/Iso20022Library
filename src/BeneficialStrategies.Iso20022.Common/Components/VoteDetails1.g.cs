@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies detailed voting instructions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record VoteDetails1
+     : IIsoXmlSerilizable<VoteDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the vote instruction for the resolutions which are announced via the meeting agenda in advance of the meeting.
     /// </summary>
-    [DataMember]
     public required Vote1Choice_ VoteInstructionForAgendaResolution { get; init; } 
     /// <summary>
     /// Indicates the vote instruction for the resolutions that will be added during the meeting.
     /// </summary>
-    [DataMember]
     public VoteInstructionForMeetingResolution1? VoteInstructionForMeetingResolution { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "VoteInstrForAgndRsltn", xmlNamespace );
+        VoteInstructionForAgendaResolution.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (VoteInstructionForMeetingResolution is VoteInstructionForMeetingResolution1 VoteInstructionForMeetingResolutionValue)
+        {
+            writer.WriteStartElement(null, "VoteInstrForMtgRsltn", xmlNamespace );
+            VoteInstructionForMeetingResolutionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static VoteDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

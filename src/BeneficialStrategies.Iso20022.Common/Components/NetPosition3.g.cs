@@ -7,98 +7,178 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the net positions details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NetPosition3
+     : IIsoXmlSerilizable<NetPosition3>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the clearing member account at the Central counterparty through which the trade must be cleared (sometimes called position account).
     /// </summary>
-    [DataMember]
     public required SecuritiesAccount18 ClearingAccount { get; init; } 
     /// <summary>
     /// Provides the identification for the non-clearing member.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount31? NonClearingMember { get; init; } 
     /// <summary>
     /// An account opened by the central counterparty in the name of the clearing member or its settlement agent within the account structure, for settlement purposes (gives information about the clearing member/its settlement agent account at the central securities depository).
     /// </summary>
-    [DataMember]
     public SecuritiesAccount19? DeliveryAccount { get; init; } 
     /// <summary>
     /// Provides details about the security identification.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification14 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Provides the initial position amount.
     /// </summary>
-    [DataMember]
     public AmountAndDirection21? InitialPositionAmount { get; init; } 
     /// <summary>
     /// Provides the net position amount.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection21 NetPositionAmount { get; init; } 
     /// <summary>
     /// Interest that has accumulated on a bond since the last interest payment up to, but not including, the settlement date.
     /// </summary>
-    [DataMember]
     public AmountAndDirection21? AccruedInterestAmount { get; init; } 
     /// <summary>
     /// This is the price of the trade.
     /// </summary>
-    [DataMember]
     public Price4? AverageDealPrice { get; init; } 
     /// <summary>
     /// Identifies the quantity of the trade leg.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ NetQuantity { get; init; } 
     /// <summary>
     /// Indicates the securities movement direction, that is, whether this is a delivery or return.
     /// </summary>
-    [DataMember]
     public required ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
     /// <summary>
     /// Place at which a trade settles.
     /// </summary>
-    [DataMember]
     public required PartyIdentification34Choice_ Depository { get; init; } 
     /// <summary>
     /// Identifies the trading capacity of the seller.
     /// </summary>
-    [DataMember]
     public TradingCapacity5Code? TradingCapacity { get; init; } 
     /// <summary>
     /// Place at which the security is traded.
     /// </summary>
-    [DataMember]
     public MarketIdentification20? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Provides the date of the trade.
     /// </summary>
-    [DataMember]
     public IsoISODate? TradeDate { get; init; } 
     /// <summary>
     /// Provides the contractual settlement date.
     /// </summary>
-    [DataMember]
     public DateFormat15Choice_? SettlementDate { get; init; } 
     /// <summary>
     /// Provides the trade leg details such as trade leg identification and trade type.
     /// </summary>
-    [DataMember]
-    public ValueList<TradeLeg10> TradeLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public TradeLeg10? TradeLegDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ClrAcct", xmlNamespace );
+        ClearingAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (NonClearingMember is PartyIdentificationAndAccount31 NonClearingMemberValue)
+        {
+            writer.WriteStartElement(null, "NonClrMmb", xmlNamespace );
+            NonClearingMemberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveryAccount is SecuritiesAccount19 DeliveryAccountValue)
+        {
+            writer.WriteStartElement(null, "DlvryAcct", xmlNamespace );
+            DeliveryAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (InitialPositionAmount is AmountAndDirection21 InitialPositionAmountValue)
+        {
+            writer.WriteStartElement(null, "InitlPosAmt", xmlNamespace );
+            InitialPositionAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "NetPosAmt", xmlNamespace );
+        NetPositionAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccruedInterestAmount is AmountAndDirection21 AccruedInterestAmountValue)
+        {
+            writer.WriteStartElement(null, "AcrdIntrstAmt", xmlNamespace );
+            AccruedInterestAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AverageDealPrice is Price4 AverageDealPriceValue)
+        {
+            writer.WriteStartElement(null, "AvrgDealPric", xmlNamespace );
+            AverageDealPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "NetQty", xmlNamespace );
+        NetQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctiesMvmntTp", xmlNamespace );
+        writer.WriteValue(SecuritiesMovementType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Dpstry", xmlNamespace );
+        Depository.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TradingCapacity is TradingCapacity5Code TradingCapacityValue)
+        {
+            writer.WriteStartElement(null, "TradgCpcty", xmlNamespace );
+            writer.WriteValue(TradingCapacityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PlaceOfTrade is MarketIdentification20 PlaceOfTradeValue)
+        {
+            writer.WriteStartElement(null, "PlcOfTrad", xmlNamespace );
+            PlaceOfTradeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeDate is IsoISODate TradeDateValue)
+        {
+            writer.WriteStartElement(null, "TradDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(TradeDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SettlementDate is DateFormat15Choice_ SettlementDateValue)
+        {
+            writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
+            SettlementDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeLegDetails is TradeLeg10 TradeLegDetailsValue)
+        {
+            writer.WriteStartElement(null, "TradLegDtls", xmlNamespace );
+            TradeLegDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static NetPosition3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TradeReport10Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReport10Choice;
 /// Indicates a modification to the terms or details of a previously reported position or correction the erroneous data fields of a previously submitted position.
 /// </summary>
 public partial record Modification : TradeReport10Choice_
+     , IIsoXmlSerilizable<Modification>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
@@ -38,6 +42,54 @@ public partial record Modification : TradeReport10Choice_
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TechnicalRecordIdentification is IsoMax140Text TechnicalRecordIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(TechnicalRecordIdentificationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CtrPtyData", xmlNamespace );
+        CounterpartyData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LoanData is TransactionLoanData20Choice_ LoanDataValue)
+        {
+            writer.WriteStartElement(null, "LnData", xmlNamespace );
+            LoanDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollateralData is TransactionCollateralData14Choice_ CollateralDataValue)
+        {
+            writer.WriteStartElement(null, "CollData", xmlNamespace );
+            CollateralDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "LvlTp", xmlNamespace );
+        writer.WriteValue(LevelType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Modification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

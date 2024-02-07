@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the result the input.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InputResult1
+     : IIsoXmlSerilizable<InputResult1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of Input device.
     /// </summary>
-    [DataMember]
     public required SaleCapabilities2Code DeviceType { get; init; } 
     /// <summary>
     /// Qualifies the type of given information.
     /// </summary>
-    [DataMember]
     public required InformationQualify1Code InformationQualifier { get; init; } 
     /// <summary>
     /// Data resulting of input after POI or Sale processing.
     /// </summary>
-    [DataMember]
     public required InputResultData1 InputResultData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DvcTp", xmlNamespace );
+        writer.WriteValue(DeviceType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InfQlfr", xmlNamespace );
+        writer.WriteValue(InformationQualifier.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InptRsltData", xmlNamespace );
+        InputResultData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static InputResult1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

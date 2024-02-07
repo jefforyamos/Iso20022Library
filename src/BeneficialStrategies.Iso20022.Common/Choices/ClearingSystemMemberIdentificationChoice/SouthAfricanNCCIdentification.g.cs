@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificationChoice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// South African National Clearing Code (NCC) - identifies South African financial institutions on the South African national clearing system. The code is assigned by the South African Bankers Services Company Ltd. (BankServ).
 /// </summary>
 public partial record SouthAfricanNCCIdentification : ClearingSystemMemberIdentificationChoice_
+     , IIsoXmlSerilizable<SouthAfricanNCCIdentification>
 {
-    public required IsoSouthAfricanNCCIdentifier Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// South African National Clearing Code (NCC). Identifies South African financial institutions on the South African national clearing system. The code is assigned by the South African Bankers Services Company Ltd. (BankServ).
+    /// </summary>
+    public required IsoSouthAfricanNCCIdentifier Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ZANCC", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoSouthAfricanNCCIdentifier(Value)); // data type SouthAfricanNCCIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static new SouthAfricanNCCIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

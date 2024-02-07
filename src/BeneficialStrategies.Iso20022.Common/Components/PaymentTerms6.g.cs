@@ -7,68 +7,136 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the payment terms of the underlying transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentTerms6
+     : IIsoXmlSerilizable<PaymentTerms6>
 {
     #nullable enable
     
     /// <summary>
     /// Due date specified for the payment terms.
     /// </summary>
-    [DataMember]
     public IsoISODate? DueDate { get; init; } 
     /// <summary>
     /// Payment period specified for these payment terms.
     /// </summary>
-    [DataMember]
     public PaymentPeriod1? PaymentPeriod { get; init; } 
     /// <summary>
     /// Textual description of these payment terms.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax140Text> Description { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax140Text? Description { get; init; } 
     /// <summary>
     /// Partial payment, expressed as a percentage, for the payment terms.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? PartialPaymentPercent { get; init; } 
     /// <summary>
     /// Direct debit mandate identification specified for these payment terms.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> DirectDebitMandateIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? DirectDebitMandateIdentification { get; init; } 
     /// <summary>
     /// Amount used as a basis to calculate the discount amount for these payment terms.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? BasisAmount { get; init; } 
     /// <summary>
     /// Amount of money that results from the application of an agreed discount percentage to the basis amount and payable to the creditor.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? DiscountAmount { get; init; } 
     /// <summary>
     /// Percent rate used to calculate the discount for these payment terms.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? DiscountPercentRate { get; init; } 
     /// <summary>
     /// Amount of money that results from the application of an agreed penalty percentage to the basis amount and payable by the creditor.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? PenaltyAmount { get; init; } 
     /// <summary>
     /// Percent rate used to calculate the penalty for these payment terms.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? PenaltyPercentRate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DueDate is IsoISODate DueDateValue)
+        {
+            writer.WriteStartElement(null, "DueDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DueDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (PaymentPeriod is PaymentPeriod1 PaymentPeriodValue)
+        {
+            writer.WriteStartElement(null, "PmtPrd", xmlNamespace );
+            PaymentPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Description is IsoMax140Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(DescriptionValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (PartialPaymentPercent is IsoPercentageRate PartialPaymentPercentValue)
+        {
+            writer.WriteStartElement(null, "PrtlPmtPct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PartialPaymentPercentValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (DirectDebitMandateIdentification is IsoMax35Text DirectDebitMandateIdentificationValue)
+        {
+            writer.WriteStartElement(null, "DrctDbtMndtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DirectDebitMandateIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (BasisAmount is IsoCurrencyAndAmount BasisAmountValue)
+        {
+            writer.WriteStartElement(null, "BsisAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(BasisAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (DiscountAmount is IsoCurrencyAndAmount DiscountAmountValue)
+        {
+            writer.WriteStartElement(null, "DscntAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(DiscountAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (DiscountPercentRate is IsoPercentageRate DiscountPercentRateValue)
+        {
+            writer.WriteStartElement(null, "DscntPctRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(DiscountPercentRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PenaltyAmount is IsoCurrencyAndAmount PenaltyAmountValue)
+        {
+            writer.WriteStartElement(null, "PnltyAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(PenaltyAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PenaltyPercentRate is IsoPercentageRate PenaltyPercentRateValue)
+        {
+            writer.WriteStartElement(null, "PnltyPctRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PenaltyPercentRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentTerms6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

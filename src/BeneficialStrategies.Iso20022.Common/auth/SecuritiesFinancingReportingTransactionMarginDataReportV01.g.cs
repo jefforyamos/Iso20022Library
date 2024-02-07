@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.auth.SecuritiesFinancingReportingTransactionMarginDataReportV01>;
 
 namespace BeneficialStrategies.Iso20022.auth;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// The SecuritiesFinancingReportingTransactionMarginDataReport message is sent by the report submitting entity to the trade repository (TR) to report the margins exchanged in relation to the CCP-cleared securities financing transactions or sent by the trade repository (TR) to the authority or made available by the trade repository (TR) to the report submitting entity and the reporting counterparty as well as the entity responsible for reporting, if applicable.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The SecuritiesFinancingReportingTransactionMarginDataReport message is sent by the report submitting entity to the trade repository (TR) to report the margins exchanged in relation to the CCP-cleared securities financing transactions or sent by the trade repository (TR) to the authority or made available by the trade repository (TR) to the report submitting entity and the reporting counterparty as well as the entity responsible for reporting, if applicable.")]
-public partial record SecuritiesFinancingReportingTransactionMarginDataReportV01 : IOuterRecord
+public partial record SecuritiesFinancingReportingTransactionMarginDataReportV01 : IOuterRecord<SecuritiesFinancingReportingTransactionMarginDataReportV01,SecuritiesFinancingReportingTransactionMarginDataReportV01Document>
+    ,IIsoXmlSerilizable<SecuritiesFinancingReportingTransactionMarginDataReportV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record SecuritiesFinancingReportingTransactionMarginDataReportV01
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesFincgRptgTxMrgnDataRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesFinancingReportingTransactionMarginDataReportV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -66,6 +73,32 @@ public partial record SecuritiesFinancingReportingTransactionMarginDataReportV01
     {
         return new SecuritiesFinancingReportingTransactionMarginDataReportV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesFincgRptgTxMrgnDataRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TradData", xmlNamespace );
+        TradeData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesFinancingReportingTransactionMarginDataReportV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -73,9 +106,7 @@ public partial record SecuritiesFinancingReportingTransactionMarginDataReportV01
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesFinancingReportingTransactionMarginDataReportV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesFinancingReportingTransactionMarginDataReportV01Document : IOuterDocument<SecuritiesFinancingReportingTransactionMarginDataReportV01>
+public partial record SecuritiesFinancingReportingTransactionMarginDataReportV01Document : IOuterDocument<SecuritiesFinancingReportingTransactionMarginDataReportV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -91,5 +122,22 @@ public partial record SecuritiesFinancingReportingTransactionMarginDataReportV01
     /// <summary>
     /// The instance of <seealso cref="SecuritiesFinancingReportingTransactionMarginDataReportV01"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesFinancingReportingTransactionMarginDataReportV01.XmlTag)]
     public required SecuritiesFinancingReportingTransactionMarginDataReportV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesFinancingReportingTransactionMarginDataReportV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

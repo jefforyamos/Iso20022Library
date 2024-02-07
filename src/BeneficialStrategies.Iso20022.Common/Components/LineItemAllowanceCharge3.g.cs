@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Pricing component, such as a service, promotion, allowance or charge, for this line item.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LineItemAllowanceCharge3
+     : IIsoXmlSerilizable<LineItemAllowanceCharge3>
 {
     #nullable enable
     
     /// <summary>
     /// Indication of whether or not this allowance charge is a charge.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ChargeIndicator { get; init; } 
     /// <summary>
     /// Actual monetary value of this allowance charge.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoCurrencyAndAmount> ActualAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount? ActualAmount { get; init; } 
     /// <summary>
     /// Quantity on which this allowance charge is based.
     /// </summary>
-    [DataMember]
     public Quantity16? BasisQuantity { get; init; } 
     /// <summary>
     /// Percentage applied to calculate this allowance charge.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? CalculationPercent { get; init; } 
     /// <summary>
     /// Specifies the order in which the allowance or charge is applied.
     /// </summary>
-    [DataMember]
     public IsoNumber? SequenceNumber { get; init; } 
     /// <summary>
     /// Reason, expressed as text, for this allowance charge.
     /// </summary>
-    [DataMember]
     public DiscountOrChargeType1Choice_? Reason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ChargeIndicator is IsoYesNoIndicator ChargeIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ChrgInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ChargeIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ActualAmount is IsoCurrencyAndAmount ActualAmountValue)
+        {
+            writer.WriteStartElement(null, "ActlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(ActualAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (BasisQuantity is Quantity16 BasisQuantityValue)
+        {
+            writer.WriteStartElement(null, "BsisQty", xmlNamespace );
+            BasisQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CalculationPercent is IsoPercentageRate CalculationPercentValue)
+        {
+            writer.WriteStartElement(null, "ClctnPct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(CalculationPercentValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (SequenceNumber is IsoNumber SequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "SeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(SequenceNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Reason is DiscountOrChargeType1Choice_ ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            ReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LineItemAllowanceCharge3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

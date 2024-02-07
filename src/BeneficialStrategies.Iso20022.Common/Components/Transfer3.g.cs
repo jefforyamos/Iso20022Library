@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters applied to the settlement of a security transfer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Transfer3
+     : IIsoXmlSerilizable<Transfer3>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a transfer instruction, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransferReference { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    [DataMember]
     public DateFormat1Choice_? TransferDate { get; init; } 
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1 TotalUnitsNumber { get; init; } 
     /// <summary>
     /// Indicates whether the transfer results in a change of beneficial owner.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator OwnAccountTransferIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TrfRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (TransferDate is DateFormat1Choice_ TransferDateValue)
+        {
+            writer.WriteStartElement(null, "TrfDt", xmlNamespace );
+            TransferDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TtlUnitsNb", xmlNamespace );
+        TotalUnitsNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OwnAcctTrfInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OwnAccountTransferIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static Transfer3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

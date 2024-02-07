@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the characteristics for a SEPA formatted payment initiation file.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IsabelSEPAFile1
+     : IIsoXmlSerilizable<IsabelSEPAFile1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the SEPA formatted file is compliant to the SEPA rulebook.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator SEPAIndicator { get; init; } 
     /// <summary>
     /// High level category purpose of the payment initiation messages in the file, based on the SEPA rulebook.
     /// </summary>
-    [DataMember]
     public required IsoMax6Text CategoryPurpose { get; init; } 
     /// <summary>
     /// Local market practices applicable to the SEPA file.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> MarketPractices { get; init; } = [];
+    public SimpleValueList<IsoMax35Text> MarketPractices { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SEPAInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(SEPAIndicator)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CtgyPurp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax6Text(CategoryPurpose)); // data type Max6Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MktPrctcs", xmlNamespace );
+        MarketPractices.Serialize(writer, xmlNamespace, "Max35Text", SerializationFormatter.IsoMax35Text );
+        writer.WriteEndElement();
+    }
+    public static IsabelSEPAFile1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

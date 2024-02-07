@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Clearing data at batch level. Allows clearing in different currencies.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ClearingBatchData2
+     : IIsoXmlSerilizable<ClearingBatchData2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of clearing method used.
     /// </summary>
-    [DataMember]
     public required ClearingMethod2Code ClearingMethod { get; init; } 
     /// <summary>
     /// Other type of clearing method.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherClearingMethod { get; init; } 
     /// <summary>
     /// Level of priority of clearing.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClearingPriority { get; init; } 
     /// <summary>
     /// Date of clearing.
     /// </summary>
-    [DataMember]
     public IsoISODate? ClearingDate { get; init; } 
     /// <summary>
     /// Clearing totals of the batch file.
     /// </summary>
-    [DataMember]
     public ClearingTotals2? ClearingTotals { get; init; } 
     /// <summary>
     /// Interchange fee.
     /// </summary>
-    [DataMember]
     public Amount17? InterchangeFee { get; init; } 
     /// <summary>
     /// Fee of the agent.
     /// </summary>
-    [DataMember]
     public Amount17? AgentFee { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ClrMtd", xmlNamespace );
+        writer.WriteValue(ClearingMethod.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherClearingMethod is IsoMax35Text OtherClearingMethodValue)
+        {
+            writer.WriteStartElement(null, "OthrClrMtd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherClearingMethodValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClearingPriority is IsoMax35Text ClearingPriorityValue)
+        {
+            writer.WriteStartElement(null, "ClrPrty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClearingPriorityValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClearingDate is IsoISODate ClearingDateValue)
+        {
+            writer.WriteStartElement(null, "ClrDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ClearingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ClearingTotals is ClearingTotals2 ClearingTotalsValue)
+        {
+            writer.WriteStartElement(null, "ClrTtls", xmlNamespace );
+            ClearingTotalsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterchangeFee is Amount17 InterchangeFeeValue)
+        {
+            writer.WriteStartElement(null, "IntrchngFee", xmlNamespace );
+            InterchangeFeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AgentFee is Amount17 AgentFeeValue)
+        {
+            writer.WriteStartElement(null, "AgtFee", xmlNamespace );
+            AgentFeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ClearingBatchData2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

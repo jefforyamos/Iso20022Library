@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account to or from which a cash entry is made.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashAccount206
+     : IIsoXmlSerilizable<CashAccount206>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public required AccountIdentificationAndName7 AccountIdentification { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is, manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    [DataMember]
     public IsoAnyBICDec2014Identifier? Servicer { get; init; } 
     /// <summary>
     /// Additional means of identification of the account, as designated by the account servicer in agreement with the account owner.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountTypeDescription { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AcctId", xmlNamespace );
+        AccountIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Servicer is IsoAnyBICDec2014Identifier ServicerValue)
+        {
+            writer.WriteStartElement(null, "Svcr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICDec2014Identifier(ServicerValue)); // data type AnyBICDec2014Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (AccountTypeDescription is IsoMax35Text AccountTypeDescriptionValue)
+        {
+            writer.WriteStartElement(null, "AcctTpDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountTypeDescriptionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CashAccount206 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.RequestForTransferStatusReportV04>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// - the status of one or several transfer cancellation instructions.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An instructing party, for example, an investment manager or its authorised representative, sends the RequestForTransferStatusReport to the executing party, for example, a transfer agent to request the status of a previously instructed transfer.|Usage|The RequestForTransferStatusReport is used to request either:|- the status of one or several transfer instructions or,|- the status of one or several transfer cancellation instructions.")]
-public partial record RequestForTransferStatusReportV04 : IOuterRecord
+public partial record RequestForTransferStatusReportV04 : IOuterRecord<RequestForTransferStatusReportV04,RequestForTransferStatusReportV04Document>
+    ,IIsoXmlSerilizable<RequestForTransferStatusReportV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record RequestForTransferStatusReportV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "ReqForTrfStsRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => RequestForTransferStatusReportV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -90,6 +97,41 @@ public partial record RequestForTransferStatusReportV04 : IOuterRecord
     {
         return new RequestForTransferStatusReportV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("ReqForTrfStsRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ReqDtls", xmlNamespace );
+        RequestDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MarketPracticeVersion is MarketPracticeVersion1 MarketPracticeVersionValue)
+        {
+            writer.WriteStartElement(null, "MktPrctcVrsn", xmlNamespace );
+            MarketPracticeVersionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RequestForTransferStatusReportV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -97,9 +139,7 @@ public partial record RequestForTransferStatusReportV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestForTransferStatusReportV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record RequestForTransferStatusReportV04Document : IOuterDocument<RequestForTransferStatusReportV04>
+public partial record RequestForTransferStatusReportV04Document : IOuterDocument<RequestForTransferStatusReportV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -115,5 +155,22 @@ public partial record RequestForTransferStatusReportV04Document : IOuterDocument
     /// <summary>
     /// The instance of <seealso cref="RequestForTransferStatusReportV04"/> is required.
     /// </summary>
+    [DataMember(Name=RequestForTransferStatusReportV04.XmlTag)]
     public required RequestForTransferStatusReportV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(RequestForTransferStatusReportV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

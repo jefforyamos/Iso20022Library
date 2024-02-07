@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the elements that identify a proxy appointed to represent a party authorised to vote at a shareholders meeting.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Proxy2
+     : IIsoXmlSerilizable<Proxy2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of proxy.
     /// </summary>
-    [DataMember]
     public required ProxyType2Code ProxyType { get; init; } 
     /// <summary>
     /// Person, other than the Chairman of the meeting, assigned by the security holder as proxy.
     /// </summary>
-    [DataMember]
     public IndividualPerson13? PersonDetails { get; init; } 
     /// <summary>
     /// Indicates the vote instruction for the resolutions which are announced via the meeting agenda in advance of the meeting.
     /// </summary>
-    [DataMember]
     public Vote1Choice_? VoteInstructionForAgendaResolution { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrxyTp", xmlNamespace );
+        writer.WriteValue(ProxyType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (PersonDetails is IndividualPerson13 PersonDetailsValue)
+        {
+            writer.WriteStartElement(null, "PrsnDtls", xmlNamespace );
+            PersonDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (VoteInstructionForAgendaResolution is Vote1Choice_ VoteInstructionForAgendaResolutionValue)
+        {
+            writer.WriteStartElement(null, "VoteInstrForAgndRsltn", xmlNamespace );
+            VoteInstructionForAgendaResolutionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Proxy2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

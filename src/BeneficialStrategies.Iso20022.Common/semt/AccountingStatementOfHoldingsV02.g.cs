@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.semt.AccountingStatementOfHoldingsV02>;
 
 namespace BeneficialStrategies.Iso20022.semt;
 
@@ -31,10 +34,9 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// The AccountingStatementOfHoldings message should not be used for trading purposes.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account servicer, for example, a transfer agent sends the AccountStatementOfHoldings message to the account owner, for example, a fund manager or an account owner's designated agent to provide detailed holdings of the portfolio at a specified moment in time.|The message provides, at a moment in time, valuations of the portfolio together with details of each financial instrument holding.|The message can be sent either audited or un-audited and may be provided on a trade date or settlement date basis.|Usage|The AccountingStatementOfHoldings message is used to provide valuation detail for each financial instrument held in a portfolio. The message should be sent at a frequency agreed bi-laterally between the account servicer and the account owner.|This message can only be used to list the holdings of a single (master) account. However, it is possible to break down these holdings into one or several sub-accounts. Therefore, the message can be used to either specify holdings at|- the main account level, or,|- the sub-account level.|This message can be used to report where the financial instruments are safe-kept, physically or notionally. If a security is held in more than one safekeeping place, this can also be indicated.|The AccountingStatementOfHoldings message should not be used for trading purposes.")]
-public partial record AccountingStatementOfHoldingsV02 : IOuterRecord
+public partial record AccountingStatementOfHoldingsV02 : IOuterRecord<AccountingStatementOfHoldingsV02,AccountingStatementOfHoldingsV02Document>
+    ,IIsoXmlSerilizable<AccountingStatementOfHoldingsV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -46,6 +48,11 @@ public partial record AccountingStatementOfHoldingsV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AcctgStmtOfHldgsV02";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AccountingStatementOfHoldingsV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -151,6 +158,71 @@ public partial record AccountingStatementOfHoldingsV02 : IOuterRecord
     {
         return new AccountingStatementOfHoldingsV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AcctgStmtOfHldgsV02");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PreviousReference is AdditionalReference2 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference2 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MsgPgntn", xmlNamespace );
+        MessagePagination.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StmtGnlDtls", xmlNamespace );
+        StatementGeneralDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
+        AccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BalanceForAccount is AggregateBalanceInformation3 BalanceForAccountValue)
+        {
+            writer.WriteStartElement(null, "BalForAcct", xmlNamespace );
+            BalanceForAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SubAccountDetails is SubAccountIdentification3 SubAccountDetailsValue)
+        {
+            writer.WriteStartElement(null, "SubAcctDtls", xmlNamespace );
+            SubAccountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalValues is TotalValueInPageAndStatement TotalValuesValue)
+        {
+            writer.WriteStartElement(null, "TtlVals", xmlNamespace );
+            TotalValuesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountingStatementOfHoldingsV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -158,9 +230,7 @@ public partial record AccountingStatementOfHoldingsV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountingStatementOfHoldingsV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AccountingStatementOfHoldingsV02Document : IOuterDocument<AccountingStatementOfHoldingsV02>
+public partial record AccountingStatementOfHoldingsV02Document : IOuterDocument<AccountingStatementOfHoldingsV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -176,5 +246,22 @@ public partial record AccountingStatementOfHoldingsV02Document : IOuterDocument<
     /// <summary>
     /// The instance of <seealso cref="AccountingStatementOfHoldingsV02"/> is required.
     /// </summary>
+    [DataMember(Name=AccountingStatementOfHoldingsV02.XmlTag)]
     public required AccountingStatementOfHoldingsV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AccountingStatementOfHoldingsV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

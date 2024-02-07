@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the transaction in the authorisation request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardPaymentTransactionDetails8
+     : IIsoXmlSerilizable<CardPaymentTransactionDetails8>
 {
     #nullable enable
     
     /// <summary>
     /// Amounts associated with the total amount of transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<CardAmountAndCurrencyExchange1> Amount { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardAmountAndCurrencyExchange1? Amount { get; init; } 
     /// <summary>
     /// Data related to an integrated circuit card application.
     /// </summary>
-    [DataMember]
     public IsoMax1025Text? ICCRelatedData { get; init; } 
     /// <summary>
     /// Context of the card payment transaction.
     /// </summary>
-    [DataMember]
     public PaymentContext3? PaymentContext { get; init; } 
     /// <summary>
     /// Category code conform to ISO 18245, related to the type of services or goods the merchant provides for the transaction.
     /// </summary>
-    [DataMember]
     public IsoMin3Max4Text? MerchantCategoryCode { get; init; } 
     /// <summary>
     /// Local date and time of the transaction assigned by the POI (Point Of Interaction).
     /// </summary>
-    [DataMember]
     public IsoISODateTime? TransactionDateTime { get; init; } 
     /// <summary>
     /// Identification of a sale transaction assigned by the sale system.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SaleReferenceNumber { get; init; } 
     /// <summary>
     /// Reason for representment of a card transaction.
     /// </summary>
-    [DataMember]
     public ExternalRePresentmentReason1Code? RePresentmentReason { get; init; } 
     /// <summary>
     /// Service in addition to the main service.
     /// </summary>
-    [DataMember]
     public CardPaymentServiceType2Code? AdditionalService { get; init; } 
     /// <summary>
     /// Identification of the transaction that has to be unique for a time period.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TransactionReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Amount is CardAmountAndCurrencyExchange1 AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            AmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ICCRelatedData is IsoMax1025Text ICCRelatedDataValue)
+        {
+            writer.WriteStartElement(null, "ICCRltdData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1025Text(ICCRelatedDataValue)); // data type Max1025Text System.String
+            writer.WriteEndElement();
+        }
+        if (PaymentContext is PaymentContext3 PaymentContextValue)
+        {
+            writer.WriteStartElement(null, "PmtCntxt", xmlNamespace );
+            PaymentContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MerchantCategoryCode is IsoMin3Max4Text MerchantCategoryCodeValue)
+        {
+            writer.WriteStartElement(null, "MrchntCtgyCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMin3Max4Text(MerchantCategoryCodeValue)); // data type Min3Max4Text System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionDateTime is IsoISODateTime TransactionDateTimeValue)
+        {
+            writer.WriteStartElement(null, "TxDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(TransactionDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (SaleReferenceNumber is IsoMax35Text SaleReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "SaleRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReferenceNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RePresentmentReason is ExternalRePresentmentReason1Code RePresentmentReasonValue)
+        {
+            writer.WriteStartElement(null, "RePresntmntRsn", xmlNamespace );
+            writer.WriteValue(RePresentmentReasonValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AdditionalService is CardPaymentServiceType2Code AdditionalServiceValue)
+        {
+            writer.WriteStartElement(null, "AddtlSvc", xmlNamespace );
+            writer.WriteValue(AdditionalServiceValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TransactionReference is IsoMax35Text TransactionReferenceValue)
+        {
+            writer.WriteStartElement(null, "TxRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CardPaymentTransactionDetails8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

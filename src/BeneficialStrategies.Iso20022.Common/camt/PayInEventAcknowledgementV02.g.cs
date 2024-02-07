@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.PayInEventAcknowledgementV02>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -22,10 +25,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// 
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The PayInEventAcknowledgement message is sent by a participant of a central system to the central system to confirm a PayInSchedule or a PayInCall has been received.|")]
-public partial record PayInEventAcknowledgementV02 : IOuterRecord
+public partial record PayInEventAcknowledgementV02 : IOuterRecord<PayInEventAcknowledgementV02,PayInEventAcknowledgementV02Document>
+    ,IIsoXmlSerilizable<PayInEventAcknowledgementV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -37,6 +39,11 @@ public partial record PayInEventAcknowledgementV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "PayInEvtAck";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => PayInEventAcknowledgementV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -86,6 +93,41 @@ public partial record PayInEventAcknowledgementV02 : IOuterRecord
     {
         return new PayInEventAcknowledgementV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("PayInEvtAck");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (SettlementSessionIdentifier is IsoExact4AlphaNumericText SettlementSessionIdentifierValue)
+        {
+            writer.WriteStartElement(null, "SttlmSsnIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(SettlementSessionIdentifierValue)); // data type Exact4AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AckDtls", xmlNamespace );
+        AcknowledgementDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PayInEventAcknowledgementV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -93,9 +135,7 @@ public partial record PayInEventAcknowledgementV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PayInEventAcknowledgementV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record PayInEventAcknowledgementV02Document : IOuterDocument<PayInEventAcknowledgementV02>
+public partial record PayInEventAcknowledgementV02Document : IOuterDocument<PayInEventAcknowledgementV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -111,5 +151,22 @@ public partial record PayInEventAcknowledgementV02Document : IOuterDocument<PayI
     /// <summary>
     /// The instance of <seealso cref="PayInEventAcknowledgementV02"/> is required.
     /// </summary>
+    [DataMember(Name=PayInEventAcknowledgementV02.XmlTag)]
     public required PayInEventAcknowledgementV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(PayInEventAcknowledgementV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements providing the identification of a message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MessageIdentification2
+     : IIsoXmlSerilizable<MessageIdentification2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the message name identifier of the message that will be used to provide additional details.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MessageNameIdentification { get; init; } 
     /// <summary>
     /// Specifies the identification of the message that will be used to provide additional details.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MessageIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MessageNameIdentification is IsoMax35Text MessageNameIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MsgNmId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageNameIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MessageIdentification is IsoMax35Text MessageIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MsgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static MessageIdentification2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

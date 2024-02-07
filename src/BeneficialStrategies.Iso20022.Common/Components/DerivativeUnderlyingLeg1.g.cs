@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the obligations of one of the participants to a derivative contract. The obligations may be conceptual or operational only, with settlement of any obligations arising from the derivative contract taking place on a net basis, after the netting of the obligations arising from each leg of the contract.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DerivativeUnderlyingLeg1
+     : IIsoXmlSerilizable<DerivativeUnderlyingLeg1>
 {
     #nullable enable
     
     /// <summary>
     /// Attributes that relate to the financial instrument (contract) being traded that are common across derivatives.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentAttributes88 ContractAttributes { get; init; } 
     /// <summary>
     /// Attributes of a derivative that are specific to whether the derivative is a value defined derivative or quantity defined derivative.
     /// </summary>
-    [DataMember]
     public DefinedAttributes1Choice_? DefinedAttributes { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CtrctAttrbts", xmlNamespace );
+        ContractAttributes.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DefinedAttributes is DefinedAttributes1Choice_ DefinedAttributesValue)
+        {
+            writer.WriteStartElement(null, "DfndAttrbts", xmlNamespace );
+            DefinedAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DerivativeUnderlyingLeg1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

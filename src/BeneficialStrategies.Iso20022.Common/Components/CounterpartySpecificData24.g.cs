@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related specifically to counterparties.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CounterpartySpecificData24
+     : IIsoXmlSerilizable<CounterpartySpecificData24>
 {
     #nullable enable
     
     /// <summary>
     /// Data specific to counterparties of the reported transaction/position.
     /// </summary>
-    [DataMember]
     public required TradeCounterpartyReport10 Counterparty { get; init; } 
     /// <summary>
     /// Data specific to the valuation of the transaction.
     /// </summary>
-    [DataMember]
     public ContractValuationData3? Valuation { get; init; } 
     /// <summary>
     /// Information related to collateral agreement existing between counterparties.
     /// </summary>
-    [DataMember]
     public TradeCollateralReport2? Collateral { get; init; } 
     /// <summary>
     /// Date and time of reporting to the trade repository as required by regulation.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime ReportingDateTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CtrPty", xmlNamespace );
+        Counterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Valuation is ContractValuationData3 ValuationValue)
+        {
+            writer.WriteStartElement(null, "Valtn", xmlNamespace );
+            ValuationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Collateral is TradeCollateralReport2 CollateralValue)
+        {
+            writer.WriteStartElement(null, "Coll", xmlNamespace );
+            CollateralValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RptgDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(ReportingDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+    }
+    public static CounterpartySpecificData24 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

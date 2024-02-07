@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.colr.MarginCallRequestV04>;
 
 namespace BeneficialStrategies.Iso20022.colr;
 
@@ -32,10 +35,9 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// - request the return of collateral.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The MarginCallRequest message is sent by the collateral taker or its collateral manager to the collateral giver or its collateral manager|This message is used to request new collateral at the initiation of an exposure or request additional collateral for an existing exposure. It can also be used to recall collateral upon the collateral giver or its collateral manager's request.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|When sent by the collateral taker the MarginCallRequest message is used to:|- request new collateral at the initiation of an exposure|- request additional collateral|When sent by the collateral giver the MarginCallRequest message is used to:|- request the return of collateral.")]
-public partial record MarginCallRequestV04 : IOuterRecord
+public partial record MarginCallRequestV04 : IOuterRecord<MarginCallRequestV04,MarginCallRequestV04Document>
+    ,IIsoXmlSerilizable<MarginCallRequestV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -47,6 +49,11 @@ public partial record MarginCallRequestV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MrgnCallReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => MarginCallRequestV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -169,6 +176,86 @@ public partial record MarginCallRequestV04 : IOuterRecord
     {
         return new MarginCallRequestV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MrgnCallReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Oblgtn", xmlNamespace );
+        Obligation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Agreement is Agreement4 AgreementValue)
+        {
+            writer.WriteStartElement(null, "Agrmt", xmlNamespace );
+            AgreementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MrgnCallRslt", xmlNamespace );
+        MarginCallResult.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MarginDetailsDueToA is MarginCall1 MarginDetailsDueToAValue)
+        {
+            writer.WriteStartElement(null, "MrgnDtlsDueToA", xmlNamespace );
+            MarginDetailsDueToAValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarginDetailsDueToB is MarginCall1 MarginDetailsDueToBValue)
+        {
+            writer.WriteStartElement(null, "MrgnDtlsDueToB", xmlNamespace );
+            MarginDetailsDueToBValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequirementDetailsDueToA is MarginRequirement1Choice_ RequirementDetailsDueToAValue)
+        {
+            writer.WriteStartElement(null, "RqrmntDtlsDueToA", xmlNamespace );
+            RequirementDetailsDueToAValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequirementDetailsDueToB is MarginRequirement1Choice_ RequirementDetailsDueToBValue)
+        {
+            writer.WriteStartElement(null, "RqrmntDtlsDueToB", xmlNamespace );
+            RequirementDetailsDueToBValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExpectedCollateralDueToA is ExpectedCollateral2Choice_ ExpectedCollateralDueToAValue)
+        {
+            writer.WriteStartElement(null, "XpctdCollDueToA", xmlNamespace );
+            ExpectedCollateralDueToAValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExpectedCollateralDueToB is ExpectedCollateral2Choice_ ExpectedCollateralDueToBValue)
+        {
+            writer.WriteStartElement(null, "XpctdCollDueToB", xmlNamespace );
+            ExpectedCollateralDueToBValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarginCallDetails is MarginCall2 MarginCallDetailsValue)
+        {
+            writer.WriteStartElement(null, "MrgnCallDtls", xmlNamespace );
+            MarginCallDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MarginCallRequestV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -176,9 +263,7 @@ public partial record MarginCallRequestV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MarginCallRequestV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record MarginCallRequestV04Document : IOuterDocument<MarginCallRequestV04>
+public partial record MarginCallRequestV04Document : IOuterDocument<MarginCallRequestV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -194,5 +279,22 @@ public partial record MarginCallRequestV04Document : IOuterDocument<MarginCallRe
     /// <summary>
     /// The instance of <seealso cref="MarginCallRequestV04"/> is required.
     /// </summary>
+    [DataMember(Name=MarginCallRequestV04.XmlTag)]
     public required MarginCallRequestV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(MarginCallRequestV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

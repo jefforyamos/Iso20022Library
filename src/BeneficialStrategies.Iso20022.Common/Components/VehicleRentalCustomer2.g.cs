@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Customer renting a vehicle.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record VehicleRentalCustomer2
+     : IIsoXmlSerilizable<VehicleRentalCustomer2>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the vehicle rental customer.
     /// </summary>
-    [DataMember]
     public required IsoMax70Text RenterName { get; init; } 
     /// <summary>
     /// Corporate name of the vehicle rental customer.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? CorporateName { get; init; } 
     /// <summary>
     /// Corporate identifier of the vehicle rental customer.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text CorporateIdentifier { get; init; } 
     /// <summary>
     /// Party assigning an identification to a vehicle rental customer.
     /// </summary>
-    [DataMember]
     public CustomerAssigner1Code? Assigner { get; init; } 
     /// <summary>
     /// Vehicle rental driver.
     /// </summary>
-    [DataMember]
-    public ValueList<DriverInParty2> PrimaryDriver { get; init; } = []; // Warning: Don't know multiplicity.
+    public DriverInParty2? PrimaryDriver { get; init; } 
     /// <summary>
     /// Type of identification of the additional vehicle rental customer.
     /// </summary>
-    [DataMember]
-    public ValueList<DriverInParty2> AdditionalDriver { get; init; } = []; // Warning: Don't know multiplicity.
+    public DriverInParty2? AdditionalDriver { get; init; } 
     /// <summary>
     /// Loyalty programme details. 
     /// </summary>
-    [DataMember]
     public LoyaltyProgramme2? LoyaltyProgramme { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RntrNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(RenterName)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        if (CorporateName is IsoMax70Text CorporateNameValue)
+        {
+            writer.WriteStartElement(null, "CorpNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(CorporateNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CorpIdr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(CorporateIdentifier)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Assigner is CustomerAssigner1Code AssignerValue)
+        {
+            writer.WriteStartElement(null, "Assgnr", xmlNamespace );
+            writer.WriteValue(AssignerValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PrimaryDriver is DriverInParty2 PrimaryDriverValue)
+        {
+            writer.WriteStartElement(null, "PmryDrvr", xmlNamespace );
+            PrimaryDriverValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalDriver is DriverInParty2 AdditionalDriverValue)
+        {
+            writer.WriteStartElement(null, "AddtlDrvr", xmlNamespace );
+            AdditionalDriverValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LoyaltyProgramme is LoyaltyProgramme2 LoyaltyProgrammeValue)
+        {
+            writer.WriteStartElement(null, "LltyPrgrmm", xmlNamespace );
+            LoyaltyProgrammeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static VehicleRentalCustomer2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

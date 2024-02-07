@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Query criteria on a trade transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeQueryCriteria10
+     : IIsoXmlSerilizable<TradeQueryCriteria10>
 {
     #nullable enable
     
@@ -24,33 +25,74 @@ public partial record TradeQueryCriteria10
     /// Usage:
     /// If false is selected, the reporting timestamp element must be absent.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator TradeLifeCycleHistory { get; init; } 
     /// <summary>
     /// Indicates whether the response must include all trades  (false) or only the outstanding trades (true).
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator OutstandingTradeIndicator { get; init; } 
     /// <summary>
     /// Query criteria related to counterparties.
     /// </summary>
-    [DataMember]
     public TradePartyQueryCriteria5? TradePartyCriteria { get; init; } 
     /// <summary>
     /// Query criteria related to transaction types.
     /// </summary>
-    [DataMember]
     public TradeTypeQueryCriteria2? TradeTypeCriteria { get; init; } 
     /// <summary>
     /// Query criteria related to time values.
     /// </summary>
-    [DataMember]
     public TradeDateTimeQueryCriteria2? TimeCriteria { get; init; } 
     /// <summary>
     /// Query criteria related to other fields.
     /// </summary>
-    [DataMember]
     public TradeAdditionalQueryCriteria7? OtherCriteria { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TradLifeCyclHstry", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TradeLifeCycleHistory)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OutsdngTradInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(OutstandingTradeIndicator)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        if (TradePartyCriteria is TradePartyQueryCriteria5 TradePartyCriteriaValue)
+        {
+            writer.WriteStartElement(null, "TradPtyCrit", xmlNamespace );
+            TradePartyCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeTypeCriteria is TradeTypeQueryCriteria2 TradeTypeCriteriaValue)
+        {
+            writer.WriteStartElement(null, "TradTpCrit", xmlNamespace );
+            TradeTypeCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TimeCriteria is TradeDateTimeQueryCriteria2 TimeCriteriaValue)
+        {
+            writer.WriteStartElement(null, "TmCrit", xmlNamespace );
+            TimeCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherCriteria is TradeAdditionalQueryCriteria7 OtherCriteriaValue)
+        {
+            writer.WriteStartElement(null, "OthrCrit", xmlNamespace );
+            OtherCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeQueryCriteria10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,48 +7,78 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies categories of statuses of a derivative when there is a reporting requirement for both counterparties.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReconciliationCategory3
+     : IIsoXmlSerilizable<ReconciliationCategory3>
 {
     #nullable enable
     
     /// <summary>
     /// Indicator of receiving only one side or both sides of the derivatives.
     /// </summary>
-    [DataMember]
     public required TradeRepositoryReportingType1Code ReportingType { get; init; } 
     /// <summary>
     /// Indicator of side identification of the same derivative.
     /// </summary>
-    [DataMember]
     public required PairingStatus1Code Pairing { get; init; } 
     /// <summary>
     /// Indicator if reconciliation of derivatives for which all the reconcilable fields are within the allowed tolerances.
     /// </summary>
-    [DataMember]
     public required ReconciliationStatus1Code Reconciliation { get; init; } 
     /// <summary>
     /// Indicator if reconciliation of derivatives for which all the reconcilable fields are within the allowed tolerances.
     /// </summary>
-    [DataMember]
     public required ReconciliationStatus2Code ValuationReconciliation { get; init; } 
     /// <summary>
     /// Indicator of derivative reopening, terminated or cancelled by mistake.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Revived { get; init; } 
     /// <summary>
     /// Indicator of modification to the terms or details of a previously reported derivative, at a trade or position level, but not a correction of a report.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator FurtherModification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptgTp", xmlNamespace );
+        writer.WriteValue(ReportingType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Pairg", xmlNamespace );
+        writer.WriteValue(Pairing.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rcncltn", xmlNamespace );
+        writer.WriteValue(Reconciliation.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ValtnRcncltn", xmlNamespace );
+        writer.WriteValue(ValuationReconciliation.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rvvd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Revived)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FrthrMod", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(FurtherModification)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static ReconciliationCategory3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

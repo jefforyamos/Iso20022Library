@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the agent specific tracking system information of a payment transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TrackerRecord1
+     : IIsoXmlSerilizable<TrackerRecord1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of an agent in the tracker.
     /// </summary>
-    [DataMember]
     public required BranchAndFinancialInstitutionIdentification6 Agent { get; init; } 
     /// <summary>
     /// Specifies which party/parties will bear the charges associated with the processing of the payment transaction.
     /// </summary>
-    [DataMember]
     public ChargeBearerType1Code? ChargeBearer { get; init; } 
     /// <summary>
     /// Transaction charges to be paid by the charge bearer.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? ChargesAmount { get; init; } 
     /// <summary>
     /// Provides details of the rate and the currencies used in the foreign exchange.
     /// </summary>
-    [DataMember]
     public CurrencyExchange13? ExchangeRateData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Agt", xmlNamespace );
+        Agent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ChargeBearer is ChargeBearerType1Code ChargeBearerValue)
+        {
+            writer.WriteStartElement(null, "ChrgBr", xmlNamespace );
+            writer.WriteValue(ChargeBearerValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ChargesAmount is IsoActiveCurrencyAndAmount ChargesAmountValue)
+        {
+            writer.WriteStartElement(null, "ChrgsAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ChargesAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExchangeRateData is CurrencyExchange13 ExchangeRateDataValue)
+        {
+            writer.WriteStartElement(null, "XchgRateData", xmlNamespace );
+            ExchangeRateDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TrackerRecord1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

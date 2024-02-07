@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification7Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification7Choice;
 /// Business identification of the payment instruction given by the clearing agent.
 /// </summary>
 public partial record LongBusinessIdentification : PaymentIdentification7Choice_
+     , IIsoXmlSerilizable<LongBusinessIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain.|Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period.|Usage: this is the former PaymentInstructionReference element.
     /// </summary>
@@ -51,5 +55,65 @@ public partial record LongBusinessIdentification : PaymentIdentification7Choice_
     /// Unique identification, as assigned by the initiating party, to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain.|Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction.|It can be included in several messages related to the transaction.|Usage: this is the former RelatedReference.
     /// </summary>
     public IsoMax35Text? EndToEndIdentification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TransactionIdentification is IsoMax35Text TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (UETR is IsoUUIDv4Identifier UETRValue)
+        {
+            writer.WriteStartElement(null, "UETR", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoUUIDv4Identifier(UETRValue)); // data type UUIDv4Identifier System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "IntrBkSttlmAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(InterbankSettlementAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IntrBkSttlmDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(InterbankSettlementDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (PaymentMethod is PaymentOrigin1Choice_ PaymentMethodValue)
+        {
+            writer.WriteStartElement(null, "PmtMtd", xmlNamespace );
+            PaymentMethodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InstgAgt", xmlNamespace );
+        InstructingAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InstdAgt", xmlNamespace );
+        InstructedAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (EntryType is IsoEntryTypeIdentifier EntryTypeValue)
+        {
+            writer.WriteStartElement(null, "NtryTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoEntryTypeIdentifier(EntryTypeValue)); // data type EntryTypeIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (EndToEndIdentification is IsoMax35Text EndToEndIdentificationValue)
+        {
+            writer.WriteStartElement(null, "EndToEndId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(EndToEndIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new LongBusinessIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.AccountReportingRequestV02>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -24,10 +27,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// The AccountReportingRequest message is used to advise the account servicing institution of funds that the account owner expects to have credited to its account. The message can be used in either a direct or a relay scenario.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The AccountReportingRequest message is sent by the account owner, either directly or through a forwarding agent, to one of its account servicing institutions. It is used to ask the account servicing institution to send a report on the account owner's account in a BankToCustomerAccountReport (camt.052.001.02), a BankToCustomerStatement (camt.053.001.02) or a BankToCustomerDebitCreditNotification (camt.054.001.02).|Usage|The AccountReportingRequest message is used to advise the account servicing institution of funds that the account owner expects to have credited to its account. The message can be used in either a direct or a relay scenario.")]
-public partial record AccountReportingRequestV02 : IOuterRecord
+public partial record AccountReportingRequestV02 : IOuterRecord<AccountReportingRequestV02,AccountReportingRequestV02Document>
+    ,IIsoXmlSerilizable<AccountReportingRequestV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -39,6 +41,11 @@ public partial record AccountReportingRequestV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AcctRptgReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AccountReportingRequestV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -70,6 +77,29 @@ public partial record AccountReportingRequestV02 : IOuterRecord
     {
         return new AccountReportingRequestV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AcctRptgReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
+        GroupHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptgReq", xmlNamespace );
+        ReportingRequest.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static AccountReportingRequestV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -77,9 +107,7 @@ public partial record AccountReportingRequestV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountReportingRequestV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AccountReportingRequestV02Document : IOuterDocument<AccountReportingRequestV02>
+public partial record AccountReportingRequestV02Document : IOuterDocument<AccountReportingRequestV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -95,5 +123,22 @@ public partial record AccountReportingRequestV02Document : IOuterDocument<Accoun
     /// <summary>
     /// The instance of <seealso cref="AccountReportingRequestV02"/> is required.
     /// </summary>
+    [DataMember(Name=AccountReportingRequestV02.XmlTag)]
     public required AccountReportingRequestV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AccountReportingRequestV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

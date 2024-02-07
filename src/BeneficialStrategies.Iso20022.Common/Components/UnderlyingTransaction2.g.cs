@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to identify the underlying (group of) transaction(s) to which the investigation applies.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UnderlyingTransaction2
+     : IIsoXmlSerilizable<UnderlyingTransaction2>
 {
     #nullable enable
     
     /// <summary>
     /// Set of elements used to provide information on the original messsage, to which the cancellation refers.
     /// </summary>
-    [DataMember]
     public OriginalGroupInformation23? OriginalGroupInformationAndCancellation { get; init; } 
     /// <summary>
     /// Set of elements used to provide information on the original transactions to which the cancellation request message refers.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentTransactionInformation31> TransactionInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentTransactionInformation31? TransactionInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OriginalGroupInformationAndCancellation is OriginalGroupInformation23 OriginalGroupInformationAndCancellationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlGrpInfAndCxl", xmlNamespace );
+            OriginalGroupInformationAndCancellationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionInformation is PaymentTransactionInformation31 TransactionInformationValue)
+        {
+            writer.WriteStartElement(null, "TxInf", xmlNamespace );
+            TransactionInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static UnderlyingTransaction2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

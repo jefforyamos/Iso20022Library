@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.OriginalActivation2Choice;
 
@@ -15,7 +17,27 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalActivation2Choice;
 /// This element must be identical to the debtor identification in the original debtor activation request.
 /// </summary>
 public partial record OriginalDebtorIdentification : OriginalActivation2Choice_
+     , IIsoXmlSerilizable<OriginalDebtorIdentification>
 {
     #nullable enable
+    
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+    }
+    public static new OriginalDebtorIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

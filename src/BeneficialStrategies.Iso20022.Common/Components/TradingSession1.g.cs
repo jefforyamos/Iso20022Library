@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// The details of a specific trading session.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradingSession1
+     : IIsoXmlSerilizable<TradingSession1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a specific execution time bracket code through its trading session name or description.
     /// </summary>
-    [DataMember]
     public IsoMax128Text? TradingSessionIdentification { get; init; } 
     /// <summary>
     /// Optional market assigned sub identifier for a trading session. Usage is determined by market or counterparties.
     /// </summary>
-    [DataMember]
     public IsoMax128Text? TradingSessionSubIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TradingSessionIdentification is IsoMax128Text TradingSessionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TradgSsnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax128Text(TradingSessionIdentificationValue)); // data type Max128Text System.String
+            writer.WriteEndElement();
+        }
+        if (TradingSessionSubIdentification is IsoMax128Text TradingSessionSubIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TradgSsnSubId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax128Text(TradingSessionSubIdentificationValue)); // data type Max128Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TradingSession1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

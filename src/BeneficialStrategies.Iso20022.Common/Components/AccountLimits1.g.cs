@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Characteristics and values set for account limits.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountLimits1
+     : IIsoXmlSerilizable<AccountLimits1>
 {
     #nullable enable
     
     /// <summary>
     /// Defines type of funds limits.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text LimitType { get; init; } 
     /// <summary>
     /// Amount of money of the limit.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount LimitAmount { get; init; } 
     /// <summary>
     /// Amount of used funds out of defined limit.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? LimitUtilisationAmount { get; init; } 
     /// <summary>
     /// Identification of the system member for which the limit is established.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? BilateralLimitCounterpartyIdentification { get; init; } 
     /// <summary>
     /// Clearing scheme related to Registry of the Clearing Positions (RCP).
     /// </summary>
-    [DataMember]
     public ClearingScheme1Choice_? ClearingCircuitScheme { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "LmtTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(LimitType)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "LmtAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(LimitAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (LimitUtilisationAmount is IsoActiveCurrencyAndAmount LimitUtilisationAmountValue)
+        {
+            writer.WriteStartElement(null, "LmtUtlstnAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(LimitUtilisationAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (BilateralLimitCounterpartyIdentification is BranchAndFinancialInstitutionIdentification5 BilateralLimitCounterpartyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "BilLmtCtrPtyId", xmlNamespace );
+            BilateralLimitCounterpartyIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingCircuitScheme is ClearingScheme1Choice_ ClearingCircuitSchemeValue)
+        {
+            writer.WriteStartElement(null, "ClrCrctSchme", xmlNamespace );
+            ClearingCircuitSchemeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountLimits1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

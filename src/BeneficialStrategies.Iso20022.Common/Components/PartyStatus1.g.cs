@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Business status of the party for processing in the system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyStatus1
+     : IIsoXmlSerilizable<PartyStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Status of the party maintenance instruction.
     /// </summary>
-    [DataMember]
     public required Status6Code Status { get; init; } 
     /// <summary>
     /// Specifies the underlying reason for the status of an object.
     /// </summary>
-    [DataMember]
-    public ValueList<StatusReasonInformation10> StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public StatusReasonInformation10? StatusReason { get; init; } 
     /// <summary>
     /// Specifications of a party defined within a system.
     /// </summary>
-    [DataMember]
     public SystemPartyIdentification3? SystemPartyIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (StatusReason is StatusReasonInformation10 StatusReasonValue)
+        {
+            writer.WriteStartElement(null, "StsRsn", xmlNamespace );
+            StatusReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SystemPartyIdentification is SystemPartyIdentification3 SystemPartyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SysPtyId", xmlNamespace );
+            SystemPartyIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

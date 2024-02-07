@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Chain of parties involved in the settlement of a transaction, including receipts and deliveries, book transfers, treasury deals, or other activities, resulting in the movement of a security or amount of money from one account to another.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementParties32
+     : IIsoXmlSerilizable<SettlementParties32>
 {
     #nullable enable
     
     /// <summary>
     /// First party in the settlement chain. In a plain vanilla settlement, it is the central securities depository where the counterparty requests to receive the financial instrument or from where the counterparty delivers the financial instruments.
     /// </summary>
-    [DataMember]
     public required PartyIdentification63 Depository { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain, interacts with the depository. This may also be known as the “local agent”, “sub-custodian”, “receiving agent” or “delivering agent”.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount95? Party1 { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain, interacts with party 1. This may also be known as the “investment manager” or “custodian”.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount95? Party2 { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain, interacts with party 2.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount95? Party3 { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain, interacts with party 3.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount95? Party4 { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain, interacts with party 4.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount95? Party5 { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Dpstry", xmlNamespace );
+        Depository.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Party1 is PartyIdentificationAndAccount95 Party1Value)
+        {
+            writer.WriteStartElement(null, "Pty1", xmlNamespace );
+            Party1Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Party2 is PartyIdentificationAndAccount95 Party2Value)
+        {
+            writer.WriteStartElement(null, "Pty2", xmlNamespace );
+            Party2Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Party3 is PartyIdentificationAndAccount95 Party3Value)
+        {
+            writer.WriteStartElement(null, "Pty3", xmlNamespace );
+            Party3Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Party4 is PartyIdentificationAndAccount95 Party4Value)
+        {
+            writer.WriteStartElement(null, "Pty4", xmlNamespace );
+            Party4Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Party5 is PartyIdentificationAndAccount95 Party5Value)
+        {
+            writer.WriteStartElement(null, "Pty5", xmlNamespace );
+            Party5Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementParties32 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

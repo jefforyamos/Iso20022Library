@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification3Choice;
 /// Business identification of the payment instruction given by the clearing agent.
 /// </summary>
 public partial record LongBusinessIdentification : PaymentIdentification3Choice_
+     , IIsoXmlSerilizable<LongBusinessIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique and unambiguous identifier for a payment instruction, as assigned by the clearing agent or the initiating party.
     /// </summary>
@@ -47,5 +51,56 @@ public partial record LongBusinessIdentification : PaymentIdentification3Choice_
     /// The related reference as stipulated in the payment instruction.
     /// </summary>
     public IsoMax35Text? RelatedReference { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PmtInstrRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(PaymentInstructionReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IntrBkSttlmAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(InterbankSettlementAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IntrBkValDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(InterbankValueDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (PaymentMethod is PaymentOrigin1Choice_ PaymentMethodValue)
+        {
+            writer.WriteStartElement(null, "PmtMtd", xmlNamespace );
+            PaymentMethodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InstgAgtId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBICIdentifier(InstructingAgentIdentification)); // data type BICIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InstdAgtId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBICIdentifier(InstructedAgentIdentification)); // data type BICIdentifier System.String
+        writer.WriteEndElement();
+        if (EntryType is IsoEntryTypeIdentifier EntryTypeValue)
+        {
+            writer.WriteStartElement(null, "NtryTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoEntryTypeIdentifier(EntryTypeValue)); // data type EntryTypeIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is IsoMax35Text RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RelatedReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new LongBusinessIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

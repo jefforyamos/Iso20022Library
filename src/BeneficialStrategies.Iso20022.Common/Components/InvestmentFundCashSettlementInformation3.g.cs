@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Settlement instructions to be used to transfer cash from the Debtor to the Creditor.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestmentFundCashSettlementInformation3
+     : IIsoXmlSerilizable<InvestmentFundCashSettlementInformation3>
 {
     #nullable enable
     
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a subscription payment.
     /// </summary>
-    [DataMember]
     public PaymentInstrument8? SubscriptionPaymentInstrument { get; init; } 
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a redemption payment.
     /// </summary>
-    [DataMember]
     public PaymentInstrument9? RedemptionPaymentInstrument { get; init; } 
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a dividend payment.
     /// </summary>
-    [DataMember]
     public PaymentInstrument9? DividendPaymentInstrument { get; init; } 
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a savings plan payment.
     /// </summary>
-    [DataMember]
     public PaymentInstrument8? SavingsPlanPaymentInstrument { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SubscriptionPaymentInstrument is PaymentInstrument8 SubscriptionPaymentInstrumentValue)
+        {
+            writer.WriteStartElement(null, "SbcptPmtInstrm", xmlNamespace );
+            SubscriptionPaymentInstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RedemptionPaymentInstrument is PaymentInstrument9 RedemptionPaymentInstrumentValue)
+        {
+            writer.WriteStartElement(null, "RedPmtInstrm", xmlNamespace );
+            RedemptionPaymentInstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DividendPaymentInstrument is PaymentInstrument9 DividendPaymentInstrumentValue)
+        {
+            writer.WriteStartElement(null, "DvddPmtInstrm", xmlNamespace );
+            DividendPaymentInstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SavingsPlanPaymentInstrument is PaymentInstrument8 SavingsPlanPaymentInstrumentValue)
+        {
+            writer.WriteStartElement(null, "SvgsPlanPmtInstrm", xmlNamespace );
+            SavingsPlanPaymentInstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InvestmentFundCashSettlementInformation3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

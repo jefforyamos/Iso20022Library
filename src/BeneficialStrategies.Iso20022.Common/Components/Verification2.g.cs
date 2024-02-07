@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Method and data intended to be verified as well as the related results.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Verification2
+     : IIsoXmlSerilizable<Verification2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of authentication or verification.
     /// </summary>
-    [DataMember]
     public AuthenticationMethod11Code? Type { get; init; } 
     /// <summary>
     /// Other type of authentication.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Type of authentication for a given method (for example, three domain authentication, scheme proprietary solution, type of cryptogram, etc.).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SubType { get; init; } 
     /// <summary>
     /// Additional information about the verification.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Result of verifications performed prior or after the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<VerificationResult1> VerificationResult { get; init; } = []; // Warning: Don't know multiplicity.
+    public VerificationResult1? VerificationResult { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is AuthenticationMethod11Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherType is IsoMax35Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SubType is IsoMax35Text SubTypeValue)
+        {
+            writer.WriteStartElement(null, "SubTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SubTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax35Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdditionalInformationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (VerificationResult is VerificationResult1 VerificationResultValue)
+        {
+            writer.WriteStartElement(null, "VrfctnRslt", xmlNamespace );
+            VerificationResultValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Verification2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

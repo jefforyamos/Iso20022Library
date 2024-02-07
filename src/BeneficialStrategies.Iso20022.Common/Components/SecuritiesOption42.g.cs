@@ -7,83 +7,154 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the corporate action security option.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesOption42
+     : IIsoXmlSerilizable<SecuritiesOption42>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the financial instrument.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification14 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Specifies whether the value is a debit or credit.
     /// </summary>
-    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Specifies that the security identified is a temporary security identification used for processing reasons, for example, contra security used in the US.
     /// </summary>
-    [DataMember]
     public TemporaryFinancialInstrumentIndicator1Choice_? TemporaryFinancialInstrumentIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the securities are newly issued or not.
     /// </summary>
-    [DataMember]
     public NewSecuritiesIssuanceType3Code? NewSecuritiesIssuanceIndicator { get; init; } 
     /// <summary>
     /// Quantity of securities that have been posted (credit or debit) to the safekeeping account.
     /// </summary>
-    [DataMember]
     public required Quantity6Choice_ PostingQuantity { get; init; } 
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
-    [DataMember]
     public SafekeepingPlaceFormat3Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
-    [DataMember]
     public FractionDispositionType23Choice_? FractionDisposition { get; init; } 
     /// <summary>
     /// Currency in which the cash disbursed from an interest or dividend payment is offered.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? CurrencyOption { get; init; } 
     /// <summary>
     /// Provides information about the dates related to securities movement.
     /// </summary>
-    [DataMember]
     public required SecurityDate6 DateDetails { get; init; } 
     /// <summary>
     /// Provides information about the rates related to securities movement.
     /// </summary>
-    [DataMember]
     public CorporateActionRate49? RateDetails { get; init; } 
     /// <summary>
     /// Provides information about the prices related to securities movement.
     /// </summary>
-    [DataMember]
     public CorporateActionPrice45? PriceDetails { get; init; } 
     /// <summary>
     /// Identifies the chain of receiving settlement parties.
     /// </summary>
-    [DataMember]
     public SettlementParties24? ReceivingSettlementParties { get; init; } 
     /// <summary>
     /// Identifies the chain of delivering settlement parties.
     /// </summary>
-    [DataMember]
     public SettlementParties24? DeliveringSettlementParties { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (TemporaryFinancialInstrumentIndicator is TemporaryFinancialInstrumentIndicator1Choice_ TemporaryFinancialInstrumentIndicatorValue)
+        {
+            writer.WriteStartElement(null, "TempFinInstrmInd", xmlNamespace );
+            TemporaryFinancialInstrumentIndicatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewSecuritiesIssuanceIndicator is NewSecuritiesIssuanceType3Code NewSecuritiesIssuanceIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NewSctiesIssncInd", xmlNamespace );
+            writer.WriteValue(NewSecuritiesIssuanceIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PstngQty", xmlNamespace );
+        PostingQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SafekeepingPlace is SafekeepingPlaceFormat3Choice_ SafekeepingPlaceValue)
+        {
+            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
+            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FractionDisposition is FractionDispositionType23Choice_ FractionDispositionValue)
+        {
+            writer.WriteStartElement(null, "FrctnDspstn", xmlNamespace );
+            FractionDispositionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CurrencyOption is ActiveCurrencyCode CurrencyOptionValue)
+        {
+            writer.WriteStartElement(null, "CcyOptn", xmlNamespace );
+            writer.WriteValue(CurrencyOptionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DtDtls", xmlNamespace );
+        DateDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RateDetails is CorporateActionRate49 RateDetailsValue)
+        {
+            writer.WriteStartElement(null, "RateDtls", xmlNamespace );
+            RateDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PriceDetails is CorporateActionPrice45 PriceDetailsValue)
+        {
+            writer.WriteStartElement(null, "PricDtls", xmlNamespace );
+            PriceDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReceivingSettlementParties is SettlementParties24 ReceivingSettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "RcvgSttlmPties", xmlNamespace );
+            ReceivingSettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveringSettlementParties is SettlementParties24 DeliveringSettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "DlvrgSttlmPties", xmlNamespace );
+            DeliveringSettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesOption42 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

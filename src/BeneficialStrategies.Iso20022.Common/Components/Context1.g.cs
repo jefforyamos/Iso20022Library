@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Context in which the card payment transaction is performed.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Context1
+     : IIsoXmlSerilizable<Context1>
 {
     #nullable enable
     
     /// <summary>
     /// Contains point of interaction information specific to a given transaction that may change from transaction to transaction.
     /// </summary>
-    [DataMember]
     public required PointOfServiceContext1 PointOfServiceContext { get; init; } 
     /// <summary>
     /// Context of the card payment transaction.
     /// </summary>
-    [DataMember]
     public required TransactionContext1 TransactionContext { get; init; } 
     /// <summary>
     /// Contain validation result and/or data to be validated.
     /// </summary>
-    [DataMember]
-    public ValueList<Verification1> Verification { get; init; } = []; // Warning: Don't know multiplicity.
+    public Verification1? Verification { get; init; } 
     /// <summary>
     /// Context of risk associated with the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<RiskContext1> RiskContext { get; init; } = []; // Warning: Don't know multiplicity.
+    public RiskContext1? RiskContext { get; init; } 
     /// <summary>
     /// Context of the sale associated with the card payment transaction.
     /// </summary>
-    [DataMember]
     public SaleContext7? SaleContext { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PtOfSvcCntxt", xmlNamespace );
+        PointOfServiceContext.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxCntxt", xmlNamespace );
+        TransactionContext.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Verification is Verification1 VerificationValue)
+        {
+            writer.WriteStartElement(null, "Vrfctn", xmlNamespace );
+            VerificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RiskContext is RiskContext1 RiskContextValue)
+        {
+            writer.WriteStartElement(null, "RskCntxt", xmlNamespace );
+            RiskContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SaleContext is SaleContext7 SaleContextValue)
+        {
+            writer.WriteStartElement(null, "SaleCntxt", xmlNamespace );
+            SaleContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Context1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

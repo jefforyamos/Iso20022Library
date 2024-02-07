@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies time and type of contract confirmation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeConfirmation4
+     : IIsoXmlSerilizable<TradeConfirmation4>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the contract was confirmed electronically or non-electronically.
     /// </summary>
-    [DataMember]
     public TradeConfirmationType1Code? Type { get; init; } 
     /// <summary>
     /// Date and time of the trade confirmation, indicating time zone in which the confirmation has taken place.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? TimeStamp { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is TradeConfirmationType1Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TimeStamp is IsoISODateTime TimeStampValue)
+        {
+            writer.WriteStartElement(null, "TmStmp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(TimeStampValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeConfirmation4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

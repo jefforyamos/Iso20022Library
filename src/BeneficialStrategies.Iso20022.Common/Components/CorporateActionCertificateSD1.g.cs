@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Certificate information provided for a given corporate action instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionCertificateSD1
+     : IIsoXmlSerilizable<CorporateActionCertificateSD1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification or serial number that is assigned and affixed by an issuer or transfer agent to each securities certificate.
     /// </summary>
-    [DataMember]
     public required IsoMax15AlphaNumericText CertificateNumber { get; init; } 
     /// <summary>
     /// Additional identifier assigned by DTC.
     /// </summary>
-    [DataMember]
     public IsoMax15AlphaNumericText? CertificateSequenceNumber { get; init; } 
     /// <summary>
     /// Registration name of the beneficial holder.
     /// </summary>
-    [DataMember]
     public IsoMax30Text? CertificateRegistrationName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CertNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15AlphaNumericText(CertificateNumber)); // data type Max15AlphaNumericText System.String
+        writer.WriteEndElement();
+        if (CertificateSequenceNumber is IsoMax15AlphaNumericText CertificateSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "CertSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15AlphaNumericText(CertificateSequenceNumberValue)); // data type Max15AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+        if (CertificateRegistrationName is IsoMax30Text CertificateRegistrationNameValue)
+        {
+            writer.WriteStartElement(null, "CertRegnNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax30Text(CertificateRegistrationNameValue)); // data type Max30Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionCertificateSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

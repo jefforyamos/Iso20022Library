@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of expected margin required by any of the parties of the margin calculation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MarginRequirement1
+     : IIsoXmlSerilizable<MarginRequirement1>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of new margin that will be delivered to one party by the other party after rounding, threshold and minimum transfer amount are taken into account.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? DeliverMarginAmount { get; init; } 
     /// <summary>
     /// Amount of new margin that will be recalled to one party from the other party after rounding, threshold and minimum transfer amount are taken into account.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? ReturnMarginAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DeliverMarginAmount is IsoActiveCurrencyAndAmount DeliverMarginAmountValue)
+        {
+            writer.WriteStartElement(null, "DlvrMrgnAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(DeliverMarginAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ReturnMarginAmount is IsoActiveCurrencyAndAmount ReturnMarginAmountValue)
+        {
+            writer.WriteStartElement(null, "RtrMrgnAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ReturnMarginAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static MarginRequirement1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates if the debit authorisation is granted or not.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DebitAuthorisationConfirmation
+     : IIsoXmlSerilizable<DebitAuthorisationConfirmation>
 {
     #nullable enable
     
     /// <summary>
     /// Code expressing the decision taken by the account owner relative to the request for debit authorization.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator DebitAuthorisation { get; init; } 
     /// <summary>
     /// Amount authorised for debit. The party providing the debit authority may want to authorise the amount less charges and they may only be prepared to approve the debit for value today rather than the original value date.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? AmountToDebit { get; init; } 
     /// <summary>
     /// Value date for debiting the amount.
     /// </summary>
-    [DataMember]
     public IsoISODate? ValueDateToDebit { get; init; } 
     /// <summary>
     /// Justification of the (partial) debit authorisation.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Reason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DbtAuthstn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DebitAuthorisation)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (AmountToDebit is IsoCurrencyAndAmount AmountToDebitValue)
+        {
+            writer.WriteStartElement(null, "AmtToDbt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(AmountToDebitValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ValueDateToDebit is IsoISODate ValueDateToDebitValue)
+        {
+            writer.WriteStartElement(null, "ValDtToDbt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ValueDateToDebitValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Reason is IsoMax140Text ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(ReasonValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static DebitAuthorisationConfirmation Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

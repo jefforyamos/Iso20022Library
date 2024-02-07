@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reports either on the risk management limit or on a business error.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LimitReport7
+     : IIsoXmlSerilizable<LimitReport7>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the limit on which information is requested.
     /// </summary>
-    [DataMember]
     public required LimitIdentification5 LimitIdentification { get; init; } 
     /// <summary>
     /// Requested information on the limit or business error report when information has not been found.
     /// </summary>
-    [DataMember]
     public required LimitOrError4Choice_ LimitOrError { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "LmtId", xmlNamespace );
+        LimitIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "LmtOrErr", xmlNamespace );
+        LimitOrError.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static LimitReport7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

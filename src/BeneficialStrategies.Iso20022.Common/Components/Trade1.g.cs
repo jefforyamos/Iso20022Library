@@ -7,98 +7,178 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the treasury trade captured.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Trade1
+     : IIsoXmlSerilizable<Trade1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique reference identification assigned to the trade by the instructing party. This reference will be used throughout the trade life cycle to identify the particular trade.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TradeIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the trade was executed.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime DateAndTime { get; init; } 
     /// <summary>
     /// Specifies the underlying product type.
     /// </summary>
-    [DataMember]
     public UnderlyingProductIdentifier1Code? ForeignExchangeTradeProduct { get; init; } 
     /// <summary>
     /// Specifies the ISO code of the trade currency.
     /// </summary>
-    [DataMember]
     public CurrencyCode? TradingCurrency { get; init; } 
     /// <summary>
     /// Settlement currency of the trade, agreed by both sides of the trade.
     /// </summary>
-    [DataMember]
     public CurrencyCode? SettlementCurrency { get; init; } 
     /// <summary>
     /// Identifies the type of trading method.
     /// </summary>
-    [DataMember]
     public required TradingMethodType1Code TradingMethod { get; init; } 
     /// <summary>
     /// Identifies the type of the trade mode.
     /// </summary>
-    [DataMember]
     public TradingModeType1Code? TradingMode { get; init; } 
     /// <summary>
     /// Clearing method of the trade, agreed by both sides of the trade.
     /// </summary>
-    [DataMember]
     public required ClearingMethod1Code ClearingMethod { get; init; } 
     /// <summary>
     /// Identifies current status of the trade.
     /// </summary>
-    [DataMember]
     public required OrderStatus8Code ExecutionType { get; init; } 
     /// <summary>
     /// Symbol of the trade.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Symbol { get; init; } 
     /// <summary>
     /// Infrastructure where the trade confirmation will take place.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PlaceOfConfirmation { get; init; } 
     /// <summary>
     /// Date and time at which the message was executed.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? TransactionTime { get; init; } 
     /// <summary>
     /// Provides details of the foreign exchange trade including Spot Forward and NDF.
     /// </summary>
-    [DataMember]
     public Trade3? ForeignExchangeDetails { get; init; } 
     /// <summary>
     /// Provides details about each leg of the multileg instrument (foreign exchange swap).
     /// </summary>
-    [DataMember]
-    public ValueList<InstrumentLeg6> SwapLeg { get; init; } = []; // Warning: Don't know multiplicity.
+    public InstrumentLeg6? SwapLeg { get; init; } 
     /// <summary>
     /// Specifies the parameters of the foreign exchange option.
     /// </summary>
-    [DataMember]
     public Option10? Option { get; init; } 
     /// <summary>
     /// Identification of the treasury trade product, as assigned under a formal or proprietary identification scheme.
     /// </summary>
-    [DataMember]
     public SecurityIdentification22Choice_? ProductIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TradId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TradeIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DtAndTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(DateAndTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (ForeignExchangeTradeProduct is UnderlyingProductIdentifier1Code ForeignExchangeTradeProductValue)
+        {
+            writer.WriteStartElement(null, "FXTradPdct", xmlNamespace );
+            writer.WriteValue(ForeignExchangeTradeProductValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TradingCurrency is CurrencyCode TradingCurrencyValue)
+        {
+            writer.WriteStartElement(null, "TradgCcy", xmlNamespace );
+            writer.WriteValue(TradingCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SettlementCurrency is CurrencyCode SettlementCurrencyValue)
+        {
+            writer.WriteStartElement(null, "SttlmCcy", xmlNamespace );
+            writer.WriteValue(SettlementCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TradgMtd", xmlNamespace );
+        writer.WriteValue(TradingMethod.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (TradingMode is TradingModeType1Code TradingModeValue)
+        {
+            writer.WriteStartElement(null, "TradgMd", xmlNamespace );
+            writer.WriteValue(TradingModeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ClrMtd", xmlNamespace );
+        writer.WriteValue(ClearingMethod.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ExctnTp", xmlNamespace );
+        writer.WriteValue(ExecutionType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Symb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Symbol)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (PlaceOfConfirmation is IsoMax35Text PlaceOfConfirmationValue)
+        {
+            writer.WriteStartElement(null, "PlcOfConf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PlaceOfConfirmationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionTime is IsoISODateTime TransactionTimeValue)
+        {
+            writer.WriteStartElement(null, "TxTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(TransactionTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ForeignExchangeDetails is Trade3 ForeignExchangeDetailsValue)
+        {
+            writer.WriteStartElement(null, "FXDtls", xmlNamespace );
+            ForeignExchangeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SwapLeg is InstrumentLeg6 SwapLegValue)
+        {
+            writer.WriteStartElement(null, "SwpLeg", xmlNamespace );
+            SwapLegValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Option is Option10 OptionValue)
+        {
+            writer.WriteStartElement(null, "Optn", xmlNamespace );
+            OptionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProductIdentification is SecurityIdentification22Choice_ ProductIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PdctId", xmlNamespace );
+            ProductIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Trade1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

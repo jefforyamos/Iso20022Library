@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.LimitOrError4Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitOrError4Choice;
 /// Requested information on the limit.
 /// </summary>
 public partial record Limit : LimitOrError4Choice_
+     , IIsoXmlSerilizable<Limit>
 {
     #nullable enable
+    
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
@@ -47,5 +51,68 @@ public partial record Limit : LimitOrError4Choice_
     /// Actual usage of the limit expressed as an amount.
     /// </summary>
     public Amount2Choice_? RemainingAmount { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        Amount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CreditDebitIndicator is CreditDebitCode CreditDebitIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+            writer.WriteValue(CreditDebitIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Status is LimitStatus1Code StatusValue)
+        {
+            writer.WriteStartElement(null, "Sts", xmlNamespace );
+            writer.WriteValue(StatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (StartDateTime is DateAndDateTime2Choice_ StartDateTimeValue)
+        {
+            writer.WriteStartElement(null, "StartDtTm", xmlNamespace );
+            StartDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UsedAmount is Amount2Choice_ UsedAmountValue)
+        {
+            writer.WriteStartElement(null, "UsdAmt", xmlNamespace );
+            UsedAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UsedAmountCreditDebitIndicator is CreditDebitCode UsedAmountCreditDebitIndicatorValue)
+        {
+            writer.WriteStartElement(null, "UsdAmtCdtDbtInd", xmlNamespace );
+            writer.WriteValue(UsedAmountCreditDebitIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (UsedPercentage is IsoPercentageRate UsedPercentageValue)
+        {
+            writer.WriteStartElement(null, "UsdPctg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(UsedPercentageValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (RemainingAmount is Amount2Choice_ RemainingAmountValue)
+        {
+            writer.WriteStartElement(null, "RmngAmt", xmlNamespace );
+            RemainingAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Limit Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,43 +7,71 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to report on the cash balance.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashBalanceReturnCriteria2
+     : IIsoXmlSerilizable<CashBalanceReturnCriteria2>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the balance type is requested.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator TypeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the balance status is requested.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator StatusIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the value date is requested.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator ValueDateIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the processing date is requested.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator ProcessingDateIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the number of payment is requested.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator NumberOfPaymentsIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TpInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(TypeIndicator)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StsInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(StatusIndicator)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ValDtInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(ValueDateIndicator)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PrcgDtInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(ProcessingDateIndicator)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NbOfPmtsInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(NumberOfPaymentsIndicator)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static CashBalanceReturnCriteria2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

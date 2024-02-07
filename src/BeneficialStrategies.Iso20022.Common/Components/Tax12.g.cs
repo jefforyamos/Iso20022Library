@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money due to the government or tax authority, according to various pre-defined parameters such as thresholds or income.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Tax12
+     : IIsoXmlSerilizable<Tax12>
 {
     #nullable enable
     
     /// <summary>
     /// Type of tax applied.
     /// </summary>
-    [DataMember]
     public required TaxType9Code Type { get; init; } 
     /// <summary>
     /// Specifies types of tax not present in a code list.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OtherTaxType { get; init; } 
     /// <summary>
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrTaxTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTaxType)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(Amount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static Tax12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

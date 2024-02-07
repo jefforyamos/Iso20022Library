@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CalendarOrBusinessError1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.CalendarOrBusinessError1Choice;
 /// Requested information on the system calendar.
 /// </summary>
 public partial record CalendarData : CalendarOrBusinessError1Choice_
+     , IIsoXmlSerilizable<CalendarData>
 {
     #nullable enable
+    
     /// <summary>
     /// Date for which the calendar information is provided.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record CalendarData : CalendarOrBusinessError1Choice_
     /// Status of the system.
     /// </summary>
     public required SystemStatus3Choice_ SystemStatus { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SysDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(SystemDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SysSts", xmlNamespace );
+        SystemStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new CalendarData Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

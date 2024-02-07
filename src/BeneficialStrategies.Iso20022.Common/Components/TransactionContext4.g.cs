@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Context of the card payment transaction
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionContext4
+     : IIsoXmlSerilizable<TransactionContext4>
 {
     #nullable enable
     
@@ -24,7 +25,6 @@ public partial record TransactionContext4
     /// ISO 8583:87 bit 18, ISO 8583:93 bit 18 & 26, ISO 8583:2003 bit 26
     /// ISO 18245
     /// </summary>
-    [DataMember]
     public IsoExact4NumericText? MerchantCategoryCode { get; init; } 
     /// <summary>
     /// Indicates a deferred delivery as defined by each specific implementation.
@@ -32,34 +32,87 @@ public partial record TransactionContext4
     /// False: Delivery is not identified as deffered.
     /// Default: False.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? DeferredDeliveryIndicator { get; init; } 
     /// <summary>
     /// Identifies the transaction initiator.
     /// </summary>
-    [DataMember]
     public TransactionInitiator1Code? TransactionInitiator { get; init; } 
     /// <summary>
     /// Card programme or brand related to the transaction.
     /// </summary>
-    [DataMember]
     public CardProgramme1? CardProgramme { get; init; } 
     /// <summary>
     /// Type of settlement service for specific services requiring settlement.
     /// </summary>
-    [DataMember]
     public SettlementService1? SettlementService { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period between the acquirer and the issuer or their respective agents.
     /// </summary>
-    [DataMember]
     public Reconciliation3? Reconciliation { get; init; } 
     /// <summary>
     /// Date the transaction was completed and captured.
     /// ISO 8583 bit 17
     /// </summary>
-    [DataMember]
     public IsoISODate? CaptureDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MerchantCategoryCode is IsoExact4NumericText MerchantCategoryCodeValue)
+        {
+            writer.WriteStartElement(null, "MrchntCtgyCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact4NumericText(MerchantCategoryCodeValue)); // data type Exact4NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (DeferredDeliveryIndicator is IsoTrueFalseIndicator DeferredDeliveryIndicatorValue)
+        {
+            writer.WriteStartElement(null, "DfrrdDlvryInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DeferredDeliveryIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionInitiator is TransactionInitiator1Code TransactionInitiatorValue)
+        {
+            writer.WriteStartElement(null, "TxInitr", xmlNamespace );
+            writer.WriteValue(TransactionInitiatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CardProgramme is CardProgramme1 CardProgrammeValue)
+        {
+            writer.WriteStartElement(null, "CardPrgrmm", xmlNamespace );
+            CardProgrammeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementService is SettlementService1 SettlementServiceValue)
+        {
+            writer.WriteStartElement(null, "SttlmSvc", xmlNamespace );
+            SettlementServiceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Reconciliation is Reconciliation3 ReconciliationValue)
+        {
+            writer.WriteStartElement(null, "Rcncltn", xmlNamespace );
+            ReconciliationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CaptureDate is IsoISODate CaptureDateValue)
+        {
+            writer.WriteStartElement(null, "CaptrDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(CaptureDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionContext4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

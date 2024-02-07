@@ -7,78 +7,141 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Plan that allows investors to schedule periodical investments or divestments, according to pre-defined criteria.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestmentPlan4
+     : IIsoXmlSerilizable<InvestmentPlan4>
 {
     #nullable enable
     
     /// <summary>
     /// Frequency of the investment or divestment.
     /// </summary>
-    [DataMember]
     public required EventFrequency1Code Frequency { get; init; } 
     /// <summary>
     /// Frequency of the investment or divestment.
     /// </summary>
-    [DataMember]
     public required IsoExtended350Code ExtendedFrequency { get; init; } 
     /// <summary>
     /// Date the investment plan starts.
     /// </summary>
-    [DataMember]
     public required IsoISODate StartDate { get; init; } 
     /// <summary>
     /// Date the investment plan stops.
     /// </summary>
-    [DataMember]
     public IsoISODate? EndDate { get; init; } 
     /// <summary>
     /// Currency and amount of the periodical payments.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether an ordered amount is a gross amount (including all charges, commissions, tax). If it is not a gross amount, the ordered amount is a net amount (amount to be invested or redeemed from the fund to which other elements will be added).
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? GrossAmountIndicator { get; init; } 
     /// <summary>
     /// Dividend option chosen by the account owner based on the options offered in the prospectus.
     /// </summary>
-    [DataMember]
     public IncomePreference1Code? IncomePreference { get; init; } 
     /// <summary>
     /// Number of pre-paid instalment periods at the time the investment plan is created.
     /// </summary>
-    [DataMember]
     public IsoNumber? InitialNumberOfInstalment { get; init; } 
     /// <summary>
     /// Total number of times the amount must be invested at the predefined frequency as of the start date of the investment plan.
     /// </summary>
-    [DataMember]
     public IsoNumber? TotalNumberOfInstalment { get; init; } 
     /// <summary>
     /// Indicates the rounding direction when an amount is to be spread over several funds.
     /// </summary>
-    [DataMember]
     public RoundingDirection1Code? RoundingDirection { get; init; } 
     /// <summary>
     /// Security that an investment plan invests in, or from which the investment plan divests.
     /// </summary>
-    [DataMember]
     public ValueList<Repartition1> SecurityDetails { get; init; } = [];
     /// <summary>
     /// Cash settlement standing instruction associated to the investment plan.
     /// </summary>
-    [DataMember]
     public InvestmentFundCashSettlementInformation3? CashSettlement { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Frqcy", xmlNamespace );
+        writer.WriteValue(Frequency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtndedFrqcy", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedFrequency)); // data type Extended350Code System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StartDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(StartDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (EndDate is IsoISODate EndDateValue)
+        {
+            writer.WriteStartElement(null, "EndDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(EndDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (GrossAmountIndicator is IsoYesNoIndicator GrossAmountIndicatorValue)
+        {
+            writer.WriteStartElement(null, "GrssAmtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(GrossAmountIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (IncomePreference is IncomePreference1Code IncomePreferenceValue)
+        {
+            writer.WriteStartElement(null, "IncmPref", xmlNamespace );
+            writer.WriteValue(IncomePreferenceValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (InitialNumberOfInstalment is IsoNumber InitialNumberOfInstalmentValue)
+        {
+            writer.WriteStartElement(null, "InitlNbOfInstlmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(InitialNumberOfInstalmentValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (TotalNumberOfInstalment is IsoNumber TotalNumberOfInstalmentValue)
+        {
+            writer.WriteStartElement(null, "TtlNbOfInstlmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberOfInstalmentValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (RoundingDirection is RoundingDirection1Code RoundingDirectionValue)
+        {
+            writer.WriteStartElement(null, "RndgDrctn", xmlNamespace );
+            writer.WriteValue(RoundingDirectionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SctyDtls", xmlNamespace );
+        SecurityDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CashSettlement is InvestmentFundCashSettlementInformation3 CashSettlementValue)
+        {
+            writer.WriteStartElement(null, "CshSttlm", xmlNamespace );
+            CashSettlementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InvestmentPlan4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

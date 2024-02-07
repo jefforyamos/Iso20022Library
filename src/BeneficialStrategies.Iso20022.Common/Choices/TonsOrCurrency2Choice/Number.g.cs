@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TonsOrCurrency2Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.TonsOrCurrency2Choice;
 /// Total number of specific transactions expresses in tons.
 /// </summary>
 public partial record Number : TonsOrCurrency2Choice_
+     , IIsoXmlSerilizable<Number>
 {
-    public required IsoDecimalNumber Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Number of objects represented as a decimal number, for example 0.75 or 45.6.
+    /// </summary>
+    public required IsoDecimalNumber Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(Value)); // data type DecimalNumber System.UInt64
+        writer.WriteEndElement();
+    }
+    public static new Number Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

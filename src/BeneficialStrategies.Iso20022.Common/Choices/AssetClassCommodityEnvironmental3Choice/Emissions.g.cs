@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityEnvironmental3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityEnvironmental
 /// Emissions environmental commodity derivative.
 /// </summary>
 public partial record Emissions : AssetClassCommodityEnvironmental3Choice_
+     , IIsoXmlSerilizable<Emissions>
 {
     #nullable enable
+    
     /// <summary>
     /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
     /// </summary>
@@ -27,5 +31,38 @@ public partial record Emissions : AssetClassCommodityEnvironmental3Choice_
     /// Further subproduct type related to instruments that have a non-financial instrument or commodity as underlying.
     /// </summary>
     public AssetClassDetailedSubProductType8Code? AdditionalSubProduct { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BasePdct", xmlNamespace );
+        writer.WriteValue(BaseProduct.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SubProduct is AssetClassSubProductType10Code SubProductValue)
+        {
+            writer.WriteStartElement(null, "SubPdct", xmlNamespace );
+            writer.WriteValue(SubProductValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AdditionalSubProduct is AssetClassDetailedSubProductType8Code AdditionalSubProductValue)
+        {
+            writer.WriteStartElement(null, "AddtlSubPdct", xmlNamespace );
+            writer.WriteValue(AdditionalSubProductValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static new Emissions Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

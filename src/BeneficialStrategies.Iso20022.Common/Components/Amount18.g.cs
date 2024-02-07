@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes each adjustment made to the original price.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Amount18
+     : IIsoXmlSerilizable<Amount18>
 {
     #nullable enable
     
     /// <summary>
     /// Code that describes the type of amount or fee.
     /// </summary>
-    [DataMember]
     public CarRentalServiceType2Code? Type { get; init; } 
     /// <summary>
     /// Description of other type of amount or fee.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Contains the amount.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Indicates whether or not the amount is a credit or debit. 
     /// </summary>
-    [DataMember]
     public CreditDebit3Code? CreditDebit { get; init; } 
     /// <summary>
     /// Indicates whether or not the customer was notified about additional amounts. 
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CustomerNotifiedIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is CarRentalServiceType2Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherType is IsoMax35Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Amount is IsoImpliedCurrencyAndAmount AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(AmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CreditDebit is CreditDebit3Code CreditDebitValue)
+        {
+            writer.WriteStartElement(null, "CdtDbt", xmlNamespace );
+            writer.WriteValue(CreditDebitValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CustomerNotifiedIndicator is IsoTrueFalseIndicator CustomerNotifiedIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CstmrNtfdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CustomerNotifiedIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Amount18 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

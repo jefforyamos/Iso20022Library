@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment of the diagnostic exchange.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardPaymentEnvironment17
+     : IIsoXmlSerilizable<CardPaymentEnvironment17>
 {
     #nullable enable
     
     /// <summary>
     /// Version of acquirer configuration parameters.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text AcquirerParametersVersion { get; init; } 
     /// <summary>
     /// Identification of the merchant requesting the diagnostic.
     /// </summary>
-    [DataMember]
     public GenericIdentification32? MerchantIdentification { get; init; } 
     /// <summary>
     /// Identification of the POI requesting the diagnostic.
     /// </summary>
-    [DataMember]
     public required GenericIdentification32 POIIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AcqrrParamsVrsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(AcquirerParametersVersion)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (MerchantIdentification is GenericIdentification32 MerchantIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MrchntId", xmlNamespace );
+            MerchantIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "POIId", xmlNamespace );
+        POIIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CardPaymentEnvironment17 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

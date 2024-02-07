@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Sort criteria.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalParameters1
+     : IIsoXmlSerilizable<AdditionalParameters1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the country.
     /// </summary>
-    [DataMember]
     public CountryCode? Country { get; init; } 
     /// <summary>
     /// Specifies the currency.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Specifies the geographical area, eg, Asia-Pacific, Europe, Middle-East.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? GeographicalArea { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Country is CountryCode CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(CountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveOrHistoricCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (GeographicalArea is IsoMax35Text GeographicalAreaValue)
+        {
+            writer.WriteStartElement(null, "GeoArea", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(GeographicalAreaValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AdditionalParameters1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status of an account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OtherAccountStatus1
+     : IIsoXmlSerilizable<OtherAccountStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Status of the account.
     /// </summary>
-    [DataMember]
     public required GenericIdentification36 Status { get; init; } 
     /// <summary>
     /// Reason for the status of the account.
     /// </summary>
-    [DataMember]
     public GenericIdentification36? Reason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        Status.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Reason is GenericIdentification36 ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            ReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OtherAccountStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

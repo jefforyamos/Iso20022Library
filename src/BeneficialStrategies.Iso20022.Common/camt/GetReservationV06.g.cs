@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.GetReservationV06>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -30,10 +33,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// This message will be replied to by a ReturnReservation message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The GetReservation message is sent by a member to the transaction administrator.|It is used to request information on the details of one or more reservation facilities set by the member and managed by the transaction administrator.|Usage|The member can request reservations information based on the following elements:|- identification of the system;|- identification of the account;|- status of the reservation (default and/or current);|- type of reservation.|This message will be replied to by a ReturnReservation message.")]
-public partial record GetReservationV06 : IOuterRecord
+public partial record GetReservationV06 : IOuterRecord<GetReservationV06,GetReservationV06Document>
+    ,IIsoXmlSerilizable<GetReservationV06>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -45,6 +47,11 @@ public partial record GetReservationV06 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "GetRsvatn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => GetReservationV06Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -84,6 +91,38 @@ public partial record GetReservationV06 : IOuterRecord
     {
         return new GetReservationV06Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("GetRsvatn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+        MessageHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ReservationQueryDefinition is ReservationQuery4 ReservationQueryDefinitionValue)
+        {
+            writer.WriteStartElement(null, "RsvatnQryDef", xmlNamespace );
+            ReservationQueryDefinitionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static GetReservationV06 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -91,9 +130,7 @@ public partial record GetReservationV06 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="GetReservationV06"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record GetReservationV06Document : IOuterDocument<GetReservationV06>
+public partial record GetReservationV06Document : IOuterDocument<GetReservationV06>, IXmlSerializable
 {
     
     /// <summary>
@@ -109,5 +146,22 @@ public partial record GetReservationV06Document : IOuterDocument<GetReservationV
     /// <summary>
     /// The instance of <seealso cref="GetReservationV06"/> is required.
     /// </summary>
+    [DataMember(Name=GetReservationV06.XmlTag)]
     public required GetReservationV06 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(GetReservationV06.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

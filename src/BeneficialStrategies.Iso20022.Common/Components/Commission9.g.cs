@@ -7,38 +7,64 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money due to a party as compensation for a service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Commission9
+     : IIsoXmlSerilizable<Commission9>
 {
     #nullable enable
     
     /// <summary>
     /// Service for which the commission is asked or paid.
     /// </summary>
-    [DataMember]
     public required CommissionType6Code Type { get; init; } 
     /// <summary>
     /// Service for which the commission is asked or paid.
     /// </summary>
-    [DataMember]
     public required IsoExtended350Code ExtendedType { get; init; } 
     /// <summary>
     /// Commission expressed as an amount of money.
     /// </summary>
-    [DataMember]
     public required IsoActiveOrHistoricCurrencyAnd13DecimalAmount Amount { get; init; } 
     /// <summary>
     /// Commission expressed as a percentage.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate Rate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtndedTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedType)); // data type Extended350Code System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd13DecimalAmount(Amount)); // data type ActiveOrHistoricCurrencyAnd13DecimalAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rate", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(Rate)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+    }
+    public static Commission9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Net position of a segregated holding of a single security within the overall position held in the securities account, for example, sub-balance per status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record HoldingBalance13
+     : IIsoXmlSerilizable<HoldingBalance13>
 {
     #nullable enable
     
     /// <summary>
     /// Total quantity of financial instrument for the referenced holding.
     /// </summary>
-    [DataMember]
     public required SignedQuantityFormat14 Balance { get; init; } 
     /// <summary>
     /// Reason a security is not available or additional information about the financial instrument for which the balance is given, for example, unregistered, registered in nominee name.
     /// </summary>
-    [DataMember]
     public required SecuritiesEntryType3Code BalanceType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Bal", xmlNamespace );
+        Balance.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BalTp", xmlNamespace );
+        writer.WriteValue(BalanceType.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static HoldingBalance13 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

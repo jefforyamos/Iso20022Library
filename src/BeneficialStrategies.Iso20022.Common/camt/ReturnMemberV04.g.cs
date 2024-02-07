@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.ReturnMemberV04>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -35,10 +38,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// - identification of contact persons for the member, their role and details.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The ReturnMember message is sent by the transaction administrator to a member of the system.|It is used to provide information on static data maintained by the transaction administrator and related to the participants in the system and their membership status vis-a-vis this system.|The ReturnMember message can be sent as a response to a related GetMember message (pull mode) or initiated by the transaction administrator (push mode). The push of information can take place either at prearranged times or as a warning or alarm when a problem has occurred.|Usage|The transaction administrator is in charge of providing the members with business information. The term business information covers all information related to the management of the system, that is, not related to the transactions entered into in the system. The type of business information available can vary depending on the system. Among other things, it can refer to information about the membership of the system.|The member can request information about the members of the system through a series of criteria, corresponding to the known information stored within the transaction administrator. Based on the criteria received within the request, the transaction administrator will select items that will match with the request and report them to the requestor.|The transaction administrator may also send a Return Member message with pre-defined information at times previously agreed with the member or to warn the member about a particular problem that may have arisen and which needs the member(s) attention.|The message from the transaction administrator can contain information based on the following elements:|- identification of the member within the system|- membership status|- type of member|- contact details for the member: name, address|- identification of the member's account|- identification of contact persons for the member, their role and details.")]
-public partial record ReturnMemberV04 : IOuterRecord
+public partial record ReturnMemberV04 : IOuterRecord<ReturnMemberV04,ReturnMemberV04Document>
+    ,IIsoXmlSerilizable<ReturnMemberV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -50,6 +52,11 @@ public partial record ReturnMemberV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "RtrMmb";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ReturnMemberV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -90,6 +97,35 @@ public partial record ReturnMemberV04 : IOuterRecord
     {
         return new ReturnMemberV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("RtrMmb");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+        MessageHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptOrErr", xmlNamespace );
+        ReportOrError.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ReturnMemberV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -97,9 +133,7 @@ public partial record ReturnMemberV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReturnMemberV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ReturnMemberV04Document : IOuterDocument<ReturnMemberV04>
+public partial record ReturnMemberV04Document : IOuterDocument<ReturnMemberV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -115,5 +149,22 @@ public partial record ReturnMemberV04Document : IOuterDocument<ReturnMemberV04>
     /// <summary>
     /// The instance of <seealso cref="ReturnMemberV04"/> is required.
     /// </summary>
+    [DataMember(Name=ReturnMemberV04.XmlTag)]
     public required ReturnMemberV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ReturnMemberV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

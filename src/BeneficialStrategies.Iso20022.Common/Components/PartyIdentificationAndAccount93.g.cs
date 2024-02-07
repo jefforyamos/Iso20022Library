@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Party involved in the settlement chain.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentificationAndAccount93
+     : IIsoXmlSerilizable<PartyIdentificationAndAccount93>
 {
     #nullable enable
     
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? PartyIdentification { get; init; } 
     /// <summary>
     /// Identification of the account owned by the party.
     /// </summary>
-    [DataMember]
     public AccountIdentification1? AccountIdentification { get; init; } 
     /// <summary>
     /// Place where settlement of the securities takes place.
     /// </summary>
-    [DataMember]
     public required PartyIdentification2Choice_ PlaceOfSettlement { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PartyIdentification is PartyIdentification2Choice_ PartyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PtyId", xmlNamespace );
+            PartyIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountIdentification is AccountIdentification1 AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            AccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PlcOfSttlm", xmlNamespace );
+        PlaceOfSettlement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static PartyIdentificationAndAccount93 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

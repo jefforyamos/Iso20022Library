@@ -7,93 +7,179 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account owned by a customer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CustomerAccountModification1
+     : IIsoXmlSerilizable<CustomerAccountModification1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the account.
     /// </summary>
-    [DataMember]
-    public ValueList<AccountIdentification4Choice_> Identification { get; init; } = []; // Warning: Don't know multiplicity.
+    public AccountIdentification4Choice_? Identification { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _sRvcVQ4oEeK3IMoVvcTkkg
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
-    [DataMember]
     public NameModification1? Name { get; init; } 
     /// <summary>
     /// Specifies the current state of an account, eg, enabled or deleted.
     /// </summary>
-    [DataMember]
     public AccountStatusModification1? Status { get; init; } 
     /// <summary>
     /// Type of the account.
     /// </summary>
-    [DataMember]
     public TypeModification1? Type { get; init; } 
     /// <summary>
     /// Medium of exchange of value.
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Monthly average of the payment amounts (that is, payments going out) over a year.
     /// </summary>
-    [DataMember]
     public AmountModification1? MonthlyPaymentValue { get; init; } 
     /// <summary>
     /// Monthly average of the received amounts over a year (that is, payments coming in).
     /// </summary>
-    [DataMember]
     public AmountModification1? MonthlyReceivedValue { get; init; } 
     /// <summary>
     /// Monthly average of the number of payments (coming in and going out) over a year.
     /// </summary>
-    [DataMember]
     public NumberModification1? MonthlyTransactionNumber { get; init; } 
     /// <summary>
     /// Sum of the end of day balances over a month divided by the number of business days in the month.
     /// </summary>
-    [DataMember]
     public AmountModification1? AverageBalance { get; init; } 
     /// <summary>
     /// Specifies the purpose of the account.
     /// </summary>
-    [DataMember]
     public PurposeModification1? AccountPurpose { get; init; } 
     /// <summary>
     /// Specifies the value of the balance under which a notification will be sent to the account owner.
     /// </summary>
-    [DataMember]
     public AmountModification1? FloorNotificationAmount { get; init; } 
     /// <summary>
     /// Specifies the value of the balance above which a notification will be sent to the account owner.
     /// </summary>
-    [DataMember]
     public AmountModification1? CeilingNotificationAmount { get; init; } 
     /// <summary>
     /// Specifies how often statements (for audit purposes) will be sent, in which format, to which address.
     /// </summary>
-    [DataMember]
-    public ValueList<StatementFrequencyAndFormModification1> StatementFrequencyAndFormat { get; init; } = []; // Warning: Don't know multiplicity.
+    public StatementFrequencyAndFormModification1? StatementFrequencyAndFormat { get; init; } 
     /// <summary>
     /// Date when the account will be or was closed.
     /// </summary>
-    [DataMember]
     public DateModification1? ClosingDate { get; init; } 
     /// <summary>
     /// Restriction on capability or operations allowed.
     /// </summary>
-    [DataMember]
-    public ValueList<RestrictionModification1> Restriction { get; init; } = []; // Warning: Don't know multiplicity.
+    public RestrictionModification1? Restriction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize Identification, multiplicity Unknown
+        if (Name is NameModification1 NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            NameValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Status is AccountStatusModification1 StatusValue)
+        {
+            writer.WriteStartElement(null, "Sts", xmlNamespace );
+            StatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Type is TypeModification1 TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Ccy", xmlNamespace );
+        writer.WriteValue(Currency.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (MonthlyPaymentValue is AmountModification1 MonthlyPaymentValueValue)
+        {
+            writer.WriteStartElement(null, "MnthlyPmtVal", xmlNamespace );
+            MonthlyPaymentValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MonthlyReceivedValue is AmountModification1 MonthlyReceivedValueValue)
+        {
+            writer.WriteStartElement(null, "MnthlyRcvdVal", xmlNamespace );
+            MonthlyReceivedValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MonthlyTransactionNumber is NumberModification1 MonthlyTransactionNumberValue)
+        {
+            writer.WriteStartElement(null, "MnthlyTxNb", xmlNamespace );
+            MonthlyTransactionNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AverageBalance is AmountModification1 AverageBalanceValue)
+        {
+            writer.WriteStartElement(null, "AvrgBal", xmlNamespace );
+            AverageBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountPurpose is PurposeModification1 AccountPurposeValue)
+        {
+            writer.WriteStartElement(null, "AcctPurp", xmlNamespace );
+            AccountPurposeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloorNotificationAmount is AmountModification1 FloorNotificationAmountValue)
+        {
+            writer.WriteStartElement(null, "FlrNtfctnAmt", xmlNamespace );
+            FloorNotificationAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CeilingNotificationAmount is AmountModification1 CeilingNotificationAmountValue)
+        {
+            writer.WriteStartElement(null, "ClngNtfctnAmt", xmlNamespace );
+            CeilingNotificationAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StatementFrequencyAndFormat is StatementFrequencyAndFormModification1 StatementFrequencyAndFormatValue)
+        {
+            writer.WriteStartElement(null, "StmtFrqcyAndFrmt", xmlNamespace );
+            StatementFrequencyAndFormatValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClosingDate is DateModification1 ClosingDateValue)
+        {
+            writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
+            ClosingDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Restriction is RestrictionModification1 RestrictionValue)
+        {
+            writer.WriteStartElement(null, "Rstrctn", xmlNamespace );
+            RestrictionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CustomerAccountModification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

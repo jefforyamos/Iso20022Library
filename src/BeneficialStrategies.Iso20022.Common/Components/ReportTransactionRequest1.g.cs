@@ -7,43 +7,82 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Transaction Report Request message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReportTransactionRequest1
+     : IIsoXmlSerilizable<ReportTransactionRequest1>
 {
     #nullable enable
     
     /// <summary>
     /// Eligibility parameters for a transaction to be part of transaction report.
     /// </summary>
-    [DataMember]
-    public ValueList<SearchCriteria1> SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
+    public SearchCriteria1? SearchCriteria { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _4eXmMN6PEeiwsev40qZGEQ
     /// <summary>
     /// Indicates the ordering in which the resulting transaction reports should be returned.
     /// </summary>
-    [DataMember]
     public SearchOutputOrder1? SearchOutputOrder { get; init; } 
     /// <summary>
     /// Indicates the order used for the criteria.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? DescendingOrder { get; init; } 
     /// <summary>
     /// Index of the first transaction matching the search criteria.
     /// </summary>
-    [DataMember]
     public IsoPositiveNumber? BlockStart { get; init; } 
     /// <summary>
     /// Index of the last transaction matching the search criteria.
     /// </summary>
-    [DataMember]
     public IsoPositiveNumber? BlockStop { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize SearchCriteria, multiplicity Unknown
+        if (SearchOutputOrder is SearchOutputOrder1 SearchOutputOrderValue)
+        {
+            writer.WriteStartElement(null, "SchOutptOrdr", xmlNamespace );
+            SearchOutputOrderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DescendingOrder is IsoTrueFalseIndicator DescendingOrderValue)
+        {
+            writer.WriteStartElement(null, "DscndgOrdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DescendingOrderValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (BlockStart is IsoPositiveNumber BlockStartValue)
+        {
+            writer.WriteStartElement(null, "BlckStart", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPositiveNumber(BlockStartValue)); // data type PositiveNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (BlockStop is IsoPositiveNumber BlockStopValue)
+        {
+            writer.WriteStartElement(null, "BlckStop", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPositiveNumber(BlockStopValue)); // data type PositiveNumber System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static ReportTransactionRequest1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

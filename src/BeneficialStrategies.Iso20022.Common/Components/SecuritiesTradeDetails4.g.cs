@@ -7,183 +7,348 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the securities trade.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesTradeDetails4
+     : IIsoXmlSerilizable<SecuritiesTradeDetails4>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of an account owner transaction that could potentially match with the allegement notified.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountOwnerTransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the transaction as known by the account servicer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountServicerTransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MarketInfrastructureTransactionIdentification { get; init; } 
     /// <summary>
     /// Reference assigned to the trade by the investor or the trading party. This reference will be used throughout the trade life cycle to access/update the trade details.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> TradeIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? TradeIdentification { get; init; } 
     /// <summary>
     /// Unique reference agreed upon by the two trade counterparties to identify the trade.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CommonIdentification { get; init; } 
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PoolIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of a collateral transaction as assigned by the instructing party.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> CollateralTransactionIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? CollateralTransactionIdentification { get; init; } 
     /// <summary>
     /// Specifies if the movement on a securities account results from a deliver or a receive instruction.
     /// </summary>
-    [DataMember]
     public required ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
     /// <summary>
     /// Specifies how the transaction is to be settled, for example, against payment.
     /// </summary>
-    [DataMember]
     public required DeliveryReceiptType2Code Payment { get; init; } 
     /// <summary>
     /// Status of the allegement.
     /// </summary>
-    [DataMember]
     public AllegementStatus1Choice_? Status { get; init; } 
     /// <summary>
     /// Market in which a trade transaction has been executed.
     /// </summary>
-    [DataMember]
     public MarketIdentification4? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Infrastructure which may be a component of a clearing house and wich facilitates clearing and settlement for its members by standing between the buyer and the seller. It may net transactions and it substitutes itself as settlement counterparty for each position.
     /// </summary>
-    [DataMember]
     public IsoAnyBICIdentifier? PlaceOfClearing { get; init; } 
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    [DataMember]
     public TradeDate1Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    [DataMember]
     public required SettlementDate1Choice_ SettlementDate { get; init; } 
     /// <summary>
     /// Date and time after the settlement date specified in the trade, used for pool trades resulting from the original To Be Assigned (TBA) securities.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeChoice_? LateDeliveryDate { get; init; } 
     /// <summary>
     /// Specifies the price of the traded financial instrument.|This is the deal price of the individual trade transaction. |If there is only one trade transaction for the execution of the trade, then the deal price could equal the executed trade price (unless, for example, the price includes commissions or rounding, or some other factor has been applied to the deal price or the executed trade price, or both).
     /// </summary>
-    [DataMember]
     public Price2? DealPrice { get; init; } 
     /// <summary>
     /// Number of days on which the interest rate accrues (daily accrual note).
     /// </summary>
-    [DataMember]
     public IsoMax3Number? NumberOfDaysAccrued { get; init; } 
     /// <summary>
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification11 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Elements characterising a financial instrument.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentAttributes8? FinancialInstrumentAttributes { get; init; } 
     /// <summary>
     /// Indicates the conditions under which the order/trade is to be/was executed.
     /// </summary>
-    [DataMember]
-    public ValueList<TradeTransactionCondition1Choice_> TradeTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
+    public TradeTransactionCondition1Choice_? TradeTransactionCondition { get; init; } 
     /// <summary>
     /// Specifies additional information relative to the processing of the trade.
     /// </summary>
-    [DataMember]
     public OpeningClosing1Choice_? OpeningClosing { get; init; } 
     /// <summary>
     /// Specifies the type of price and information about the price.
     /// </summary>
-    [DataMember]
     public TypeOfPrice3Choice_? TypeOfPrice { get; init; } 
     /// <summary>
     /// Specifies that a trade is to be reported to a third party.
     /// </summary>
-    [DataMember]
-    public ValueList<Reporting1Choice_> Reporting { get; init; } = []; // Warning: Don't know multiplicity.
+    public Reporting1Choice_? Reporting { get; init; } 
     /// <summary>
     /// Details about the financial instrument quantity and the account involved in the transaction.
     /// </summary>
-    [DataMember]
     public required QuantityAndAccount8 QuantityAndAccountDetails { get; init; } 
     /// <summary>
     /// Details of the closing of the securities financing transaction.
     /// </summary>
-    [DataMember]
     public SecuritiesFinancingTransactionDetails1? SecuritiesFinancingDetails { get; init; } 
     /// <summary>
     /// Parameters applied to the settlement of a security transfer.
     /// </summary>
-    [DataMember]
     public required SettlementDetails5 SettlementParameters { get; init; } 
     /// <summary>
     /// Identifies the chain of delivering settlement parties.
     /// </summary>
-    [DataMember]
     public SettlementParties5? DeliveringSettlementParties { get; init; } 
     /// <summary>
     /// Identifies the chain of receiving settlement parties.
     /// </summary>
-    [DataMember]
     public SettlementParties5? ReceivingSettlementParties { get; init; } 
     /// <summary>
     /// Cash parties involved in the transaction if different for the securities settlement parties.
     /// </summary>
-    [DataMember]
     public CashParties3? CashParties { get; init; } 
     /// <summary>
     /// Total amount of money to be paid or received in exchange for the securities.
     /// </summary>
-    [DataMember]
     public AmountAndDirection2? SettlementAmount { get; init; } 
     /// <summary>
     /// Other amounts than the settlement amount.
     /// </summary>
-    [DataMember]
     public OtherAmounts3? OtherAmounts { get; init; } 
     /// <summary>
     /// Other business parties relevant to the transaction.
     /// </summary>
-    [DataMember]
     public OtherParties3? OtherBusinessParties { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<Extension2> Extension { get; init; } = []; // Warning: Don't know multiplicity.
+    public Extension2? Extension { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountOwnerTransactionIdentification is IsoMax35Text AccountOwnerTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnrTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountOwnerTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountServicerTransactionIdentification is IsoMax35Text AccountServicerTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcrTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountServicerTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MarketInfrastructureTransactionIdentification is IsoMax35Text MarketInfrastructureTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MktInfrstrctrTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MarketInfrastructureTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TradeIdentification is IsoMax35Text TradeIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TradId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TradeIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CommonIdentification is IsoMax35Text CommonIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CmonId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CommonIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PoolIdentification is IsoMax35Text PoolIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PoolId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PoolIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CollateralTransactionIdentification is IsoMax35Text CollateralTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CollTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CollateralTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SctiesMvmntTp", xmlNamespace );
+        writer.WriteValue(SecuritiesMovementType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Pmt", xmlNamespace );
+        writer.WriteValue(Payment.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Status is AllegementStatus1Choice_ StatusValue)
+        {
+            writer.WriteStartElement(null, "Sts", xmlNamespace );
+            StatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PlaceOfTrade is MarketIdentification4 PlaceOfTradeValue)
+        {
+            writer.WriteStartElement(null, "PlcOfTrad", xmlNamespace );
+            PlaceOfTradeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PlaceOfClearing is IsoAnyBICIdentifier PlaceOfClearingValue)
+        {
+            writer.WriteStartElement(null, "PlcOfClr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(PlaceOfClearingValue)); // data type AnyBICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (TradeDate is TradeDate1Choice_ TradeDateValue)
+        {
+            writer.WriteStartElement(null, "TradDt", xmlNamespace );
+            TradeDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
+        SettlementDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LateDeliveryDate is DateAndDateTimeChoice_ LateDeliveryDateValue)
+        {
+            writer.WriteStartElement(null, "LateDlvryDt", xmlNamespace );
+            LateDeliveryDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DealPrice is Price2 DealPriceValue)
+        {
+            writer.WriteStartElement(null, "DealPric", xmlNamespace );
+            DealPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NumberOfDaysAccrued is IsoMax3Number NumberOfDaysAccruedValue)
+        {
+            writer.WriteStartElement(null, "NbOfDaysAcrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3Number(NumberOfDaysAccruedValue)); // data type Max3Number System.UInt64
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FinancialInstrumentAttributes is FinancialInstrumentAttributes8 FinancialInstrumentAttributesValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmAttrbts", xmlNamespace );
+            FinancialInstrumentAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeTransactionCondition is TradeTransactionCondition1Choice_ TradeTransactionConditionValue)
+        {
+            writer.WriteStartElement(null, "TradTxCond", xmlNamespace );
+            TradeTransactionConditionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OpeningClosing is OpeningClosing1Choice_ OpeningClosingValue)
+        {
+            writer.WriteStartElement(null, "OpngClsg", xmlNamespace );
+            OpeningClosingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TypeOfPrice is TypeOfPrice3Choice_ TypeOfPriceValue)
+        {
+            writer.WriteStartElement(null, "TpOfPric", xmlNamespace );
+            TypeOfPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Reporting is Reporting1Choice_ ReportingValue)
+        {
+            writer.WriteStartElement(null, "Rptg", xmlNamespace );
+            ReportingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "QtyAndAcctDtls", xmlNamespace );
+        QuantityAndAccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecuritiesFinancingDetails is SecuritiesFinancingTransactionDetails1 SecuritiesFinancingDetailsValue)
+        {
+            writer.WriteStartElement(null, "SctiesFincgDtls", xmlNamespace );
+            SecuritiesFinancingDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SttlmParams", xmlNamespace );
+        SettlementParameters.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DeliveringSettlementParties is SettlementParties5 DeliveringSettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "DlvrgSttlmPties", xmlNamespace );
+            DeliveringSettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReceivingSettlementParties is SettlementParties5 ReceivingSettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "RcvgSttlmPties", xmlNamespace );
+            ReceivingSettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashParties is CashParties3 CashPartiesValue)
+        {
+            writer.WriteStartElement(null, "CshPties", xmlNamespace );
+            CashPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementAmount is AmountAndDirection2 SettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
+            SettlementAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherAmounts is OtherAmounts3 OtherAmountsValue)
+        {
+            writer.WriteStartElement(null, "OthrAmts", xmlNamespace );
+            OtherAmountsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherBusinessParties is OtherParties3 OtherBusinessPartiesValue)
+        {
+            writer.WriteStartElement(null, "OthrBizPties", xmlNamespace );
+            OtherBusinessPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension2 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesTradeDetails4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

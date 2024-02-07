@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides for each collateral account the report summary and the valuation of each piece of collateral.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Collateral53
+     : IIsoXmlSerilizable<Collateral53>
 {
     #nullable enable
     
     /// <summary>
     /// Provides information about the collateral account, that is the identification, the type and optionally the name.
     /// </summary>
-    [DataMember]
     public CollateralAccount3? AccountIdentification { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of collateral account for digital assets.
     /// </summary>
-    [DataMember]
     public BlockChainAddressWallet5? BlockChainAddressOrWallet { get; init; } 
     /// <summary>
     /// Summary of the collateral valuation.
     /// </summary>
-    [DataMember]
     public required Summary3 ReportSummary { get; init; } 
     /// <summary>
     /// Additional information about the collateral valuation that has been posted.
     /// </summary>
-    [DataMember]
-    public ValueList<CollateralValuation13> CollateralValuation { get; init; } = []; // Warning: Don't know multiplicity.
+    public CollateralValuation13? CollateralValuation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountIdentification is CollateralAccount3 AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            AccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BlockChainAddressOrWallet is BlockChainAddressWallet5 BlockChainAddressOrWalletValue)
+        {
+            writer.WriteStartElement(null, "BlckChainAdrOrWllt", xmlNamespace );
+            BlockChainAddressOrWalletValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RptSummry", xmlNamespace );
+        ReportSummary.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CollateralValuation is CollateralValuation13 CollateralValuationValue)
+        {
+            writer.WriteStartElement(null, "CollValtn", xmlNamespace );
+            CollateralValuationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Collateral53 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

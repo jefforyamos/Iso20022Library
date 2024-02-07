@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Party to which the TaxReport is delivered. This message block contains party details for a specific tax authority.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxOrganisationIdentification1
+     : IIsoXmlSerilizable<TaxOrganisationIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text Name { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
-    [DataMember]
     public PostalAddress6? PostalAddress { get; init; } 
     /// <summary>
     /// Set of elements used to indicate how to contact the party.
     /// </summary>
-    [DataMember]
     public ContactDetails2? ContactDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(Name)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        if (PostalAddress is PostalAddress6 PostalAddressValue)
+        {
+            writer.WriteStartElement(null, "PstlAdr", xmlNamespace );
+            PostalAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContactDetails is ContactDetails2 ContactDetailsValue)
+        {
+            writer.WriteStartElement(null, "CtctDtls", xmlNamespace );
+            ContactDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TaxOrganisationIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

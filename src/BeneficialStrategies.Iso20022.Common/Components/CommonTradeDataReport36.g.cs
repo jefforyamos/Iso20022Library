@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to contract and transaction details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CommonTradeDataReport36
+     : IIsoXmlSerilizable<CommonTradeDataReport36>
 {
     #nullable enable
     
     /// <summary>
     /// Data specifically related to contract.
     /// </summary>
-    [DataMember]
     public ContractType8? ContractData { get; init; } 
     /// <summary>
     /// Data related specifically to the transaction.
     /// </summary>
-    [DataMember]
     public TradeTransaction27? TransactionData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ContractData is ContractType8 ContractDataValue)
+        {
+            writer.WriteStartElement(null, "CtrctData", xmlNamespace );
+            ContractDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionData is TradeTransaction27 TransactionDataValue)
+        {
+            writer.WriteStartElement(null, "TxData", xmlNamespace );
+            TransactionDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CommonTradeDataReport36 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

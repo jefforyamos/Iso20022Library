@@ -7,78 +7,144 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Undertaking status information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UndertakingStatusAdvice1
+     : IIsoXmlSerilizable<UndertakingStatusAdvice1>
 {
     #nullable enable
     
     /// <summary>
     /// Details related to the party that initiated the report.
     /// </summary>
-    [DataMember]
     public required PartyIdentification43 InitiatingParty { get; init; } 
     /// <summary>
     /// Details related to the identification of the undertaking.
     /// </summary>
-    [DataMember]
     public Undertaking8? UndertakingIdentification { get; init; } 
     /// <summary>
     /// Sequence number assigned by the issuer to each amendment of the undertaking.
     /// </summary>
-    [DataMember]
     public IsoNumber? AmendmentSequenceNumber { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier assigned by the advising party to the undertaking.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AdvisingPartyReferenceNumber { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier assigned by the confirmer to the undertaking.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ConfirmerReferenceNumber { get; init; } 
     /// <summary>
     /// Specifies the category of the status.
     /// </summary>
-    [DataMember]
     public required ExternalUndertakingStatusCategory1Code StatusCategory { get; init; } 
     /// <summary>
     /// Specifies the reported status.
     /// </summary>
-    [DataMember]
     public required UndertakingStatus3Code Status { get; init; } 
     /// <summary>
     /// Set of elements used to provide detailed information on the status reason.
     /// </summary>
-    [DataMember]
-    public ValueList<StatusReasonInformation8> StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public StatusReasonInformation8? StatusReason { get; init; } 
     /// <summary>
     /// Amount reported.
     /// </summary>
-    [DataMember]
-    public ValueList<ReportedAmount1> ReportedAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public ReportedAmount1? ReportedAmount { get; init; } 
     /// <summary>
     /// Information concerning the original message to which the status report may be sent in response.
     /// </summary>
-    [DataMember]
     public OriginalMessage1? OriginalMessageDetails { get; init; } 
     /// <summary>
     /// Document or template enclosed in the report.
     /// </summary>
-    [DataMember]
-    public ValueList<Document9> EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
+    public Document9? EnclosedFile { get; init; } 
     /// <summary>
     /// Additional information related to the report.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "InitgPty", xmlNamespace );
+        InitiatingParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (UndertakingIdentification is Undertaking8 UndertakingIdentificationValue)
+        {
+            writer.WriteStartElement(null, "UdrtkgId", xmlNamespace );
+            UndertakingIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AmendmentSequenceNumber is IsoNumber AmendmentSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "AmdmntSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(AmendmentSequenceNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (AdvisingPartyReferenceNumber is IsoMax35Text AdvisingPartyReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "AdvsgPtyRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdvisingPartyReferenceNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ConfirmerReferenceNumber is IsoMax35Text ConfirmerReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "CnfrmrRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ConfirmerReferenceNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "StsCtgy", xmlNamespace );
+        writer.WriteValue(StatusCategory.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (StatusReason is StatusReasonInformation8 StatusReasonValue)
+        {
+            writer.WriteStartElement(null, "StsRsn", xmlNamespace );
+            StatusReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReportedAmount is ReportedAmount1 ReportedAmountValue)
+        {
+            writer.WriteStartElement(null, "RptdAmt", xmlNamespace );
+            ReportedAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalMessageDetails is OriginalMessage1 OriginalMessageDetailsValue)
+        {
+            writer.WriteStartElement(null, "OrgnlMsgDtls", xmlNamespace );
+            OriginalMessageDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EnclosedFile is Document9 EnclosedFileValue)
+        {
+            writer.WriteStartElement(null, "NclsdFile", xmlNamespace );
+            EnclosedFileValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+    }
+    public static UndertakingStatusAdvice1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

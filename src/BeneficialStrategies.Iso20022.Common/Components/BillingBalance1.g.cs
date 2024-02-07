@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the balance for the billing services.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BillingBalance1
+     : IIsoXmlSerilizable<BillingBalance1>
 {
     #nullable enable
     
     /// <summary>
     /// Defines the type of balance.
     /// </summary>
-    [DataMember]
     public required BillingBalanceType1Choice_ Type { get; init; } 
     /// <summary>
     /// Balance value.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection34 Value { get; init; } 
     /// <summary>
     /// Identifies the currency type used to report the balance. This is not the ISO code.
     /// </summary>
-    [DataMember]
     public BillingCurrencyType1Code? CurrencyType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        Value.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CurrencyType is BillingCurrencyType1Code CurrencyTypeValue)
+        {
+            writer.WriteStartElement(null, "CcyTp", xmlNamespace );
+            writer.WriteValue(CurrencyTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static BillingBalance1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

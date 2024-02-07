@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the dispute
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DisputeIdentification1
+     : IIsoXmlSerilizable<DisputeIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of dispute.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Identification of dispute.
     /// </summary>
-    [DataMember]
     public required IsoMax70Text Identification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is IsoMax35Text TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(Identification)); // data type Max70Text System.String
+        writer.WriteEndElement();
+    }
+    public static DisputeIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

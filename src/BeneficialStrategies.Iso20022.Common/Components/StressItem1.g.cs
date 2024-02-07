@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Risk factor, financial instrument or set of financial instruments that is stressed under a hypothetical stress scenario.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StressItem1
+     : IIsoXmlSerilizable<StressItem1>
 {
     #nullable enable
     
     /// <summary>
     /// Set of information relating to major representative product being stressed under the stress scenario.
     /// </summary>
-    [DataMember]
     public required StressItem1Choice_ StressProduct { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "StrssPdct", xmlNamespace );
+        StressProduct.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static StressItem1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

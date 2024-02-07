@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Statistical information on the processing of records included in the original report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OriginalReportStatistics3
+     : IIsoXmlSerilizable<OriginalReportStatistics3>
 {
     #nullable enable
     
     /// <summary>
     /// Total numbers of records included in the original file.
     /// </summary>
-    [DataMember]
     public required IsoMax15NumericText TotalNumberOfRecords { get; init; } 
     /// <summary>
     /// Detailed information on the number of records for each records status.
     /// </summary>
-    [DataMember]
-    public ValueList<NumberOfRecordsPerStatus1> NumberOfRecordsPerStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    public NumberOfRecordsPerStatus1? NumberOfRecordsPerStatus { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _4rGw89HEEeaokquJJ-K6uA
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TtlNbOfRcrds", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(TotalNumberOfRecords)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+        // Not sure how to serialize NumberOfRecordsPerStatus, multiplicity Unknown
+    }
+    public static OriginalReportStatistics3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

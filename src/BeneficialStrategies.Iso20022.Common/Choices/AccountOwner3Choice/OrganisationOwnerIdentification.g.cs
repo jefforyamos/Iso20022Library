@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AccountOwner3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOwner3Choice;
 /// Identification of the organisation that legally owns the account.
 /// </summary>
 public partial record OrganisationOwnerIdentification : AccountOwner3Choice_
+     , IIsoXmlSerilizable<OrganisationOwnerIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Identification of the organisation.
     /// </summary>
@@ -23,5 +27,35 @@ public partial record OrganisationOwnerIdentification : AccountOwner3Choice_
     /// Identification of the organisation with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>
     public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is PartyIdentification182Choice_ IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LegalEntityIdentifier is IsoLEIIdentifier LegalEntityIdentifierValue)
+        {
+            writer.WriteStartElement(null, "LglNttyIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LegalEntityIdentifierValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new OrganisationOwnerIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

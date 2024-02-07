@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acquirer of the withdrawal transaction, in charge of the funds settlement with the issuer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Acquirer7
+     : IIsoXmlSerilizable<Acquirer7>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the acquirer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AcquiringInstitution { get; init; } 
     /// <summary>
     /// Identification of the acquirer branch.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Branch { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AcquiringInstitution is IsoMax35Text AcquiringInstitutionValue)
+        {
+            writer.WriteStartElement(null, "AcqrgInstn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AcquiringInstitutionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Branch is IsoMax35Text BranchValue)
+        {
+            writer.WriteStartElement(null, "Brnch", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(BranchValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Acquirer7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

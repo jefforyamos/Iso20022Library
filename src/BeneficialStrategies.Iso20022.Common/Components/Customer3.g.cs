@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the customer in a transfer of money.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Customer3
+     : IIsoXmlSerilizable<Customer3>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the customer assigned by a party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CustomerIdentification { get; init; } 
     /// <summary>
     /// Name of the financial customer.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Address of the financial customer.
     /// </summary>
-    [DataMember]
     public Address1? Address { get; init; } 
     /// <summary>
     /// Credentials of the financial customer.
     /// </summary>
-    [DataMember]
-    public ValueList<Credentials1> Credentials { get; init; } = []; // Warning: Don't know multiplicity.
+    public Credentials1? Credentials { get; init; } 
     /// <summary>
     /// Additional information related to the customer.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Date of birth of the party.
     /// </summary>
-    [DataMember]
     public IsoISODate? DateOfBirth { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CustomerIdentification is IsoMax35Text CustomerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CstmrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CustomerIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Name is IsoMax70Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Address is Address1 AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Credentials is Credentials1 CredentialsValue)
+        {
+            writer.WriteStartElement(null, "Crdntls", xmlNamespace );
+            CredentialsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax256Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(AdditionalInformationValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (DateOfBirth is IsoISODate DateOfBirthValue)
+        {
+            writer.WriteStartElement(null, "DtOfBirth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateOfBirthValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static Customer3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

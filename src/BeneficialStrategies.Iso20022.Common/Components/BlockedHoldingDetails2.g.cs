@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a blocked holding.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BlockedHoldingDetails2
+     : IIsoXmlSerilizable<BlockedHoldingDetails2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies how the blocked account holding is defined.
     /// </summary>
-    [DataMember]
     public required Holding1Code BlockedHolding { get; init; } 
     /// <summary>
     /// When an account is blocked at the level of fund or security, partially, this is the number of units blocked.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? PartialHoldingUnits { get; init; } 
     /// <summary>
     /// When an account is blocked at the level of fund or security, this specifies the certificate number of the blocked units.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? HoldingCertificateNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BlckdHldg", xmlNamespace );
+        writer.WriteValue(BlockedHolding.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (PartialHoldingUnits is IsoDecimalNumber PartialHoldingUnitsValue)
+        {
+            writer.WriteStartElement(null, "PrtlHldgUnits", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(PartialHoldingUnitsValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (HoldingCertificateNumber is IsoMax35Text HoldingCertificateNumberValue)
+        {
+            writer.WriteStartElement(null, "HldgCertNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(HoldingCertificateNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static BlockedHoldingDetails2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

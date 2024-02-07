@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Context of the transaction at the point of service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PointOfServiceContext5
+     : IIsoXmlSerilizable<PointOfServiceContext5>
 {
     #nullable enable
     
@@ -25,7 +26,6 @@ public partial record PointOfServiceContext5
     /// False: Card physically absent during the transaction.
     /// ISO 8583:87 bit 25, ISO 8583:93 bit 22-6.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CardPresent { get; init; } 
     /// <summary>
     /// Indicates whether the transaction has been initiated in presence of the cardholder or not.
@@ -33,7 +33,6 @@ public partial record PointOfServiceContext5
     /// False: Cardholder absent during the transaction.
     /// ISO 8583:87 bit 25, ISO 8583:93 bit 22-5
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CardholderPresent { get; init; } 
     /// <summary>
     /// Indicates whether the automated device was operated solely by the cardholder or not (for example, vending machine, automated fuel dispenser, ATM, kiosk, etc.).
@@ -41,14 +40,12 @@ public partial record PointOfServiceContext5
     /// False: Device not operated solely by the cardholder.
     /// ISO 8583:2003 bit 22-3
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CardholderActivated { get; init; } 
     /// <summary>
     /// Transaction initiated through a transponder or not.
     /// True: Transaction initiated through a transponder.
     /// False: Transaction not initiated through a transponder.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? TransponderInitiated { get; init; } 
     /// <summary>
     /// Card acceptor representative in attendance at the point of service during the transaction. When an acceptor’s terminal is semi-attended (for example, multiple terminals supervised by a single clerk), it will be identified as ‘attended’.
@@ -56,12 +53,10 @@ public partial record PointOfServiceContext5
     /// False: Non-attended transaction at the terminal
     /// ISO 8583:87 bit 25, ISO 8583:93 bit 22-4
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? AttendedIndicator { get; init; } 
     /// <summary>
     /// Transaction category level on an unattended terminal.
     /// </summary>
-    [DataMember]
     public IsoMax35NumericText? UnattendedLevelCategory { get; init; } 
     /// <summary>
     /// Indicates whether the point of service is an e-commerce one or not.
@@ -70,83 +65,211 @@ public partial record PointOfServiceContext5
     /// Default: False
     /// ISO 8583:2003 bit 22-3
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ECommerceIndicator { get; init; } 
     /// <summary>
     /// Contains electronic commerce data. 
     /// </summary>
-    [DataMember]
-    public ValueList<ECommerceData1> ECommerceData { get; init; } = []; // Warning: Don't know multiplicity.
+    public ECommerceData1? ECommerceData { get; init; } 
     /// <summary>
     /// A code that identifies the type of MOTO transaction.
     /// </summary>
-    [DataMember]
     public MOTO1Code? MOTOCode { get; init; } 
     /// <summary>
     /// Indicates a transit transaction.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? TransitIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the point of service supports partial approval or not.
     /// True: partial approval is supported
     /// False: partial approval is not supported
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? PartialApprovalSupported { get; init; } 
     /// <summary>
     /// Indicates whether the authorisation was delayed due to an on-board initiated transaction.
     /// True: The authorisation was delayed
     /// False: The authorisation was not delayed
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? DelayedAuthorisationIndicator { get; init; } 
     /// <summary>
     /// Security characteristics of the communication link in the card acceptance process.
     /// ISO 8583:2003 bit 22-4
     /// </summary>
-    [DataMember]
-    public ValueList<SecurityCharacteristics1Code> SecurityCharacteristics { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecurityCharacteristics1Code? SecurityCharacteristics { get; init; } 
     /// <summary>
     /// Other security characteristics.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherSecurityCharacteristics { get; init; } 
     /// <summary>
     /// Entry mode of the card data for the transaction.
     /// </summary>
-    [DataMember]
     public CardDataReading10Code? CardDataEntryMode { get; init; } 
     /// <summary>
     /// Method used to present a QR Code at the point of service.
     /// </summary>
-    [DataMember]
     public QRCodePresentmentMode1Code? QRCodePresentmentMode { get; init; } 
     /// <summary>
     /// Other method of QR Code presentment.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherQRCodePresentmentMode { get; init; } 
     /// <summary>
     /// Other type of card data entry mode.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherCardDataEntryMode { get; init; } 
     /// <summary>
     /// Storage location of payment credential (for example, Acceptor or third party wallet).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? StorageLocation { get; init; } 
     /// <summary>
     /// Data used to assign specific conditions at the card acceptor location and decided by bilateral agreements.
     /// </summary>
-    [DataMember]
-    public ValueList<SpecialConditions1> SpecialConditions { get; init; } = []; // Warning: Don't know multiplicity.
+    public SpecialConditions1? SpecialConditions { get; init; } 
     /// <summary>
     /// Additional point of service context data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CardPresent is IsoTrueFalseIndicator CardPresentValue)
+        {
+            writer.WriteStartElement(null, "CardPres", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CardPresentValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CardholderPresent is IsoTrueFalseIndicator CardholderPresentValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrPres", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CardholderPresentValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CardholderActivated is IsoTrueFalseIndicator CardholderActivatedValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrActvtd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CardholderActivatedValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TransponderInitiated is IsoTrueFalseIndicator TransponderInitiatedValue)
+        {
+            writer.WriteStartElement(null, "TrnspndrInittd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TransponderInitiatedValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AttendedIndicator is IsoTrueFalseIndicator AttendedIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AttnddInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AttendedIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (UnattendedLevelCategory is IsoMax35NumericText UnattendedLevelCategoryValue)
+        {
+            writer.WriteStartElement(null, "UattnddLvlCtgy", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35NumericText(UnattendedLevelCategoryValue)); // data type Max35NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (ECommerceIndicator is IsoTrueFalseIndicator ECommerceIndicatorValue)
+        {
+            writer.WriteStartElement(null, "EComrcInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ECommerceIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ECommerceData is ECommerceData1 ECommerceDataValue)
+        {
+            writer.WriteStartElement(null, "EComrcData", xmlNamespace );
+            ECommerceDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MOTOCode is MOTO1Code MOTOCodeValue)
+        {
+            writer.WriteStartElement(null, "MOTOCd", xmlNamespace );
+            writer.WriteValue(MOTOCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TransitIndicator is IsoTrueFalseIndicator TransitIndicatorValue)
+        {
+            writer.WriteStartElement(null, "TrnstInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TransitIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PartialApprovalSupported is IsoTrueFalseIndicator PartialApprovalSupportedValue)
+        {
+            writer.WriteStartElement(null, "PrtlApprvlSpprtd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(PartialApprovalSupportedValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (DelayedAuthorisationIndicator is IsoTrueFalseIndicator DelayedAuthorisationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "DelydAuthstnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DelayedAuthorisationIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SecurityCharacteristics is SecurityCharacteristics1Code SecurityCharacteristicsValue)
+        {
+            writer.WriteStartElement(null, "SctyChrtcs", xmlNamespace );
+            writer.WriteValue(SecurityCharacteristicsValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherSecurityCharacteristics is IsoMax35Text OtherSecurityCharacteristicsValue)
+        {
+            writer.WriteStartElement(null, "OthrSctyChrtcs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherSecurityCharacteristicsValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CardDataEntryMode is CardDataReading10Code CardDataEntryModeValue)
+        {
+            writer.WriteStartElement(null, "CardDataNtryMd", xmlNamespace );
+            writer.WriteValue(CardDataEntryModeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (QRCodePresentmentMode is QRCodePresentmentMode1Code QRCodePresentmentModeValue)
+        {
+            writer.WriteStartElement(null, "QRCdPresntmntMd", xmlNamespace );
+            writer.WriteValue(QRCodePresentmentModeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherQRCodePresentmentMode is IsoMax35Text OtherQRCodePresentmentModeValue)
+        {
+            writer.WriteStartElement(null, "OthrQRCdPresntmntMd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherQRCodePresentmentModeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OtherCardDataEntryMode is IsoMax35Text OtherCardDataEntryModeValue)
+        {
+            writer.WriteStartElement(null, "OthrCardDataNtryMd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherCardDataEntryModeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (StorageLocation is IsoMax35Text StorageLocationValue)
+        {
+            writer.WriteStartElement(null, "StorgLctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(StorageLocationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SpecialConditions is SpecialConditions1 SpecialConditionsValue)
+        {
+            writer.WriteStartElement(null, "SpclConds", xmlNamespace );
+            SpecialConditionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PointOfServiceContext5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

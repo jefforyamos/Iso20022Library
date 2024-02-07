@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the balance inquiry response message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BalanceInquiryResponse5
+     : IIsoXmlSerilizable<BalanceInquiryResponse5>
 {
     #nullable enable
     
     /// <summary>
     /// Sale System identification of the transaction in an unambiguous way.
     /// </summary>
-    [DataMember]
     public TransactionIdentifier1? SaleTransactionIdentification { get; init; } 
     /// <summary>
     /// POI identification of the transaction in an unambiguous way.
     /// </summary>
-    [DataMember]
     public TransactionIdentifier1? POITransactionIdentification { get; init; } 
     /// <summary>
     /// Payment account information.
     /// </summary>
-    [DataMember]
     public PaymentAccount3? PaymentAccount { get; init; } 
     /// <summary>
     /// Loyalty account information.
     /// </summary>
-    [DataMember]
     public LoyaltyAccount3? LoyaltyAccount { get; init; } 
     /// <summary>
     /// Stored value account information.
     /// </summary>
-    [DataMember]
-    public ValueList<StoredValueAccount2> StoredValueAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    public StoredValueAccount2? StoredValueAccount { get; init; } 
     /// <summary>
     /// Receipt to print after a balance inquiry.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentReceipt5> Receipt { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentReceipt5? Receipt { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SaleTransactionIdentification is TransactionIdentifier1 SaleTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleTxId", xmlNamespace );
+            SaleTransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (POITransactionIdentification is TransactionIdentifier1 POITransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "POITxId", xmlNamespace );
+            POITransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentAccount is PaymentAccount3 PaymentAccountValue)
+        {
+            writer.WriteStartElement(null, "PmtAcct", xmlNamespace );
+            PaymentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LoyaltyAccount is LoyaltyAccount3 LoyaltyAccountValue)
+        {
+            writer.WriteStartElement(null, "LltyAcct", xmlNamespace );
+            LoyaltyAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StoredValueAccount is StoredValueAccount2 StoredValueAccountValue)
+        {
+            writer.WriteStartElement(null, "StordValAcct", xmlNamespace );
+            StoredValueAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Receipt is PaymentReceipt5 ReceiptValue)
+        {
+            writer.WriteStartElement(null, "Rct", xmlNamespace );
+            ReceiptValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BalanceInquiryResponse5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

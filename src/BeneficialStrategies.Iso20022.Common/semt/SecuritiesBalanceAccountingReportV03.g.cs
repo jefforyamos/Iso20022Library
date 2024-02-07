@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.semt.SecuritiesBalanceAccountingReportV03>;
 
 namespace BeneficialStrategies.Iso20022.semt;
 
@@ -35,10 +38,9 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information.|using the relevant elements in the Business Application Header.|ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account servicer sends a SecuritiesBalanceAccountingReport to an account owner to provide, at a moment in time, valuations of the portfolio together with details of each financial instrument holding.|The account servicer/owner relationship may be:|- an accounting agent acting on behalf of an account owner, or|- a transfer agent acting on behalf of a fund manager or an account owner's designated agent.|Usage|The message should be sent at a frequency agreed bi-laterally between the account servicer and the account owner.|The message can be sent either audited or un-audited and may be provided on a trade date, contractual or settlement date basis.|This message can only be used to list the holdings of a single (master) account. However, it is possible to break down these holdings into one or several sub-accounts. Therefore, the message can be used to either specify holdings at|- the main account level, or,|- the sub-account level.|This message can be used to report where the financial instruments are safe-kept, physically or notionally. If a security is held in more than one safekeeping place, this can also be indicated.|The SecuritiesBalanceAccountingReport message should not be used for trading purposes.|There may be one or more intermediary parties, for example, an intermediary or a concentrator between the account owner and account servicer.|The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information.|using the relevant elements in the Business Application Header.|ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.")]
-public partial record SecuritiesBalanceAccountingReportV03 : IOuterRecord
+public partial record SecuritiesBalanceAccountingReportV03 : IOuterRecord<SecuritiesBalanceAccountingReportV03,SecuritiesBalanceAccountingReportV03Document>
+    ,IIsoXmlSerilizable<SecuritiesBalanceAccountingReportV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -50,6 +52,11 @@ public partial record SecuritiesBalanceAccountingReportV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesBalAcctgRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesBalanceAccountingReportV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -117,7 +124,7 @@ public partial record SecuritiesBalanceAccountingReportV03 : IOuterRecord
     [Description(@"Information about the party that provides services relating to financial products to investors, for example, advice on products and placement of orders for the investment fund.")]
     [DataMember(Name="IntrmyInf")]
     [XmlElement(ElementName="IntrmyInf")]
-    public required IReadOnlyCollection<Intermediary2> IntermediaryInformation { get; init; } = []; // Min=0, Max=10
+    public required ValueList<Intermediary2> IntermediaryInformation { get; init; } = []; // Min=0, Max=10
     
     /// <summary>
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
@@ -182,6 +189,86 @@ public partial record SecuritiesBalanceAccountingReportV03 : IOuterRecord
     {
         return new SecuritiesBalanceAccountingReportV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesBalAcctgRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Pgntn", xmlNamespace );
+        Pagination.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StmtGnlDtls", xmlNamespace );
+        StatementGeneralDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountOwner is PartyIdentification13Choice_ AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountServicer is PartyIdentification10Choice_ AccountServicerValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+            AccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+        SafekeepingAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IntrmyInf", xmlNamespace );
+        IntermediaryInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BalanceForAccount is AggregateBalanceInformation8 BalanceForAccountValue)
+        {
+            writer.WriteStartElement(null, "BalForAcct", xmlNamespace );
+            BalanceForAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SubAccountDetails is SubAccountIdentification10 SubAccountDetailsValue)
+        {
+            writer.WriteStartElement(null, "SubAcctDtls", xmlNamespace );
+            SubAccountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountBaseCurrencyTotalAmounts is TotalValueInPageAndStatement2 AccountBaseCurrencyTotalAmountsValue)
+        {
+            writer.WriteStartElement(null, "AcctBaseCcyTtlAmts", xmlNamespace );
+            AccountBaseCurrencyTotalAmountsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AlternateReportingCurrencyTotalAmounts is TotalValueInPageAndStatement2 AlternateReportingCurrencyTotalAmountsValue)
+        {
+            writer.WriteStartElement(null, "AltrnRptgCcyTtlAmts", xmlNamespace );
+            AlternateReportingCurrencyTotalAmountsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageOriginator is PartyIdentification10Choice_ MessageOriginatorValue)
+        {
+            writer.WriteStartElement(null, "MsgOrgtr", xmlNamespace );
+            MessageOriginatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageRecipient is PartyIdentification10Choice_ MessageRecipientValue)
+        {
+            writer.WriteStartElement(null, "MsgRcpt", xmlNamespace );
+            MessageRecipientValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesBalanceAccountingReportV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -189,9 +276,7 @@ public partial record SecuritiesBalanceAccountingReportV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesBalanceAccountingReportV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesBalanceAccountingReportV03Document : IOuterDocument<SecuritiesBalanceAccountingReportV03>
+public partial record SecuritiesBalanceAccountingReportV03Document : IOuterDocument<SecuritiesBalanceAccountingReportV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -207,5 +292,22 @@ public partial record SecuritiesBalanceAccountingReportV03Document : IOuterDocum
     /// <summary>
     /// The instance of <seealso cref="SecuritiesBalanceAccountingReportV03"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesBalanceAccountingReportV03.XmlTag)]
     public required SecuritiesBalanceAccountingReportV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesBalanceAccountingReportV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

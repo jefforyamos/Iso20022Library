@@ -7,58 +7,104 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of characteristics shared by all individual transactions included in the message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GroupHeader69
+     : IIsoXmlSerilizable<GroupHeader69>
 {
     #nullable enable
     
     /// <summary>
     /// Report identification, for example invoice number or report number from point of sales system.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Date at which the status report was created.
     /// </summary>
-    [DataMember]
     public required IsoISODate IssuedDate { get; init; } 
     /// <summary>
     /// Specifies if the report is based on debit invoice, credit invoice, card transaction or cash transaction.
     /// </summary>
-    [DataMember]
     public required ExternalDocumentType1Code ReportCategory { get; init; } 
     /// <summary>
     /// Specifies if the TaxReport is new, correction or remove.
     /// </summary>
-    [DataMember]
     public required ExternalDocumentType1Code TaxReportPurpose { get; init; } 
     /// <summary>
     /// Original tax report identification, used for example original invoice number with credit notes.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalIdentification { get; init; } 
     /// <summary>
     /// Details of tax representative. The corporate (seller) is allowed to use a tax representative for value added tax responsibilities in case the seller is not registered in a specific value added tax registry.
     /// </summary>
-    [DataMember]
     public PartyIdentification116? SellerTaxRepresentative { get; init; } 
     /// <summary>
     /// Details of tax representative. The corporate (buyer) is allowed to use a tax representative for value added tax responsibilities in case the buyer is not registered in a specific value added tax registry.
     /// </summary>
-    [DataMember]
     public PartyIdentification116? BuyerTaxRepresentative { get; init; } 
     /// <summary>
     /// Specifies the language used in the message.
     /// </summary>
-    [DataMember]
     public LanguageCode? LanguageCode { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IssdDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(IssuedDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptCtgy", xmlNamespace );
+        writer.WriteValue(ReportCategory.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TaxRptPurp", xmlNamespace );
+        writer.WriteValue(TaxReportPurpose.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OriginalIdentification is IsoMax35Text OriginalIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SellerTaxRepresentative is PartyIdentification116 SellerTaxRepresentativeValue)
+        {
+            writer.WriteStartElement(null, "SellrTaxRprtv", xmlNamespace );
+            SellerTaxRepresentativeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BuyerTaxRepresentative is PartyIdentification116 BuyerTaxRepresentativeValue)
+        {
+            writer.WriteStartElement(null, "BuyrTaxRprtv", xmlNamespace );
+            BuyerTaxRepresentativeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LanguageCode is LanguageCode LanguageCodeValue)
+        {
+            writer.WriteStartElement(null, "LangCd", xmlNamespace );
+            writer.WriteValue(LanguageCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static GroupHeader69 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

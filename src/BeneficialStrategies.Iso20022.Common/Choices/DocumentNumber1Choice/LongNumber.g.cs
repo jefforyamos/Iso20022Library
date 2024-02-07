@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.DocumentNumber1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.DocumentNumber1Choice;
 /// MX Message identifier of the referenced document.
 /// </summary>
 public partial record LongNumber : DocumentNumber1Choice_
+     , IIsoXmlSerilizable<LongNumber>
 {
-    public required IsoISO20022MessageIdentificationText Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// ISO 20022 Message identifier of an MX message.
+    /// </summary>
+    public required IsoISO20022MessageIdentificationText Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "LngNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISO20022MessageIdentificationText(Value)); // data type ISO20022MessageIdentificationText System.String
+        writer.WriteEndElement();
+    }
+    public static new LongNumber Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data to request to card data acquisition.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardAcquisitionRequest2
+     : IIsoXmlSerilizable<CardAcquisitionRequest2>
 {
     #nullable enable
     
     /// <summary>
     /// Card payment brands allowed by the Sale System for the payment transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> AllowedPaymentBrand { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? AllowedPaymentBrand { get; init; } 
     /// <summary>
     /// Loyalty brands or programs allowed by the Sale System for the loyalty transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> AllowedLoyaltyBrand { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? AllowedLoyaltyBrand { get; init; } 
     /// <summary>
     /// Indicates if the Customer realises the selection of the card application.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ForceCustomerSelectionFlag { get; init; } 
     /// <summary>
     /// Amount of the transaction. It allows the processing of a contactless card.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalAmount { get; init; } 
     /// <summary>
     /// Type of payment transaction.
     /// </summary>
-    [DataMember]
     public CardPaymentServiceType13Code? PaymentType { get; init; } 
     /// <summary>
     /// Indicates if Cashback is allowed
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CashBackFlag { get; init; } 
     /// <summary>
     /// The POI System receives this information.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? SaleToPOIData { get; init; } 
     /// <summary>
     /// Sale information intended for the Acquirer.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? SaleToAcquirerData { get; init; } 
     /// <summary>
     /// Sale information intended for the Issuer.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? SaleToIssuerData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AllowedPaymentBrand is IsoMax35Text AllowedPaymentBrandValue)
+        {
+            writer.WriteStartElement(null, "AllwdPmtBrnd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AllowedPaymentBrandValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AllowedLoyaltyBrand is IsoMax35Text AllowedLoyaltyBrandValue)
+        {
+            writer.WriteStartElement(null, "AllwdLltyBrnd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AllowedLoyaltyBrandValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ForceCustomerSelectionFlag is IsoTrueFalseIndicator ForceCustomerSelectionFlagValue)
+        {
+            writer.WriteStartElement(null, "ForceCstmrSelctnFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ForceCustomerSelectionFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TotalAmount is IsoImpliedCurrencyAndAmount TotalAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(TotalAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PaymentType is CardPaymentServiceType13Code PaymentTypeValue)
+        {
+            writer.WriteStartElement(null, "PmtTp", xmlNamespace );
+            writer.WriteValue(PaymentTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CashBackFlag is IsoTrueFalseIndicator CashBackFlagValue)
+        {
+            writer.WriteStartElement(null, "CshBckFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CashBackFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SaleToPOIData is IsoMax70Text SaleToPOIDataValue)
+        {
+            writer.WriteStartElement(null, "SaleToPOIData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(SaleToPOIDataValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (SaleToAcquirerData is IsoMax70Text SaleToAcquirerDataValue)
+        {
+            writer.WriteStartElement(null, "SaleToAcqrrData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(SaleToAcquirerDataValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (SaleToIssuerData is IsoMax70Text SaleToIssuerDataValue)
+        {
+            writer.WriteStartElement(null, "SaleToIssrData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(SaleToIssuerDataValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CardAcquisitionRequest2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

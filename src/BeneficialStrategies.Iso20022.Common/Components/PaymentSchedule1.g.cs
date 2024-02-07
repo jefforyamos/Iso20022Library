@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies an payment schedule, that is an amount that must be paid no sooner than the expected payment date and no later than the due date.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentSchedule1
+     : IIsoXmlSerilizable<PaymentSchedule1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the payment schedule.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PaymentScheduleIdentification { get; init; } 
     /// <summary>
     /// Amount that must be paid no sooner than the expected payment date and no later than the due date.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Expected date whereby the amount must be paid.
     /// </summary>
-    [DataMember]
     public IsoISODate? ExpectedDate { get; init; } 
     /// <summary>
     /// Latest date whereby the amount of money must be paid.
     /// </summary>
-    [DataMember]
     public IsoISODate? DueDate { get; init; } 
     /// <summary>
     /// Further details on the payments.
     /// </summary>
-    [DataMember]
     public IsoMax1025Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PaymentScheduleIdentification is IsoMax35Text PaymentScheduleIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PmtSchdlId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PaymentScheduleIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Amount is IsoActiveCurrencyAndAmount AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExpectedDate is IsoISODate ExpectedDateValue)
+        {
+            writer.WriteStartElement(null, "XpctdDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExpectedDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (DueDate is IsoISODate DueDateValue)
+        {
+            writer.WriteStartElement(null, "DueDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DueDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax1025Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1025Text(AdditionalInformationValue)); // data type Max1025Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentSchedule1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

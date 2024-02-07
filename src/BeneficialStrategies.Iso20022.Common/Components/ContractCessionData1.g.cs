@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contract cession data in structured form.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ContractCessionData1
+     : IIsoXmlSerilizable<ContractCessionData1>
 {
     #nullable enable
     
     /// <summary>
     /// The party to which the cession is made.
     /// </summary>
-    [DataMember]
     public required TradeParty5 Party { get; init; } 
     /// <summary>
     /// Number of the document under which the cession is made.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DocumentNumber { get; init; } 
     /// <summary>
     /// Date of the document under which the cession is made.
     /// </summary>
-    [DataMember]
     public IsoISODate? DocumentDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Pty", xmlNamespace );
+        Party.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DocumentNumber is IsoMax35Text DocumentNumberValue)
+        {
+            writer.WriteStartElement(null, "DocNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DocumentNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DocumentDate is IsoISODate DocumentDateValue)
+        {
+            writer.WriteStartElement(null, "DocDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DocumentDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static ContractCessionData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

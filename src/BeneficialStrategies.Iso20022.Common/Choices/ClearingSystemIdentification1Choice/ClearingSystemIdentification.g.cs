@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemIdentification1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemIdentification1Cho
 /// Infrastructure through which the payment instruction is processed.
 /// </summary>
 public partial record ClearingSystemIdentification : ClearingSystemIdentification1Choice_
+     , IIsoXmlSerilizable<ClearingSystemIdentification>
 {
-    public required CashClearingSystem3Code Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is to be processed.
+    /// </summary>
+    public required CashClearingSystem3Code Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ClrSysId", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new ClearingSystemIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,89 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the payment instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentInstruction26
+     : IIsoXmlSerilizable<PaymentInstruction26>
 {
     #nullable enable
     
     /// <summary>
     /// Point to point reference, as assigned by the original initiating party, to unambiguously identify the original payment transaction message|Usage: this is the former TransactionReference.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the cash is at the disposal of the credit account owner, or ceases to be at the disposal of the debit account owner.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? RequestedExecutionDate { get; init; } 
     /// <summary>
     /// Detailed information about the status of a transfer.||.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentStatus3> Status { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentStatus3? Status { get; init; } 
     /// <summary>
     /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// </summary>
-    [DataMember]
     public Amount3Choice_? InstructedAmount { get; init; } 
     /// <summary>
     /// Amount of money moved between the instructing agent and the instructed agent.
     /// </summary>
-    [DataMember]
     public Amount2Choice_? InterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Underlying reason for the payment transaction.
     /// </summary>
-    [DataMember]
     public IsoMax10Text? Purpose { get; init; } 
     /// <summary>
     /// Indicates the message or event from which an instruction has been initiated.
     /// </summary>
-    [DataMember]
     public PaymentOrigin1Choice_? PaymentMethod { get; init; } 
     /// <summary>
     /// Urgency or order of importance that the originator would like the recipient of the payment instruction to apply to the processing of the payment instruction.|.
     /// </summary>
-    [DataMember]
     public PriorityCode3Choice_? Priority { get; init; } 
     /// <summary>
     /// Date and time range within which the payment instruction must be processed.|.
     /// </summary>
-    [DataMember]
     public DateTimePeriod1Choice_? ProcessingValidityTime { get; init; } 
     /// <summary>
     /// Copy of the original instruction, in free form text.
     /// </summary>
-    [DataMember]
     public IsoMax20000Text? InstructionCopy { get; init; } 
     /// <summary>
     /// Type, or nature, of the payment, such as express payment.|.
     /// </summary>
-    [DataMember]
     public PaymentType4Choice_? Type { get; init; } 
     /// <summary>
     /// Payment is a liquidity transfer order that has been executed automatically following a predefined or standing order.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? GeneratedOrder { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain.
     /// Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period.
     /// Usage: This is the former PaymentInstructionReference.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TransactionIdentification { get; init; } 
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
-    [DataMember]
     public IsoISODate? InterbankSettlementDate { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the initiating party, to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain.
@@ -97,13 +84,124 @@ public partial record PaymentInstruction26
     /// It can be included in several messages related to the transaction.
     /// Usage: This is the former related reference.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? EndToEndIdentification { get; init; } 
     /// <summary>
     /// Defines the party fields used to search for a payment.
     /// </summary>
-    [DataMember]
     public PaymentTransactionParty2? Parties { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MessageIdentification is IsoMax35Text MessageIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MsgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RequestedExecutionDate is DateAndDateTime2Choice_ RequestedExecutionDateValue)
+        {
+            writer.WriteStartElement(null, "ReqdExctnDt", xmlNamespace );
+            RequestedExecutionDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Status is PaymentStatus3 StatusValue)
+        {
+            writer.WriteStartElement(null, "Sts", xmlNamespace );
+            StatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructedAmount is Amount3Choice_ InstructedAmountValue)
+        {
+            writer.WriteStartElement(null, "InstdAmt", xmlNamespace );
+            InstructedAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterbankSettlementAmount is Amount2Choice_ InterbankSettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "IntrBkSttlmAmt", xmlNamespace );
+            InterbankSettlementAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Purpose is IsoMax10Text PurposeValue)
+        {
+            writer.WriteStartElement(null, "Purp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10Text(PurposeValue)); // data type Max10Text System.String
+            writer.WriteEndElement();
+        }
+        if (PaymentMethod is PaymentOrigin1Choice_ PaymentMethodValue)
+        {
+            writer.WriteStartElement(null, "PmtMtd", xmlNamespace );
+            PaymentMethodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Priority is PriorityCode3Choice_ PriorityValue)
+        {
+            writer.WriteStartElement(null, "Prty", xmlNamespace );
+            PriorityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProcessingValidityTime is DateTimePeriod1Choice_ ProcessingValidityTimeValue)
+        {
+            writer.WriteStartElement(null, "PrcgVldtyTm", xmlNamespace );
+            ProcessingValidityTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructionCopy is IsoMax20000Text InstructionCopyValue)
+        {
+            writer.WriteStartElement(null, "InstrCpy", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax20000Text(InstructionCopyValue)); // data type Max20000Text System.String
+            writer.WriteEndElement();
+        }
+        if (Type is PaymentType4Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GeneratedOrder is IsoTrueFalseIndicator GeneratedOrderValue)
+        {
+            writer.WriteStartElement(null, "GnrtdOrdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(GeneratedOrderValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionIdentification is IsoMax35Text TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (InterbankSettlementDate is IsoISODate InterbankSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "IntrBkSttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(InterbankSettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (EndToEndIdentification is IsoMax35Text EndToEndIdentificationValue)
+        {
+            writer.WriteStartElement(null, "EndToEndId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(EndToEndIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Parties is PaymentTransactionParty2 PartiesValue)
+        {
+            writer.WriteStartElement(null, "Pties", xmlNamespace );
+            PartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentInstruction26 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

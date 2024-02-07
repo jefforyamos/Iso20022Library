@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Balance details of a registered contract.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ContractBalance1
+     : IIsoXmlSerilizable<ContractBalance1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of the contract balance.
     /// </summary>
-    [DataMember]
     public required ContractBalanceType1Choice_ Type { get; init; } 
     /// <summary>
     /// Currency and amount of money of the contract balance.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether the balance is a credit or a debit balance. A zero balance is considered to be a credit balance.
     /// </summary>
-    [DataMember]
     public required CreditDebit3Code CreditDebitIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static ContractBalance1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

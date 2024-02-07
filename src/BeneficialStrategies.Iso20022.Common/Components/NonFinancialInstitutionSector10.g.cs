@@ -7,41 +7,75 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides detailed information concerning non financial counterparties.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NonFinancialInstitutionSector10
+     : IIsoXmlSerilizable<NonFinancialInstitutionSector10>
 {
     #nullable enable
     
     /// <summary>
     /// Taxonomy for non-financial counterparties. The categories correspond to the main sections of NACE classification as defined in the regulation.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericIdentification175> Sector { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericIdentification175? Sector { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _ygiOwQz2Ee2YoLD-1vFj0g
     /// <summary>
     /// Information whether the counterparty is above the clearing threshold.
     /// Usage: If the element is not present, the ClearingThreshold is False.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ClearingThreshold { get; init; } 
     /// <summary>
     /// Directly linked to commercial activity or treasury financing: Information on whether the contract is objectively measurable as directly linked to the counterparty's commercial or treasury financing activity.
     /// Usage: If the element is not present, the DirectlyLinkedActivity is False.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? DirectlyLinkedActivity { get; init; } 
     /// <summary>
     /// Indicates whether the counterparty is an entity established pursuant to federal law like for example a federal authority or a government corporation.
     /// Usage: If the element is not present, the FederalInstitution is False.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? FederalInstitution { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize Sector, multiplicity Unknown
+        if (ClearingThreshold is IsoTrueFalseIndicator ClearingThresholdValue)
+        {
+            writer.WriteStartElement(null, "ClrThrshld", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ClearingThresholdValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (DirectlyLinkedActivity is IsoTrueFalseIndicator DirectlyLinkedActivityValue)
+        {
+            writer.WriteStartElement(null, "DrctlyLkdActvty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DirectlyLinkedActivityValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (FederalInstitution is IsoTrueFalseIndicator FederalInstitutionValue)
+        {
+            writer.WriteStartElement(null, "FdrlInstn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(FederalInstitutionValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static NonFinancialInstitutionSector10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the cancellation of a notification advice or the withdrawal of a CA event.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NotificationCancellation1
+     : IIsoXmlSerilizable<NotificationCancellation1>
 {
     #nullable enable
     
     /// <summary>
     /// The function of the notification e.g. new notification.
     /// </summary>
-    [DataMember]
     public required CorporateActionNotificationType2Code NotificationCancellationType { get; init; } 
     /// <summary>
     /// The identification of the linked notification advice.
     /// </summary>
-    [DataMember]
     public required DocumentIdentification8 LinkedAgentCANotificationAdviceIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NtfctnCxlTp", xmlNamespace );
+        writer.WriteValue(NotificationCancellationType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "LkdAgtCANtfctnAdvcId", xmlNamespace );
+        LinkedAgentCANotificationAdviceIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static NotificationCancellation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

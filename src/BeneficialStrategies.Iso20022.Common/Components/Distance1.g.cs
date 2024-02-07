@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Distance between a start and a return car rental period.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Distance1
+     : IIsoXmlSerilizable<Distance1>
 {
     #nullable enable
     
     /// <summary>
     /// Unit of measure used to compute the distance.
     /// </summary>
-    [DataMember]
     public UnitOfMeasure10Code? UnitOfMeasure { get; init; } 
     /// <summary>
     /// Odometer reading at start of rental (at the time of vehicle check-out). 
     /// </summary>
-    [DataMember]
     public IsoMax10NumericText? OdometerStart { get; init; } 
     /// <summary>
     /// Odometer reading at return of rental (at the time of vehicle check-in). 
     /// </summary>
-    [DataMember]
     public IsoMax10NumericText? OdometerReturn { get; init; } 
     /// <summary>
     /// Total distance expressed in unit of measure.
     /// </summary>
-    [DataMember]
     public IsoMax10NumericText? TotalDistance { get; init; } 
     /// <summary>
     /// Maximum free miles or kilometres for the car rental period.
     /// </summary>
-    [DataMember]
     public IsoMax10NumericText? FreeDistance { get; init; } 
     /// <summary>
     /// Defines the rate in relation to a specific distance. 
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? Rate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (UnitOfMeasure is UnitOfMeasure10Code UnitOfMeasureValue)
+        {
+            writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
+            writer.WriteValue(UnitOfMeasureValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OdometerStart is IsoMax10NumericText OdometerStartValue)
+        {
+            writer.WriteStartElement(null, "OdmtrStart", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10NumericText(OdometerStartValue)); // data type Max10NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (OdometerReturn is IsoMax10NumericText OdometerReturnValue)
+        {
+            writer.WriteStartElement(null, "OdmtrRtr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10NumericText(OdometerReturnValue)); // data type Max10NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (TotalDistance is IsoMax10NumericText TotalDistanceValue)
+        {
+            writer.WriteStartElement(null, "TtlDstnc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10NumericText(TotalDistanceValue)); // data type Max10NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (FreeDistance is IsoMax10NumericText FreeDistanceValue)
+        {
+            writer.WriteStartElement(null, "FreeDstnc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10NumericText(FreeDistanceValue)); // data type Max10NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (Rate is IsoImpliedCurrencyAndAmount RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(RateValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static Distance1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

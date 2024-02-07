@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the payment terms of the underlying transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record EarlyPaymentsVAT1
+     : IIsoXmlSerilizable<EarlyPaymentsVAT1>
 {
     #nullable enable
     
     /// <summary>
     /// Tax rate to be applied for early payment.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate TaxRate { get; init; } 
     /// <summary>
     /// Type of tax applied.
     /// </summary>
-    [DataMember]
     public required IsoMax4Text DiscountTaxType { get; init; } 
     /// <summary>
     /// Early payment discount tax amount calculated using defined tax rate.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount DiscountTaxAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TaxRate", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(TaxRate)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DscntTaxTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4Text(DiscountTaxType)); // data type Max4Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DscntTaxAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(DiscountTaxAmount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static EarlyPaymentsVAT1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

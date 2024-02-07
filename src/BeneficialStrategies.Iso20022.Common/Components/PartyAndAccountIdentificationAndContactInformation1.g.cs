@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Entity involved in an activity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyAndAccountIdentificationAndContactInformation1
+     : IIsoXmlSerilizable<PartyAndAccountIdentificationAndContactInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the party that legally owns the account.
     /// </summary>
-    [DataMember]
     public required PartyIdentification8 PartyIdentification { get; init; } 
     /// <summary>
     /// Identification of the account owned by the party.
     /// </summary>
-    [DataMember]
     public CashAccount7? AccountIdentification { get; init; } 
     /// <summary>
     /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
     /// </summary>
-    [DataMember]
     public ContactIdentification1? ContactInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PtyId", xmlNamespace );
+        PartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountIdentification is CashAccount7 AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            AccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContactInformation is ContactIdentification1 ContactInformationValue)
+        {
+            writer.WriteStartElement(null, "CtctInf", xmlNamespace );
+            ContactInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyAndAccountIdentificationAndContactInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

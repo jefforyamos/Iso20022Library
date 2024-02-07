@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CardPaymentDataSetTransaction11Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.CardPaymentDataSetTransaction11C
 /// Request for a token computation.
 /// </summary>
 public partial record TokenRequest : CardPaymentDataSetTransaction11Choice_
+     , IIsoXmlSerilizable<TokenRequest>
 {
     #nullable enable
+    
     /// <summary>
     /// Identification of an element in a sequence.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record TokenRequest : CardPaymentDataSetTransaction11Choice_
     /// Environment of the transaction.
     /// </summary>
     public required CardPaymentEnvironment79 Environment { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxSeqCntr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax9NumericText(TransactionSequenceCounter)); // data type Max9NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Envt", xmlNamespace );
+        Environment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new TokenRequest Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Date and identification of a trade together with references to previous events in its life.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeAgreement2
+     : IIsoXmlSerilizable<TradeAgreement2>
 {
     #nullable enable
     
     /// <summary>
     /// Date at which the trading parties have agreed to amend or cancel a treasury trade.
     /// </summary>
-    [DataMember]
     public required IsoISODate TradeDate { get; init; } 
     /// <summary>
     /// Identification of a notification.This identification must be unique amongst all notifications of same type confirmed by the same party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text NotificationIdentification { get; init; } 
     /// <summary>
     /// Reference common to the parties of a trade.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CommonReference { get; init; } 
     /// <summary>
     /// Describes the reason for the cancellation or the amendment.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AmendOrCancelReason { get; init; } 
     /// <summary>
     /// Refers to the identification of a previous event in the life of a trade which is amended or cancelled.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text RelatedReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TradDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(TradeDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NtfctnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(NotificationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (CommonReference is IsoMax35Text CommonReferenceValue)
+        {
+            writer.WriteStartElement(null, "CmonRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CommonReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AmendOrCancelReason is IsoMax35Text AmendOrCancelReasonValue)
+        {
+            writer.WriteStartElement(null, "AmdOrCclRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AmendOrCancelReasonValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(RelatedReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static TradeAgreement2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

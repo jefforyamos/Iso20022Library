@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the type of related tax.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RelatedTaxType1
+     : IIsoXmlSerilizable<RelatedTaxType1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of tax.
     /// </summary>
-    [DataMember]
     public required TaxType3FormatChoice_ TaxType { get; init; } 
     /// <summary>
     /// The value of the related tax expressed as an amount.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TaxTp", xmlNamespace );
+        TaxType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static RelatedTaxType1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

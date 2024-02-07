@@ -7,53 +7,91 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status report of a bulk or multiple or switch order that was previously received.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OrderStatusAndReason3
+     : IIsoXmlSerilizable<OrderStatusAndReason3>
 {
     #nullable enable
     
     /// <summary>
     /// Status of the order is accepted or already executed or sent to next party or received. There is no reason attached.
     /// </summary>
-    [DataMember]
     public required OrderStatus2Code Status { get; init; } 
     /// <summary>
     /// Status of the order details is cancelled. This status is used for orders that have been accepted or that have been entered in an order book but that can not be executed.
     /// </summary>
-    [DataMember]
     public required CancelledStatus1 Cancelled { get; init; } 
     /// <summary>
     /// Status of the order details is conditionally accepted.
     /// </summary>
-    [DataMember]
     public required ConditionallyAcceptedStatus1 ConditionallyAccepted { get; init; } 
     /// <summary>
     /// Status of the order details is rejected. This status is used for orders that have not been accepted or entered in an order book.
     /// </summary>
-    [DataMember]
     public required RejectedStatus3 Rejected { get; init; } 
     /// <summary>
     /// Status of the order details is suspended.
     /// </summary>
-    [DataMember]
     public required SuspendedStatus1 Suspended { get; init; } 
     /// <summary>
     /// Party that initiates the status of the order.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? StatusInitiator { get; init; } 
     /// <summary>
     /// Unique and unambiguous technical identification of an instance of a leg within a switch.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SwitchOrderLegIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Canc", xmlNamespace );
+        Cancelled.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CondlyAccptd", xmlNamespace );
+        ConditionallyAccepted.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rjctd", xmlNamespace );
+        Rejected.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sspd", xmlNamespace );
+        Suspended.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (StatusInitiator is PartyIdentification2Choice_ StatusInitiatorValue)
+        {
+            writer.WriteStartElement(null, "StsInitr", xmlNamespace );
+            StatusInitiatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SwitchOrderLegIdentification is IsoMax35Text SwitchOrderLegIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SwtchOrdrLegId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SwitchOrderLegIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static OrderStatusAndReason3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

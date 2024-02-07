@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Limit details of one particular limit set by the member and managed by the transaction administrator.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LimitStructure4
+     : IIsoXmlSerilizable<LimitStructure4>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the default limit.
     /// </summary>
-    [DataMember]
     public required LimitIdentification5 LimitIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the limit becomes effective.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? StartDateTime { get; init; } 
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
-    [DataMember]
     public required Amount2Choice_ Amount { get; init; } 
     /// <summary>
     /// Specifies if a limit is a debit limit or a credit limit.
     /// </summary>
-    [DataMember]
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "LmtId", xmlNamespace );
+        LimitIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (StartDateTime is DateAndDateTime2Choice_ StartDateTimeValue)
+        {
+            writer.WriteStartElement(null, "StartDtTm", xmlNamespace );
+            StartDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        Amount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CreditDebitIndicator is CreditDebitCode CreditDebitIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+            writer.WriteValue(CreditDebitIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static LimitStructure4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Code of the underlying bank transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BankTransactionCodeStructure3
+     : IIsoXmlSerilizable<BankTransactionCodeStructure3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the family within a domain.
     /// </summary>
-    [DataMember]
     public required ExternalBankTransactionFamilyCode Code { get; init; } 
     /// <summary>
     /// Specifies the sub-product family within a specific family.
     /// </summary>
-    [DataMember]
     public required ExternalBankTransactionSubFamilyCode SubFamilyCode { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SubFmlyCd", xmlNamespace );
+        writer.WriteValue(SubFamilyCode.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static BankTransactionCodeStructure3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

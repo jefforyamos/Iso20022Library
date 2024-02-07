@@ -7,53 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the individual record of the file signature.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IsabelSignatureRecord2
+     : IIsoXmlSerilizable<IsabelSignatureRecord2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of the signature.
     /// </summary>
-    [DataMember]
     public required SignatureOriginType1Code SignatureType { get; init; } 
     /// <summary>
     /// Serial number of the certificate.
     /// </summary>
-    [DataMember]
     public required IsoMax20AlphaNumericText SerialNumber { get; init; } 
     /// <summary>
     /// Electronic document which uses a digital signature to bind together a public key with an identity.
     /// </summary>
-    [DataMember]
     public required IsoMax4kBinary Certificate { get; init; } 
     /// <summary>
     /// Mathematical scheme for demonstrating the authenticity of a digital message or document.
     /// </summary>
-    [DataMember]
     public required IsoMax1kBinary Signature { get; init; } 
     /// <summary>
     /// Effective method for calculating the signature using a finite sequence of instructions.
     /// </summary>
-    [DataMember]
     public required IsoMax105Text Algorithm { get; init; } 
     /// <summary>
     /// Unique identification of the signer that issued the signature.
     /// </summary>
-    [DataMember]
     public required IsoMax13AlphaNumericText SignerIdentification { get; init; } 
     /// <summary>
     /// Block of signature related data in case the LRCI protocol is used during the signature process of a set of payment files.
     /// </summary>
-    [DataMember]
     public IsabelLRCIExtension1? LRCIExtension { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SgntrTp", xmlNamespace );
+        writer.WriteValue(SignatureType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SrlNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20AlphaNumericText(SerialNumber)); // data type Max20AlphaNumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Cert", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4kBinary(Certificate)); // data type Max4kBinary System.Byte[]
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sgntr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax1kBinary(Signature)); // data type Max1kBinary System.Byte[]
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Algo", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax105Text(Algorithm)); // data type Max105Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SgnrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax13AlphaNumericText(SignerIdentification)); // data type Max13AlphaNumericText System.String
+        writer.WriteEndElement();
+        if (LRCIExtension is IsabelLRCIExtension1 LRCIExtensionValue)
+        {
+            writer.WriteStartElement(null, "LRCIXtnsn", xmlNamespace );
+            LRCIExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IsabelSignatureRecord2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

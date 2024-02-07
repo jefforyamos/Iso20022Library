@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the message reference of the message for which the status is requested and the business reference of the transfer instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MessageAndBusinessReference1
+     : IIsoXmlSerilizable<MessageAndBusinessReference1>
 {
     #nullable enable
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
     /// </summary>
-    [DataMember]
     public required AdditionalReference2 PreviousReference { get; init; } 
     /// <summary>
     /// Reference to a linked message sent in a proprietary way or the reference of a system.
     /// </summary>
-    [DataMember]
     public required AdditionalReference2 OtherReference { get; init; } 
     /// <summary>
     /// Investment account information of the transfer message for which the status is requested.
     /// </summary>
-    [DataMember]
     public InvestmentAccount10? InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Business reference of the transfer instruction message.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TransferReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+        PreviousReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrRef", xmlNamespace );
+        OtherReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (InvestmentAccountDetails is InvestmentAccount10 InvestmentAccountDetailsValue)
+        {
+            writer.WriteStartElement(null, "InvstmtAcctDtls", xmlNamespace );
+            InvestmentAccountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransferReference is IsoMax35Text TransferReferenceValue)
+        {
+            writer.WriteStartElement(null, "TrfRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static MessageAndBusinessReference1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

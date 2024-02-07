@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.acmt.AccountClosingRequestV01>;
 
 namespace BeneficialStrategies.Iso20022.acmt;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// It could be sent together with other related documents.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The AccountClosingRequest message is sent from an organisation to a financial institution as part of the account closing process. It is the initial request message to close an account.|Usage|This message is the initial request message to close an account.|It could be sent together with other related documents.")]
-public partial record AccountClosingRequestV01 : IOuterRecord
+public partial record AccountClosingRequestV01 : IOuterRecord<AccountClosingRequestV01,AccountClosingRequestV01Document>
+    ,IIsoXmlSerilizable<AccountClosingRequestV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record AccountClosingRequestV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AcctClsgReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AccountClosingRequestV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -127,6 +134,59 @@ public partial record AccountClosingRequestV01 : IOuterRecord
     {
         return new AccountClosingRequestV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AcctClsgReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Refs", xmlNamespace );
+        References.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctId", xmlNamespace );
+        AccountIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctSvcrId", xmlNamespace );
+        AccountServicerIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgId", xmlNamespace );
+        OrganisationIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ContractDates is AccountContract4 ContractDatesValue)
+        {
+            writer.WriteStartElement(null, "CtrctDts", xmlNamespace );
+            ContractDatesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BalanceTransferAccount is AccountForAction1 BalanceTransferAccountValue)
+        {
+            writer.WriteStartElement(null, "BalTrfAcct", xmlNamespace );
+            BalanceTransferAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransferAccountServicerIdentification is BranchAndFinancialInstitutionIdentification4 TransferAccountServicerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TrfAcctSvcrId", xmlNamespace );
+            TransferAccountServicerIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DigitalSignature is PartyAndSignature1 DigitalSignatureValue)
+        {
+            writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
+            DigitalSignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountClosingRequestV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -134,9 +194,7 @@ public partial record AccountClosingRequestV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountClosingRequestV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AccountClosingRequestV01Document : IOuterDocument<AccountClosingRequestV01>
+public partial record AccountClosingRequestV01Document : IOuterDocument<AccountClosingRequestV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -152,5 +210,22 @@ public partial record AccountClosingRequestV01Document : IOuterDocument<AccountC
     /// <summary>
     /// The instance of <seealso cref="AccountClosingRequestV01"/> is required.
     /// </summary>
+    [DataMember(Name=AccountClosingRequestV01.XmlTag)]
     public required AccountClosingRequestV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AccountClosingRequestV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

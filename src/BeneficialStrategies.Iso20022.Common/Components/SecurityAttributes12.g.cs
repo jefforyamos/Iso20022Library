@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Tangible items of value to a business.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityAttributes12
+     : IIsoXmlSerilizable<SecurityAttributes12>
 {
     #nullable enable
     
     /// <summary>
     /// Provides additional details about the financial instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<FinancialInstrument97> FinancialInstrumentType { get; init; } = []; // Warning: Don't know multiplicity.
+    public FinancialInstrument97? FinancialInstrumentType { get; init; } 
     /// <summary>
     /// Provides details about the financial instrument attributes of a particular leg.
     /// </summary>
-    [DataMember]
-    public ValueList<CommonFinancialInstrumentAttributes12> FinancialInstrumentAttributes { get; init; } = []; // Warning: Don't know multiplicity.
+    public CommonFinancialInstrumentAttributes12? FinancialInstrumentAttributes { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FinancialInstrumentType is FinancialInstrument97 FinancialInstrumentTypeValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmTp", xmlNamespace );
+            FinancialInstrumentTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentAttributes is CommonFinancialInstrumentAttributes12 FinancialInstrumentAttributesValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmAttrbts", xmlNamespace );
+            FinancialInstrumentAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecurityAttributes12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

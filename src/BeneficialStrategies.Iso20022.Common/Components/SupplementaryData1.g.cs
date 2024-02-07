@@ -9,15 +9,12 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
 using System.Xml;
 using System.Xml.Linq;
-using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Components.SupplementaryData1>;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional information that can not be captured in the structured fields and/or any other specific block.
 /// </summary>
-[DataContract(Namespace = "")]
-[XmlType]
 public partial record SupplementaryData1
      : IIsoXmlSerilizable<SupplementaryData1>
 {
@@ -27,16 +24,23 @@ public partial record SupplementaryData1
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance.
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Technical element wrapping the supplementary data.
     /// </summary>
-    [DataMember]
     public required SupplementaryDataEnvelope1 Envelope { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
     public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
     public void Serialize(XmlWriter writer, string xmlNamespace)
     {
         if (PlaceAndName is IsoMax350Text PlaceAndNameValue)

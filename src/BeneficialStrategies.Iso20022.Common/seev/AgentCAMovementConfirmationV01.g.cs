@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.AgentCAMovementConfirmationV01>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// - Agent Corporate Action Election Status Advice where an election cancellation request has been accepted. It confirms the return of the exercised resources. The building block Agent Corporate Action Election Status Advice Identification must be present. An Agent Corporate Action Election Status Advice message may be responded to by more than one Agent Corporate Action Movement Confirmation messages.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|This message is sent by a CSD to an issuer (or its agent) to confirm the settlement of resource movements.|Usage|This message is used to confirm the settlement of the movements resulting from an:|- Agent Corporate Action Movement Instruction message. It confirms the settlement of the exercised resources and/or proceeds movements in which case the building block Agent Corporate Action Movement Instruction Identification must be present. An Agent Corporate Action Movement Instruction message may be responded to by more than one Agent Corporate Action Movement Confirmation messages.|- Agent Corporate Action Global Distribution Status Advice authorising the global distribution. It confirms the settlement of the exercised resources and/or proceeds movements. The building block Agent Corporate Action Global Distribution Status Advice Identification must be present. An Agent Corporate Action Global Distribution Status Advice message may be responded to by more than one Agent Corporate Action Movement Confirmation messages.|- Agent Corporate Action Election Status Advice that rejects an election advice. It confirms the return of the exercised resources. The building block Agent Corporate Action Election Status Advice Identification must be present. An Agent Corporate Action Election Status Advice message may be responded to by more than one Agent Corporate Action Movement Confirmation messages.|- Agent Corporate Action Election Status Advice where an election cancellation request has been accepted. It confirms the return of the exercised resources. The building block Agent Corporate Action Election Status Advice Identification must be present. An Agent Corporate Action Election Status Advice message may be responded to by more than one Agent Corporate Action Movement Confirmation messages.")]
-public partial record AgentCAMovementConfirmationV01 : IOuterRecord
+public partial record AgentCAMovementConfirmationV01 : IOuterRecord<AgentCAMovementConfirmationV01,AgentCAMovementConfirmationV01Document>
+    ,IIsoXmlSerilizable<AgentCAMovementConfirmationV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record AgentCAMovementConfirmationV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AgtCAMvmntConf";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AgentCAMovementConfirmationV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -122,6 +129,50 @@ public partial record AgentCAMovementConfirmationV01 : IOuterRecord
     {
         return new AgentCAMovementConfirmationV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AgtCAMvmntConf");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AgtCAMvmntInstrId", xmlNamespace );
+        AgentCAMovementInstructionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AgtCAElctnStsAdvcId", xmlNamespace );
+        AgentCAElectionStatusAdviceIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AgtCAGblDstrbtnStsAdvcId", xmlNamespace );
+        AgentCAGlobalDistributionStatusAdviceIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+        CorporateActionGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecuritiesMovementDetails is CorporateActionSecuritiesMovement1 SecuritiesMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "SctiesMvmntDtls", xmlNamespace );
+            SecuritiesMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashMovementDetails is CashMovement3 CashMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "CshMvmntDtls", xmlNamespace );
+            CashMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AgentCAMovementConfirmationV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -129,9 +180,7 @@ public partial record AgentCAMovementConfirmationV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAMovementConfirmationV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AgentCAMovementConfirmationV01Document : IOuterDocument<AgentCAMovementConfirmationV01>
+public partial record AgentCAMovementConfirmationV01Document : IOuterDocument<AgentCAMovementConfirmationV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -147,5 +196,22 @@ public partial record AgentCAMovementConfirmationV01Document : IOuterDocument<Ag
     /// <summary>
     /// The instance of <seealso cref="AgentCAMovementConfirmationV01"/> is required.
     /// </summary>
+    [DataMember(Name=AgentCAMovementConfirmationV01.XmlTag)]
     public required AgentCAMovementConfirmationV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AgentCAMovementConfirmationV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

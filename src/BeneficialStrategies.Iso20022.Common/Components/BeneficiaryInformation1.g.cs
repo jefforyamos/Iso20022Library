@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the beneficial owner.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BeneficiaryInformation1
+     : IIsoXmlSerilizable<BeneficiaryInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the beneficial owner.
     /// </summary>
-    [DataMember]
     public IndividualPerson15? BeneficiaryIdentification { get; init; } 
     /// <summary>
     /// Eligibility to federal Employee Retirement Income Security Act.
     /// </summary>
-    [DataMember]
     public required ERISAEligibility1Code ERISAEligibility { get; init; } 
     /// <summary>
     /// Federal Employee Retirement Income Security Act (ERISA) rate.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? ERISARate { get; init; } 
     /// <summary>
     /// Indicates whether the investor is a benefit plan investor.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator BenefitPlanDeclarationIndicator { get; init; } 
     /// <summary>
     /// Indicates that there has been no change to the beneficiary's details, such as domicile, investor status, etc, as represented in the initial subscription document.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator NoChangeToBeneficiaryDetailsIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (BeneficiaryIdentification is IndividualPerson15 BeneficiaryIdentificationValue)
+        {
+            writer.WriteStartElement(null, "BnfcryId", xmlNamespace );
+            BeneficiaryIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ERISAElgblty", xmlNamespace );
+        writer.WriteValue(ERISAEligibility.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ERISARate is IsoPercentageRate ERISARateValue)
+        {
+            writer.WriteStartElement(null, "ERISARate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(ERISARateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "BnftPlanDclrtnInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(BenefitPlanDeclarationIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NoChngToBnfcryDtlsInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(NoChangeToBeneficiaryDetailsIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static BeneficiaryInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

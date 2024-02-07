@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details of a valuation update report on a trade transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeTransactionValuationUpdate5
+     : IIsoXmlSerilizable<TradeTransactionValuationUpdate5>
 {
     #nullable enable
     
     /// <summary>
     /// Trade transaction data details.
     /// </summary>
-    [DataMember]
     public ValueList<CounterpartySpecificData23> CounterpartySpecificData { get; init; } = [];
     /// <summary>
     /// Trade transaction data details.
     /// </summary>
-    [DataMember]
     public CommonTradeDataReport36? CommonTradeData { get; init; } 
     /// <summary>
     /// Specifies technical attributes of the message.
     /// </summary>
-    [DataMember]
     public TechnicalAttributes1? TechnicalAttributes { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CtrPtySpcfcData", xmlNamespace );
+        CounterpartySpecificData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CommonTradeData is CommonTradeDataReport36 CommonTradeDataValue)
+        {
+            writer.WriteStartElement(null, "CmonTradData", xmlNamespace );
+            CommonTradeDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TechnicalAttributes is TechnicalAttributes1 TechnicalAttributesValue)
+        {
+            writer.WriteStartElement(null, "TechAttrbts", xmlNamespace );
+            TechnicalAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeTransactionValuationUpdate5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

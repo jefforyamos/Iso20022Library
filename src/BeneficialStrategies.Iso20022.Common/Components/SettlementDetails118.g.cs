@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementDetails118
+     : IIsoXmlSerilizable<SettlementDetails118>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the date as known by the two parties to be used for matching purposes when settlement of securities occurs.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime TradeDate { get; init; } 
     /// <summary>
     /// Provides details on either the delivering or receiving settlement parties.
     /// </summary>
-    [DataMember]
     public SettlementParties7Choice_? SettlementParties { get; init; } 
     /// <summary>
     /// Indicates the collateral ownership.
     /// </summary>
-    [DataMember]
     public required CollateralOwnership2 CollateralOwnership { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TradDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(TradeDate)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (SettlementParties is SettlementParties7Choice_ SettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "SttlmPties", xmlNamespace );
+            SettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CollOwnrsh", xmlNamespace );
+        CollateralOwnership.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SettlementDetails118 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

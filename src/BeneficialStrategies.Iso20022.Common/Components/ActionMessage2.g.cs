@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information to display, print or store.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ActionMessage2
+     : IIsoXmlSerilizable<ActionMessage2>
 {
     #nullable enable
     
     /// <summary>
     /// Destination of the message.
     /// </summary>
-    [DataMember]
     public required UserInterface4Code MessageDestination { get; init; } 
     /// <summary>
     /// Message format.
     /// </summary>
-    [DataMember]
     public OutputFormat1Code? Format { get; init; } 
     /// <summary>
     /// Content or reference of the message.
     /// </summary>
-    [DataMember]
     public required IsoMax20000Text MessageContent { get; init; } 
     /// <summary>
     /// Digital signature of the message.
     /// </summary>
-    [DataMember]
     public IsoMax140Binary? MessageContentSignature { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgDstn", xmlNamespace );
+        writer.WriteValue(MessageDestination.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Format is OutputFormat1Code FormatValue)
+        {
+            writer.WriteStartElement(null, "Frmt", xmlNamespace );
+            writer.WriteValue(FormatValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MsgCntt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20000Text(MessageContent)); // data type Max20000Text System.String
+        writer.WriteEndElement();
+        if (MessageContentSignature is IsoMax140Binary MessageContentSignatureValue)
+        {
+            writer.WriteStartElement(null, "MsgCnttSgntr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Binary(MessageContentSignatureValue)); // data type Max140Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static ActionMessage2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

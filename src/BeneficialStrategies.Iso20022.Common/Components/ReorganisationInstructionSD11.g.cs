@@ -7,103 +7,200 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action reorganisation instruction details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReorganisationInstructionSD11
+     : IIsoXmlSerilizable<ReorganisationInstructionSD11>
 {
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Unique number assigned by the depository. Transaction identification will be either the DTC instruction reference number for reorganisation instructions (VOI) or the DAM reference number for custody/reorganisation deposits.
     /// </summary>
-    [DataMember]
     public IsoMax15Text? TransactionIdentification { get; init; } 
     /// <summary>
     /// Enable input of multiple voluntary instructions for rights or voluntary puts events via a single instruction message through using transaction sequence number.
     /// </summary>
-    [DataMember]
     public ValueList<InstructionsTransactionsSequence1> TransactionSequence { get; init; } = [];
     /// <summary>
     /// Status of the instruction.
     /// </summary>
-    [DataMember]
     public DTCInstructionStatus2Code? TransactionIdentificationStatus { get; init; } 
     /// <summary>
     /// Status of the protect instruction.
     /// </summary>
-    [DataMember]
     public DTCProtectInstructionStatus3Code? ProtectTransactionStatus { get; init; } 
     /// <summary>
     /// Reason for which an inbound instruction message or a cancellation instruction message is pending or rejected.
     /// </summary>
-    [DataMember]
-    public ValueList<InstructionReason3Code> Reason { get; init; } = [];
+    public SimpleValueList<InstructionReason3Code> Reason { get; init; } = [];
     /// <summary>
     /// Provides further information about securities quantity linked to a corporate action option.
     /// </summary>
-    [DataMember]
     public SecuritiesQuantitySD7? SecuritiesQuantityDetails { get; init; } 
     /// <summary>
     /// Customer identification entered by the client upon instruction submission.
     /// </summary>
-    [DataMember]
     public IsoMax30Text? CustomerReferenceIdentification { get; init; } 
     /// <summary>
     /// Acknowledgement information relative to corporate action reorganisation instructions.
     /// </summary>
-    [DataMember]
     public CorporateActionAcknowledgementSD1? AcknowledgementDetails { get; init; } 
     /// <summary>
     /// Party contact information for the given instruction; required for a voluntary offer instruction transaction (VOIT), protect transaction (PROT) and protect on behalf of another participant transaction (PROP); not required for cover protect instructions like a cover protect transaction (COVR), cover protect directly to agent transaction (COVA) and cover protect on behalf of another participant transaction (COVP).
     /// </summary>
-    [DataMember]
     public ContactIdentification5? ContactPerson { get; init; } 
     /// <summary>
     /// Warrant subscription amount entered by client when instructing on a warrant exercise instruction.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINActiveCurrencyAndAmount? WarrantSubscriptionChargeAmount { get; init; } 
     /// <summary>
     /// Certificate information for a given instruction.
     /// </summary>
-    [DataMember]
     public CorporateActionCertificateSD1? Certificate { get; init; } 
     /// <summary>
     /// Unique identification of the transaction used by the transmitting party.
     /// </summary>
-    [DataMember]
     public IsoMax6Text? UserReferenceNumber { get; init; } 
     /// <summary>
     /// Beneficial owner information related to CD early redemption instructions.
     /// </summary>
-    [DataMember]
     public DeceasedStatusSD1? DeceasedBeneficialOwnerDetails { get; init; } 
     /// <summary>
     /// Transaction record number for ATAM or ART system which may be causing pending status. Corresponds to ATP RBN number.
     /// </summary>
-    [DataMember]
     public IsoMax10NumericText? TransactionRecordNumber { get; init; } 
     /// <summary>
     /// Bid price of the instruction.
     /// </summary>
-    [DataMember]
     public PriceFormat63Choice_? BidPrice { get; init; } 
     /// <summary>
     /// Reference number assigned to identify an investor or a shareholder with the issuer or the registration provider (for instance allocation code).
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax25Text? ShareholderNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionIdentification is IsoMax15Text TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15Text(TransactionIdentificationValue)); // data type Max15Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxSeq", xmlNamespace );
+        TransactionSequence.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionIdentificationStatus is DTCInstructionStatus2Code TransactionIdentificationStatusValue)
+        {
+            writer.WriteStartElement(null, "TxIdSts", xmlNamespace );
+            writer.WriteValue(TransactionIdentificationStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ProtectTransactionStatus is DTCProtectInstructionStatus3Code ProtectTransactionStatusValue)
+        {
+            writer.WriteStartElement(null, "PrtctTxSts", xmlNamespace );
+            writer.WriteValue(ProtectTransactionStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Rsn", xmlNamespace );
+        writer.WriteValue(Reason.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SecuritiesQuantityDetails is SecuritiesQuantitySD7 SecuritiesQuantityDetailsValue)
+        {
+            writer.WriteStartElement(null, "SctiesQtyDtls", xmlNamespace );
+            SecuritiesQuantityDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CustomerReferenceIdentification is IsoMax30Text CustomerReferenceIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CstmrRefId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax30Text(CustomerReferenceIdentificationValue)); // data type Max30Text System.String
+            writer.WriteEndElement();
+        }
+        if (AcknowledgementDetails is CorporateActionAcknowledgementSD1 AcknowledgementDetailsValue)
+        {
+            writer.WriteStartElement(null, "AckDtls", xmlNamespace );
+            AcknowledgementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContactPerson is ContactIdentification5 ContactPersonValue)
+        {
+            writer.WriteStartElement(null, "CtctPrsn", xmlNamespace );
+            ContactPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (WarrantSubscriptionChargeAmount is IsoRestrictedFINActiveCurrencyAndAmount WarrantSubscriptionChargeAmountValue)
+        {
+            writer.WriteStartElement(null, "WarrtSbcptChrgAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAndAmount(WarrantSubscriptionChargeAmountValue)); // data type RestrictedFINActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Certificate is CorporateActionCertificateSD1 CertificateValue)
+        {
+            writer.WriteStartElement(null, "Cert", xmlNamespace );
+            CertificateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UserReferenceNumber is IsoMax6Text UserReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "UsrRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax6Text(UserReferenceNumberValue)); // data type Max6Text System.String
+            writer.WriteEndElement();
+        }
+        if (DeceasedBeneficialOwnerDetails is DeceasedStatusSD1 DeceasedBeneficialOwnerDetailsValue)
+        {
+            writer.WriteStartElement(null, "DcsdBnfclOwnrDtls", xmlNamespace );
+            DeceasedBeneficialOwnerDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionRecordNumber is IsoMax10NumericText TransactionRecordNumberValue)
+        {
+            writer.WriteStartElement(null, "TxRcrdNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10NumericText(TransactionRecordNumberValue)); // data type Max10NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (BidPrice is PriceFormat63Choice_ BidPriceValue)
+        {
+            writer.WriteStartElement(null, "BidPric", xmlNamespace );
+            BidPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ShareholderNumber is IsoRestrictedFINXMax25Text ShareholderNumberValue)
+        {
+            writer.WriteStartElement(null, "ShrhldrNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax25Text(ShareholderNumberValue)); // data type RestrictedFINXMax25Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ReorganisationInstructionSD11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

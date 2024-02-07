@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details of the eligible securities as defined in the collateral reference data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record EligibleSecurity2
+     : IIsoXmlSerilizable<EligibleSecurity2>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a security by an ISIN.
     /// </summary>
-    [DataMember]
     public required IsoISINOct2015Identifier SecurityIdentification { get; init; } 
     /// <summary>
     /// Currency which may be processed by the system. A system may process transactions in a single currency or in multiple currencies.
     /// </summary>
-    [DataMember]
     public required ActiveOrHistoricCurrencyCode CollateralisationCurrency { get; init; } 
     /// <summary>
     /// Identifies the party for which the eligible security is defined.
     /// </summary>
-    [DataMember]
     public required NCBOrPaymentBank1Choice_ PartyIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SctyId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(SecurityIdentification)); // data type ISINOct2015Identifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CollstnCcy", xmlNamespace );
+        writer.WriteValue(CollateralisationCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PtyId", xmlNamespace );
+        PartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static EligibleSecurity2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

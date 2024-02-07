@@ -7,28 +7,52 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a transfer in transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransferIn11
+     : IIsoXmlSerilizable<TransferIn11>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a transfer cancellation, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// General information related to the transfer of a financial instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<Transfer21> TransferDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Transfer21? TransferDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _t0kBSy7_EeO59oUFO5eLvw
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CancellationReference is IsoMax35Text CancellationReferenceValue)
+        {
+            writer.WriteStartElement(null, "CxlRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CancellationReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize TransferDetails, multiplicity Unknown
+    }
+    public static TransferIn11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

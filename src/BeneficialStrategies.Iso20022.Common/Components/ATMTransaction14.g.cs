@@ -7,98 +7,187 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Response to the withdrawal transaction request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMTransaction14
+     : IIsoXmlSerilizable<ATMTransaction14>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
-    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period assigned by the ATM.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     /// <summary>
     /// True if a withdrawal completion advice has to be sent after the end of the transaction.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CompletionRequired { get; init; } 
     /// <summary>
     /// Unprotected account information.
     /// </summary>
-    [DataMember]
     public CardAccount8? AccountData { get; init; } 
     /// <summary>
     /// Encryption of account information.
     /// </summary>
-    [DataMember]
     public ContentInformationType10? ProtectedAccountData { get; init; } 
     /// <summary>
     /// Total authorised amount.
     /// </summary>
-    [DataMember]
     public required AmountAndCurrency1 TotalAuthorisedAmount { get; init; } 
     /// <summary>
     /// Total requested amount.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalRequestedAmount { get; init; } 
     /// <summary>
     /// Detail of the requested amounts for the withdrawal transaction.
     /// </summary>
-    [DataMember]
     public DetailedAmount12? DetailedRequestedAmount { get; init; } 
     /// <summary>
     /// Currency conversion accepted by the customer, either to convert the amount to dispense in the base currency of the ATM, or to convert the total requested amount in the currency of the customer (so called dynamic currency conversion).
     /// </summary>
-    [DataMember]
     public CurrencyConversion9? CurrencyConversionEligibility { get; init; } 
     /// <summary>
     /// Additional charge (for instance tax or fee).
     /// </summary>
-    [DataMember]
-    public ValueList<DetailedAmount13> AdditionalCharge { get; init; } = []; // Warning: Don't know multiplicity.
+    public DetailedAmount13? AdditionalCharge { get; init; } 
     /// <summary>
     /// Limit of amounts for the customer.
     /// </summary>
-    [DataMember]
     public ATMTransactionAmounts6? Limits { get; init; } 
     /// <summary>
     /// Media mix algorithm requested by the ATM Host, the identification of the algorithm is an agreement between the ATM and the ATM manager.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MixType { get; init; } 
     /// <summary>
     /// Media mix selected requested by the ATM Host.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMMediaMix1> Mix { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMMediaMix1? Mix { get; init; } 
     /// <summary>
     /// Outcome of the withdrawal authorisation.
     /// </summary>
-    [DataMember]
     public required AuthorisationResult13 AuthorisationResult { get; init; } 
     /// <summary>
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
-    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMCommand7> Command { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMCommand7? Command { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ReconciliationIdentification is IsoMax35Text ReconciliationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcncltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReconciliationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CompletionRequired is IsoTrueFalseIndicator CompletionRequiredValue)
+        {
+            writer.WriteStartElement(null, "CmpltnReqrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CompletionRequiredValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AccountData is CardAccount8 AccountDataValue)
+        {
+            writer.WriteStartElement(null, "AcctData", xmlNamespace );
+            AccountDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProtectedAccountData is ContentInformationType10 ProtectedAccountDataValue)
+        {
+            writer.WriteStartElement(null, "PrtctdAcctData", xmlNamespace );
+            ProtectedAccountDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TtlAuthrsdAmt", xmlNamespace );
+        TotalAuthorisedAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TotalRequestedAmount is IsoImpliedCurrencyAndAmount TotalRequestedAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlReqdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(TotalRequestedAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (DetailedRequestedAmount is DetailedAmount12 DetailedRequestedAmountValue)
+        {
+            writer.WriteStartElement(null, "DtldReqdAmt", xmlNamespace );
+            DetailedRequestedAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CurrencyConversionEligibility is CurrencyConversion9 CurrencyConversionEligibilityValue)
+        {
+            writer.WriteStartElement(null, "CcyConvsElgblty", xmlNamespace );
+            CurrencyConversionEligibilityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalCharge is DetailedAmount13 AdditionalChargeValue)
+        {
+            writer.WriteStartElement(null, "AddtlChrg", xmlNamespace );
+            AdditionalChargeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Limits is ATMTransactionAmounts6 LimitsValue)
+        {
+            writer.WriteStartElement(null, "Lmts", xmlNamespace );
+            LimitsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MixType is IsoMax35Text MixTypeValue)
+        {
+            writer.WriteStartElement(null, "MixTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MixTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Mix is ATMMediaMix1 MixValue)
+        {
+            writer.WriteStartElement(null, "Mix", xmlNamespace );
+            MixValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AuthstnRslt", xmlNamespace );
+        AuthorisationResult.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ICCRelatedData is IsoMax10000Binary ICCRelatedDataValue)
+        {
+            writer.WriteStartElement(null, "ICCRltdData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(ICCRelatedDataValue)); // data type Max10000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (Command is ATMCommand7 CommandValue)
+        {
+            writer.WriteStartElement(null, "Cmd", xmlNamespace );
+            CommandValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMTransaction14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.fxtr.ForeignExchangeTradeWithdrawalNotificationV03>;
 
 namespace BeneficialStrategies.Iso20022.fxtr;
 
@@ -24,10 +27,9 @@ namespace BeneficialStrategies.Iso20022.fxtr;
 /// The ForeignExchangeTradeWithdrawalNotification message is used to confirm the cancellation of a previously notified trade.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The ForeignExchangeTradeWithdrawalNotification message is sent by a central system to notify the withdrawal of a foreign exchange trade which was previously notified to the receiver as an alleged trade.|Usage|The ForeignExchangeTradeWithdrawalNotification message is used to confirm the cancellation of a previously notified trade.")]
-public partial record ForeignExchangeTradeWithdrawalNotificationV03 : IOuterRecord
+public partial record ForeignExchangeTradeWithdrawalNotificationV03 : IOuterRecord<ForeignExchangeTradeWithdrawalNotificationV03,ForeignExchangeTradeWithdrawalNotificationV03Document>
+    ,IIsoXmlSerilizable<ForeignExchangeTradeWithdrawalNotificationV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -39,6 +41,11 @@ public partial record ForeignExchangeTradeWithdrawalNotificationV03 : IOuterReco
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "FXTradWdrwlNtfctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ForeignExchangeTradeWithdrawalNotificationV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -97,6 +104,47 @@ public partial record ForeignExchangeTradeWithdrawalNotificationV03 : IOuterReco
     {
         return new ForeignExchangeTradeWithdrawalNotificationV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("FXTradWdrwlNtfctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MtchgSysUnqRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MatchingSystemUniqueReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (WithdrawalReason is WithdrawalReason1 WithdrawalReasonValue)
+        {
+            writer.WriteStartElement(null, "WdrwlRsn", xmlNamespace );
+            WithdrawalReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementSessionIdentifier is IsoExact4AlphaNumericText SettlementSessionIdentifierValue)
+        {
+            writer.WriteStartElement(null, "SttlmSsnIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(SettlementSessionIdentifierValue)); // data type Exact4AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ForeignExchangeTradeWithdrawalNotificationV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -104,9 +152,7 @@ public partial record ForeignExchangeTradeWithdrawalNotificationV03 : IOuterReco
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeWithdrawalNotificationV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ForeignExchangeTradeWithdrawalNotificationV03Document : IOuterDocument<ForeignExchangeTradeWithdrawalNotificationV03>
+public partial record ForeignExchangeTradeWithdrawalNotificationV03Document : IOuterDocument<ForeignExchangeTradeWithdrawalNotificationV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -122,5 +168,22 @@ public partial record ForeignExchangeTradeWithdrawalNotificationV03Document : IO
     /// <summary>
     /// The instance of <seealso cref="ForeignExchangeTradeWithdrawalNotificationV03"/> is required.
     /// </summary>
+    [DataMember(Name=ForeignExchangeTradeWithdrawalNotificationV03.XmlTag)]
     public required ForeignExchangeTradeWithdrawalNotificationV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ForeignExchangeTradeWithdrawalNotificationV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

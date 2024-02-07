@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Statistical data related to the price change of a security.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StatisticsByUserDefinedTimePeriod2
+     : IIsoXmlSerilizable<StatisticsByUserDefinedTimePeriod2>
 {
     #nullable enable
     
     /// <summary>
     /// Reference period for the valuation.
     /// </summary>
-    [DataMember]
     public required DateOrDateTimePeriodChoice_ Period { get; init; } 
     /// <summary>
     /// Highest price for the referenced period.
     /// </summary>
-    [DataMember]
     public PriceValue5? HighestPriceValue { get; init; } 
     /// <summary>
     /// Lowest price for the referenced period.
     /// </summary>
-    [DataMember]
     public PriceValue5? LowestPriceValue { get; init; } 
     /// <summary>
     /// Change in price since the previous valuation date.
     /// </summary>
-    [DataMember]
     public PriceValueChange1? PriceChange { get; init; } 
     /// <summary>
     /// Rate of income from the financial instrument, usually calculated as total dividends or coupon interest available to investors in the last year,divided by the current price.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Yield { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Prd", xmlNamespace );
+        Period.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (HighestPriceValue is PriceValue5 HighestPriceValueValue)
+        {
+            writer.WriteStartElement(null, "HghstPricVal", xmlNamespace );
+            HighestPriceValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LowestPriceValue is PriceValue5 LowestPriceValueValue)
+        {
+            writer.WriteStartElement(null, "LwstPricVal", xmlNamespace );
+            LowestPriceValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PriceChange is PriceValueChange1 PriceChangeValue)
+        {
+            writer.WriteStartElement(null, "PricChng", xmlNamespace );
+            PriceChangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Yield is IsoPercentageRate YieldValue)
+        {
+            writer.WriteStartElement(null, "Yld", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(YieldValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static StatisticsByUserDefinedTimePeriod2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

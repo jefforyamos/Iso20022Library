@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides further details on the status of the cheque presentment cancellation request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ChequeCancellationStatus1
+     : IIsoXmlSerilizable<ChequeCancellationStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Party that issues the cancellation request.
     /// </summary>
-    [DataMember]
     public ChequePartyRole1Code? Originator { get; init; } 
     /// <summary>
     /// Specifies the status for the cancellation request.
     /// </summary>
-    [DataMember]
     public required ChequeCancellationStatus1Choice_ Status { get; init; } 
     /// <summary>
     /// Further details on the cancellation request reason.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Originator is ChequePartyRole1Code OriginatorValue)
+        {
+            writer.WriteStartElement(null, "Orgtr", xmlNamespace );
+            writer.WriteValue(OriginatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        Status.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax140Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalInformationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ChequeCancellationStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

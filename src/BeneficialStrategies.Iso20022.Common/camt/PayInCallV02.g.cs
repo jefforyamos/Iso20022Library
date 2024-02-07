@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.PayInCallV02>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// The PayInCall message is sent by a central settlement system to request additional funding from a settlement member impacted by a failure situation.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The PayInCall message is sent by a central settlement system to request additional funding from a settlement member impacted by a failure situation.")]
-public partial record PayInCallV02 : IOuterRecord
+public partial record PayInCallV02 : IOuterRecord<PayInCallV02,PayInCallV02Document>
+    ,IIsoXmlSerilizable<PayInCallV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record PayInCallV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "PayInCall";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => PayInCallV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -85,6 +92,41 @@ public partial record PayInCallV02 : IOuterRecord
     {
         return new PayInCallV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("PayInCall");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PtyId", xmlNamespace );
+        PartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptData", xmlNamespace );
+        ReportData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SettlementSessionIdentifier is IsoExact4AlphaNumericText SettlementSessionIdentifierValue)
+        {
+            writer.WriteStartElement(null, "SttlmSsnIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(SettlementSessionIdentifierValue)); // data type Exact4AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PayInCallV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -92,9 +134,7 @@ public partial record PayInCallV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PayInCallV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record PayInCallV02Document : IOuterDocument<PayInCallV02>
+public partial record PayInCallV02Document : IOuterDocument<PayInCallV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -110,5 +150,22 @@ public partial record PayInCallV02Document : IOuterDocument<PayInCallV02>
     /// <summary>
     /// The instance of <seealso cref="PayInCallV02"/> is required.
     /// </summary>
+    [DataMember(Name=PayInCallV02.XmlTag)]
     public required PayInCallV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(PayInCallV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

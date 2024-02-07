@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status advising on the rejection of the instruction or cancellation request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalStatus1
+     : IIsoXmlSerilizable<AdditionalStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Reason advising the rejection of the instruction.
     /// </summary>
-    [DataMember]
     public required InstructionRejectionStatus1Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the reason.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Rsn", xmlNamespace );
+        Reason.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AdditionalStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

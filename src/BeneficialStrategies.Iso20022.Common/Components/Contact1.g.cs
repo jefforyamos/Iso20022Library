@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contact person details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Contact1
+     : IIsoXmlSerilizable<Contact1>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the contact person.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Home phone number of contact.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? HomePhoneNumber { get; init; } 
     /// <summary>
     /// Business phone number of contact.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? BusinessPhoneNumber { get; init; } 
     /// <summary>
     /// Mobile phone number of contact.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? MobilePhoneNumber { get; init; } 
     /// <summary>
     /// Other phone number of contact.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? OtherPhoneNumber { get; init; } 
     /// <summary>
     /// Personal email address of contact.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? PersonalEmailAddress { get; init; } 
     /// <summary>
     /// Business email address of contact.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? BusinessEmailAddress { get; init; } 
     /// <summary>
     /// Other email address of contact.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? OtherEmailAddress { get; init; } 
     /// <summary>
     /// Language of the contact person.
     /// </summary>
-    [DataMember]
     public ISO2ALanguageCode? Language { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax70Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (HomePhoneNumber is IsoPhoneNumber HomePhoneNumberValue)
+        {
+            writer.WriteStartElement(null, "HomePhneNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(HomePhoneNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (BusinessPhoneNumber is IsoPhoneNumber BusinessPhoneNumberValue)
+        {
+            writer.WriteStartElement(null, "BizPhneNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(BusinessPhoneNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (MobilePhoneNumber is IsoPhoneNumber MobilePhoneNumberValue)
+        {
+            writer.WriteStartElement(null, "MobPhneNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(MobilePhoneNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (OtherPhoneNumber is IsoPhoneNumber OtherPhoneNumberValue)
+        {
+            writer.WriteStartElement(null, "OthrPhneNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(OtherPhoneNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (PersonalEmailAddress is IsoMax256Text PersonalEmailAddressValue)
+        {
+            writer.WriteStartElement(null, "PrsnlEmailAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(PersonalEmailAddressValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (BusinessEmailAddress is IsoMax256Text BusinessEmailAddressValue)
+        {
+            writer.WriteStartElement(null, "BizEmailAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(BusinessEmailAddressValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (OtherEmailAddress is IsoMax256Text OtherEmailAddressValue)
+        {
+            writer.WriteStartElement(null, "OthrEmailAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(OtherEmailAddressValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (Language is ISO2ALanguageCode LanguageValue)
+        {
+            writer.WriteStartElement(null, "Lang", xmlNamespace );
+            writer.WriteValue(LanguageValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static Contact1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

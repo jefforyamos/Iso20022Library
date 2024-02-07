@@ -7,68 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment obligation contracted between two financial institutions related to the financing of a commercial transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentObligation2
+     : IIsoXmlSerilizable<PaymentObligation2>
 {
     #nullable enable
     
     /// <summary>
     /// Bank that has to pay under the obligation.
     /// </summary>
-    [DataMember]
     public required BICIdentification1 ObligorBank { get; init; } 
     /// <summary>
     /// Bank that will be paid under the obligation.
     /// </summary>
-    [DataMember]
     public required BICIdentification1 RecipientBank { get; init; } 
     /// <summary>
     /// Payment obligation amount specified as an amount or percentage.
     /// </summary>
-    [DataMember]
     public required AmountOrPercentage2Choice_ PaymentObligationAmount { get; init; } 
     /// <summary>
     /// Charges related to the payment obligation.
     /// </summary>
-    [DataMember]
-    public ValueList<Charges5> Charges { get; init; } = []; // Warning: Don't know multiplicity.
+    public Charges5? Charges { get; init; } 
     /// <summary>
     /// Date at which the obligation will expire.
     /// </summary>
-    [DataMember]
     public required IsoISODate ExpiryDate { get; init; } 
     /// <summary>
     /// Rules which apply to the BPO (Bank Payment Obligation).
     /// </summary>
-    [DataMember]
     public BPOApplicableRules1Choice_? ApplicableRules { get; init; } 
     /// <summary>
     /// Country of which the law governs the bank payment obligation.
     /// </summary>
-    [DataMember]
     public CountryCode? ApplicableLaw { get; init; } 
     /// <summary>
     /// Location and forum for dispute resolution.
     /// </summary>
-    [DataMember]
     public Location2? PlaceOfJurisdiction { get; init; } 
     /// <summary>
     /// Payment processes required to transfer cash from the debtor to the creditor.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentTerms4> PaymentTerms { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentTerms4? PaymentTerms { get; init; } 
     /// <summary>
     /// Instruction between two clearing agents stipulating the cash transfer characteristics between the two parties.
     /// </summary>
-    [DataMember]
     public SettlementTerms3? SettlementTerms { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OblgrBk", xmlNamespace );
+        ObligorBank.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RcptBk", xmlNamespace );
+        RecipientBank.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PmtOblgtnAmt", xmlNamespace );
+        PaymentObligationAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Charges is Charges5 ChargesValue)
+        {
+            writer.WriteStartElement(null, "Chrgs", xmlNamespace );
+            ChargesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "XpryDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ExpiryDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (ApplicableRules is BPOApplicableRules1Choice_ ApplicableRulesValue)
+        {
+            writer.WriteStartElement(null, "AplblRules", xmlNamespace );
+            ApplicableRulesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ApplicableLaw is CountryCode ApplicableLawValue)
+        {
+            writer.WriteStartElement(null, "AplblLaw", xmlNamespace );
+            writer.WriteValue(ApplicableLawValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PlaceOfJurisdiction is Location2 PlaceOfJurisdictionValue)
+        {
+            writer.WriteStartElement(null, "PlcOfJursdctn", xmlNamespace );
+            PlaceOfJurisdictionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentTerms is PaymentTerms4 PaymentTermsValue)
+        {
+            writer.WriteStartElement(null, "PmtTerms", xmlNamespace );
+            PaymentTermsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementTerms is SettlementTerms3 SettlementTermsValue)
+        {
+            writer.WriteStartElement(null, "SttlmTerms", xmlNamespace );
+            SettlementTermsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentObligation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

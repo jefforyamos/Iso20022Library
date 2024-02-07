@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains protected data and the attributes used to protect the data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProtectedData1
+     : IIsoXmlSerilizable<ProtectedData1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of data protection.
     /// </summary>
-    [DataMember]
     public required ContentType3Code ContentType { get; init; } 
     /// <summary>
     /// Consists of an encrypted content of any type and encrypted content-encryption keys for one or more recipients.  The combination of the encrypted content and one encrypted content-encryption key for a recipient is a "digital   envelope" for that recipient.
     /// </summary>
-    [DataMember]
     public EnvelopedData6? EnvelopedData { get; init; } 
     /// <summary>
     /// Contains encrypted data and the attributes used to encrypt the data using the ISO 13492 methods for data encryption.  The encryption key is not included in the message with this method.
     /// </summary>
-    [DataMember]
     public EncryptedData1? EncryptedData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CnttTp", xmlNamespace );
+        writer.WriteValue(ContentType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (EnvelopedData is EnvelopedData6 EnvelopedDataValue)
+        {
+            writer.WriteStartElement(null, "EnvlpdData", xmlNamespace );
+            EnvelopedDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EncryptedData is EncryptedData1 EncryptedDataValue)
+        {
+            writer.WriteStartElement(null, "NcrptdData", xmlNamespace );
+            EncryptedDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ProtectedData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

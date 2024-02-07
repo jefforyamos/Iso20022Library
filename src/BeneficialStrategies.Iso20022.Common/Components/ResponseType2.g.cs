@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Response of a requested service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ResponseType2
+     : IIsoXmlSerilizable<ResponseType2>
 {
     #nullable enable
     
     /// <summary>
     /// Result of the request message or advice message.
     /// </summary>
-    [DataMember]
     public required Response3Code Result { get; init; } 
     /// <summary>
     /// Detail of the result.
     /// </summary>
-    [DataMember]
     public ResultDetail1Code? ResultDetails { get; init; } 
     /// <summary>
     /// Additional information to be logged for further examination.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? AdditionalResultInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Rslt", xmlNamespace );
+        writer.WriteValue(Result.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ResultDetails is ResultDetail1Code ResultDetailsValue)
+        {
+            writer.WriteStartElement(null, "RsltDtls", xmlNamespace );
+            writer.WriteValue(ResultDetailsValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AdditionalResultInformation is IsoMax140Text AdditionalResultInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlRsltInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalResultInformationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ResponseType2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

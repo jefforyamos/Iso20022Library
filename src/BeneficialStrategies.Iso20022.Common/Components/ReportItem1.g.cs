@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account details of the report item.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReportItem1
+     : IIsoXmlSerilizable<ReportItem1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public required SecuritiesAccount19 AccountIdentification { get; init; } 
     /// <summary>
     /// Level of the safekeeping account or sub-account of the report item.
     /// </summary>
-    [DataMember]
     public required HoldingAccountLevel1Code AccountLevel { get; init; } 
     /// <summary>
     /// Financial instrument identification of the report item.
     /// </summary>
-    [DataMember]
     public SecurityIdentification19? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Date of the report item.
     /// </summary>
-    [DataMember]
     public IsoISODate? ItemDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AcctId", xmlNamespace );
+        AccountIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctLvl", xmlNamespace );
+        writer.WriteValue(AccountLevel.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (FinancialInstrumentIdentification is SecurityIdentification19 FinancialInstrumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+            FinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ItemDate is IsoISODate ItemDateValue)
+        {
+            writer.WriteStartElement(null, "ItmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ItemDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static ReportItem1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

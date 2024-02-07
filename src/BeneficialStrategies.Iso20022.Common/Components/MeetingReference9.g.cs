@@ -7,53 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a meeting.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MeetingReference9
+     : IIsoXmlSerilizable<MeetingReference9>
 {
     #nullable enable
     
     /// <summary>
     /// Identification assigned to the general meeting by the party that provides the meeting notification. It must be unique to the party providing the notification.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MeetingIdentification { get; init; } 
     /// <summary>
     /// Identification assigned to the meeting by the issuer. It must be unique for the issuer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? IssuerMeetingIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the meeting will take place.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? MeetingDateAndTime { get; init; } 
     /// <summary>
     /// Type of meeting for which instructions are sent.
     /// </summary>
-    [DataMember]
     public required MeetingType4Code Type { get; init; } 
     /// <summary>
     /// Classification type of the meeting.
     /// </summary>
-    [DataMember]
     public MeetingTypeClassification2Choice_? Classification { get; init; } 
     /// <summary>
     /// Place of the company meeting for the scheduled meeting date.
     /// </summary>
-    [DataMember]
     public ValueList<PostalAddress1> Location { get; init; } = [];
     /// <summary>
     /// Specifies the institution that is the issuer of the security to which the meeting applies.
     /// </summary>
-    [DataMember]
     public PartyIdentification129Choice_? Issuer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MtgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MeetingIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (IssuerMeetingIdentification is IsoMax35Text IssuerMeetingIdentificationValue)
+        {
+            writer.WriteStartElement(null, "IssrMtgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerMeetingIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MeetingDateAndTime is IsoISODateTime MeetingDateAndTimeValue)
+        {
+            writer.WriteStartElement(null, "MtgDtAndTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(MeetingDateAndTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Classification is MeetingTypeClassification2Choice_ ClassificationValue)
+        {
+            writer.WriteStartElement(null, "Clssfctn", xmlNamespace );
+            ClassificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Lctn", xmlNamespace );
+        Location.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Issuer is PartyIdentification129Choice_ IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            IssuerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MeetingReference9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

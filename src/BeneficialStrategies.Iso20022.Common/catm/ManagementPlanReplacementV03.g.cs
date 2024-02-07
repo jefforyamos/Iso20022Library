@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.catm.ManagementPlanReplacementV03>;
 
 namespace BeneficialStrategies.Iso20022.catm;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.catm;
 /// Terminal maintenance actions to be performed by a point of interaction (POI).
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Terminal maintenance actions to be performed by a point of interaction (POI).")]
-public partial record ManagementPlanReplacementV03 : IOuterRecord
+public partial record ManagementPlanReplacementV03 : IOuterRecord<ManagementPlanReplacementV03,ManagementPlanReplacementV03Document>
+    ,IIsoXmlSerilizable<ManagementPlanReplacementV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record ManagementPlanReplacementV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MgmtPlanRplcmnt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ManagementPlanReplacementV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -77,6 +84,32 @@ public partial record ManagementPlanReplacementV03 : IOuterRecord
     {
         return new ManagementPlanReplacementV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MgmtPlanRplcmnt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MgmtPlan", xmlNamespace );
+        ManagementPlan.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+        SecurityTrailer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ManagementPlanReplacementV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -84,9 +117,7 @@ public partial record ManagementPlanReplacementV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ManagementPlanReplacementV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ManagementPlanReplacementV03Document : IOuterDocument<ManagementPlanReplacementV03>
+public partial record ManagementPlanReplacementV03Document : IOuterDocument<ManagementPlanReplacementV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -102,5 +133,22 @@ public partial record ManagementPlanReplacementV03Document : IOuterDocument<Mana
     /// <summary>
     /// The instance of <seealso cref="ManagementPlanReplacementV03"/> is required.
     /// </summary>
+    [DataMember(Name=ManagementPlanReplacementV03.XmlTag)]
     public required ManagementPlanReplacementV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ManagementPlanReplacementV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

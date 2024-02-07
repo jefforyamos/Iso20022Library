@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Element containing all information needed for a card initiating direct debit.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardDirectDebit1
+     : IIsoXmlSerilizable<CardDirectDebit1>
 {
     #nullable enable
     
     /// <summary>
     /// Information related to the debtor.
     /// </summary>
-    [DataMember]
     public Debtor3? DebtorIdentification { get; init; } 
     /// <summary>
     /// Information related to the creditor.
     /// </summary>
-    [DataMember]
     public required Creditor3 CreditorIdentification { get; init; } 
     /// <summary>
     /// Provides further details of the mandate signed between the creditor and the debtor.
     /// </summary>
-    [DataMember]
     public required MandateRelatedInformation13 MandateRelatedInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DebtorIdentification is Debtor3 DebtorIdentificationValue)
+        {
+            writer.WriteStartElement(null, "DbtrId", xmlNamespace );
+            DebtorIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CdtrId", xmlNamespace );
+        CreditorIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MndtRltdInf", xmlNamespace );
+        MandateRelatedInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CardDirectDebit1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

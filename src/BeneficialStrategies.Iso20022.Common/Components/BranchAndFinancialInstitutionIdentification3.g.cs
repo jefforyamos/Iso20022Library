@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique and unambiguous identifier of a financial institution or a branch of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BranchAndFinancialInstitutionIdentification3
+     : IIsoXmlSerilizable<BranchAndFinancialInstitutionIdentification3>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
     /// </summary>
-    [DataMember]
     public required FinancialInstitutionIdentification5Choice_ FinancialInstitutionIdentification { get; init; } 
     /// <summary>
     /// Information identifying a specific branch of a financial institution.||Usage: this component should be used in case the identification information in the financial institution component does not provide identification up to branch level.
     /// </summary>
-    [DataMember]
     public BranchData? BranchIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FinInstnId", xmlNamespace );
+        FinancialInstitutionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BranchIdentification is BranchData BranchIdentificationValue)
+        {
+            writer.WriteStartElement(null, "BrnchId", xmlNamespace );
+            BranchIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BranchAndFinancialInstitutionIdentification3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

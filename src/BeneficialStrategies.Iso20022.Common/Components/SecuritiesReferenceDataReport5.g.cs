@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the securities reference data for the required financial instruments.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesReferenceDataReport5
+     : IIsoXmlSerilizable<SecuritiesReferenceDataReport5>
 {
     #nullable enable
     
@@ -24,38 +25,80 @@ public partial record SecuritiesReferenceDataReport5
     /// Usage:
     /// This identification will be used in the status advice report sent back.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Attributes and characteristics of the financial instrument.
     /// </summary>
-    [DataMember]
     public required SecurityInstrumentDescription9 FinancialInstrumentGeneralAttributes { get; init; } 
     /// <summary>
     /// LEI of Issuer or trading venue operator.
     /// </summary>
-    [DataMember]
     public required IsoLEIIdentifier Issuer { get; init; } 
     /// <summary>
     /// Traded venue related attributes.
     /// </summary>
-    [DataMember]
-    public ValueList<TradingVenueAttributes1> TradingVenueRelatedAttributes { get; init; } = []; // Warning: Don't know multiplicity.
+    public TradingVenueAttributes1? TradingVenueRelatedAttributes { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _G_iQm35aEea2k7EBUopqxw
     /// <summary>
     /// Attributes specific to debt instruments.
     /// </summary>
-    [DataMember]
     public DebtInstrument2? DebtInstrumentAttributes { get; init; } 
     /// <summary>
     /// Attributes specific to derivative instruments.
     /// </summary>
-    [DataMember]
     public DerivativeInstrument5? DerivativeInstrumentAttributes { get; init; } 
     /// <summary>
     /// Technical attributes.
     /// </summary>
-    [DataMember]
     public RecordTechnicalData3? TechnicalAttributes { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TechnicalRecordIdentification is IsoMax35Text TechnicalRecordIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TechnicalRecordIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FinInstrmGnlAttrbts", xmlNamespace );
+        FinancialInstrumentGeneralAttributes.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Issr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(Issuer)); // data type LEIIdentifier System.String
+        writer.WriteEndElement();
+        // Not sure how to serialize TradingVenueRelatedAttributes, multiplicity Unknown
+        if (DebtInstrumentAttributes is DebtInstrument2 DebtInstrumentAttributesValue)
+        {
+            writer.WriteStartElement(null, "DebtInstrmAttrbts", xmlNamespace );
+            DebtInstrumentAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DerivativeInstrumentAttributes is DerivativeInstrument5 DerivativeInstrumentAttributesValue)
+        {
+            writer.WriteStartElement(null, "DerivInstrmAttrbts", xmlNamespace );
+            DerivativeInstrumentAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TechnicalAttributes is RecordTechnicalData3 TechnicalAttributesValue)
+        {
+            writer.WriteStartElement(null, "TechAttrbts", xmlNamespace );
+            TechnicalAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesReferenceDataReport5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.ReturnReservationV06>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -31,10 +34,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// - type of reservation.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The ReturnReservation message is sent by the transaction administrator to a member.|It is used to provide information on the details of one or more reservation facilities set by the member and managed by the transaction administrator.|The ReturnReservation message can be sent as a response to a related Get Reservation message (pull mode) or initiated by the transaction administrator (push mode). The push of information can take place either at prearranged times or as a warning or alarm when a problem has occurred.|Usage|At any time during the operating hours of the system, the member can query the transaction administrator to get information about the reservations facilities that the transaction administrator manages for the member.|The transaction administrator will send reservations information to the member based on the following elements:|- identification of the system|- identification of the account|- status of the reservation (default and/or current )|- type of reservation.")]
-public partial record ReturnReservationV06 : IOuterRecord
+public partial record ReturnReservationV06 : IOuterRecord<ReturnReservationV06,ReturnReservationV06Document>
+    ,IIsoXmlSerilizable<ReturnReservationV06>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -46,6 +48,11 @@ public partial record ReturnReservationV06 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "RtrRsvatn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ReturnReservationV06Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -86,6 +93,35 @@ public partial record ReturnReservationV06 : IOuterRecord
     {
         return new ReturnReservationV06Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("RtrRsvatn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+        MessageHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptOrErr", xmlNamespace );
+        ReportOrError.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ReturnReservationV06 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -93,9 +129,7 @@ public partial record ReturnReservationV06 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReturnReservationV06"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ReturnReservationV06Document : IOuterDocument<ReturnReservationV06>
+public partial record ReturnReservationV06Document : IOuterDocument<ReturnReservationV06>, IXmlSerializable
 {
     
     /// <summary>
@@ -111,5 +145,22 @@ public partial record ReturnReservationV06Document : IOuterDocument<ReturnReserv
     /// <summary>
     /// The instance of <seealso cref="ReturnReservationV06"/> is required.
     /// </summary>
+    [DataMember(Name=ReturnReservationV06.XmlTag)]
     public required ReturnReservationV06 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ReturnReservationV06.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

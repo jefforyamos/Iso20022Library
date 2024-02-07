@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defined variation amount and balance.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UndertakingAmount4
+     : IIsoXmlSerilizable<UndertakingAmount4>
 {
     #nullable enable
     
     /// <summary>
     /// Variation amount and currency.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount VariationAmount { get; init; } 
     /// <summary>
     /// Calculated undertaking available balance amount resulting from the application of the variation amount.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? BalanceAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "VartnAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(VariationAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (BalanceAmount is IsoActiveCurrencyAndAmount BalanceAmountValue)
+        {
+            writer.WriteStartElement(null, "BalAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(BalanceAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static UndertakingAmount4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

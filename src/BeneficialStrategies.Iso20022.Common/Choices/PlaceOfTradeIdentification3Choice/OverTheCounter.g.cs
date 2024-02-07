@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PlaceOfTradeIdentification3Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.PlaceOfTradeIdentification3Choic
 /// Place at which the Over-the-Counter (OTC) transaction is executed.
 /// </summary>
 public partial record OverTheCounter : PlaceOfTradeIdentification3Choice_
+     , IIsoXmlSerilizable<OverTheCounter>
 {
-    public required IsoRestrictedFINMax30Text Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a character string with a maximum length of 30 characters. It has a pattern ([^/]+/)+([^/]+)|([^/]*) that disables the use of slash "/" at the beginning and end of line and double slash "//" within the line.
+    /// </summary>
+    public required IsoRestrictedFINMax30Text Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OverTheCntr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINMax30Text(Value)); // data type RestrictedFINMax30Text System.String
+        writer.WriteEndElement();
+    }
+    public static new OverTheCounter Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

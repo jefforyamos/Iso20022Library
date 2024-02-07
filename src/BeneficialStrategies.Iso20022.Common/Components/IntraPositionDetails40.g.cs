@@ -7,33 +7,59 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the intra-position movement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IntraPositionDetails40
+     : IIsoXmlSerilizable<IntraPositionDetails40>
 {
     #nullable enable
     
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    [DataMember]
     public SafekeepingPlaceFormat10Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Balance from which the securities were moved.
     /// </summary>
-    [DataMember]
     public required SecuritiesBalanceType6Choice_ BalanceFrom { get; init; } 
     /// <summary>
     /// Intra-position movement(s) having been performed.
     /// </summary>
-    [DataMember]
-    public ValueList<IntraPositionMovementDetails13> IntraPositionMovement { get; init; } = []; // Warning: Don't know multiplicity.
+    public IntraPositionMovementDetails13? IntraPositionMovement { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _FZvP52-SEeaxWKxOD2aB-w
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SafekeepingPlace is SafekeepingPlaceFormat10Choice_ SafekeepingPlaceValue)
+        {
+            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
+            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "BalFr", xmlNamespace );
+        BalanceFrom.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize IntraPositionMovement, multiplicity Unknown
+    }
+    public static IntraPositionDetails40 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

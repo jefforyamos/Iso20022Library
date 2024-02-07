@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Party that provides services to investors relating to financial products.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Intermediary43
+     : IIsoXmlSerilizable<Intermediary43>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier of the intermediary.
     /// </summary>
-    [DataMember]
     public required PartyIdentification139 Identification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public Account27? Account { get; init; } 
     /// <summary>
     /// Function performed by the intermediary.
     /// </summary>
-    [DataMember]
     public Role4Choice_? Role { get; init; } 
     /// <summary>
     /// Contact person and contact information.
     /// </summary>
-    [DataMember]
     public ContactIdentification2? ContactPerson { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Account is Account27 AccountValue)
+        {
+            writer.WriteStartElement(null, "Acct", xmlNamespace );
+            AccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Role is Role4Choice_ RoleValue)
+        {
+            writer.WriteStartElement(null, "Role", xmlNamespace );
+            RoleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContactPerson is ContactIdentification2 ContactPersonValue)
+        {
+            writer.WriteStartElement(null, "CtctPrsn", xmlNamespace );
+            ContactPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Intermediary43 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,103 +7,203 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IndividualPerson36
+     : IIsoXmlSerilizable<IndividualPerson36>
 {
     #nullable enable
     
     /// <summary>
     /// Current name used.
     /// </summary>
-    [DataMember]
     public required IndividualPersonNameLong2 CurrentName { get; init; } 
     /// <summary>
     /// Previous name used.
     /// </summary>
-    [DataMember]
-    public ValueList<IndividualPersonNameLong2> PreviousName { get; init; } = []; // Warning: Don't know multiplicity.
+    public IndividualPersonNameLong2? PreviousName { get; init; } 
     /// <summary>
     /// Specifies the gender of the person.
     /// </summary>
-    [DataMember]
     public Gender1Code? Gender { get; init; } 
     /// <summary>
     /// Language in which a person communicates.
     /// </summary>
-    [DataMember]
     public LanguageCode? Language { get; init; } 
     /// <summary>
     /// Date on which a person is born.
     /// </summary>
-    [DataMember]
     public IsoISODate? BirthDate { get; init; } 
     /// <summary>
     /// Country where a person was born.
     /// </summary>
-    [DataMember]
     public CountryCode? CountryOfBirth { get; init; } 
     /// <summary>
     /// Province where a person was born.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ProvinceOfBirth { get; init; } 
     /// <summary>
     /// City where a person was born.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CityOfBirth { get; init; } 
     /// <summary>
     /// Country of taxation of an individual person.
     /// </summary>
-    [DataMember]
     public CountryCode? TaxationCountry { get; init; } 
     /// <summary>
     /// Country and residential status of an individual, for example, non-permanent resident.
     /// </summary>
-    [DataMember]
     public CountryAndResidentialStatusType1? CountryAndResidentialStatus { get; init; } 
     /// <summary>
     /// Government identification for its citizens.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SocialSecurityNumber { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
-    [DataMember]
-    public ValueList<PostalAddress24> PostalAddress { get; init; } = []; // Warning: Don't know multiplicity.
+    public PostalAddress24? PostalAddress { get; init; } 
     /// <summary>
     /// Information about a citizen.
     /// </summary>
-    [DataMember]
-    public ValueList<CitizenshipInformation1> CitizenshipInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public CitizenshipInformation1? CitizenshipInformation { get; init; } 
     /// <summary>
     /// Address for the primary contact.
     /// </summary>
-    [DataMember]
     public CommunicationAddress3? PrimaryCommunicationAddress { get; init; } 
     /// <summary>
     /// Communication device number or electronic address used for communication to an alternate address.
     /// </summary>
-    [DataMember]
     public CommunicationAddress3? SecondaryCommunicationAddress { get; init; } 
     /// <summary>
     /// Other type of identification.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericIdentification44> OtherIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericIdentification44? OtherIdentification { get; init; } 
     /// <summary>
     /// Additional information required for the account switch.
     /// </summary>
-    [DataMember]
-    public ValueList<TransferInstruction1> OtherDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransferInstruction1? OtherDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CurNm", xmlNamespace );
+        CurrentName.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PreviousName is IndividualPersonNameLong2 PreviousNameValue)
+        {
+            writer.WriteStartElement(null, "PrvsNm", xmlNamespace );
+            PreviousNameValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Gender is Gender1Code GenderValue)
+        {
+            writer.WriteStartElement(null, "Gndr", xmlNamespace );
+            writer.WriteValue(GenderValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Language is LanguageCode LanguageValue)
+        {
+            writer.WriteStartElement(null, "Lang", xmlNamespace );
+            writer.WriteValue(LanguageValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (BirthDate is IsoISODate BirthDateValue)
+        {
+            writer.WriteStartElement(null, "BirthDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(BirthDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (CountryOfBirth is CountryCode CountryOfBirthValue)
+        {
+            writer.WriteStartElement(null, "CtryOfBirth", xmlNamespace );
+            writer.WriteValue(CountryOfBirthValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ProvinceOfBirth is IsoMax35Text ProvinceOfBirthValue)
+        {
+            writer.WriteStartElement(null, "PrvcOfBirth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProvinceOfBirthValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CityOfBirth is IsoMax35Text CityOfBirthValue)
+        {
+            writer.WriteStartElement(null, "CityOfBirth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CityOfBirthValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TaxationCountry is CountryCode TaxationCountryValue)
+        {
+            writer.WriteStartElement(null, "TaxtnCtry", xmlNamespace );
+            writer.WriteValue(TaxationCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CountryAndResidentialStatus is CountryAndResidentialStatusType1 CountryAndResidentialStatusValue)
+        {
+            writer.WriteStartElement(null, "CtryAndResdtlSts", xmlNamespace );
+            CountryAndResidentialStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SocialSecurityNumber is IsoMax35Text SocialSecurityNumberValue)
+        {
+            writer.WriteStartElement(null, "SclSctyNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SocialSecurityNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PostalAddress is PostalAddress24 PostalAddressValue)
+        {
+            writer.WriteStartElement(null, "PstlAdr", xmlNamespace );
+            PostalAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CitizenshipInformation is CitizenshipInformation1 CitizenshipInformationValue)
+        {
+            writer.WriteStartElement(null, "CtznshInf", xmlNamespace );
+            CitizenshipInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PrimaryCommunicationAddress is CommunicationAddress3 PrimaryCommunicationAddressValue)
+        {
+            writer.WriteStartElement(null, "PmryComAdr", xmlNamespace );
+            PrimaryCommunicationAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecondaryCommunicationAddress is CommunicationAddress3 SecondaryCommunicationAddressValue)
+        {
+            writer.WriteStartElement(null, "ScndryComAdr", xmlNamespace );
+            SecondaryCommunicationAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherIdentification is GenericIdentification44 OtherIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OthrId", xmlNamespace );
+            OtherIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherDetails is TransferInstruction1 OtherDetailsValue)
+        {
+            writer.WriteStartElement(null, "OthrDtls", xmlNamespace );
+            OtherDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IndividualPerson36 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

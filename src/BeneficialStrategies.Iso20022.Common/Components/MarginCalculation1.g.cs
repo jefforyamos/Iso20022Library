@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the total margin amount, the collateral amount on deposit and the total minimum requirement that used to calculate the margin result, either an excess or a deficit.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MarginCalculation1
+     : IIsoXmlSerilizable<MarginCalculation1>
 {
     #nullable enable
     
     /// <summary>
     /// Total margin requirement (expressed in the reporting currency) that must be provided by the clearing member to the central counterparty. This is the total requirement calculated to cover the initial margin and the variation margin.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection20 TotalMarginAmount { get; init; } 
     /// <summary>
     /// Provides details on the valuation of the collateral on deposit.
     /// </summary>
-    [DataMember]
-    public ValueList<Collateral6> CollateralOnDeposit { get; init; } = []; // Warning: Don't know multiplicity.
+    public Collateral6? CollateralOnDeposit { get; init; } 
     /// <summary>
     /// Minimum requirement (expressed in the reporting currency) for a participant if their requirement falls below a specific amount set by the central counterparty.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? MinimumRequirementDeposit { get; init; } 
     /// <summary>
     /// Provide details on the margin result taking into consideration the total margin amount and the minimum requirements deposit.
     /// </summary>
-    [DataMember]
     public MarginResult1Choice_? MarginResult { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TtlMrgnAmt", xmlNamespace );
+        TotalMarginAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CollateralOnDeposit is Collateral6 CollateralOnDepositValue)
+        {
+            writer.WriteStartElement(null, "CollOnDpst", xmlNamespace );
+            CollateralOnDepositValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MinimumRequirementDeposit is IsoActiveCurrencyAndAmount MinimumRequirementDepositValue)
+        {
+            writer.WriteStartElement(null, "MinRqrmntDpst", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MinimumRequirementDepositValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MarginResult is MarginResult1Choice_ MarginResultValue)
+        {
+            writer.WriteStartElement(null, "MrgnRslt", xmlNamespace );
+            MarginResultValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MarginCalculation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

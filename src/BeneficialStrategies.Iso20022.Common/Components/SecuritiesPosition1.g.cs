@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide security position details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesPosition1
+     : IIsoXmlSerilizable<SecuritiesPosition1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of a position or a balance, such as earmarked or delivered.
     /// </summary>
-    [DataMember]
     public required IsoMax4AlphaNumericText Type { get; init; } 
     /// <summary>
     /// Specifies the quantity of a position or a balance.
     /// </summary>
-    [DataMember]
     public required SubBalanceQuantity2Choice_ Quantity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(Type)); // data type Max4AlphaNumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        Quantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SecuritiesPosition1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

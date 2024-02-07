@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.LongPostalAddress2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.LongPostalAddress2Choice;
 /// Information that locates and identifies a specific address, as defined by postal services, that is presented in a formal structure.
 /// </summary>
 public partial record Structured : LongPostalAddress2Choice_
+     , IIsoXmlSerilizable<Structured>
 {
     #nullable enable
+    
     /// <summary>
     /// Identifies the nature of the postal address.
     /// </summary>
@@ -22,7 +26,7 @@ public partial record Structured : LongPostalAddress2Choice_
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services, that is presented in free format text.
     /// </summary>
-    public IReadOnlyCollection<IsoMax70Text> AddressLine { get; init; } = [];
+    public SimpleValueList<IsoMax70Text> AddressLine { get; init; } = [];
     /// <summary>
     /// Name of a street or thoroughfare.
     /// </summary>
@@ -47,5 +51,65 @@ public partial record Structured : LongPostalAddress2Choice_
     /// Nation with its own government.
     /// </summary>
     public required CountryCode Country { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AddressType is AddressType2Code AddressTypeValue)
+        {
+            writer.WriteStartElement(null, "AdrTp", xmlNamespace );
+            writer.WriteValue(AddressTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AdrLine", xmlNamespace );
+        AddressLine.Serialize(writer, xmlNamespace, "Max70Text", SerializationFormatter.IsoMax70Text );
+        writer.WriteEndElement();
+        if (StreetName is IsoMax70Text StreetNameValue)
+        {
+            writer.WriteStartElement(null, "StrtNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(StreetNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (BuildingNumber is IsoMax16Text BuildingNumberValue)
+        {
+            writer.WriteStartElement(null, "BldgNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax16Text(BuildingNumberValue)); // data type Max16Text System.String
+            writer.WriteEndElement();
+        }
+        if (PostCode is IsoMax16Text PostCodeValue)
+        {
+            writer.WriteStartElement(null, "PstCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax16Text(PostCodeValue)); // data type Max16Text System.String
+            writer.WriteEndElement();
+        }
+        if (TownName is IsoMax35Text TownNameValue)
+        {
+            writer.WriteStartElement(null, "TwnNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TownNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CountrySubDivision is IsoMax35Text CountrySubDivisionValue)
+        {
+            writer.WriteStartElement(null, "CtrySubDvsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CountrySubDivisionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Ctry", xmlNamespace );
+        writer.WriteValue(Country.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new Structured Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

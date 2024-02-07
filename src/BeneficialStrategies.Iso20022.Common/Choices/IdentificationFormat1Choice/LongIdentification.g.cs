@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.IdentificationFormat1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationFormat1Choice;
 /// Format expressed as a long identification.
 /// </summary>
 public partial record LongIdentification : IdentificationFormat1Choice_
+     , IIsoXmlSerilizable<LongIdentification>
 {
-    public required IsoMax30Text Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a character string with a maximum length of 30 characters.
+    /// </summary>
+    public required IsoMax30Text Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "LngId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax30Text(Value)); // data type Max30Text System.String
+        writer.WriteEndElement();
+    }
+    public static new LongIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

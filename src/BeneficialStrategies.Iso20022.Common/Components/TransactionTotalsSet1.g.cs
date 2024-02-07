@@ -7,78 +7,150 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Result of the Sale to POI Reconciliation processing.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionTotalsSet1
+     : IIsoXmlSerilizable<TransactionTotalsSet1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of payment instrument.
     /// </summary>
-    [DataMember]
     public required PaymentInstrumentType1Code PaymentInstrumentType { get; init; } 
     /// <summary>
     /// Identification of an Acquirer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AcquirerIdentification { get; init; } 
     /// <summary>
     /// Identifier of a host reconciliation period: acquirer for a payment or server for loyalty.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     /// <summary>
     /// Identifier of a reconciliation period on the sale system.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SaleReconciliationIdentification { get; init; } 
     /// <summary>
     /// Brand of payment card or loyalty system.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Brand { get; init; } 
     /// <summary>
     /// Identifier of the POI system performing a reconciliation.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? POIIdentification { get; init; } 
     /// <summary>
     /// Identification of the sale terminal (electronic cash register or point of sale terminal) or the sale system.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SaleIdentification { get; init; } 
     /// <summary>
     /// Identification of the cashier who carried out the transactions.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CashierIdentification { get; init; } 
     /// <summary>
     /// Identifies the shift of the cashier.
     /// </summary>
-    [DataMember]
     public IsoMax2NumericText? ShiftNumber { get; init; } 
     /// <summary>
     /// Merchant using the payment services of a payment facilitator, acting as a card acceptor.
     /// </summary>
-    [DataMember]
-    public ValueList<Organisation26> SponsoredMerchant { get; init; } = []; // Warning: Don't know multiplicity.
+    public Organisation26? SponsoredMerchant { get; init; } 
     /// <summary>
     /// Payment Transaction totals during the reconciliation period, for a certain type of transaction.
     /// </summary>
-    [DataMember]
     public required TransactionTotals8 TransactionTotal { get; init; } 
     /// <summary>
     /// Loyalty Transaction totals during the reconciliation period, for a certain type of transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<LoyaltyTransactionTotals1> LoyaltyTransactionTotal { get; init; } = []; // Warning: Don't know multiplicity.
+    public LoyaltyTransactionTotals1? LoyaltyTransactionTotal { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PmtInstrmTp", xmlNamespace );
+        writer.WriteValue(PaymentInstrumentType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AcquirerIdentification is IsoMax35Text AcquirerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcqrrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AcquirerIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ReconciliationIdentification is IsoMax35Text ReconciliationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcncltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReconciliationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SaleReconciliationIdentification is IsoMax35Text SaleReconciliationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleRcncltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReconciliationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Brand is IsoMax35Text BrandValue)
+        {
+            writer.WriteStartElement(null, "Brnd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(BrandValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (POIIdentification is IsoMax35Text POIIdentificationValue)
+        {
+            writer.WriteStartElement(null, "POIId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(POIIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SaleIdentification is IsoMax35Text SaleIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CashierIdentification is IsoMax35Text CashierIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CshrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CashierIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ShiftNumber is IsoMax2NumericText ShiftNumberValue)
+        {
+            writer.WriteStartElement(null, "ShftNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2NumericText(ShiftNumberValue)); // data type Max2NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (SponsoredMerchant is Organisation26 SponsoredMerchantValue)
+        {
+            writer.WriteStartElement(null, "SpnsrdMrchnt", xmlNamespace );
+            SponsoredMerchantValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxTtl", xmlNamespace );
+        TransactionTotal.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LoyaltyTransactionTotal is LoyaltyTransactionTotals1 LoyaltyTransactionTotalValue)
+        {
+            writer.WriteStartElement(null, "LltyTxTtl", xmlNamespace );
+            LoyaltyTransactionTotalValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionTotalsSet1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

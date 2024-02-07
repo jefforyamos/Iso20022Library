@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Configuration of the encryption or digital envelope, if the security module is able to perform encryption.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMSecurityConfiguration3
+     : IIsoXmlSerilizable<ATMSecurityConfiguration3>
 {
     #nullable enable
     
     /// <summary>
     /// True if the security module is able to perform encryption with an asymmetric key.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? AsymmetricEncryption { get; init; } 
     /// <summary>
     /// True if the security module is able to identify an asymmetric key with certificate issuer X.500 name and certificate serial number. False if a proprietary asymmetric key identifier is required.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? AsymmetricKeyStandardIdentification { get; init; } 
     /// <summary>
     /// Asymmetric encryption algorithm the security module is able to manage.
     /// </summary>
-    [DataMember]
-    public ValueList<Algorithm7Code> AsymmetricEncryptionAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
+    public Algorithm7Code? AsymmetricEncryptionAlgorithm { get; init; } 
     /// <summary>
     /// True if the security module is able to manage a symmetric transport session key to protect cryptographic keys and data. False if only a previously exchanged symmetric key must be used; a proprietary symmetric key identifier is then used.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? SymmetricTransportKey { get; init; } 
     /// <summary>
     /// Symmetric transport session key algorithm the security module is able to manage.
     /// </summary>
-    [DataMember]
-    public ValueList<Algorithm13Code> SymmetricTransportKeyAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
+    public Algorithm13Code? SymmetricTransportKeyAlgorithm { get; init; } 
     /// <summary>
     /// Symmetric encryption algorithm the security module is able to manage.
     /// </summary>
-    [DataMember]
-    public ValueList<Algorithm15Code> SymmetricEncryptionAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
+    public Algorithm15Code? SymmetricEncryptionAlgorithm { get; init; } 
     /// <summary>
     /// Format of data before encryption, if the format is not plaintext or implicit.
     /// </summary>
-    [DataMember]
-    public ValueList<EncryptionFormat1Code> EncryptionFormat { get; init; } = []; // Warning: Don't know multiplicity.
+    public EncryptionFormat1Code? EncryptionFormat { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AsymmetricEncryption is IsoTrueFalseIndicator AsymmetricEncryptionValue)
+        {
+            writer.WriteStartElement(null, "AsmmtrcNcrptn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AsymmetricEncryptionValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AsymmetricKeyStandardIdentification is IsoTrueFalseIndicator AsymmetricKeyStandardIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AsmmtrcKeyStdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AsymmetricKeyStandardIdentificationValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AsymmetricEncryptionAlgorithm is Algorithm7Code AsymmetricEncryptionAlgorithmValue)
+        {
+            writer.WriteStartElement(null, "AsmmtrcNcrptnAlgo", xmlNamespace );
+            writer.WriteValue(AsymmetricEncryptionAlgorithmValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SymmetricTransportKey is IsoTrueFalseIndicator SymmetricTransportKeyValue)
+        {
+            writer.WriteStartElement(null, "SmmtrcTrnsprtKey", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(SymmetricTransportKeyValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SymmetricTransportKeyAlgorithm is Algorithm13Code SymmetricTransportKeyAlgorithmValue)
+        {
+            writer.WriteStartElement(null, "SmmtrcTrnsprtKeyAlgo", xmlNamespace );
+            writer.WriteValue(SymmetricTransportKeyAlgorithmValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SymmetricEncryptionAlgorithm is Algorithm15Code SymmetricEncryptionAlgorithmValue)
+        {
+            writer.WriteStartElement(null, "SmmtrcNcrptnAlgo", xmlNamespace );
+            writer.WriteValue(SymmetricEncryptionAlgorithmValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (EncryptionFormat is EncryptionFormat1Code EncryptionFormatValue)
+        {
+            writer.WriteStartElement(null, "NcrptnFrmt", xmlNamespace );
+            writer.WriteValue(EncryptionFormatValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMSecurityConfiguration3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

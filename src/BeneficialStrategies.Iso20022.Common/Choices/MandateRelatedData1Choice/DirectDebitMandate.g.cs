@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.MandateRelatedData1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.MandateRelatedData1Choice;
 /// Specific direct debit mandate data.
 /// </summary>
 public partial record DirectDebitMandate : MandateRelatedData1Choice_
+     , IIsoXmlSerilizable<DirectDebitMandate>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique identification, as assigned by the creditor, to unambiguously identify the mandate.
     /// </summary>
@@ -55,5 +59,83 @@ public partial record DirectDebitMandate : MandateRelatedData1Choice_
     /// Specifies the number of days the direct debit instruction must be tracked.
     /// </summary>
     public IsoExact2NumericText? TrackingDays { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MandateIdentification is IsoMax35Text MandateIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MndtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MandateIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DateOfSignature is IsoISODate DateOfSignatureValue)
+        {
+            writer.WriteStartElement(null, "DtOfSgntr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateOfSignatureValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (AmendmentIndicator is IsoTrueFalseIndicator AmendmentIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AmdmntInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AmendmentIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AmendmentInformationDetails is AmendmentInformationDetails13 AmendmentInformationDetailsValue)
+        {
+            writer.WriteStartElement(null, "AmdmntInfDtls", xmlNamespace );
+            AmendmentInformationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ElectronicSignature is IsoMax1025Text ElectronicSignatureValue)
+        {
+            writer.WriteStartElement(null, "ElctrncSgntr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1025Text(ElectronicSignatureValue)); // data type Max1025Text System.String
+            writer.WriteEndElement();
+        }
+        if (FirstCollectionDate is IsoISODate FirstCollectionDateValue)
+        {
+            writer.WriteStartElement(null, "FrstColltnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(FirstCollectionDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (FinalCollectionDate is IsoISODate FinalCollectionDateValue)
+        {
+            writer.WriteStartElement(null, "FnlColltnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(FinalCollectionDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Frequency is Frequency36Choice_ FrequencyValue)
+        {
+            writer.WriteStartElement(null, "Frqcy", xmlNamespace );
+            FrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Reason is MandateSetupReason1Choice_ ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            ReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TrackingDays is IsoExact2NumericText TrackingDaysValue)
+        {
+            writer.WriteStartElement(null, "TrckgDays", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact2NumericText(TrackingDaysValue)); // data type Exact2NumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new DirectDebitMandate Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

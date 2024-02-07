@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument24Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument24Choice;
 /// Settlement instructions for a payment by direct debit.
 /// </summary>
 public partial record DirectDebitDetails : PaymentInstrument24Choice_
+     , IIsoXmlSerilizable<DirectDebitDetails>
 {
     #nullable enable
+    
     /// <summary>
     /// Unambiguous identification of the account of the debtor to which a debit entry will be made as a result of the transaction.
     /// </summary>
@@ -59,5 +63,83 @@ public partial record DirectDebitDetails : PaymentInstrument24Choice_
     /// Reference of the direct debit mandate that has been agreed upon by the debtor and creditor.
     /// </summary>
     public IsoMax35Text? MandateIdentification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DbtrAcct", xmlNamespace );
+        DebtorAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Debtor is PartyIdentification125Choice_ DebtorValue)
+        {
+            writer.WriteStartElement(null, "Dbtr", xmlNamespace );
+            DebtorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DebtorTaxIdentificationNumber is IsoMax35Text DebtorTaxIdentificationNumberValue)
+        {
+            writer.WriteStartElement(null, "DbtrTaxIdNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DebtorTaxIdentificationNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DebtorNationalRegistrationNumber is IsoMax35Text DebtorNationalRegistrationNumberValue)
+        {
+            writer.WriteStartElement(null, "DbtrNtlRegnNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DebtorNationalRegistrationNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Creditor is PartyIdentification125Choice_ CreditorValue)
+        {
+            writer.WriteStartElement(null, "Cdtr", xmlNamespace );
+            CreditorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DbtrAgt", xmlNamespace );
+        DebtorAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DebtorAgentBranch is BranchData4 DebtorAgentBranchValue)
+        {
+            writer.WriteStartElement(null, "DbtrAgtBrnch", xmlNamespace );
+            DebtorAgentBranchValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditorAgent is FinancialInstitutionIdentification11Choice_ CreditorAgentValue)
+        {
+            writer.WriteStartElement(null, "CdtrAgt", xmlNamespace );
+            CreditorAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditorAgentBranch is BranchData4 CreditorAgentBranchValue)
+        {
+            writer.WriteStartElement(null, "CdtrAgtBrnch", xmlNamespace );
+            CreditorAgentBranchValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RegistrationIdentification is IsoMax35Text RegistrationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RegnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RegistrationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MandateIdentification is IsoMax35Text MandateIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MndtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MandateIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new DirectDebitDetails Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

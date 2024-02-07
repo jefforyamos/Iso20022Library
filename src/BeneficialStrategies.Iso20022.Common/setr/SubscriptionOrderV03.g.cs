@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.setr.SubscriptionOrderV03>;
 
 namespace BeneficialStrategies.Iso20022.setr;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// If there are subscription orders for the same financial instrument but for different accounts, then the SubscriptionBulkOrder message must be used.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An instructing party, for example, an investment manager or its authorised representative, sends the SubscriptionOrder message to the executing party, for example, a transfer agent, to instruct the subscription of one or more financial instruments for one investment fund account.|Usage|The SubscriptionOrder message is used to instruct single subscription orders, that is, a message containing one order for one financial instrument and related to one investment account. The SubscriptionOrder message may also be used for multiple orders, that is, a message containing several orders related to the same investment account for different financial instruments.|For a single subscription order, the SubscriptionOrder message, not the SubscriptionBulkOrder message, must be used.|If there are subscription orders for the same financial instrument but for different accounts, then the SubscriptionBulkOrder message must be used.")]
-public partial record SubscriptionOrderV03 : IOuterRecord
+public partial record SubscriptionOrderV03 : IOuterRecord<SubscriptionOrderV03,SubscriptionOrderV03Document>
+    ,IIsoXmlSerilizable<SubscriptionOrderV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record SubscriptionOrderV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SbcptOrdrV03";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SubscriptionOrderV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -88,7 +95,7 @@ public partial record SubscriptionOrderV03 : IOuterRecord
     [Description(@"Information about parties related to the transaction.")]
     [DataMember(Name="RltdPtyDtls")]
     [XmlElement(ElementName="RltdPtyDtls")]
-    public required IReadOnlyCollection<Intermediary8> RelatedPartyDetails { get; init; } = []; // Min=0, Max=10
+    public required ValueList<Intermediary8> RelatedPartyDetails { get; init; } = []; // Min=0, Max=10
     
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
@@ -117,6 +124,56 @@ public partial record SubscriptionOrderV03 : IOuterRecord
     {
         return new SubscriptionOrderV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SbcptOrdrV03");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PoolReference is AdditionalReference3 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousReference is AdditionalReference3 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MltplOrdrDtls", xmlNamespace );
+        MultipleOrderDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RltdPtyDtls", xmlNamespace );
+        RelatedPartyDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CopyDetails is CopyInformation2 CopyDetailsValue)
+        {
+            writer.WriteStartElement(null, "CpyDtls", xmlNamespace );
+            CopyDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SubscriptionOrderV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -124,9 +181,7 @@ public partial record SubscriptionOrderV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SubscriptionOrderV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SubscriptionOrderV03Document : IOuterDocument<SubscriptionOrderV03>
+public partial record SubscriptionOrderV03Document : IOuterDocument<SubscriptionOrderV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -142,5 +197,22 @@ public partial record SubscriptionOrderV03Document : IOuterDocument<Subscription
     /// <summary>
     /// The instance of <seealso cref="SubscriptionOrderV03"/> is required.
     /// </summary>
+    [DataMember(Name=SubscriptionOrderV03.XmlTag)]
     public required SubscriptionOrderV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SubscriptionOrderV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

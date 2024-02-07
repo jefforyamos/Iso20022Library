@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CancellationProcessingStatus6Choice;
 
@@ -13,15 +15,41 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationProcessingStatus6Cho
 /// Provides a proprietary status and a proprietary reason of the processing status of the trade.
 /// </summary>
 public partial record ProprietaryStatus : CancellationProcessingStatus6Choice_
+     , IIsoXmlSerilizable<ProprietaryStatus>
 {
     #nullable enable
-    /// <summary>
-    /// Proprietary identification of the status related to an instruction.
-    /// </summary>
-    public required GenericIdentification20 ProprietaryStatusValue { get; init; } 
+    
+    public required GenericIdentification20 Value { get; init; } 
     /// <summary>
     /// Proprietary identification of the reason related to a proprietary status.
     /// </summary>
-    public ProprietaryReason1? ProprietaryReason { get; init;  } // Warning: Don't know multiplicity.
+    public ProprietaryReason1? ProprietaryReason { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrtrySts", xmlNamespace );
+        Value.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ProprietaryReason is ProprietaryReason1 ProprietaryReasonValue)
+        {
+            writer.WriteStartElement(null, "PrtryRsn", xmlNamespace );
+            ProprietaryReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new ProprietaryStatus Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

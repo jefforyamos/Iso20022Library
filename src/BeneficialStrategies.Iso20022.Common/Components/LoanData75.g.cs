@@ -7,63 +7,123 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the loan data details in case of a margin lending transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LoanData75
+     : IIsoXmlSerilizable<LoanData75>
 {
     #nullable enable
     
     /// <summary>
     /// Unique trade Identifier (UTI) as agreed with the other counterparty.
     /// </summary>
-    [DataMember]
     public IsoMax52Text? UniqueTradeIdentifier { get; init; } 
     /// <summary>
     /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
     /// </summary>
-    [DataMember]
     public required IsoISODate EventDate { get; init; } 
     /// <summary>
     /// Indicates the date and time when the contract was executed.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ExecutionDateTime { get; init; } 
     /// <summary>
     /// Identification of the trading venue where the transaction was executed.
     /// </summary>
-    [DataMember]
     public IsoMICIdentifier? TradingVenue { get; init; } 
     /// <summary>
     /// Specifies whether the collateral is subject to a title transfer collateral arrangement, a securities interest collateral arrangement, or a securities interest with the right of use.
     /// </summary>
-    [DataMember]
     public CollateralDeliveryMethod1Code? CollateralDeliveryMethod { get; init; } 
     /// <summary>
     /// Total amount of margin loans in base currency.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? OutstandingMarginLoanAmount { get; init; } 
     /// <summary>
     /// Market value of short position in base currency.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ShortMarketValueAmount { get; init; } 
     /// <summary>
     /// Data on amount and interest rates of the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<InterestRate3> MarginLoanAttribute { get; init; } = []; // Warning: Don't know multiplicity.
+    public InterestRate3? MarginLoanAttribute { get; init; } 
     /// <summary>
     /// Termination date in the case of a full early termination of the SFT.
     /// </summary>
-    [DataMember]
     public IsoISODate? TerminationDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (UniqueTradeIdentifier is IsoMax52Text UniqueTradeIdentifierValue)
+        {
+            writer.WriteStartElement(null, "UnqTradIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(UniqueTradeIdentifierValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "EvtDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(EventDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (ExecutionDateTime is IsoISODateTime ExecutionDateTimeValue)
+        {
+            writer.WriteStartElement(null, "ExctnDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ExecutionDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (TradingVenue is IsoMICIdentifier TradingVenueValue)
+        {
+            writer.WriteStartElement(null, "TradgVn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(TradingVenueValue)); // data type MICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (CollateralDeliveryMethod is CollateralDeliveryMethod1Code CollateralDeliveryMethodValue)
+        {
+            writer.WriteStartElement(null, "CollDlvryMtd", xmlNamespace );
+            writer.WriteValue(CollateralDeliveryMethodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OutstandingMarginLoanAmount is IsoActiveOrHistoricCurrencyAndAmount OutstandingMarginLoanAmountValue)
+        {
+            writer.WriteStartElement(null, "OutsdngMrgnLnAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(OutstandingMarginLoanAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ShortMarketValueAmount is IsoActiveOrHistoricCurrencyAndAmount ShortMarketValueAmountValue)
+        {
+            writer.WriteStartElement(null, "ShrtMktValAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ShortMarketValueAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MarginLoanAttribute is InterestRate3 MarginLoanAttributeValue)
+        {
+            writer.WriteStartElement(null, "MrgnLnAttr", xmlNamespace );
+            MarginLoanAttributeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TerminationDate is IsoISODate TerminationDateValue)
+        {
+            writer.WriteStartElement(null, "TermntnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(TerminationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static LoanData75 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

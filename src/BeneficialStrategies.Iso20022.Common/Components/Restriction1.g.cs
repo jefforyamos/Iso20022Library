@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Restriction on capability or operations allowed.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Restriction1
+     : IIsoXmlSerilizable<Restriction1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of the restriction.
     /// </summary>
-    [DataMember]
     public required CodeOrProprietary1Choice_ RestrictionType { get; init; } 
     /// <summary>
     /// Date from when the restriction is valid.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime ValidFrom { get; init; } 
     /// <summary>
     /// Date until when the restriction is valid.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ValidUntil { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RstrctnTp", xmlNamespace );
+        RestrictionType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "VldFr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(ValidFrom)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (ValidUntil is IsoISODateTime ValidUntilValue)
+        {
+            writer.WriteStartElement(null, "VldUntil", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ValidUntilValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static Restriction1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

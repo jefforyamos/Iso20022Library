@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about securities quantity linked to a corporate action option.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesQuantitySD6
+     : IIsoXmlSerilizable<SecuritiesQuantitySD6>
 {
     #nullable enable
     
     /// <summary>
     /// Quantity not fully covered.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity31Choice_? OpenUncoveredQuantity { get; init; } 
     /// <summary>
     /// Quantity covered but transactions not in "MADE" status.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity31Choice_? InterimCoveredQuantity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OpenUncoveredQuantity is FinancialInstrumentQuantity31Choice_ OpenUncoveredQuantityValue)
+        {
+            writer.WriteStartElement(null, "OpnUcvrdQty", xmlNamespace );
+            OpenUncoveredQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterimCoveredQuantity is FinancialInstrumentQuantity31Choice_ InterimCoveredQuantityValue)
+        {
+            writer.WriteStartElement(null, "IntrmCvrdQty", xmlNamespace );
+            InterimCoveredQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesQuantitySD6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

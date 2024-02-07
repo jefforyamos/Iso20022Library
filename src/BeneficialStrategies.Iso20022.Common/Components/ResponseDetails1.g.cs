@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional details to clarify response codes.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ResponseDetails1
+     : IIsoXmlSerilizable<ResponseDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Code for account servicer warnings, rejections, pay no/pay responses and technical rejections. 
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ResponseCode { get; init; } 
     /// <summary>
     /// Additional information to elaborate upon response codes.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RspnCd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ResponseCode)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (AdditionalDetails is IsoMax350Text AdditionalDetailsValue)
+        {
+            writer.WriteStartElement(null, "AddtlDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalDetailsValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ResponseDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

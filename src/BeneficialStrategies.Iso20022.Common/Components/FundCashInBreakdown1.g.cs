@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Breakdown of cash movements into a fund as a result of investment funds transactions, eg, subscriptions or switch-in.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FundCashInBreakdown1
+     : IIsoXmlSerilizable<FundCashInBreakdown1>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of cash flow in, expressed as an amount of money.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Amount of the cash flow in, expressed as a number of units.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1? UnitsNumber { get; init; } 
     /// <summary>
     /// Indicates whether the cash flow is an item that did not appear on the previously sent report, eg, because it was received close to cut-off time.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? NewAmountIndicator { get; init; } 
     /// <summary>
     /// Breakdown of the cash movements into a fund by transaction type, eg, subscription, switch-in.
     /// </summary>
-    [DataMember]
     public InvestmentFundTransactionInType1? InvestmentFundTransactionInTypeDetails { get; init; } 
     /// <summary>
     /// Breakdown of the cash movements into a fund by order type, eg, order by quantity of units or amount of money.
     /// </summary>
-    [DataMember]
     public OriginalOrderQuantityType1? OriginalOrderQuantityDetails { get; init; } 
     /// <summary>
     /// Information related to the commission applied to an order, eg, back-end or front-end commission.
     /// </summary>
-    [DataMember]
-    public ValueList<Commission4> CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Commission4? CommissionDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Amount is IsoActiveOrHistoricCurrencyAndAmount AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(AmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (UnitsNumber is FinancialInstrumentQuantity1 UnitsNumberValue)
+        {
+            writer.WriteStartElement(null, "UnitsNb", xmlNamespace );
+            UnitsNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewAmountIndicator is IsoYesNoIndicator NewAmountIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NewAmtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(NewAmountIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (InvestmentFundTransactionInTypeDetails is InvestmentFundTransactionInType1 InvestmentFundTransactionInTypeDetailsValue)
+        {
+            writer.WriteStartElement(null, "InvstmtFndTxInTpDtls", xmlNamespace );
+            InvestmentFundTransactionInTypeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalOrderQuantityDetails is OriginalOrderQuantityType1 OriginalOrderQuantityDetailsValue)
+        {
+            writer.WriteStartElement(null, "OrgnlOrdrQtyDtls", xmlNamespace );
+            OriginalOrderQuantityDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CommissionDetails is Commission4 CommissionDetailsValue)
+        {
+            writer.WriteStartElement(null, "ComssnDtls", xmlNamespace );
+            CommissionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FundCashInBreakdown1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

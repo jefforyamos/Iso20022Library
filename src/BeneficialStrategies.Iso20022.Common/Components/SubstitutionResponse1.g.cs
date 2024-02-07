@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details about the collateral substitution response.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SubstitutionResponse1
+     : IIsoXmlSerilizable<SubstitutionResponse1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates if the substitution request was accepted or rejected.
     /// </summary>
-    [DataMember]
     public required Status4Code ResponseType { get; init; } 
     /// <summary>
     /// Provides details about the accepted collateral substitution.
     /// </summary>
-    [DataMember]
     public CollateralSubstitutionResponse1? CollateralSubstitutionAcceptanceDetails { get; init; } 
     /// <summary>
     /// Provides details about the rejected collateral substitution.
     /// </summary>
-    [DataMember]
     public CollateralSubstitutionResponse2? CollateralSubstitutionRejectionDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RspnTp", xmlNamespace );
+        writer.WriteValue(ResponseType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (CollateralSubstitutionAcceptanceDetails is CollateralSubstitutionResponse1 CollateralSubstitutionAcceptanceDetailsValue)
+        {
+            writer.WriteStartElement(null, "CollSbstitnAccptncDtls", xmlNamespace );
+            CollateralSubstitutionAcceptanceDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollateralSubstitutionRejectionDetails is CollateralSubstitutionResponse2 CollateralSubstitutionRejectionDetailsValue)
+        {
+            writer.WriteStartElement(null, "CollSbstitnRjctnDtls", xmlNamespace );
+            CollateralSubstitutionRejectionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SubstitutionResponse1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

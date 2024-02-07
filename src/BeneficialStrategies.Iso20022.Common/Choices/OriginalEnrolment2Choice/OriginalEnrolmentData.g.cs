@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.OriginalEnrolment2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalEnrolment2Choice;
 /// Provides the original enrolment data.
 /// </summary>
 public partial record OriginalEnrolmentData : OriginalEnrolment2Choice_
+     , IIsoXmlSerilizable<OriginalEnrolmentData>
 {
     #nullable enable
+    
     /// <summary>
     /// Detailed activation data related to the creditor enrolment.
     /// </summary>
@@ -39,5 +43,50 @@ public partial record OriginalEnrolmentData : OriginalEnrolment2Choice_
     /// Commercial logo of the creditor.
     /// </summary>
     public IsoMax10KBinary? CreditorLogo { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Enrlmnt", xmlNamespace );
+        Enrolment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CreditorTradingName is IsoMax140Text CreditorTradingNameValue)
+        {
+            writer.WriteStartElement(null, "CdtrTradgNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(CreditorTradingNameValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Cdtr", xmlNamespace );
+        Creditor.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (UltimateCreditor is RTPPartyIdentification1 UltimateCreditorValue)
+        {
+            writer.WriteStartElement(null, "UltmtCdtr", xmlNamespace );
+            UltimateCreditorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MrchntCtgyCd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMerchantCategoryCodeIdentifier(MerchantCategoryCode)); // data type MerchantCategoryCodeIdentifier System.String
+        writer.WriteEndElement();
+        if (CreditorLogo is IsoMax10KBinary CreditorLogoValue)
+        {
+            writer.WriteStartElement(null, "CdtrLogo", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10KBinary(CreditorLogoValue)); // data type Max10KBinary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static new OriginalEnrolmentData Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

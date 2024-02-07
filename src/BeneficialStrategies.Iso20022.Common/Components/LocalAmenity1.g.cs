@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains additional information about the fuel location, such as hours of operation and Interstate Access/Exit Number, etc.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LocalAmenity1
+     : IIsoXmlSerilizable<LocalAmenity1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of additional service available.
     /// </summary>
-    [DataMember]
     public required LocationAmenity1Code Type { get; init; } 
     /// <summary>
     /// Other additional service available at the location. 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Indicates whether or not a specific type of amenity is available at this location.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? AvailableIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherType is IsoMax35Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AvailableIndicator is IsoTrueFalseIndicator AvailableIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AvlblInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AvailableIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static LocalAmenity1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

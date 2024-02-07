@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Configuration parameters to communicate with a host.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NetworkParameters2
+     : IIsoXmlSerilizable<NetworkParameters2>
 {
     #nullable enable
     
     /// <summary>
     /// IP address or hostname.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Address { get; init; } 
     /// <summary>
     /// Port number of the server, if the default port number is not used.
     /// </summary>
-    [DataMember]
     public IsoNumber? PortNumber { get; init; } 
     /// <summary>
     /// Delay between two contacts of the server.
     /// </summary>
-    [DataMember]
     public IsoISOTime? Delay { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Adr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Address)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (PortNumber is IsoNumber PortNumberValue)
+        {
+            writer.WriteStartElement(null, "PortNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(PortNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Delay is IsoISOTime DelayValue)
+        {
+            writer.WriteStartElement(null, "Dely", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(DelayValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static NetworkParameters2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

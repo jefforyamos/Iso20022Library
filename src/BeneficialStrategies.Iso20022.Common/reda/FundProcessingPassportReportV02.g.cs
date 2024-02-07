@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.reda.FundProcessingPassportReportV02>;
 
 namespace BeneficialStrategies.Iso20022.reda;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// - in a reference data vendor environment, for example, market infrastructure and reference data providers may collate and store all fund processing passport information centrally for access via database or regular distribution information. A reference data vendor may assume the role of both report provider and report user.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|A report provider, for example, a fund promoter, fund management company, transfer agent, or market data provider, sends the FundProcessingPassportReport message to the report recipient, for, a professional investor, investment fund distributor, market data provider, regulator or other interested party to provide the key reference data for financial instruments to facilitate trading.|Usage|A unique FundProcessingPassportReport should be prepared for each class of unit/share (for which an individual ISIN should have been allocated), in respect of its ""home"" market.|The FundProcessingPassportReport may be used in various models or environments:|- stand alone environment, for example, initiated by the Report Provider (fund promoter, fund manager and / or reference data vendors) sent on a regular frequency, or when changes are needed.|- in a request / response environment, with the InvestmentFundReportRequest, for example, initiated by report users (data vendors, professional investors, regulators or investment fund distributors) in enabling the user to control the flow and updates of information.|- in a reference data vendor environment, for example, market infrastructure and reference data providers may collate and store all fund processing passport information centrally for access via database or regular distribution information. A reference data vendor may assume the role of both report provider and report user.")]
-public partial record FundProcessingPassportReportV02 : IOuterRecord
+public partial record FundProcessingPassportReportV02 : IOuterRecord<FundProcessingPassportReportV02,FundProcessingPassportReportV02Document>
+    ,IIsoXmlSerilizable<FundProcessingPassportReportV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record FundProcessingPassportReportV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "FndPrcgPsptRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => FundProcessingPassportReportV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -75,6 +82,29 @@ public partial record FundProcessingPassportReportV02 : IOuterRecord
     {
         return new FundProcessingPassportReportV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("FndPrcgPsptRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FPP", xmlNamespace );
+        FundProcessingPassport.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static FundProcessingPassportReportV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -82,9 +112,7 @@ public partial record FundProcessingPassportReportV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FundProcessingPassportReportV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record FundProcessingPassportReportV02Document : IOuterDocument<FundProcessingPassportReportV02>
+public partial record FundProcessingPassportReportV02Document : IOuterDocument<FundProcessingPassportReportV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -100,5 +128,22 @@ public partial record FundProcessingPassportReportV02Document : IOuterDocument<F
     /// <summary>
     /// The instance of <seealso cref="FundProcessingPassportReportV02"/> is required.
     /// </summary>
+    [DataMember(Name=FundProcessingPassportReportV02.XmlTag)]
     public required FundProcessingPassportReportV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(FundProcessingPassportReportV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

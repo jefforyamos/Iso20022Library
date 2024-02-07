@@ -7,59 +7,117 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account involved in the card transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardAccount2
+     : IIsoXmlSerilizable<CardAccount2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of cardholder account used for the transaction.
     /// </summary>
-    [DataMember]
     public CardAccountType2Code? SelectedAccountType { get; init; } 
     /// <summary>
     /// Name of the account, as assigned by the account servicing institution, in agreement with the account owner in order to provide an additional means of identification of the account.
     /// Usage: The account name is different from the account owner name. The account name is used in certain user communities to provide a means of identifying the account, in addition to the account owner's identity and the account number.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? AccountName { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    [DataMember]
     public NameAndAddress3? AccountOwner { get; init; } 
     /// <summary>
     /// Identification of the currency in which the account is held.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Unique identifier of the account, as assigned by the account servicer.
     /// </summary>
-    [DataMember]
     public AccountIdentification30Choice_? AccountIdentifier { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification72Choice_? Servicer { get; init; } 
     /// <summary>
     ///  Balance of the account.
     /// </summary>
-    [DataMember]
     public AmountAndDirection41? Balance { get; init; } 
     /// <summary>
     ///  Date of the balance.
     /// </summary>
-    [DataMember]
     public IsoISODate? BalanceDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SelectedAccountType is CardAccountType2Code SelectedAccountTypeValue)
+        {
+            writer.WriteStartElement(null, "SelctdAcctTp", xmlNamespace );
+            writer.WriteValue(SelectedAccountTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AccountName is IsoMax70Text AccountNameValue)
+        {
+            writer.WriteStartElement(null, "AcctNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AccountNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountOwner is NameAndAddress3 AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AccountIdentifier is AccountIdentification30Choice_ AccountIdentifierValue)
+        {
+            writer.WriteStartElement(null, "AcctIdr", xmlNamespace );
+            AccountIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Servicer is PartyIdentification72Choice_ ServicerValue)
+        {
+            writer.WriteStartElement(null, "Svcr", xmlNamespace );
+            ServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Balance is AmountAndDirection41 BalanceValue)
+        {
+            writer.WriteStartElement(null, "Bal", xmlNamespace );
+            BalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BalanceDate is IsoISODate BalanceDateValue)
+        {
+            writer.WriteStartElement(null, "BalDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(BalanceDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static CardAccount2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

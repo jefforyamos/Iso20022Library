@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the status of an investigation case.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CaseStatus2
+     : IIsoXmlSerilizable<CaseStatus2>
 {
     #nullable enable
     
     /// <summary>
     /// Date and time of the status.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime DateTime { get; init; } 
     /// <summary>
     /// Status of the case.
     /// </summary>
-    [DataMember]
     public required CaseStatus2Code CaseStatus { get; init; } 
     /// <summary>
     /// Free text justification of the status.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Reason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(DateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CaseSts", xmlNamespace );
+        writer.WriteValue(CaseStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Reason is IsoMax140Text ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(ReasonValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CaseStatus2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

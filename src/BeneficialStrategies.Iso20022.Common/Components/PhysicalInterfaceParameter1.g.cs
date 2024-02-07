@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Configuration parameters for physical interface.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PhysicalInterfaceParameter1
+     : IIsoXmlSerilizable<PhysicalInterfaceParameter1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the interface.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text InterfaceName { get; init; } 
     /// <summary>
     /// Identification of the physical link layer.
     /// </summary>
-    [DataMember]
     public POICommunicationType2Code? InterfaceType { get; init; } 
     /// <summary>
     /// Optional user name to provide to use this interface.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? UserName { get; init; } 
     /// <summary>
     /// Optional access code to provide to use this interface.
     /// </summary>
-    [DataMember]
     public IsoMax35Binary? AccessCode { get; init; } 
     /// <summary>
     /// Identification of the optional security profile to use with this interface.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SecurityProfile { get; init; } 
     /// <summary>
     /// Any other parameters relevant for this interface.
     /// </summary>
-    [DataMember]
     public IsoMax2KBinary? AdditionalParameters { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IntrfcNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(InterfaceName)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (InterfaceType is POICommunicationType2Code InterfaceTypeValue)
+        {
+            writer.WriteStartElement(null, "IntrfcTp", xmlNamespace );
+            writer.WriteValue(InterfaceTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (UserName is IsoMax35Text UserNameValue)
+        {
+            writer.WriteStartElement(null, "UsrNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(UserNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccessCode is IsoMax35Binary AccessCodeValue)
+        {
+            writer.WriteStartElement(null, "AccsCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Binary(AccessCodeValue)); // data type Max35Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (SecurityProfile is IsoMax35Text SecurityProfileValue)
+        {
+            writer.WriteStartElement(null, "SctyPrfl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SecurityProfileValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalParameters is IsoMax2KBinary AdditionalParametersValue)
+        {
+            writer.WriteStartElement(null, "AddtlParams", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2KBinary(AdditionalParametersValue)); // data type Max2KBinary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static PhysicalInterfaceParameter1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

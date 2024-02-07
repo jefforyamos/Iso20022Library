@@ -7,38 +7,64 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Instrument that has or represents monetary value and is used to process a payment instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentInstrument9
+     : IIsoXmlSerilizable<PaymentInstrument9>
 {
     #nullable enable
     
     /// <summary>
     /// Currency associated with the payment instrument.
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode SettlementCurrency { get; init; } 
     /// <summary>
     /// Cash account to credit for the payment of the dividends or of the redeemed investments funds.
     /// </summary>
-    [DataMember]
     public ValueList<CashAccount4> CashAccountDetails { get; init; } = [];
     /// <summary>
     /// Settlement instructions for a payment by cheque.
     /// </summary>
-    [DataMember]
     public required Cheque4 ChequeDetails { get; init; } 
     /// <summary>
     /// Settlement instructions for a payment by draft.
     /// </summary>
-    [DataMember]
     public required Cheque4 BankersDraftDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttlmCcy", xmlNamespace );
+        writer.WriteValue(SettlementCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CshAcctDtls", xmlNamespace );
+        CashAccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ChqDtls", xmlNamespace );
+        ChequeDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BkrsDrftDtls", xmlNamespace );
+        BankersDraftDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static PaymentInstrument9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

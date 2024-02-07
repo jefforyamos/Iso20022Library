@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Status24Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Status24Choice;
 /// Status report details of all the individual orders conveyed in a bulk or multiple order message. Can be used if all the individual orders conveyed in a bulk or multiple order message have the same status.
 /// </summary>
 public partial record OrderDetailsReport : Status24Choice_
+     , IIsoXmlSerilizable<OrderDetailsReport>
 {
     #nullable enable
+    
     /// <summary>
     /// Reference assigned to a set of orders or trades in order to link them together.
     /// </summary>
@@ -27,5 +31,38 @@ public partial record OrderDetailsReport : Status24Choice_
     /// Party that initiates the status of the order.
     /// </summary>
     public PartyIdentification113? StatusInitiator { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OrdrSts", xmlNamespace );
+        OrderStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (StatusInitiator is PartyIdentification113 StatusInitiatorValue)
+        {
+            writer.WriteStartElement(null, "StsInitr", xmlNamespace );
+            StatusInitiatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new OrderDetailsReport Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

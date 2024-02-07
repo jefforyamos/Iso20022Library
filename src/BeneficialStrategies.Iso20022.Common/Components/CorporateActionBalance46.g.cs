@@ -7,103 +7,197 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Eligible and not eligible balance of securities for a corporate action event.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionBalance46
+     : IIsoXmlSerilizable<CorporateActionBalance46>
 {
     #nullable enable
     
     /// <summary>
     /// Total quantity of financial instruments of the balance.
     /// </summary>
-    [DataMember]
     public required Quantity49Choice_ TotalEligibleBalance { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    [DataMember]
     public required BalanceFormat11Choice_ UninstructedBalance { get; init; } 
     /// <summary>
     /// Provides information about the total instructed balance.
     /// </summary>
-    [DataMember]
     public required InstructedBalance16 TotalInstructedBalanceDetails { get; init; } 
     /// <summary>
     /// Balance of financial instruments that are blocked.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat10? BlockedBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments that have been borrowed from another party.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat10? BorrowedBalance { get; init; } 
     /// <summary>
     /// Balance of securities that belong to a third party and that are held for the purpose of collateralisation.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat10? CollateralInBalance { get; init; } 
     /// <summary>
     /// Balance of securities that belong to the safekeeping account indicated within this message, and are deposited with a third party for the purpose of collateralisation.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat10? CollateralOutBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments that have been loaned to a third party.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat10? OnLoanBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments currently being processed by the institution responsible for registering the new beneficial owner (or nominee).
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat10? OutForRegistrationBalance { get; init; } 
     /// <summary>
     /// Balance of securities representing only settled transactions; pending transactions not included.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat10? SettlementPositionBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments that remain registered in the name of the prior beneficial owner.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat10? StreetPositionBalance { get; init; } 
     /// <summary>
     /// Balance of securities based on trade date, for example, includes all pending transactions in addition to the balance of settled transactions.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat10? TradeDatePositionBalance { get; init; } 
     /// <summary>
     /// Balance of physical securities that are in the process of being transferred from one depository/agent to another.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat10? InTransshipmentBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments that are registered (in the name of a nominee name or of the beneficial owner).
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat10? RegisteredBalance { get; init; } 
     /// <summary>
     /// Position that account holders should return to the account servicer to participate in the event or to fulfil their obligation for the event to be complete, for example, return of securities for late announced drawing.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat10? ObligatedBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments that are pending delivery.
     /// </summary>
-    [DataMember]
-    public ValueList<PendingBalance7> PendingDeliveryBalance { get; init; } = []; // Warning: Don't know multiplicity.
+    public PendingBalance7? PendingDeliveryBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments that are pending receipt.
     /// </summary>
-    [DataMember]
-    public ValueList<PendingBalance7> PendingReceiptBalance { get; init; } = []; // Warning: Don't know multiplicity.
+    public PendingBalance7? PendingReceiptBalance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TtlElgblBal", xmlNamespace );
+        TotalEligibleBalance.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UinstdBal", xmlNamespace );
+        UninstructedBalance.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlInstdBalDtls", xmlNamespace );
+        TotalInstructedBalanceDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BlockedBalance is SignedQuantityFormat10 BlockedBalanceValue)
+        {
+            writer.WriteStartElement(null, "BlckdBal", xmlNamespace );
+            BlockedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BorrowedBalance is SignedQuantityFormat10 BorrowedBalanceValue)
+        {
+            writer.WriteStartElement(null, "BrrwdBal", xmlNamespace );
+            BorrowedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollateralInBalance is SignedQuantityFormat10 CollateralInBalanceValue)
+        {
+            writer.WriteStartElement(null, "CollInBal", xmlNamespace );
+            CollateralInBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollateralOutBalance is SignedQuantityFormat10 CollateralOutBalanceValue)
+        {
+            writer.WriteStartElement(null, "CollOutBal", xmlNamespace );
+            CollateralOutBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OnLoanBalance is SignedQuantityFormat10 OnLoanBalanceValue)
+        {
+            writer.WriteStartElement(null, "OnLnBal", xmlNamespace );
+            OnLoanBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OutForRegistrationBalance is SignedQuantityFormat10 OutForRegistrationBalanceValue)
+        {
+            writer.WriteStartElement(null, "OutForRegnBal", xmlNamespace );
+            OutForRegistrationBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementPositionBalance is SignedQuantityFormat10 SettlementPositionBalanceValue)
+        {
+            writer.WriteStartElement(null, "SttlmPosBal", xmlNamespace );
+            SettlementPositionBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StreetPositionBalance is SignedQuantityFormat10 StreetPositionBalanceValue)
+        {
+            writer.WriteStartElement(null, "StrtPosBal", xmlNamespace );
+            StreetPositionBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeDatePositionBalance is SignedQuantityFormat10 TradeDatePositionBalanceValue)
+        {
+            writer.WriteStartElement(null, "TradDtPosBal", xmlNamespace );
+            TradeDatePositionBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InTransshipmentBalance is SignedQuantityFormat10 InTransshipmentBalanceValue)
+        {
+            writer.WriteStartElement(null, "InTrnsShipmntBal", xmlNamespace );
+            InTransshipmentBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RegisteredBalance is SignedQuantityFormat10 RegisteredBalanceValue)
+        {
+            writer.WriteStartElement(null, "RegdBal", xmlNamespace );
+            RegisteredBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ObligatedBalance is SignedQuantityFormat10 ObligatedBalanceValue)
+        {
+            writer.WriteStartElement(null, "OblgtdBal", xmlNamespace );
+            ObligatedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PendingDeliveryBalance is PendingBalance7 PendingDeliveryBalanceValue)
+        {
+            writer.WriteStartElement(null, "PdgDlvryBal", xmlNamespace );
+            PendingDeliveryBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PendingReceiptBalance is PendingBalance7 PendingReceiptBalanceValue)
+        {
+            writer.WriteStartElement(null, "PdgRctBal", xmlNamespace );
+            PendingReceiptBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionBalance46 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

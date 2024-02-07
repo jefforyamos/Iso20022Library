@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed information about derivatives that were received on the day of generation of the report with action type ‘New’, ‘Position component’, ‘Modification’ or ‘Correction’ whose notional amount is greater than a threshold for that class of derivatives.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AbnormalValuesData4
+     : IIsoXmlSerilizable<AbnormalValuesData4>
 {
     #nullable enable
     
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
-    [DataMember]
     public required CounterpartyData92 CounterpartyIdentification { get; init; } 
     /// <summary>
     /// Number of reported derivatives.
     /// </summary>
-    [DataMember]
     public required IsoNumber NumberOfDerivativesReported { get; init; } 
     /// <summary>
     /// Number of reported derivatives with outliers.
     /// </summary>
-    [DataMember]
     public required IsoNumber NumberOfDerivativesReportedWithOutliers { get; init; } 
     /// <summary>
     /// Details on abnormal values per transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<AbnormalValuesTransactionData2> TransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public AbnormalValuesTransactionData2? TransactionDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
+        CounterpartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NbOfDerivsRptd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfDerivativesReported)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NbOfDerivsRptdWthOtlrs", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfDerivativesReportedWithOutliers)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        if (TransactionDetails is AbnormalValuesTransactionData2 TransactionDetailsValue)
+        {
+            writer.WriteStartElement(null, "TxDtls", xmlNamespace );
+            TransactionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AbnormalValuesData4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

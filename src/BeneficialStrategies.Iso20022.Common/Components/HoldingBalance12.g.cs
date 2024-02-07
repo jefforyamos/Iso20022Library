@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Net position of a segregated holding of a single security within the overall position held in the securities account, for example, sub-balance per status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record HoldingBalance12
+     : IIsoXmlSerilizable<HoldingBalance12>
 {
     #nullable enable
     
     /// <summary>
     /// Total quantity of financial instrument for the referenced holding.
     /// </summary>
-    [DataMember]
     public required SignedQuantityFormat15 Balance { get; init; } 
     /// <summary>
     /// Reason a security is not available or additional information about the financial instrument for which the balance is given, for example, unregistered, registered in nominee name.
     /// </summary>
-    [DataMember]
     public SecuritiesEntryType2Code? BalanceType { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    [DataMember]
     public SafekeepingPlaceFormat28Choice_? SafekeepingPlace { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Bal", xmlNamespace );
+        Balance.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BalanceType is SecuritiesEntryType2Code BalanceTypeValue)
+        {
+            writer.WriteStartElement(null, "BalTp", xmlNamespace );
+            writer.WriteValue(BalanceTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SafekeepingPlace is SafekeepingPlaceFormat28Choice_ SafekeepingPlaceValue)
+        {
+            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
+            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static HoldingBalance12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

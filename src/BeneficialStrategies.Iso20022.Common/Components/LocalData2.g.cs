@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains text fields in the local language.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LocalData2
+     : IIsoXmlSerilizable<LocalData2>
 {
     #nullable enable
     
     /// <summary>
     /// The language code conforming to ISO 639-1 that identifies the language in which the fields are expressed in this component.
     /// </summary>
-    [DataMember]
     public required ISOMax3ALanguageCode Language { get; init; } 
     /// <summary>
     /// Name of the financial institution in the local language.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Structured postal address in the local language.
     /// </summary>
-    [DataMember]
     public Address3? Address { get; init; } 
     /// <summary>
     /// Additional information, in the local language, used to facilitate contact with the financial institution, for instance dispute manager name.
     /// </summary>
-    [DataMember]
     public IsoMax512Text? AdditionalContactInformation { get; init; } 
     /// <summary>
     /// Additional local language data
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Lang", xmlNamespace );
+        writer.WriteValue(Language.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Name is IsoMax70Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Address is Address3 AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalContactInformation is IsoMax512Text AdditionalContactInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlCtctInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax512Text(AdditionalContactInformationValue)); // data type Max512Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LocalData2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

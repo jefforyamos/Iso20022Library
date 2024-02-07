@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the service level of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionServiceLevel1
+     : IIsoXmlSerilizable<TransactionServiceLevel1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies a pre-agreed service or level of service between the parties, as published in an external service level code list.
     /// </summary>
-    [DataMember]
     public required ExternalServiceLevel1Code Code { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(Code.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static TransactionServiceLevel1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

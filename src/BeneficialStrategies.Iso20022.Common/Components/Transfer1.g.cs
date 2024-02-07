@@ -7,53 +7,91 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters applied to the settlement of a security transfer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Transfer1
+     : IIsoXmlSerilizable<Transfer1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a transfer instruction, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransferReference { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    [DataMember]
     public required DateFormat1Choice_ RequestedTransferDate { get; init; } 
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1 TotalUnitsNumber { get; init; } 
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate PortfolioTransferOutRate { get; init; } 
     /// <summary>
     /// Information about the units to be transferred.
     /// </summary>
-    [DataMember]
-    public ValueList<Unit1> UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Unit1? UnitsDetails { get; init; } 
     /// <summary>
     /// Indicates whether the transfer results in a change of beneficial owner.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator OwnAccountTransferIndicator { get; init; } 
     /// <summary>
     /// Value of a security, as booked in an account. Book value is often different from the current market value of the security.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? AveragePrice { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TrfRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ReqdTrfDt", xmlNamespace );
+        RequestedTransferDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlUnitsNb", xmlNamespace );
+        TotalUnitsNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PrtflTrfOutRate", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(PortfolioTransferOutRate)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+        if (UnitsDetails is Unit1 UnitsDetailsValue)
+        {
+            writer.WriteStartElement(null, "UnitsDtls", xmlNamespace );
+            UnitsDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OwnAcctTrfInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OwnAccountTransferIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (AveragePrice is IsoActiveOrHistoricCurrencyAnd13DecimalAmount AveragePriceValue)
+        {
+            writer.WriteStartElement(null, "AvrgPric", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd13DecimalAmount(AveragePriceValue)); // data type ActiveOrHistoricCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static Transfer1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsrv.UndertakingIssuanceV01>;
 
 namespace BeneficialStrategies.Iso20022.tsrv;
 
@@ -22,10 +25,9 @@ namespace BeneficialStrategies.Iso20022.tsrv;
 /// Under the United Nations Convention on Independent Guarantees and Stand-by Letters of Credit (http://www.uncitral.org), 1996, Article 2, "an undertaking is an independent commitment, known in international practice as an independent guarantee or as a standby letter of credit, given by a bank or other institution or person ('guarantor/issuer') to pay to the beneficiary a certain or determinable amount upon simple demand or upon demand accompanied by other documents, in conformity with the terms and any documentary conditions of the undertaking, indicating, or from which it is to be inferred, that payment is due because of a default in the performance of an obligation, or because of another contingency, or for money borrowed or advanced, or on account of any mature indebtedness undertaken by the principal/applicant or another person".
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The UndertakingIssuance message is sent (and is thus issued) by the party issuing the undertaking to the beneficiary. The message may be sent either to the beneficiary directly or via an advising party. The undertaking could be a demand guarantee, standby letter of credit, or counter-undertaking (counter-guarantee or counter-standby). It contains details on the applicable rules, expiry date, the amount, required documents, and terms and conditions of the undertaking. The message constitutes an operative financial instrument.|Under the United Nations Convention on Independent Guarantees and Stand-by Letters of Credit (http://www.uncitral.org), 1996, Article 2, ""an undertaking is an independent commitment, known in international practice as an independent guarantee or as a standby letter of credit, given by a bank or other institution or person ('guarantor/issuer') to pay to the beneficiary a certain or determinable amount upon simple demand or upon demand accompanied by other documents, in conformity with the terms and any documentary conditions of the undertaking, indicating, or from which it is to be inferred, that payment is due because of a default in the performance of an obligation, or because of another contingency, or for money borrowed or advanced, or on account of any mature indebtedness undertaken by the principal/applicant or another person"".")]
-public partial record UndertakingIssuanceV01 : IOuterRecord
+public partial record UndertakingIssuanceV01 : IOuterRecord<UndertakingIssuanceV01,UndertakingIssuanceV01Document>
+    ,IIsoXmlSerilizable<UndertakingIssuanceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -37,6 +39,11 @@ public partial record UndertakingIssuanceV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "UdrtkgIssnc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => UndertakingIssuanceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -56,7 +63,7 @@ public partial record UndertakingIssuanceV01 : IOuterRecord
     [Description(@"Additional information specific to the bank-to-beneficiary communication.")]
     [DataMember(Name="BkToBnfcryInf")]
     [XmlElement(ElementName="BkToBnfcryInf")]
-    public required IReadOnlyCollection<IsoMax2000Text> BankToBeneficiaryInformation { get; init; } = []; // Min=0, Max=5
+    public required SimpleValueList<IsoMax2000Text> BankToBeneficiaryInformation { get; init; } = []; // Min=0, Max=5
     
     /// <summary>
     /// Additional information specific to the bank-to-bank communication.
@@ -65,7 +72,7 @@ public partial record UndertakingIssuanceV01 : IOuterRecord
     [Description(@"Additional information specific to the bank-to-bank communication.")]
     [DataMember(Name="BkToBkInf")]
     [XmlElement(ElementName="BkToBkInf")]
-    public required IReadOnlyCollection<IsoMax2000Text> BankToBankInformation { get; init; } = []; // Min=0, Max=5
+    public required SimpleValueList<IsoMax2000Text> BankToBankInformation { get; init; } = []; // Min=0, Max=5
     
     /// <summary>
     /// Digital signature of the undertaking.
@@ -85,6 +92,38 @@ public partial record UndertakingIssuanceV01 : IOuterRecord
     {
         return new UndertakingIssuanceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("UdrtkgIssnc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UdrtkgIssncDtls", xmlNamespace );
+        UndertakingIssuanceDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BkToBnfcryInf", xmlNamespace );
+        BankToBeneficiaryInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BkToBkInf", xmlNamespace );
+        BankToBankInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+        if (DigitalSignature is PartyAndSignature2 DigitalSignatureValue)
+        {
+            writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
+            DigitalSignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static UndertakingIssuanceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -92,9 +131,7 @@ public partial record UndertakingIssuanceV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingIssuanceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record UndertakingIssuanceV01Document : IOuterDocument<UndertakingIssuanceV01>
+public partial record UndertakingIssuanceV01Document : IOuterDocument<UndertakingIssuanceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -110,5 +147,22 @@ public partial record UndertakingIssuanceV01Document : IOuterDocument<Undertakin
     /// <summary>
     /// The instance of <seealso cref="UndertakingIssuanceV01"/> is required.
     /// </summary>
+    [DataMember(Name=UndertakingIssuanceV01.XmlTag)]
     public required UndertakingIssuanceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(UndertakingIssuanceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

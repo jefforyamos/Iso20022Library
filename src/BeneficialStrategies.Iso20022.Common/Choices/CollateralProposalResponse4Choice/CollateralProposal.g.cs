@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CollateralProposalResponse4Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralProposalResponse4Choic
 /// Provides the collateral proposal response for the variation margin and optionally the segregated independent amount.
 /// </summary>
 public partial record CollateralProposal : CollateralProposalResponse4Choice_
+     , IIsoXmlSerilizable<CollateralProposal>
 {
     #nullable enable
+    
     /// <summary>
     /// Provides the collateral proposal response for the variation margin.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record CollateralProposal : CollateralProposalResponse4Choice_
     /// Provides the collateral proposal response for the segregated independent amount.
     /// </summary>
     public CollateralProposalResponseType4? SegregatedIndependentAmount { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "VartnMrgn", xmlNamespace );
+        VariationMargin.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SegregatedIndependentAmount is CollateralProposalResponseType4 SegregatedIndependentAmountValue)
+        {
+            writer.WriteStartElement(null, "SgrtdIndpdntAmt", xmlNamespace );
+            SegregatedIndependentAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new CollateralProposal Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

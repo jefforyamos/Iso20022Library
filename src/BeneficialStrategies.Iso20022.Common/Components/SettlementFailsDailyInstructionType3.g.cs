@@ -7,38 +7,64 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details on the settlement fails split per instruction types.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementFailsDailyInstructionType3
+     : IIsoXmlSerilizable<SettlementFailsDailyInstructionType3>
 {
     #nullable enable
     
     /// <summary>
     /// Fails due to delivery versus payment (DVP) settlement transactions, covers both delivery versus payment and receive versus payment transactions. 
     /// </summary>
-    [DataMember]
     public required SettlementDailyFailureReason1Choice_ DeliveryVersusPayment { get; init; } 
     /// <summary>
     /// Fails due to delivery with payment (DWP) settlement transactions, covers both delivery with payment (DWP) and receive with payment (RWP) transactions. 
     /// </summary>
-    [DataMember]
     public required SettlementDailyFailureReason1Choice_ DeliveryWithPayment { get; init; } 
     /// <summary>
     /// Fails due to payment free of delivery (PFOD) settlement transactions, covers both debit payment free of delivery (DPFOD) and credit payment free of delivery (CPFOD) transactions.
     /// </summary>
-    [DataMember]
     public required SettlementDailyFailureReason1Choice_ PaymentFreeOfDelivery { get; init; } 
     /// <summary>
     /// Fails due to free of payment (FoP) settlement transactions, covers both deliver free of payment (DFoP) and receive free of payment (RFoP) transactions.
     /// </summary>
-    [DataMember]
     public required SettlementDailyFailureReason1Choice_ FreeOfPayment { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DlvryVrssPmt", xmlNamespace );
+        DeliveryVersusPayment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DlvryWthPmt", xmlNamespace );
+        DeliveryWithPayment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PmtFreeOfDlvry", xmlNamespace );
+        PaymentFreeOfDelivery.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FreeOfPmt", xmlNamespace );
+        FreeOfPayment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SettlementFailsDailyInstructionType3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

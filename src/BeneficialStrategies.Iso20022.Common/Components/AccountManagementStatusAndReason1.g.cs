@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status report of a account opening instruction or account modification instruction that was previously received.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountManagementStatusAndReason1
+     : IIsoXmlSerilizable<AccountManagementStatusAndReason1>
 {
     #nullable enable
     
     /// <summary>
     /// Status of the account opening instruction or account modification instruction.
     /// </summary>
-    [DataMember]
     public required AccountManagementStatus1Code Status { get; init; } 
     /// <summary>
     /// Status of the order is rejected.
     /// </summary>
-    [DataMember]
     public required RejectedStatus5 Rejected { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of the account opening or modification instruction at application level.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountApplicationIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rjctd", xmlNamespace );
+        Rejected.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountApplicationIdentification is IsoMax35Text AccountApplicationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctApplId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountApplicationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountManagementStatusAndReason1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

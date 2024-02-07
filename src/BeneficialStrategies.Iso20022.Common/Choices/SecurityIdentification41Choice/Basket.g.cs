@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification41Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification41Choice;
 /// Identification of constituents for a basket of indexes.
 /// </summary>
 public partial record Basket : SecurityIdentification41Choice_
+     , IIsoXmlSerilizable<Basket>
 {
     #nullable enable
+    
     /// <summary>
     /// Identification of the structurer of the customer basket.
     /// </summary>
@@ -26,6 +30,42 @@ public partial record Basket : SecurityIdentification41Choice_
     /// <summary>
     /// Identifier of the underliers that represent the constituents of a custom basket.
     /// </summary>
-    public BasketConstituents3? Constituents { get; init;  } // Warning: Don't know multiplicity.
+    public BasketConstituents3? Constituents { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Structurer is IsoLEIIdentifier StructurerValue)
+        {
+            writer.WriteStartElement(null, "Strr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(StructurerValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (Identification is IsoMax52Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(IdentificationValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+        if (Constituents is BasketConstituents3 ConstituentsValue)
+        {
+            writer.WriteStartElement(null, "Cnsttnts", xmlNamespace );
+            ConstituentsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Basket Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Financing information and status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancingInformationAndStatus1
+     : IIsoXmlSerilizable<FinancingInformationAndStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies summary information about invoices/instalments financed, such as total amount financed, number of single requests accepted.
     /// </summary>
-    [DataMember]
     public required FinancingAllowedSummary1 FinancingAllowedSummary { get; init; } 
     /// <summary>
     /// Specifies detailed information about single invoice/instalment financing result, such as result of request (financed or not financed), amount, percentage applied.
     /// </summary>
-    [DataMember]
-    public ValueList<InvoiceFinancingDetails1> InvoiceFinancingDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public InvoiceFinancingDetails1? InvoiceFinancingDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _RYGZZNp-Ed-ak6NoX_4Aeg_1262872441
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FincgAllwdSummry", xmlNamespace );
+        FinancingAllowedSummary.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize InvoiceFinancingDetails, multiplicity Unknown
+    }
+    public static FinancingInformationAndStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Breakdown of the transaction amount.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DetailedAmount19
+     : IIsoXmlSerilizable<DetailedAmount19>
 {
     #nullable enable
     
     /// <summary>
     /// Type or class of amount.
     /// </summary>
-    [DataMember]
     public required DetailAmount1Code Type { get; init; } 
     /// <summary>
     /// Additional information to specify the type of amount.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Detailed amount expressed in the transaction currency.
     /// </summary>
-    [DataMember]
     public required Amount5 Amount { get; init; } 
     /// <summary>
     /// Detailed amount expressed in the cardholder billing currency.
     /// </summary>
-    [DataMember]
     public Amount5? CardholderBillingAmount { get; init; } 
     /// <summary>
     /// Detailed amount expressed in the reconciliation currency. 
     /// </summary>
-    [DataMember]
     public Amount5? ReconciliationAmount { get; init; } 
     /// <summary>
     /// Short description of the detailed amount.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Label { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherType is IsoMax35Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        Amount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CardholderBillingAmount is Amount5 CardholderBillingAmountValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrBllgAmt", xmlNamespace );
+            CardholderBillingAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReconciliationAmount is Amount5 ReconciliationAmountValue)
+        {
+            writer.WriteStartElement(null, "RcncltnAmt", xmlNamespace );
+            ReconciliationAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Label is IsoMax70Text LabelValue)
+        {
+            writer.WriteStartElement(null, "Labl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(LabelValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static DetailedAmount19 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

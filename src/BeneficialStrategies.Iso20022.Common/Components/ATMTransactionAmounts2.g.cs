@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Limit of amounts for the customer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMTransactionAmounts2
+     : IIsoXmlSerilizable<ATMTransactionAmounts2>
 {
     #nullable enable
     
     /// <summary>
     /// Currency of the limits, if different from the requested amount.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Maximum amount allowed in the authorised currency if the withdrawal was not approved.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? MaximumAuthorisableAmount { get; init; } 
     /// <summary>
     /// Minimum amount allowed for a withdrawal in the authorised currency.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? MinimumAllowedAmount { get; init; } 
     /// <summary>
     /// Maximum amount allowed for a withdrawal in the authorised currency.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? MaximumAllowedAmount { get; init; } 
     /// <summary>
     /// Remaining daily amount of the customer totals after the withdrawal.
     /// </summary>
-    [DataMember]
     public DetailedAmount4? DailyBalance { get; init; } 
     /// <summary>
     /// Remaining weekly amount of the customer totals after the withdrawal.
     /// </summary>
-    [DataMember]
     public DetailedAmount4? WeeklyBalance { get; init; } 
     /// <summary>
     /// Remaining monthly amount of the customer totals after the withdrawal.
     /// </summary>
-    [DataMember]
     public DetailedAmount4? MonthlyBalance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MaximumAuthorisableAmount is IsoImpliedCurrencyAndAmount MaximumAuthorisableAmountValue)
+        {
+            writer.WriteStartElement(null, "MaxAuthsbAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MaximumAuthorisableAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MinimumAllowedAmount is IsoImpliedCurrencyAndAmount MinimumAllowedAmountValue)
+        {
+            writer.WriteStartElement(null, "MinAllwdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MinimumAllowedAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MaximumAllowedAmount is IsoImpliedCurrencyAndAmount MaximumAllowedAmountValue)
+        {
+            writer.WriteStartElement(null, "MaxAllwdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MaximumAllowedAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (DailyBalance is DetailedAmount4 DailyBalanceValue)
+        {
+            writer.WriteStartElement(null, "DalyBal", xmlNamespace );
+            DailyBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (WeeklyBalance is DetailedAmount4 WeeklyBalanceValue)
+        {
+            writer.WriteStartElement(null, "WklyBal", xmlNamespace );
+            WeeklyBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MonthlyBalance is DetailedAmount4 MonthlyBalanceValue)
+        {
+            writer.WriteStartElement(null, "MnthlyBal", xmlNamespace );
+            MonthlyBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMTransactionAmounts2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies underlying instruments or index a derivative has.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrument98
+     : IIsoXmlSerilizable<FinancialInstrument98>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the index on which the financial instrument is based.
     /// </summary>
-    [DataMember]
     public IsoISIN2021Identifier? ISIN { get; init; } 
     /// <summary>
     /// Name of the index on which the financial instrument is based.
     /// </summary>
-    [DataMember]
     public required FloatingInterestRate8 Name { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ISIN is IsoISIN2021Identifier ISINValue)
+        {
+            writer.WriteStartElement(null, "ISIN", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISIN2021Identifier(ISINValue)); // data type ISIN2021Identifier System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        Name.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static FinancialInstrument98 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

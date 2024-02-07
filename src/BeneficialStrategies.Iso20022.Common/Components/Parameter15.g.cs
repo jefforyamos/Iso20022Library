@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters of the RSASSA-PSS digital signature algorithm (RSA signature algorithm with appendix: Probabilistic Signature Scheme).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Parameter15
+     : IIsoXmlSerilizable<Parameter15>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the digest algorithm.
     /// </summary>
-    [DataMember]
     public Algorithm16Code? DigestAlgorithm { get; init; } 
     /// <summary>
     /// Mask generator function cryptographic algorithm and parameters.
     /// </summary>
-    [DataMember]
     public AlgorithmIdentification12? MaskGeneratorAlgorithm { get; init; } 
     /// <summary>
     /// Length of the salt to include in the signature.
     /// </summary>
-    [DataMember]
     public IsoNumber? SaltLength { get; init; } 
     /// <summary>
     /// Trailer field number.
     /// </summary>
-    [DataMember]
     public IsoNumber? TrailerField { get; init; } 
     /// <summary>
     /// Name of the Elliptic Curve according to the OID notation.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? OIDCurveName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DigestAlgorithm is Algorithm16Code DigestAlgorithmValue)
+        {
+            writer.WriteStartElement(null, "DgstAlgo", xmlNamespace );
+            writer.WriteValue(DigestAlgorithmValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MaskGeneratorAlgorithm is AlgorithmIdentification12 MaskGeneratorAlgorithmValue)
+        {
+            writer.WriteStartElement(null, "MskGnrtrAlgo", xmlNamespace );
+            MaskGeneratorAlgorithmValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SaltLength is IsoNumber SaltLengthValue)
+        {
+            writer.WriteStartElement(null, "SaltLngth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(SaltLengthValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (TrailerField is IsoNumber TrailerFieldValue)
+        {
+            writer.WriteStartElement(null, "TrlrFld", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(TrailerFieldValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (OIDCurveName is IsoMax140Text OIDCurveNameValue)
+        {
+            writer.WriteStartElement(null, "OIDCrvNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(OIDCurveNameValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Parameter15 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

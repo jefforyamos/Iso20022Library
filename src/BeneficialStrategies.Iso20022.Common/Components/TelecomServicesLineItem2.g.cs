@@ -7,68 +7,136 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Telecom services line item carries detail level telephony billing data. 
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TelecomServicesLineItem2
+     : IIsoXmlSerilizable<TelecomServicesLineItem2>
 {
     #nullable enable
     
     /// <summary>
     /// Contains the start date and time of the phone call.
     /// </summary>
-    [DataMember]
     public IsoISODate? StartDateTime { get; init; } 
     /// <summary>
     /// Describes the period (such as peak or off peak) of the phone call.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TimePeriod { get; init; } 
     /// <summary>
     /// Duration of phone call expressed in HHMMSS format. 
     /// </summary>
-    [DataMember]
     public IsoISOTime? Duration { get; init; } 
     /// <summary>
     /// Contains the location description for the originator of the telephone call and the number from which the call was made.
     /// </summary>
-    [DataMember]
     public TelecomCallDetails2? CallFrom { get; init; } 
     /// <summary>
     /// Contains the location description for the destination of the telephone call and the number to which the call was made.
     /// </summary>
-    [DataMember]
     public TelecomCallDetails2? CallTo { get; init; } 
     /// <summary>
     /// Contains the amount pertaining to the telephony billing event.
     /// </summary>
-    [DataMember]
-    public ValueList<Amount20> Charge { get; init; } = []; // Warning: Don't know multiplicity.
+    public Amount20? Charge { get; init; } 
     /// <summary>
     /// Total of taxes applicable to the billing amount
     /// </summary>
-    [DataMember]
-    public ValueList<Tax39> TotalTax { get; init; } = []; // Warning: Don't know multiplicity.
+    public Tax39? TotalTax { get; init; } 
     /// <summary>
     /// Total amount applicable to the billing event. 
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalAmount { get; init; } 
     /// <summary>
     /// Description of the telecommunications services line item details
     /// </summary>
-    [DataMember]
     public IsoMax256Text? Description { get; init; } 
     /// <summary>
     /// Additional user-defined data pertaining to the telecommunications services.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (StartDateTime is IsoISODate StartDateTimeValue)
+        {
+            writer.WriteStartElement(null, "StartDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(StartDateTimeValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (TimePeriod is IsoMax35Text TimePeriodValue)
+        {
+            writer.WriteStartElement(null, "TmPrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TimePeriodValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Duration is IsoISOTime DurationValue)
+        {
+            writer.WriteStartElement(null, "Drtn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(DurationValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+        if (CallFrom is TelecomCallDetails2 CallFromValue)
+        {
+            writer.WriteStartElement(null, "CallFr", xmlNamespace );
+            CallFromValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CallTo is TelecomCallDetails2 CallToValue)
+        {
+            writer.WriteStartElement(null, "CallTo", xmlNamespace );
+            CallToValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Charge is Amount20 ChargeValue)
+        {
+            writer.WriteStartElement(null, "Chrg", xmlNamespace );
+            ChargeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalTax is Tax39 TotalTaxValue)
+        {
+            writer.WriteStartElement(null, "TtlTax", xmlNamespace );
+            TotalTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalAmount is IsoImpliedCurrencyAndAmount TotalAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(TotalAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Description is IsoMax256Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(DescriptionValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is IsoMax350Text AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalDataValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TelecomServicesLineItem2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

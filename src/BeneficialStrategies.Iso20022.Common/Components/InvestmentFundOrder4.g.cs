@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies an order linked to an account opening.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestmentFundOrder4
+     : IIsoXmlSerilizable<InvestmentFundOrder4>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OrderReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual orders, as assigned by the instructing party. This identifier links the individual orders together.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OrderReference is IsoMax35Text OrderReferenceValue)
+        {
+            writer.WriteStartElement(null, "OrdrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OrderReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static InvestmentFundOrder4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

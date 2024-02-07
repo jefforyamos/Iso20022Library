@@ -7,28 +7,52 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reference of an order, order cancellation and master reference.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestmentFundOrder1
+     : IIsoXmlSerilizable<InvestmentFundOrder1>
 {
     #nullable enable
     
     /// <summary>
     /// Reference assigned to a set of orders or trades in order to link them together.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Reference of an order and order cancellation.
     /// </summary>
-    [DataMember]
-    public ValueList<InvestmentFundOrder5> OrderReferences { get; init; } = []; // Warning: Don't know multiplicity.
+    public InvestmentFundOrder5? OrderReferences { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _TSu6Edp-Ed-ak6NoX_4Aeg_1448063042
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize OrderReferences, multiplicity Unknown
+    }
+    public static InvestmentFundOrder1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UnitPrice20
+     : IIsoXmlSerilizable<UnitPrice20>
 {
     #nullable enable
     
     /// <summary>
     /// Type of price.
     /// </summary>
-    [DataMember]
     public required UnitPriceType2Choice_ PriceType { get; init; } 
     /// <summary>
     /// Value of the price, that is, as a currency and value.
     /// </summary>
-    [DataMember]
     public required PriceValue1 Value { get; init; } 
     /// <summary>
     /// Type of pricing calculation method.
     /// </summary>
-    [DataMember]
     public PriceMethod1Code? PriceMethod { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PricTp", xmlNamespace );
+        PriceType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        Value.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PriceMethod is PriceMethod1Code PriceMethodValue)
+        {
+            writer.WriteStartElement(null, "PricMtd", xmlNamespace );
+            writer.WriteValue(PriceMethodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static UnitPrice20 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

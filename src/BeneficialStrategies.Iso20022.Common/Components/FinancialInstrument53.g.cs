@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specify the ISIN(s) and / or LEI(s) that are present in a basket.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrument53
+     : IIsoXmlSerilizable<FinancialInstrument53>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoISINOct2015Identifier> ISIN { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoISINOct2015Identifier? ISIN { get; init; } 
     /// <summary>
     /// The LEI code of the issuer where the instrument is referring to an issuer rather than one single instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoLEIIdentifier> LEI { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoLEIIdentifier? LEI { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ISIN is IsoISINOct2015Identifier ISINValue)
+        {
+            writer.WriteStartElement(null, "ISIN", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(ISINValue)); // data type ISINOct2015Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (LEI is IsoLEIIdentifier LEIValue)
+        {
+            writer.WriteStartElement(null, "LEI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEIValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstrument53 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

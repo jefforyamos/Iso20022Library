@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Delivery information
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DeliveryInformation3
+     : IIsoXmlSerilizable<DeliveryInformation3>
 {
     #nullable enable
     
     /// <summary>
     /// Contains the number identifying an individual delivery note. 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DeliveryNoteNumber { get; init; } 
     /// <summary>
     /// Delivery address.
     /// </summary>
-    [DataMember]
     public Address1? Address { get; init; } 
     /// <summary>
     /// Contact for delivery.
     /// </summary>
-    [DataMember]
     public Contact6? Contact { get; init; } 
     /// <summary>
     /// Special instructions. 
     /// </summary>
-    [DataMember]
     public IsoMax350Text? Instructions { get; init; } 
     /// <summary>
     /// Contains the package delivery date.
     /// </summary>
-    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// Contains the package delivery time.
     /// </summary>
-    [DataMember]
     public IsoISOTime? Time { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DeliveryNoteNumber is IsoMax35Text DeliveryNoteNumberValue)
+        {
+            writer.WriteStartElement(null, "DlvryNoteNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DeliveryNoteNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Address is Address1 AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Contact is Contact6 ContactValue)
+        {
+            writer.WriteStartElement(null, "Ctct", xmlNamespace );
+            ContactValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Instructions is IsoMax350Text InstructionsValue)
+        {
+            writer.WriteStartElement(null, "Instrs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(InstructionsValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (Date is IsoISODate DateValue)
+        {
+            writer.WriteStartElement(null, "Dt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Time is IsoISOTime TimeValue)
+        {
+            writer.WriteStartElement(null, "Tm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(TimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static DeliveryInformation3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

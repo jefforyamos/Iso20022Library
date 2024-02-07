@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the conditions for the NDF opening.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OpeningConditions1
+     : IIsoXmlSerilizable<OpeningConditions1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the settlement currency of the non deliverable trade.
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode SettlementCurrency { get; init; } 
     /// <summary>
     /// Specifies the valuation date for a non deliverable trade.
     /// </summary>
-    [DataMember]
     public required IsoISODate ValuationDate { get; init; } 
     /// <summary>
     /// Specifies the rate source associated with the non deliverable trade.
     /// </summary>
-    [DataMember]
     public ValueList<SettlementRateSource1> SettlementRateSource { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttlmCcy", xmlNamespace );
+        writer.WriteValue(SettlementCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ValtnDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ValuationDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmRateSrc", xmlNamespace );
+        SettlementRateSource.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static OpeningConditions1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

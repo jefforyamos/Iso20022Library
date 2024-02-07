@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Actual amount of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionAmount1
+     : IIsoXmlSerilizable<TransactionAmount1>
 {
     #nullable enable
     
@@ -23,15 +24,36 @@ public partial record TransactionAmount1
     /// Amount of the transaction expressed in the currency of the terminal or as a reversed amount of a previous authorisation.
     /// ISO 8583 bit 4.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Currency code associated with the transaction amount.  ISO 4217 "Codes for the representation of currencies and funds"
     /// ISO 8583:87/93 bit 49
     /// ISO 8583:2003 bit 4
     /// </summary>
-    [DataMember]
     public required ISO3NumericCurrencyCode Currency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(Amount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Ccy", xmlNamespace );
+        writer.WriteValue(Currency.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static TransactionAmount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Investment1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Investment1Choice;
 /// Indicates that the investment is not covered by other available investment options.
 /// </summary>
 public partial record OtherInvestments : Investment1Choice_
+     , IIsoXmlSerilizable<OtherInvestments>
 {
     #nullable enable
+    
     /// <summary>
     /// Text description of the investment.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record OtherInvestments : Investment1Choice_
     /// Value of the other investment.
     /// </summary>
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Desc", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(Description)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static new OtherInvestments Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

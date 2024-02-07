@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ClearingPartyAndTime22Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingPartyAndTime22Choice;
 /// Indicates that the contract is intended to be cleared and provides detailes of such clearing.
 /// </summary>
 public partial record Details : ClearingPartyAndTime22Choice_
+     , IIsoXmlSerilizable<Details>
 {
     #nullable enable
+    
     /// <summary>
     /// Identifies the central counterparty (CCP) that cleared the transaction.
     /// </summary>
@@ -39,5 +43,59 @@ public partial record Details : ClearingPartyAndTime22Choice_
     /// Identifies the trade repository to which the original derivative was reported.
     /// </summary>
     public OrganisationIdentification15Choice_? OriginalTradeRepositoryIdentifier { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CCP is OrganisationIdentification15Choice_ CCPValue)
+        {
+            writer.WriteStartElement(null, "CCP", xmlNamespace );
+            CCPValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingReceiptDateTime is IsoISODateTime ClearingReceiptDateTimeValue)
+        {
+            writer.WriteStartElement(null, "ClrRctDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ClearingReceiptDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ClearingDateTime is IsoISODateTime ClearingDateTimeValue)
+        {
+            writer.WriteStartElement(null, "ClrDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ClearingDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ClearingIdentifier is UniqueTransactionIdentifier1Choice_ ClearingIdentifierValue)
+        {
+            writer.WriteStartElement(null, "ClrIdr", xmlNamespace );
+            ClearingIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalIdentifier is UniqueTransactionIdentifier1Choice_ OriginalIdentifierValue)
+        {
+            writer.WriteStartElement(null, "OrgnlIdr", xmlNamespace );
+            OriginalIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalTradeRepositoryIdentifier is OrganisationIdentification15Choice_ OriginalTradeRepositoryIdentifierValue)
+        {
+            writer.WriteStartElement(null, "OrgnlTradRpstryIdr", xmlNamespace );
+            OriginalTradeRepositoryIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Details Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

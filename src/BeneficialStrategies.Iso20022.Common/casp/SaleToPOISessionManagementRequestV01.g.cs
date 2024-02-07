@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.casp.SaleToPOISessionManagementRequestV01>;
 
 namespace BeneficialStrategies.Iso20022.casp;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.casp;
 /// This message is a request for several kind of Administrative services related to Session Management ' that the Sale System (Merchant I.S.) can send to the POI system (Card Acceptor system).
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"This message is a request for several kind of Administrative services related to Session Management ' that the Sale System (Merchant I.S.) can send to the POI system (Card Acceptor system).")]
-public partial record SaleToPOISessionManagementRequestV01 : IOuterRecord
+public partial record SaleToPOISessionManagementRequestV01 : IOuterRecord<SaleToPOISessionManagementRequestV01,SaleToPOISessionManagementRequestV01Document>
+    ,IIsoXmlSerilizable<SaleToPOISessionManagementRequestV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record SaleToPOISessionManagementRequestV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SaleToPOISsnMgmtReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SaleToPOISessionManagementRequestV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -76,6 +83,35 @@ public partial record SaleToPOISessionManagementRequestV01 : IOuterRecord
     {
         return new SaleToPOISessionManagementRequestV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SaleToPOISsnMgmtReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SsnMgmtReq", xmlNamespace );
+        SessionManagementRequest.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecurityTrailer is ContentInformationType18 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SaleToPOISessionManagementRequestV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -83,9 +119,7 @@ public partial record SaleToPOISessionManagementRequestV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOISessionManagementRequestV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SaleToPOISessionManagementRequestV01Document : IOuterDocument<SaleToPOISessionManagementRequestV01>
+public partial record SaleToPOISessionManagementRequestV01Document : IOuterDocument<SaleToPOISessionManagementRequestV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -101,5 +135,22 @@ public partial record SaleToPOISessionManagementRequestV01Document : IOuterDocum
     /// <summary>
     /// The instance of <seealso cref="SaleToPOISessionManagementRequestV01"/> is required.
     /// </summary>
+    [DataMember(Name=SaleToPOISessionManagementRequestV01.XmlTag)]
     public required SaleToPOISessionManagementRequestV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SaleToPOISessionManagementRequestV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

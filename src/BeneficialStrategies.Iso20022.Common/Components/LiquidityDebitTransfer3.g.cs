@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details specific to the liquidity debit transfer, used to transfer an amount of money from the debtor to the creditor, where both are financial institutions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LiquidityDebitTransfer3
+     : IIsoXmlSerilizable<LiquidityDebitTransfer3>
 {
     #nullable enable
     
     /// <summary>
     /// Used to uniquely identify the liquidity transfer.
     /// </summary>
-    [DataMember]
     public PaymentIdentification8? LiquidityTransferIdentification { get; init; } 
     /// <summary>
     /// Owner of the account to be credited.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? Creditor { get; init; } 
     /// <summary>
     /// Account to be credited as a result of a transfer of liquidity.
     /// </summary>
-    [DataMember]
     public CashAccount40? CreditorAccount { get; init; } 
     /// <summary>
     /// Amount of money that the transaction administrator transfers from one account to another.
     /// </summary>
-    [DataMember]
     public required Amount2Choice_ TransferredAmount { get; init; } 
     /// <summary>
     /// Owner of the account to be debited.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? Debtor { get; init; } 
     /// <summary>
     /// Account to be debited as a result of a transfer of liquidity.
     /// </summary>
-    [DataMember]
     public CashAccount40? DebtorAccount { get; init; } 
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
-    [DataMember]
     public IsoISODate? SettlementDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (LiquidityTransferIdentification is PaymentIdentification8 LiquidityTransferIdentificationValue)
+        {
+            writer.WriteStartElement(null, "LqdtyTrfId", xmlNamespace );
+            LiquidityTransferIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Creditor is BranchAndFinancialInstitutionIdentification6 CreditorValue)
+        {
+            writer.WriteStartElement(null, "Cdtr", xmlNamespace );
+            CreditorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditorAccount is CashAccount40 CreditorAccountValue)
+        {
+            writer.WriteStartElement(null, "CdtrAcct", xmlNamespace );
+            CreditorAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TrfdAmt", xmlNamespace );
+        TransferredAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Debtor is BranchAndFinancialInstitutionIdentification6 DebtorValue)
+        {
+            writer.WriteStartElement(null, "Dbtr", xmlNamespace );
+            DebtorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DebtorAccount is CashAccount40 DebtorAccountValue)
+        {
+            writer.WriteStartElement(null, "DbtrAcct", xmlNamespace );
+            DebtorAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementDate is IsoISODate SettlementDateValue)
+        {
+            writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(SettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static LiquidityDebitTransfer3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

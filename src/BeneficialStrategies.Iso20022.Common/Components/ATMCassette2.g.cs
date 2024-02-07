@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information on the cassette of an ATM.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMCassette2
+     : IIsoXmlSerilizable<ATMCassette2>
 {
     #nullable enable
     
     /// <summary>
     /// Physical identification of the cassette for the ATM.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PhysicalIdentification { get; init; } 
     /// <summary>
     /// Logical identification of the cassette for the ATM.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text LogicalIdentification { get; init; } 
     /// <summary>
     /// Serial number or unique identification of the cassette hardware.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SerialNumber { get; init; } 
     /// <summary>
     /// Type of cassette.
     /// </summary>
-    [DataMember]
     public required ATMCassetteType1Code Type { get; init; } 
     /// <summary>
     /// Type of items the cash-in takes.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMNoteType1Code> SubType { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMNoteType1Code? SubType { get; init; } 
     /// <summary>
     /// Type of media inside the cassette.
     /// </summary>
-    [DataMember]
     public ATMMediaType1Code? MediaType { get; init; } 
     /// <summary>
     /// Counter per unit value or globally.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMCassetteCounters3> MediaCounters { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMCassetteCounters3? MediaCounters { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PhysicalIdentification is IsoMax35Text PhysicalIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PhysId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PhysicalIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "LogclId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(LogicalIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (SerialNumber is IsoMax35Text SerialNumberValue)
+        {
+            writer.WriteStartElement(null, "SrlNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SerialNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SubType is ATMNoteType1Code SubTypeValue)
+        {
+            writer.WriteStartElement(null, "SubTp", xmlNamespace );
+            writer.WriteValue(SubTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MediaType is ATMMediaType1Code MediaTypeValue)
+        {
+            writer.WriteStartElement(null, "MdiaTp", xmlNamespace );
+            writer.WriteValue(MediaTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MediaCounters is ATMCassetteCounters3 MediaCountersValue)
+        {
+            writer.WriteStartElement(null, "MdiaCntrs", xmlNamespace );
+            MediaCountersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMCassette2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

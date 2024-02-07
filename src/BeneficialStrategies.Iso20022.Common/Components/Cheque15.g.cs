@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Characteristics of a cheque instruction, such as cheque type or cheque number.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Cheque15
+     : IIsoXmlSerilizable<Cheque15>
 {
     #nullable enable
     
@@ -23,22 +24,18 @@ public partial record Cheque15
     /// Unique identification, as assigned by an instructing party for an instructed party, to unambiguously identify the instruction. 
     /// Usage: The instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? InstructionIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original instructing party for the original instructed party, to unambiguously identify the original instruction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalInstructionIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a cheque as assigned by the agent.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ChequeNumber { get; init; } 
     /// <summary>
     /// Date when the cheque has been issued by the payer.
     /// </summary>
-    [DataMember]
     public required IsoISODate IssueDate { get; init; } 
     /// <summary>
     /// Date after which a cheque is no longer valid.
@@ -47,43 +44,115 @@ public partial record Cheque15
     /// The period may be indicated on the face of the cheque itself such as "Valid for 90 days” or may be determined in accordance with domestic banking practice. 
     /// Not all countries will have a validity period. 
     /// </summary>
-    [DataMember]
     public IsoISODate? StaleDate { get; init; } 
     /// <summary>
     /// Specifies the amount of the cheque to be paid to the payee.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Date and time at which the cheque amount becomes available on the payee account.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? EffectiveDate { get; init; } 
     /// <summary>
     /// Specifies the agent servicing the account of the cheque payer.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? DrawerAgent { get; init; } 
     /// <summary>
     /// Specifies the cash account of the drawer agent.
     /// </summary>
-    [DataMember]
     public CashAccount40? DrawerAgentAccount { get; init; } 
     /// <summary>
     /// Party that receives an amount of money as specified in the cheque.
     /// </summary>
-    [DataMember]
     public PartyIdentification135? Payee { get; init; } 
     /// <summary>
     /// Specifies the cash account of the payee.
     /// </summary>
-    [DataMember]
     public CashAccount40? PayeeAccount { get; init; } 
     /// <summary>
     /// Specifies the reason for stopping the payment of the cheque or a request for reimbursement authorisation.
     /// </summary>
-    [DataMember]
     public ChequeCancellationReason1? ChequeCancellationOrStopReason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (InstructionIdentification is IsoMax35Text InstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "InstrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(InstructionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalInstructionIdentification is IsoMax35Text OriginalInstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlInstrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalInstructionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ChqNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ChequeNumber)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IsseDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(IssueDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (StaleDate is IsoISODate StaleDateValue)
+        {
+            writer.WriteStartElement(null, "StlDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(StaleDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (EffectiveDate is DateAndDateTime2Choice_ EffectiveDateValue)
+        {
+            writer.WriteStartElement(null, "FctvDt", xmlNamespace );
+            EffectiveDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DrawerAgent is BranchAndFinancialInstitutionIdentification6 DrawerAgentValue)
+        {
+            writer.WriteStartElement(null, "DrwrAgt", xmlNamespace );
+            DrawerAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DrawerAgentAccount is CashAccount40 DrawerAgentAccountValue)
+        {
+            writer.WriteStartElement(null, "DrwrAgtAcct", xmlNamespace );
+            DrawerAgentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Payee is PartyIdentification135 PayeeValue)
+        {
+            writer.WriteStartElement(null, "Pyee", xmlNamespace );
+            PayeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PayeeAccount is CashAccount40 PayeeAccountValue)
+        {
+            writer.WriteStartElement(null, "PyeeAcct", xmlNamespace );
+            PayeeAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ChequeCancellationOrStopReason is ChequeCancellationReason1 ChequeCancellationOrStopReasonValue)
+        {
+            writer.WriteStartElement(null, "ChqCxlOrStopRsn", xmlNamespace );
+            ChequeCancellationOrStopReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Cheque15 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

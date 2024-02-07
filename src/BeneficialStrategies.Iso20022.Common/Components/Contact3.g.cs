@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of a contact person.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Contact3
+     : IIsoXmlSerilizable<Contact3>
 {
     #nullable enable
     
     /// <summary>
     /// Central phone number for the contact.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? CentralPhoneNumber { get; init; } 
     /// <summary>
     /// Property phone number for the contact.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? PropertyPhoneNumber { get; init; } 
     /// <summary>
     /// Toll-free phone number for the contact.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? TollFreePhoneNumber { get; init; } 
     /// <summary>
     /// Email address of contact.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? Email { get; init; } 
     /// <summary>
     /// Fax phone number.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? FaxNumber { get; init; } 
     /// <summary>
     /// Universal Resource Locator (URL) address.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? URLAddress { get; init; } 
     /// <summary>
     /// Language of the contact.
     /// </summary>
-    [DataMember]
     public LanguageCode? Language { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CentralPhoneNumber is IsoPhoneNumber CentralPhoneNumberValue)
+        {
+            writer.WriteStartElement(null, "CntrlPhneNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(CentralPhoneNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (PropertyPhoneNumber is IsoPhoneNumber PropertyPhoneNumberValue)
+        {
+            writer.WriteStartElement(null, "PrprtyPhneNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(PropertyPhoneNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (TollFreePhoneNumber is IsoPhoneNumber TollFreePhoneNumberValue)
+        {
+            writer.WriteStartElement(null, "TollFreePhneNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(TollFreePhoneNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (Email is IsoMax256Text EmailValue)
+        {
+            writer.WriteStartElement(null, "Email", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(EmailValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (FaxNumber is IsoPhoneNumber FaxNumberValue)
+        {
+            writer.WriteStartElement(null, "FaxNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(FaxNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (URLAddress is IsoMax256Text URLAddressValue)
+        {
+            writer.WriteStartElement(null, "URLAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(URLAddressValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (Language is LanguageCode LanguageValue)
+        {
+            writer.WriteStartElement(null, "Lang", xmlNamespace );
+            writer.WriteValue(LanguageValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static Contact3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

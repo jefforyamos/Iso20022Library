@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UnitPrice3
+     : IIsoXmlSerilizable<UnitPrice3>
 {
     #nullable enable
     
     /// <summary>
     /// Type and information about a price.
     /// </summary>
-    [DataMember]
     public required TypeOfPrice2Code PriceType { get; init; } 
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
-    [DataMember]
     public required PriceValue1 Value { get; init; } 
     /// <summary>
     /// Type of pricing calculation method.
     /// </summary>
-    [DataMember]
     public PriceMethod1Code? PriceMethod { get; init; } 
     /// <summary>
     /// Interest that has accumulated between the most recent payment of interest and the sale of the financial instrument.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? AccruedInterestNAV { get; init; } 
     /// <summary>
     /// Specifies the number of days used for calculating the accrued interest amount.
     /// </summary>
-    [DataMember]
     public IsoNumber? NumberOfDaysAccrued { get; init; } 
     /// <summary>
     /// Amount included in the NAV that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? TaxableIncomePerShare { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PricTp", xmlNamespace );
+        writer.WriteValue(PriceType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        Value.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PriceMethod is PriceMethod1Code PriceMethodValue)
+        {
+            writer.WriteStartElement(null, "PricMtd", xmlNamespace );
+            writer.WriteValue(PriceMethodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AccruedInterestNAV is IsoCurrencyAndAmount AccruedInterestNAVValue)
+        {
+            writer.WriteStartElement(null, "AcrdIntrstNAV", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(AccruedInterestNAVValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (NumberOfDaysAccrued is IsoNumber NumberOfDaysAccruedValue)
+        {
+            writer.WriteStartElement(null, "NbOfDaysAcrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfDaysAccruedValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (TaxableIncomePerShare is IsoCurrencyAndAmount TaxableIncomePerShareValue)
+        {
+            writer.WriteStartElement(null, "TaxblIncmPerShr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(TaxableIncomePerShareValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static UnitPrice3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

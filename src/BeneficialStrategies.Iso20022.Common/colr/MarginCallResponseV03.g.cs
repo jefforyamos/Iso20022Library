@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.colr.MarginCallResponseV03>;
 
 namespace BeneficialStrategies.Iso20022.colr;
 
@@ -33,10 +36,9 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// - or partially accept the recall of collateral.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|This message is sent by the collateral giver or its collateral manager to the collateral taker or its collateral manager or vice versa. This is a response to the MarginCallRequest message. The margin call can be accepted, fully disputed or partially disputed.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|When sent by the collateral giver the MarginCallResponse message is used to:|- fully accept the MarginCallRequest|- or partially accept the MarginCallRequest.||When sent by the collateral taker the MarginCallResponse message is used to:|- fully accept the recall of collateral|- or partially accept the recall of collateral.")]
-public partial record MarginCallResponseV03 : IOuterRecord
+public partial record MarginCallResponseV03 : IOuterRecord<MarginCallResponseV03,MarginCallResponseV03Document>
+    ,IIsoXmlSerilizable<MarginCallResponseV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -48,6 +50,11 @@ public partial record MarginCallResponseV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MrgnCallRspn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => MarginCallResponseV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -142,6 +149,71 @@ public partial record MarginCallResponseV03 : IOuterRecord
     {
         return new MarginCallResponseV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MrgnCallRspn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Oblgtn", xmlNamespace );
+        Obligation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Agreement is Agreement2 AgreementValue)
+        {
+            writer.WriteStartElement(null, "Agrmt", xmlNamespace );
+            AgreementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarginDetailsDueToA is MarginCall1 MarginDetailsDueToAValue)
+        {
+            writer.WriteStartElement(null, "MrgnDtlsDueToA", xmlNamespace );
+            MarginDetailsDueToAValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarginDetailsDueToB is MarginCall1 MarginDetailsDueToBValue)
+        {
+            writer.WriteStartElement(null, "MrgnDtlsDueToB", xmlNamespace );
+            MarginDetailsDueToBValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AgreedAmountDueToA is AgreedAmount1Choice_ AgreedAmountDueToAValue)
+        {
+            writer.WriteStartElement(null, "AgrdAmtDueToA", xmlNamespace );
+            AgreedAmountDueToAValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AgreedAmountDueToB is AgreedAmount1Choice_ AgreedAmountDueToBValue)
+        {
+            writer.WriteStartElement(null, "AgrdAmtDueToB", xmlNamespace );
+            AgreedAmountDueToBValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ResponseDetails is Response1 ResponseDetailsValue)
+        {
+            writer.WriteStartElement(null, "RspnDtls", xmlNamespace );
+            ResponseDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MarginCallResponseV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -149,9 +221,7 @@ public partial record MarginCallResponseV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MarginCallResponseV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record MarginCallResponseV03Document : IOuterDocument<MarginCallResponseV03>
+public partial record MarginCallResponseV03Document : IOuterDocument<MarginCallResponseV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -167,5 +237,22 @@ public partial record MarginCallResponseV03Document : IOuterDocument<MarginCallR
     /// <summary>
     /// The instance of <seealso cref="MarginCallResponseV03"/> is required.
     /// </summary>
+    [DataMember(Name=MarginCallResponseV03.XmlTag)]
     public required MarginCallResponseV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(MarginCallResponseV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

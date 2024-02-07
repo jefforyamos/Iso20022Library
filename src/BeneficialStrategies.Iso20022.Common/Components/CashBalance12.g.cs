@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Balance details for a cash account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashBalance12
+     : IIsoXmlSerilizable<CashBalance12>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the nature of a balance.
     /// </summary>
-    [DataMember]
-    public ValueList<BalanceType11Choice_> Type { get; init; } = []; // Warning: Don't know multiplicity.
+    public BalanceType11Choice_? Type { get; init; } 
     /// <summary>
     /// Specifies the type of counterparty for which the balance is calculated.
     /// </summary>
-    [DataMember]
     public required BalanceCounterparty1Code CounterpartyType { get; init; } 
     /// <summary>
     /// Specifies the counterparty for which the balance is calculated.
     /// </summary>
-    [DataMember]
-    public ValueList<BranchAndFinancialInstitutionIdentification6> CounterpartyIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public BranchAndFinancialInstitutionIdentification6? CounterpartyIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the balance is or will be available.
     /// </summary>
-    [DataMember]
-    public ValueList<DateAndDateTimeSearch4Choice_> ValueDate { get; init; } = []; // Warning: Don't know multiplicity.
+    public DateAndDateTimeSearch4Choice_? ValueDate { get; init; } 
     /// <summary>
     /// Date or date time when the balance was last updated following an entry posted to the account, in the books of the account servicing institution.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeSearch4Choice_? ProcessingDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is BalanceType11Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CtrPtyTp", xmlNamespace );
+        writer.WriteValue(CounterpartyType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (CounterpartyIdentification is BranchAndFinancialInstitutionIdentification6 CounterpartyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
+            CounterpartyIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValueDate is DateAndDateTimeSearch4Choice_ ValueDateValue)
+        {
+            writer.WriteStartElement(null, "ValDt", xmlNamespace );
+            ValueDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProcessingDate is DateAndDateTimeSearch4Choice_ ProcessingDateValue)
+        {
+            writer.WriteStartElement(null, "PrcgDt", xmlNamespace );
+            ProcessingDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CashBalance12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

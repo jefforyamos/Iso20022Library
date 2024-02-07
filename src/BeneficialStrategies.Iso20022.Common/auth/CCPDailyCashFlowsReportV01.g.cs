@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.auth.CCPDailyCashFlowsReportV01>;
 
 namespace BeneficialStrategies.Iso20022.auth;
 
@@ -22,10 +25,9 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// 
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The CCPDailyCashFlowsReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority of the operational performance and exposures that occurred in a central counterparty payment system.|")]
-public partial record CCPDailyCashFlowsReportV01 : IOuterRecord
+public partial record CCPDailyCashFlowsReportV01 : IOuterRecord<CCPDailyCashFlowsReportV01,CCPDailyCashFlowsReportV01Document>
+    ,IIsoXmlSerilizable<CCPDailyCashFlowsReportV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -37,6 +39,11 @@ public partial record CCPDailyCashFlowsReportV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "CCPDalyCshFlowsRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CCPDailyCashFlowsReportV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -77,6 +84,35 @@ public partial record CCPDailyCashFlowsReportV01 : IOuterRecord
     {
         return new CCPDailyCashFlowsReportV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("CCPDalyCshFlowsRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CncntrtnAgt", xmlNamespace );
+        ConcentrationAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmAgt", xmlNamespace );
+        SettlementAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CCPDailyCashFlowsReportV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -84,9 +120,7 @@ public partial record CCPDailyCashFlowsReportV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPDailyCashFlowsReportV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CCPDailyCashFlowsReportV01Document : IOuterDocument<CCPDailyCashFlowsReportV01>
+public partial record CCPDailyCashFlowsReportV01Document : IOuterDocument<CCPDailyCashFlowsReportV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -102,5 +136,22 @@ public partial record CCPDailyCashFlowsReportV01Document : IOuterDocument<CCPDai
     /// <summary>
     /// The instance of <seealso cref="CCPDailyCashFlowsReportV01"/> is required.
     /// </summary>
+    [DataMember(Name=CCPDailyCashFlowsReportV01.XmlTag)]
     public required CCPDailyCashFlowsReportV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CCPDailyCashFlowsReportV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

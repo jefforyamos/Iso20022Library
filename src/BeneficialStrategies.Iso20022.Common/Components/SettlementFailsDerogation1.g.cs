@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the derogation related data of settlement fails instructions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementFailsDerogation1
+     : IIsoXmlSerilizable<SettlementFailsDerogation1>
 {
     #nullable enable
     
     /// <summary>
     /// Defines whether the item is eligible for derogation or not.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator EligibilityIndicator { get; init; } 
     /// <summary>
     /// Justification for the derogation.
     /// </summary>
-    [DataMember]
     public SettlementFailsJustification1? Justification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ElgbltyInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(EligibilityIndicator)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        if (Justification is SettlementFailsJustification1 JustificationValue)
+        {
+            writer.WriteStartElement(null, "Justfn", xmlNamespace );
+            JustificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementFailsDerogation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

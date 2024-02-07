@@ -7,78 +7,138 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of characteristics that unambiguously identify the global invoice financing request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RequestGroupInformation1
+     : IIsoXmlSerilizable<RequestGroupInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Point to point reference assigned by the financing requestor to unambiguously identify the invoice financing request message.||Usage: The financing requestor has to make sure that 'GroupIdentification' is unique for a pre-agreed period.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text GroupIdentification { get; init; } 
     /// <summary>
     /// Date and time on which the invoice financing request was created.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// User identification or any user key that allows to check if the financing requestor is allowed to ask for invoice financing.||Usage: the content is not of a technical nature, but reflects the organisational structure at the requesting side.|The authorisation element can typically be used in case the financing requestor acts on behalf of one or more suppliers.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax128Text> Authorisation { get; init; } = [];
+    public SimpleValueList<IsoMax128Text> Authorisation { get; init; } = [];
     /// <summary>
     /// Specifies the number of single invoice financing requests included in the bulk request message.
     /// </summary>
-    [DataMember]
     public IsoMax15NumericText? NumberOfInvoiceRequests { get; init; } 
     /// <summary>
     /// Total amount of the bulk invoice financing request. It is composed by the sum of the total amounts of all invoices included in the financing request.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalBulkInvoiceAmount { get; init; } 
     /// <summary>
     /// Reference currency of the invoice financing request.
     /// </summary>
-    [DataMember]
     public required CurrencyCode Currency { get; init; } 
     /// <summary>
     /// Specifies the financing method related to invoice financing (eg collection mandate).
     /// </summary>
-    [DataMember]
     public IsoMax350Text? FinancingAgreement { get; init; } 
     /// <summary>
     /// Party that requests the invoice financing, on behalf of a creditor.
     /// </summary>
-    [DataMember]
     public required PartyIdentificationAndAccount6 FinancingRequestor { get; init; } 
     /// <summary>
     /// Financial institution that receives the request from the financing requestor and forwards it to the first agent for execution.
     /// </summary>
-    [DataMember]
     public FinancialInstitutionIdentification6? IntermediaryAgent { get; init; } 
     /// <summary>
     /// Financial institution of financing requestor to which an invoice financing request is addressed.
     /// </summary>
-    [DataMember]
     public required FinancialInstitutionIdentification6 FirstAgent { get; init; } 
     /// <summary>
     /// Agreements between financing requestor and his bank concerning conditions about the service of invoice financing, based on specific contractual schemes.
     /// </summary>
-    [DataMember]
-    public ValueList<AgreementClauses1> AgreementClauses { get; init; } = []; // Warning: Don't know multiplicity.
+    public AgreementClauses1? AgreementClauses { get; init; } 
     /// <summary>
     /// Additional information about the financing request.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation1> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation1? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(GroupIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Authstn", xmlNamespace );
+        Authorisation.Serialize(writer, xmlNamespace, "Max128Text", SerializationFormatter.IsoMax128Text );
+        writer.WriteEndElement();
+        if (NumberOfInvoiceRequests is IsoMax15NumericText NumberOfInvoiceRequestsValue)
+        {
+            writer.WriteStartElement(null, "NbOfInvcReqs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(NumberOfInvoiceRequestsValue)); // data type Max15NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (TotalBulkInvoiceAmount is IsoActiveCurrencyAndAmount TotalBulkInvoiceAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlBlkInvcAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalBulkInvoiceAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Ccy", xmlNamespace );
+        writer.WriteValue(Currency.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (FinancingAgreement is IsoMax350Text FinancingAgreementValue)
+        {
+            writer.WriteStartElement(null, "FincgAgrmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(FinancingAgreementValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FincgRqstr", xmlNamespace );
+        FinancingRequestor.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (IntermediaryAgent is FinancialInstitutionIdentification6 IntermediaryAgentValue)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt", xmlNamespace );
+            IntermediaryAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FrstAgt", xmlNamespace );
+        FirstAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AgreementClauses is AgreementClauses1 AgreementClausesValue)
+        {
+            writer.WriteStartElement(null, "AgrmtClauses", xmlNamespace );
+            AgreementClausesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation1 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RequestGroupInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

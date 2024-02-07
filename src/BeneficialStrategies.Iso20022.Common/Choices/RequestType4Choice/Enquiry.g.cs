@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.RequestType4Choice;
 
@@ -13,6 +15,37 @@ namespace BeneficialStrategies.Iso20022.Choices.RequestType4Choice;
 /// Request type is an enquiry on a position or a transaction.
 /// </summary>
 public partial record Enquiry : RequestType4Choice_
+     , IIsoXmlSerilizable<Enquiry>
 {
-    public required ExternalEnquiryRequestType1Code Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies the external request type code for the enquiry on a position in the format of character string with a maximum length of 4 characters.
+    /// The list of valid codes is an external code set published separately.
+    /// External code sets can be downloaded from www.iso20022.org.
+    /// </summary>
+    public required ExternalEnquiryRequestType1Code Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Enqry", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new Enquiry Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

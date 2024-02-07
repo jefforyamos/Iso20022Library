@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique identification of the party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TrackerParty1
+     : IIsoXmlSerilizable<TrackerParty1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous way to identify an organisation.
     /// </summary>
-    [DataMember]
     public required OrganisationIdentification33 OrganisationIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OrgId", xmlNamespace );
+        OrganisationIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static TrackerParty1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

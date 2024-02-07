@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details of an early termination report on a trade position.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradePositionEarlyTermination5
+     : IIsoXmlSerilizable<TradePositionEarlyTermination5>
 {
     #nullable enable
     
     /// <summary>
     /// Counterparty data details.
     /// </summary>
-    [DataMember]
     public ValueList<CounterpartySpecificData22> CounterpartySpecificData { get; init; } = [];
     /// <summary>
     /// Contract and transaction trade data details.
     /// </summary>
-    [DataMember]
     public required CommonTradeDataReport35 CommonTradeData { get; init; } 
     /// <summary>
     /// Specifies technical attributes of the message.
     /// </summary>
-    [DataMember]
     public TechnicalAttributes1? TechnicalAttributes { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CtrPtySpcfcData", xmlNamespace );
+        CounterpartySpecificData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CmonTradData", xmlNamespace );
+        CommonTradeData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TechnicalAttributes is TechnicalAttributes1 TechnicalAttributesValue)
+        {
+            writer.WriteStartElement(null, "TechAttrbts", xmlNamespace );
+            TechnicalAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradePositionEarlyTermination5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

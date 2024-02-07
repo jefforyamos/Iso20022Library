@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data to request a Batch service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BatchRequest3
+     : IIsoXmlSerilizable<BatchRequest3>
 {
     #nullable enable
     
     /// <summary>
     /// Flag to remove all the transactions.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? RemoveAllFlag { get; init; } 
     /// <summary>
     /// Content of the Batch Request message.
     /// </summary>
-    [DataMember]
-    public ValueList<TransactionToPerform3Choice_> TransactionToPerform { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransactionToPerform3Choice_? TransactionToPerform { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (RemoveAllFlag is IsoTrueFalseIndicator RemoveAllFlagValue)
+        {
+            writer.WriteStartElement(null, "RmvAllFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(RemoveAllFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionToPerform is TransactionToPerform3Choice_ TransactionToPerformValue)
+        {
+            writer.WriteStartElement(null, "TxToPrfrm", xmlNamespace );
+            TransactionToPerformValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BatchRequest3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

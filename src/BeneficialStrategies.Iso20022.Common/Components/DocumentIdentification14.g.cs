@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a document as well as the document number.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DocumentIdentification14
+     : IIsoXmlSerilizable<DocumentIdentification14>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identifier of the document (message) assigned either by the account servicer or the account owner.
     /// </summary>
-    [DataMember]
     public required DocumentIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Identification of the type of document.
     /// </summary>
-    [DataMember]
     public DocumentNumber1Choice_? DocumentNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DocumentNumber is DocumentNumber1Choice_ DocumentNumberValue)
+        {
+            writer.WriteStartElement(null, "DocNb", xmlNamespace );
+            DocumentNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DocumentIdentification14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

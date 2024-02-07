@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Original and current value of an asset-back instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OriginalAndCurrentQuantities4
+     : IIsoXmlSerilizable<OriginalAndCurrentQuantities4>
 {
     #nullable enable
     
     /// <summary>
     /// Quantity expressed as an amount representing the face amount, that is, the principal of a debt instrument.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINImpliedCurrencyAndAmount FaceAmount { get; init; } 
     /// <summary>
     /// Quantity expressed as an amount representing the current amortised face amount of a bond, for example, a periodic reduction/increase of a bond's principal amount.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINImpliedCurrencyAndAmount AmortisedValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FaceAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINImpliedCurrencyAndAmount(FaceAmount)); // data type RestrictedFINImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AmtsdVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINImpliedCurrencyAndAmount(AmortisedValue)); // data type RestrictedFINImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static OriginalAndCurrentQuantities4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

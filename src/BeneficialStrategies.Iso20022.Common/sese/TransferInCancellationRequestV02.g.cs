@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.TransferInCancellationRequestV02>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// The message identification of the TransferInInstruction message in which the transfer was conveyed may also be quoted in PreviousReference. It is also possible to request the cancellation of a TransferInInstruction message by quoting its message identification in PreviousReference.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An instructing party, eg, a transfer agent, sends the TransferInCancellationRequest message to the executing party, eg, a transfer agent, to request the cancellation of a previously sent TransferInInstruction.|Usage|The TransferInCancellationRequest message is used to request cancellation of a previously sent TransferInInstruction.|There are two ways to specify the transfer cancellation request. Either:|- the transfer reference of the original transfer is quoted, or,|- all the details of the original transfer (this includes TransferReference) are quoted but this is not recommended.|The message identification of the TransferInInstruction message in which the transfer was conveyed may also be quoted in PreviousReference. It is also possible to request the cancellation of a TransferInInstruction message by quoting its message identification in PreviousReference.")]
-public partial record TransferInCancellationRequestV02 : IOuterRecord
+public partial record TransferInCancellationRequestV02 : IOuterRecord<TransferInCancellationRequestV02,TransferInCancellationRequestV02Document>
+    ,IIsoXmlSerilizable<TransferInCancellationRequestV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record TransferInCancellationRequestV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "TrfInCxlReqV02";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => TransferInCancellationRequestV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -118,6 +125,62 @@ public partial record TransferInCancellationRequestV02 : IOuterRecord
     {
         return new TransferInCancellationRequestV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("TrfInCxlReqV02");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PreviousReference is AdditionalReference2 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PoolReference is AdditionalReference2 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference2 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CancellationByReference is TransferReference1 CancellationByReferenceValue)
+        {
+            writer.WriteStartElement(null, "CxlByRef", xmlNamespace );
+            CancellationByReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CancellationByTransferInDetails is TransferIn3 CancellationByTransferInDetailsValue)
+        {
+            writer.WriteStartElement(null, "CxlByTrfInDtls", xmlNamespace );
+            CancellationByTransferInDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CopyDetails is CopyInformation2 CopyDetailsValue)
+        {
+            writer.WriteStartElement(null, "CpyDtls", xmlNamespace );
+            CopyDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransferInCancellationRequestV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -125,9 +188,7 @@ public partial record TransferInCancellationRequestV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransferInCancellationRequestV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record TransferInCancellationRequestV02Document : IOuterDocument<TransferInCancellationRequestV02>
+public partial record TransferInCancellationRequestV02Document : IOuterDocument<TransferInCancellationRequestV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -143,5 +204,22 @@ public partial record TransferInCancellationRequestV02Document : IOuterDocument<
     /// <summary>
     /// The instance of <seealso cref="TransferInCancellationRequestV02"/> is required.
     /// </summary>
+    [DataMember(Name=TransferInCancellationRequestV02.XmlTag)]
     public required TransferInCancellationRequestV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(TransferInCancellationRequestV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

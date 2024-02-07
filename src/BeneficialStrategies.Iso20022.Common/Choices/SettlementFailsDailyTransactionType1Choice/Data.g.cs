@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SettlementFailsDailyTransactionType1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementFailsDailyTransactionT
 /// Aggregated data of settlement instructions.
 /// </summary>
 public partial record Data : SettlementFailsDailyTransactionType1Choice_
+     , IIsoXmlSerilizable<Data>
 {
     #nullable enable
+    
     /// <summary>
     /// Purchase or sale of securities.
     /// </summary>
@@ -35,5 +39,38 @@ public partial record Data : SettlementFailsDailyTransactionType1Choice_
     /// Covers any securities transactions type not covered as a dedicated type.
     /// </summary>
     public required SettlementFailsDailyCSD1Choice_ Other { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SctiesBuyOrSell", xmlNamespace );
+        SecuritiesBuyOrSell.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CollMgmtOpr", xmlNamespace );
+        CollateralManagementOperation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctiesLndgOrBrrwg", xmlNamespace );
+        SecuritiesLendingOrBorrowing.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RpAgrmt", xmlNamespace );
+        RepurchaseAgreement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Othr", xmlNamespace );
+        Other.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new Data Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of a currency.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CurrencyDetails1
+     : IIsoXmlSerilizable<CurrencyDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Alpha currency code (ISO 4217, 3 alphanumeric characters).
     /// </summary>
-    [DataMember]
     public required CurrencyCode AlphaCode { get; init; } 
     /// <summary>
     /// Numeric currency code (ISO 4217, 3 numeric characters).
     /// </summary>
-    [DataMember]
     public required IsoExact3NumericText NumericCode { get; init; } 
     /// <summary>
     /// Maximal number of digits after the decimal separator for the currency.
     /// </summary>
-    [DataMember]
     public required IsoNumber Decimal { get; init; } 
     /// <summary>
     /// Full name of the currency.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AlphaCd", xmlNamespace );
+        writer.WriteValue(AlphaCode.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NmrcCd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact3NumericText(NumericCode)); // data type Exact3NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Dcml", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(Decimal)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        if (Name is IsoMax35Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CurrencyDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

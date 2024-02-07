@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Other parties information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OtherParties30
+     : IIsoXmlSerilizable<OtherParties30>
 {
     #nullable enable
     
     /// <summary>
     /// Party, either an individual or organisation, whose assets are being invested.
     /// </summary>
-    [DataMember]
     public PartyIdentification110? Investor { get; init; } 
     /// <summary>
     /// Identification of the stock exchange to which transaction reporting will be done.
     /// </summary>
-    [DataMember]
     public PartyIdentification111? StockExchange { get; init; } 
     /// <summary>
     /// Institution to which a trade must be reported.
     /// </summary>
-    [DataMember]
     public PartyIdentification111? TradeRegulator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Investor is PartyIdentification110 InvestorValue)
+        {
+            writer.WriteStartElement(null, "Invstr", xmlNamespace );
+            InvestorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StockExchange is PartyIdentification111 StockExchangeValue)
+        {
+            writer.WriteStartElement(null, "StockXchg", xmlNamespace );
+            StockExchangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeRegulator is PartyIdentification111 TradeRegulatorValue)
+        {
+            writer.WriteStartElement(null, "TradRgltr", xmlNamespace );
+            TradeRegulatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OtherParties30 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

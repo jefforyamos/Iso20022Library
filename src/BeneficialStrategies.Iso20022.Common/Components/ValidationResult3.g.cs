@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes the error that is the cause of the rejection.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ValidationResult3
+     : IIsoXmlSerilizable<ValidationResult3>
 {
     #nullable enable
     
     /// <summary>
     /// Sequential number assigned to the error.
     /// </summary>
-    [DataMember]
     public required IsoNumber SequenceNumber { get; init; } 
     /// <summary>
     /// Coded identification of the rule that is violated by the rejected message.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text RuleIdentification { get; init; } 
     /// <summary>
     /// Detailed description of the rule.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text RuleDescription { get; init; } 
     /// <summary>
     /// Description of the elements that violated the rule.
     /// </summary>
-    [DataMember]
-    public ValueList<ElementIdentification3> Element { get; init; } = []; // Warning: Don't know multiplicity.
+    public ElementIdentification3? Element { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SeqNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(SequenceNumber)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RuleId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(RuleIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RuleDesc", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(RuleDescription)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (Element is ElementIdentification3 ElementValue)
+        {
+            writer.WriteStartElement(null, "Elmt", xmlNamespace );
+            ElementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ValidationResult3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

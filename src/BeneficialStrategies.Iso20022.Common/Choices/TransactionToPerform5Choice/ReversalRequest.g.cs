@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform5Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform5Choice;
 /// Content of the Reversal Request message.
 /// </summary>
 public partial record ReversalRequest : TransactionToPerform5Choice_
+     , IIsoXmlSerilizable<ReversalRequest>
 {
     #nullable enable
+    
     /// <summary>
     /// Transaction to reverse.
     /// </summary>
@@ -22,7 +26,7 @@ public partial record ReversalRequest : TransactionToPerform5Choice_
     /// <summary>
     /// Data linked to card loyalty during payment.
     /// </summary>
-    public LoyaltyRequestData3? LoyaltyData { get; init;  } // Warning: Don't know multiplicity.
+    public LoyaltyRequestData3? LoyaltyData { get; init; } 
     /// <summary>
     /// Reason for this reversal.
     /// </summary>
@@ -35,5 +39,50 @@ public partial record ReversalRequest : TransactionToPerform5Choice_
     /// Specific Customer Order linked with the reversal.
     /// </summary>
     public CustomerOrder1? CustomerOrder { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReversalTransaction is CardPaymentTransaction127 ReversalTransactionValue)
+        {
+            writer.WriteStartElement(null, "RvslTx", xmlNamespace );
+            ReversalTransactionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LoyaltyData is LoyaltyRequestData3 LoyaltyDataValue)
+        {
+            writer.WriteStartElement(null, "LltyData", xmlNamespace );
+            LoyaltyDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RvslRsn", xmlNamespace );
+        writer.WriteValue(ReversalReason.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ReversedAmount is IsoImpliedCurrencyAndAmount ReversedAmountValue)
+        {
+            writer.WriteStartElement(null, "RvsdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ReversedAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CustomerOrder is CustomerOrder1 CustomerOrderValue)
+        {
+            writer.WriteStartElement(null, "CstmrOrdr", xmlNamespace );
+            CustomerOrderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new ReversalRequest Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

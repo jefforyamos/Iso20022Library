@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Net position of a segregated holding of a single security within the overall position held in the securities account, eg, sub-balance per status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalBalanceInformation3
+     : IIsoXmlSerilizable<AdditionalBalanceInformation3>
 {
     #nullable enable
     
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    [DataMember]
     public required SubBalanceQuantity1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Net position of a segregated holding of a single security within the overall position held in the securities account, eg, sub-balance per status.
     /// </summary>
-    [DataMember]
     public required SubBalanceType1Choice_ AdditionalBalanceInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        Quantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AddtlBalInf", xmlNamespace );
+        AdditionalBalanceInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static AdditionalBalanceInformation3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

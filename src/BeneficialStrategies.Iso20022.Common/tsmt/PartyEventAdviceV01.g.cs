@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsmt.PartyEventAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.tsmt;
 
@@ -24,10 +27,9 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// The message can carry digital signatures if required by context.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The PartyEventAdvice message can be sent by any party to any other party. It is used for business letters containing information for which treatment is not formally defined in order to keep partners informed and to maintain business traces, for example confirmations of information exchanged out-of band such as announcing a postal letter, confirming a telephone call or the exchange of contractual information. It can also be sent to verify the technical interoperability of the communicating IT-systems.|The message can reference other message and include data from referenced messages.|The message can report several events.|The message can carry digital signatures if required by context.")]
-public partial record PartyEventAdviceV01 : IOuterRecord
+public partial record PartyEventAdviceV01 : IOuterRecord<PartyEventAdviceV01,PartyEventAdviceV01Document>
+    ,IIsoXmlSerilizable<PartyEventAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -39,6 +41,11 @@ public partial record PartyEventAdviceV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "PtyEvtAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => PartyEventAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -88,6 +95,41 @@ public partial record PartyEventAdviceV01 : IOuterRecord
     {
         return new PartyEventAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("PtyEvtAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EvtNtce", xmlNamespace );
+        EventNotice.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (EventCount is IsoMax15NumericText EventCountValue)
+        {
+            writer.WriteStartElement(null, "EvtCnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(EventCountValue)); // data type Max15NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (AttachedMessage is EncapsulatedBusinessMessage1 AttachedMessageValue)
+        {
+            writer.WriteStartElement(null, "AttchdMsg", xmlNamespace );
+            AttachedMessageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyEventAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -95,9 +137,7 @@ public partial record PartyEventAdviceV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyEventAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record PartyEventAdviceV01Document : IOuterDocument<PartyEventAdviceV01>
+public partial record PartyEventAdviceV01Document : IOuterDocument<PartyEventAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -113,5 +153,22 @@ public partial record PartyEventAdviceV01Document : IOuterDocument<PartyEventAdv
     /// <summary>
     /// The instance of <seealso cref="PartyEventAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=PartyEventAdviceV01.XmlTag)]
     public required PartyEventAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(PartyEventAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

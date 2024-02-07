@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data specific to commodities and related fields used as a collateral.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Commodity20
+     : IIsoXmlSerilizable<Commodity20>
 {
     #nullable enable
     
     /// <summary>
     /// Details on commodities assignments to sectors.
     /// </summary>
-    [DataMember]
     public AssetClassCommodity5Choice_? Classification { get; init; } 
     /// <summary>
     /// Quantity of the commodity.
     /// </summary>
-    [DataMember]
     public Quantity17? Quantity { get; init; } 
     /// <summary>
     /// Price of unit of asset or collateral component, including accrued interest for interest-bearing securities, used to value the commodity .
     /// </summary>
-    [DataMember]
     public SecuritiesTransactionPrice11Choice_? UnitPrice { get; init; } 
     /// <summary>
     /// Market value of asset or collateral component.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? MarketValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Classification is AssetClassCommodity5Choice_ ClassificationValue)
+        {
+            writer.WriteStartElement(null, "Clssfctn", xmlNamespace );
+            ClassificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Quantity is Quantity17 QuantityValue)
+        {
+            writer.WriteStartElement(null, "Qty", xmlNamespace );
+            QuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnitPrice is SecuritiesTransactionPrice11Choice_ UnitPriceValue)
+        {
+            writer.WriteStartElement(null, "UnitPric", xmlNamespace );
+            UnitPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarketValue is IsoActiveOrHistoricCurrencyAndAmount MarketValueValue)
+        {
+            writer.WriteStartElement(null, "MktVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(MarketValueValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static Commodity20 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

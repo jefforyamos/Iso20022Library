@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Bank account used by a central counterparty to allow for the convenient settlement of obligations between a central counterparty and a clearing member, typically in commercial bank money.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentAccount1
+     : IIsoXmlSerilizable<PaymentAccount1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the currency of the account
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Total value of actual flows to and from clearing members via payment banks in the embedded system in each currency.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection86 NetPayment { get; init; } 
     /// <summary>
     /// Number of payment bank account pay‐ins breaching the allowed time between instruction and confirmation. Usage: nil returns to be included for late payment confirmations in all cleared currencies.
     /// </summary>
-    [DataMember]
     public required IsoMax10NumericText LatePaymentConfirmation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ccy", xmlNamespace );
+        writer.WriteValue(Currency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NetPmt", xmlNamespace );
+        NetPayment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "LatePmtConf", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax10NumericText(LatePaymentConfirmation)); // data type Max10NumericText System.String
+        writer.WriteEndElement();
+    }
+    public static PaymentAccount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

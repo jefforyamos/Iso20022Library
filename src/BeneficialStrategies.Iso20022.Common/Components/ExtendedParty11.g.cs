@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Party and account information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ExtendedParty11
+     : IIsoXmlSerilizable<ExtendedParty11>
 {
     #nullable enable
     
     /// <summary>
     /// Other type of party's role.
     /// </summary>
-    [DataMember]
     public required IsoExtended350Code ExtendedPartyRole { get; init; } 
     /// <summary>
     /// Detailed ownership information about a party.
     /// </summary>
-    [DataMember]
     public required InvestmentAccountOwnershipInformation14 OtherPartyDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "XtndedPtyRole", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedPartyRole)); // data type Extended350Code System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrPtyDtls", xmlNamespace );
+        OtherPartyDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ExtendedParty11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

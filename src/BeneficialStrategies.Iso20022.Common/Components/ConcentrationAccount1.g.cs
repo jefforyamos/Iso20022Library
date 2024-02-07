@@ -7,48 +7,78 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Bank account used by a central counterparty to concentrate cash funds before or after investment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ConcentrationAccount1
+     : IIsoXmlSerilizable<ConcentrationAccount1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates inflows into the account.
     /// </summary>
-    [DataMember]
     public required Flows1 InFlow { get; init; } 
     /// <summary>
     /// Indicates outflows out of the account.
     /// </summary>
-    [DataMember]
     public required Flows1 OutFlow { get; init; } 
     /// <summary>
     /// Indicates end of day cash balance on the account.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection102 EndOfDay { get; init; } 
     /// <summary>
     /// Indicates peak credit balance on the account.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount PeakCredit { get; init; } 
     /// <summary>
     /// Indicates peak debit balance on the account.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount PeakDebit { get; init; } 
     /// <summary>
     /// Number of concentration account pay‐ins breaching the allowed time between instruction and confirmation. Usage: nil returns to be included for late payment confirmations in all cleared currencies.
     /// </summary>
-    [DataMember]
     public required IsoMax10NumericText LatePaymentConfirmation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "InFlow", xmlNamespace );
+        InFlow.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OutFlow", xmlNamespace );
+        OutFlow.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EndOfDay", xmlNamespace );
+        EndOfDay.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PeakCdt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PeakCredit)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PeakDbt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PeakDebit)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "LatePmtConf", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax10NumericText(LatePaymentConfirmation)); // data type Max10NumericText System.String
+        writer.WriteEndElement();
+    }
+    public static ConcentrationAccount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

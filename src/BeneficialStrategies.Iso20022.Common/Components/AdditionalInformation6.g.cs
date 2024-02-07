@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional information about a request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalInformation6
+     : IIsoXmlSerilizable<AdditionalInformation6>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of additional information.
     /// </summary>
-    [DataMember]
     public required ExternalInformationType1Code InformationType { get; init; } 
     /// <summary>
     /// Contents of the additional information.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text InformationValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "InfTp", xmlNamespace );
+        writer.WriteValue(InformationType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InfVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(InformationValue)); // data type Max350Text System.String
+        writer.WriteEndElement();
+    }
+    public static AdditionalInformation6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

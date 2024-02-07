@@ -7,32 +7,30 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to counterparty identification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Counterparty34
+     : IIsoXmlSerilizable<Counterparty34>
 {
     #nullable enable
     
     /// <summary>
     /// Unique code identifying the reporting counterparty of the contract.
     /// </summary>
-    [DataMember]
     public required OrganisationIdentification10Choice_ Identification { get; init; } 
     /// <summary>
     /// Indicates if the reporting counterparty is a central counterparty, a financial, non-financial counterparty or other type of counterparty in accordance with regulation.
     /// </summary>
-    [DataMember]
     public CounterpartyTradeNature9Choice_? Nature { get; init; } 
     /// <summary>
     /// Identifies the trading capacity of the seller.
     /// </summary>
-    [DataMember]
     public TradingCapacity7Code? TradingCapacity { get; init; } 
     /// <summary>
     /// Indicates the direction of the derivative transaction from the perspective of the reporting counterparty.
@@ -40,8 +38,45 @@ public partial record Counterparty34
     /// DirectionOfTheFirstLeg should be used for most swaps and swap-like contracts including interest rate swaps, credit total return swaps, and equity swaps (except for credit default swaps, variance, volatility, and correlation swaps) as well as for the foreign exchange swaps, forwards and non-deliverable forwards.
     /// CounterpartySide should be used for the instruments such as most forwards and forward-like contracts (except for foreign exchange forwards and foreign exchange non-deliverable forwards); most options and option-like contracts including swaptions, caps and floors; credit default swaps; variance, volatility and correlation swaps; contracts for difference and spreadbets.
     /// </summary>
-    [DataMember]
     public Direction2Choice_? Direction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Nature is CounterpartyTradeNature9Choice_ NatureValue)
+        {
+            writer.WriteStartElement(null, "Ntr", xmlNamespace );
+            NatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradingCapacity is TradingCapacity7Code TradingCapacityValue)
+        {
+            writer.WriteStartElement(null, "TradgCpcty", xmlNamespace );
+            writer.WriteValue(TradingCapacityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Direction is Direction2Choice_ DirectionValue)
+        {
+            writer.WriteStartElement(null, "Drctn", xmlNamespace );
+            DirectionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Counterparty34 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

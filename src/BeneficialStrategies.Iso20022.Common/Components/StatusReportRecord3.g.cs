@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the per record status details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StatusReportRecord3
+     : IIsoXmlSerilizable<StatusReportRecord3>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous technical identification of the original data for which the status is provided.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text OriginalRecordIdentification { get; init; } 
     /// <summary>
     /// Defines status of the reported transaction.
     /// </summary>
-    [DataMember]
     public required ReportingRecordStatus1Code Status { get; init; } 
     /// <summary>
     /// Provides the details of the rule which could not be validated.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericValidationRuleIdentification1> ValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericValidationRuleIdentification1? ValidationRule { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OrgnlRcrdId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(OriginalRecordIdentification)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ValidationRule is GenericValidationRuleIdentification1 ValidationRuleValue)
+        {
+            writer.WriteStartElement(null, "VldtnRule", xmlNamespace );
+            ValidationRuleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static StatusReportRecord3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

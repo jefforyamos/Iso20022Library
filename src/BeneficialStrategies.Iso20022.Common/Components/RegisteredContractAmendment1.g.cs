@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amendment details and reason related to the registered contract.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RegisteredContractAmendment1
+     : IIsoXmlSerilizable<RegisteredContractAmendment1>
 {
     #nullable enable
     
     /// <summary>
     /// Date of the amendment of the registered contract.
     /// </summary>
-    [DataMember]
     public required IsoISODate AmendmentDate { get; init; } 
     /// <summary>
     /// Reference of the amendment document.
     /// </summary>
-    [DataMember]
     public required DocumentIdentification28 Document { get; init; } 
     /// <summary>
     /// Date from which the amendment is applicable.
     /// </summary>
-    [DataMember]
     public IsoISODate? StartDate { get; init; } 
     /// <summary>
     /// Reason for the amendment.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AmendmentReason { get; init; } 
     /// <summary>
     /// Further details on the amendment.
     /// </summary>
-    [DataMember]
     public IsoMax1025Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AmdmntDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(AmendmentDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Doc", xmlNamespace );
+        Document.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (StartDate is IsoISODate StartDateValue)
+        {
+            writer.WriteStartElement(null, "StartDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(StartDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (AmendmentReason is IsoMax35Text AmendmentReasonValue)
+        {
+            writer.WriteStartElement(null, "AmdmntRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AmendmentReasonValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax1025Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1025Text(AdditionalInformationValue)); // data type Max1025Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static RegisteredContractAmendment1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

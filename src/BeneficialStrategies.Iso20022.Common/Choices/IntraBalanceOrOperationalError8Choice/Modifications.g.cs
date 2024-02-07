@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.IntraBalanceOrOperationalError8Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraBalanceOrOperationalError8C
 /// Further details of the intrabalance modification transactions.
 /// </summary>
 public partial record Modifications : IntraBalanceOrOperationalError8Choice_
+     , IIsoXmlSerilizable<Modifications>
 {
     #nullable enable
+    
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
@@ -35,5 +39,49 @@ public partial record Modifications : IntraBalanceOrOperationalError8Choice_
     /// Further details of the individual intrabalance modification transaction.
     /// </summary>
     public IntraBalanceModification6? Modification { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _aD2U7TneEem7JZMuWtwtsg
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CashAccount is CashAccount38 CashAccountValue)
+        {
+            writer.WriteStartElement(null, "CshAcct", xmlNamespace );
+            CashAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccountOwner is SystemPartyIdentification8 CashAccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "CshAcctOwnr", xmlNamespace );
+            CashAccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccountServicer is BranchAndFinancialInstitutionIdentification6 CashAccountServicerValue)
+        {
+            writer.WriteStartElement(null, "CshAcctSvcr", xmlNamespace );
+            CashAccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProcessingStatus is ProcessingStatus71Choice_ ProcessingStatusValue)
+        {
+            writer.WriteStartElement(null, "PrcgSts", xmlNamespace );
+            ProcessingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize Modification, multiplicity Unknown
+    }
+    public static new Modifications Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

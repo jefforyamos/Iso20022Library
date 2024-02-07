@@ -7,58 +7,113 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates the details of a guarantee.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GuaranteeDetails1
+     : IIsoXmlSerilizable<GuaranteeDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Party issuing the guarantee.
     /// </summary>
-    [DataMember]
     public QualifiedPartyIdentification1? Issuer { get; init; } 
     /// <summary>
     /// Rank of the guarantee provider. A value of 1 means highest rank. Providers may have the same position.
     /// </summary>
-    [DataMember]
     public IsopositiveInteger? Position { get; init; } 
     /// <summary>
     /// Textual description of guarantee details.
     /// </summary>
-    [DataMember]
     public IsoMax2000Text? Description { get; init; } 
     /// <summary>
     /// Amount by time periods, maximum value applies at any given date.
     /// </summary>
-    [DataMember]
-    public ValueList<AmountAndPeriod1> GuaranteedAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public AmountAndPeriod1? GuaranteedAmount { get; init; } 
     /// <summary>
     /// Amount not covered by the guarantee. Maximum value applies at any given date.
     /// </summary>
-    [DataMember]
-    public ValueList<AmountAndPeriod1> Excess { get; init; } = []; // Warning: Don't know multiplicity.
+    public AmountAndPeriod1? Excess { get; init; } 
     /// <summary>
     /// Covered percentage, the maximum value applies at any given date.
     /// </summary>
-    [DataMember]
-    public ValueList<PercentageAndPeriod1> CoveredPercentage { get; init; } = []; // Warning: Don't know multiplicity.
+    public PercentageAndPeriod1? CoveredPercentage { get; init; } 
     /// <summary>
     /// Associated free form document.
     /// </summary>
-    [DataMember]
-    public ValueList<QualifiedDocumentInformation1> AssociatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1? AssociatedDocument { get; init; } 
     /// <summary>
     /// Additional information related to the demand.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Issuer is QualifiedPartyIdentification1 IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            IssuerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Position is IsopositiveInteger PositionValue)
+        {
+            writer.WriteStartElement(null, "Pos", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsopositiveInteger(PositionValue)); // data type positiveInteger System.String
+            writer.WriteEndElement();
+        }
+        if (Description is IsoMax2000Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2000Text(DescriptionValue)); // data type Max2000Text System.String
+            writer.WriteEndElement();
+        }
+        if (GuaranteedAmount is AmountAndPeriod1 GuaranteedAmountValue)
+        {
+            writer.WriteStartElement(null, "GrntedAmt", xmlNamespace );
+            GuaranteedAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Excess is AmountAndPeriod1 ExcessValue)
+        {
+            writer.WriteStartElement(null, "Xcss", xmlNamespace );
+            ExcessValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CoveredPercentage is PercentageAndPeriod1 CoveredPercentageValue)
+        {
+            writer.WriteStartElement(null, "CvrdPctg", xmlNamespace );
+            CoveredPercentageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AssociatedDocument is QualifiedDocumentInformation1 AssociatedDocumentValue)
+        {
+            writer.WriteStartElement(null, "AssoctdDoc", xmlNamespace );
+            AssociatedDocumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+    }
+    public static GuaranteeDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

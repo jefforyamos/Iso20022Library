@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.RatioFormat14Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.RatioFormat14Choice;
 /// Ratio expressed as an amount to quantity ratio.
 /// </summary>
 public partial record AmountToQuantity : RatioFormat14Choice_
+     , IIsoXmlSerilizable<AmountToQuantity>
 {
     #nullable enable
+    
     /// <summary>
     /// Cash amount.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record AmountToQuantity : RatioFormat14Choice_
     /// Quantity expressed as number.
     /// </summary>
     public required IsoRestrictedFINDecimalNumber Quantity { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAnd13DecimalAmount(Amount)); // data type RestrictedFINActiveCurrencyAnd13DecimalAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINDecimalNumber(Quantity)); // data type RestrictedFINDecimalNumber System.UInt64
+        writer.WriteEndElement();
+    }
+    public static new AmountToQuantity Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

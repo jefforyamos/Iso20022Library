@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides for the variation margin, the dispute details like the dispute amount or the dispute date and the resolution type details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record VariationMarginDispute1
+     : IIsoXmlSerilizable<VariationMarginDispute1>
 {
     #nullable enable
     
     /// <summary>
     /// Details of the disputed instruction.
     /// </summary>
-    [DataMember]
     public required Dispute1 DisputeDetails { get; init; } 
     /// <summary>
     /// Specifies the type of dispute that is to be resolved regarding the disputed collateral amount.
     /// </summary>
-    [DataMember]
-    public ValueList<DisputeResolutionType2Choice_> ResolutionTypeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public DisputeResolutionType2Choice_? ResolutionTypeDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DsptDtls", xmlNamespace );
+        DisputeDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ResolutionTypeDetails is DisputeResolutionType2Choice_ ResolutionTypeDetailsValue)
+        {
+            writer.WriteStartElement(null, "RsltnTpDtls", xmlNamespace );
+            ResolutionTypeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static VariationMarginDispute1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

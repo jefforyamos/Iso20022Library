@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique and unambiguous way to identify an organisation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OrganisationIdentification33
+     : IIsoXmlSerilizable<OrganisationIdentification33>
 {
     #nullable enable
     
     /// <summary>
     /// Business identification code of the organisation.
     /// </summary>
-    [DataMember]
     public required IsoAnyBICDec2014Identifier AnyBIC { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AnyBIC", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoAnyBICDec2014Identifier(AnyBIC)); // data type AnyBICDec2014Identifier System.String
+        writer.WriteEndElement();
+    }
+    public static OrganisationIdentification33 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data used to assign specific conditions such as liability shift or preferential interchange fees.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SpecialConditions1
+     : IIsoXmlSerilizable<SpecialConditions1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the special condition.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Level of the condition.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Value { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is IsoMax35Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Value is IsoMax35Text ValueValue)
+        {
+            writer.WriteStartElement(null, "Val", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ValueValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SpecialConditions1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

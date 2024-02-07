@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Totals for the value of the holdings reported in the statement or page.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TotalValueInPageAndStatement5
+     : IIsoXmlSerilizable<TotalValueInPageAndStatement5>
 {
     #nullable enable
     
     /// <summary>
     /// Total value of exposure reported in this message.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalExposureValueOfPage { get; init; } 
     /// <summary>
     /// Total value of collateral held reported in this message.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalCollateralHeldValueOfPage { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TotalExposureValueOfPage is IsoActiveOrHistoricCurrencyAndAmount TotalExposureValueOfPageValue)
+        {
+            writer.WriteStartElement(null, "TtlXpsrValOfPg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalExposureValueOfPageValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TotalCollateralHeldValueOfPage is IsoActiveOrHistoricCurrencyAndAmount TotalCollateralHeldValueOfPageValue)
+        {
+            writer.WriteStartElement(null, "TtlCollHeldValOfPg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalCollateralHeldValueOfPageValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static TotalValueInPageAndStatement5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

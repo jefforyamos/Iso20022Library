@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money placed at a deposit taking institution.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Deposit1
+     : IIsoXmlSerilizable<Deposit1>
 {
     #nullable enable
     
     /// <summary>
     /// Date on which the deposit matures.
     /// </summary>
-    [DataMember]
     public required IsoISODate MaturityDate { get; init; } 
     /// <summary>
     /// Specifies the value of the deposit.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Value { get; init; } 
     /// <summary>
     /// Identifies the legal entity that takes the deposit.
     /// </summary>
-    [DataMember]
     public required IsoLEIIdentifier CounterpartyIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(MaturityDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Value)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(CounterpartyIdentification)); // data type LEIIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static Deposit1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

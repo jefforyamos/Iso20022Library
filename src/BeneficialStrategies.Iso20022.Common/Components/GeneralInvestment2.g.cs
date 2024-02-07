@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a general investment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GeneralInvestment2
+     : IIsoXmlSerilizable<GeneralInvestment2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of investment.
     /// </summary>
-    [DataMember]
     public GeneralInvestmentAccountType2Choice_? Type { get; init; } 
     /// <summary>
     /// Specifies whether the account is, for example, in a nominee name or own name.
     /// </summary>
-    [DataMember]
     public AccountOwnershipType6Code? OwnershipType { get; init; } 
     /// <summary>
     /// Amount of money invested.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? CurrentInvestmentAmount { get; init; } 
     /// <summary>
     /// Estimated value of the assets.
     /// </summary>
-    [DataMember]
     public DateAndAmount2? EstimatedValue { get; init; } 
     /// <summary>
     /// Additional information about the portfolio.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is GeneralInvestmentAccountType2Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OwnershipType is AccountOwnershipType6Code OwnershipTypeValue)
+        {
+            writer.WriteStartElement(null, "OwnrshTp", xmlNamespace );
+            writer.WriteValue(OwnershipTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CurrentInvestmentAmount is IsoActiveCurrencyAnd13DecimalAmount CurrentInvestmentAmountValue)
+        {
+            writer.WriteStartElement(null, "CurInvstmtAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(CurrentInvestmentAmountValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (EstimatedValue is DateAndAmount2 EstimatedValueValue)
+        {
+            writer.WriteStartElement(null, "EstmtdVal", xmlNamespace );
+            EstimatedValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static GeneralInvestment2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

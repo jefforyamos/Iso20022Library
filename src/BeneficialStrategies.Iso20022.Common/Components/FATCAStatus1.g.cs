@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Foreign Account Tax Compliance Act (FATCA) status information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FATCAStatus1
+     : IIsoXmlSerilizable<FATCAStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Foreign Account Tax Compliance Act (FATCA) status.
     /// </summary>
-    [DataMember]
     public required FATCAStatus1Choice_ Type { get; init; } 
     /// <summary>
     /// Source of the Foreign Account Tax Compliance Act (FATCA) status.
     /// </summary>
-    [DataMember]
     public FATCASource1Choice_? Source { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Source is FATCASource1Choice_ SourceValue)
+        {
+            writer.WriteStartElement(null, "Src", xmlNamespace );
+            SourceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FATCAStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide information on the tax amount(s) of tax record.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxAmount1
+     : IIsoXmlSerilizable<TaxAmount1>
 {
     #nullable enable
     
     /// <summary>
     /// Rate used to calculate the tax.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     /// <summary>
     /// Amount of money on which the tax is based.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TaxableBaseAmount { get; init; } 
     /// <summary>
     /// Total amount that is the result of the calculation of the tax for the record.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalAmount { get; init; } 
     /// <summary>
     /// Set of elements used to provide details on the tax period and amount.
     /// </summary>
-    [DataMember]
-    public ValueList<TaxRecordDetails1> Details { get; init; } = []; // Warning: Don't know multiplicity.
+    public TaxRecordDetails1? Details { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Rate is IsoPercentageRate RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TaxableBaseAmount is IsoActiveOrHistoricCurrencyAndAmount TaxableBaseAmountValue)
+        {
+            writer.WriteStartElement(null, "TaxblBaseAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TaxableBaseAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TotalAmount is IsoActiveOrHistoricCurrencyAndAmount TotalAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Details is TaxRecordDetails1 DetailsValue)
+        {
+            writer.WriteStartElement(null, "Dtls", xmlNamespace );
+            DetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TaxAmount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice22Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice22Choi
 /// Captures where no price is yet known.
 /// </summary>
 public partial record NoPrice : SecuritiesTransactionPrice22Choice_
+     , IIsoXmlSerilizable<NoPrice>
 {
     #nullable enable
+    
     /// <summary>
     /// Price is currently not available, but pending.
     /// </summary>
@@ -26,6 +30,39 @@ public partial record NoPrice : SecuritiesTransactionPrice22Choice_
     /// <summary>
     /// Specifies the digital token when the number of units may not be known.
     /// </summary>
-    public DigitalTokenAmount2? DigitalToken { get; init;  } // Warning: Don't know multiplicity.
+    public DigitalTokenAmount2? DigitalToken { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Pdg", xmlNamespace );
+        writer.WriteValue(Pending.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Currency is ActiveOrHistoricCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DigitalToken is DigitalTokenAmount2 DigitalTokenValue)
+        {
+            writer.WriteStartElement(null, "DgtlTkn", xmlNamespace );
+            DigitalTokenValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new NoPrice Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

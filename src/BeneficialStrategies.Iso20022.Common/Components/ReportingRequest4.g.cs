@@ -7,63 +7,120 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides further details on the reporting request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReportingRequest4
+     : IIsoXmlSerilizable<ReportingRequest4>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by the account owner, to unambiguously identify the account reporting request.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Specifies the type of the requested reporting message.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text RequestedMessageNameIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account to which the reporting request refers.
     /// </summary>
-    [DataMember]
     public CashAccount24? Account { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    [DataMember]
     public required Party35Choice_ AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? AccountServicer { get; init; } 
     /// <summary>
     /// Specifies the requested reporting period.
     /// </summary>
-    [DataMember]
     public ReportingPeriod2? ReportingPeriod { get; init; } 
     /// <summary>
     /// Specifies the range of identification sequence numbers which are being requested.
     /// </summary>
-    [DataMember]
     public SequenceRange1Choice_? ReportingSequence { get; init; } 
     /// <summary>
     /// Identifies the transactions to be reported.
     /// </summary>
-    [DataMember]
     public TransactionType2? RequestedTransactionType { get; init; } 
     /// <summary>
     /// Provides details on the requested balance reporting.
     /// </summary>
-    [DataMember]
-    public ValueList<BalanceType13> RequestedBalanceType { get; init; } = []; // Warning: Don't know multiplicity.
+    public BalanceType13? RequestedBalanceType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is IsoMax35Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ReqdMsgNmId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(RequestedMessageNameIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Account is CashAccount24 AccountValue)
+        {
+            writer.WriteStartElement(null, "Acct", xmlNamespace );
+            AccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+        AccountOwner.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountServicer is BranchAndFinancialInstitutionIdentification5 AccountServicerValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+            AccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReportingPeriod is ReportingPeriod2 ReportingPeriodValue)
+        {
+            writer.WriteStartElement(null, "RptgPrd", xmlNamespace );
+            ReportingPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReportingSequence is SequenceRange1Choice_ ReportingSequenceValue)
+        {
+            writer.WriteStartElement(null, "RptgSeq", xmlNamespace );
+            ReportingSequenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequestedTransactionType is TransactionType2 RequestedTransactionTypeValue)
+        {
+            writer.WriteStartElement(null, "ReqdTxTp", xmlNamespace );
+            RequestedTransactionTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequestedBalanceType is BalanceType13 RequestedBalanceTypeValue)
+        {
+            writer.WriteStartElement(null, "ReqdBalTp", xmlNamespace );
+            RequestedBalanceTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ReportingRequest4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

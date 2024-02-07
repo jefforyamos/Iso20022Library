@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate2Choice;
 /// Provides the original mandate data.
 /// </summary>
 public partial record OriginalMandate : OriginalMandate2Choice_
+     , IIsoXmlSerilizable<OriginalMandate>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique identification, as assigned by the creditor, to unambiguously identify the mandate.
     /// </summary>
@@ -79,5 +83,107 @@ public partial record OriginalMandate : OriginalMandate2Choice_
     /// Provides information to identify the underlying documents associated with the mandate.
     /// </summary>
     public ReferredDocumentInformation3? ReferredDocument { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MndtId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MandateIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (MandateRequestIdentification is IsoMax35Text MandateRequestIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MndtReqId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MandateRequestIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Type is MandateTypeInformation1 TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Occurrences is MandateOccurrences2 OccurrencesValue)
+        {
+            writer.WriteStartElement(null, "Ocrncs", xmlNamespace );
+            OccurrencesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollectionAmount is IsoActiveOrHistoricCurrencyAndAmount CollectionAmountValue)
+        {
+            writer.WriteStartElement(null, "ColltnAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(CollectionAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MaximumAmount is IsoActiveOrHistoricCurrencyAndAmount MaximumAmountValue)
+        {
+            writer.WriteStartElement(null, "MaxAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(MaximumAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CreditorSchemeIdentification is PartyIdentification43 CreditorSchemeIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CdtrSchmeId", xmlNamespace );
+            CreditorSchemeIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Cdtr", xmlNamespace );
+        Creditor.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CreditorAccount is CashAccount24 CreditorAccountValue)
+        {
+            writer.WriteStartElement(null, "CdtrAcct", xmlNamespace );
+            CreditorAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditorAgent is BranchAndFinancialInstitutionIdentification5 CreditorAgentValue)
+        {
+            writer.WriteStartElement(null, "CdtrAgt", xmlNamespace );
+            CreditorAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UltimateCreditor is PartyIdentification43 UltimateCreditorValue)
+        {
+            writer.WriteStartElement(null, "UltmtCdtr", xmlNamespace );
+            UltimateCreditorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Dbtr", xmlNamespace );
+        Debtor.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DebtorAccount is CashAccount24 DebtorAccountValue)
+        {
+            writer.WriteStartElement(null, "DbtrAcct", xmlNamespace );
+            DebtorAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DbtrAgt", xmlNamespace );
+        DebtorAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (UltimateDebtor is PartyIdentification43 UltimateDebtorValue)
+        {
+            writer.WriteStartElement(null, "UltmtDbtr", xmlNamespace );
+            UltimateDebtorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReferredDocument is ReferredDocumentInformation3 ReferredDocumentValue)
+        {
+            writer.WriteStartElement(null, "RfrdDoc", xmlNamespace );
+            ReferredDocumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new OriginalMandate Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

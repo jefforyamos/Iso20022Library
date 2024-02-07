@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Status24Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Status24Choice;
 /// Status report details of an individual order.
 /// </summary>
 public partial record IndividualOrderDetailsReport : Status24Choice_
+     , IIsoXmlSerilizable<IndividualOrderDetailsReport>
 {
     #nullable enable
+    
     /// <summary>
     /// Reference assigned to a set of orders or trades in order to link them together.
     /// </summary>
@@ -42,7 +46,7 @@ public partial record IndividualOrderDetailsReport : Status24Choice_
     /// <summary>
     /// Elements from the original individual order that have been repaired so that the order can be accepted.
     /// </summary>
-    public IReadOnlyCollection<Fee3> RepairedFee { get; init; } = [];
+    public ValueList<Fee3> RepairedFee { get; init; } = [];
     /// <summary>
     /// Party that initiates the status of the order.
     /// </summary>
@@ -59,5 +63,80 @@ public partial record IndividualOrderDetailsReport : Status24Choice_
     /// Information about gating and hold back of redemption proceeds.
     /// </summary>
     public HoldBackInformation3? GatingOrHoldBackDetails { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OrdrRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OrderReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ClientReference is IsoMax35Text ClientReferenceValue)
+        {
+            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DealReference is IsoMax35Text DealReferenceValue)
+        {
+            writer.WriteStartElement(null, "DealRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DealReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CancellationReference is IsoMax35Text CancellationReferenceValue)
+        {
+            writer.WriteStartElement(null, "CxlRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CancellationReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OrdrSts", xmlNamespace );
+        OrderStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RprdFee", xmlNamespace );
+        RepairedFee.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (StatusInitiator is PartyIdentification113 StatusInitiatorValue)
+        {
+            writer.WriteStartElement(null, "StsInitr", xmlNamespace );
+            StatusInitiatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OrderData is FundOrderData5 OrderDataValue)
+        {
+            writer.WriteStartElement(null, "OrdrData", xmlNamespace );
+            OrderDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewDetails is ExpectedExecutionDetails4 NewDetailsValue)
+        {
+            writer.WriteStartElement(null, "NewDtls", xmlNamespace );
+            NewDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GatingOrHoldBackDetails is HoldBackInformation3 GatingOrHoldBackDetailsValue)
+        {
+            writer.WriteStartElement(null, "GtgOrHldBckDtls", xmlNamespace );
+            GatingOrHoldBackDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new IndividualOrderDetailsReport Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

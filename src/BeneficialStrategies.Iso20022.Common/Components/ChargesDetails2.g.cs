@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money associated with a service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ChargesDetails2
+     : IIsoXmlSerilizable<ChargesDetails2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of service for which a charge is asked or paid.
     /// </summary>
-    [DataMember]
     public required ChargeType8Code Type { get; init; } 
     /// <summary>
     /// Specifies the type of charge by means of a code.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OtherChargesType { get; init; } 
     /// <summary>
     /// Amount of money asked or paid for the charge.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrChrgsTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherChargesType)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(Amount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static ChargesDetails2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on loan and collateral matching criteria.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MatchingCriteria16
+     : IIsoXmlSerilizable<MatchingCriteria16>
 {
     #nullable enable
     
     /// <summary>
     /// Compares information related to both sides of a counterparty.
     /// </summary>
-    [DataMember]
     public CounterpartyMatchingCriteria6? CounterpartyMatchingCriteria { get; init; } 
     /// <summary>
     /// Compares information related to both sides of a contract valuation.
     /// </summary>
-    [DataMember]
     public ValuationMatchingCriteria1? ValuationMatchingCriteria { get; init; } 
     /// <summary>
     /// Compares information related to both sides of a contract.
     /// </summary>
-    [DataMember]
     public ContractMatchingCriteria3? ContractMatchingCriteria { get; init; } 
     /// <summary>
     /// Compares information related to both sides of a transaction.
     /// </summary>
-    [DataMember]
     public TransactionMatchingCriteria6? TransactionMatchingCriteria { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CounterpartyMatchingCriteria is CounterpartyMatchingCriteria6 CounterpartyMatchingCriteriaValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyMtchgCrit", xmlNamespace );
+            CounterpartyMatchingCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValuationMatchingCriteria is ValuationMatchingCriteria1 ValuationMatchingCriteriaValue)
+        {
+            writer.WriteStartElement(null, "ValtnMtchgCrit", xmlNamespace );
+            ValuationMatchingCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContractMatchingCriteria is ContractMatchingCriteria3 ContractMatchingCriteriaValue)
+        {
+            writer.WriteStartElement(null, "CtrctMtchgCrit", xmlNamespace );
+            ContractMatchingCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionMatchingCriteria is TransactionMatchingCriteria6 TransactionMatchingCriteriaValue)
+        {
+            writer.WriteStartElement(null, "TxMtchgCrit", xmlNamespace );
+            TransactionMatchingCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MatchingCriteria16 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

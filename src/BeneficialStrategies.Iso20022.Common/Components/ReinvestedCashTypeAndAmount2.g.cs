@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the type and amount of the cash reinvestment in a given currency.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReinvestedCashTypeAndAmount2
+     : IIsoXmlSerilizable<ReinvestedCashTypeAndAmount2>
 {
     #nullable enable
     
     /// <summary>
     /// Provides details on the type of the cash reinvestment in a given currency.
     /// </summary>
-    [DataMember]
     public required ReinvestmentType1Code Type { get; init; } 
     /// <summary>
     /// Medium of exchange of currency.
     /// </summary>
-    [DataMember]
     public required ActiveOrHistoricCurrencyCode ReinvestedCashCurrency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RinvstdCshCcy", xmlNamespace );
+        writer.WriteValue(ReinvestedCashCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static ReinvestedCashTypeAndAmount2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

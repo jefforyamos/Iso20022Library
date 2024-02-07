@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.setr.OrderConfirmationStatusReportV02>;
 
 namespace BeneficialStrategies.Iso20022.setr;
 
@@ -40,10 +43,9 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// The individual order confirmation or confirmation amendment for which the status is given is identified with its order reference. The message identification of the message in which the individual order confirmation or confirmation amendment was conveyed may also be quoted in RelatedReference, but this is not recommended.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The OrderConfirmationStatusReport message is sent by an instructing party, for example, an investment manager or its authorised representative, to the executing party, for example, a transfer agent, to report the status of an order confirmation or an order confirmation amendment.|Usage|The OrderConfirmationStatusReport message is used to report on the status of one or more individual:|- subscription confirmations,|- subscription confirmation amendments,|- redemption confirmations,|- redemption confirmation amendments,|- switch order confirmations,|- switch order confirmation amendments.|One of the following statuses can be reported:|- confirmation rejected, or,|- amendment rejected, or,|- sent to next party, or,|- communication problem with next party, or,|- confirmation accepted, or,|- confirmation received.|It is likely that the OrderConfirmationStatusReport is only sent by the order instructing party to the order executing party to reject an order confirmation or to reject an order confirmation amendment, although if an intermediary party is used, the statuses sent to next party and communication problem with next party are also likely be used. The statuses confirmation accepted and confirmation received would only be used in the event the order executing party sends a RequestForOrderConfirmationStatusReport message and one of the other statuses does not apply.|If the status being reported is either confirmation rejected or amendment rejected, then a reason for the rejection must be given.|The individual order confirmation or confirmation amendment for which the status is given is identified with its order reference. The message identification of the message in which the individual order confirmation or confirmation amendment was conveyed may also be quoted in RelatedReference, but this is not recommended.")]
-public partial record OrderConfirmationStatusReportV02 : IOuterRecord
+public partial record OrderConfirmationStatusReportV02 : IOuterRecord<OrderConfirmationStatusReportV02,OrderConfirmationStatusReportV02Document>
+    ,IIsoXmlSerilizable<OrderConfirmationStatusReportV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -55,6 +57,11 @@ public partial record OrderConfirmationStatusReportV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "OrdrConfStsRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => OrderConfirmationStatusReportV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -104,6 +111,41 @@ public partial record OrderConfirmationStatusReportV02 : IOuterRecord
     {
         return new OrderConfirmationStatusReportV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("OrdrConfStsRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Reference is References61Choice_ ReferenceValue)
+        {
+            writer.WriteStartElement(null, "Ref", xmlNamespace );
+            ReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "IndvOrdrConfDtlsRpt", xmlNamespace );
+        IndividualOrderConfirmationDetailsReport.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OrderConfirmationStatusReportV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -111,9 +153,7 @@ public partial record OrderConfirmationStatusReportV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="OrderConfirmationStatusReportV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record OrderConfirmationStatusReportV02Document : IOuterDocument<OrderConfirmationStatusReportV02>
+public partial record OrderConfirmationStatusReportV02Document : IOuterDocument<OrderConfirmationStatusReportV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -129,5 +169,22 @@ public partial record OrderConfirmationStatusReportV02Document : IOuterDocument<
     /// <summary>
     /// The instance of <seealso cref="OrderConfirmationStatusReportV02"/> is required.
     /// </summary>
+    [DataMember(Name=OrderConfirmationStatusReportV02.XmlTag)]
     public required OrderConfirmationStatusReportV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(OrderConfirmationStatusReportV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

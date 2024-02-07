@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a previous notification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NotificationUpdate2
+     : IIsoXmlSerilizable<NotificationUpdate2>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a previously sent meeting notification message.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text PreviousNotificationIdentification { get; init; } 
     /// <summary>
     /// Indicates whether a meeting instruction must be resent in case the parameters of the meeting are changed and the meeting instruction has already been sent.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ReconfirmInstructions { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrvsNtfctnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(PreviousNotificationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ReconfirmInstructions is IsoYesNoIndicator ReconfirmInstructionsValue)
+        {
+            writer.WriteStartElement(null, "RcnfrmInstrs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ReconfirmInstructionsValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static NotificationUpdate2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

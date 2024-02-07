@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.reda.StandingSettlementInstructionV01>;
 
 namespace BeneficialStrategies.Iso20022.reda;
 
@@ -36,10 +39,9 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// •	A vendor’s application communicating on behalf of the account owner or counterparty.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An instructing party sends the StandingSettlementInstruction (SSI) message to the receiver to create or update a standing cash or securities settlement instruction. The message can also be used to notify a counterparty of an SSI.||Usage|The instructing party (initiator) is:|•	An account servicer, for example, a global custodian or prime broker|•	A counterparty in a transaction, for example:|-	an investment manager (executing broker),|-	a global custodian (executing broker, prime broker)|•	A vendor’s application communicating on behalf of an account servicer or counterparty|The receiver is:|•	An account owner, for example, an investment manager, hedge fund administrator or a party to which SSI operations have been outsourced|•	A counterparty, for example:|-	an investment manager (executing broker)|-	a global custodian (executing broker, prime broker)|•	A vendor’s application communicating on behalf of the account owner or counterparty.")]
-public partial record StandingSettlementInstructionV01 : IOuterRecord
+public partial record StandingSettlementInstructionV01 : IOuterRecord<StandingSettlementInstructionV01,StandingSettlementInstructionV01Document>
+    ,IIsoXmlSerilizable<StandingSettlementInstructionV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -51,6 +53,11 @@ public partial record StandingSettlementInstructionV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "StgSttlmInstr";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => StandingSettlementInstructionV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -130,6 +137,53 @@ public partial record StandingSettlementInstructionV01 : IOuterRecord
     {
         return new StandingSettlementInstructionV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("StgSttlmInstr");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgRefId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageReferenceIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (EffectiveDateDetails is EffectiveDate1 EffectiveDateDetailsValue)
+        {
+            writer.WriteStartElement(null, "FctvDtDtls", xmlNamespace );
+            EffectiveDateDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AcctId", xmlNamespace );
+        AccountIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MktId", xmlNamespace );
+        MarketIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SettlementCurrency is ActiveCurrencyCode SettlementCurrencyValue)
+        {
+            writer.WriteStartElement(null, "SttlmCcy", xmlNamespace );
+            writer.WriteValue(SettlementCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SttlmDtls", xmlNamespace );
+        SettlementDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static StandingSettlementInstructionV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -137,9 +191,7 @@ public partial record StandingSettlementInstructionV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StandingSettlementInstructionV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record StandingSettlementInstructionV01Document : IOuterDocument<StandingSettlementInstructionV01>
+public partial record StandingSettlementInstructionV01Document : IOuterDocument<StandingSettlementInstructionV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -155,5 +207,22 @@ public partial record StandingSettlementInstructionV01Document : IOuterDocument<
     /// <summary>
     /// The instance of <seealso cref="StandingSettlementInstructionV01"/> is required.
     /// </summary>
+    [DataMember(Name=StandingSettlementInstructionV01.XmlTag)]
     public required StandingSettlementInstructionV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(StandingSettlementInstructionV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

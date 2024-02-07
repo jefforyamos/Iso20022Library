@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates one of the constraints of a range of business values.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Term1
+     : IIsoXmlSerilizable<Term1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the relationship between a variable and a fixed value.
     /// </summary>
-    [DataMember]
     public required Operator1Code Operator { get; init; } 
     /// <summary>
     /// Indicates the value.
     /// </summary>
-    [DataMember]
     public required RateOrAbsoluteValue1Choice_ Value { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Oprtr", xmlNamespace );
+        writer.WriteValue(Operator.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        Value.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static Term1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

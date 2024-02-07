@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the details of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionDetails11
+     : IIsoXmlSerilizable<TransactionDetails11>
 {
     #nullable enable
     
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account owner (or the instructing party managing the account).
     /// </summary>
-    [DataMember]
     public required References2Choice_ AccountOwnerTransactionIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account servicer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountServicerTransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MarketInfrastructureTransactionIdentification { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification13Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
-    [DataMember]
     public required SecuritiesAccount13 SafekeepingAccount { get; init; } 
     /// <summary>
     /// Identifies the details of the transaction.
     /// </summary>
-    [DataMember]
     public TransactionDetails10? TransactionDetails { get; init; } 
     /// <summary>
     /// Specifies whether an associated FX should be cancelled.
     /// </summary>
-    [DataMember]
     public FXCancellation1Choice_? FXCancellation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AcctOwnrTxId", xmlNamespace );
+        AccountOwnerTransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountServicerTransactionIdentification is IsoMax35Text AccountServicerTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcrTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountServicerTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MarketInfrastructureTransactionIdentification is IsoMax35Text MarketInfrastructureTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MktInfrstrctrTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MarketInfrastructureTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountOwner is PartyIdentification13Choice_ AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+        SafekeepingAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionDetails is TransactionDetails10 TransactionDetailsValue)
+        {
+            writer.WriteStartElement(null, "TxDtls", xmlNamespace );
+            TransactionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FXCancellation is FXCancellation1Choice_ FXCancellationValue)
+        {
+            writer.WriteStartElement(null, "FxCxl", xmlNamespace );
+            FXCancellationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionDetails11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

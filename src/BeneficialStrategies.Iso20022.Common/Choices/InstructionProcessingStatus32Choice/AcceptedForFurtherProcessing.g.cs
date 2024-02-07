@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus32Choice;
 
@@ -13,11 +15,34 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus32Cho
 /// Provides status information related to an instruction request that is accepted. This means that the instruction has been received, is processable and has been validated for further processing.
 /// </summary>
 public partial record AcceptedForFurtherProcessing : InstructionProcessingStatus32Choice_
+     , IIsoXmlSerilizable<AcceptedForFurtherProcessing>
 {
     #nullable enable
+    
     /// <summary>
     /// Indicates that there is no reason available or to report.
     /// </summary>
     public required NoReasonCode NoSpecifiedReason { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NoSpcfdRsn", xmlNamespace );
+        writer.WriteValue(NoSpecifiedReason.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new AcceptedForFurtherProcessing Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

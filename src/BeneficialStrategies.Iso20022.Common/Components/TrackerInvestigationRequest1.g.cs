@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides detailed information on the investigation status as updated in the tracker or investigation facility.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TrackerInvestigationRequest1
+     : IIsoXmlSerilizable<TrackerInvestigationRequest1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of investigation.
     /// </summary>
-    [DataMember]
     public required InvestigationType2Choice_ InvestigationType { get; init; } 
     /// <summary>
     /// Request status and details of assignment by the tracking facility. 
     /// </summary>
-    [DataMember]
     public required TrackerInvestigationRequestStatus1 StatusAndAssignment { get; init; } 
     /// <summary>
     /// Provides details on the subject to which the investigation refers, for example a payment or statement entry.
     /// </summary>
-    [DataMember]
     public UnderlyingData1Choice_? Underlying { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "InvstgtnTp", xmlNamespace );
+        InvestigationType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StsAndAssgnmt", xmlNamespace );
+        StatusAndAssignment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Underlying is UnderlyingData1Choice_ UnderlyingValue)
+        {
+            writer.WriteStartElement(null, "Undrlyg", xmlNamespace );
+            UnderlyingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TrackerInvestigationRequest1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

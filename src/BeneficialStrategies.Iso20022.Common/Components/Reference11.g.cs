@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional references linked to the cross order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Reference11
+     : IIsoXmlSerilizable<Reference11>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identifier of indication of interest message. Required for previously indicated orders.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? IOIIdentification { get; init; } 
     /// <summary>
     /// Unique identifier for quote. Required for previously quoted orders.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? QuoteIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (IOIIdentification is IsoMax35Text IOIIdentificationValue)
+        {
+            writer.WriteStartElement(null, "IOIId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IOIIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (QuoteIdentification is IsoMax35Text QuoteIdentificationValue)
+        {
+            writer.WriteStartElement(null, "QtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(QuoteIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Reference11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

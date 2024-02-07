@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument16Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument16Choice;
 /// Cash account to credit for the payment of the dividends or of the redeemed investments funds or of interest.
 /// </summary>
 public partial record CashAccountDetails : PaymentInstrument16Choice_
+     , IIsoXmlSerilizable<CashAccountDetails>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
@@ -38,6 +42,57 @@ public partial record CashAccountDetails : PaymentInstrument16Choice_
     /// <summary>
     /// Other identification such as national registration identification number, passport number.
     /// </summary>
-    public GenericIdentification46? AccountOwnerOtherIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification46? AccountOwnerOtherIdentification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountOwner is PartyIdentification2Choice_ AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountServicer is PartyIdentification2Choice_ AccountServicerValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+            AccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountServicerBranch is BranchData AccountServicerBranchValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcrBrnch", xmlNamespace );
+            AccountServicerBranchValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestmentAccountType is InvestmentAccountType1Choice_ InvestmentAccountTypeValue)
+        {
+            writer.WriteStartElement(null, "InvstmtAcctTp", xmlNamespace );
+            InvestmentAccountTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountOwnerOtherIdentification is GenericIdentification46 AccountOwnerOtherIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnrOthrId", xmlNamespace );
+            AccountOwnerOtherIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new CashAccountDetails Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

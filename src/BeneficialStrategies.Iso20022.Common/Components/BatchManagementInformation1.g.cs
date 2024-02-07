@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Elements of identification of a batch management transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BatchManagementInformation1
+     : IIsoXmlSerilizable<BatchManagementInformation1>
 {
     #nullable enable
     
@@ -23,26 +24,60 @@ public partial record BatchManagementInformation1
     /// Identification of the collection to which the batch belongs.
     /// ISO 8583:2003 bit 69-2
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CollectionIdentification { get; init; } 
     /// <summary>
     /// Identification of the batch to which the message belongs.
     /// ISO 8583:2003 bit 69-2
     /// </summary>
-    [DataMember]
     public required IsoMax35Text BatchIdentification { get; init; } 
     /// <summary>
     /// Sequence number of the message inside the batch.
     /// ISO 8583:87/93 bit 71
     /// ISO 8583:2003 bit 68-2
     /// </summary>
-    [DataMember]
     public IsoMax15NumericText? MessageSequenceNumber { get; init; } 
     /// <summary>
     /// Value of the message to use for the computation of the checksum of the batch or collection of messages.
     /// </summary>
-    [DataMember]
     public IsoMax140Binary? MessageChecksumInputValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CollectionIdentification is IsoMax35Text CollectionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ColltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CollectionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "BtchId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(BatchIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (MessageSequenceNumber is IsoMax15NumericText MessageSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "MsgSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(MessageSequenceNumberValue)); // data type Max15NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (MessageChecksumInputValue is IsoMax140Binary MessageChecksumInputValueValue)
+        {
+            writer.WriteStartElement(null, "MsgChcksmInptVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Binary(MessageChecksumInputValueValue)); // data type Max140Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static BatchManagementInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

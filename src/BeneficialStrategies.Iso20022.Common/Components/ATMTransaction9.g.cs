@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Transaction for which the service is requested.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMTransaction9
+     : IIsoXmlSerilizable<ATMTransaction9>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
-    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period assigned by the ATM manager.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     /// <summary>
     /// Encrypted personal identification number (PIN) and related information.
     /// </summary>
-    [DataMember]
     public OnLinePIN5? CardholderNewPIN { get; init; } 
     /// <summary>
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
-    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ReconciliationIdentification is IsoMax35Text ReconciliationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcncltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReconciliationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CardholderNewPIN is OnLinePIN5 CardholderNewPINValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrNewPIN", xmlNamespace );
+            CardholderNewPINValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ICCRelatedData is IsoMax10000Binary ICCRelatedDataValue)
+        {
+            writer.WriteStartElement(null, "ICCRltdData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(ICCRelatedDataValue)); // data type Max10000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMTransaction9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

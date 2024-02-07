@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Party11Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Party11Choice;
 /// Unique and unambiguous identification of a person, for example a passport.
 /// </summary>
 public partial record PrivateIdentification : Party11Choice_
+     , IIsoXmlSerilizable<PrivateIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Date and place of birth of a person.
     /// </summary>
@@ -22,6 +26,36 @@ public partial record PrivateIdentification : Party11Choice_
     /// <summary>
     /// Unique identification of a person, as assigned by an institution, using an identification scheme.
     /// </summary>
-    public GenericPersonIdentification1? Other { get; init;  } // Warning: Don't know multiplicity.
+    public GenericPersonIdentification1? Other { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DateAndPlaceOfBirth is DateAndPlaceOfBirth DateAndPlaceOfBirthValue)
+        {
+            writer.WriteStartElement(null, "DtAndPlcOfBirth", xmlNamespace );
+            DateAndPlaceOfBirthValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Other is GenericPersonIdentification1 OtherValue)
+        {
+            writer.WriteStartElement(null, "Othr", xmlNamespace );
+            OtherValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new PrivateIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

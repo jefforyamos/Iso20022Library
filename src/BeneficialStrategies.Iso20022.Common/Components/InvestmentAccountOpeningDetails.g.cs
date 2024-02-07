@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provide information about the type of opening instruction and identification of the application request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestmentAccountOpeningDetails
+     : IIsoXmlSerilizable<InvestmentAccountOpeningDetails>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies if the account opening instruction is about a newly created account or a supplementary account.
     /// </summary>
-    [DataMember]
     public required AccountOpeningType1Code OpeningType { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of the account opening request at application level.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountApplicationIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OpngTp", xmlNamespace );
+        writer.WriteValue(OpeningType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AccountApplicationIdentification is IsoMax35Text AccountApplicationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctApplId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountApplicationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static InvestmentAccountOpeningDetails Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

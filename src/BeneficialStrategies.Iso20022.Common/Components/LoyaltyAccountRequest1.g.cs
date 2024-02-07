@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to a requested Loyalty program or account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LoyaltyAccountRequest1
+     : IIsoXmlSerilizable<LoyaltyAccountRequest1>
 {
     #nullable enable
     
     /// <summary>
     /// To retrieve Card Acquisition Data.
     /// </summary>
-    [DataMember]
     public CustomerOrder1? CustomerOrder { get; init; } 
     /// <summary>
     /// Loyalty account information.
     /// </summary>
-    [DataMember]
     public LoyaltyAccount1? Account { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CustomerOrder is CustomerOrder1 CustomerOrderValue)
+        {
+            writer.WriteStartElement(null, "CstmrOrdr", xmlNamespace );
+            CustomerOrderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Account is LoyaltyAccount1 AccountValue)
+        {
+            writer.WriteStartElement(null, "Acct", xmlNamespace );
+            AccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LoyaltyAccountRequest1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

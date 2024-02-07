@@ -7,53 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// General information about the collateral agreement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Obligation6
+     : IIsoXmlSerilizable<Obligation6>
 {
     #nullable enable
     
     /// <summary>
     /// One of the entities associated with the collateral agreement and type of the CCP membership type where the counterparty is a CCP.
     /// </summary>
-    [DataMember]
     public required PartyIdentification242 PartyA { get; init; } 
     /// <summary>
     /// Party that is acting on behalf of party A and that offers collateral management services.
     /// </summary>
-    [DataMember]
     public PartyIdentification178Choice_? ServicingPartyA { get; init; } 
     /// <summary>
     /// Other entity associated with the collateral agreement and type of the CCP membership type where the counterparty is a CCP.
     /// </summary>
-    [DataMember]
     public required PartyIdentification242 PartyB { get; init; } 
     /// <summary>
     /// Party that is acting on behalf of party B and that offers collateral management services.
     /// </summary>
-    [DataMember]
     public PartyIdentification178Choice_? ServicingPartyB { get; init; } 
     /// <summary>
     /// Provides additional information on the collateral account of the party delivering/receiving the collateral.
     /// </summary>
-    [DataMember]
     public CollateralAccount3? CollateralAccountIdentification { get; init; } 
     /// <summary>
     /// Underlying business area or type of trade causing the collateral movement.
     /// </summary>
-    [DataMember]
     public ExposureType5Code? ExposureType { get; init; } 
     /// <summary>
     /// Close of business date on which the initiating party is valuing the margin call.
     /// </summary>
-    [DataMember]
     public required DateAndDateTime2Choice_ ValuationDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PtyA", xmlNamespace );
+        PartyA.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ServicingPartyA is PartyIdentification178Choice_ ServicingPartyAValue)
+        {
+            writer.WriteStartElement(null, "SvcgPtyA", xmlNamespace );
+            ServicingPartyAValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PtyB", xmlNamespace );
+        PartyB.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ServicingPartyB is PartyIdentification178Choice_ ServicingPartyBValue)
+        {
+            writer.WriteStartElement(null, "SvcgPtyB", xmlNamespace );
+            ServicingPartyBValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollateralAccountIdentification is CollateralAccount3 CollateralAccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CollAcctId", xmlNamespace );
+            CollateralAccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExposureType is ExposureType5Code ExposureTypeValue)
+        {
+            writer.WriteStartElement(null, "XpsrTp", xmlNamespace );
+            writer.WriteValue(ExposureTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ValtnDt", xmlNamespace );
+        ValuationDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static Obligation6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

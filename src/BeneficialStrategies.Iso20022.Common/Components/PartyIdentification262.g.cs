@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentification262
+     : IIsoXmlSerilizable<PartyIdentification262>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Entity in charge of assigning an identification to a party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Assigner { get; init; } 
     /// <summary>
     /// Country of the party.
     /// </summary>
-    [DataMember]
     public ISO3NumericCountryCode? Country { get; init; } 
     /// <summary>
     /// Short name of the party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     /// <summary>
     /// Additional identification of the party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AdditionalIdentification { get; init; } 
     /// <summary>
     /// Identify when the sponsored merchant is not located in the same country as the marketplace or sponsor.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ForeignMerchant { get; init; } 
     /// <summary>
     /// Contains local language equivalent(s) of data in the current component.
     /// </summary>
-    [DataMember]
     public LocalData1? LocalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Assigner is IsoMax35Text AssignerValue)
+        {
+            writer.WriteStartElement(null, "Assgnr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AssignerValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Country is ISO3NumericCountryCode CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(CountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ShortName is IsoMax35Text ShortNameValue)
+        {
+            writer.WriteStartElement(null, "ShrtNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ShortNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalIdentification is IsoMax35Text AdditionalIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AddtlId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdditionalIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ForeignMerchant is IsoTrueFalseIndicator ForeignMerchantValue)
+        {
+            writer.WriteStartElement(null, "FrgnMrchnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ForeignMerchantValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (LocalData is LocalData1 LocalDataValue)
+        {
+            writer.WriteStartElement(null, "LclData", xmlNamespace );
+            LocalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyIdentification262 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

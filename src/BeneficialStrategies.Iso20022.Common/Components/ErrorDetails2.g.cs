@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the error
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ErrorDetails2
+     : IIsoXmlSerilizable<ErrorDetails2>
 {
     #nullable enable
     
     /// <summary>
     /// Code list containing a code that identifies the error condition.
     /// </summary>
-    [DataMember]
     public required MessageError1Code MessageErrorType { get; init; } 
     /// <summary>
     /// Other message error type defined at national or private level.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherMessageErrorType { get; init; } 
     /// <summary>
     /// Code that identifies the specific error found.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ErrorCode { get; init; } 
     /// <summary>
     /// Description of the error found.
     /// </summary>
-    [DataMember]
     public IsoMax500Text? ErrorDescription { get; init; } 
     /// <summary>
     /// Data element in error. 
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax4000Text> DataElementInError { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax4000Text? DataElementInError { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgErrTp", xmlNamespace );
+        writer.WriteValue(MessageErrorType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherMessageErrorType is IsoMax35Text OtherMessageErrorTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrMsgErrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherMessageErrorTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ErrorCode is IsoMax35Text ErrorCodeValue)
+        {
+            writer.WriteStartElement(null, "ErrCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ErrorCodeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ErrorDescription is IsoMax500Text ErrorDescriptionValue)
+        {
+            writer.WriteStartElement(null, "ErrDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Text(ErrorDescriptionValue)); // data type Max500Text System.String
+            writer.WriteEndElement();
+        }
+        if (DataElementInError is IsoMax4000Text DataElementInErrorValue)
+        {
+            writer.WriteStartElement(null, "DataElmtInErr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4000Text(DataElementInErrorValue)); // data type Max4000Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ErrorDetails2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

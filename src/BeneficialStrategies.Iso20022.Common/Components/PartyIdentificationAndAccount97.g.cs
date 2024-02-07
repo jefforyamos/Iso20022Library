@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Party and account information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentificationAndAccount97
+     : IIsoXmlSerilizable<PartyIdentificationAndAccount97>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the party that legally owns the account.
     /// </summary>
-    [DataMember]
     public required PartyIdentification62 PartyIdentification { get; init; } 
     /// <summary>
     /// Identification of the account.
     /// </summary>
-    [DataMember]
     public AccountIdentification26? AccountIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PtyId", xmlNamespace );
+        PartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountIdentification is AccountIdentification26 AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            AccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyIdentificationAndAccount97 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,68 +7,133 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the triparty collateral transaction deal.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DealTransactionDetails6
+     : IIsoXmlSerilizable<DealTransactionDetails6>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the number of days in which the cash investor and dealer can agree to revisit the terms of an agreement.
     /// </summary>
-    [DataMember]
     public IsoExact3NumericText? MinimumNoticePeriod { get; init; } 
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
-    [DataMember]
     public required ClosingDate4Choice_ ClosingDate { get; init; } 
     /// <summary>
     /// Specifies the details for the deal amounts.
     /// </summary>
-    [DataMember]
     public CollateralAmount12? DealDetailsAmount { get; init; } 
     /// <summary>
     /// Interest rate to be paid on the transaction amount as agreed between the counterparties and the tenor of the interest rate index.
     /// </summary>
-    [DataMember]
     public RateOrName4Choice_? PricingRateAndIndex { get; init; } 
     /// <summary>
     /// Indicates for a floating rate transaction if an overnight frequency  rate fixing should be applied.  If not present, a periodic fixing frequency will be applied (default is N).
     /// </summary>
-    [DataMember]
     public FrequencyRateFixing1Choice_? OvernightFrequencyRateFixing { get; init; } 
     /// <summary>
     /// Margin allowed over or under a given rate.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Spread { get; init; } 
     /// <summary>
     /// Specifies the computation method of (accrued) interest of the financial instrument.
     /// </summary>
-    [DataMember]
     public InterestComputationMethodFormat4Choice_? DayCountBasis { get; init; } 
     /// <summary>
     /// Specifies whether the instruction is free or against payment.
     /// </summary>
-    [DataMember]
     public DeliveryReceiptType2Code? Payment { get; init; } 
     /// <summary>
     /// Specifies whether it is a Call option (right to purchase a specific underlying asset) or a Put option (right to sell a specific underlying asset).
     /// </summary>
-    [DataMember]
     public OptionType6Choice_? OptionType { get; init; } 
     /// <summary>
     /// Indication whether the counterparties to the transaction have agreed to an evergreen or extendable repo.
     /// </summary>
-    [DataMember]
     public RepoTerminationOption1Code? TerminationOption { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MinimumNoticePeriod is IsoExact3NumericText MinimumNoticePeriodValue)
+        {
+            writer.WriteStartElement(null, "MinNtcePrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact3NumericText(MinimumNoticePeriodValue)); // data type Exact3NumericText System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
+        ClosingDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DealDetailsAmount is CollateralAmount12 DealDetailsAmountValue)
+        {
+            writer.WriteStartElement(null, "DealDtlsAmt", xmlNamespace );
+            DealDetailsAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PricingRateAndIndex is RateOrName4Choice_ PricingRateAndIndexValue)
+        {
+            writer.WriteStartElement(null, "PricgRateAndIndx", xmlNamespace );
+            PricingRateAndIndexValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OvernightFrequencyRateFixing is FrequencyRateFixing1Choice_ OvernightFrequencyRateFixingValue)
+        {
+            writer.WriteStartElement(null, "OvrnghtFrqcyRateFxg", xmlNamespace );
+            OvernightFrequencyRateFixingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Spread is IsoPercentageRate SpreadValue)
+        {
+            writer.WriteStartElement(null, "Sprd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(SpreadValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (DayCountBasis is InterestComputationMethodFormat4Choice_ DayCountBasisValue)
+        {
+            writer.WriteStartElement(null, "DayCntBsis", xmlNamespace );
+            DayCountBasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Payment is DeliveryReceiptType2Code PaymentValue)
+        {
+            writer.WriteStartElement(null, "Pmt", xmlNamespace );
+            writer.WriteValue(PaymentValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OptionType is OptionType6Choice_ OptionTypeValue)
+        {
+            writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+            OptionTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TerminationOption is RepoTerminationOption1Code TerminationOptionValue)
+        {
+            writer.WriteStartElement(null, "TermntnOptn", xmlNamespace );
+            writer.WriteValue(TerminationOptionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static DealTransactionDetails6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

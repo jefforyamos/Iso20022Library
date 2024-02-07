@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the deactivation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionDeactivationInstruction1
+     : IIsoXmlSerilizable<CorporateActionDeactivationInstruction1>
 {
     #nullable enable
     
     /// <summary>
     /// Date and time at which the CSD must deactivate the corporate action event or the option.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime DeactivationDateAndTime { get; init; } 
     /// <summary>
     /// Provides information about the option, when the deactivation instruction applies at the level of a corporate action option.
     /// </summary>
-    [DataMember]
-    public ValueList<CorporateActionOption2> OptionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CorporateActionOption2? OptionDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DeactvtnDtAndTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(DeactivationDateAndTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (OptionDetails is CorporateActionOption2 OptionDetailsValue)
+        {
+            writer.WriteStartElement(null, "OptnDtls", xmlNamespace );
+            OptionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionDeactivationInstruction1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

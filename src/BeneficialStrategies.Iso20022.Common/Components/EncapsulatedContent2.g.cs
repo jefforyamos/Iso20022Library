@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data to authenticate.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record EncapsulatedContent2
+     : IIsoXmlSerilizable<EncapsulatedContent2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of data which have been authenticated.
     /// </summary>
-    [DataMember]
     public required ContentType1Code ContentType { get; init; } 
     /// <summary>
     /// Actual data to authenticate.
     /// </summary>
-    [DataMember]
     public IsoMax100KBinary? Content { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CnttTp", xmlNamespace );
+        writer.WriteValue(ContentType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Content is IsoMax100KBinary ContentValue)
+        {
+            writer.WriteStartElement(null, "Cntt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax100KBinary(ContentValue)); // data type Max100KBinary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static EncapsulatedContent2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

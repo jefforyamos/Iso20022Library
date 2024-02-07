@@ -7,63 +7,114 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Attributes of a position in a financial instrument or financial product.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Position1
+     : IIsoXmlSerilizable<Position1>
 {
     #nullable enable
     
     /// <summary>
     /// CCP’s unique internal identifier for product.
     /// </summary>
-    [DataMember]
     public required IsoMax256Text ProductIdentification { get; init; } 
     /// <summary>
     /// Obligations of a clearing member with respect to a central counterparty based on the position at end of day.
     /// </summary>
-    [DataMember]
     public EndOfDayRequirement1? RiskRequirement { get; init; } 
     /// <summary>
     /// Gross notional of positions of the product without netting of long/short positions, or delta equivalent notional for options.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAnd24Amount GrossNotional { get; init; } 
     /// <summary>
     /// Net notional of positions of the product with netting between long and short positions, or delta equivalent notional for options. Indicates whether net long position is positive.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection102 NetNotional { get; init; } 
     /// <summary>
     /// Change in value of position for a unit change in the index. Usage: for interest rate swaps the PV01 of the gross position, for credit default swaps the DV01 of the gross position, for index products with a fixed value per unit move, the total weighted value of a one unit move in the index for the gross contracts in the position, weighted by the delta of the contracts in the position.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? GrossDeltaEquivalentValue { get; init; } 
     /// <summary>
     /// Change in value of position for a unit change in the index. Usage: for interest rate swaps the PV01 of the net position, for credit default swaps the DV01 of the net position, for index products with a fixed value per unit move, the total weighted value of a one unit move in the index for the net contracts in the position, weighted by the delta of the contracts in the position. Indicates whether net long position is positive.
     /// </summary>
-    [DataMember]
     public AmountAndDirection102? NetDeltaEquivalentValue { get; init; } 
     /// <summary>
     /// Gross weighted quantity of the lots in the position weighted by the delta of the contracts in the position.
     /// </summary>
-    [DataMember]
     public IsoNonNegativeFraction5DecimalNumber? GrossDeltaEquivalentQuantity { get; init; } 
     /// <summary>
     /// Net weighted quantity of the lots in the position weighted by the delta of the contracts in the position.
     /// </summary>
-    [DataMember]
     public IsoFraction5DecimalNumber? NetDeltaEquivalentQuantity { get; init; } 
     /// <summary>
     /// Gross market value of the positions of the product without netting of long/short positions.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount GrossMarketValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PdctId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax256Text(ProductIdentification)); // data type Max256Text System.String
+        writer.WriteEndElement();
+        if (RiskRequirement is EndOfDayRequirement1 RiskRequirementValue)
+        {
+            writer.WriteStartElement(null, "RskRqrmnt", xmlNamespace );
+            RiskRequirementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "GrssNtnl", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd24Amount(GrossNotional)); // data type ActiveCurrencyAnd24Amount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NetNtnl", xmlNamespace );
+        NetNotional.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (GrossDeltaEquivalentValue is IsoActiveCurrencyAndAmount GrossDeltaEquivalentValueValue)
+        {
+            writer.WriteStartElement(null, "GrssDltaEqvtVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(GrossDeltaEquivalentValueValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (NetDeltaEquivalentValue is AmountAndDirection102 NetDeltaEquivalentValueValue)
+        {
+            writer.WriteStartElement(null, "NetDltaEqvtVal", xmlNamespace );
+            NetDeltaEquivalentValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GrossDeltaEquivalentQuantity is IsoNonNegativeFraction5DecimalNumber GrossDeltaEquivalentQuantityValue)
+        {
+            writer.WriteStartElement(null, "GrssDltaEqvtQty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNonNegativeFraction5DecimalNumber(GrossDeltaEquivalentQuantityValue)); // data type NonNegativeFraction5DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (NetDeltaEquivalentQuantity is IsoFraction5DecimalNumber NetDeltaEquivalentQuantityValue)
+        {
+            writer.WriteStartElement(null, "NetDltaEqvtQty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoFraction5DecimalNumber(NetDeltaEquivalentQuantityValue)); // data type Fraction5DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "GrssMktVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(GrossMarketValue)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static Position1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

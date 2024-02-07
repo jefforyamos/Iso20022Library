@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Sound Request message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DevicePlaySoundRequest1
+     : IIsoXmlSerilizable<DevicePlaySoundRequest1>
 {
     #nullable enable
     
     /// <summary>
     /// Message response awaited by the initiator of the Request.
     /// </summary>
-    [DataMember]
     public ResponseMode1Code? ResponseMode { get; init; } 
     /// <summary>
     /// Requested Action: Start to play a sound, Stop to play a sound, Set the default volume.
     /// </summary>
-    [DataMember]
     public required SoundAction1Code SoundAction { get; init; } 
     /// <summary>
     /// Volume of a sound, either in a pourcentage of the maximum volume, or 0 to mute.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? SoundVolume { get; init; } 
     /// <summary>
     /// Content of a sound to play.
     /// </summary>
-    [DataMember]
     public SoundContent1? SoundContent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ResponseMode is ResponseMode1Code ResponseModeValue)
+        {
+            writer.WriteStartElement(null, "RspnMd", xmlNamespace );
+            writer.WriteValue(ResponseModeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SoundActn", xmlNamespace );
+        writer.WriteValue(SoundAction.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SoundVolume is IsoPercentageRate SoundVolumeValue)
+        {
+            writer.WriteStartElement(null, "SoundVol", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(SoundVolumeValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (SoundContent is SoundContent1 SoundContentValue)
+        {
+            writer.WriteStartElement(null, "SoundCntt", xmlNamespace );
+            SoundContentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DevicePlaySoundRequest1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// The Collateral Account provides additional information on the Collateral Account of the Party delivering the collateral.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralAccount1
+     : IIsoXmlSerilizable<CollateralAccount1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification of the Collateral Account.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Indicates the Type of Collateral Account.
     /// </summary>
-    [DataMember]
     public CollateralAccountIdentificationType1Choice_? Type { get; init; } 
     /// <summary>
     /// Description of the account.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Type is CollateralAccountIdentificationType1Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Name is IsoMax70Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralAccount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

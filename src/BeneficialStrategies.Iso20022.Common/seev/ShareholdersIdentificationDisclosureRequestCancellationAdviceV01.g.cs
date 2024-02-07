@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.ShareholdersIdentificationDisclosureRequestCancellationAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// The ShareholdersIdentificationDisclosureCancellationAdvice message is sent by an issuer or by a third party nominated by the issuer (such as an issuer's agent) to the first intermediaries in a custody chain or is sent by any intermediaries in  a custody chain to the next intermediary down the chain of intermediaries (towards the investor side of the chain) in order to withdraw/cancel the disclosure request of shareholders identity previously sent.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The ShareholdersIdentificationDisclosureCancellationAdvice message is sent by an issuer or by a third party nominated by the issuer (such as an issuer's agent) to the first intermediaries in a custody chain or is sent by any intermediaries in  a custody chain to the next intermediary down the chain of intermediaries (towards the investor side of the chain) in order to withdraw/cancel the disclosure request of shareholders identity previously sent.")]
-public partial record ShareholdersIdentificationDisclosureRequestCancellationAdviceV01 : IOuterRecord
+public partial record ShareholdersIdentificationDisclosureRequestCancellationAdviceV01 : IOuterRecord<ShareholdersIdentificationDisclosureRequestCancellationAdviceV01,ShareholdersIdentificationDisclosureRequestCancellationAdviceV01Document>
+    ,IIsoXmlSerilizable<ShareholdersIdentificationDisclosureRequestCancellationAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record ShareholdersIdentificationDisclosureRequestCancellationAdv
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "ShrhldrsIdDsclsrReqCxlAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ShareholdersIdentificationDisclosureRequestCancellationAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -84,6 +91,44 @@ public partial record ShareholdersIdentificationDisclosureRequestCancellationAdv
     {
         return new ShareholdersIdentificationDisclosureRequestCancellationAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("ShrhldrsIdDsclsrReqCxlAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IssrDsclsrReqRef", xmlNamespace );
+        IssuerDisclosureRequestReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CancellationReason is DisclosureRequestCancellationReason1Code CancellationReasonValue)
+        {
+            writer.WriteStartElement(null, "CxlRsn", xmlNamespace );
+            writer.WriteValue(CancellationReasonValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Issuer is PartyIdentification129Choice_ IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            IssuerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ShareholdersIdentificationDisclosureRequestCancellationAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -91,9 +136,7 @@ public partial record ShareholdersIdentificationDisclosureRequestCancellationAdv
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ShareholdersIdentificationDisclosureRequestCancellationAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ShareholdersIdentificationDisclosureRequestCancellationAdviceV01Document : IOuterDocument<ShareholdersIdentificationDisclosureRequestCancellationAdviceV01>
+public partial record ShareholdersIdentificationDisclosureRequestCancellationAdviceV01Document : IOuterDocument<ShareholdersIdentificationDisclosureRequestCancellationAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -109,5 +152,22 @@ public partial record ShareholdersIdentificationDisclosureRequestCancellationAdv
     /// <summary>
     /// The instance of <seealso cref="ShareholdersIdentificationDisclosureRequestCancellationAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=ShareholdersIdentificationDisclosureRequestCancellationAdviceV01.XmlTag)]
     public required ShareholdersIdentificationDisclosureRequestCancellationAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ShareholdersIdentificationDisclosureRequestCancellationAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Scope of the modification to be applied on an identified set of information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ModificationScope35
+     : IIsoXmlSerilizable<ModificationScope35>
 {
     #nullable enable
     
     /// <summary>
     /// Type of modification to be applied.
     /// </summary>
-    [DataMember]
     public required DataModification1Code ModificationScopeIndication { get; init; } 
     /// <summary>
     /// Additional information such as remarks or notes that must be conveyed about the party and or limitations and restrictions.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditiononalInformation12> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditiononalInformation12? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _ODRsQ0zaEea8fovz_9xSTQ
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ModScpIndctn", xmlNamespace );
+        writer.WriteValue(ModificationScopeIndication.ToString()); // Enum value
+        writer.WriteEndElement();
+        // Not sure how to serialize AdditionalInformation, multiplicity Unknown
+    }
+    public static ModificationScope35 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

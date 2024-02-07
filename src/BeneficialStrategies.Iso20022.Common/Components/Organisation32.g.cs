@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Merchant performing the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Organisation32
+     : IIsoXmlSerilizable<Organisation32>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the merchant.
     /// </summary>
-    [DataMember]
     public GenericIdentification32? Identification { get; init; } 
     /// <summary>
     /// Name of the merchant as appearing on the receipt.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? CommonName { get; init; } 
     /// <summary>
     /// Location category of the place where the merchant actually performed the transaction.
     /// </summary>
-    [DataMember]
     public LocationCategory1Code? LocationCategory { get; init; } 
     /// <summary>
     /// Location and contact information of the merchant performing the transaction.
     /// </summary>
-    [DataMember]
     public CommunicationAddress9? LocationAndContact { get; init; } 
     /// <summary>
     /// Additional merchant data required by a card scheme.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? SchemeData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is GenericIdentification32 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CommonName is IsoMax70Text CommonNameValue)
+        {
+            writer.WriteStartElement(null, "CmonNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(CommonNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (LocationCategory is LocationCategory1Code LocationCategoryValue)
+        {
+            writer.WriteStartElement(null, "LctnCtgy", xmlNamespace );
+            writer.WriteValue(LocationCategoryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (LocationAndContact is CommunicationAddress9 LocationAndContactValue)
+        {
+            writer.WriteStartElement(null, "LctnAndCtct", xmlNamespace );
+            LocationAndContactValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SchemeData is IsoMax140Text SchemeDataValue)
+        {
+            writer.WriteStartElement(null, "SchmeData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(SchemeDataValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Organisation32 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

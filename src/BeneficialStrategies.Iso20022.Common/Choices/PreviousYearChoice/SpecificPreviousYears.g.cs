@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PreviousYearChoice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.PreviousYearChoice;
 /// Selection of investment plans issued during previous years.
 /// </summary>
 public partial record SpecificPreviousYears : PreviousYearChoice_
+     , IIsoXmlSerilizable<SpecificPreviousYears>
 {
-    public required IsoISOYear Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Year represented by YYYY (ISO 8601).
+    /// </summary>
+    public required IsoISOYear Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SpcfcPrvsYrs", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISOYear(Value)); // data type ISOYear System.UInt16
+        writer.WriteEndElement();
+    }
+    public static new SpecificPreviousYears Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

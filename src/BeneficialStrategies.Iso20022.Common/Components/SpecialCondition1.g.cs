@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Special conditions for the loan.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SpecialCondition1
+     : IIsoXmlSerilizable<SpecialCondition1>
 {
     #nullable enable
     
     /// <summary>
     /// Incoming amount on special conditions.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount IncomingAmount { get; init; } 
     /// <summary>
     /// Outgoing amount on special conditions.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount OutgoingAmount { get; init; } 
     /// <summary>
     /// Incoming amount to other account on special conditions.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? IncomingAmountToOtherAccount { get; init; } 
     /// <summary>
     /// Outgoing payment amount from other account on special conditions.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? PaymentFromOtherAccount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IncmgAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(IncomingAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OutgngAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(OutgoingAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (IncomingAmountToOtherAccount is IsoActiveCurrencyAndAmount IncomingAmountToOtherAccountValue)
+        {
+            writer.WriteStartElement(null, "IncmgAmtToOthrAcct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(IncomingAmountToOtherAccountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PaymentFromOtherAccount is IsoActiveCurrencyAndAmount PaymentFromOtherAccountValue)
+        {
+            writer.WriteStartElement(null, "PmtFrOthrAcct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PaymentFromOtherAccountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static SpecialCondition1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

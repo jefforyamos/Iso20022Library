@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique and unambiguous identifier of the group of transactions as assigned by the original instructing party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OriginalGroupInformation3
+     : IIsoXmlSerilizable<OriginalGroupInformation3>
 {
     #nullable enable
     
     /// <summary>
     /// Point to point reference assigned by the original instructing party to unambiguously identify the original group of individual transactions.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OriginalMessageIdentification { get; init; } 
     /// <summary>
     /// Specifies the original message name identifier to which the message refers, eg, pacs.003.001.01 or MT103.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OriginalMessageNameIdentification { get; init; } 
     /// <summary>
     /// Original date and time at which the message was created.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? OriginalCreationDateTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OrgnlMsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalMessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgnlMsgNmId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalMessageNameIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (OriginalCreationDateTime is IsoISODateTime OriginalCreationDateTimeValue)
+        {
+            writer.WriteStartElement(null, "OrgnlCreDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(OriginalCreationDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static OriginalGroupInformation3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

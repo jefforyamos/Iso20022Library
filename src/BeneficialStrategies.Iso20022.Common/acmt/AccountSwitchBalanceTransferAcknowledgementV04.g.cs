@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.acmt.AccountSwitchBalanceTransferAcknowledgementV04>;
 
 namespace BeneficialStrategies.Iso20022.acmt;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// The AccountSwitchBalanceTransferAcknowledgement message is sent by the previous account servicer to the new account servicer in response to the AccountSwitchRequestBalanceTransfer message. It confirms the status of the old account and the balance of the account on closure. In the case of a negative closing balance, the old account servicer provides details of the nominated account to which payment should be made from the new account servicer.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The AccountSwitchBalanceTransferAcknowledgement message is sent by the previous account servicer to the new account servicer in response to the AccountSwitchRequestBalanceTransfer message. It confirms the status of the old account and the balance of the account on closure. In the case of a negative closing balance, the old account servicer provides details of the nominated account to which payment should be made from the new account servicer.")]
-public partial record AccountSwitchBalanceTransferAcknowledgementV04 : IOuterRecord
+public partial record AccountSwitchBalanceTransferAcknowledgementV04 : IOuterRecord<AccountSwitchBalanceTransferAcknowledgementV04,AccountSwitchBalanceTransferAcknowledgementV04Document>
+    ,IIsoXmlSerilizable<AccountSwitchBalanceTransferAcknowledgementV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record AccountSwitchBalanceTransferAcknowledgementV04 : IOuterRec
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AcctSwtchBalTrfAck";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AccountSwitchBalanceTransferAcknowledgementV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -106,6 +113,47 @@ public partial record AccountSwitchBalanceTransferAcknowledgementV04 : IOuterRec
     {
         return new AccountSwitchBalanceTransferAcknowledgementV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AcctSwtchBalTrfAck");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctSwtchDtls", xmlNamespace );
+        AccountSwitchDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OdAcct", xmlNamespace );
+        OldAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OdAcctBal", xmlNamespace );
+        OldAccountBalance.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BalanceTransfer is BalanceTransfer4 BalanceTransferValue)
+        {
+            writer.WriteStartElement(null, "BalTrf", xmlNamespace );
+            BalanceTransferValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountSwitchBalanceTransferAcknowledgementV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -113,9 +161,7 @@ public partial record AccountSwitchBalanceTransferAcknowledgementV04 : IOuterRec
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountSwitchBalanceTransferAcknowledgementV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AccountSwitchBalanceTransferAcknowledgementV04Document : IOuterDocument<AccountSwitchBalanceTransferAcknowledgementV04>
+public partial record AccountSwitchBalanceTransferAcknowledgementV04Document : IOuterDocument<AccountSwitchBalanceTransferAcknowledgementV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -131,5 +177,22 @@ public partial record AccountSwitchBalanceTransferAcknowledgementV04Document : I
     /// <summary>
     /// The instance of <seealso cref="AccountSwitchBalanceTransferAcknowledgementV04"/> is required.
     /// </summary>
+    [DataMember(Name=AccountSwitchBalanceTransferAcknowledgementV04.XmlTag)]
     public required AccountSwitchBalanceTransferAcknowledgementV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AccountSwitchBalanceTransferAcknowledgementV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

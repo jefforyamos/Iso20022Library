@@ -7,33 +7,59 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Aim of the non financial request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NonFinancialRequestContentComponent3
+     : IIsoXmlSerilizable<NonFinancialRequestContentComponent3>
 {
     #nullable enable
     
     /// <summary>
     /// Type of non financial request that the Acceptor wants to be processed.
     /// </summary>
-    [DataMember]
-    public ValueList<NonFinancialRequestType2Code> NonFinancialRequestType { get; init; } = []; // Warning: Don't know multiplicity.
+    public NonFinancialRequestType2Code? NonFinancialRequestType { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _pdAUEXJUEe299ZbWCkdR_w
     /// <summary>
     /// Card payment transaction between an acceptor and an acquirer.
     /// </summary>
-    [DataMember]
     public CardPaymentTransaction124? Transaction { get; init; } 
     /// <summary>
     /// Additional elements requested to the ServiceProvider which are not linked to payment.
     /// </summary>
-    [DataMember]
     public ValueList<ExternallyDefinedData4> AdditionalRequest { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize NonFinancialRequestType, multiplicity Unknown
+        if (Transaction is CardPaymentTransaction124 TransactionValue)
+        {
+            writer.WriteStartElement(null, "Tx", xmlNamespace );
+            TransactionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AddtlReq", xmlNamespace );
+        AdditionalRequest.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static NonFinancialRequestContentComponent3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

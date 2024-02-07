@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide the total sum of entries per bank transaction code.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TotalsPerBankTransactionCode4
+     : IIsoXmlSerilizable<TotalsPerBankTransactionCode4>
 {
     #nullable enable
     
     /// <summary>
     /// Number of individual entries for the bank transaction code.
     /// </summary>
-    [DataMember]
     public IsoMax15NumericText? NumberOfEntries { get; init; } 
     /// <summary>
     /// Total of all individual entries included in the report.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? Sum { get; init; } 
     /// <summary>
     /// Total debit or credit amount that is the result of the netted amounts for all debit and credit entries per bank transaction code.
     /// </summary>
-    [DataMember]
     public AmountAndDirection35? TotalNetEntry { get; init; } 
     /// <summary>
     /// Indicates whether the bank transaction code is related to booked or forecast items.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ForecastIndicator { get; init; } 
     /// <summary>
     /// Set of elements used to fully identify the type of underlying transaction resulting in an entry.
     /// </summary>
-    [DataMember]
     public required BankTransactionCodeStructure4 BankTransactionCode { get; init; } 
     /// <summary>
     /// Set of elements used to indicate when the booked amount of money will become available, that is can be accessed and starts generating interest.
     /// </summary>
-    [DataMember]
-    public ValueList<CashAvailability1> Availability { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashAvailability1? Availability { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NumberOfEntries is IsoMax15NumericText NumberOfEntriesValue)
+        {
+            writer.WriteStartElement(null, "NbOfNtries", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(NumberOfEntriesValue)); // data type Max15NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (Sum is IsoDecimalNumber SumValue)
+        {
+            writer.WriteStartElement(null, "Sum", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(SumValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (TotalNetEntry is AmountAndDirection35 TotalNetEntryValue)
+        {
+            writer.WriteStartElement(null, "TtlNetNtry", xmlNamespace );
+            TotalNetEntryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ForecastIndicator is IsoTrueFalseIndicator ForecastIndicatorValue)
+        {
+            writer.WriteStartElement(null, "FcstInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ForecastIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "BkTxCd", xmlNamespace );
+        BankTransactionCode.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Availability is CashAvailability1 AvailabilityValue)
+        {
+            writer.WriteStartElement(null, "Avlbty", xmlNamespace );
+            AvailabilityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TotalsPerBankTransactionCode4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

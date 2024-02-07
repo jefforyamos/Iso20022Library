@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed information on statistics per combination of counterparties.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DetailedStatisticsPerCounterparty5
+     : IIsoXmlSerilizable<DetailedStatisticsPerCounterparty5>
 {
     #nullable enable
     
     /// <summary>
     /// Reference date for statistics collection.
     /// </summary>
-    [DataMember]
     public required IsoISODate ReferenceDate { get; init; } 
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
-    [DataMember]
     public required TradeCounterpartyReport9 CounterpartyIdentification { get; init; } 
     /// <summary>
     /// Detailed information on derivatives submitted for reconciliation.
     /// </summary>
-    [DataMember]
     public required ReconciliationStatisticsPerDerivativeContractGroup3 ReconciliationStatistics { get; init; } 
     /// <summary>
     /// Identification of the competent authority which supervises the reporting counterparty.
     /// </summary>
-    [DataMember]
-    public ValueList<CompetentAuthority1> CompetentAuthority { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompetentAuthority1? CompetentAuthority { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RefDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ReferenceDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
+        CounterpartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RcncltnSttstcs", xmlNamespace );
+        ReconciliationStatistics.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CompetentAuthority is CompetentAuthority1 CompetentAuthorityValue)
+        {
+            writer.WriteStartElement(null, "CmptntAuthrty", xmlNamespace );
+            CompetentAuthorityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DetailedStatisticsPerCounterparty5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

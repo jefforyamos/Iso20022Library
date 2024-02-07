@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details about the rejected collateral substitution.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralSubstitutionResponse3
+     : IIsoXmlSerilizable<CollateralSubstitutionResponse3>
 {
     #nullable enable
     
     /// <summary>
     /// Reference to the collateral substitution request identification.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text CollateralSubstitutionRequestIdentification { get; init; } 
     /// <summary>
     /// Specifies the collateral substitution amount that is rejected.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount RejectedAmount { get; init; } 
     /// <summary>
     /// Specifies the reasons why the collateral substitution is rejected.
     /// </summary>
-    [DataMember]
     public required RejectionReason68Code RejectionReason { get; init; } 
     /// <summary>
     /// Provides additional information about the collateral substitution request rejection.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? RejectionReasonInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CollSbstitnReqId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(CollateralSubstitutionRequestIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RjctdAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(RejectedAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RjctnRsn", xmlNamespace );
+        writer.WriteValue(RejectionReason.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (RejectionReasonInformation is IsoMax140Text RejectionReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "RjctnRsnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(RejectionReasonInformationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralSubstitutionResponse3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

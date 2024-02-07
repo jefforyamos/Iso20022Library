@@ -7,83 +7,151 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes an event not covered by other formal messages, for example a trace after a telephone call.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record EventDescription1
+     : IIsoXmlSerilizable<EventDescription1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the event.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identifier { get; init; } 
     /// <summary>
     /// Date when event occurred.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? Date { get; init; } 
     /// <summary>
     /// Party to be advised.
     /// </summary>
-    [DataMember]
     public required QualifiedPartyIdentification1 Recipient { get; init; } 
     /// <summary>
     /// Advising party.
     /// </summary>
-    [DataMember]
     public required QualifiedPartyIdentification1 Advisor { get; init; } 
     /// <summary>
     /// Parties involved in the event.
     /// </summary>
-    [DataMember]
-    public ValueList<QualifiedPartyIdentification1> OtherParty { get; init; } = []; // Warning: Don't know multiplicity.
+    public QualifiedPartyIdentification1? OtherParty { get; init; } 
     /// <summary>
     /// Identifier for a language used for the description.
     /// </summary>
-    [DataMember]
     public required LanguageCode LanguageCode { get; init; } 
     /// <summary>
     /// Free form description of event.
     /// </summary>
-    [DataMember]
     public required IsoMax2000Text Description { get; init; } 
     /// <summary>
     /// Reference to related document.
     /// </summary>
-    [DataMember]
-    public ValueList<QualifiedDocumentInformation1> RelatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1? RelatedDocument { get; init; } 
     /// <summary>
     /// Identifier of related letter.
     /// </summary>
-    [DataMember]
-    public ValueList<QualifiedDocumentInformation1> RelatedLetter { get; init; } = []; // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1? RelatedLetter { get; init; } 
     /// <summary>
     /// Identifier of related message.
     /// </summary>
-    [DataMember]
-    public ValueList<QualifiedDocumentInformation1> RelatedMessage { get; init; } = []; // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1? RelatedMessage { get; init; } 
     /// <summary>
     /// Associated free form document.
     /// </summary>
-    [DataMember]
-    public ValueList<QualifiedDocumentInformation1> AssociatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1? AssociatedDocument { get; init; } 
     /// <summary>
     /// Reference to the contractual context.
     /// </summary>
-    [DataMember]
-    public ValueList<QualifiedDocumentInformation1> GoverningContract { get; init; } = []; // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1? GoverningContract { get; init; } 
     /// <summary>
     /// Rules and laws governing the event.
     /// </summary>
-    [DataMember]
     public GovernanceRules2? LegalContext { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Idr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identifier)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Date is IsoISODateTime DateValue)
+        {
+            writer.WriteStartElement(null, "Dt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(DateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Rcpt", xmlNamespace );
+        Recipient.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Advsr", xmlNamespace );
+        Advisor.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OtherParty is QualifiedPartyIdentification1 OtherPartyValue)
+        {
+            writer.WriteStartElement(null, "OthrPty", xmlNamespace );
+            OtherPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "LangCd", xmlNamespace );
+        writer.WriteValue(LanguageCode.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Desc", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax2000Text(Description)); // data type Max2000Text System.String
+        writer.WriteEndElement();
+        if (RelatedDocument is QualifiedDocumentInformation1 RelatedDocumentValue)
+        {
+            writer.WriteStartElement(null, "RltdDoc", xmlNamespace );
+            RelatedDocumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedLetter is QualifiedDocumentInformation1 RelatedLetterValue)
+        {
+            writer.WriteStartElement(null, "RltdLttr", xmlNamespace );
+            RelatedLetterValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedMessage is QualifiedDocumentInformation1 RelatedMessageValue)
+        {
+            writer.WriteStartElement(null, "RltdMsg", xmlNamespace );
+            RelatedMessageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AssociatedDocument is QualifiedDocumentInformation1 AssociatedDocumentValue)
+        {
+            writer.WriteStartElement(null, "AssoctdDoc", xmlNamespace );
+            AssociatedDocumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GoverningContract is QualifiedDocumentInformation1 GoverningContractValue)
+        {
+            writer.WriteStartElement(null, "GovngCtrct", xmlNamespace );
+            GoverningContractValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LegalContext is GovernanceRules2 LegalContextValue)
+        {
+            writer.WriteStartElement(null, "LglCntxt", xmlNamespace );
+            LegalContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static EventDescription1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

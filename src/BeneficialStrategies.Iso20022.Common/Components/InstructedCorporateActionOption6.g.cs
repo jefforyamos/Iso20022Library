@@ -7,48 +7,84 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides corporate action option details about total instructed balance.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InstructedCorporateActionOption6
+     : IIsoXmlSerilizable<InstructedCorporateActionOption6>
 {
     #nullable enable
     
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    [DataMember]
     public IsoExact3NumericText? OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    [DataMember]
     public required CorporateActionOption18Choice_ OptionType { get; init; } 
     /// <summary>
     /// Balance of instructed position.
     /// </summary>
-    [DataMember]
     public required BalanceFormat5Choice_ InstructedBalance { get; init; } 
     /// <summary>
     /// Indicates the default action related to a corporate action event.
     /// </summary>
-    [DataMember]
     public DefaultProcessingOrStandingInstruction1Choice_? DefaultAction { get; init; } 
     /// <summary>
     /// Any deadline chosen by the account servicer (service level agreement).
     /// </summary>
-    [DataMember]
     public required IsoISODateTime DeadlineDateTime { get; init; } 
     /// <summary>
     /// Specifies the type of deadline for instructing.
     /// </summary>
-    [DataMember]
     public required DeadlineCode3Choice_ DeadlineType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OptionNumber is IsoExact3NumericText OptionNumberValue)
+        {
+            writer.WriteStartElement(null, "OptnNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact3NumericText(OptionNumberValue)); // data type Exact3NumericText System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+        OptionType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InstdBal", xmlNamespace );
+        InstructedBalance.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DefaultAction is DefaultProcessingOrStandingInstruction1Choice_ DefaultActionValue)
+        {
+            writer.WriteStartElement(null, "DfltActn", xmlNamespace );
+            DefaultActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DdlnDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(DeadlineDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DdlnTp", xmlNamespace );
+        DeadlineType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static InstructedCorporateActionOption6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,43 +7,79 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the valuation details per exposure type aggregation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ExposureTypeAggregation3
+     : IIsoXmlSerilizable<ExposureTypeAggregation3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the underlying business area/type of trade causing the exposure.
     /// </summary>
-    [DataMember]
     public required ExposureType23Choice_ ExposureType { get; init; } 
     /// <summary>
     /// Specifies the settlement process in which the collateral will be settled.
     /// </summary>
-    [DataMember]
     public GenericIdentification30? SettlementProcess { get; init; } 
     /// <summary>
     /// Provides details on the collateral valuation.
     /// </summary>
-    [DataMember]
-    public ValueList<CollateralAmount16> ValuationAmounts { get; init; } = []; // Warning: Don't know multiplicity.
+    public CollateralAmount16? ValuationAmounts { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _M90Y1Ss9EeySlt9bF77XfA
     /// <summary>
     /// The collateral excess/shortage expressed in the percentage of the collateral required.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? MarginRate { get; init; } 
     /// <summary>
     /// Provides the status after comparing the total collateral required and the total collateral value of all transactions of the same exposure type.
     /// </summary>
-    [DataMember]
     public CollateralStatus1Code? GlobalExposureTypeStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "XpsrTp", xmlNamespace );
+        ExposureType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SettlementProcess is GenericIdentification30 SettlementProcessValue)
+        {
+            writer.WriteStartElement(null, "SttlmPrc", xmlNamespace );
+            SettlementProcessValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize ValuationAmounts, multiplicity Unknown
+        if (MarginRate is IsoPercentageRate MarginRateValue)
+        {
+            writer.WriteStartElement(null, "MrgnRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(MarginRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (GlobalExposureTypeStatus is CollateralStatus1Code GlobalExposureTypeStatusValue)
+        {
+            writer.WriteStartElement(null, "GblXpsrTpSts", xmlNamespace );
+            writer.WriteValue(GlobalExposureTypeStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static ExposureTypeAggregation3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

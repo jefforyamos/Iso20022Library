@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.secl.TradeLegNotificationCancellationV03>;
 
 namespace BeneficialStrategies.Iso20022.secl;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.secl;
 /// The previously sent message must be the Trade Leg Notification message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The TradeLegNotificationCancellation message is sent by the central counterparty (CCP) to a clearing member to notify the cancellation of a TradeLegNotification message previously sent.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|The previously sent message must be the Trade Leg Notification message.")]
-public partial record TradeLegNotificationCancellationV03 : IOuterRecord
+public partial record TradeLegNotificationCancellationV03 : IOuterRecord<TradeLegNotificationCancellationV03,TradeLegNotificationCancellationV03Document>
+    ,IIsoXmlSerilizable<TradeLegNotificationCancellationV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record TradeLegNotificationCancellationV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "TradLegNtfctnCxl";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => TradeLegNotificationCancellationV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -129,6 +136,59 @@ public partial record TradeLegNotificationCancellationV03 : IOuterRecord
     {
         return new TradeLegNotificationCancellationV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("TradLegNtfctnCxl");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ClrMmb", xmlNamespace );
+        ClearingMember.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClrAcct", xmlNamespace );
+        ClearingAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DeliveryAccount is SecuritiesAccount19 DeliveryAccountValue)
+        {
+            writer.WriteStartElement(null, "DlvryAcct", xmlNamespace );
+            DeliveryAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NonClearingMember is PartyIdentificationAndAccount31 NonClearingMemberValue)
+        {
+            writer.WriteStartElement(null, "NonClrMmb", xmlNamespace );
+            NonClearingMemberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingDetails is Clearing4 ClearingDetailsValue)
+        {
+            writer.WriteStartElement(null, "ClrDtls", xmlNamespace );
+            ClearingDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TradLegDtls", xmlNamespace );
+        TradeLegDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmDtls", xmlNamespace );
+        SettlementDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeLegNotificationCancellationV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -136,9 +196,7 @@ public partial record TradeLegNotificationCancellationV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TradeLegNotificationCancellationV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record TradeLegNotificationCancellationV03Document : IOuterDocument<TradeLegNotificationCancellationV03>
+public partial record TradeLegNotificationCancellationV03Document : IOuterDocument<TradeLegNotificationCancellationV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -154,5 +212,22 @@ public partial record TradeLegNotificationCancellationV03Document : IOuterDocume
     /// <summary>
     /// The instance of <seealso cref="TradeLegNotificationCancellationV03"/> is required.
     /// </summary>
+    [DataMember(Name=TradeLegNotificationCancellationV03.XmlTag)]
     public required TradeLegNotificationCancellationV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(TradeLegNotificationCancellationV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

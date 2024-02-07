@@ -7,68 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money associated with a service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Fee2
+     : IIsoXmlSerilizable<Fee2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of fee (charge/commission).
     /// </summary>
-    [DataMember]
     public required ChargeType5Choice_ Type { get; init; } 
     /// <summary>
     /// Method used to calculate the fee (charge/commission).
     /// </summary>
-    [DataMember]
     public ChargeBasis2Choice_? Basis { get; init; } 
     /// <summary>
     /// Standard fee (charge/commission) amount as specified in the fund prospectus or agreed for the account.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? StandardAmount { get; init; } 
     /// <summary>
     /// Standard fee (charge/commission) rate used to calculate the amount of the charge or fee, as specified in the fund prospectus or agreed for the account.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? StandardRate { get; init; } 
     /// <summary>
     /// Discount or waiver applied to the fee (charge/commission).
     /// </summary>
-    [DataMember]
     public ChargeOrCommissionDiscount1? DiscountDetails { get; init; } 
     /// <summary>
     /// Fee (charge/commission) amount applied to the transaction.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? AppliedAmount { get; init; } 
     /// <summary>
     /// Final rate used to calculate the fee (charge/commission) amount.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? AppliedRate { get; init; } 
     /// <summary>
     /// Reference to a sales agreement that overrides normal processing or the Service Level Agreement (SLA), such as a fee (charge/commission).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? NonStandardSLAReference { get; init; } 
     /// <summary>
     /// Party entitled to the amount of money resulting from a fee (charge/commission).
     /// </summary>
-    [DataMember]
     public PartyIdentification113? RecipientIdentification { get; init; } 
     /// <summary>
     /// Indicates the information is provided for information purposes only. When the value is ‘false’ or ‘0’ the amount provided is taken into consideration in the transaction overhead. When the value is ‘true’ or ‘1’ the amount provided is not taken into consideration in the transaction overhead.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator InformativeIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Basis is ChargeBasis2Choice_ BasisValue)
+        {
+            writer.WriteStartElement(null, "Bsis", xmlNamespace );
+            BasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StandardAmount is IsoActiveCurrencyAndAmount StandardAmountValue)
+        {
+            writer.WriteStartElement(null, "StdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(StandardAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (StandardRate is IsoPercentageRate StandardRateValue)
+        {
+            writer.WriteStartElement(null, "StdRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(StandardRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (DiscountDetails is ChargeOrCommissionDiscount1 DiscountDetailsValue)
+        {
+            writer.WriteStartElement(null, "DscntDtls", xmlNamespace );
+            DiscountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AppliedAmount is IsoActiveCurrencyAndAmount AppliedAmountValue)
+        {
+            writer.WriteStartElement(null, "ApldAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AppliedAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (AppliedRate is IsoPercentageRate AppliedRateValue)
+        {
+            writer.WriteStartElement(null, "ApldRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(AppliedRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (NonStandardSLAReference is IsoMax35Text NonStandardSLAReferenceValue)
+        {
+            writer.WriteStartElement(null, "NonStdSLARef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NonStandardSLAReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RecipientIdentification is PartyIdentification113 RecipientIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcptId", xmlNamespace );
+            RecipientIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InftvInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(InformativeIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static Fee2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

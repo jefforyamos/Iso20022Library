@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the implementation specification to which the ISO 20022 message conforms.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ImplementationSpecification1
+     : IIsoXmlSerilizable<ImplementationSpecification1>
 {
     #nullable enable
     
@@ -23,14 +24,35 @@ public partial record ImplementationSpecification1
     /// Name of the implementation specification registry in which the implementation specification of the ISO 20022 message is maintained.
     /// For example, "MyStandards".
     /// </summary>
-    [DataMember]
     public required IsoMax350Text Registry { get; init; } 
     /// <summary>
     /// Identifier which unambiguously identifies, within the implementation specification registry, the implementation specification to which the ISO 20022 message is compliant. This can be done via a URN. It can also contain a version number or date.
     /// For instance, "2018-01-01 – Version 2" or "urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66".
     /// </summary>
-    [DataMember]
     public required IsoMax2048Text Identification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Regy", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(Registry)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax2048Text(Identification)); // data type Max2048Text System.String
+        writer.WriteEndElement();
+    }
+    public static ImplementationSpecification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

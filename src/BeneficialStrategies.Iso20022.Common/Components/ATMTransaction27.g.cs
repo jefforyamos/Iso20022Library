@@ -7,43 +7,82 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Transaction for which the exception is sent.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMTransaction27
+     : IIsoXmlSerilizable<ATMTransaction27>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
-    [DataMember]
     public TransactionIdentifier1? TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     /// <summary>
     /// Exception occurring outside the service.
     /// </summary>
-    [DataMember]
-    public ValueList<FailureReason8Code> Exception { get; init; } = []; // Warning: Don't know multiplicity.
+    public FailureReason8Code? Exception { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _fA9EoK5FEeWCgYcWSNgX5g
     /// <summary>
     /// Explanation of the exception.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax70Text> ExceptionDetail { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax70Text? ExceptionDetail { get; init; } 
     /// <summary>
     /// Balance of the captured card or epurse if available.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? ElectronicPurseBalance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TransactionIdentification is TransactionIdentifier1 TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            TransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReconciliationIdentification is IsoMax35Text ReconciliationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcncltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReconciliationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize Exception, multiplicity Unknown
+        if (ExceptionDetail is IsoMax70Text ExceptionDetailValue)
+        {
+            writer.WriteStartElement(null, "XcptnDtl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(ExceptionDetailValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (ElectronicPurseBalance is IsoCurrencyAndAmount ElectronicPurseBalanceValue)
+        {
+            writer.WriteStartElement(null, "ElctrncPrsBal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(ElectronicPurseBalanceValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMTransaction27 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

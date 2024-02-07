@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information needed to process a currency exchange or conversion.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CurrencySourceTarget1
+     : IIsoXmlSerilizable<CurrencySourceTarget1>
 {
     #nullable enable
     
     /// <summary>
     /// Currency of the amount to be converted in a currency conversion.
     /// </summary>
-    [DataMember]
     public required ActiveOrHistoricCurrencyCode SourceCurrency { get; init; } 
     /// <summary>
     /// Currency into which an amount is to be converted in a currency conversion.
     /// </summary>
-    [DataMember]
     public required ActiveOrHistoricCurrencyCode TargetCurrency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SrcCcy", xmlNamespace );
+        writer.WriteValue(SourceCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TrgtCcy", xmlNamespace );
+        writer.WriteValue(TargetCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static CurrencySourceTarget1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

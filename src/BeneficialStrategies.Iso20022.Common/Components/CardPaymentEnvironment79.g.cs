@@ -7,94 +7,187 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardPaymentEnvironment79
+     : IIsoXmlSerilizable<CardPaymentEnvironment79>
 {
     #nullable enable
     
     /// <summary>
     /// Acquirer involved in the card payment.
     /// </summary>
-    [DataMember]
     public Acquirer10? Acquirer { get; init; } 
     /// <summary>
     /// Third party agent which provides services.
     /// </summary>
-    [DataMember]
     public Acquirer10? ServiceProvider { get; init; } 
     /// <summary>
     /// Merchant performing the card payment transaction.
     /// Usage: In some cases, merchant and acceptor may be regarded as the same entity.
     /// </summary>
-    [DataMember]
     public Organisation41? Merchant { get; init; } 
     /// <summary>
     /// Point of interaction (POI) performing the transaction.
     /// </summary>
-    [DataMember]
     public PointOfInteraction13? POI { get; init; } 
     /// <summary>
     /// Payment card performing the transaction.
     /// </summary>
-    [DataMember]
     public PaymentCard33? Card { get; init; } 
     /// <summary>
     /// Check Payment instrument.
     /// </summary>
-    [DataMember]
     public Check1? Check { get; init; } 
     /// <summary>
     /// Store value account payment instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<StoredValueAccount2> StoredValueAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    public StoredValueAccount2? StoredValueAccount { get; init; } 
     /// <summary>
     /// Store value account associated to the payment.
     /// </summary>
-    [DataMember]
-    public ValueList<LoyaltyAccount3> LoyaltyAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    public LoyaltyAccount3? LoyaltyAccount { get; init; } 
     /// <summary>
     /// Device used by the customer to perform the payment transaction.
     /// </summary>
-    [DataMember]
     public CustomerDevice3? CustomerDevice { get; init; } 
     /// <summary>
     /// Container for tenders used by the customer to perform the payment transaction.
     /// </summary>
-    [DataMember]
     public CustomerDevice3? Wallet { get; init; } 
     /// <summary>
     /// Payment token information.
     /// </summary>
-    [DataMember]
     public Token1? PaymentToken { get; init; } 
     /// <summary>
     /// Merchant token information.
     /// </summary>
-    [DataMember]
     public MerchantToken2? MerchantToken { get; init; } 
     /// <summary>
     /// Cardholder involved in the card payment.
     /// </summary>
-    [DataMember]
     public Cardholder20? Cardholder { get; init; } 
     /// <summary>
     /// Replacement of the message element Cardholder by a digital envelope using a cryptographic key.
     /// </summary>
-    [DataMember]
     public ContentInformationType35? ProtectedCardholderData { get; init; } 
     /// <summary>
     /// Sale Retailer Environment for this message.
     /// </summary>
-    [DataMember]
     public RetailerSaleEnvironment2? SaleEnvironment { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Acquirer is Acquirer10 AcquirerValue)
+        {
+            writer.WriteStartElement(null, "Acqrr", xmlNamespace );
+            AcquirerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ServiceProvider is Acquirer10 ServiceProviderValue)
+        {
+            writer.WriteStartElement(null, "SvcPrvdr", xmlNamespace );
+            ServiceProviderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Merchant is Organisation41 MerchantValue)
+        {
+            writer.WriteStartElement(null, "Mrchnt", xmlNamespace );
+            MerchantValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (POI is PointOfInteraction13 POIValue)
+        {
+            writer.WriteStartElement(null, "POI", xmlNamespace );
+            POIValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Card is PaymentCard33 CardValue)
+        {
+            writer.WriteStartElement(null, "Card", xmlNamespace );
+            CardValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Check is Check1 CheckValue)
+        {
+            writer.WriteStartElement(null, "Chck", xmlNamespace );
+            CheckValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StoredValueAccount is StoredValueAccount2 StoredValueAccountValue)
+        {
+            writer.WriteStartElement(null, "StordValAcct", xmlNamespace );
+            StoredValueAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LoyaltyAccount is LoyaltyAccount3 LoyaltyAccountValue)
+        {
+            writer.WriteStartElement(null, "LltyAcct", xmlNamespace );
+            LoyaltyAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CustomerDevice is CustomerDevice3 CustomerDeviceValue)
+        {
+            writer.WriteStartElement(null, "CstmrDvc", xmlNamespace );
+            CustomerDeviceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Wallet is CustomerDevice3 WalletValue)
+        {
+            writer.WriteStartElement(null, "Wllt", xmlNamespace );
+            WalletValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentToken is Token1 PaymentTokenValue)
+        {
+            writer.WriteStartElement(null, "PmtTkn", xmlNamespace );
+            PaymentTokenValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MerchantToken is MerchantToken2 MerchantTokenValue)
+        {
+            writer.WriteStartElement(null, "MrchntTkn", xmlNamespace );
+            MerchantTokenValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Cardholder is Cardholder20 CardholderValue)
+        {
+            writer.WriteStartElement(null, "Crdhldr", xmlNamespace );
+            CardholderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProtectedCardholderData is ContentInformationType35 ProtectedCardholderDataValue)
+        {
+            writer.WriteStartElement(null, "PrtctdCrdhldrData", xmlNamespace );
+            ProtectedCardholderDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SaleEnvironment is RetailerSaleEnvironment2 SaleEnvironmentValue)
+        {
+            writer.WriteStartElement(null, "SaleEnvt", xmlNamespace );
+            SaleEnvironmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardPaymentEnvironment79 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

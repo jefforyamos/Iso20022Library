@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a cash forecast report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FundConfirmedCashForecastReport3
+     : IIsoXmlSerilizable<FundConfirmedCashForecastReport3>
 {
     #nullable enable
     
     /// <summary>
     /// Information about the fund/sub fund when the report either specifies cash flow for the fund/sub fund or for a share class of the fund/sub fund.
     /// </summary>
-    [DataMember]
-    public ValueList<Fund2> FundOrSubFundDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Fund2? FundOrSubFundDetails { get; init; } 
     /// <summary>
     /// Information related to the cash-in and cash-out flows for a specific trade date as a result of investment fund transactions, for example, subscriptions, redemptions or switches to/from a specified investment fund.
     /// </summary>
-    [DataMember]
-    public ValueList<FundCashForecast7> FundCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public FundCashForecast7? FundCashForecastDetails { get; init; } 
     /// <summary>
     /// Estimated net cash as a result of the cash-in and cash-out flows.
     /// </summary>
-    [DataMember]
     public NetCashForecast3? ConsolidatedNetCashForecast { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<Extension1> Extension { get; init; } = []; // Warning: Don't know multiplicity.
+    public Extension1? Extension { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FundOrSubFundDetails is Fund2 FundOrSubFundDetailsValue)
+        {
+            writer.WriteStartElement(null, "FndOrSubFndDtls", xmlNamespace );
+            FundOrSubFundDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FundCashForecastDetails is FundCashForecast7 FundCashForecastDetailsValue)
+        {
+            writer.WriteStartElement(null, "FndCshFcstDtls", xmlNamespace );
+            FundCashForecastDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ConsolidatedNetCashForecast is NetCashForecast3 ConsolidatedNetCashForecastValue)
+        {
+            writer.WriteStartElement(null, "CnsltdNetCshFcst", xmlNamespace );
+            ConsolidatedNetCashForecastValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FundConfirmedCashForecastReport3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,48 +7,81 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Represents a party to be identified as eligible for the instructing party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record EligibleCounterpart1
+     : IIsoXmlSerilizable<EligibleCounterpart1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique business identifier code used to identify the party providing the eligible counterpart information.
     /// </summary>
-    [DataMember]
     public required SystemPartyIdentification1Choice_ IssuerIdentification { get; init; } 
     /// <summary>
     /// Unique business identifier code used to identify the central securities depository to be defined as eligible.
     /// </summary>
-    [DataMember]
     public required SystemPartyIdentification1Choice_ EligibleCounterpartIdentification { get; init; } 
     /// <summary>
     /// Date from when the eligible counterpart is valid.
     /// </summary>
-    [DataMember]
     public required IsoISODate ValidFrom { get; init; } 
     /// <summary>
     /// Date until when the eligible counterpart is valid.
     /// </summary>
-    [DataMember]
     public IsoISODate? ValidTo { get; init; } 
     /// <summary>
     /// Defines the type of eligibility.
     /// </summary>
-    [DataMember]
     public required EligibilityType1Code EligibilityType { get; init; } 
     /// <summary>
     /// Unique identification of the eligible counterpart party.
     /// </summary>
-    [DataMember]
     public required EligibilityIdentification1Choice_ EligibilityIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IssrId", xmlNamespace );
+        IssuerIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ElgblCntrptId", xmlNamespace );
+        EligibleCounterpartIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "VldFr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ValidFrom)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (ValidTo is IsoISODate ValidToValue)
+        {
+            writer.WriteStartElement(null, "VldTo", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ValidToValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ElgbltyTp", xmlNamespace );
+        writer.WriteValue(EligibilityType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ElgbltyId", xmlNamespace );
+        EligibilityIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static EligibleCounterpart1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

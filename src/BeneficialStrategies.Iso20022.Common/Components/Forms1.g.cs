@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Processing characteristics linked to the instrument, that is, not to the market.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Forms1
+     : IIsoXmlSerilizable<Forms1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether a physical application form is required.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ApplicationForm { get; init; } 
     /// <summary>
     /// Type of signature.
     /// </summary>
-    [DataMember]
     public required SignatureType1Code SignatureType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ApplForm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ApplicationForm)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SgntrTp", xmlNamespace );
+        writer.WriteValue(SignatureType.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static Forms1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the specification of the valuation of a collateral, based on the sector and the asset classification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralValuation7
+     : IIsoXmlSerilizable<CollateralValuation7>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the collateral is a pool collateral or not.
     /// </summary>
-    [DataMember]
     public required CollateralPool1Code PoolStatus { get; init; } 
     /// <summary>
     /// Identifies the asset class pledged as collateral, expressed as an ISO 10962 Classification of Financial Instrument (CFI).
     /// </summary>
-    [DataMember]
     public required IsoCFIOct2015Identifier Type { get; init; } 
     /// <summary>
     /// Provides the institutional sector, such as central government, central bank, etc. of the issuer of collateral.
     /// </summary>
-    [DataMember]
     public required IsoSNA2008SectorIdentifier Sector { get; init; } 
     /// <summary>
     /// Nominal amount of money of the security pledged as collateral, when the collateral cannot be identified through an individual or basket ISIN.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? NominalAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PoolSts", xmlNamespace );
+        writer.WriteValue(PoolStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCFIOct2015Identifier(Type)); // data type CFIOct2015Identifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sctr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoSNA2008SectorIdentifier(Sector)); // data type SNA2008SectorIdentifier System.String
+        writer.WriteEndElement();
+        if (NominalAmount is IsoActiveCurrencyAndAmount NominalAmountValue)
+        {
+            writer.WriteStartElement(null, "NmnlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(NominalAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralValuation7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

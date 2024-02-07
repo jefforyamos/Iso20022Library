@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PriceInformation9
+     : IIsoXmlSerilizable<PriceInformation9>
 {
     #nullable enable
     
     /// <summary>
     /// Value of the price, for instance, as a currency and value.
     /// </summary>
-    [DataMember]
     public required Price4 Value { get; init; } 
     /// <summary>
     /// Date on which the price is obtained. With an investment fund, this is as stated in the prospectus.
     /// </summary>
-    [DataMember]
     public DateAndDateTime1Choice_? QuotationDate { get; init; } 
     /// <summary>
     /// Period during which the price of a security is determined (For outturn securities).
     /// </summary>
-    [DataMember]
     public DateTimePeriodChoice_? PriceCalculationPeriod { get; init; } 
     /// <summary>
     /// Place from which the price was obtained.
     /// </summary>
-    [DataMember]
     public MarketIdentification77? SourceOfPrice { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        Value.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (QuotationDate is DateAndDateTime1Choice_ QuotationDateValue)
+        {
+            writer.WriteStartElement(null, "QtnDt", xmlNamespace );
+            QuotationDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PriceCalculationPeriod is DateTimePeriodChoice_ PriceCalculationPeriodValue)
+        {
+            writer.WriteStartElement(null, "PricClctnPrd", xmlNamespace );
+            PriceCalculationPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SourceOfPrice is MarketIdentification77 SourceOfPriceValue)
+        {
+            writer.WriteStartElement(null, "SrcOfPric", xmlNamespace );
+            SourceOfPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PriceInformation9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

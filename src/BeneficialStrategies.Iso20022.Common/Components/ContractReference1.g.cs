@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the reference for the identification of an underlying contract.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ContractReference1
+     : IIsoXmlSerilizable<ContractReference1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of the contract referred to.
     /// </summary>
-    [DataMember]
     public DocumentType1Choice_? Type { get; init; } 
     /// <summary>
     /// Reference of the contract.
     /// </summary>
-    [DataMember]
     public required IsoMax500Text Reference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is DocumentType1Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Ref", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax500Text(Reference)); // data type Max500Text System.String
+        writer.WriteEndElement();
+    }
+    public static ContractReference1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

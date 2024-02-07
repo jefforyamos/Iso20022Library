@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies a type of identification requested for an organisation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OrganisationType2
+     : IIsoXmlSerilizable<OrganisationType2>
 {
     #nullable enable
     
@@ -23,25 +24,62 @@ public partial record OrganisationType2
     /// Business identification code of the organisation is requested.
     /// Usage: When absent (default value), the identification is not requested. 
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? AnyBIC { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for a party is requested.
     /// Usage: When absent (default value), the identification is not requested. 
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? LEI { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail) is requested.
     /// Usage: When absent (default value), the identification is not requested. 
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? EmailAddress { get; init; } 
     /// <summary>
     /// Unique identification of an organisation, as assigned by an institution, using an identification scheme is requested.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericOrganisationType1> Other { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericOrganisationType1? Other { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AnyBIC is IsoRequestedIndicator AnyBICValue)
+        {
+            writer.WriteStartElement(null, "AnyBIC", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(AnyBICValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (LEI is IsoRequestedIndicator LEIValue)
+        {
+            writer.WriteStartElement(null, "LEI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(LEIValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (EmailAddress is IsoRequestedIndicator EmailAddressValue)
+        {
+            writer.WriteStartElement(null, "EmailAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(EmailAddressValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Other is GenericOrganisationType1 OtherValue)
+        {
+            writer.WriteStartElement(null, "Othr", xmlNamespace );
+            OtherValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OrganisationType2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

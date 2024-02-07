@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information needed due to regulatory and/or statutory requirements.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RegulatoryReporting2
+     : IIsoXmlSerilizable<RegulatoryReporting2>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies whether the regulatory reporting information applies to the debit side, to the credit side or to both debit and credit sides of the transaction.
     /// </summary>
-    [DataMember]
     public RegulatoryReportingType1Code? DebitCreditReportingIndicator { get; init; } 
     /// <summary>
     /// Entity requiring the regulatory reporting information.
     /// </summary>
-    [DataMember]
     public RegulatoryAuthority? Authority { get; init; } 
     /// <summary>
     /// Details related to the regulatory reporting information.
     /// </summary>
-    [DataMember]
     public StructuredRegulatoryReporting2? RegulatoryDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DebitCreditReportingIndicator is RegulatoryReportingType1Code DebitCreditReportingIndicatorValue)
+        {
+            writer.WriteStartElement(null, "DbtCdtRptgInd", xmlNamespace );
+            writer.WriteValue(DebitCreditReportingIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Authority is RegulatoryAuthority AuthorityValue)
+        {
+            writer.WriteStartElement(null, "Authrty", xmlNamespace );
+            AuthorityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RegulatoryDetails is StructuredRegulatoryReporting2 RegulatoryDetailsValue)
+        {
+            writer.WriteStartElement(null, "RgltryDtls", xmlNamespace );
+            RegulatoryDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RegulatoryReporting2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

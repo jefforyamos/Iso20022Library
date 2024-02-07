@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMEnvironment7
+     : IIsoXmlSerilizable<ATMEnvironment7>
 {
     #nullable enable
     
     /// <summary>
     /// Acquirer of the ATM transaction, in charge of the funds settlement with the issuer.
     /// </summary>
-    [DataMember]
     public Acquirer7? Acquirer { get; init; } 
     /// <summary>
     /// Institution in charge of managing the ATM.
     /// </summary>
-    [DataMember]
     public Acquirer8? ATMManager { get; init; } 
     /// <summary>
     /// Entity hosting the ATM terminal.
     /// </summary>
-    [DataMember]
     public TerminalHosting1? HostingEntity { get; init; } 
     /// <summary>
     /// ATM information.
     /// </summary>
-    [DataMember]
     public required AutomatedTellerMachine3 ATM { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Acquirer is Acquirer7 AcquirerValue)
+        {
+            writer.WriteStartElement(null, "Acqrr", xmlNamespace );
+            AcquirerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ATMManager is Acquirer8 ATMManagerValue)
+        {
+            writer.WriteStartElement(null, "ATMMgr", xmlNamespace );
+            ATMManagerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (HostingEntity is TerminalHosting1 HostingEntityValue)
+        {
+            writer.WriteStartElement(null, "HstgNtty", xmlNamespace );
+            HostingEntityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ATM", xmlNamespace );
+        ATM.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ATMEnvironment7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

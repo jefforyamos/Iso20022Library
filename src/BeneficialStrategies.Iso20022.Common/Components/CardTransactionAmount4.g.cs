@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amounts of the transaction expressed within the terminal currency.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardTransactionAmount4
+     : IIsoXmlSerilizable<CardTransactionAmount4>
 {
     #nullable enable
     
@@ -23,23 +24,57 @@ public partial record CardTransactionAmount4
     /// Total amount of the transaction.
     /// It corresponds to ISO 8583, field number 4, completed by the field number 49 for the versions 87 and 93.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount TotalAmount { get; init; } 
     /// <summary>
     /// Present when cardholder billing currency differs from transaction currency expressed in TransactionAmount. It may be populated by the scheme or intermediary processor as normally Acceptor does not know cardholder billing currency.
     /// </summary>
-    [DataMember]
     public DetailedAmount8? CardholderBillingTransactionAmount { get; init; } 
     /// <summary>
     /// Only present within financial transactions when reconciliation currency differs from transaction currency. It may be populated by acquirers in the request or by the schemes in the responses, depending where the reconciliation point is located.
     /// </summary>
-    [DataMember]
     public DetailedAmount8? ReconciliationTransactionAmount { get; init; } 
     /// <summary>
     /// Details of the TransactionAmount, for informational purposes only, except for cash back which is mandatory for a payment transaction with cashback. The transaction amount is not necessarly the sum of all the detailed amount values.
     /// </summary>
-    [DataMember]
-    public ValueList<DetailedAmount9> DetailedAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public DetailedAmount9? DetailedAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(TotalAmount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (CardholderBillingTransactionAmount is DetailedAmount8 CardholderBillingTransactionAmountValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrBllgTxAmt", xmlNamespace );
+            CardholderBillingTransactionAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReconciliationTransactionAmount is DetailedAmount8 ReconciliationTransactionAmountValue)
+        {
+            writer.WriteStartElement(null, "RcncltnTxAmt", xmlNamespace );
+            ReconciliationTransactionAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DetailedAmount is DetailedAmount9 DetailedAmountValue)
+        {
+            writer.WriteStartElement(null, "DtldAmt", xmlNamespace );
+            DetailedAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardTransactionAmount4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

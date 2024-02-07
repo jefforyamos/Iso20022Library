@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Extension for identification of a party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OrganisationIdentificationSD1
+     : IIsoXmlSerilizable<OrganisationIdentificationSD1>
 {
     #nullable enable
     
@@ -23,13 +24,37 @@ public partial record OrganisationIdentificationSD1
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance. 
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Name in the local language by which a party is known and which is usually used to identify that party.
     /// </summary>
-    [DataMember]
     public required IsoMax240Text LocalLanguageName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "LclLangNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax240Text(LocalLanguageName)); // data type Max240Text System.String
+        writer.WriteEndElement();
+    }
+    public static OrganisationIdentificationSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

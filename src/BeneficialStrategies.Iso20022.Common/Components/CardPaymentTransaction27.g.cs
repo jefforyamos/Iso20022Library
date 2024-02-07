@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Cancellation response from the acquirer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardPaymentTransaction27
+     : IIsoXmlSerilizable<CardPaymentTransaction27>
 {
     #nullable enable
     
     /// <summary>
     /// Outcome of the authorisation, and actions to perform.
     /// </summary>
-    [DataMember]
     public required AuthorisationResult3 AuthorisationResult { get; init; } 
     /// <summary>
     /// Set of actions to be performed by the POI (Point Of Interaction) system.
     /// </summary>
-    [DataMember]
-    public ValueList<Action1> Action { get; init; } = []; // Warning: Don't know multiplicity.
+    public Action1? Action { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AuthstnRslt", xmlNamespace );
+        AuthorisationResult.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Action is Action1 ActionValue)
+        {
+            writer.WriteStartElement(null, "Actn", xmlNamespace );
+            ActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardPaymentTransaction27 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ConfirmationStatus1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.ConfirmationStatus1Choice;
 /// Status of the order confirmation is accepted or received or sent to next party or there is a communication problem with next party. There is no reason attached.
 /// </summary>
 public partial record Status : ConfirmationStatus1Choice_
+     , IIsoXmlSerilizable<Status>
 {
-    public required OrderConfirmationStatus1Code Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies the current status of an order confirmation or of an order confirmation amendment.
+    /// </summary>
+    public required OrderConfirmationStatus1Code Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new Status Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

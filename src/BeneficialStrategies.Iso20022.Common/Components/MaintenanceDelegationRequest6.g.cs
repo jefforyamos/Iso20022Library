@@ -7,33 +7,59 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the request of maintenance delegations.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MaintenanceDelegationRequest6
+     : IIsoXmlSerilizable<MaintenanceDelegationRequest6>
 {
     #nullable enable
     
     /// <summary>
     /// Terminal manager identification.
     /// </summary>
-    [DataMember]
     public required GenericIdentification176 TMIdentification { get; init; } 
     /// <summary>
     /// Master terminal manager identification.
     /// </summary>
-    [DataMember]
     public GenericIdentification176? MasterTMIdentification { get; init; } 
     /// <summary>
     /// Information on the delegation of a maintenance action.
     /// </summary>
-    [DataMember]
-    public ValueList<MaintenanceDelegation10> RequestedDelegation { get; init; } = []; // Warning: Don't know multiplicity.
+    public MaintenanceDelegation10? RequestedDelegation { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _nBsLZQ00EeqUVL7sB4m7NA
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TMId", xmlNamespace );
+        TMIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MasterTMIdentification is GenericIdentification176 MasterTMIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MstrTMId", xmlNamespace );
+            MasterTMIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize RequestedDelegation, multiplicity Unknown
+    }
+    public static MaintenanceDelegationRequest6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

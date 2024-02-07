@@ -7,124 +7,244 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a security or other asset.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrument99
+     : IIsoXmlSerilizable<FinancialInstrument99>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the line of holding in the portfolio.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? LineIdentification { get; init; } 
     /// <summary>
     /// Identification of the asset.
     /// </summary>
-    [DataMember]
     public required FinancialInstrument62Choice_ Instrument { get; init; } 
     /// <summary>
     /// Specifies the quantity of assets to be transferred in units or in a percentage rate.
     /// </summary>
-    [DataMember]
     public Quantity47? Quantity { get; init; } 
     /// <summary>
     /// Breakdown of units.
     /// </summary>
-    [DataMember]
-    public ValueList<Unit11> UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Unit11? UnitsDetails { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
-    [DataMember]
     public AdditionalReference10? ClientReference { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transfer allocated by the counterparty.
     /// </summary>
-    [DataMember]
     public AdditionalReference10? CounterpartyReference { get; init; } 
     /// <summary>
     /// Business process in which the actors are involved. This will facilitate the right business process to be triggered, according to the market business model, which may require matching instructions (double leg process) or not (single leg process).
     /// </summary>
-    [DataMember]
     public BusinessFlowType1Code? BusinessFlowType { get; init; } 
     /// <summary>
     /// Average cost per share of the security, including all fees.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? AverageAcquisitionPrice { get; init; } 
     /// <summary>
     /// Currency to be used to transfer the holdings. Some transfer agents register holdings grouped by currency in addition to using the ISIN for multi-currency fund shares.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? TransferCurrency { get; init; } 
     /// <summary>
     /// Net asset on the balance sheet, the total portfolio value minus or plus the unrealised gain or loss.
     /// </summary>
-    [DataMember]
     public DateAndAmount2? TotalBookValue { get; init; } 
     /// <summary>
     /// Date and market value of the asset. 
     /// </summary>
-    [DataMember]
     public DateAndAmount2? LatestValuation { get; init; } 
     /// <summary>
     /// Original amount paid for the asset at the point of purchase. May also be known as the book cost.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? OriginalCost { get; init; } 
     /// <summary>
     /// Account held in the name of the party that is not the name of the beneficial owner of the shares.
     /// (Party and account into which the transferee receives the financial instrument from the transferor.)
     /// </summary>
-    [DataMember]
     public Account28? TransfereeAccount { get; init; } 
     /// <summary>
     /// Party and account from which the transferor delivers the financial instrument to the transferee.
     /// </summary>
-    [DataMember]
-    public ValueList<Account28> Transferor { get; init; } = []; // Warning: Don't know multiplicity.
+    public Account28? Transferor { get; init; } 
     /// <summary>
     /// Identification of a related party or intermediary.
     /// </summary>
-    [DataMember]
-    public ValueList<Intermediary43> IntermediaryInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public Intermediary43? IntermediaryInformation { get; init; } 
     /// <summary>
     /// Number of units that have been received (crystallised) or not yet received (uncrystallised) from the fund. This is typically relevant to a pension fund.
     /// </summary>
-    [DataMember]
-    public ValueList<Crystallisation2> CrystallisationDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Crystallisation2? CrystallisationDetails { get; init; } 
     /// <summary>
     /// Date or tax quarter used for the calculation of tax on the asset.
     /// </summary>
-    [DataMember]
     public Tax36? TaxValuationPoint { get; init; } 
     /// <summary>
     /// Chain of parties involved in the settlement of a transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<FundSettlementParameters17> SettlementPartiesDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public FundSettlementParameters17? SettlementPartiesDetails { get; init; } 
     /// <summary>
     /// Indicates whether the assets are held in an individual’s own name.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? AssetsHeldInOwnName { get; init; } 
     /// <summary>
     /// Indicates whether the transfer results in a change of beneficial owner.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? TransferResultsInChangeOfBeneficialOwner { get; init; } 
     /// <summary>
     /// Additional information about the financial instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (LineIdentification is IsoMax35Text LineIdentificationValue)
+        {
+            writer.WriteStartElement(null, "LineId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(LineIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Instrm", xmlNamespace );
+        Instrument.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Quantity is Quantity47 QuantityValue)
+        {
+            writer.WriteStartElement(null, "Qty", xmlNamespace );
+            QuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnitsDetails is Unit11 UnitsDetailsValue)
+        {
+            writer.WriteStartElement(null, "UnitsDtls", xmlNamespace );
+            UnitsDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClientReference is AdditionalReference10 ClientReferenceValue)
+        {
+            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
+            ClientReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CounterpartyReference is AdditionalReference10 CounterpartyReferenceValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyRef", xmlNamespace );
+            CounterpartyReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BusinessFlowType is BusinessFlowType1Code BusinessFlowTypeValue)
+        {
+            writer.WriteStartElement(null, "BizFlowTp", xmlNamespace );
+            writer.WriteValue(BusinessFlowTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AverageAcquisitionPrice is IsoActiveOrHistoricCurrencyAndAmount AverageAcquisitionPriceValue)
+        {
+            writer.WriteStartElement(null, "AvrgAcqstnPric", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(AverageAcquisitionPriceValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TransferCurrency is ActiveOrHistoricCurrencyCode TransferCurrencyValue)
+        {
+            writer.WriteStartElement(null, "TrfCcy", xmlNamespace );
+            writer.WriteValue(TransferCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TotalBookValue is DateAndAmount2 TotalBookValueValue)
+        {
+            writer.WriteStartElement(null, "TtlBookVal", xmlNamespace );
+            TotalBookValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LatestValuation is DateAndAmount2 LatestValuationValue)
+        {
+            writer.WriteStartElement(null, "LatstValtn", xmlNamespace );
+            LatestValuationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalCost is IsoActiveCurrencyAnd13DecimalAmount OriginalCostValue)
+        {
+            writer.WriteStartElement(null, "OrgnlCost", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(OriginalCostValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TransfereeAccount is Account28 TransfereeAccountValue)
+        {
+            writer.WriteStartElement(null, "TrfeeAcct", xmlNamespace );
+            TransfereeAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Transferor is Account28 TransferorValue)
+        {
+            writer.WriteStartElement(null, "Trfr", xmlNamespace );
+            TransferorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryInformation is Intermediary43 IntermediaryInformationValue)
+        {
+            writer.WriteStartElement(null, "IntrmyInf", xmlNamespace );
+            IntermediaryInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CrystallisationDetails is Crystallisation2 CrystallisationDetailsValue)
+        {
+            writer.WriteStartElement(null, "CrstllstnDtls", xmlNamespace );
+            CrystallisationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxValuationPoint is Tax36 TaxValuationPointValue)
+        {
+            writer.WriteStartElement(null, "TaxValtnPt", xmlNamespace );
+            TaxValuationPointValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementPartiesDetails is FundSettlementParameters17 SettlementPartiesDetailsValue)
+        {
+            writer.WriteStartElement(null, "SttlmPtiesDtls", xmlNamespace );
+            SettlementPartiesDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AssetsHeldInOwnName is IsoYesNoIndicator AssetsHeldInOwnNameValue)
+        {
+            writer.WriteStartElement(null, "AsstsHeldInOwnNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AssetsHeldInOwnNameValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TransferResultsInChangeOfBeneficialOwner is IsoYesNoIndicator TransferResultsInChangeOfBeneficialOwnerValue)
+        {
+            writer.WriteStartElement(null, "TrfRsltsInChngOfBnfclOwnr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(TransferResultsInChangeOfBeneficialOwnerValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstrument99 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the type of change to the status of the account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountStatusModification1
+     : IIsoXmlSerilizable<AccountStatusModification1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of change.
     /// </summary>
-    [DataMember]
     public Modification1Code? ModificationCode { get; init; } 
     /// <summary>
     /// Status of the account.
     /// </summary>
-    [DataMember]
     public required AccountStatus3Code Status { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ModificationCode is Modification1Code ModificationCodeValue)
+        {
+            writer.WriteStartElement(null, "ModCd", xmlNamespace );
+            writer.WriteValue(ModificationCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static AccountStatusModification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

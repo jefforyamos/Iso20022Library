@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Certificate and contract reference of a transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionCertificateContract1
+     : IIsoXmlSerilizable<TransactionCertificateContract1>
 {
     #nullable enable
     
     /// <summary>
     /// Reference of the contract provided as through the date and identification of the contract or through the registered contract identification.
     /// </summary>
-    [DataMember]
     public ContractRegistrationReference1Choice_? ContractReference { get; init; } 
     /// <summary>
     /// Provides the amount of the transaction in the currency of the registered contract.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? TransactionAmountInContractCurrency { get; init; } 
     /// <summary>
     /// Expected shipment date as per registered contract.
     /// </summary>
-    [DataMember]
     public IsoISODate? ExpectedShipmentDate { get; init; } 
     /// <summary>
     /// Expected advance payment (or prepayment) return date in case counterparty will not deliver the goods/services.
     /// </summary>
-    [DataMember]
     public IsoISODate? ExpectedAdvancePaymentReturnDate { get; init; } 
     /// <summary>
     /// Further details on the transaction certificate contract.
     /// </summary>
-    [DataMember]
     public IsoMax1025Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ContractReference is ContractRegistrationReference1Choice_ ContractReferenceValue)
+        {
+            writer.WriteStartElement(null, "CtrctRef", xmlNamespace );
+            ContractReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionAmountInContractCurrency is IsoActiveCurrencyAndAmount TransactionAmountInContractCurrencyValue)
+        {
+            writer.WriteStartElement(null, "TxAmtInCtrctCcy", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TransactionAmountInContractCurrencyValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExpectedShipmentDate is IsoISODate ExpectedShipmentDateValue)
+        {
+            writer.WriteStartElement(null, "XpctdShipmntDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExpectedShipmentDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ExpectedAdvancePaymentReturnDate is IsoISODate ExpectedAdvancePaymentReturnDateValue)
+        {
+            writer.WriteStartElement(null, "XpctdAdvncPmtRtrDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExpectedAdvancePaymentReturnDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax1025Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1025Text(AdditionalInformationValue)); // data type Max1025Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionCertificateContract1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

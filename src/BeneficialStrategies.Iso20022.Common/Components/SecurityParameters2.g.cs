@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Point of interaction parameters related to the security of software application and application protocol.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityParameters2
+     : IIsoXmlSerilizable<SecurityParameters2>
 {
     #nullable enable
     
     /// <summary>
     /// Point of interaction challenge for cryptographic key injection.
     /// </summary>
-    [DataMember]
     public IsoMax140Binary? POIChallenge { get; init; } 
     /// <summary>
     /// Terminal manager challenge for cryptographic key injection.
     /// </summary>
-    [DataMember]
     public IsoMax140Binary? TMChallenge { get; init; } 
     /// <summary>
     /// Key to inject in the point of interaction, protected by the temporary key previously sent.
     /// </summary>
-    [DataMember]
-    public ValueList<CryptographicKey4> SymmetricKey { get; init; } = []; // Warning: Don't know multiplicity.
+    public CryptographicKey4? SymmetricKey { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (POIChallenge is IsoMax140Binary POIChallengeValue)
+        {
+            writer.WriteStartElement(null, "POIChllng", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Binary(POIChallengeValue)); // data type Max140Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (TMChallenge is IsoMax140Binary TMChallengeValue)
+        {
+            writer.WriteStartElement(null, "TMChllng", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Binary(TMChallengeValue)); // data type Max140Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (SymmetricKey is CryptographicKey4 SymmetricKeyValue)
+        {
+            writer.WriteStartElement(null, "SmmtrcKey", xmlNamespace );
+            SymmetricKeyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecurityParameters2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

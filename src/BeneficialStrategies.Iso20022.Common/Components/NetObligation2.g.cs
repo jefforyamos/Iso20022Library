@@ -7,58 +7,101 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes the amount, direction and parties involved in a payment obligation between two participants (and their netting group or trading party) of a netting service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NetObligation2
+     : IIsoXmlSerilizable<NetObligation2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification for the obligation.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ObligationIdentification { get; init; } 
     /// <summary>
     /// Amount of the obligation.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Describes the party or netting group (of the participant receiving the report) involved in the calculation of the obligation.
     /// </summary>
-    [DataMember]
     public required NettingIdentification2Choice_ ParticipantNettingIdentification { get; init; } 
     /// <summary>
     /// Specifies the direction of the obligation.
     /// </summary>
-    [DataMember]
     public required PaymentReceipt1Code ObligationDirection { get; init; } 
     /// <summary>
     /// Describes the party or netting group (of the counterparty in the obligation) involved in the calculation of the obligation.
     /// </summary>
-    [DataMember]
     public required NettingIdentification2Choice_ CounterpartyNettingIdentification { get; init; } 
     /// <summary>
     /// Describes the counterparty participant involved in the obligation.
     /// </summary>
-    [DataMember]
     public PartyIdentification242Choice_? NetServiceCounterpartyIdentification { get; init; } 
     /// <summary>
     /// Specifies the standard settlement instructions used to issue a payment to the counterparty in order to settle the obligation.
     /// </summary>
-    [DataMember]
     public SettlementParties120? CounterpartySettlementInstructions { get; init; } 
     /// <summary>
     /// Number of transactions used to calculate the obligation. This is used in reconciliation between the net report obligation and the previously provided transaction status updates.
     /// </summary>
-    [DataMember]
     public IsoMax10NumericText? TransactionsNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OblgtnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ObligationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PtcptNetgId", xmlNamespace );
+        ParticipantNettingIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OblgtnDrctn", xmlNamespace );
+        writer.WriteValue(ObligationDirection.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CtrPtyNetgId", xmlNamespace );
+        CounterpartyNettingIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (NetServiceCounterpartyIdentification is PartyIdentification242Choice_ NetServiceCounterpartyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "NetSvcCtrPtyId", xmlNamespace );
+            NetServiceCounterpartyIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CounterpartySettlementInstructions is SettlementParties120 CounterpartySettlementInstructionsValue)
+        {
+            writer.WriteStartElement(null, "CtrPtySttlmInstrs", xmlNamespace );
+            CounterpartySettlementInstructionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionsNumber is IsoMax10NumericText TransactionsNumberValue)
+        {
+            writer.WriteStartElement(null, "TxsNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10NumericText(TransactionsNumberValue)); // data type Max10NumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static NetObligation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

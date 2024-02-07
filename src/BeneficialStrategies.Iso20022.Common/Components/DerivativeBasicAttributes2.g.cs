@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the derivative contract not included in the general financial instrument attributes component.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DerivativeBasicAttributes2
+     : IIsoXmlSerilizable<DerivativeBasicAttributes2>
 {
     #nullable enable
     
     /// <summary>
     /// Amount underlying a financial derivatives contract necessary for calculating payments or receipts.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINActiveOrHistoricCurrencyAndAmount NotionalCurrencyAndAmount { get; init; } 
     /// <summary>
     /// Indicates whether the given derivative price includes a prorated accrued interest component.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? InterestIncludedInPrice { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NtnlCcyAndAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveOrHistoricCurrencyAndAmount(NotionalCurrencyAndAmount)); // data type RestrictedFINActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (InterestIncludedInPrice is IsoYesNoIndicator InterestIncludedInPriceValue)
+        {
+            writer.WriteStartElement(null, "IntrstInclInPric", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(InterestIncludedInPriceValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static DerivativeBasicAttributes2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

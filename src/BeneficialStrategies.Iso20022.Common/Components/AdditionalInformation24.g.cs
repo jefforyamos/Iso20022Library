@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unless bilaterally agreed between the Sender and the Receiver, additional information must not contain information that can be provided in a structured field.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalInformation24
+     : IIsoXmlSerilizable<AdditionalInformation24>
 {
     #nullable enable
     
     /// <summary>
     /// Provides additional information on the collateral instruction.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? CollateralInstruction { get; init; } 
     /// <summary>
     /// Narrative information visible to other parties.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? Note { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CollateralInstruction is IsoMax350Text CollateralInstructionValue)
+        {
+            writer.WriteStartElement(null, "CollInstr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(CollateralInstructionValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (Note is IsoMax350Text NoteValue)
+        {
+            writer.WriteStartElement(null, "Note", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(NoteValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AdditionalInformation24 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reports on business day information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BusinessDay6
+     : IIsoXmlSerilizable<BusinessDay6>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a particular market infrastructure.
     /// </summary>
-    [DataMember]
-    public ValueList<SystemIdentification2Choice_> SystemIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public SystemIdentification2Choice_? SystemIdentification { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _wy9-A5lcEeeE1Ya-LgRsuQ
     /// <summary>
     /// Requested information on the system availability for a specific business day or business error when information has not been found.
     /// </summary>
-    [DataMember]
     public required BusinessDayReportOrError8Choice_ BusinessDayOrError { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize SystemIdentification, multiplicity Unknown
+        writer.WriteStartElement(null, "BizDayOrErr", xmlNamespace );
+        BusinessDayOrError.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static BusinessDay6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

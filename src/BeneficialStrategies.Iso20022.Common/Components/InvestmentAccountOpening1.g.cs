@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the type of opening instruction and identification of the application request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestmentAccountOpening1
+     : IIsoXmlSerilizable<InvestmentAccountOpening1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies if the account opening instruction is about a newly created account or a supplementary account.
     /// </summary>
-    [DataMember]
     public required AccountOpeningType1Code OpeningType { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of the account opening request at application level.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountApplicationIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of a transfer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transfer as allocated by the counterparty.
     /// </summary>
-    [DataMember]
     public AdditionalReference2? CounterpartyReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OpngTp", xmlNamespace );
+        writer.WriteValue(OpeningType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AccountApplicationIdentification is IsoMax35Text AccountApplicationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctApplId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountApplicationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClientReference is IsoMax35Text ClientReferenceValue)
+        {
+            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CounterpartyReference is AdditionalReference2 CounterpartyReferenceValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyRef", xmlNamespace );
+            CounterpartyReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InvestmentAccountOpening1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

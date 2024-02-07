@@ -7,68 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action movement option details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OptionTransactionDetailsSD3
+     : IIsoXmlSerilizable<OptionTransactionDetailsSD3>
 {
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Unique number assigned by the depository. Transaction identification will be either the DTC Instruction reference number for reorganisation instructions (VOI) or the DAM reference number for custody / reorganisation deposits.
     /// </summary>
-    [DataMember]
     public required IsoMax15Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Number which further identifies DTC instruction reference number. Not applicable to reorganisation / custody deposits.
     /// </summary>
-    [DataMember]
     public IsoMax3NumericText? TransactionSequenceNumber { get; init; } 
     /// <summary>
     /// Instruction date and time for reorganisation instructions or the deposit date for reorganisation / custody deposits.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime TransactionIdentificationDate { get; init; } 
     /// <summary>
     /// Instructed quantity for reorganisation instructions or the deposit quantity for reorganisation / custody deposits.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity15Choice_ TransactionIdentificationQuantity { get; init; } 
     /// <summary>
     /// Amount based upon the DTC cash rate per instruction.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINActiveCurrencyAndAmount? EntitledAmount { get; init; } 
     /// <summary>
     /// Quantity based upon the DTC security rate per instruction.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity15Choice_? EntitledQuantity { get; init; } 
     /// <summary>
     /// Quantity entered by the agent on PUT (Mortgage Backed) instructions to be paid. This quantity can be for the full or partial instructed quantity.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity15Choice_? AgentEnteredQuantity { get; init; } 
     /// <summary>
     /// Instructed quantity less the quantity entered by Agent on PUT (Mortgage Backed) instructions. Remaining unpaid quantity.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity15Choice_? AgentRemainingQuantity { get; init; } 
     /// <summary>
     /// Customer identification entered by client upon instruction submission.
     /// </summary>
-    [DataMember]
     public IsoMax30Text? CustomerReferenceIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15Text(TransactionIdentification)); // data type Max15Text System.String
+        writer.WriteEndElement();
+        if (TransactionSequenceNumber is IsoMax3NumericText TransactionSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "TxSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(TransactionSequenceNumberValue)); // data type Max3NumericText System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxIdDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(TransactionIdentificationDate)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxIdQty", xmlNamespace );
+        TransactionIdentificationQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (EntitledAmount is IsoRestrictedFINActiveCurrencyAndAmount EntitledAmountValue)
+        {
+            writer.WriteStartElement(null, "EntitldAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAndAmount(EntitledAmountValue)); // data type RestrictedFINActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (EntitledQuantity is FinancialInstrumentQuantity15Choice_ EntitledQuantityValue)
+        {
+            writer.WriteStartElement(null, "EntitldQty", xmlNamespace );
+            EntitledQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AgentEnteredQuantity is FinancialInstrumentQuantity15Choice_ AgentEnteredQuantityValue)
+        {
+            writer.WriteStartElement(null, "AgtNtrdQty", xmlNamespace );
+            AgentEnteredQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AgentRemainingQuantity is FinancialInstrumentQuantity15Choice_ AgentRemainingQuantityValue)
+        {
+            writer.WriteStartElement(null, "AgtRmngQty", xmlNamespace );
+            AgentRemainingQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CustomerReferenceIdentification is IsoMax30Text CustomerReferenceIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CstmrRefId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax30Text(CustomerReferenceIdentificationValue)); // data type Max30Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static OptionTransactionDetailsSD3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

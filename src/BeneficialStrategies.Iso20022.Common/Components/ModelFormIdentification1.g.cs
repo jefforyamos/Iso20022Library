@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a model form.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ModelFormIdentification1
+     : IIsoXmlSerilizable<ModelFormIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the model form.
     /// </summary>
-    [DataMember]
     public required ModelFormIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Version of the model form.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Version { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Version is IsoMax35Text VersionValue)
+        {
+            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(VersionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ModelFormIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

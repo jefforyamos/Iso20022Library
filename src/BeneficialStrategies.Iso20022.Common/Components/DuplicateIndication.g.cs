@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reference to another message indicating that the containing message is a	duplicate of the referenced message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DuplicateIndication
+     : IIsoXmlSerilizable<DuplicateIndication>
 {
     #nullable enable
     
     /// <summary>
     /// Reference of the original message, in case this is a duplicate.
     /// </summary>
-    [DataMember]
     public required IsoMax30Text Reference { get; init; } 
     /// <summary>
     /// Information about the duplicate.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text Justification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ref", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax30Text(Reference)); // data type Max30Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Info", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(Justification)); // data type Max140Text System.String
+        writer.WriteEndElement();
+    }
+    public static DuplicateIndication Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

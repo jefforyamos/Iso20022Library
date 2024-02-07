@@ -7,33 +7,59 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Overall holding position, in a single financial instrument, held in a securities account at a specified place of safekeeping.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AggregateHoldingBalance2
+     : IIsoXmlSerilizable<AggregateHoldingBalance2>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the financial instrument for which the balance information is specified.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Balance breakdown on the net position of a financial instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<FinancialInstrumentAggregateBalance1> BalanceForFinancialInstrument { get; init; } = []; // Warning: Don't know multiplicity.
+    public FinancialInstrumentAggregateBalance1? BalanceForFinancialInstrument { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _WsYrlojiEeONZKAAW4pOaQ
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize BalanceForFinancialInstrument, multiplicity Unknown
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AggregateHoldingBalance2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

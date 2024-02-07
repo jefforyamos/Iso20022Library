@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the identification and parties playing a role in a request to pay service management message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ActivationHeader2
+     : IIsoXmlSerilizable<ActivationHeader2>
 {
     #nullable enable
     
@@ -23,28 +24,61 @@ public partial record ActivationHeader2
     /// Point to point reference assigned by the instructing party and sent to the next party in the chain to unambiguously identify the message.
     /// Usage: The instructing party has to make sure that 'MessageIdentification' is unique per instructed party for a pre-agreed period.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Party that sends the message.
     /// </summary>
-    [DataMember]
     public RTPPartyIdentification1? MessageOriginator { get; init; } 
     /// <summary>
     /// Party that receives the message.
     /// </summary>
-    [DataMember]
     public RTPPartyIdentification1? MessageRecipient { get; init; } 
     /// <summary>
     /// Party that initiates the message. This can either be the debtor himself or the party that initiates the request on behalf of the debtor.
     /// </summary>
-    [DataMember]
     public required RTPPartyIdentification1 InitiatingParty { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (MessageOriginator is RTPPartyIdentification1 MessageOriginatorValue)
+        {
+            writer.WriteStartElement(null, "MsgOrgtr", xmlNamespace );
+            MessageOriginatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageRecipient is RTPPartyIdentification1 MessageRecipientValue)
+        {
+            writer.WriteStartElement(null, "MsgRcpt", xmlNamespace );
+            MessageRecipientValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InitgPty", xmlNamespace );
+        InitiatingParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ActivationHeader2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

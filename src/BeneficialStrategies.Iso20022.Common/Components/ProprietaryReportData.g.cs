@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Full report data or reporting data of a single tranche of the full report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProprietaryReportData
+     : IIsoXmlSerilizable<ProprietaryReportData>
 {
     #nullable enable
     
     /// <summary>
     /// IMPLEMENTORS WARNING - This element is replaced by the ANY XML type in the schema. Therefore, the XML tag <Data> does not appear in an actual XML instance.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Data { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Data", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Data)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static ProprietaryReportData Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,43 +7,71 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies a document by a unique identification and a version together with the submitter of the document.|Also specifies the type of document and an index for easy referencing.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DocumentIdentification10
+     : IIsoXmlSerilizable<DocumentIdentification10>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a set of data.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the version of a set of data. Example: Version 1.
     /// </summary>
-    [DataMember]
     public required IsoNumber Version { get; init; } 
     /// <summary>
     /// Identifies the type of data set.
     /// </summary>
-    [DataMember]
     public required DataSetType2Code Type { get; init; } 
     /// <summary>
     /// Uniquely identifies the financial institution which has submitted the set of data by using a BIC.
     /// </summary>
-    [DataMember]
     public required BICIdentification1 Submitter { get; init; } 
     /// <summary>
     /// Index assigned to the document, to allow easy referencing.
     /// </summary>
-    [DataMember]
     public required IsoMax3NumericText DocumentIndex { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(Version)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Submitr", xmlNamespace );
+        Submitter.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DocIndx", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax3NumericText(DocumentIndex)); // data type Max3NumericText System.String
+        writer.WriteEndElement();
+    }
+    public static DocumentIdentification10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

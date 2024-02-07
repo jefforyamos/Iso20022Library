@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Communication device number or electronic address used for communication.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CommunicationAddress4
+     : IIsoXmlSerilizable<CommunicationAddress4>
 {
     #nullable enable
     
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
-    [DataMember]
     public IsoMax256Text? EmailAddress { get; init; } 
     /// <summary>
     /// Address for the Universal Resource Locator (URL), eg, used over the www (HTTP) service.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? URLAddress { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (EmailAddress is IsoMax256Text EmailAddressValue)
+        {
+            writer.WriteStartElement(null, "EmailAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(EmailAddressValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (URLAddress is IsoMax256Text URLAddressValue)
+        {
+            writer.WriteStartElement(null, "URLAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(URLAddressValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CommunicationAddress4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

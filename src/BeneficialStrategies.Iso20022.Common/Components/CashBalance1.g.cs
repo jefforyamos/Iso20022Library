@@ -7,48 +7,84 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements defining the balance details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashBalance1
+     : IIsoXmlSerilizable<CashBalance1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the nature of a balance, eg, opening booked balance.
     /// </summary>
-    [DataMember]
     public required BalanceType1Choice_ Type { get; init; } 
     /// <summary>
     /// Provides further details on the credit line information.
     /// </summary>
-    [DataMember]
     public CreditLine1? CreditLine { get; init; } 
     /// <summary>
     /// Currency and amount of money of the cash balance.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether the balance is a credit or a debit balance. A zero balance is considered to be a credit balance.
     /// </summary>
-    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Specifies the date (and time) of the balance.
     /// </summary>
-    [DataMember]
     public required DateAndDateTimeChoice_ Date { get; init; } 
     /// <summary>
     /// Set of elements used to indicate when the booked amount of money will become available, ie can be accessed and start generating interest. ||Usage: this type of info is eg used in US, and is linked to particular instruments, such as cheques.|Example: When a cheque is deposited, it will be booked on the deposit day, but the funds will only be accessible as of the indicated availability day (according to national banking regulations).
     /// </summary>
-    [DataMember]
-    public ValueList<CashBalanceAvailability1> Availability { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashBalanceAvailability1? Availability { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CreditLine is CreditLine1 CreditLineValue)
+        {
+            writer.WriteStartElement(null, "CdtLine", xmlNamespace );
+            CreditLineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(Amount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Dt", xmlNamespace );
+        Date.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Availability is CashBalanceAvailability1 AvailabilityValue)
+        {
+            writer.WriteStartElement(null, "Avlbty", xmlNamespace );
+            AvailabilityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CashBalance1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

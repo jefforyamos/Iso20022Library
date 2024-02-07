@@ -7,33 +7,59 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reporting per financial instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrumentDetails24
+     : IIsoXmlSerilizable<FinancialInstrumentDetails24>
 {
     #nullable enable
     
     /// <summary>
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Elements characterising a financial instrument.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentAttributes63? FinancialInstrumentAttributes { get; init; } 
     /// <summary>
     /// Identification of the sub-balance.
     /// </summary>
-    [DataMember]
-    public ValueList<IntraPositionDetails40> SubBalance { get; init; } = []; // Warning: Don't know multiplicity.
+    public IntraPositionDetails40? SubBalance { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _E_aEY2-SEeaxWKxOD2aB-w
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FinancialInstrumentAttributes is FinancialInstrumentAttributes63 FinancialInstrumentAttributesValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmAttrbts", xmlNamespace );
+            FinancialInstrumentAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize SubBalance, multiplicity Unknown
+    }
+    public static FinancialInstrumentDetails24 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

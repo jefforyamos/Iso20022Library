@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed information about the outstanding derivatives for which no margin or outdated margin information has been reported.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MissingMarginTransactionData2
+     : IIsoXmlSerilizable<MissingMarginTransactionData2>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a transaction.
     /// </summary>
-    [DataMember]
     public required TradeTransactionIdentification24 TransactionIdentification { get; init; } 
     /// <summary>
     /// Indicates the date and time of the last collateral amount determination or calculation.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? CollateralTimeStamp { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CollateralTimeStamp is IsoISODateTime CollateralTimeStampValue)
+        {
+            writer.WriteStartElement(null, "CollTmStmp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(CollateralTimeStampValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static MissingMarginTransactionData2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

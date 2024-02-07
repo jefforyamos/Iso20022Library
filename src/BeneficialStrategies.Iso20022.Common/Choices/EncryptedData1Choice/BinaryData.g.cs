@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.EncryptedData1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.EncryptedData1Choice;
 /// BASE-64 encoded encrypted data.
 /// </summary>
 public partial record BinaryData : EncryptedData1Choice_
+     , IIsoXmlSerilizable<BinaryData>
 {
-    public required IsoMax100KBinary Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Binary data of 100K maximum.
+    /// </summary>
+    public required IsoMax100KBinary Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BinryData", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax100KBinary(Value)); // data type Max100KBinary System.Byte[]
+        writer.WriteEndElement();
+    }
+    public static new BinaryData Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the legs of swap transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SwapLegIdentification3
+     : IIsoXmlSerilizable<SwapLegIdentification3>
 {
     #nullable enable
     
     /// <summary>
     /// Instrument received by the buyer.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentIdentification8Choice_? SwapIn { get; init; } 
     /// <summary>
     /// Instrument paid by the buyer.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentIdentification8Choice_? SwapOut { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SwapIn is FinancialInstrumentIdentification8Choice_ SwapInValue)
+        {
+            writer.WriteStartElement(null, "SwpIn", xmlNamespace );
+            SwapInValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SwapOut is FinancialInstrumentIdentification8Choice_ SwapOutValue)
+        {
+            writer.WriteStartElement(null, "SwpOut", xmlNamespace );
+            SwapOutValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SwapLegIdentification3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

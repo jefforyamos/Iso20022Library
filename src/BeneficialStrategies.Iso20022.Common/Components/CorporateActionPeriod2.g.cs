@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies periods.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionPeriod2
+     : IIsoXmlSerilizable<CorporateActionPeriod2>
 {
     #nullable enable
     
     /// <summary>
     /// Period during which the assented line is available.
     /// </summary>
-    [DataMember]
     public Period1? AssentedLinePeriod { get; init; } 
     /// <summary>
     /// Period during which the specified option, or all options of the event, remains valid, eg, offer period.
     /// </summary>
-    [DataMember]
     public Period1? ActionPeriod { get; init; } 
     /// <summary>
     /// Period during which the privilege is not available, eg, this can happen whenever a meeting takes place or whenever a coupon payment is due.
     /// </summary>
-    [DataMember]
     public Period1? PrivilegeSuspensionPeriod { get; init; } 
     /// <summary>
     /// Period during which both old and new equity may be traded simultaneously, eg, consolidation of equity or splitting of equity.
     /// </summary>
-    [DataMember]
     public Period1? ParallelTradingPeriod { get; init; } 
     /// <summary>
     /// Period (last day included) during which an account owner can surrender or sell securities to the issuer and receive the sale proceeds.
     /// </summary>
-    [DataMember]
     public Period1? SellThruIssuerPeriod { get; init; } 
     /// <summary>
     /// Period during which the shareholder can revoke, change or withdraw its instruction.
     /// </summary>
-    [DataMember]
     public Period1? RevocabilityPeriod { get; init; } 
     /// <summary>
     /// Period during which the price of a security is determined (for outturn securities).
     /// </summary>
-    [DataMember]
     public Period1? PriceCalculationPeriod { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AssentedLinePeriod is Period1 AssentedLinePeriodValue)
+        {
+            writer.WriteStartElement(null, "AssntdLinePrd", xmlNamespace );
+            AssentedLinePeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ActionPeriod is Period1 ActionPeriodValue)
+        {
+            writer.WriteStartElement(null, "ActnPrd", xmlNamespace );
+            ActionPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PrivilegeSuspensionPeriod is Period1 PrivilegeSuspensionPeriodValue)
+        {
+            writer.WriteStartElement(null, "PrvlgSspnsnPrd", xmlNamespace );
+            PrivilegeSuspensionPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ParallelTradingPeriod is Period1 ParallelTradingPeriodValue)
+        {
+            writer.WriteStartElement(null, "ParllTradgPrd", xmlNamespace );
+            ParallelTradingPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SellThruIssuerPeriod is Period1 SellThruIssuerPeriodValue)
+        {
+            writer.WriteStartElement(null, "SellThruIssrPrd", xmlNamespace );
+            SellThruIssuerPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RevocabilityPeriod is Period1 RevocabilityPeriodValue)
+        {
+            writer.WriteStartElement(null, "RvcbltyPrd", xmlNamespace );
+            RevocabilityPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PriceCalculationPeriod is Period1 PriceCalculationPeriodValue)
+        {
+            writer.WriteStartElement(null, "PricClctnPrd", xmlNamespace );
+            PriceCalculationPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionPeriod2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

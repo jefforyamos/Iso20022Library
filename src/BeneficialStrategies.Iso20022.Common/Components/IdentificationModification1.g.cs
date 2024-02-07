@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide information concerning the identification data that is advised to be modified.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IdentificationModification1
+     : IIsoXmlSerilizable<IdentificationModification1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by a sending party, to unambigiously identify the party and account identification information group within the message.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Provides party and/or account identification information as given in the original message.
     /// </summary>
-    [DataMember]
     public IdentificationInformation1? OriginalPartyAndAccountIdentification { get; init; } 
     /// <summary>
     /// Provides updated party and/or account identification information.
     /// </summary>
-    [DataMember]
     public required IdentificationInformation1 UpdatedPartyAndAccountIdentification { get; init; } 
     /// <summary>
     /// Additional information, in free text form, to complement the modification information.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (OriginalPartyAndAccountIdentification is IdentificationInformation1 OriginalPartyAndAccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlPtyAndAcctId", xmlNamespace );
+            OriginalPartyAndAccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "UpdtdPtyAndAcctId", xmlNamespace );
+        UpdatedPartyAndAccountIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax140Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalInformationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static IdentificationModification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

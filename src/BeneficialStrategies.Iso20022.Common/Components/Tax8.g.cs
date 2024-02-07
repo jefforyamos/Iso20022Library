@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Tax related to an investment fund order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Tax8
+     : IIsoXmlSerilizable<Tax8>
 {
     #nullable enable
     
     /// <summary>
     /// Type of tax applied.
     /// </summary>
-    [DataMember]
     public required TaxType3 Type { get; init; } 
     /// <summary>
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? Amount { get; init; } 
     /// <summary>
     /// Rate used to calculate the tax.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     /// <summary>
     /// Country where the tax is due.
     /// </summary>
-    [DataMember]
     public required CountryCode Country { get; init; } 
     /// <summary>
     /// Information used to calculate the tax.
     /// </summary>
-    [DataMember]
     public TaxCalculationInformation2? TaxCalculationDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Amount is IsoActiveOrHistoricCurrencyAnd13DecimalAmount AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd13DecimalAmount(AmountValue)); // data type ActiveOrHistoricCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Rate is IsoPercentageRate RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Ctry", xmlNamespace );
+        writer.WriteValue(Country.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (TaxCalculationDetails is TaxCalculationInformation2 TaxCalculationDetailsValue)
+        {
+            writer.WriteStartElement(null, "TaxClctnDtls", xmlNamespace );
+            TaxCalculationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Tax8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

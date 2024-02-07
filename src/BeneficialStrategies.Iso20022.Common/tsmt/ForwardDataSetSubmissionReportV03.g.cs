@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsmt.ForwardDataSetSubmissionReportV03>;
 
 namespace BeneficialStrategies.Iso20022.tsmt;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// The ForwardDataSetSubmission message can be sent by the matching application to forward the details of a DataSetSubmission message that it has obtained.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The ForwardDataSetSubmissionReport message is sent by the matching application to the counterparty(ies) of the submitter of data sets.|This message is used to pass on information related to the purchasing agreement(s) covered by the transaction(s) referred to in the message.|Usage|The ForwardDataSetSubmission message can be sent by the matching application to forward the details of a DataSetSubmission message that it has obtained.")]
-public partial record ForwardDataSetSubmissionReportV03 : IOuterRecord
+public partial record ForwardDataSetSubmissionReportV03 : IOuterRecord<ForwardDataSetSubmissionReportV03,ForwardDataSetSubmissionReportV03Document>
+    ,IIsoXmlSerilizable<ForwardDataSetSubmissionReportV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record ForwardDataSetSubmissionReportV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "FwdDataSetSubmissnRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ForwardDataSetSubmissionReportV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -165,6 +172,77 @@ public partial record ForwardDataSetSubmissionReportV03 : IOuterRecord
     {
         return new ForwardDataSetSubmissionReportV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("FwdDataSetSubmissnRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptId", xmlNamespace );
+        ReportIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RltdTxRefs", xmlNamespace );
+        RelatedTransactionReferences.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CmonSubmissnRef", xmlNamespace );
+        CommonSubmissionReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Submitr", xmlNamespace );
+        Submitter.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BuyrBk", xmlNamespace );
+        BuyerBank.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SellrBk", xmlNamespace );
+        SellerBank.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CommercialDataSet is CommercialDataSet3 CommercialDataSetValue)
+        {
+            writer.WriteStartElement(null, "ComrclDataSet", xmlNamespace );
+            CommercialDataSetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransportDataSet is TransportDataSet3 TransportDataSetValue)
+        {
+            writer.WriteStartElement(null, "TrnsprtDataSet", xmlNamespace );
+            TransportDataSetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InsuranceDataSet is InsuranceDataSet1 InsuranceDataSetValue)
+        {
+            writer.WriteStartElement(null, "InsrncDataSet", xmlNamespace );
+            InsuranceDataSetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CertificateDataSet is CertificateDataSet1 CertificateDataSetValue)
+        {
+            writer.WriteStartElement(null, "CertDataSet", xmlNamespace );
+            CertificateDataSetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherCertificateDataSet is OtherCertificateDataSet1 OtherCertificateDataSetValue)
+        {
+            writer.WriteStartElement(null, "OthrCertDataSet", xmlNamespace );
+            OtherCertificateDataSetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequestForAction is PendingActivity2 RequestForActionValue)
+        {
+            writer.WriteStartElement(null, "ReqForActn", xmlNamespace );
+            RequestForActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ForwardDataSetSubmissionReportV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -172,9 +250,7 @@ public partial record ForwardDataSetSubmissionReportV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForwardDataSetSubmissionReportV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ForwardDataSetSubmissionReportV03Document : IOuterDocument<ForwardDataSetSubmissionReportV03>
+public partial record ForwardDataSetSubmissionReportV03Document : IOuterDocument<ForwardDataSetSubmissionReportV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -190,5 +266,22 @@ public partial record ForwardDataSetSubmissionReportV03Document : IOuterDocument
     /// <summary>
     /// The instance of <seealso cref="ForwardDataSetSubmissionReportV03"/> is required.
     /// </summary>
+    [DataMember(Name=ForwardDataSetSubmissionReportV03.XmlTag)]
     public required ForwardDataSetSubmissionReportV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ForwardDataSetSubmissionReportV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

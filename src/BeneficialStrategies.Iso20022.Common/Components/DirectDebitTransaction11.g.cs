@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides further specific details on the direct debit transaction and the related mandate.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DirectDebitTransaction11
+     : IIsoXmlSerilizable<DirectDebitTransaction11>
 {
     #nullable enable
     
     /// <summary>
     /// Provides further details of the direct debit mandate signed between the creditor and the debtor.
     /// </summary>
-    [DataMember]
     public MandateRelatedInformation15? MandateRelatedInformation { get; init; } 
     /// <summary>
     /// Credit party that signs the mandate.
     /// </summary>
-    [DataMember]
     public PartyIdentification135? CreditorSchemeIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the pre-notification which is sent separately from the direct debit instruction.||Usage: The direct debit pre-notification is used to reconcile separately sent collection information with the direct debit transaction information.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PreNotificationIdentification { get; init; } 
     /// <summary>
     /// Date on which the creditor notifies the debtor about the amount and date on which the direct debit instruction will be presented to the debtor's agent.
     /// </summary>
-    [DataMember]
     public IsoISODate? PreNotificationDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MandateRelatedInformation is MandateRelatedInformation15 MandateRelatedInformationValue)
+        {
+            writer.WriteStartElement(null, "MndtRltdInf", xmlNamespace );
+            MandateRelatedInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditorSchemeIdentification is PartyIdentification135 CreditorSchemeIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CdtrSchmeId", xmlNamespace );
+            CreditorSchemeIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreNotificationIdentification is IsoMax35Text PreNotificationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PreNtfctnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PreNotificationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PreNotificationDate is IsoISODate PreNotificationDateValue)
+        {
+            writer.WriteStartElement(null, "PreNtfctnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(PreNotificationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static DirectDebitTransaction11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

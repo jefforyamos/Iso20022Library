@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the identification of the settlement internaliser.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementInternaliserIdentification1
+     : IIsoXmlSerilizable<SettlementInternaliserIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification code of the settlement internaliser; Legal Entity Identifier (LEI) is a code allocated to a party as described in ISO 17442 'Financial Services - Legal Entity Identifier (LEI)'.
     /// </summary>
-    [DataMember]
     public required IsoLEIIdentifier LEI { get; init; } 
     /// <summary>
     /// Identification of the liaison at the Settlement Internaliser.
     /// </summary>
-    [DataMember]
     public required ContactDetails4 ResponsiblePerson { get; init; } 
     /// <summary>
     /// Identifies the country code of the place of establishment of the Settlement Internaliser (i.e. head-office), relating to the data that the report concerns, using ISO 3166 2-character code.
     /// </summary>
-    [DataMember]
     public required CountryCode Country { get; init; } 
     /// <summary>
     /// Identifies the code of the place of operation of the settlement internaliser (that is the branch), relating to the data that the report concerns.
     /// </summary>
-    [DataMember]
     public IsoExact2UpperCaseAlphaText? BranchIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "LEI", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEI)); // data type LEIIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RspnsblPrsn", xmlNamespace );
+        ResponsiblePerson.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Ctry", xmlNamespace );
+        writer.WriteValue(Country.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (BranchIdentification is IsoExact2UpperCaseAlphaText BranchIdentificationValue)
+        {
+            writer.WriteStartElement(null, "BrnchId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact2UpperCaseAlphaText(BranchIdentificationValue)); // data type Exact2UpperCaseAlphaText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementInternaliserIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

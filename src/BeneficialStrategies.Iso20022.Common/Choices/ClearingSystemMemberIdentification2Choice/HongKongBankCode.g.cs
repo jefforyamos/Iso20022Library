@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentification2Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// Hong Kong Bank Code - identifies Hong Kong financial institutions on the Hong Kong local clearing system.
 /// </summary>
 public partial record HongKongBankCode : ClearingSystemMemberIdentification2Choice_
+     , IIsoXmlSerilizable<HongKongBankCode>
 {
-    public required IsoHongKongBankIdentifier Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Hong Kong Bank Code. Identifies Hong Kong financial institutions on the Hong Kong local clearing system.
+    /// </summary>
+    public required IsoHongKongBankIdentifier Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "HKNCC", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoHongKongBankIdentifier(Value)); // data type HongKongBankIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static new HongKongBankCode Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

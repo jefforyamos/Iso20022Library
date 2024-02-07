@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Particular time span specified between a start time and an end time. The time period cannot exceed 24 hours.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TimePeriod2
+     : IIsoXmlSerilizable<TimePeriod2>
 {
     #nullable enable
     
     /// <summary>
     /// Time at which the time span starts.
     /// </summary>
-    [DataMember]
     public required IsoISOTime FromTime { get; init; } 
     /// <summary>
     /// Time at which the time span ends.
     /// </summary>
-    [DataMember]
     public IsoISOTime? ToTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FrTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISOTime(FromTime)); // data type ISOTime System.TimeOnly
+        writer.WriteEndElement();
+        if (ToTime is IsoISOTime ToTimeValue)
+        {
+            writer.WriteStartElement(null, "ToTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(ToTimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static TimePeriod2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

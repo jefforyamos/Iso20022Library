@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of an entity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GenericIdentification31
+     : IIsoXmlSerilizable<GenericIdentification31>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the entity.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Type of identified entity.
     /// </summary>
-    [DataMember]
     public required PartyType3Code Type { get; init; } 
     /// <summary>
     /// Entity assigning the identification (for example merchant, acceptor, acquirer, or tax authority).
     /// </summary>
-    [DataMember]
     public PartyType4Code? Issuer { get; init; } 
     /// <summary>
     /// Name of the entity.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Issuer is PartyType4Code IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            writer.WriteValue(IssuerValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ShortName is IsoMax35Text ShortNameValue)
+        {
+            writer.WriteStartElement(null, "ShrtNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ShortNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static GenericIdentification31 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

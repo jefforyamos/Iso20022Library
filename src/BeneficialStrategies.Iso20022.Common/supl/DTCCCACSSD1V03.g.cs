@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.supl.DTCCCACSSD1V03>;
 
 namespace BeneficialStrategies.Iso20022.supl;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// The DTCCCACSSD1 message extends ISO corporate action Instruction Cancellation Request Status Advice (CACS) message with DTCC corporate action elements not covered in the standard message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The DTCCCACSSD1 message extends ISO corporate action Instruction Cancellation Request Status Advice (CACS) message with DTCC corporate action elements not covered in the standard message.")]
-public partial record DTCCCACSSD1V03 : IOuterRecord
+public partial record DTCCCACSSD1V03 : IOuterRecord<DTCCCACSSD1V03,DTCCCACSSD1V03Document>
+    ,IIsoXmlSerilizable<DTCCCACSSD1V03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record DTCCCACSSD1V03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "DTCCCACSSD1";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => DTCCCACSSD1V03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -56,6 +63,29 @@ public partial record DTCCCACSSD1V03 : IOuterRecord
     {
         return new DTCCCACSSD1V03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("DTCCCACSSD1");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReorganisationInstructionCancellationDetails is ReorganisationInstructionSD14 ReorganisationInstructionCancellationDetailsValue)
+        {
+            writer.WriteStartElement(null, "ReorgInstrCxlDtls", xmlNamespace );
+            ReorganisationInstructionCancellationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DTCCCACSSD1V03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -63,9 +93,7 @@ public partial record DTCCCACSSD1V03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCACSSD1V03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record DTCCCACSSD1V03Document : IOuterDocument<DTCCCACSSD1V03>
+public partial record DTCCCACSSD1V03Document : IOuterDocument<DTCCCACSSD1V03>, IXmlSerializable
 {
     
     /// <summary>
@@ -81,5 +109,22 @@ public partial record DTCCCACSSD1V03Document : IOuterDocument<DTCCCACSSD1V03>
     /// <summary>
     /// The instance of <seealso cref="DTCCCACSSD1V03"/> is required.
     /// </summary>
+    [DataMember(Name=DTCCCACSSD1V03.XmlTag)]
     public required DTCCCACSSD1V03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(DTCCCACSSD1V03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

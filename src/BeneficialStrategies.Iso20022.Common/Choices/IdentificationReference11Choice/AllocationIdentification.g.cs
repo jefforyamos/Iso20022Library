@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.IdentificationReference11Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationReference11Choice;
 /// Reference of the linked message at the allocation level which identifies a centrally matched transaction.
 /// </summary>
 public partial record AllocationIdentification : IdentificationReference11Choice_
+     , IIsoXmlSerilizable<AllocationIdentification>
 {
-    public required IsoMax35Text Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a character string with a maximum length of 35 characters.
+    /// </summary>
+    public required IsoMax35Text Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AllcnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Value)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static new AllocationIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

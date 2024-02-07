@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.SecuritiesFinancingConfirmationV09>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -34,10 +37,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// - re-send to a third party a copy of a message for information using the relevant elements in the Business Application Header.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|A securities financing transaction account servicer sends a SecuritiesFinancingConfirmation to an account owner to confirm or advise of the partial or full settlement of the opening or closing leg of a securities financing transaction. ||The account servicer/owner relationship may be:|- a central securities depository or another settlement market infrastructure managing securities financing transactions on behalf of their participants|- an agent (sub-custodian) managing securities financing transactions on behalf of their global custodian customer, or |- a custodian managing securities financing transactions on behalf of an investment management institution or a broker/dealer.|||Usage|The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information using the relevant elements in the Business Application Header.")]
-public partial record SecuritiesFinancingConfirmationV09 : IOuterRecord
+public partial record SecuritiesFinancingConfirmationV09 : IOuterRecord<SecuritiesFinancingConfirmationV09,SecuritiesFinancingConfirmationV09Document>
+    ,IIsoXmlSerilizable<SecuritiesFinancingConfirmationV09>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -49,6 +51,11 @@ public partial record SecuritiesFinancingConfirmationV09 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesFincgConf";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesFinancingConfirmationV09Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -208,6 +215,107 @@ public partial record SecuritiesFinancingConfirmationV09 : IOuterRecord
     {
         return new SecuritiesFinancingConfirmationV09Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesFincgConf");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxIdDtls", xmlNamespace );
+        TransactionIdentificationDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalParameters is AdditionalParameters24 AdditionalParametersValue)
+        {
+            writer.WriteStartElement(null, "AddtlParams", xmlNamespace );
+            AdditionalParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TradDtls", xmlNamespace );
+        TradeDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FinancialInstrumentAttributes is FinancialInstrumentAttributes91 FinancialInstrumentAttributesValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmAttrbts", xmlNamespace );
+            FinancialInstrumentAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "QtyAndAcctDtls", xmlNamespace );
+        QuantityAndAccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecuritiesFinancingDetails is SecuritiesFinancingTransactionDetails43 SecuritiesFinancingDetailsValue)
+        {
+            writer.WriteStartElement(null, "SctiesFincgDtls", xmlNamespace );
+            SecuritiesFinancingDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StandingSettlementInstructionDetails is StandingSettlementInstruction16 StandingSettlementInstructionDetailsValue)
+        {
+            writer.WriteStartElement(null, "StgSttlmInstrDtls", xmlNamespace );
+            StandingSettlementInstructionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementParameters is SettlementDetails147 SettlementParametersValue)
+        {
+            writer.WriteStartElement(null, "SttlmParams", xmlNamespace );
+            SettlementParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveringSettlementParties is SettlementParties76 DeliveringSettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "DlvrgSttlmPties", xmlNamespace );
+            DeliveringSettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReceivingSettlementParties is SettlementParties76 ReceivingSettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "RcvgSttlmPties", xmlNamespace );
+            ReceivingSettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashParties is CashParties36 CashPartiesValue)
+        {
+            writer.WriteStartElement(null, "CshPties", xmlNamespace );
+            CashPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettledAmount is AmountAndDirection94 SettledAmountValue)
+        {
+            writer.WriteStartElement(null, "SttldAmt", xmlNamespace );
+            SettledAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherAmounts is OtherAmounts41 OtherAmountsValue)
+        {
+            writer.WriteStartElement(null, "OthrAmts", xmlNamespace );
+            OtherAmountsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherBusinessParties is OtherParties33 OtherBusinessPartiesValue)
+        {
+            writer.WriteStartElement(null, "OthrBizPties", xmlNamespace );
+            OtherBusinessPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesFinancingConfirmationV09 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -215,9 +323,7 @@ public partial record SecuritiesFinancingConfirmationV09 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesFinancingConfirmationV09"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesFinancingConfirmationV09Document : IOuterDocument<SecuritiesFinancingConfirmationV09>
+public partial record SecuritiesFinancingConfirmationV09Document : IOuterDocument<SecuritiesFinancingConfirmationV09>, IXmlSerializable
 {
     
     /// <summary>
@@ -233,5 +339,22 @@ public partial record SecuritiesFinancingConfirmationV09Document : IOuterDocumen
     /// <summary>
     /// The instance of <seealso cref="SecuritiesFinancingConfirmationV09"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesFinancingConfirmationV09.XmlTag)]
     public required SecuritiesFinancingConfirmationV09 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesFinancingConfirmationV09.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

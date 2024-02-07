@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.MeetingInstructionV09>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// This message definition is intended for use with the Business Application Header (BAH).
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The MeetingInstruction message is sent by a party holding the right to vote to an intermediary, the issuer or its agent to request the receiving party to act upon one or several instructions.|Usage|The MeetingInstruction message is used to vote, to require attendance to a meeting, to request registration of securities and assign a proxy. One instruction or multiple instructions can be carried within the same message.|Once the message is sent, it cannot be modified. It must be cancelled by a MeetingInstructionCancellationRequest. Only after receipt of a confirmed cancelled status via the|MeetingInstructionStatus message, a new MeetingInstruction message can be sent.|This message definition is intended for use with the Business Application Header (BAH).")]
-public partial record MeetingInstructionV09 : IOuterRecord
+public partial record MeetingInstructionV09 : IOuterRecord<MeetingInstructionV09,MeetingInstructionV09Document>
+    ,IIsoXmlSerilizable<MeetingInstructionV09>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record MeetingInstructionV09 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MtgInstr";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => MeetingInstructionV09Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -137,6 +144,68 @@ public partial record MeetingInstructionV09 : IOuterRecord
     {
         return new MeetingInstructionV09Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MtgInstr");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Pagination is Pagination1 PaginationValue)
+        {
+            writer.WriteStartElement(null, "Pgntn", xmlNamespace );
+            PaginationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MeetingInstructionIdentification is IsoMax35Text MeetingInstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MtgInstrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MeetingInstructionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MtgRef", xmlNamespace );
+        MeetingReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (InstructionCancellationRequestIdentification is MeetingInstructionCancellation1 InstructionCancellationRequestIdentificationValue)
+        {
+            writer.WriteStartElement(null, "InstrCxlReqId", xmlNamespace );
+            InstructionCancellationRequestIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CancelledInstructionIdentification is MeetingInstructionIdentification1 CancelledInstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CancInstrId", xmlNamespace );
+            CancelledInstructionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherDocumentIdentification is DocumentIdentification32 OtherDocumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OthrDocId", xmlNamespace );
+            OtherDocumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Instr", xmlNamespace );
+        Instruction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MeetingInstructionV09 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -144,9 +213,7 @@ public partial record MeetingInstructionV09 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingInstructionV09"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record MeetingInstructionV09Document : IOuterDocument<MeetingInstructionV09>
+public partial record MeetingInstructionV09Document : IOuterDocument<MeetingInstructionV09>, IXmlSerializable
 {
     
     /// <summary>
@@ -162,5 +229,22 @@ public partial record MeetingInstructionV09Document : IOuterDocument<MeetingInst
     /// <summary>
     /// The instance of <seealso cref="MeetingInstructionV09"/> is required.
     /// </summary>
+    [DataMember(Name=MeetingInstructionV09.XmlTag)]
     public required MeetingInstructionV09 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(MeetingInstructionV09.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

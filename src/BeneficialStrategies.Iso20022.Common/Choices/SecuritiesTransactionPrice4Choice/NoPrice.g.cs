@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice4Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice4Choic
 /// Captures where no price is yet known.
 /// </summary>
 public partial record NoPrice : SecuritiesTransactionPrice4Choice_
+     , IIsoXmlSerilizable<NoPrice>
 {
     #nullable enable
+    
     /// <summary>
     /// Price is currently not available, but pending.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record NoPrice : SecuritiesTransactionPrice4Choice_
     /// Currency that will be used but for which no price is yet known.
     /// </summary>
     public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Pdg", xmlNamespace );
+        writer.WriteValue(Pending.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Currency is ActiveOrHistoricCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static new NoPrice Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

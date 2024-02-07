@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the securities order transmission attributes.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesTransactionTransmission2
+     : IIsoXmlSerilizable<SecuritiesTransactionTransmission2>
 {
     #nullable enable
     
@@ -23,20 +24,49 @@ public partial record SecuritiesTransactionTransmission2
     /// Indication as to whether the transaction results from an order transmitted by the reporting of a client to a third party.
     /// Usage: Only applicable when the conditions for transmission are not satisfied.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator TransmissionIndicator { get; init; } 
     /// <summary>
     /// Identifies the buyer transmitting the order to the reporting firm. 
     /// Usage: Only required for reporting firms reporting transactions on behalf of order transmitting firm.
     /// </summary>
-    [DataMember]
     public IsoLEIIdentifier? TransmittingBuyer { get; init; } 
     /// <summary>
     /// Identifies the seller transmitting the order to the reporting firm. 
     /// Usage: Only required for reporting firms reporting transactions on behalf of order transmitting firm.
     /// </summary>
-    [DataMember]
     public IsoLEIIdentifier? TransmittingSeller { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TrnsmssnInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TransmissionIndicator)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        if (TransmittingBuyer is IsoLEIIdentifier TransmittingBuyerValue)
+        {
+            writer.WriteStartElement(null, "TrnsmttgBuyr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(TransmittingBuyerValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (TransmittingSeller is IsoLEIIdentifier TransmittingSellerValue)
+        {
+            writer.WriteStartElement(null, "TrnsmttgSellr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(TransmittingSellerValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesTransactionTransmission2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

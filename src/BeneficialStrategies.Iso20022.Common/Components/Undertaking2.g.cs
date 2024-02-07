@@ -7,58 +7,113 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Independent undertaking, such as a demand guarantee or standby letter of credit, that provides financial assurance, to be honoured on the presentation of documents that comply with its terms and conditions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Undertaking2
+     : IIsoXmlSerilizable<Undertaking2>
 {
     #nullable enable
     
     /// <summary>
     /// Undertaking name.
     /// </summary>
-    [DataMember]
     public UndertakingName1Code? Name { get; init; } 
     /// <summary>
     /// Party in whose favour the counter-undertaking is issued.
     /// </summary>
-    [DataMember]
     public PartyIdentification43? Beneficiary { get; init; } 
     /// <summary>
     /// Details related to the expiry terms of the counter-undertaking.
     /// </summary>
-    [DataMember]
     public ExpiryDetails2? ExpiryDetails { get; init; } 
     /// <summary>
     /// Details related to the amount of the counter-undertaking.
     /// </summary>
-    [DataMember]
     public UndertakingAmount1? CounterUndertakingAmount { get; init; } 
     /// <summary>
     /// Indicates whether the applicant/obligor or beneficiary is responsible for payment of the confirmation charges.
     /// </summary>
-    [DataMember]
     public ExternalTypeOfParty1Code? ConfirmationChargesPayableBy { get; init; } 
     /// <summary>
     /// Rules and laws governing the counter-undertaking.
     /// </summary>
-    [DataMember]
     public GovernanceRules1? GovernanceRulesAndLaw { get; init; } 
     /// <summary>
     /// Indication as to whether a claim is to utilise a standard claim form of the issuing institution.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? StandardClaimDocumentIndicator { get; init; } 
     /// <summary>
     /// Additional information related to the counter-undertaking.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is UndertakingName1Code NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(NameValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Beneficiary is PartyIdentification43 BeneficiaryValue)
+        {
+            writer.WriteStartElement(null, "Bnfcry", xmlNamespace );
+            BeneficiaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExpiryDetails is ExpiryDetails2 ExpiryDetailsValue)
+        {
+            writer.WriteStartElement(null, "XpryDtls", xmlNamespace );
+            ExpiryDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CounterUndertakingAmount is UndertakingAmount1 CounterUndertakingAmountValue)
+        {
+            writer.WriteStartElement(null, "CntrUdrtkgAmt", xmlNamespace );
+            CounterUndertakingAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ConfirmationChargesPayableBy is ExternalTypeOfParty1Code ConfirmationChargesPayableByValue)
+        {
+            writer.WriteStartElement(null, "ConfChrgsPyblBy", xmlNamespace );
+            writer.WriteValue(ConfirmationChargesPayableByValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (GovernanceRulesAndLaw is GovernanceRules1 GovernanceRulesAndLawValue)
+        {
+            writer.WriteStartElement(null, "GovncRulesAndLaw", xmlNamespace );
+            GovernanceRulesAndLawValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StandardClaimDocumentIndicator is IsoYesNoIndicator StandardClaimDocumentIndicatorValue)
+        {
+            writer.WriteStartElement(null, "StdClmDocInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(StandardClaimDocumentIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+    }
+    public static Undertaking2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

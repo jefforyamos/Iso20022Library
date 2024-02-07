@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the quantity of a product in a trade transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Quantity10
+     : IIsoXmlSerilizable<Quantity10>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies a unit of measure with a code or free text.
     /// </summary>
-    [DataMember]
     public required UnitOfMeasure3Choice_ UnitOfMeasure { get; init; } 
     /// <summary>
     /// Quantity of a product on a line specified by a number. For example, 100 (kgs), 50 (pieces).
     /// </summary>
-    [DataMember]
     public required IsoDecimalNumber Value { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
+        UnitOfMeasure.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(Value)); // data type DecimalNumber System.UInt64
+        writer.WriteEndElement();
+    }
+    public static Quantity10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

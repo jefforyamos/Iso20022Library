@@ -7,153 +7,303 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Trade settlement details for this invoice which involves the payment of an outstanding debt, account, or charge.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeSettlement1
+     : IIsoXmlSerilizable<TradeSettlement1>
 {
     #nullable enable
     
     /// <summary>
     /// Monetary value that is an exact amount due and payable, such as the amount due to the creditor.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoCurrencyAndAmount> DuePayableAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount? DuePayableAmount { get; init; } 
     /// <summary>
     /// Unique and unambiguous reference assigned by the creditor.
     /// </summary>
-    [DataMember]
-    public ValueList<CreditorReferenceInformation2> CreditorReference { get; init; } = []; // Warning: Don't know multiplicity.
+    public CreditorReferenceInformation2? CreditorReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a payment transaction, as assigned by the originator. The payment transaction reference is used for reconciliation or to link tasks relating to the payment transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> PaymentReference { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? PaymentReference { get; init; } 
     /// <summary>
     /// Code specifying the currency of the invoice.
     /// </summary>
-    [DataMember]
     public CurrencyCode? InvoiceCurrencyCode { get; init; } 
     /// <summary>
     /// Organization issuing the invoice.
     /// </summary>
-    [DataMember]
     public TradeParty1? Invoicer { get; init; } 
     /// <summary>
     /// Party to whom the invoice was issued.
     /// </summary>
-    [DataMember]
     public TradeParty1? Invoicee { get; init; } 
     /// <summary>
     /// Party specified to receive payment for the invoice.
     /// </summary>
-    [DataMember]
     public TradeParty1? Payee { get; init; } 
     /// <summary>
     /// Party specified to initiate payment for the invoice.
     /// </summary>
-    [DataMember]
     public TradeParty1? Payer { get; init; } 
     /// <summary>
     /// Currency exchange applicable to a tax.
     /// </summary>
-    [DataMember]
     public CurrencyReference2? TaxCurrencyExchange { get; init; } 
     /// <summary>
     /// Currency exchange applicable to the invoice.
     /// </summary>
-    [DataMember]
     public CurrencyReference2? InvoiceCurrencyExchange { get; init; } 
     /// <summary>
     /// Currency exchange applicable to the payment.
     /// </summary>
-    [DataMember]
     public CurrencyReference2? PaymentCurrencyExchange { get; init; } 
     /// <summary>
     /// Means of payment (for example, credit transfer, cheque, money order, or credit card) specified to initiate payment of the invoice.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentMeans1> PaymentMeans { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentMeans1? PaymentMeans { get; init; } 
     /// <summary>
     /// Amount of money due to the government or tax authority, according to various pre-defined parameters such as thresholds or income.
     /// </summary>
-    [DataMember]
-    public ValueList<SettlementTax1> Tax { get; init; } = []; // Warning: Don't know multiplicity.
+    public SettlementTax1? Tax { get; init; } 
     /// <summary>
     /// Specifies the applicable billing period.
     /// </summary>
-    [DataMember]
     public Period1? BillingPeriod { get; init; } 
     /// <summary>
     /// Allowance or charge specified.
     /// </summary>
-    [DataMember]
-    public ValueList<SettlementAllowanceCharge1> AllowanceCharge { get; init; } = []; // Warning: Don't know multiplicity.
+    public SettlementAllowanceCharge1? AllowanceCharge { get; init; } 
     /// <summary>
     /// Tax subtotal calculated.
     /// </summary>
-    [DataMember]
-    public ValueList<SettlementSubTotalCalculatedTax1> SubTotalCalculatedTax { get; init; } = []; // Warning: Don't know multiplicity.
+    public SettlementSubTotalCalculatedTax1? SubTotalCalculatedTax { get; init; } 
     /// <summary>
     /// Logistics service charge specified.
     /// </summary>
-    [DataMember]
-    public ValueList<ChargesDetails2> LogisticsCharge { get; init; } = []; // Warning: Don't know multiplicity.
+    public ChargesDetails2? LogisticsCharge { get; init; } 
     /// <summary>
     /// Payment terms.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentTerms3> PaymentTerms { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentTerms3? PaymentTerms { get; init; } 
     /// <summary>
     /// Monetary totals specified for the invoice.
     /// </summary>
-    [DataMember]
     public required SettlementMonetarySummation1 MonetarySummation { get; init; } 
     /// <summary>
     /// Financial adjustment specified.
     /// </summary>
-    [DataMember]
-    public ValueList<DocumentAdjustment2> AdjustmentAmountAndReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public DocumentAdjustment2? AdjustmentAmountAndReason { get; init; } 
     /// <summary>
     /// Invoice document referenced.
     /// </summary>
-    [DataMember]
     public DocumentIdentification22? InvoiceReferencedDocument { get; init; } 
     /// <summary>
     /// Pro-forma invoice document referenced.
     /// </summary>
-    [DataMember]
     public DocumentIdentification22? ProformaInvoiceReferencedDocument { get; init; } 
     /// <summary>
     /// Letter of credit document referenced.
     /// </summary>
-    [DataMember]
     public DocumentIdentification7? LetterOfCreditReferencedDocument { get; init; } 
     /// <summary>
     /// Financial card specified. The card is used to represent a financial account for the purpose of payment settlement.
     /// </summary>
-    [DataMember]
-    public ValueList<FinancialCard1> FinancialCard { get; init; } = []; // Warning: Don't know multiplicity.
+    public FinancialCard1? FinancialCard { get; init; } 
     /// <summary>
     /// Specific purchase account for recording debits and credits for accounting purposes.
     /// </summary>
-    [DataMember]
-    public ValueList<AccountingAccount1> PurchaseAccountingAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    public AccountingAccount1? PurchaseAccountingAccount { get; init; } 
     /// <summary>
     /// Factoring list document referenced.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> IssuerFactoringListIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? IssuerFactoringListIdentification { get; init; } 
     /// <summary>
     /// Factoring agreement document referenced.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> IssuerFactoringAgreementIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? IssuerFactoringAgreementIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DuePayableAmount is IsoCurrencyAndAmount DuePayableAmountValue)
+        {
+            writer.WriteStartElement(null, "DuePyblAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(DuePayableAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CreditorReference is CreditorReferenceInformation2 CreditorReferenceValue)
+        {
+            writer.WriteStartElement(null, "CdtrRef", xmlNamespace );
+            CreditorReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentReference is IsoMax35Text PaymentReferenceValue)
+        {
+            writer.WriteStartElement(null, "PmtRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PaymentReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (InvoiceCurrencyCode is CurrencyCode InvoiceCurrencyCodeValue)
+        {
+            writer.WriteStartElement(null, "InvcCcyCd", xmlNamespace );
+            writer.WriteValue(InvoiceCurrencyCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Invoicer is TradeParty1 InvoicerValue)
+        {
+            writer.WriteStartElement(null, "Invcr", xmlNamespace );
+            InvoicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Invoicee is TradeParty1 InvoiceeValue)
+        {
+            writer.WriteStartElement(null, "Invcee", xmlNamespace );
+            InvoiceeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Payee is TradeParty1 PayeeValue)
+        {
+            writer.WriteStartElement(null, "Pyee", xmlNamespace );
+            PayeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Payer is TradeParty1 PayerValue)
+        {
+            writer.WriteStartElement(null, "Pyer", xmlNamespace );
+            PayerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxCurrencyExchange is CurrencyReference2 TaxCurrencyExchangeValue)
+        {
+            writer.WriteStartElement(null, "TaxCcyXchg", xmlNamespace );
+            TaxCurrencyExchangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvoiceCurrencyExchange is CurrencyReference2 InvoiceCurrencyExchangeValue)
+        {
+            writer.WriteStartElement(null, "InvcCcyXchg", xmlNamespace );
+            InvoiceCurrencyExchangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentCurrencyExchange is CurrencyReference2 PaymentCurrencyExchangeValue)
+        {
+            writer.WriteStartElement(null, "PmtCcyXchg", xmlNamespace );
+            PaymentCurrencyExchangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentMeans is PaymentMeans1 PaymentMeansValue)
+        {
+            writer.WriteStartElement(null, "PmtMeans", xmlNamespace );
+            PaymentMeansValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Tax is SettlementTax1 TaxValue)
+        {
+            writer.WriteStartElement(null, "Tax", xmlNamespace );
+            TaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BillingPeriod is Period1 BillingPeriodValue)
+        {
+            writer.WriteStartElement(null, "BllgPrd", xmlNamespace );
+            BillingPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AllowanceCharge is SettlementAllowanceCharge1 AllowanceChargeValue)
+        {
+            writer.WriteStartElement(null, "AllwncChrg", xmlNamespace );
+            AllowanceChargeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SubTotalCalculatedTax is SettlementSubTotalCalculatedTax1 SubTotalCalculatedTaxValue)
+        {
+            writer.WriteStartElement(null, "SubTtlClctdTax", xmlNamespace );
+            SubTotalCalculatedTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LogisticsCharge is ChargesDetails2 LogisticsChargeValue)
+        {
+            writer.WriteStartElement(null, "LogstcsChrg", xmlNamespace );
+            LogisticsChargeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentTerms is PaymentTerms3 PaymentTermsValue)
+        {
+            writer.WriteStartElement(null, "PmtTerms", xmlNamespace );
+            PaymentTermsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MntrySummtn", xmlNamespace );
+        MonetarySummation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdjustmentAmountAndReason is DocumentAdjustment2 AdjustmentAmountAndReasonValue)
+        {
+            writer.WriteStartElement(null, "AdjstmntAmtAndRsn", xmlNamespace );
+            AdjustmentAmountAndReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvoiceReferencedDocument is DocumentIdentification22 InvoiceReferencedDocumentValue)
+        {
+            writer.WriteStartElement(null, "InvcRefdDoc", xmlNamespace );
+            InvoiceReferencedDocumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProformaInvoiceReferencedDocument is DocumentIdentification22 ProformaInvoiceReferencedDocumentValue)
+        {
+            writer.WriteStartElement(null, "ProfrmInvcRefdDoc", xmlNamespace );
+            ProformaInvoiceReferencedDocumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LetterOfCreditReferencedDocument is DocumentIdentification7 LetterOfCreditReferencedDocumentValue)
+        {
+            writer.WriteStartElement(null, "LttrOfCdtRefdDoc", xmlNamespace );
+            LetterOfCreditReferencedDocumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialCard is FinancialCard1 FinancialCardValue)
+        {
+            writer.WriteStartElement(null, "FinCard", xmlNamespace );
+            FinancialCardValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PurchaseAccountingAccount is AccountingAccount1 PurchaseAccountingAccountValue)
+        {
+            writer.WriteStartElement(null, "PurchsAcctgAcct", xmlNamespace );
+            PurchaseAccountingAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssuerFactoringListIdentification is IsoMax35Text IssuerFactoringListIdentificationValue)
+        {
+            writer.WriteStartElement(null, "IssrFactrgListId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerFactoringListIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (IssuerFactoringAgreementIdentification is IsoMax35Text IssuerFactoringAgreementIdentificationValue)
+        {
+            writer.WriteStartElement(null, "IssrFactrgAgrmtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerFactoringAgreementIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeSettlement1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

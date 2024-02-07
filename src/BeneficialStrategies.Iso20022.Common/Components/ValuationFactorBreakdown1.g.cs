@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Possible valuation factors.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ValuationFactorBreakdown1
+     : IIsoXmlSerilizable<ValuationFactorBreakdown1>
 {
     #nullable enable
     
     /// <summary>
     /// Aggregated adjustment applied on the liability/collateral to calculate the position. It is the sum of the inflation, the haircut/margin and pool factors.
     /// </summary>
-    [DataMember]
     public IsoBaseOneRate? ValuationFactor { get; init; } 
     /// <summary>
     /// Adjustment related to inflation applied on the liability/collateral to calculate the position. 
     /// </summary>
-    [DataMember]
     public IsoBaseOneRate? InflationFactor { get; init; } 
     /// <summary>
     /// Haircut or margin on the security  expressed as a percentage.
     /// </summary>
-    [DataMember]
     public IsoBaseOneRate? Haircut { get; init; } 
     /// <summary>
     /// Percentage that applies to price of the securities following a redemption.
     /// </summary>
-    [DataMember]
     public IsoBaseOneRate? PoolFactor { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ValuationFactor is IsoBaseOneRate ValuationFactorValue)
+        {
+            writer.WriteStartElement(null, "ValtnFctr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ValuationFactorValue)); // data type BaseOneRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (InflationFactor is IsoBaseOneRate InflationFactorValue)
+        {
+            writer.WriteStartElement(null, "InfltnFctr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(InflationFactorValue)); // data type BaseOneRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Haircut is IsoBaseOneRate HaircutValue)
+        {
+            writer.WriteStartElement(null, "Hrcut", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(HaircutValue)); // data type BaseOneRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PoolFactor is IsoBaseOneRate PoolFactorValue)
+        {
+            writer.WriteStartElement(null, "PoolFctr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(PoolFactorValue)); // data type BaseOneRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static ValuationFactorBreakdown1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

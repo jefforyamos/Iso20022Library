@@ -7,44 +7,75 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Certificate in which all currency control transactions are registered.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionCertificate5
+     : IIsoXmlSerilizable<TransactionCertificate5>
 {
     #nullable enable
     
     /// <summary>
     /// Reference of the transaction, that is the underlying payment instruction or statement entry.
     /// </summary>
-    [DataMember]
     public required CertificateReference2 ReferredDocument { get; init; } 
     /// <summary>
     /// Date of the underlying transaction.
     /// </summary>
-    [DataMember]
     public required IsoISODate TransactionDate { get; init; } 
     /// <summary>
     /// Type of the transaction.
     /// </summary>
-    [DataMember]
     public IsoExact1NumericText? TransactionType { get; init; } 
     /// <summary>
     /// User community specific instrument.
     /// Usage: This element is used to specify a local transaction type to further qualify the transaction type.
     /// </summary>
-    [DataMember]
     public required IsoExact5NumericText LocalInstrument { get; init; } 
     /// <summary>
     /// Amount as provided in the transaction to be recorded under the contract.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RfrdDoc", xmlNamespace );
+        ReferredDocument.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(TransactionDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (TransactionType is IsoExact1NumericText TransactionTypeValue)
+        {
+            writer.WriteStartElement(null, "TxTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact1NumericText(TransactionTypeValue)); // data type Exact1NumericText System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "LclInstrm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact5NumericText(LocalInstrument)); // data type Exact5NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static TransactionCertificate5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

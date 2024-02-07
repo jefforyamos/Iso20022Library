@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data specific to counterparties.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CounterpartyData86
+     : IIsoXmlSerilizable<CounterpartyData86>
 {
     #nullable enable
     
     /// <summary>
     /// Set of information identifying the reporting counterparty.
     /// </summary>
-    [DataMember]
     public CounterpartyIdentification10? ReportingCounterparty { get; init; } 
     /// <summary>
     /// Data specific to other counterparties and related information.
     /// </summary>
-    [DataMember]
     public OrganisationIdentification15Choice_? OtherCounterparty { get; init; } 
     /// <summary>
     /// Specifies if a triparty agent is involved in the transaction.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? TripartyAgent { get; init; } 
     /// <summary>
     /// Specifies if the agent lender is involved in the securities lending transaction.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? AgentLender { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReportingCounterparty is CounterpartyIdentification10 ReportingCounterpartyValue)
+        {
+            writer.WriteStartElement(null, "RptgCtrPty", xmlNamespace );
+            ReportingCounterpartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherCounterparty is OrganisationIdentification15Choice_ OtherCounterpartyValue)
+        {
+            writer.WriteStartElement(null, "OthrCtrPty", xmlNamespace );
+            OtherCounterpartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TripartyAgent is IsoTrueFalseIndicator TripartyAgentValue)
+        {
+            writer.WriteStartElement(null, "TrptyAgt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TripartyAgentValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AgentLender is IsoTrueFalseIndicator AgentLenderValue)
+        {
+            writer.WriteStartElement(null, "AgtLndr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AgentLenderValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CounterpartyData86 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.pacs.PaymentCancellationRequestV01>;
 
 namespace BeneficialStrategies.Iso20022.pacs;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.pacs;
 /// The PaymentCancellationRequest message exchanged between agents is identified in the schema as follows: |urn: iso: std: iso: 20022: tech: xsd: pacs.006.001.01|.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The PaymentCancellationRequest message is sent by the initiating party or any agent, to the next party in the payment chain. It is used to request the cancellation of an instruction previously sent.|Usage|The PaymentCancellationRequest message is exchanged between agents to request the cancellation of a payment message previously sent (i.e. FIToFICustomerCreditTransfer, FIToFICustomerDirectDebit, and FinancialInstitutionCreditTransfer).|The PaymentCancellationRequest message can be used to request the cancellation of single instructions or multiple instructions, from one or multiple files.|The PaymentCancellationRequest message can be used in domestic and cross-border scenarios.|The PaymentCancellationRequest message refers to the original instruction(s) by means of references only or by means of references and a set of elements from the original instruction.|The PaymentCancellationRequest message exchanged between agents is identified in the schema as follows: |urn: iso: std: iso: 20022: tech: xsd: pacs.006.001.01|.")]
-public partial record PaymentCancellationRequestV01 : IOuterRecord
+public partial record PaymentCancellationRequestV01 : IOuterRecord<PaymentCancellationRequestV01,PaymentCancellationRequestV01Document>
+    ,IIsoXmlSerilizable<PaymentCancellationRequestV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record PaymentCancellationRequestV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "pacs.006.001.01";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => PaymentCancellationRequestV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -83,6 +90,35 @@ public partial record PaymentCancellationRequestV01 : IOuterRecord
     {
         return new PaymentCancellationRequestV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("pacs.006.001.01");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
+        GroupHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgnlGrpInf", xmlNamespace );
+        OriginalGroupInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionInformation is PaymentTransactionInformation3 TransactionInformationValue)
+        {
+            writer.WriteStartElement(null, "TxInf", xmlNamespace );
+            TransactionInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentCancellationRequestV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -90,9 +126,7 @@ public partial record PaymentCancellationRequestV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PaymentCancellationRequestV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record PaymentCancellationRequestV01Document : IOuterDocument<PaymentCancellationRequestV01>
+public partial record PaymentCancellationRequestV01Document : IOuterDocument<PaymentCancellationRequestV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -108,5 +142,22 @@ public partial record PaymentCancellationRequestV01Document : IOuterDocument<Pay
     /// <summary>
     /// The instance of <seealso cref="PaymentCancellationRequestV01"/> is required.
     /// </summary>
+    [DataMember(Name=PaymentCancellationRequestV01.XmlTag)]
     public required PaymentCancellationRequestV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(PaymentCancellationRequestV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

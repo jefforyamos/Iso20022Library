@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.auth.SecuritiesFinancingReportingReconciliationStatusAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.auth;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// The SecuritesFinancingReportingReconciliationStatusAdvice message is sent by the trade repositories (TRs) ) to other TR and to the authority or made available to the report submitting entity and the reporting counterparty as well as the entity responsible for reporting, if applicable, to provide a status advice for reconciliation.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The SecuritesFinancingReportingReconciliationStatusAdvice message is sent by the trade repositories (TRs) ) to other TR and to the authority or made available to the report submitting entity and the reporting counterparty as well as the entity responsible for reporting, if applicable, to provide a status advice for reconciliation.")]
-public partial record SecuritiesFinancingReportingReconciliationStatusAdviceV01 : IOuterRecord
+public partial record SecuritiesFinancingReportingReconciliationStatusAdviceV01 : IOuterRecord<SecuritiesFinancingReportingReconciliationStatusAdviceV01,SecuritiesFinancingReportingReconciliationStatusAdviceV01Document>
+    ,IIsoXmlSerilizable<SecuritiesFinancingReportingReconciliationStatusAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record SecuritiesFinancingReportingReconciliationStatusAdviceV01 
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesFincgRptgRcncltnStsAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesFinancingReportingReconciliationStatusAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -66,6 +73,32 @@ public partial record SecuritiesFinancingReportingReconciliationStatusAdviceV01 
     {
         return new SecuritiesFinancingReportingReconciliationStatusAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesFincgRptgRcncltnStsAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RcncltnData", xmlNamespace );
+        ReconciliationData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesFinancingReportingReconciliationStatusAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -73,9 +106,7 @@ public partial record SecuritiesFinancingReportingReconciliationStatusAdviceV01 
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesFinancingReportingReconciliationStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesFinancingReportingReconciliationStatusAdviceV01Document : IOuterDocument<SecuritiesFinancingReportingReconciliationStatusAdviceV01>
+public partial record SecuritiesFinancingReportingReconciliationStatusAdviceV01Document : IOuterDocument<SecuritiesFinancingReportingReconciliationStatusAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -91,5 +122,22 @@ public partial record SecuritiesFinancingReportingReconciliationStatusAdviceV01D
     /// <summary>
     /// The instance of <seealso cref="SecuritiesFinancingReportingReconciliationStatusAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesFinancingReportingReconciliationStatusAdviceV01.XmlTag)]
     public required SecuritiesFinancingReportingReconciliationStatusAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesFinancingReportingReconciliationStatusAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

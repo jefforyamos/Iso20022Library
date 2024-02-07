@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the realisation of benefits taken from a pension.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BenefitCrystallisationEvent2
+     : IIsoXmlSerilizable<BenefitCrystallisationEvent2>
 {
     #nullable enable
     
     /// <summary>
     /// Number of the crystallisation event. In the UK market this could be, for example, BCE5, BE5A or BCE5B.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? EventTypeNumber { get; init; } 
     /// <summary>
     /// Name of the crystallisation event. In the UK market this could be, for example, ‘entitlement to scheme pension’.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? EventTypeName { get; init; } 
     /// <summary>
     /// Date on which the crystallisation event was triggered. 
     /// </summary>
-    [DataMember]
     public IsoISODate? EventDate { get; init; } 
     /// <summary>
     /// Amount of the crystallisation event.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? CrystallisationAmount { get; init; } 
     /// <summary>
     /// Percentage of allowance used for the benefit crystallisation event.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? PercentageOfAllowance { get; init; } 
     /// <summary>
     /// Indicates whether lifetime allowance protection impacts the benefit crystallisation event.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? LifetimeAllowanceProtection { get; init; } 
     /// <summary>
     /// Additional information about the benefit crystallisation event.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (EventTypeNumber is IsoMax35Text EventTypeNumberValue)
+        {
+            writer.WriteStartElement(null, "EvtTpNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(EventTypeNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (EventTypeName is IsoMax35Text EventTypeNameValue)
+        {
+            writer.WriteStartElement(null, "EvtTpNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(EventTypeNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (EventDate is IsoISODate EventDateValue)
+        {
+            writer.WriteStartElement(null, "EvtDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(EventDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (CrystallisationAmount is IsoActiveCurrencyAnd13DecimalAmount CrystallisationAmountValue)
+        {
+            writer.WriteStartElement(null, "CrstllstnAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(CrystallisationAmountValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PercentageOfAllowance is IsoPercentageRate PercentageOfAllowanceValue)
+        {
+            writer.WriteStartElement(null, "PctgOfAllwnc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PercentageOfAllowanceValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (LifetimeAllowanceProtection is IsoYesNoIndicator LifetimeAllowanceProtectionValue)
+        {
+            writer.WriteStartElement(null, "LftmAllwncPrtcn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(LifetimeAllowanceProtectionValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BenefitCrystallisationEvent2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

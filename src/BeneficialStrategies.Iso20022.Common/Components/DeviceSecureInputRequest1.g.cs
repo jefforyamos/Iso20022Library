@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Request a secure input for a PIN.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DeviceSecureInputRequest1
+     : IIsoXmlSerilizable<DeviceSecureInputRequest1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of PIN Service.
     /// </summary>
-    [DataMember]
     public required PINRequestType1Code PINRequestType { get; init; } 
     /// <summary>
     /// Identify the PIN verification method and keys.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PINVerificationMethod { get; init; } 
     /// <summary>
     /// Maximum time to wait for the request processing in seconds.
     /// </summary>
-    [DataMember]
     public IsoNumber? MaximumWaitingTime { get; init; } 
     /// <summary>
     /// Indicates, when the user press a key, if a beep has to be generated.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? BeepKeyFlag { get; init; } 
     /// <summary>
     /// Enciphered PIN and related information.
     /// </summary>
-    [DataMember]
     public OnLinePIN6? CardholderPIN { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PINReqTp", xmlNamespace );
+        writer.WriteValue(PINRequestType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (PINVerificationMethod is IsoMax35Text PINVerificationMethodValue)
+        {
+            writer.WriteStartElement(null, "PINVrfctnMtd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PINVerificationMethodValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MaximumWaitingTime is IsoNumber MaximumWaitingTimeValue)
+        {
+            writer.WriteStartElement(null, "MaxWtgTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumWaitingTimeValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (BeepKeyFlag is IsoTrueFalseIndicator BeepKeyFlagValue)
+        {
+            writer.WriteStartElement(null, "BeepKeyFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(BeepKeyFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CardholderPIN is OnLinePIN6 CardholderPINValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrPIN", xmlNamespace );
+            CardholderPINValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DeviceSecureInputRequest1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

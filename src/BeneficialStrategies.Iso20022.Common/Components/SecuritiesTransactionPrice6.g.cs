@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Descriptive fields capturing where no strike price is known.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesTransactionPrice6
+     : IIsoXmlSerilizable<SecuritiesTransactionPrice6>
 {
     #nullable enable
     
     /// <summary>
     /// Price is currently not available, but pending.
     /// </summary>
-    [DataMember]
     public required PriceStatus1Code Pending { get; init; } 
     /// <summary>
     /// Currency that will be used but for which no price is yet known.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Specifies the digital token when the number of units may not be known.
     /// </summary>
-    [DataMember]
-    public ValueList<DigitalTokenAmount2> DigitalToken { get; init; } = []; // Warning: Don't know multiplicity.
+    public DigitalTokenAmount2? DigitalToken { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Pdg", xmlNamespace );
+        writer.WriteValue(Pending.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Currency is ActiveOrHistoricCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DigitalToken is DigitalTokenAmount2 DigitalTokenValue)
+        {
+            writer.WriteStartElement(null, "DgtlTkn", xmlNamespace );
+            DigitalTokenValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesTransactionPrice6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

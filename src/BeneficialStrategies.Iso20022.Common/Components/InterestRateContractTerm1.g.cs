@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes how interest rates are reported.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InterestRateContractTerm1
+     : IIsoXmlSerilizable<InterestRateContractTerm1>
 {
     #nullable enable
     
     /// <summary>
     /// Unit for the rate basis.
     /// </summary>
-    [DataMember]
     public required RateBasis1Code Unit { get; init; } 
     /// <summary>
     /// Value of the contract term in number of units.
     /// </summary>
-    [DataMember]
     public required IsoNumber Value { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Unit", xmlNamespace );
+        writer.WriteValue(Unit.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(Value)); // data type Number System.UInt64
+        writer.WriteEndElement();
+    }
+    public static InterestRateContractTerm1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

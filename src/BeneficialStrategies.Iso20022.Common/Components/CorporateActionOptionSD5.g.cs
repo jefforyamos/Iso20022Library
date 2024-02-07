@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action option details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionOptionSD5
+     : IIsoXmlSerilizable<CorporateActionOptionSD5>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Workflow status of the specified option based on the consistency of the issuer declared data elements (excluding DTC data elements).
     /// </summary>
-    [DataMember]
     public WorkflowStatus1Code? OptionStatus { get; init; } 
     /// <summary>
     /// Indicates whether or not the offeror will select random lots if the offer has been prorated. The offeror may accept or reject conditional tenders on a random basis. Holders must indicate their willingness to have their rejected conditional tender accepted by random lot (if necessary). The holder must surrender all shares held in order to be eligible for this preference.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? RandomLotPreferenceFlag { get; init; } 
     /// <summary>
     /// Date on which the new shares to be issued will be distributed, as opposed to the "declared payable date." This date is typically used in some Asian markets.
     /// </summary>
-    [DataMember]
     public IsoISODate? NewShareDispatchedDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (OptionStatus is WorkflowStatus1Code OptionStatusValue)
+        {
+            writer.WriteStartElement(null, "OptnSts", xmlNamespace );
+            writer.WriteValue(OptionStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (RandomLotPreferenceFlag is IsoYesNoIndicator RandomLotPreferenceFlagValue)
+        {
+            writer.WriteStartElement(null, "RandLotPrefFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RandomLotPreferenceFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (NewShareDispatchedDate is IsoISODate NewShareDispatchedDateValue)
+        {
+            writer.WriteStartElement(null, "NewShrDsptchdDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(NewShareDispatchedDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionOptionSD5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

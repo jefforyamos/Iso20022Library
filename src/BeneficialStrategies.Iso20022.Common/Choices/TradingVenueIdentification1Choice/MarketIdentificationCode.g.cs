@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TradingVenueIdentification1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.TradingVenueIdentification1Choic
 /// Identification used where reporting entity uses a market identification code (MIC).
 /// </summary>
 public partial record MarketIdentificationCode : TradingVenueIdentification1Choice_
+     , IIsoXmlSerilizable<MarketIdentificationCode>
 {
-    public required IsoMICIdentifier Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Market Identifier Code. The identification of a financial market, as stipulated in the norm ISO 10383 'Codes for exchanges and market identifications'.
+    /// </summary>
+    public required IsoMICIdentifier Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MktIdCd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMICIdentifier(Value)); // data type MICIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static new MarketIdentificationCode Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

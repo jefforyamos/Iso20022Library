@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.TransferCancellationStatusReportV02>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -32,10 +35,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// - the transfer cancellation is rejected and the reason for the status.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An executing party, eg, a transfer agent, sends the TransferCancellationStatusReport message to the instructing party, eg, an investment manager or one of its authorised representatives to provide the status of a previously received transfer cancellation instruction.|Usage|The TransferCancellationStatusReport message is used to report on the status of a transfer in or transfer out cancellation request.|The reference of the transfer instruction for which the cancellation status is reported is identified in TransferReference. The message identification of the transfer cancellation request message in which the transfer instruction was conveyed may also be quoted in RelatedReference.|The message identification of the transfer instruction request message in which the transfer instruction was conveyed may also be quoted in RelatedReference.|One of the following statuses can be reported:|- the transfer cancellation is accepted, or,|- the transfer cancellation has been sent to the next party, or,|- the transfer cancellation is complete and the reason for the status,|- the transfer cancellation pending and the reason for the status,|- the transfer cancellation is rejected and the reason for the status.")]
-public partial record TransferCancellationStatusReportV02 : IOuterRecord
+public partial record TransferCancellationStatusReportV02 : IOuterRecord<TransferCancellationStatusReportV02,TransferCancellationStatusReportV02Document>
+    ,IIsoXmlSerilizable<TransferCancellationStatusReportV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -47,6 +49,11 @@ public partial record TransferCancellationStatusReportV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "TrfCxlStsRptV02";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => TransferCancellationStatusReportV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -66,7 +73,7 @@ public partial record TransferCancellationStatusReportV02 : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public required IReadOnlyCollection<AdditionalReference3> RelatedReference { get; init; } = []; // Min=0, Max=2
+    public required ValueList<AdditionalReference3> RelatedReference { get; init; } = []; // Min=0, Max=2
     
     /// <summary>
     /// Reference to the linked message sent in a proprietary way or the reference of a system.
@@ -75,7 +82,7 @@ public partial record TransferCancellationStatusReportV02 : IOuterRecord
     [Description(@"Reference to the linked message sent in a proprietary way or the reference of a system.")]
     [DataMember(Name="OthrRef")]
     [XmlElement(ElementName="OthrRef")]
-    public required IReadOnlyCollection<AdditionalReference3> OtherReference { get; init; } = []; // Min=0, Max=2
+    public required ValueList<AdditionalReference3> OtherReference { get; init; } = []; // Min=0, Max=2
     
     /// <summary>
     /// Status of the transfer cancellation instruction.
@@ -105,6 +112,41 @@ public partial record TransferCancellationStatusReportV02 : IOuterRecord
     {
         return new TransferCancellationStatusReportV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("TrfCxlStsRptV02");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+        RelatedReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrRef", xmlNamespace );
+        OtherReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StsRpt", xmlNamespace );
+        StatusReport.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransferCancellationStatusReportV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -112,9 +154,7 @@ public partial record TransferCancellationStatusReportV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransferCancellationStatusReportV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record TransferCancellationStatusReportV02Document : IOuterDocument<TransferCancellationStatusReportV02>
+public partial record TransferCancellationStatusReportV02Document : IOuterDocument<TransferCancellationStatusReportV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -130,5 +170,22 @@ public partial record TransferCancellationStatusReportV02Document : IOuterDocume
     /// <summary>
     /// The instance of <seealso cref="TransferCancellationStatusReportV02"/> is required.
     /// </summary>
+    [DataMember(Name=TransferCancellationStatusReportV02.XmlTag)]
     public required TransferCancellationStatusReportV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(TransferCancellationStatusReportV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

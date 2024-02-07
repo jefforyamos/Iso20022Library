@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Entity involved in an activity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradePartyIdentification6
+     : IIsoXmlSerilizable<TradePartyIdentification6>
 {
     #nullable enable
     
     /// <summary>
     /// Party that submits the foreign exchange trade to the matching system or to the settlement system or to the counterparty.
     /// </summary>
-    [DataMember]
     public required PartyIdentification73Choice_ SubmittingParty { get; init; } 
     /// <summary>
     /// Party that originated the foreign exchange trade. This party may be the same as the submitting party.
     /// </summary>
-    [DataMember]
     public PartyIdentification73Choice_? TradeParty { get; init; } 
     /// <summary>
     /// Identifies the fund that is one of the parties in the foreign exchange trade.
     /// </summary>
-    [DataMember]
-    public ValueList<FundIdentification4> FundIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public FundIdentification4? FundIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SubmitgPty", xmlNamespace );
+        SubmittingParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TradeParty is PartyIdentification73Choice_ TradePartyValue)
+        {
+            writer.WriteStartElement(null, "TradPty", xmlNamespace );
+            TradePartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FundIdentification is FundIdentification4 FundIdentificationValue)
+        {
+            writer.WriteStartElement(null, "FndId", xmlNamespace );
+            FundIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradePartyIdentification6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

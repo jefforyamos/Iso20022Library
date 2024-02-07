@@ -7,48 +7,84 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Return provided by a financial instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record YieldCalculation6
+     : IIsoXmlSerilizable<YieldCalculation6>
 {
     #nullable enable
     
     /// <summary>
     /// Result of the yield calculation.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate Value { get; init; } 
     /// <summary>
     /// Specifies the type of calculation.
     /// </summary>
-    [DataMember]
     public CalculationType3Choice_? CalculationType { get; init; } 
     /// <summary>
     /// Price to which the yield has been calculated.
     /// </summary>
-    [DataMember]
     public Price8? RedemptionPrice { get; init; } 
     /// <summary>
     /// Date/time on which the calculation is based, for example, valuation on October 1 (price date) based on price of September 19 ( value date).
     /// </summary>
-    [DataMember]
     public required IsoISODate ValueDate { get; init; } 
     /// <summary>
     /// Period on which the calculation is based.
     /// </summary>
-    [DataMember]
     public required DateTimePeriod1Choice_ ValuePeriod { get; init; } 
     /// <summary>
     /// Clarifies yield irregularities associated with date, for example when it falls on a non-business day.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime CalculationDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(Value)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+        if (CalculationType is CalculationType3Choice_ CalculationTypeValue)
+        {
+            writer.WriteStartElement(null, "ClctnTp", xmlNamespace );
+            CalculationTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RedemptionPrice is Price8 RedemptionPriceValue)
+        {
+            writer.WriteStartElement(null, "RedPric", xmlNamespace );
+            RedemptionPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ValDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ValueDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ValPrd", xmlNamespace );
+        ValuePeriod.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClctnDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CalculationDate)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+    }
+    public static YieldCalculation6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

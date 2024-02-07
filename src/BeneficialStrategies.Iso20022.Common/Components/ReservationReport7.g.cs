@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reports either on the reservation or on a business error.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReservationReport7
+     : IIsoXmlSerilizable<ReservationReport7>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the reservation on which information is requested.
     /// </summary>
-    [DataMember]
     public required ReservationIdentification3 ReservationIdentification { get; init; } 
     /// <summary>
     /// Requested information on the limit.
     /// </summary>
-    [DataMember]
     public required ReservationOrError9Choice_ ReservationOrError { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RsvatnId", xmlNamespace );
+        ReservationIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RsvatnOrErr", xmlNamespace );
+        ReservationOrError.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ReservationReport7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

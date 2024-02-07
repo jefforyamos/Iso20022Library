@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity30Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity30Cho
 /// Indicates that quantity is expressed as a nominal value.
 /// </summary>
 public partial record NominalValue : FinancialInstrumentQuantity30Choice_
+     , IIsoXmlSerilizable<NominalValue>
 {
-    public required IsoImpliedCurrencyAnd20Amount Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Number of monetary units specified in a currency where the unit of currency is implied by the context and compliant with ISO 4217. The decimal separator is a dot.|Note: a zero amount is considered a positive amount.
+    /// </summary>
+    public required IsoImpliedCurrencyAnd20Amount Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NmnlVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAnd20Amount(Value)); // data type ImpliedCurrencyAnd20Amount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static new NominalValue Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the members of a system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Member3
+     : IIsoXmlSerilizable<Member3>
 {
     #nullable enable
     
     /// <summary>
     /// Physical/logical address belonging to a member, segregated from its main address that is used for normal operations. The fund return address is used to route messages that require specific attention/exception handling, eg, returns or rejects.
     /// </summary>
-    [DataMember]
-    public ValueList<MemberIdentification2Choice_> MemberReturnAddress { get; init; } = []; // Warning: Don't know multiplicity.
+    public MemberIdentification2Choice_? MemberReturnAddress { get; init; } 
     /// <summary>
     /// Person to be contacted in a given organisation.
     /// </summary>
-    [DataMember]
-    public ValueList<ContactIdentificationAndAddress1> ContactReference { get; init; } = []; // Warning: Don't know multiplicity.
+    public ContactIdentificationAndAddress1? ContactReference { get; init; } 
     /// <summary>
     /// Number, or virtual address, used for communication.
     /// </summary>
-    [DataMember]
     public CommunicationAddress8? CommunicationAddress { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MemberReturnAddress is MemberIdentification2Choice_ MemberReturnAddressValue)
+        {
+            writer.WriteStartElement(null, "MmbRtrAdr", xmlNamespace );
+            MemberReturnAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContactReference is ContactIdentificationAndAddress1 ContactReferenceValue)
+        {
+            writer.WriteStartElement(null, "CtctRef", xmlNamespace );
+            ContactReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CommunicationAddress is CommunicationAddress8 CommunicationAddressValue)
+        {
+            writer.WriteStartElement(null, "ComAdr", xmlNamespace );
+            CommunicationAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Member3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

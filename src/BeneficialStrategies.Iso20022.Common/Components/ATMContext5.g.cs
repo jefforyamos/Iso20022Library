@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Context in which the inquiry is performed.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMContext5
+     : IIsoXmlSerilizable<ATMContext5>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification of the customer session in which the service is performed.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SessionReference { get; init; } 
     /// <summary>
     /// Withdrawal service provided by the ATM inside the session.
     /// </summary>
-    [DataMember]
     public required ATMService5 Service { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SessionReference is IsoMax35Text SessionReferenceValue)
+        {
+            writer.WriteStartElement(null, "SsnRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SessionReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Svc", xmlNamespace );
+        Service.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ATMContext5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

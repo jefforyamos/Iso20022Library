@@ -7,78 +7,141 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details about the settlement obligation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementObligation5
+     : IIsoXmlSerilizable<SettlementObligation5>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the identification of an existing obligation that is linked to the new obligation.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RelatedSettlementObligationIdentification { get; init; } 
     /// <summary>
     /// Indicates the type of the obligation.
     /// </summary>
-    [DataMember]
     public ObligationType1Choice_? ObligationType { get; init; } 
     /// <summary>
     /// Provides additional information related to the linked obligation.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Description { get; init; } 
     /// <summary>
     /// Provides the original trade date.
     /// </summary>
-    [DataMember]
     public IsoISODate? TradeDate { get; init; } 
     /// <summary>
     /// Specifies the quantity related to the settlement obligation.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Provides the price applied to that net position.
     /// </summary>
-    [DataMember]
     public Price4? NetPositionPrice { get; init; } 
     /// <summary>
     /// Specifies the ISO code of the trade currency.
     /// </summary>
-    [DataMember]
     public CurrencyCode? TradingCurrency { get; init; } 
     /// <summary>
     /// Provides the total amount to be settled.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection27 SettlementAmount { get; init; } 
     /// <summary>
     /// Provides the contractual settlement date.
     /// </summary>
-    [DataMember]
     public required IsoISODate SettlementDate { get; init; } 
     /// <summary>
     /// Indicates if the obligation will result in a receive or a delivery of securities.
     /// </summary>
-    [DataMember]
     public required ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
     /// <summary>
     /// Specifies how the transaction is to be settled.
     /// </summary>
-    [DataMember]
     public required DeliveryReceiptType2Code Payment { get; init; } 
     /// <summary>
     /// Provides the references of the underlying trade leg(s) and/or the reference to the related net position message.
     /// </summary>
-    [DataMember]
     public Reference19? References { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (RelatedSettlementObligationIdentification is IsoMax35Text RelatedSettlementObligationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RltdSttlmOblgtnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RelatedSettlementObligationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ObligationType is ObligationType1Choice_ ObligationTypeValue)
+        {
+            writer.WriteStartElement(null, "OblgtnTp", xmlNamespace );
+            ObligationTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Description is IsoMax35Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DescriptionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TradeDate is IsoISODate TradeDateValue)
+        {
+            writer.WriteStartElement(null, "TradDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(TradeDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        Quantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (NetPositionPrice is Price4 NetPositionPriceValue)
+        {
+            writer.WriteStartElement(null, "NetPosPric", xmlNamespace );
+            NetPositionPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradingCurrency is CurrencyCode TradingCurrencyValue)
+        {
+            writer.WriteStartElement(null, "TradgCcy", xmlNamespace );
+            writer.WriteValue(TradingCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
+        SettlementAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(SettlementDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctiesMvmntTp", xmlNamespace );
+        writer.WriteValue(SecuritiesMovementType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Pmt", xmlNamespace );
+        writer.WriteValue(Payment.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (References is Reference19 ReferencesValue)
+        {
+            writer.WriteStartElement(null, "Refs", xmlNamespace );
+            ReferencesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementObligation5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

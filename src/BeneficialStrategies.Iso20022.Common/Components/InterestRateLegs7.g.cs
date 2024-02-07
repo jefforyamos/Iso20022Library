@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details related to interest rate attributes.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InterestRateLegs7
+     : IIsoXmlSerilizable<InterestRateLegs7>
 {
     #nullable enable
     
     /// <summary>
     /// Details concerning the rate in the first leg of an interest rate contract.
     /// </summary>
-    [DataMember]
     public InterestRate21Choice_? FirstLeg { get; init; } 
     /// <summary>
     /// Details concerning the rate in the second leg of an interest rate contract.
     /// </summary>
-    [DataMember]
     public InterestRate21Choice_? SecondLeg { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FirstLeg is InterestRate21Choice_ FirstLegValue)
+        {
+            writer.WriteStartElement(null, "FrstLeg", xmlNamespace );
+            FirstLegValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecondLeg is InterestRate21Choice_ SecondLegValue)
+        {
+            writer.WriteStartElement(null, "ScndLeg", xmlNamespace );
+            SecondLegValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InterestRateLegs7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

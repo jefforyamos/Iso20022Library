@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Party2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Party2Choice;
 /// Unique and unambiguous way of identifying an organisation.
 /// </summary>
 public partial record OrganisationIdentification : Party2Choice_
+     , IIsoXmlSerilizable<OrganisationIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
     /// </summary>
@@ -51,5 +55,77 @@ public partial record OrganisationIdentification : Party2Choice_
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution.
     /// </summary>
     public GenericIdentification3? ProprietaryIdentification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (BIC is IsoBICIdentifier BICValue)
+        {
+            writer.WriteStartElement(null, "BIC", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBICIdentifier(BICValue)); // data type BICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (IBEI is IsoIBEIIdentifier IBEIValue)
+        {
+            writer.WriteStartElement(null, "IBEI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoIBEIIdentifier(IBEIValue)); // data type IBEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (BEI is IsoBEIIdentifier BEIValue)
+        {
+            writer.WriteStartElement(null, "BEI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBEIIdentifier(BEIValue)); // data type BEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (EANGLN is IsoEANGLNIdentifier EANGLNValue)
+        {
+            writer.WriteStartElement(null, "EANGLN", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoEANGLNIdentifier(EANGLNValue)); // data type EANGLNIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (CHIPSUniversalIdentification is IsoCHIPSUniversalIdentifier CHIPSUniversalIdentificationValue)
+        {
+            writer.WriteStartElement(null, "USCHU", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCHIPSUniversalIdentifier(CHIPSUniversalIdentificationValue)); // data type CHIPSUniversalIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (DUNS is IsoDunsIdentifier DUNSValue)
+        {
+            writer.WriteStartElement(null, "DUNS", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDunsIdentifier(DUNSValue)); // data type DunsIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (BankPartyIdentification is IsoMax35Text BankPartyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "BkPtyId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(BankPartyIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TaxIdentificationNumber is IsoMax35Text TaxIdentificationNumberValue)
+        {
+            writer.WriteStartElement(null, "TaxIdNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TaxIdentificationNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProprietaryIdentification is GenericIdentification3 ProprietaryIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrtryId", xmlNamespace );
+            ProprietaryIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new OrganisationIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

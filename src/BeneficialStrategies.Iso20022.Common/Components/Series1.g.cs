@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a series.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Series1
+     : IIsoXmlSerilizable<Series1>
 {
     #nullable enable
     
     /// <summary>
     /// Issue date of the fund series. It is typically applicable to a redemption order, subscription order confirmation or redemption order confirmation, but may be specified in the subscription order, if known.
     /// </summary>
-    [DataMember]
     public DateFormat42Choice_? SeriesDate { get; init; } 
     /// <summary>
     /// Name of the fund series. It is typically applicable to a redemption order, subscription order confirmation or redemption order confirmation, but may be specified in the subscription, if known.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SeriesName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SeriesDate is DateFormat42Choice_ SeriesDateValue)
+        {
+            writer.WriteStartElement(null, "SrsDt", xmlNamespace );
+            SeriesDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SeriesName is IsoMax35Text SeriesNameValue)
+        {
+            writer.WriteStartElement(null, "SrsNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SeriesNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Series1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.AgentCADeactivationCancellationRequestV01>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// In case a corporate action or option is already deactivated, this message can not be used to reactivate the corporate action entire event or option; the notification advice message must be used to reactivate a corporate action or option.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|This message is sent by an issuer (or its agent) to the CSD to request the cancellation of a previously sent corporate action deactivation instruction.|Usage|This message is used to request the cancellation of a pending deactivation instruction. The cancellation must apply to exactly the same level as the original instruction, ie to the entire CA event or to an option as per the original instruction.|This message must be sent before the deactivation execution date.|In case a corporate action or option is already deactivated, this message can not be used to reactivate the corporate action entire event or option; the notification advice message must be used to reactivate a corporate action or option.")]
-public partial record AgentCADeactivationCancellationRequestV01 : IOuterRecord
+public partial record AgentCADeactivationCancellationRequestV01 : IOuterRecord<AgentCADeactivationCancellationRequestV01,AgentCADeactivationCancellationRequestV01Document>
+    ,IIsoXmlSerilizable<AgentCADeactivationCancellationRequestV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record AgentCADeactivationCancellationRequestV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AgtCADeactvtnCxlReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AgentCADeactivationCancellationRequestV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -91,6 +98,38 @@ public partial record AgentCADeactivationCancellationRequestV01 : IOuterRecord
     {
         return new AgentCADeactivationCancellationRequestV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AgtCADeactvtnCxlReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AgtCADeactvtnInstrId", xmlNamespace );
+        AgentCADeactivationInstructionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+        CorporateActionGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DeactivationInstructionDetails is CorporateActionDeactivationInstruction1 DeactivationInstructionDetailsValue)
+        {
+            writer.WriteStartElement(null, "DeactvtnInstrDtls", xmlNamespace );
+            DeactivationInstructionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AgentCADeactivationCancellationRequestV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -98,9 +137,7 @@ public partial record AgentCADeactivationCancellationRequestV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCADeactivationCancellationRequestV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AgentCADeactivationCancellationRequestV01Document : IOuterDocument<AgentCADeactivationCancellationRequestV01>
+public partial record AgentCADeactivationCancellationRequestV01Document : IOuterDocument<AgentCADeactivationCancellationRequestV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -116,5 +153,22 @@ public partial record AgentCADeactivationCancellationRequestV01Document : IOuter
     /// <summary>
     /// The instance of <seealso cref="AgentCADeactivationCancellationRequestV01"/> is required.
     /// </summary>
+    [DataMember(Name=AgentCADeactivationCancellationRequestV01.XmlTag)]
     public required AgentCADeactivationCancellationRequestV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AgentCADeactivationCancellationRequestV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

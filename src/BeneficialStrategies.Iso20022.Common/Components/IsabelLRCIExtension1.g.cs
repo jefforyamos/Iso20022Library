@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the LRCI protocol extension details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IsabelLRCIExtension1
+     : IIsoXmlSerilizable<IsabelLRCIExtension1>
 {
     #nullable enable
     
     /// <summary>
     /// Effective method for calculating the (cryptographic) hash value of each visual representation of a payment file.
     /// </summary>
-    [DataMember]
     public required IsoMax105Text ImageHashAlgorithm { get; init; } 
     /// <summary>
     /// Block of data on which the signature is calculated by the LRCI client.
     /// </summary>
-    [DataMember]
     public required IsabelEpaymentTokenResponse1 TokenResponse { get; init; } 
     /// <summary>
     /// Index of the payment information element containing the hash of the visual representation and the hash of the payment file relevant for this signature.
     /// </summary>
-    [DataMember]
     public required IsoPositiveNumber TokenResponsePaymentInformationIndex { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ImgHashAlgo", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax105Text(ImageHashAlgorithm)); // data type Max105Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TknRspn", xmlNamespace );
+        TokenResponse.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TknRspnPmtInfIndx", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPositiveNumber(TokenResponsePaymentInformationIndex)); // data type PositiveNumber System.UInt64
+        writer.WriteEndElement();
+    }
+    public static IsabelLRCIExtension1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AmountOrPercentage1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountOrPercentage1Choice;
 /// Details related to a defined monetary amount.
 /// </summary>
 public partial record DefinedAmount : AmountOrPercentage1Choice_
+     , IIsoXmlSerilizable<DefinedAmount>
 {
     #nullable enable
+    
     /// <summary>
     /// Variation amount and currency.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record DefinedAmount : AmountOrPercentage1Choice_
     /// Calculated undertaking available balance amount resulting from the application of the variation amount.
     /// </summary>
     public IsoActiveCurrencyAndAmount? BalanceAmount { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "VartnAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(VariationAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (BalanceAmount is IsoActiveCurrencyAndAmount BalanceAmountValue)
+        {
+            writer.WriteStartElement(null, "BalAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(BalanceAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static new DefinedAmount Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.MarginCallResult2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.MarginCallResult2Choice;
 /// Provides the summation of the call amounts for the variation margin and optionaly the segregated independent amount.
 /// </summary>
 public partial record MarginCallResultDetails : MarginCallResult2Choice_
+     , IIsoXmlSerilizable<MarginCallResultDetails>
 {
     #nullable enable
+    
     /// <summary>
     /// Provides the summation of the call amounts for the variation margin amount only.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record MarginCallResultDetails : MarginCallResult2Choice_
     /// Provides the summation of the call amounts for the segregated independent amount.
     /// </summary>
     public Result1? SegregatedIndependentAmount { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "VartnMrgnRslt", xmlNamespace );
+        VariationMarginResult.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SegregatedIndependentAmount is Result1 SegregatedIndependentAmountValue)
+        {
+            writer.WriteStartElement(null, "SgrtdIndpdntAmt", xmlNamespace );
+            SegregatedIndependentAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new MarginCallResultDetails Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

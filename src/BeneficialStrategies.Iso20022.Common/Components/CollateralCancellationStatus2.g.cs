@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the status (that is accept or reject) of the CollateralManagementCancellationRequest message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralCancellationStatus2
+     : IIsoXmlSerilizable<CollateralCancellationStatus2>
 {
     #nullable enable
     
     /// <summary>
     /// Allows to provide a cancellation status using a code or a proprietary status.
     /// </summary>
-    [DataMember]
     public required Status4Code CollateralStatusCode { get; init; } 
     /// <summary>
     /// Provides additional information on the status of the CollateralManagementCancellationRequest message.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Provides rejection reason and optionaly additional information.
     /// </summary>
-    [DataMember]
     public RejectionStatus3? RejectionDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CollStsCd", xmlNamespace );
+        writer.WriteValue(CollateralStatusCode.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax35Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdditionalInformationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RejectionDetails is RejectionStatus3 RejectionDetailsValue)
+        {
+            writer.WriteStartElement(null, "RjctnDtls", xmlNamespace );
+            RejectionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralCancellationStatus2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,113 +7,172 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates which fields must be present in the response.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CustomerAccountReturnCriteria1
+     : IIsoXmlSerilizable<CustomerAccountReturnCriteria1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Identification { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Name { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Status { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Type { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Currency { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator MonthlyPaymentValue { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator MonthlyReceivedValue { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator MonthlyTransactionNumber { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator AverageBalance { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator AccountPurpose { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator FloorNotificationAmount { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator CeilingNotificationAmount { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator StatementCycle { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ClosingDate { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Restriction { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator OpeningDate { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator AccountOwner { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ReferenceAccount { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericIdentification42> Proprietary { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericIdentification42? Proprietary { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Identification)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Name)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Status)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Type)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Ccy", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Currency)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MnthlyPmtVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MonthlyPaymentValue)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MnthlyRcvdVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MonthlyReceivedValue)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MnthlyTxNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MonthlyTransactionNumber)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AvrgBal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AverageBalance)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctPurp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AccountPurpose)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FlrNtfctnAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(FloorNotificationAmount)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClngNtfctnAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CeilingNotificationAmount)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StmtCycl", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(StatementCycle)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ClosingDate)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rstrctn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Restriction)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OpngDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OpeningDate)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AccountOwner)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RefAcct", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ReferenceAccount)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (Proprietary is GenericIdentification42 ProprietaryValue)
+        {
+            writer.WriteStartElement(null, "Prtry", xmlNamespace );
+            ProprietaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CustomerAccountReturnCriteria1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

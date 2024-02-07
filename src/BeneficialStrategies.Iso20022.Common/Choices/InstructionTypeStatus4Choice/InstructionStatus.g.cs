@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.InstructionTypeStatus4Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionTypeStatus4Choice;
 /// Status of each individual meeting instruction(s) included in the instruction message identified in InstructionType/InstructionIdentification.
 /// </summary>
 public partial record InstructionStatus : InstructionTypeStatus4Choice_
+     , IIsoXmlSerilizable<InstructionStatus>
 {
     #nullable enable
+    
     /// <summary>
     /// Identification of the specific individual instruction from the original meeting instruction message element InstructionIdentification, for which the status is provided.
     /// </summary>
@@ -27,9 +31,42 @@ public partial record InstructionStatus : InstructionTypeStatus4Choice_
     /// Identification of the subaccount within the safekeeping account.
     /// </summary>
     public IsoMax35Text? SubAccountIdentification { get; init; } 
-    /// <summary>
-    /// Status of the individual meeting instruction.
-    /// </summary>
-    public required InstructionStatus10Choice_ InstructionStatusValue { get; init; } 
+    public required InstructionStatus10Choice_ Value { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SnglInstrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(SingleInstructionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (AccountIdentification is IsoMax35Text AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SubAccountIdentification is IsoMax35Text SubAccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SubAcctId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SubAccountIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InstrSts", xmlNamespace );
+        Value.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new InstructionStatus Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

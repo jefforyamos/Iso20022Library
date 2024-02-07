@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters to communicate with a host.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NetworkParameters9
+     : IIsoXmlSerilizable<NetworkParameters9>
 {
     #nullable enable
     
     /// <summary>
     /// Type of communication network.
     /// </summary>
-    [DataMember]
     public required NetworkType1Code NetworkType { get; init; } 
     /// <summary>
     /// Value of the address. The value of an internet protocol address contains the IP address or the DNS (Domain Name Server) address, followed by the character ': ' and the port number if the default port is not used. The value of a public telephone address contains the phone number with possible prefix and extensions.
     /// </summary>
-    [DataMember]
     public required IsoMax500Text AddressValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NtwkTp", xmlNamespace );
+        writer.WriteValue(NetworkType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AdrVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax500Text(AddressValue)); // data type Max500Text System.String
+        writer.WriteEndElement();
+    }
+    public static NetworkParameters9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

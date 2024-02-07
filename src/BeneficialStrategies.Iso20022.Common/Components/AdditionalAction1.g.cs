@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional action to perform.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalAction1
+     : IIsoXmlSerilizable<AdditionalAction1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of additional action to perform.
     /// </summary>
-    [DataMember]
     public ActionType10Code? Type { get; init; } 
     /// <summary>
     /// Destination of the additional action to perform.
     /// </summary>
-    [DataMember]
     public PartyType21Code? Destination { get; init; } 
     /// <summary>
     /// Other destination of action.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherDestination { get; init; } 
     /// <summary>
     /// Type of destination of the additional action to perform.
     /// </summary>
-    [DataMember]
     public ActionDestination1Code? DestinationType { get; init; } 
     /// <summary>
     /// Other type of destination.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherDestinationType { get; init; } 
     /// <summary>
     /// Physical destination address of the additional action to perform (for example, URL, mobile phone number, IP address, file name, etc.).
     /// </summary>
-    [DataMember]
     public IsoMax70Text? DestinationAddress { get; init; } 
     /// <summary>
     /// Format of the message associated with the additional action to perform.
     /// </summary>
-    [DataMember]
     public OutputFormat4Code? Format { get; init; } 
     /// <summary>
     /// Other type of format for action data.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherFormat { get; init; } 
     /// <summary>
     /// Content of or reference to the message.
     /// </summary>
-    [DataMember]
     public Content1? Content { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is ActionType10Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Destination is PartyType21Code DestinationValue)
+        {
+            writer.WriteStartElement(null, "Dstn", xmlNamespace );
+            writer.WriteValue(DestinationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherDestination is IsoMax35Text OtherDestinationValue)
+        {
+            writer.WriteStartElement(null, "OthrDstn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherDestinationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DestinationType is ActionDestination1Code DestinationTypeValue)
+        {
+            writer.WriteStartElement(null, "DstnTp", xmlNamespace );
+            writer.WriteValue(DestinationTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherDestinationType is IsoMax35Text OtherDestinationTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrDstnTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherDestinationTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DestinationAddress is IsoMax70Text DestinationAddressValue)
+        {
+            writer.WriteStartElement(null, "DstnAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(DestinationAddressValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Format is OutputFormat4Code FormatValue)
+        {
+            writer.WriteStartElement(null, "Frmt", xmlNamespace );
+            writer.WriteValue(FormatValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherFormat is IsoMax35Text OtherFormatValue)
+        {
+            writer.WriteStartElement(null, "OthrFrmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherFormatValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Content is Content1 ContentValue)
+        {
+            writer.WriteStartElement(null, "Cntt", xmlNamespace );
+            ContentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AdditionalAction1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

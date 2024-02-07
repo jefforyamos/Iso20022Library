@@ -7,68 +7,133 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details about the cash posted as collateral.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashCollateral2
+     : IIsoXmlSerilizable<CashCollateral2>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the identification of the proposed collateral.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CollateralIdentification { get; init; } 
     /// <summary>
     /// Provides the identification of the clearing member 's cash account.
     /// </summary>
-    [DataMember]
     public AccountIdentification4Choice_? CashAccountIdentification { get; init; } 
     /// <summary>
     /// Indicates whether excess of cash should be returned or not.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ReturnExcess { get; init; } 
     /// <summary>
     /// Amount of the deposit.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? DepositAmount { get; init; } 
     /// <summary>
     /// Specifies whether the deposit is fixed term or call/notice.
     /// </summary>
-    [DataMember]
     public DepositType1Code? DepositType { get; init; } 
     /// <summary>
     /// Planned final repayment date at the time of issuance.
     /// </summary>
-    [DataMember]
     public IsoISODate? MaturityDate { get; init; } 
     /// <summary>
     /// Valuation date of the cash taken as collateral.
     /// </summary>
-    [DataMember]
     public IsoISODate? ValueDate { get; init; } 
     /// <summary>
     /// Exchange rate.
     /// </summary>
-    [DataMember]
     public IsoBaseOneRate? ExchangeRate { get; init; } 
     /// <summary>
     /// Value of the collateral after taking into account the haircut.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount CollateralValue { get; init; } 
     /// <summary>
     /// Haircut or valuation factor on the collateral expressed as a percentage.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Haircut { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CollateralIdentification is IsoMax35Text CollateralIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CollId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CollateralIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CashAccountIdentification is AccountIdentification4Choice_ CashAccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CshAcctId", xmlNamespace );
+            CashAccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReturnExcess is IsoYesNoIndicator ReturnExcessValue)
+        {
+            writer.WriteStartElement(null, "RtrXcss", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ReturnExcessValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (DepositAmount is IsoActiveCurrencyAndAmount DepositAmountValue)
+        {
+            writer.WriteStartElement(null, "DpstAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(DepositAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (DepositType is DepositType1Code DepositTypeValue)
+        {
+            writer.WriteStartElement(null, "DpstTp", xmlNamespace );
+            writer.WriteValue(DepositTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MaturityDate is IsoISODate MaturityDateValue)
+        {
+            writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(MaturityDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ValueDate is IsoISODate ValueDateValue)
+        {
+            writer.WriteStartElement(null, "ValDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ValueDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ExchangeRate is IsoBaseOneRate ExchangeRateValue)
+        {
+            writer.WriteStartElement(null, "XchgRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ExchangeRateValue)); // data type BaseOneRate System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CollVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CollateralValue)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (Haircut is IsoPercentageRate HaircutValue)
+        {
+            writer.WriteStartElement(null, "Hrcut", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(HaircutValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static CashCollateral2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

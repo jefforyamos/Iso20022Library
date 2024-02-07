@@ -7,63 +7,120 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Valuation details for the securities position.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ValuationsDetails1
+     : IIsoXmlSerilizable<ValuationsDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Last reported/known price of a financial instrument in a market.
     /// </summary>
-    [DataMember]
     public Price7? MarketPrice { get; init; } 
     /// <summary>
     /// Source of the price quotation.
     /// </summary>
-    [DataMember]
     public MarketIdentification89? SourceOfPrice { get; init; } 
     /// <summary>
     /// Date and time at which the financial instruments are to be delivered or received effectively (Effective Settlement Date and Time).
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? SettlementDate { get; init; } 
     /// <summary>
     /// Securities collateral position valuation amounts.
     /// </summary>
-    [DataMember]
     public required CollateralAmount4 ValuationDetailsAmount { get; init; } 
     /// <summary>
     /// Amount of interest that has been accrued in between coupon payment periods for a given financial instrument.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? AccruedInterest { get; init; } 
     /// <summary>
     /// Price amount excluding the accrued interest for a given financial instrument.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? CleanPrice { get; init; } 
     /// <summary>
     /// Valuation factors.
     /// </summary>
-    [DataMember]
     public required ValuationFactorBreakdown1 ValuationFactorBreakdown { get; init; } 
     /// <summary>
     /// Number of days used for calculating the accrued interest amount.
     /// </summary>
-    [DataMember]
     public IsoNumber? NumberOfDaysAccrued { get; init; } 
     /// <summary>
     /// Number of days since the last pricing update.
     /// </summary>
-    [DataMember]
     public IsoNumber? QuotationAge { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MarketPrice is Price7 MarketPriceValue)
+        {
+            writer.WriteStartElement(null, "MktPric", xmlNamespace );
+            MarketPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SourceOfPrice is MarketIdentification89 SourceOfPriceValue)
+        {
+            writer.WriteStartElement(null, "SrcOfPric", xmlNamespace );
+            SourceOfPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementDate is DateAndDateTime2Choice_ SettlementDateValue)
+        {
+            writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
+            SettlementDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ValtnDtlsAmt", xmlNamespace );
+        ValuationDetailsAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccruedInterest is IsoActiveOrHistoricCurrencyAndAmount AccruedInterestValue)
+        {
+            writer.WriteStartElement(null, "AcrdIntrst", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(AccruedInterestValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CleanPrice is IsoActiveOrHistoricCurrencyAndAmount CleanPriceValue)
+        {
+            writer.WriteStartElement(null, "CleanPric", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(CleanPriceValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ValtnFctrBrkdwn", xmlNamespace );
+        ValuationFactorBreakdown.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (NumberOfDaysAccrued is IsoNumber NumberOfDaysAccruedValue)
+        {
+            writer.WriteStartElement(null, "NbOfDaysAcrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfDaysAccruedValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (QuotationAge is IsoNumber QuotationAgeValue)
+        {
+            writer.WriteStartElement(null, "QtnAge", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(QuotationAgeValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static ValuationsDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

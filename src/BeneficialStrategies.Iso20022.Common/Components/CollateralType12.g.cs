@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details of the security or cash pledged as collateral.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralType12
+     : IIsoXmlSerilizable<CollateralType12>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the details of the security pledged as collateral.
     /// </summary>
-    [DataMember]
-    public ValueList<SecurityReuseData1> Security { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecurityReuseData1? Security { get; init; } 
     /// <summary>
     /// Provides details on the type and amount of the cash reinvestment in a given currency and the average interest rate received.
     /// </summary>
-    [DataMember]
-    public ValueList<CashReuseData1> Cash { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashReuseData1? Cash { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Security is SecurityReuseData1 SecurityValue)
+        {
+            writer.WriteStartElement(null, "Scty", xmlNamespace );
+            SecurityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Cash is CashReuseData1 CashValue)
+        {
+            writer.WriteStartElement(null, "Csh", xmlNamespace );
+            CashValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralType12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to report on a payment transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionReturnCriteria5
+     : IIsoXmlSerilizable<TransactionReturnCriteria5>
 {
     #nullable enable
     
     /// <summary>
     /// Destination of the payment (be it a member or a system or both).
     /// </summary>
-    [DataMember]
     public SystemReturnCriteria2? PaymentToReturnCriteria { get; init; } 
     /// <summary>
     /// Origin of the payment (be it a member or a system or both).
     /// </summary>
-    [DataMember]
     public SystemReturnCriteria2? PaymentFromReturnCriteria { get; init; } 
     /// <summary>
     /// Defines the criteria used to report on the cash entry.
     /// </summary>
-    [DataMember]
     public AccountCashEntryReturnCriteria3? AccountCashEntryReturnCriteria { get; init; } 
     /// <summary>
     /// Defines the criteria used to report on the payment.
     /// </summary>
-    [DataMember]
     public PaymentReturnCriteria4? PaymentReturnCriteria { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PaymentToReturnCriteria is SystemReturnCriteria2 PaymentToReturnCriteriaValue)
+        {
+            writer.WriteStartElement(null, "PmtToRtrCrit", xmlNamespace );
+            PaymentToReturnCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentFromReturnCriteria is SystemReturnCriteria2 PaymentFromReturnCriteriaValue)
+        {
+            writer.WriteStartElement(null, "PmtFrRtrCrit", xmlNamespace );
+            PaymentFromReturnCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountCashEntryReturnCriteria is AccountCashEntryReturnCriteria3 AccountCashEntryReturnCriteriaValue)
+        {
+            writer.WriteStartElement(null, "AcctCshNtryRtrCrit", xmlNamespace );
+            AccountCashEntryReturnCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentReturnCriteria is PaymentReturnCriteria4 PaymentReturnCriteriaValue)
+        {
+            writer.WriteStartElement(null, "PmtRtrCrit", xmlNamespace );
+            PaymentReturnCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionReturnCriteria5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -9,15 +9,12 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
 using System.Xml;
 using System.Xml.Linq;
-using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Components.Contact4>;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of the contact person.
 /// </summary>
-[DataContract(Namespace = "")]
-[XmlType]
 public partial record Contact4
      : IIsoXmlSerilizable<Contact4>
 {
@@ -26,66 +23,63 @@ public partial record Contact4
     /// <summary>
     /// Specifies the terms used to formally address a person.
     /// </summary>
-    [DataMember]
     public NamePrefix2Code? NamePrefix { get; init; } 
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Name { get; init; } 
     /// <summary>
     /// Collection of information that identifies a phone number, as defined by telecom services.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? PhoneNumber { get; init; } 
     /// <summary>
     /// Collection of information that identifies a mobile phone number, as defined by telecom services.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? MobileNumber { get; init; } 
     /// <summary>
     /// Collection of information that identifies a FAX number, as defined by telecom services.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? FaxNumber { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
-    [DataMember]
     public IsoMax2048Text? EmailAddress { get; init; } 
     /// <summary>
     /// Purpose for which an email address may be used.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? EmailPurpose { get; init; } 
     /// <summary>
     /// Title of the function.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? JobTitle { get; init; } 
     /// <summary>
     /// Role of a person in an organisation.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Responsibility { get; init; } 
     /// <summary>
     /// Identification of a division of a large organisation or building.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Department { get; init; } 
     /// <summary>
     /// Contact details in another form.
     /// </summary>
-    [DataMember]
-    public ValueList<OtherContact1> Other { get; init; } = []; // Warning: Don't know multiplicity.
+    public OtherContact1? Other { get; init; } 
     /// <summary>
     /// Preferred method used to reach the contact.
     /// </summary>
-    [DataMember]
     public PreferredContactMethod1Code? PreferredMethod { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
     public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
     public void Serialize(XmlWriter writer, string xmlNamespace)
     {
         if (NamePrefix is NamePrefix2Code NamePrefixValue)
@@ -148,7 +142,12 @@ public partial record Contact4
             writer.WriteValue(SerializationFormatter.IsoMax70Text(DepartmentValue)); // data type Max70Text System.String
             writer.WriteEndElement();
         }
-        // Not sure how to serialize Other, multiplicity Unknown
+        if (Other is OtherContact1 OtherValue)
+        {
+            writer.WriteStartElement(null, "Othr", xmlNamespace );
+            OtherValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
         if (PreferredMethod is PreferredContactMethod1Code PreferredMethodValue)
         {
             writer.WriteStartElement(null, "PrefrdMtd", xmlNamespace );

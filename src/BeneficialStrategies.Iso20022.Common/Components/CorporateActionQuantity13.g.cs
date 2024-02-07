@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies corporate action quantities.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionQuantity13
+     : IIsoXmlSerilizable<CorporateActionQuantity13>
 {
     #nullable enable
     
     /// <summary>
     /// Minimum integral amount of securities that each account owner must have remaining after the called amounts are applied.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity43Choice_? BaseDenomination { get; init; } 
     /// <summary>
     /// Amount used when the called amount is not met by running the lottery with the base denomination.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity43Choice_? IncrementalDenomination { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (BaseDenomination is FinancialInstrumentQuantity43Choice_ BaseDenominationValue)
+        {
+            writer.WriteStartElement(null, "BaseDnmtn", xmlNamespace );
+            BaseDenominationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IncrementalDenomination is FinancialInstrumentQuantity43Choice_ IncrementalDenominationValue)
+        {
+            writer.WriteStartElement(null, "IncrmtlDnmtn", xmlNamespace );
+            IncrementalDenominationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionQuantity13 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.setr.RedemptionBulkOrderConfirmationV03>;
 
 namespace BeneficialStrategies.Iso20022.setr;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// If the executing party needs to confirm a RedemptionOrder instruction, then the RedemptionOrderConfirmation must be used.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An executing party, for example, a transfer agent, sends the RedemptionBulkOrderConfirmation message to the instructing party, for example, an investment manager or its authorised representative to confirm the details of execution for a previously received RedemptionBulkOrder message.|Usage|The RedemptionBulkOrderConfirmation message is used to confirm the execution of all individual orders included in a previously sent RedemptionBulkOrder message.|There is usually one bulk confirmation message for one bulk order message.|Each individual order confirmation specified is identified in DealReference. The reference of the original individual order is specified in OrderReference. The message identification of the RedemptionBulkOrder message in which the individual order was conveyed may also be quoted in RelatedReference, but this is not recommended.|A RedemptionBulkOrder must in all cases be responded to by a RedemptionBulkOrderConfirmation and in no circumstances by a RedemptionOrderConfirmation.|If the executing party needs to confirm a RedemptionOrder instruction, then the RedemptionOrderConfirmation must be used.")]
-public partial record RedemptionBulkOrderConfirmationV03 : IOuterRecord
+public partial record RedemptionBulkOrderConfirmationV03 : IOuterRecord<RedemptionBulkOrderConfirmationV03,RedemptionBulkOrderConfirmationV03Document>
+    ,IIsoXmlSerilizable<RedemptionBulkOrderConfirmationV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record RedemptionBulkOrderConfirmationV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "RedBlkOrdrConfV03";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => RedemptionBulkOrderConfirmationV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -99,7 +106,7 @@ public partial record RedemptionBulkOrderConfirmationV03 : IOuterRecord
     [Description(@"Information about parties related to the transaction.")]
     [DataMember(Name="RltdPtyDtls")]
     [XmlElement(ElementName="RltdPtyDtls")]
-    public required IReadOnlyCollection<Intermediary9> RelatedPartyDetails { get; init; } = []; // Min=0, Max=10
+    public required ValueList<Intermediary9> RelatedPartyDetails { get; init; } = []; // Min=0, Max=10
     
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
@@ -128,6 +135,62 @@ public partial record RedemptionBulkOrderConfirmationV03 : IOuterRecord
     {
         return new RedemptionBulkOrderConfirmationV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("RedBlkOrdrConfV03");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PoolReference is AdditionalReference3 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousReference is AdditionalReference3 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference3 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "BlkExctnDtls", xmlNamespace );
+        BulkExecutionDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RltdPtyDtls", xmlNamespace );
+        RelatedPartyDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CopyDetails is CopyInformation2 CopyDetailsValue)
+        {
+            writer.WriteStartElement(null, "CpyDtls", xmlNamespace );
+            CopyDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RedemptionBulkOrderConfirmationV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -135,9 +198,7 @@ public partial record RedemptionBulkOrderConfirmationV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RedemptionBulkOrderConfirmationV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record RedemptionBulkOrderConfirmationV03Document : IOuterDocument<RedemptionBulkOrderConfirmationV03>
+public partial record RedemptionBulkOrderConfirmationV03Document : IOuterDocument<RedemptionBulkOrderConfirmationV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -153,5 +214,22 @@ public partial record RedemptionBulkOrderConfirmationV03Document : IOuterDocumen
     /// <summary>
     /// The instance of <seealso cref="RedemptionBulkOrderConfirmationV03"/> is required.
     /// </summary>
+    [DataMember(Name=RedemptionBulkOrderConfirmationV03.XmlTag)]
     public required RedemptionBulkOrderConfirmationV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(RedemptionBulkOrderConfirmationV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

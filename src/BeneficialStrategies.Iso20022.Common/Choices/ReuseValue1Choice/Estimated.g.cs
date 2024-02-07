@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ReuseValue1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.ReuseValue1Choice;
 /// In the case when the actual value of reused collateral is unknown or cannot be calculated, an estimate value of reuse at individual financial instrument level calculated.
 /// </summary>
 public partial record Estimated : ReuseValue1Choice_
+     , IIsoXmlSerilizable<Estimated>
 {
-    public required IsoActiveOrHistoricCurrencyAndAmount Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// A number of monetary units specified in an active or a historic currency where the unit of currency is explicit and compliant with ISO 4217.
+    /// </summary>
+    public required IsoActiveOrHistoricCurrencyAndAmount Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Estmtd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(Value)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static new Estimated Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

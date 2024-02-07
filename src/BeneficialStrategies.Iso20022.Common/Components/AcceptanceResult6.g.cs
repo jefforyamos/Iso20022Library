@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide detailed information on the acceptance result.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AcceptanceResult6
+     : IIsoXmlSerilizable<AcceptanceResult6>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the mandate request was accepted or rejected.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Accepted { get; init; } 
     /// <summary>
     /// Specifies the reason for the rejection of a mandate request.
     /// </summary>
-    [DataMember]
     public MandateReason1Choice_? RejectReason { get; init; } 
     /// <summary>
     /// Further details on the reject reason.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax105Text> AdditionalRejectReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax105Text? AdditionalRejectReasonInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Accptd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Accepted)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (RejectReason is MandateReason1Choice_ RejectReasonValue)
+        {
+            writer.WriteStartElement(null, "RjctRsn", xmlNamespace );
+            RejectReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalRejectReasonInformation is IsoMax105Text AdditionalRejectReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlRjctRsnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax105Text(AdditionalRejectReasonInformationValue)); // data type Max105Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AcceptanceResult6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

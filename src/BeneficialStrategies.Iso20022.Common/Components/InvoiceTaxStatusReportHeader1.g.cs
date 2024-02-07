@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the Invoice tax status report header details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvoiceTaxStatusReportHeader1
+     : IIsoXmlSerilizable<InvoiceTaxStatusReportHeader1>
 {
     #nullable enable
     
     /// <summary>
     /// Party to which the TaxReport is delivered. This message block contains party details for a specific tax authority.
     /// </summary>
-    [DataMember]
     public TaxOrganisationIdentification1? TaxAuthority { get; init; } 
     /// <summary>
     /// Identifies the InvoiceTaxReportStatusAdvice message.
     /// </summary>
-    [DataMember]
     public required MessageIdentification1 MessageIdentification { get; init; } 
     /// <summary>
     /// Reference to the identification of the InvoiceTaxReport message.
     /// </summary>
-    [DataMember]
     public required MessageIdentification1 OriginalMessageIdentification { get; init; } 
     /// <summary>
     /// Provides the status for the full report.
     /// </summary>
-    [DataMember]
     public required TaxReportingStatus1Code ReportStatus { get; init; } 
     /// <summary>
     /// Provides the details of the rule which could not be validated.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericValidationRuleIdentification1> ValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericValidationRuleIdentification1? ValidationRule { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TaxAuthority is TaxOrganisationIdentification1 TaxAuthorityValue)
+        {
+            writer.WriteStartElement(null, "TaxAuthrty", xmlNamespace );
+            TaxAuthorityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgnlMsgId", xmlNamespace );
+        OriginalMessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptSts", xmlNamespace );
+        writer.WriteValue(ReportStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ValidationRule is GenericValidationRuleIdentification1 ValidationRuleValue)
+        {
+            writer.WriteStartElement(null, "VldtnRule", xmlNamespace );
+            ValidationRuleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InvoiceTaxStatusReportHeader1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,43 +7,79 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a transfer out transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransferOut9
+     : IIsoXmlSerilizable<TransferOut9>
 {
     #nullable enable
     
     /// <summary>
     /// Requested date at which the instructing party places the transfer instruction.
     /// </summary>
-    [DataMember]
     public DateFormat1Choice_? RequestedTransferDate { get; init; } 
     /// <summary>
     /// General information related to the transfer of a financial instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<Transfer20> TransferDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Transfer20? TransferDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _flsfWRgfEeK-_89we2b-bA
     /// <summary>
     /// Information related to the account from which the financial instrument is to be withdrawn.
     /// </summary>
-    [DataMember]
     public required InvestmentAccount22 AccountDetails { get; init; } 
     /// <summary>
     /// Information related to the receiving side of the transfer.
     /// </summary>
-    [DataMember]
     public ReceiveInformation9? SettlementDetails { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<Extension1> Extension { get; init; } = []; // Warning: Don't know multiplicity.
+    public Extension1? Extension { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (RequestedTransferDate is DateFormat1Choice_ RequestedTransferDateValue)
+        {
+            writer.WriteStartElement(null, "ReqdTrfDt", xmlNamespace );
+            RequestedTransferDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize TransferDetails, multiplicity Unknown
+        writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
+        AccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SettlementDetails is ReceiveInformation9 SettlementDetailsValue)
+        {
+            writer.WriteStartElement(null, "SttlmDtls", xmlNamespace );
+            SettlementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransferOut9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

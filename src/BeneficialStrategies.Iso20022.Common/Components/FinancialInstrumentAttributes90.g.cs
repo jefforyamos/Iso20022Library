@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Elements characterising a financial instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrumentAttributes90
+     : IIsoXmlSerilizable<FinancialInstrumentAttributes90>
 {
     #nullable enable
     
     /// <summary>
     /// Reference notional amount of the contract.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? Notional { get; init; } 
     /// <summary>
     /// Value of unit move in index if fixed in contract terms, and currency of payments relating to changes in the amount of the underlying.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount UnitValue { get; init; } 
     /// <summary>
     /// Unique identifier for underlying index on which final settlement price or periodic payments are calculated.
     /// </summary>
-    [DataMember]
     public required GenericIdentification168 IndexIdentification { get; init; } 
     /// <summary>
     /// Unit index, typically ‘Points’, or for interest rate and CDS products, ‘Bps’.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text IndexUnit { get; init; } 
     /// <summary>
     /// Day count convention for interest payments. Interest rate products only.
     /// </summary>
-    [DataMember]
     public InterestComputationMethod2Code? InterestRateTerms { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Notional is IsoActiveCurrencyAndAmount NotionalValue)
+        {
+            writer.WriteStartElement(null, "Ntnl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(NotionalValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "UnitVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(UnitValue)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IndxId", xmlNamespace );
+        IndexIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IndxUnit", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(IndexUnit)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (InterestRateTerms is InterestComputationMethod2Code InterestRateTermsValue)
+        {
+            writer.WriteStartElement(null, "IntrstRateTerms", xmlNamespace );
+            writer.WriteValue(InterestRateTermsValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstrumentAttributes90 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

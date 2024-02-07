@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contents of an Undertaking Amendment message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UndertakingAmendmentMessage1
+     : IIsoXmlSerilizable<UndertakingAmendmentMessage1>
 {
     #nullable enable
     
     /// <summary>
     /// Details related to the proposed undertaking amendment.
     /// </summary>
-    [DataMember]
     public required Amendment1 UndertakingAmendmentDetails { get; init; } 
     /// <summary>
     /// Digital signature of the proposed amendment.
     /// </summary>
-    [DataMember]
     public PartyAndSignature2? DigitalSignature { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UdrtkgAmdmntDtls", xmlNamespace );
+        UndertakingAmendmentDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DigitalSignature is PartyAndSignature2 DigitalSignatureValue)
+        {
+            writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
+            DigitalSignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static UndertakingAmendmentMessage1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

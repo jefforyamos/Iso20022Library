@@ -7,74 +7,147 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information regarding the billing for services rendered on a temporary or contract basis. The component provides information such as the employee job performed, timekeeping, and billing rates.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TemporaryServices2
+     : IIsoXmlSerilizable<TemporaryServices2>
 {
     #nullable enable
     
     /// <summary>
     /// Contains the details of the contracting company that has requested temporary services. 
     /// </summary>
-    [DataMember]
     public TemporaryServicesCompany2? ContractingCompany { get; init; } 
     /// <summary>
     /// Contains information about the individual working in a temporary capacity.
     /// </summary>
-    [DataMember]
     public PartyIdentification210? TemporaryEmployee { get; init; } 
     /// <summary>
     /// Contains the details of the job or task of the individual working in a temporary capacity.
     /// </summary>
-    [DataMember]
     public TemporaryServicesJob1? Job { get; init; } 
     /// <summary>
     /// Indicates whether or not the fee for the individual working in a temporary capacity is a flat
     /// rate.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? FlatRateIndicator { get; init; } 
     /// <summary>
     /// Contains the discount amount. 
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? DiscountAmount { get; init; } 
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     /// <summary>
     /// Contains the details of the labour performed and associated duration and billing rate. 
     /// </summary>
-    [DataMember]
     public TemporaryServicesLabor1? Labor { get; init; } 
     /// <summary>
     /// Contains miscellaneous expense details.
     /// </summary>
-    [DataMember]
-    public ValueList<Amount13> MiscellaneousExpenses { get; init; } = []; // Warning: Don't know multiplicity.
+    public Amount13? MiscellaneousExpenses { get; init; } 
     /// <summary>
     /// Subtotal amount exclusive of tax.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? SubtotalAmount { get; init; } 
     /// <summary>
     /// Contains the amount of taxes assessed for temporary services.
     /// </summary>
-    [DataMember]
-    public ValueList<Tax39> Tax { get; init; } = []; // Warning: Don't know multiplicity.
+    public Tax39? Tax { get; init; } 
     /// <summary>
     /// Additional user-defined data pertaining to the temporary services. 
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ContractingCompany is TemporaryServicesCompany2 ContractingCompanyValue)
+        {
+            writer.WriteStartElement(null, "CtrctgCpny", xmlNamespace );
+            ContractingCompanyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TemporaryEmployee is PartyIdentification210 TemporaryEmployeeValue)
+        {
+            writer.WriteStartElement(null, "TempMplyee", xmlNamespace );
+            TemporaryEmployeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Job is TemporaryServicesJob1 JobValue)
+        {
+            writer.WriteStartElement(null, "Job", xmlNamespace );
+            JobValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FlatRateIndicator is IsoTrueFalseIndicator FlatRateIndicatorValue)
+        {
+            writer.WriteStartElement(null, "FlatRateInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(FlatRateIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (DiscountAmount is IsoImpliedCurrencyAndAmount DiscountAmountValue)
+        {
+            writer.WriteStartElement(null, "DscntAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(DiscountAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (SummaryCommodityIdentification is IsoMax35Text SummaryCommodityIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SummryCmmdtyId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SummaryCommodityIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Labor is TemporaryServicesLabor1 LaborValue)
+        {
+            writer.WriteStartElement(null, "Labr", xmlNamespace );
+            LaborValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MiscellaneousExpenses is Amount13 MiscellaneousExpensesValue)
+        {
+            writer.WriteStartElement(null, "MiscExpnss", xmlNamespace );
+            MiscellaneousExpensesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SubtotalAmount is IsoImpliedCurrencyAndAmount SubtotalAmountValue)
+        {
+            writer.WriteStartElement(null, "SbttlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(SubtotalAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Tax is Tax39 TaxValue)
+        {
+            writer.WriteStartElement(null, "Tax", xmlNamespace );
+            TaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is IsoMax350Text AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalDataValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TemporaryServices2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

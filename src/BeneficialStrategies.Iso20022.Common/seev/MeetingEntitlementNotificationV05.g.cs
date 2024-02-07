@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.MeetingEntitlementNotificationV05>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// This message definition is intended for use with the Business Application Header.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account servicer sends the MeetingEntitlementNotification to an issuer, its agent, an intermediary or an account owner to advise the entitlement in relation to a shareholders meeting.|Usage|This message is sent to advise the quantity of securities held by an account owner. The balance is specified for the securities for which the meeting is taking place.|This entitlement message is sent by the account servicer or the registrar to an intermediary, the issuer's agent or the issuer. It is also sent between the account servicer and the account owner or the party holding the right to vote.|The message is also used to amend a previously sent MeetingEntitlementNotification. To notify an update, the RelatedReference must be included in the message.|This message definition is intended for use with the Business Application Header.")]
-public partial record MeetingEntitlementNotificationV05 : IOuterRecord
+public partial record MeetingEntitlementNotificationV05 : IOuterRecord<MeetingEntitlementNotificationV05,MeetingEntitlementNotificationV05Document>
+    ,IIsoXmlSerilizable<MeetingEntitlementNotificationV05>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record MeetingEntitlementNotificationV05 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MtgEntitlmntNtfctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => MeetingEntitlementNotificationV05Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -70,7 +77,7 @@ public partial record MeetingEntitlementNotificationV05 : IOuterRecord
     [Description(@"Identifies the security for which the meeting is organised, the account and the positions of the security holder.")]
     [DataMember(Name="Scty")]
     [XmlElement(ElementName="Scty")]
-    public required IReadOnlyCollection<SecurityPosition9> Security { get; init; } = []; // Min=1, Max=200
+    public required ValueList<SecurityPosition9> Security { get; init; } = []; // Min=1, Max=200
     
     /// <summary>
     /// Defines the dates determining eligibility.
@@ -100,6 +107,44 @@ public partial record MeetingEntitlementNotificationV05 : IOuterRecord
     {
         return new MeetingEntitlementNotificationV05Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MtgEntitlmntNtfctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (RelatedReference is MessageIdentification RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MtgRef", xmlNamespace );
+        MeetingReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Scty", xmlNamespace );
+        Security.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Elgblty", xmlNamespace );
+        Eligibility.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MeetingEntitlementNotificationV05 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -107,9 +152,7 @@ public partial record MeetingEntitlementNotificationV05 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingEntitlementNotificationV05"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record MeetingEntitlementNotificationV05Document : IOuterDocument<MeetingEntitlementNotificationV05>
+public partial record MeetingEntitlementNotificationV05Document : IOuterDocument<MeetingEntitlementNotificationV05>, IXmlSerializable
 {
     
     /// <summary>
@@ -125,5 +168,22 @@ public partial record MeetingEntitlementNotificationV05Document : IOuterDocument
     /// <summary>
     /// The instance of <seealso cref="MeetingEntitlementNotificationV05"/> is required.
     /// </summary>
+    [DataMember(Name=MeetingEntitlementNotificationV05.XmlTag)]
     public required MeetingEntitlementNotificationV05 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(MeetingEntitlementNotificationV05.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,73 +7,143 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment Data Results.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RetailerPaymentResult2
+     : IIsoXmlSerilizable<RetailerPaymentResult2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of payment transaction.
     /// </summary>
-    [DataMember]
     public required CardPaymentServiceType12Code TransactionType { get; init; } 
     /// <summary>
     /// Service provided by the card payment transaction, in addition to the main service.
     /// </summary>
-    [DataMember]
-    public ValueList<CardPaymentServiceType9Code> AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardPaymentServiceType9Code? AdditionalService { get; init; } 
     /// <summary>
     /// Additional attribute of the service type.
     /// </summary>
-    [DataMember]
     public CardPaymentServiceType3Code? ServiceAttribute { get; init; } 
     /// <summary>
     /// Data associated with the Transaction.
     /// </summary>
-    [DataMember]
     public CardPaymentTransaction100? RequestedTransaction { get; init; } 
     /// <summary>
     /// Result of the transaction processing.
     /// </summary>
-    [DataMember]
     public CardPaymentTransaction94? TransactionResponse { get; init; } 
     /// <summary>
     /// Customer order attached to a customer, recorded in the POI system.
     /// </summary>
-    [DataMember]
-    public ValueList<CustomerOrder1> CustomerOrder { get; init; } = []; // Warning: Don't know multiplicity.
+    public CustomerOrder1? CustomerOrder { get; init; } 
     /// <summary>
     /// Numeric value of a handwritten signature.
     /// </summary>
-    [DataMember]
     public CapturedSignature1? ImageCapturedSignature { get; init; } 
     /// <summary>
     /// Protected value of a handwritten signature.
     /// </summary>
-    [DataMember]
     public ContentInformationType22? ProtectedCapturedSignature { get; init; } 
     /// <summary>
     /// Indicate that the Merchant forced the result of the payment to successful.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? MerchantOverrideFlag { get; init; } 
     /// <summary>
     /// Language used to display messages to the customer.
     /// </summary>
-    [DataMember]
     public LanguageCode? CustomerLanguage { get; init; } 
     /// <summary>
     /// Indicate that the payment transaction processing has required the approval of an acquirer.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? OnlineFlag { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxTp", xmlNamespace );
+        writer.WriteValue(TransactionType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AdditionalService is CardPaymentServiceType9Code AdditionalServiceValue)
+        {
+            writer.WriteStartElement(null, "AddtlSvc", xmlNamespace );
+            writer.WriteValue(AdditionalServiceValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ServiceAttribute is CardPaymentServiceType3Code ServiceAttributeValue)
+        {
+            writer.WriteStartElement(null, "SvcAttr", xmlNamespace );
+            writer.WriteValue(ServiceAttributeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (RequestedTransaction is CardPaymentTransaction100 RequestedTransactionValue)
+        {
+            writer.WriteStartElement(null, "ReqdTx", xmlNamespace );
+            RequestedTransactionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionResponse is CardPaymentTransaction94 TransactionResponseValue)
+        {
+            writer.WriteStartElement(null, "TxRspn", xmlNamespace );
+            TransactionResponseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CustomerOrder is CustomerOrder1 CustomerOrderValue)
+        {
+            writer.WriteStartElement(null, "CstmrOrdr", xmlNamespace );
+            CustomerOrderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ImageCapturedSignature is CapturedSignature1 ImageCapturedSignatureValue)
+        {
+            writer.WriteStartElement(null, "ImgCaptrdSgntr", xmlNamespace );
+            ImageCapturedSignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProtectedCapturedSignature is ContentInformationType22 ProtectedCapturedSignatureValue)
+        {
+            writer.WriteStartElement(null, "PrtctdCaptrdSgntr", xmlNamespace );
+            ProtectedCapturedSignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MerchantOverrideFlag is IsoTrueFalseIndicator MerchantOverrideFlagValue)
+        {
+            writer.WriteStartElement(null, "MrchntOvrrdFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(MerchantOverrideFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CustomerLanguage is LanguageCode CustomerLanguageValue)
+        {
+            writer.WriteStartElement(null, "CstmrLang", xmlNamespace );
+            writer.WriteValue(CustomerLanguageValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OnlineFlag is IsoTrueFalseIndicator OnlineFlagValue)
+        {
+            writer.WriteStartElement(null, "OnlnFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(OnlineFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static RetailerPaymentResult2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

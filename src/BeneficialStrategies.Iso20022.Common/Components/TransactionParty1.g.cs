@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements providing information specific to the individual transaction(s) included in the message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionParty1
+     : IIsoXmlSerilizable<TransactionParty1>
 {
     #nullable enable
     
     /// <summary>
     /// Party initiating the payment to an agent. In the payment context, this can either be the debtor (in a credit transfer), the creditor (in a direct debit), or a party that initiates the payment on behalf of the debtor or creditor. In the context of treasury, the party that instructs the trading party to execute a treasury deal on its behalf.
     /// </summary>
-    [DataMember]
     public PartyIdentification8? InitiatingParty { get; init; } 
     /// <summary>
     /// Party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
-    [DataMember]
     public PartyIdentification8? Debtor { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the debtor.
     /// </summary>
-    [DataMember]
     public CashAccount7? DebtorAccount { get; init; } 
     /// <summary>
     /// Ultimate party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
-    [DataMember]
     public PartyIdentification8? UltimateDebtor { get; init; } 
     /// <summary>
     /// Party to which an amount of money is due.
     /// </summary>
-    [DataMember]
     public PartyIdentification8? Creditor { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the creditor of the payment transaction.
     /// </summary>
-    [DataMember]
     public CashAccount7? CreditorAccount { get; init; } 
     /// <summary>
     /// Ultimate party to which an amount of money is due.
     /// </summary>
-    [DataMember]
     public PartyIdentification8? UltimateCreditor { get; init; } 
     /// <summary>
     /// Party that plays an active role in planning and executing the transactions that create or liquidate investments of the investors assets, or that move the investor's assets from one investment to another. A trading party is a trade instructor, an investment decision-maker, a post trade administrator, or a trader. In the context of treasury, it is the party that negotiates and executes the treasury transaction.
     /// </summary>
-    [DataMember]
     public PartyIdentification8? TradingParty { get; init; } 
     /// <summary>
     /// Provides proprietary party information.
     /// </summary>
-    [DataMember]
-    public ValueList<ProprietaryParty1> Proprietary { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProprietaryParty1? Proprietary { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (InitiatingParty is PartyIdentification8 InitiatingPartyValue)
+        {
+            writer.WriteStartElement(null, "InitgPty", xmlNamespace );
+            InitiatingPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Debtor is PartyIdentification8 DebtorValue)
+        {
+            writer.WriteStartElement(null, "Dbtr", xmlNamespace );
+            DebtorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DebtorAccount is CashAccount7 DebtorAccountValue)
+        {
+            writer.WriteStartElement(null, "DbtrAcct", xmlNamespace );
+            DebtorAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UltimateDebtor is PartyIdentification8 UltimateDebtorValue)
+        {
+            writer.WriteStartElement(null, "UltmtDbtr", xmlNamespace );
+            UltimateDebtorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Creditor is PartyIdentification8 CreditorValue)
+        {
+            writer.WriteStartElement(null, "Cdtr", xmlNamespace );
+            CreditorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditorAccount is CashAccount7 CreditorAccountValue)
+        {
+            writer.WriteStartElement(null, "CdtrAcct", xmlNamespace );
+            CreditorAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UltimateCreditor is PartyIdentification8 UltimateCreditorValue)
+        {
+            writer.WriteStartElement(null, "UltmtCdtr", xmlNamespace );
+            UltimateCreditorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradingParty is PartyIdentification8 TradingPartyValue)
+        {
+            writer.WriteStartElement(null, "TradgPty", xmlNamespace );
+            TradingPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Proprietary is ProprietaryParty1 ProprietaryValue)
+        {
+            writer.WriteStartElement(null, "Prtry", xmlNamespace );
+            ProprietaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionParty1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

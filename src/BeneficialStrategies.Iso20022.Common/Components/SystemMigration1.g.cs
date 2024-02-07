@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data about participant migration to new payment system process.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SystemMigration1
+     : IIsoXmlSerilizable<SystemMigration1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the participant is a member of a new payment system.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? NPSParticipantIndicator { get; init; } 
     /// <summary>
     /// Planned migration date.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? PlannedMigrationDate { get; init; } 
     /// <summary>
     /// Indicates whether the balance was received.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? BalanceReceivedIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the participant was migrated.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? Migrated { get; init; } 
     /// <summary>
     /// Date of the latest RABIS service.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? LastDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NPSParticipantIndicator is IsoYesNoIndicator NPSParticipantIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NPSPtcptInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(NPSParticipantIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PlannedMigrationDate is IsoISODateTime PlannedMigrationDateValue)
+        {
+            writer.WriteStartElement(null, "PlandMgrtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(PlannedMigrationDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (BalanceReceivedIndicator is IsoYesNoIndicator BalanceReceivedIndicatorValue)
+        {
+            writer.WriteStartElement(null, "BalRcvdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(BalanceReceivedIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Migrated is IsoYesNoIndicator MigratedValue)
+        {
+            writer.WriteStartElement(null, "Mgrtd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MigratedValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (LastDate is IsoISODateTime LastDateValue)
+        {
+            writer.WriteStartElement(null, "LastDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(LastDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static SystemMigration1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

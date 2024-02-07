@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters related to the security of software application and application protocol.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityParameters12
+     : IIsoXmlSerilizable<SecurityParameters12>
 {
     #nullable enable
     
     /// <summary>
     /// Type of action for the configuration parameters.
     /// </summary>
-    [DataMember]
     public required TerminalManagementAction3Code ActionType { get; init; } 
     /// <summary>
     /// Version of the security parameters.
     /// </summary>
-    [DataMember]
     public required IsoMax256Text Version { get; init; } 
     /// <summary>
     /// Point of interaction challenge for cryptographic key injection.
     /// </summary>
-    [DataMember]
     public IsoMax140Binary? POIChallenge { get; init; } 
     /// <summary>
     /// Terminal manager challenge for cryptographic key injection.
     /// </summary>
-    [DataMember]
     public IsoMax140Binary? TMChallenge { get; init; } 
     /// <summary>
     /// Key to inject in the point of interaction, protected by the temporary key previously sent.
     /// </summary>
-    [DataMember]
-    public ValueList<CryptographicKey14> SecurityElement { get; init; } = []; // Warning: Don't know multiplicity.
+    public CryptographicKey14? SecurityElement { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ActnTp", xmlNamespace );
+        writer.WriteValue(ActionType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax256Text(Version)); // data type Max256Text System.String
+        writer.WriteEndElement();
+        if (POIChallenge is IsoMax140Binary POIChallengeValue)
+        {
+            writer.WriteStartElement(null, "POIChllng", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Binary(POIChallengeValue)); // data type Max140Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (TMChallenge is IsoMax140Binary TMChallengeValue)
+        {
+            writer.WriteStartElement(null, "TMChllng", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Binary(TMChallengeValue)); // data type Max140Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (SecurityElement is CryptographicKey14 SecurityElementValue)
+        {
+            writer.WriteStartElement(null, "SctyElmt", xmlNamespace );
+            SecurityElementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecurityParameters12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

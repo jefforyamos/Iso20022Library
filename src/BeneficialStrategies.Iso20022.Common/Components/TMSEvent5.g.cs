@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Result of an individual terminal management action performed by the point of interaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TMSEvent5
+     : IIsoXmlSerilizable<TMSEvent5>
 {
     #nullable enable
     
     /// <summary>
     /// Date time of the terminal management action performed by the point of interaction.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime TimeStamp { get; init; } 
     /// <summary>
     /// Final result of the processed terminal management action.
     /// </summary>
-    [DataMember]
     public required TerminalManagementActionResult3Code Result { get; init; } 
     /// <summary>
     /// Identification of the terminal management action performed by the point of interaction.
     /// </summary>
-    [DataMember]
     public required TMSActionIdentification4 ActionIdentification { get; init; } 
     /// <summary>
     /// Additional information related to a failure.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? AdditionalErrorInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TmStmp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(TimeStamp)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rslt", xmlNamespace );
+        writer.WriteValue(Result.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ActnId", xmlNamespace );
+        ActionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalErrorInformation is IsoMax70Text AdditionalErrorInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlErrInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AdditionalErrorInformationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TMSEvent5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

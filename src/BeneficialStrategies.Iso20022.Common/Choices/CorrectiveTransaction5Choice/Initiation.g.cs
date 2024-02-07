@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CorrectiveTransaction5Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.CorrectiveTransaction5Choice;
 /// Set of elements used to reference the details of the corrective payment initiation.
 /// </summary>
 public partial record Initiation : CorrectiveTransaction5Choice_
+     , IIsoXmlSerilizable<Initiation>
 {
     #nullable enable
+    
     /// <summary>
     /// Set of elements used to provide corrective information for the group header of the message under investigation.
     /// </summary>
@@ -48,5 +52,68 @@ public partial record Initiation : CorrectiveTransaction5Choice_
     /// Date at which the creditor requests the amount of money to be collected from the debtor.
     /// </summary>
     public IsoISODate? RequestedCollectionDate { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (GroupHeader is CorrectiveGroupInformation1 GroupHeaderValue)
+        {
+            writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
+            GroupHeaderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentInformationIdentification is IsoMax35Text PaymentInformationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PmtInfId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PaymentInformationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (InstructionIdentification is IsoMax35Text InstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "InstrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(InstructionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (EndToEndIdentification is IsoMax35Text EndToEndIdentificationValue)
+        {
+            writer.WriteStartElement(null, "EndToEndId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(EndToEndIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (UETR is IsoUUIDv4Identifier UETRValue)
+        {
+            writer.WriteStartElement(null, "UETR", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoUUIDv4Identifier(UETRValue)); // data type UUIDv4Identifier System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InstdAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(InstructedAmount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (RequestedExecutionDate is DateAndDateTime2Choice_ RequestedExecutionDateValue)
+        {
+            writer.WriteStartElement(null, "ReqdExctnDt", xmlNamespace );
+            RequestedExecutionDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequestedCollectionDate is IsoISODate RequestedCollectionDateValue)
+        {
+            writer.WriteStartElement(null, "ReqdColltnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(RequestedCollectionDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static new Initiation Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

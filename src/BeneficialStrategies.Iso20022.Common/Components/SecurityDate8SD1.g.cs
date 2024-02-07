@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Extension to provide information about the dates related to securities movement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityDate8SD1
+     : IIsoXmlSerilizable<SecurityDate8SD1>
 {
     #nullable enable
     
@@ -23,19 +24,51 @@ public partial record SecurityDate8SD1
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance. 
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Settlement date for the transaction where the new security is issued. 
     /// 発行日決済日程情報/決済日.
     /// </summary>
-    [DataMember]
     public DateFormat22Choice_? SettlementDateOfNewSecurity { get; init; } 
     /// <summary>
     /// Date/time at which trading of a security is suspended as the result of an event.
     /// </summary>
-    [DataMember]
     public DateFormat22Choice_? TradingSuspendedDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (SettlementDateOfNewSecurity is DateFormat22Choice_ SettlementDateOfNewSecurityValue)
+        {
+            writer.WriteStartElement(null, "SttlmDtOfNewScty", xmlNamespace );
+            SettlementDateOfNewSecurityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradingSuspendedDate is DateFormat22Choice_ TradingSuspendedDateValue)
+        {
+            writer.WriteStartElement(null, "TradgSspdDt", xmlNamespace );
+            TradingSuspendedDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecurityDate8SD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

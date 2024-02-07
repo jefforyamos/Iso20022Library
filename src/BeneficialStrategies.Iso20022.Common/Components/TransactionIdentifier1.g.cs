@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the transaction in an unambiguous way.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionIdentifier1
+     : IIsoXmlSerilizable<TransactionIdentifier1>
 {
     #nullable enable
     
     /// <summary>
     /// Local date and time of the transaction assigned by the POI (Point Of Interaction).
     /// </summary>
-    [DataMember]
     public required IsoISODateTime TransactionDateTime { get; init; } 
     /// <summary>
     /// Identification of the transaction that has to be unique for a time period.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransactionReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(TransactionDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static TransactionIdentifier1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

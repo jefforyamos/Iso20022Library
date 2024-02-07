@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money associated with a service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Charge23
+     : IIsoXmlSerilizable<Charge23>
 {
     #nullable enable
     
     /// <summary>
     /// Type of service for which a charge is asked or paid.
     /// </summary>
-    [DataMember]
     public required ChargeType16Code Type { get; init; } 
     /// <summary>
     /// Amount of money asked or paid for the charge.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
     /// <summary>
     /// Rate used to calculate the amount of the charge or fee.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAnd13DecimalAmount(Amount)); // data type RestrictedFINActiveCurrencyAnd13DecimalAmount System.Decimal
+        writer.WriteEndElement();
+        if (Rate is IsoPercentageRate RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static Charge23 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

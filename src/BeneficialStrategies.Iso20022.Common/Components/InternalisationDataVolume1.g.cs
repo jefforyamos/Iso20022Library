@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Aggregated values and volumes of internalised settlements instructions for a specific type of financial instruments, type of transaction, type of clients, and cash transfers.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InternalisationDataVolume1
+     : IIsoXmlSerilizable<InternalisationDataVolume1>
 {
     #nullable enable
     
@@ -25,7 +26,6 @@ public partial record InternalisationDataVolume1
     /// •	Settled transactions,
     /// •	Total  transactions.
     /// </summary>
-    [DataMember]
     public required IsoMax20PositiveNumber Volume { get; init; } 
     /// <summary>
     /// Specifies the aggregated value of internalised settlement instructions, in terms of:
@@ -34,8 +34,30 @@ public partial record InternalisationDataVolume1
     /// •	Total  transactions,
     /// •	Percentage rate.
     /// </summary>
-    [DataMember]
     public required IsoMax20PositiveDecimalNumber Value { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Vol", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20PositiveNumber(Volume)); // data type Max20PositiveNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20PositiveDecimalNumber(Value)); // data type Max20PositiveDecimalNumber System.UInt64
+        writer.WriteEndElement();
+    }
+    public static InternalisationDataVolume1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

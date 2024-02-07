@@ -7,43 +7,71 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the transaction type as defined in the relevant regulation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementFailsDailyTransactionType3
+     : IIsoXmlSerilizable<SettlementFailsDailyTransactionType3>
 {
     #nullable enable
     
     /// <summary>
     /// Purchase or sale of securities.
     /// </summary>
-    [DataMember]
     public required SettlementFailsDailyCSD1Choice_ SecuritiesBuyOrSell { get; init; } 
     /// <summary>
     /// Relates to securities transfers aiming to provide or to return collateral.
     /// </summary>
-    [DataMember]
     public required SettlementFailsDailyCSD1Choice_ CollateralManagementOperation { get; init; } 
     /// <summary>
     /// Relates to a securities lending or borrowing operation.
     /// </summary>
-    [DataMember]
     public required SettlementFailsDailyCSD1Choice_ SecuritiesLendingOrBorrowing { get; init; } 
     /// <summary>
     /// Repurchase transactions.
     /// </summary>
-    [DataMember]
     public required SettlementFailsDailyCSD1Choice_ RepurchaseAgreement { get; init; } 
     /// <summary>
     /// Covers any securities transactions type not covered as a dedicated type.
     /// </summary>
-    [DataMember]
     public required SettlementFailsDailyCSD1Choice_ Other { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SctiesBuyOrSell", xmlNamespace );
+        SecuritiesBuyOrSell.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CollMgmtOpr", xmlNamespace );
+        CollateralManagementOperation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctiesLndgOrBrrwg", xmlNamespace );
+        SecuritiesLendingOrBorrowing.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RpAgrmt", xmlNamespace );
+        RepurchaseAgreement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Othr", xmlNamespace );
+        Other.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SettlementFailsDailyTransactionType3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

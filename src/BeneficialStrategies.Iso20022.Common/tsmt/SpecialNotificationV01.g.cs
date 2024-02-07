@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsmt.SpecialNotificationV01>;
 
 namespace BeneficialStrategies.Iso20022.tsmt;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// The SpecialNotification message is sent to the parties to the transaction so that they can take appropriate action.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The SpecialNotification message is sent by the matching application to parties to the transaction, following the receipt of a SpecialRequest message.|The SpecialRequest message is sent by a party to the transaction to the matching application if special circumstances are such that it cannot take part any longer to a specific transaction or that it cannot fulfill its role in the transaction.|Usage|The SpecialNotification message is sent to the parties to the transaction so that they can take appropriate action.")]
-public partial record SpecialNotificationV01 : IOuterRecord
+public partial record SpecialNotificationV01 : IOuterRecord<SpecialNotificationV01,SpecialNotificationV01Document>
+    ,IIsoXmlSerilizable<SpecialNotificationV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record SpecialNotificationV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SpclNtfctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SpecialNotificationV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -89,7 +96,7 @@ public partial record SpecialNotificationV01 : IOuterRecord
     [Description(@"Reference to the transaction for the financial institution that is the sender of the acknowledged message.")]
     [DataMember(Name="UsrTxRef")]
     [XmlElement(ElementName="UsrTxRef")]
-    public required IReadOnlyCollection<DocumentIdentification5> UserTransactionReference { get; init; } = []; // Min=0, Max=2
+    public required ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = []; // Min=0, Max=2
     
     /// <summary>
     /// Party that has sent the special request.
@@ -129,6 +136,50 @@ public partial record SpecialNotificationV01 : IOuterRecord
     {
         return new SpecialNotificationV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SpclNtfctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NtfctnId", xmlNamespace );
+        NotificationIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EstblishdBaselnId", xmlNamespace );
+        EstablishedBaselineIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxSts", xmlNamespace );
+        TransactionStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UsrTxRef", xmlNamespace );
+        UserTransactionReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Initr", xmlNamespace );
+        Initiator.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Ntfctn", xmlNamespace );
+        Notification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RequestForAction is PendingActivity2 RequestForActionValue)
+        {
+            writer.WriteStartElement(null, "ReqForActn", xmlNamespace );
+            RequestForActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SpecialNotificationV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -136,9 +187,7 @@ public partial record SpecialNotificationV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SpecialNotificationV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SpecialNotificationV01Document : IOuterDocument<SpecialNotificationV01>
+public partial record SpecialNotificationV01Document : IOuterDocument<SpecialNotificationV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -154,5 +203,22 @@ public partial record SpecialNotificationV01Document : IOuterDocument<SpecialNot
     /// <summary>
     /// The instance of <seealso cref="SpecialNotificationV01"/> is required.
     /// </summary>
+    [DataMember(Name=SpecialNotificationV01.XmlTag)]
     public required SpecialNotificationV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SpecialNotificationV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

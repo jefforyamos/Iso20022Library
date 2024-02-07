@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Gives the name and the reference of the query.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record QueryReference2
+     : IIsoXmlSerilizable<QueryReference2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the query.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text QueryReference { get; init; } 
     /// <summary>
     /// Name of the query.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? QueryName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "QryRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(QueryReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (QueryName is IsoMax35Text QueryNameValue)
+        {
+            writer.WriteStartElement(null, "QryNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(QueryNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static QueryReference2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Response to a non financial request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NonFinancialResponseComponent3
+     : IIsoXmlSerilizable<NonFinancialResponseComponent3>
 {
     #nullable enable
     
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
-    [DataMember]
     public required CardPaymentEnvironment79 Environment { get; init; } 
     /// <summary>
     /// Response of the non financial request.
     /// </summary>
-    [DataMember]
-    public ValueList<NonFinancialResponseContentComponent3> ResponseContent { get; init; } = []; // Warning: Don't know multiplicity.
+    public NonFinancialResponseContentComponent3? ResponseContent { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _H4gQY3JZEe299ZbWCkdR_w
     /// <summary>
     /// Result of the processing of the request.
     /// </summary>
-    [DataMember]
     public required ResponseType11 Response { get; init; } 
     /// <summary>
     /// Additional information incorporated as an extension to the message.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Envt", xmlNamespace );
+        Environment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize ResponseContent, multiplicity Unknown
+        writer.WriteStartElement(null, "Rspn", xmlNamespace );
+        Response.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static NonFinancialResponseComponent3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,23 +7,42 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Eligibility parameters for a transaction to be part of transaction report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SearchCriteria1
+     : IIsoXmlSerilizable<SearchCriteria1>
 {
     #nullable enable
     
     /// <summary>
     /// List of criteria following the OR logic.
     /// </summary>
-    [DataMember]
-    public ValueList<SearchOr1> SearchOr { get; init; } = []; // Warning: Don't know multiplicity.
+    public SearchOr1? SearchOr { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _APMeMN6QEeiwsev40qZGEQ
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize SearchOr, multiplicity Unknown
+    }
+    public static SearchCriteria1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

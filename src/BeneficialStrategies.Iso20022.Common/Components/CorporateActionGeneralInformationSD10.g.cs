@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action general information details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionGeneralInformationSD10
+     : IIsoXmlSerilizable<CorporateActionGeneralInformationSD10>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// DTC processing domain/ category for event types.
     /// </summary>
-    [DataMember]
     public EventGroup1Code? EventGroup { get; init; } 
     /// <summary>
     /// DTCC (The Depository Trust and Clearing Corporation) native corporate action event type name. Used in place for the events that cannot be classified by ISO code and mapped to OTHR or when two or more distinct events (in DTCC model) use same ISO code and there are no additional data elements that distinguish those two or more events.
     /// </summary>
-    [DataMember]
     public ExtendedEventType1Code? EventType { get; init; } 
     /// <summary>
     /// DTCC (The Depository Trust and Clearing Corporation) native corporate action sub event type name further defines the event type.
     /// </summary>
-    [DataMember]
     public DTCCSubEventType2Code? SubEventType { get; init; } 
     /// <summary>
     /// Indicates whether the event is eligible for EDS (Elective Dividend Services) ISO20022 messaging.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? EDSMessagingEligibilityFlag { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (EventGroup is EventGroup1Code EventGroupValue)
+        {
+            writer.WriteStartElement(null, "EvtGrp", xmlNamespace );
+            writer.WriteValue(EventGroupValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (EventType is ExtendedEventType1Code EventTypeValue)
+        {
+            writer.WriteStartElement(null, "EvtTp", xmlNamespace );
+            writer.WriteValue(EventTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SubEventType is DTCCSubEventType2Code SubEventTypeValue)
+        {
+            writer.WriteStartElement(null, "SubEvtTp", xmlNamespace );
+            writer.WriteValue(SubEventTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (EDSMessagingEligibilityFlag is IsoYesNoIndicator EDSMessagingEligibilityFlagValue)
+        {
+            writer.WriteStartElement(null, "EDSMsggElgbltyFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(EDSMessagingEligibilityFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionGeneralInformationSD10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

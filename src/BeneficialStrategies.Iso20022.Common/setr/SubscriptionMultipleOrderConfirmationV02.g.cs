@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.setr.SubscriptionMultipleOrderConfirmationV02>;
 
 namespace BeneficialStrategies.Iso20022.setr;
 
@@ -29,10 +32,9 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// If the executing party needs to confirm a SubscriptionBulkOrder message, then a SubscriptionBulkOrderConfirmation message must be used.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The SubscriptionMultipleOrderConfirmation message is sent by an executing party, eg, a transfer agent, to the instructing party, eg, an investment manager or its authorised representative. There may be one or more intermediary parties between the executing party and the instruction party. The intermediary party is, for example, an intermediary or a concentrator.|This message is used to confirm the details of the execution of a SubscriptionMultipleOrder message.|Usage|The SubscriptionMultipleOrderConfirmation message is sent, after the price has been determined, to confirm the execution of the individual orders.|A SubscriptionMultipleOrder may be responded to by more than one SubscriptionMultipleOrderConfirmation message, as the valuation cycle of the financial instruments in each individual order may be different.|When the executing party sends several confirmations, there is no specific indication in the message that it is an incomplete confirmation. Reconciliation must be based on the references.|A SubscriptionMultipleOrder must in all cases be responded to by a SubscriptionMultipleOrderConfirmation message/s and in no circumstances by a SubscriptionBulkOrderConfirmation message/s.|If the executing party needs to confirm a SubscriptionBulkOrder message, then a SubscriptionBulkOrderConfirmation message must be used.")]
-public partial record SubscriptionMultipleOrderConfirmationV02 : IOuterRecord
+public partial record SubscriptionMultipleOrderConfirmationV02 : IOuterRecord<SubscriptionMultipleOrderConfirmationV02,SubscriptionMultipleOrderConfirmationV02Document>
+    ,IIsoXmlSerilizable<SubscriptionMultipleOrderConfirmationV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -44,6 +46,11 @@ public partial record SubscriptionMultipleOrderConfirmationV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "setr.012.001.02";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SubscriptionMultipleOrderConfirmationV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -100,7 +107,7 @@ public partial record SubscriptionMultipleOrderConfirmationV02 : IOuterRecord
     [Description(@"Confirmation of the information related to an intermediary.")]
     [DataMember(Name="IntrmyDtls")]
     [XmlElement(ElementName="IntrmyDtls")]
-    public required IReadOnlyCollection<Intermediary4> IntermediaryDetails { get; init; } = []; // Min=0, Max=10
+    public required ValueList<Intermediary4> IntermediaryDetails { get; init; } = []; // Min=0, Max=10
     
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
@@ -129,6 +136,62 @@ public partial record SubscriptionMultipleOrderConfirmationV02 : IOuterRecord
     {
         return new SubscriptionMultipleOrderConfirmationV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("setr.012.001.02");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MasterReference is AdditionalReference3 MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            MasterReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PoolReference is AdditionalReference3 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousReference is AdditionalReference3 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+        RelatedReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MltplExctnDtls", xmlNamespace );
+        MultipleExecutionDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IntrmyDtls", xmlNamespace );
+        IntermediaryDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CopyDetails is CopyInformation1 CopyDetailsValue)
+        {
+            writer.WriteStartElement(null, "CpyDtls", xmlNamespace );
+            CopyDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SubscriptionMultipleOrderConfirmationV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -136,9 +199,7 @@ public partial record SubscriptionMultipleOrderConfirmationV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SubscriptionMultipleOrderConfirmationV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SubscriptionMultipleOrderConfirmationV02Document : IOuterDocument<SubscriptionMultipleOrderConfirmationV02>
+public partial record SubscriptionMultipleOrderConfirmationV02Document : IOuterDocument<SubscriptionMultipleOrderConfirmationV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -154,5 +215,22 @@ public partial record SubscriptionMultipleOrderConfirmationV02Document : IOuterD
     /// <summary>
     /// The instance of <seealso cref="SubscriptionMultipleOrderConfirmationV02"/> is required.
     /// </summary>
+    [DataMember(Name=SubscriptionMultipleOrderConfirmationV02.XmlTag)]
     public required SubscriptionMultipleOrderConfirmationV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SubscriptionMultipleOrderConfirmationV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

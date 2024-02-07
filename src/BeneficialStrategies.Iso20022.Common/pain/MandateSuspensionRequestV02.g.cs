@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.pain.MandateSuspensionRequestV02>;
 
 namespace BeneficialStrategies.Iso20022.pain;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.pain;
 /// 
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The MandateSuspensionRequest message is sent by the initiator of the request to its agent. The initiator can either be the debtor, debtor agent, creditor or creditor agent.|A MandateSuspensionRequest message is used to request the suspension of an existing mandate until the suspension is lifted. |Usage|The MandateSuspensionRequest message can contain one or more suspension requests.|The messages can be exchanged between creditor and creditor agent or debtor and debtor agent and between creditor agent and debtor agent.|The MandateSuspensionRequest message can be used in domestic and cross-border scenarios.|")]
-public partial record MandateSuspensionRequestV02 : IOuterRecord
+public partial record MandateSuspensionRequestV02 : IOuterRecord<MandateSuspensionRequestV02,MandateSuspensionRequestV02Document>
+    ,IIsoXmlSerilizable<MandateSuspensionRequestV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record MandateSuspensionRequestV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MndtSspnsnReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => MandateSuspensionRequestV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -83,6 +90,35 @@ public partial record MandateSuspensionRequestV02 : IOuterRecord
     {
         return new MandateSuspensionRequestV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MndtSspnsnReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
+        GroupHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UndrlygSspnsnDtls", xmlNamespace );
+        UnderlyingSuspensionDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MandateSuspensionRequestV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -90,9 +126,7 @@ public partial record MandateSuspensionRequestV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MandateSuspensionRequestV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record MandateSuspensionRequestV02Document : IOuterDocument<MandateSuspensionRequestV02>
+public partial record MandateSuspensionRequestV02Document : IOuterDocument<MandateSuspensionRequestV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -108,5 +142,22 @@ public partial record MandateSuspensionRequestV02Document : IOuterDocument<Manda
     /// <summary>
     /// The instance of <seealso cref="MandateSuspensionRequestV02"/> is required.
     /// </summary>
+    [DataMember(Name=MandateSuspensionRequestV02.XmlTag)]
     public required MandateSuspensionRequestV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(MandateSuspensionRequestV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

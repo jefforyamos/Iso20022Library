@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reason to reject the message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RejectionReason1
+     : IIsoXmlSerilizable<RejectionReason1>
 {
     #nullable enable
     
     /// <summary>
     /// Reason to reject the message.
     /// </summary>
-    [DataMember]
     public required MessageRejectedReason1Code Reason { get; init; } 
     /// <summary>
     /// Additional information about the rejection reason.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Linked previous reference that is invalid or unrecognised, of the message being rejected.
     /// </summary>
-    [DataMember]
     public AdditionalReference2? LinkedMessagePreviousReference { get; init; } 
     /// <summary>
     /// Linked other reference that is invalid or unrecognised, of the message being rejected.
     /// </summary>
-    [DataMember]
     public AdditionalReference2? LinkedMessageOtherReference { get; init; } 
     /// <summary>
     /// Linked related reference that is invalid or unrecognised, of the message being rejected.
     /// </summary>
-    [DataMember]
     public AdditionalReference2? LinkedMessageRelatedReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Rsn", xmlNamespace );
+        writer.WriteValue(Reason.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax140Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalInformationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (LinkedMessagePreviousReference is AdditionalReference2 LinkedMessagePreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "LkdMsgPrvsRef", xmlNamespace );
+            LinkedMessagePreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LinkedMessageOtherReference is AdditionalReference2 LinkedMessageOtherReferenceValue)
+        {
+            writer.WriteStartElement(null, "LkdMsgOthrRef", xmlNamespace );
+            LinkedMessageOtherReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LinkedMessageRelatedReference is AdditionalReference2 LinkedMessageRelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "LkdMsgRltdRef", xmlNamespace );
+            LinkedMessageRelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RejectionReason1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

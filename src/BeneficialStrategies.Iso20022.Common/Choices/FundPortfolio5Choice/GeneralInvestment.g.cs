@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice;
 /// Portfolio is a general investment.
 /// </summary>
 public partial record GeneralInvestment : FundPortfolio5Choice_
+     , IIsoXmlSerilizable<GeneralInvestment>
 {
     #nullable enable
+    
     /// <summary>
     /// Type of investment.
     /// </summary>
@@ -34,6 +38,54 @@ public partial record GeneralInvestment : FundPortfolio5Choice_
     /// <summary>
     /// Additional information about the portfolio.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is GeneralInvestmentAccountType2Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OwnershipType is AccountOwnershipType6Code OwnershipTypeValue)
+        {
+            writer.WriteStartElement(null, "OwnrshTp", xmlNamespace );
+            writer.WriteValue(OwnershipTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CurrentInvestmentAmount is IsoActiveCurrencyAnd13DecimalAmount CurrentInvestmentAmountValue)
+        {
+            writer.WriteStartElement(null, "CurInvstmtAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(CurrentInvestmentAmountValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (EstimatedValue is DateAndAmount2 EstimatedValueValue)
+        {
+            writer.WriteStartElement(null, "EstmtdVal", xmlNamespace );
+            EstimatedValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new GeneralInvestment Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

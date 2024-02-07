@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecuritiesOrCash1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesOrCash1Choice;
 /// Securities settlement chain parties, accounts and other details.
 /// </summary>
 public partial record SecuritiesDetails : SecuritiesOrCash1Choice_
+     , IIsoXmlSerilizable<SecuritiesDetails>
 {
     #nullable enable
+    
     /// <summary>
     /// Parties through which settlement is to take place.
     /// </summary>
@@ -22,10 +26,43 @@ public partial record SecuritiesDetails : SecuritiesOrCash1Choice_
     /// <summary>
     /// Identifier needed for settlement purposes. This identifier could be, for example, an identifier that identifies an institution or agent at a CDS or ICSD (Depository Trust Clearing Corporation (DTC) Institution ID or DTC Agent ID). It could also be a local tax identification number or an ‘investor identification’, as mandated by local market practice.
     /// </summary>
-    public GenericIdentification49? LocalMarketIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification49? LocalMarketIdentification { get; init; } 
     /// <summary>
     /// Registration information required for settlement. For some markets, for example, Spain (Iberclear) registration details are mandatory and should be part of the SSI. In some cases, the name of the institution is different than what's provided in the BIC Directory. If this is the case, the name should be provided.
     /// </summary>
     public PartyIdentification99Choice_? RegistrationDetails { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "StgSttlmPties", xmlNamespace );
+        StandingSettlementParties.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LocalMarketIdentification is GenericIdentification49 LocalMarketIdentificationValue)
+        {
+            writer.WriteStartElement(null, "LclMktId", xmlNamespace );
+            LocalMarketIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RegistrationDetails is PartyIdentification99Choice_ RegistrationDetailsValue)
+        {
+            writer.WriteStartElement(null, "RegnDtls", xmlNamespace );
+            RegistrationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new SecuritiesDetails Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

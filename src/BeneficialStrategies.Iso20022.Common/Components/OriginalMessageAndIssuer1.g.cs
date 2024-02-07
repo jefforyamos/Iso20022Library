@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Business reference(s) to one or more relevant messages previously sent by other parties, or by the same party issuing this message.||.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OriginalMessageAndIssuer1
+     : IIsoXmlSerilizable<OriginalMessageAndIssuer1>
 {
     #nullable enable
     
     /// <summary>
     /// Unambiguous identification of the original message to which the message refers.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Specifies the original message name identifier to which the message refers.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MessageNameIdentification { get; init; } 
     /// <summary>
     /// Name of the original party that assigned the original message identification.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? OriginatorName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (MessageNameIdentification is IsoMax35Text MessageNameIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MsgNmId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageNameIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginatorName is IsoMax70Text OriginatorNameValue)
+        {
+            writer.WriteStartElement(null, "OrgtrNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(OriginatorNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static OriginalMessageAndIssuer1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

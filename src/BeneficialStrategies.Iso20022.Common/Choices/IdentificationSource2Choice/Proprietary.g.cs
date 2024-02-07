@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.IdentificationSource2Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationSource2Choice;
 /// Entity that issues the proprietary identification.
 /// </summary>
 public partial record Proprietary : IdentificationSource2Choice_
+     , IIsoXmlSerilizable<Proprietary>
 {
-    public required IsoRestrictedFINExact2Text Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a character string with an exact length of 2 characters that must has a pattern XX|TS.
+    /// </summary>
+    public required IsoRestrictedFINExact2Text Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Prtry", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINExact2Text(Value)); // data type RestrictedFINExact2Text System.String
+        writer.WriteEndElement();
+    }
+    public static new Proprietary Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

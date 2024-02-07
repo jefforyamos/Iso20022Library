@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.FixedOrRecurrentDate1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.FixedOrRecurrentDate1Choice;
 /// Details related to recurrent dates on which the variation is triggered.
 /// </summary>
 public partial record RecurrentDate : FixedOrRecurrentDate1Choice_
+     , IIsoXmlSerilizable<RecurrentDate>
 {
     #nullable enable
+    
     /// <summary>
     /// Date on which a recurrent date will commence.
     /// </summary>
@@ -27,5 +31,32 @@ public partial record RecurrentDate : FixedOrRecurrentDate1Choice_
     /// Maximum number of trigger date occurrence cycles.
     /// </summary>
     public required IsoNumber Number { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "StartDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(StartDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Frqcy", xmlNamespace );
+        writer.WriteValue(Frequency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Nb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(Number)); // data type Number System.UInt64
+        writer.WriteEndElement();
+    }
+    public static new RecurrentDate Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

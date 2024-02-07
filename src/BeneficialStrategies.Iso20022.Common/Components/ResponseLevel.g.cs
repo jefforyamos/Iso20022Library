@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the level of response requested from the receiver of this message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ResponseLevel
+     : IIsoXmlSerilizable<ResponseLevel>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the level of response requested from the receiver of the message.
     /// </summary>
-    [DataMember]
-    public required ResponseLevel1Code ResponseLevelValue { get; init; } 
+    public required ResponseLevel1Code Value { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RspnLvl", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static ResponseLevel Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

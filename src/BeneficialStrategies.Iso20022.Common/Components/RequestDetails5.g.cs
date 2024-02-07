@@ -7,33 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Report of the requested data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RequestDetails5
+     : IIsoXmlSerilizable<RequestDetails5>
 {
     #nullable enable
     
     /// <summary>
     /// Type of data requested, for example, a sub-member BIC.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Reference to the request for which the report is sent.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text RequestReference { get; init; } 
     /// <summary>
     /// Report key and returned data.
     /// </summary>
-    [DataMember]
-    public ValueList<RequestDetails4> ReportKey { get; init; } = []; // Warning: Don't know multiplicity.
+    public RequestDetails4? ReportKey { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _SuwKEgEcEeCQm6a_G2yO_w_1731831000
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Type)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ReqRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(RequestReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        // Not sure how to serialize ReportKey, multiplicity Unknown
+    }
+    public static RequestDetails5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

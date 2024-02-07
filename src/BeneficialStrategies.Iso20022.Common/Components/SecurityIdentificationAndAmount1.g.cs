@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the current valuation of a security.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityIdentificationAndAmount1
+     : IIsoXmlSerilizable<SecurityIdentificationAndAmount1>
 {
     #nullable enable
     
     /// <summary>
     /// ISIN of the outright investment.
     /// </summary>
-    [DataMember]
     public required IsoISINOct2015Identifier Identification { get; init; } 
     /// <summary>
     /// Value of the outright investment according to the CCP’s system of record.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAnd24Amount MarketValue { get; init; } 
     /// <summary>
     /// Type of a financial instrument: an equity, bond or other.
     /// </summary>
-    [DataMember]
     public required ProductType7Code FinancialInstrumentType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(Identification)); // data type ISINOct2015Identifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MktVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd24Amount(MarketValue)); // data type ActiveCurrencyAnd24Amount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FinInstrmTp", xmlNamespace );
+        writer.WriteValue(FinancialInstrumentType.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static SecurityIdentificationAndAmount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

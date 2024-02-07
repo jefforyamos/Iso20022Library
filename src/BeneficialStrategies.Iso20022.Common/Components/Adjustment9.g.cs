@@ -7,59 +7,117 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes each adjustment made to the original price.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Adjustment9
+     : IIsoXmlSerilizable<Adjustment9>
 {
     #nullable enable
     
     /// <summary>
     /// Type of adjustment.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Additional information to specify the type of adjustment.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AdditionalType { get; init; } 
     /// <summary>
     /// Description of the adjustment.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Description { get; init; } 
     /// <summary>
     /// Reason for the adjustment.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Reason { get; init; } 
     /// <summary>
     /// Promotion or adjustment code.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PromotionCode { get; init; } 
     /// <summary>
     /// Contains the percentage value of the discount (when applicable).
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Percentage { get; init; } 
     /// <summary>
     /// Contains amount of the adjustment, exclusive of tax.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? AdjustmentAmount { get; init; } 
     /// <summary>
     /// Indicates whether or not tax was calculated on the original amount of the transaction. 
     /// Note that false (or not present) indicates applicable taxes are based on adjusted amount.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? TaxCalculatedOnOriginalAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is IsoMax35Text TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalType is IsoMax35Text AdditionalTypeValue)
+        {
+            writer.WriteStartElement(null, "AddtlTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdditionalTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Description is IsoMax70Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(DescriptionValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Reason is IsoMax35Text ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReasonValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PromotionCode is IsoMax35Text PromotionCodeValue)
+        {
+            writer.WriteStartElement(null, "PrmtnCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PromotionCodeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Percentage is IsoPercentageRate PercentageValue)
+        {
+            writer.WriteStartElement(null, "Pctg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PercentageValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (AdjustmentAmount is IsoImpliedCurrencyAndAmount AdjustmentAmountValue)
+        {
+            writer.WriteStartElement(null, "AdjstmntAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(AdjustmentAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TaxCalculatedOnOriginalAmount is IsoTrueFalseIndicator TaxCalculatedOnOriginalAmountValue)
+        {
+            writer.WriteStartElement(null, "TaxClctdOnOrgnlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TaxCalculatedOnOriginalAmountValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Adjustment9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

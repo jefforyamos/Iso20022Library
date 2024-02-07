@@ -7,48 +7,84 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Card Reader Application Protocol Data Unit Request message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DeviceSendApplicationProtocolDataUnitCardReaderRequest1
+     : IIsoXmlSerilizable<DeviceSendApplicationProtocolDataUnitCardReaderRequest1>
 {
     #nullable enable
     
     /// <summary>
     /// Class field of the Application Protocol Data Unit command (CLA).
     /// </summary>
-    [DataMember]
     public required IsoMin1Max256Binary Class { get; init; } 
     /// <summary>
     /// Instruction field of the Application Protocol Data Unit command (INS).
     /// </summary>
-    [DataMember]
     public required IsoMin1Max256Binary Instruction { get; init; } 
     /// <summary>
     /// Parameter 1 field of the Application Protocol Data Unit command
     /// </summary>
-    [DataMember]
     public required IsoMin1Max256Binary Parameter1 { get; init; } 
     /// <summary>
     /// Parameter 2 field of the Application Protocol Data Unit command
     /// </summary>
-    [DataMember]
     public required IsoMin1Max256Binary Parameter2 { get; init; } 
     /// <summary>
     /// Data field of the Application Protocol Data Unit command to send including the length.
     /// </summary>
-    [DataMember]
     public IsoMin1Max256Binary? Data { get; init; } 
     /// <summary>
     /// Expected length of the data field of the Application Protocol Data Unit response to the command.
     /// </summary>
-    [DataMember]
     public IsoMin1Max256Binary? ExpectedLength { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Clss", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMin1Max256Binary(Class)); // data type Min1Max256Binary System.Byte[]
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Instr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMin1Max256Binary(Instruction)); // data type Min1Max256Binary System.Byte[]
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Param1", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMin1Max256Binary(Parameter1)); // data type Min1Max256Binary System.Byte[]
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Param2", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMin1Max256Binary(Parameter2)); // data type Min1Max256Binary System.Byte[]
+        writer.WriteEndElement();
+        if (Data is IsoMin1Max256Binary DataValue)
+        {
+            writer.WriteStartElement(null, "Data", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMin1Max256Binary(DataValue)); // data type Min1Max256Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (ExpectedLength is IsoMin1Max256Binary ExpectedLengthValue)
+        {
+            writer.WriteStartElement(null, "XpctdLngth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMin1Max256Binary(ExpectedLengthValue)); // data type Min1Max256Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static DeviceSendApplicationProtocolDataUnitCardReaderRequest1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

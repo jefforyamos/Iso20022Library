@@ -7,6 +7,8 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -15,9 +17,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// It shall contain the same value in all messages throughout a transaction's lifecycle.
 /// ISO 8583:2003 bit 21
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionLifeCycleIdentification1
+     : IIsoXmlSerilizable<TransactionLifeCycleIdentification1>
 {
     #nullable enable
     
@@ -25,30 +26,69 @@ public partial record TransactionLifeCycleIdentification1
     /// Unique transaction identifier.
     /// ISO 8583:2003 bit 21-2
     /// </summary>
-    [DataMember]
     public required IsoExact15Text Identification { get; init; } 
     /// <summary>
     /// Contains authorisation sequence number.
     /// </summary>
-    [DataMember]
     public IsoExact2NumericText? AuthorisationSequenceNumber { get; init; } 
     /// <summary>
     /// Number used with trace identifier to uniquely identify where a single authorisation was obtained covering a number of financial presentments.
     /// ISO 8583:2003 bit 21-3
     /// </summary>
-    [DataMember]
     public IsoExact2NumericText? PresentmentSequenceNumber { get; init; } 
     /// <summary>
     /// Expected maximum number of presentments for this transaction.
     /// </summary>
-    [DataMember]
     public IsoExact2NumericText? PresentmentSequenceCount { get; init; } 
     /// <summary>
     /// Code calculated using an algorithm against key transaction data elements that are common to both authorisation and financial messages.
     /// ISO 8583:2003 bit 21-4
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AuthenticationToken { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact15Text(Identification)); // data type Exact15Text System.String
+        writer.WriteEndElement();
+        if (AuthorisationSequenceNumber is IsoExact2NumericText AuthorisationSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "AuthstnSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact2NumericText(AuthorisationSequenceNumberValue)); // data type Exact2NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (PresentmentSequenceNumber is IsoExact2NumericText PresentmentSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "PresntmntSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact2NumericText(PresentmentSequenceNumberValue)); // data type Exact2NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (PresentmentSequenceCount is IsoExact2NumericText PresentmentSequenceCountValue)
+        {
+            writer.WriteStartElement(null, "PresntmntSeqCnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact2NumericText(PresentmentSequenceCountValue)); // data type Exact2NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (AuthenticationToken is IsoMax35Text AuthenticationTokenValue)
+        {
+            writer.WriteStartElement(null, "AuthntcnTkn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AuthenticationTokenValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionLifeCycleIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

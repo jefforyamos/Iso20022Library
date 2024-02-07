@@ -7,40 +7,69 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the relationship record between two parties.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeCounterpartyRelationshipRecord1
+     : IIsoXmlSerilizable<TradeCounterpartyRelationshipRecord1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies type of counterparty at the start of a directional relationship.
     /// </summary>
-    [DataMember]
     public required TradeCounterpartyType1Code StartRelationshipParty { get; init; } 
     /// <summary>
     /// Specifies type of counterparty at the end of a directional relationship.
     /// </summary>
-    [DataMember]
     public required TradeCounterpartyType1Code EndRelationshipParty { get; init; } 
     /// <summary>
     /// Type of relationship between two parties.
     /// Usage: RelationshipType is always in the direction of the StartRelationshipParty to EndRelationshipParty.
     /// </summary>
-    [DataMember]
     public required TradeCounterpartyRelationship1Choice_ RelationshipType { get; init; } 
     /// <summary>
     /// Provides description of other type of relationship between two parties.
     /// Usage: Description is to be used only when RelationshipType is not precisely indicating the type of relationship between parties to the transaction.
     /// </summary>
-    [DataMember]
     public IsoMax1000Text? Description { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "StartRltshPty", xmlNamespace );
+        writer.WriteValue(StartRelationshipParty.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EndRltshPty", xmlNamespace );
+        writer.WriteValue(EndRelationshipParty.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RltshTp", xmlNamespace );
+        RelationshipType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Description is IsoMax1000Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1000Text(DescriptionValue)); // data type Max1000Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeCounterpartyRelationshipRecord1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,58 +7,107 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of a buy-in.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BuyInAdviceDetails1
+     : IIsoXmlSerilizable<BuyInAdviceDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// References of the failing transaction.
     /// </summary>
-    [DataMember]
     public required References23 Reference { get; init; } 
     /// <summary>
     /// Status of the buy-in transaction.
     /// </summary>
-    [DataMember]
     public required BuyInState1Code BuyInState { get; init; } 
     /// <summary>
     /// Specifies if the buy-in transaction was deferred or not.
     /// </summary>
-    [DataMember]
     public required BuyInDeferral1Code BuyInDeferral { get; init; } 
     /// <summary>
     /// Identification of the financial instrument of the buy-in instruction.
     /// </summary>
-    [DataMember]
     public SecurityIdentification19? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Quantity of financial instrument concerned by the buy-in transaction.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1Choice_? Quantity { get; init; } 
     /// <summary>
     /// Price of the traded financial instrument in the buy-in transaction.
     /// </summary>
-    [DataMember]
     public RateAndAmountFormat39Choice_? BuyInPrice { get; init; } 
     /// <summary>
     /// Amount of money that has to be paid by the failing trading party in case of an unsuccessful or partially successful buy-in transaction.
     /// </summary>
-    [DataMember]
     public AmountAndDirection102? CashCompensationAmount { get; init; } 
     /// <summary>
     /// Settlement date of the buy-in. 
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? BuyInSettlementDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ref", xmlNamespace );
+        Reference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BuyInStat", xmlNamespace );
+        writer.WriteValue(BuyInState.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BuyInDfrrl", xmlNamespace );
+        writer.WriteValue(BuyInDeferral.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (FinancialInstrumentIdentification is SecurityIdentification19 FinancialInstrumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+            FinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Quantity is FinancialInstrumentQuantity1Choice_ QuantityValue)
+        {
+            writer.WriteStartElement(null, "Qty", xmlNamespace );
+            QuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BuyInPrice is RateAndAmountFormat39Choice_ BuyInPriceValue)
+        {
+            writer.WriteStartElement(null, "BuyInPric", xmlNamespace );
+            BuyInPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashCompensationAmount is AmountAndDirection102 CashCompensationAmountValue)
+        {
+            writer.WriteStartElement(null, "CshCompstnAmt", xmlNamespace );
+            CashCompensationAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BuyInSettlementDate is DateAndDateTime2Choice_ BuyInSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "BuyInSttlmDt", xmlNamespace );
+            BuyInSettlementDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BuyInAdviceDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

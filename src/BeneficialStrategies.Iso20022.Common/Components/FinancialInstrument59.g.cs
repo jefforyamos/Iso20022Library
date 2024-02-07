@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the financial instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrument59
+     : IIsoXmlSerilizable<FinancialInstrument59>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the ISIN of the collateral.
     /// </summary>
-    [DataMember]
     public required IsoISINOct2015Identifier Identification { get; init; } 
     /// <summary>
     /// Identifies the security issuer.
     /// </summary>
-    [DataMember]
     public required IsoLEIIdentifier Issuer { get; init; } 
     /// <summary>
     /// Sector for the security issuer, for example, 0500.
     /// </summary>
-    [DataMember]
     public IsoSNA2008SectorIdentifier? Sector { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(Identification)); // data type ISINOct2015Identifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Issr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(Issuer)); // data type LEIIdentifier System.String
+        writer.WriteEndElement();
+        if (Sector is IsoSNA2008SectorIdentifier SectorValue)
+        {
+            writer.WriteStartElement(null, "Sctr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoSNA2008SectorIdentifier(SectorValue)); // data type SNA2008SectorIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstrument59 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

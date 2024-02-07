@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies possible agreement clauses related to invoice financing.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AgreementClauses1
+     : IIsoXmlSerilizable<AgreementClauses1>
 {
     #nullable enable
     
     /// <summary>
     /// Description of agreement clauses, given in a textual form.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? Description { get; init; } 
     /// <summary>
     /// External reference to the document, containing agreement clauses, where it is stored.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? DocumentURL { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Description is IsoMax256Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(DescriptionValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (DocumentURL is IsoMax350Text DocumentURLValue)
+        {
+            writer.WriteStartElement(null, "DocURL", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(DocumentURLValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AgreementClauses1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

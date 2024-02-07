@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information on the posted margin or collateral of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PostedMarginOrCollateral3
+     : IIsoXmlSerilizable<PostedMarginOrCollateral3>
 {
     #nullable enable
     
@@ -23,19 +24,51 @@ public partial record PostedMarginOrCollateral3
     /// Value of the initial margin posted by the reporting counterparty to the other counterparty.
     /// Where initial margin is posted on a portfolio basis, this field should include the overall value of initial margin posted for the portfolio.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? InitialMarginPosted { get; init; } 
     /// <summary>
     /// Value of the variation margin posted, including cash settled, by the reporting counterparty to the other counterparty.
     /// Where variation margin is posted on a portfolio basis, this field should include the overall value of variation margin posted for the portfolio.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? VariationMarginPosted { get; init; } 
     /// <summary>
     /// Value of collateral posted in excess of the required collateral.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ExcessCollateralPosted { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (InitialMarginPosted is IsoActiveOrHistoricCurrencyAndAmount InitialMarginPostedValue)
+        {
+            writer.WriteStartElement(null, "InitlMrgnPstd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(InitialMarginPostedValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (VariationMarginPosted is IsoActiveOrHistoricCurrencyAndAmount VariationMarginPostedValue)
+        {
+            writer.WriteStartElement(null, "VartnMrgnPstd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(VariationMarginPostedValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExcessCollateralPosted is IsoActiveOrHistoricCurrencyAndAmount ExcessCollateralPostedValue)
+        {
+            writer.WriteStartElement(null, "XcssCollPstd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ExcessCollateralPostedValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static PostedMarginOrCollateral3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

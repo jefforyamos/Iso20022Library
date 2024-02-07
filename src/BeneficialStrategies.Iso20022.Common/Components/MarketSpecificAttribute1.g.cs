@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines additional attributes for party reference data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MarketSpecificAttribute1
+     : IIsoXmlSerilizable<MarketSpecificAttribute1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the name of the market-specific attribute.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Name { get; init; } 
     /// <summary>
     /// Specifies the value of the market-specific attribute.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text Value { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Name)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(Value)); // data type Max350Text System.String
+        writer.WriteEndElement();
+    }
+    public static MarketSpecificAttribute1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies a range of sequences from a start sequence to an end sequence.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SequenceRange1
+     : IIsoXmlSerilizable<SequenceRange1>
 {
     #nullable enable
     
     /// <summary>
     /// Start sequence of the range.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text FromSequence { get; init; } 
     /// <summary>
     /// End sequence of the range.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ToSequence { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FrSeq", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(FromSequence)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ToSeq", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ToSequence)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static SequenceRange1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

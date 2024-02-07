@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.caaa.AcceptorCompletionAdviceV12>;
 
 namespace BeneficialStrategies.Iso20022.caaa;
 
@@ -22,10 +25,9 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// A AcceptorCompletionAdvice message is also sent to reverse an approved authorisation and any associated financial transfer (capture), if the card payment transaction could not be completed successfully.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The AcceptorCompletionAdvice message is sent by an acceptor (or its agent) to notify the acquirer (or its agent) of the outcome of the payment at the acceptor, and to transfer the financial data of the transaction to the acquirer (capture).|A AcceptorCompletionAdvice message is also sent to reverse an approved authorisation and any associated financial transfer (capture), if the card payment transaction could not be completed successfully.")]
-public partial record AcceptorCompletionAdviceV12 : IOuterRecord
+public partial record AcceptorCompletionAdviceV12 : IOuterRecord<AcceptorCompletionAdviceV12,AcceptorCompletionAdviceV12Document>
+    ,IIsoXmlSerilizable<AcceptorCompletionAdviceV12>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -37,6 +39,11 @@ public partial record AcceptorCompletionAdviceV12 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AccptrCmpltnAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AcceptorCompletionAdviceV12Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -77,6 +84,35 @@ public partial record AcceptorCompletionAdviceV12 : IOuterRecord
     {
         return new AcceptorCompletionAdviceV12Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AccptrCmpltnAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CmpltnAdvc", xmlNamespace );
+        CompletionAdvice.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecurityTrailer is ContentInformationType36 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AcceptorCompletionAdviceV12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -84,9 +120,7 @@ public partial record AcceptorCompletionAdviceV12 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorCompletionAdviceV12"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AcceptorCompletionAdviceV12Document : IOuterDocument<AcceptorCompletionAdviceV12>
+public partial record AcceptorCompletionAdviceV12Document : IOuterDocument<AcceptorCompletionAdviceV12>, IXmlSerializable
 {
     
     /// <summary>
@@ -102,5 +136,22 @@ public partial record AcceptorCompletionAdviceV12Document : IOuterDocument<Accep
     /// <summary>
     /// The instance of <seealso cref="AcceptorCompletionAdviceV12"/> is required.
     /// </summary>
+    [DataMember(Name=AcceptorCompletionAdviceV12.XmlTag)]
     public required AcceptorCompletionAdviceV12 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AcceptorCompletionAdviceV12.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

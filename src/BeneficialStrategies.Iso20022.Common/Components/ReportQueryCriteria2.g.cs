@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria which are used to search for generated report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReportQueryCriteria2
+     : IIsoXmlSerilizable<ReportQueryCriteria2>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the query defined by the search criteria and return criteria. 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? NewQueryName { get; init; } 
     /// <summary>
     /// Defines the criteria to be used to extract the account information.
     /// </summary>
-    [DataMember]
     public required ReportQuerySearchCriteria2 SearchCriteria { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NewQueryName is IsoMax35Text NewQueryNameValue)
+        {
+            writer.WriteStartElement(null, "NewQryNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NewQueryNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SchCrit", xmlNamespace );
+        SearchCriteria.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ReportQueryCriteria2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

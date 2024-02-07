@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CurrencyOrDigitalTokenAmount1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.CurrencyOrDigitalTokenAmount1Cho
 /// Amount specified as a non-ISO currency (ISO 4217).
 /// </summary>
 public partial record DigitalTokenAmount : CurrencyOrDigitalTokenAmount1Choice_
+     , IIsoXmlSerilizable<DigitalTokenAmount>
 {
     #nullable enable
+    
     /// <summary>
     /// Specifies the digital token identifier (DTI).
     /// </summary>
@@ -27,5 +31,38 @@ public partial record DigitalTokenAmount : CurrencyOrDigitalTokenAmount1Choice_
     /// Provides a description of the digital token identifier.
     /// </summary>
     public IsoMax30Text? Description { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identifier is IsoDTI2021Identifier IdentifierValue)
+        {
+            writer.WriteStartElement(null, "Idr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDTI2021Identifier(IdentifierValue)); // data type DTI2021Identifier System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Unit", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax30DecimalNumber(Unit)); // data type Max30DecimalNumber System.UInt64
+        writer.WriteEndElement();
+        if (Description is IsoMax30Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax30Text(DescriptionValue)); // data type Max30Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new DigitalTokenAmount Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

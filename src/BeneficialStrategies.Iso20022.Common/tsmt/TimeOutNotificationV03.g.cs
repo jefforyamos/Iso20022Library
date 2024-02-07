@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsmt.TimeOutNotificationV03>;
 
 namespace BeneficialStrategies.Iso20022.tsmt;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// - a significant date is reached, for example latest shipment date.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The TimeOutNotification message is sent by the matching application to a party involved in a transaction.|This message is used to inform that a transaction will be closed within a given span of time if no action is taken.|Usage|The TimeOutNotification message can be sent by the matching application to inform the parties that a transaction will be closed within a given span of time if no action is taken by either party because|- no activity for the transaction has taken place within a specified span of time,or|- a significant date is reached, for example latest shipment date.")]
-public partial record TimeOutNotificationV03 : IOuterRecord
+public partial record TimeOutNotificationV03 : IOuterRecord<TimeOutNotificationV03,TimeOutNotificationV03Document>
+    ,IIsoXmlSerilizable<TimeOutNotificationV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record TimeOutNotificationV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "TmOutNtfctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => TimeOutNotificationV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -90,7 +97,7 @@ public partial record TimeOutNotificationV03 : IOuterRecord
     [Description(@"Reference to the transaction for each financial institution which is a party to the transaction.")]
     [DataMember(Name="UsrTxRef")]
     [XmlElement(ElementName="UsrTxRef")]
-    public required IReadOnlyCollection<DocumentIdentification5> UserTransactionReference { get; init; } = []; // Min=0, Max=2
+    public required ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = []; // Min=0, Max=2
     
     /// <summary>
     /// Describes the time-out consequences.
@@ -120,6 +127,50 @@ public partial record TimeOutNotificationV03 : IOuterRecord
     {
         return new TimeOutNotificationV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("TmOutNtfctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NtfctnId", xmlNamespace );
+        NotificationIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (EstablishedBaselineIdentification is DocumentIdentification3 EstablishedBaselineIdentificationValue)
+        {
+            writer.WriteStartElement(null, "EstblishdBaselnId", xmlNamespace );
+            EstablishedBaselineIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxSts", xmlNamespace );
+        TransactionStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UsrTxRef", xmlNamespace );
+        UserTransactionReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TmOutDesc", xmlNamespace );
+        TimeOutDescription.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RequestForAction is PendingActivity2 RequestForActionValue)
+        {
+            writer.WriteStartElement(null, "ReqForActn", xmlNamespace );
+            RequestForActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TimeOutNotificationV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -127,9 +178,7 @@ public partial record TimeOutNotificationV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TimeOutNotificationV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record TimeOutNotificationV03Document : IOuterDocument<TimeOutNotificationV03>
+public partial record TimeOutNotificationV03Document : IOuterDocument<TimeOutNotificationV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -145,5 +194,22 @@ public partial record TimeOutNotificationV03Document : IOuterDocument<TimeOutNot
     /// <summary>
     /// The instance of <seealso cref="TimeOutNotificationV03"/> is required.
     /// </summary>
+    [DataMember(Name=TimeOutNotificationV03.XmlTag)]
     public required TimeOutNotificationV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(TimeOutNotificationV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

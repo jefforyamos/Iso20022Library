@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to report on a system or a member of the system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SystemReturnCriteria2
+     : IIsoXmlSerilizable<SystemReturnCriteria2>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the system identification is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? SystemIdentificationIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the member identification is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? MemberIdentificationIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the country identification is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? CountryIdentificationIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account identification is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? AccountIdentificationIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SystemIdentificationIndicator is IsoRequestedIndicator SystemIdentificationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "SysIdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SystemIdentificationIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (MemberIdentificationIndicator is IsoRequestedIndicator MemberIdentificationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "MmbIdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(MemberIdentificationIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CountryIdentificationIndicator is IsoRequestedIndicator CountryIdentificationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CtryIdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(CountryIdentificationIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AccountIdentificationIndicator is IsoRequestedIndicator AccountIdentificationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AcctIdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(AccountIdentificationIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SystemReturnCriteria2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

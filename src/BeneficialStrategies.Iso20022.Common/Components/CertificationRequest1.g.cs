@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Certification request PKCS#10 (Public Key Certificate Standard 10) for creation or renewal of an X.509 certificate.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CertificationRequest1
+     : IIsoXmlSerilizable<CertificationRequest1>
 {
     #nullable enable
     
     /// <summary>
     /// Information of the certificate to create.
     /// </summary>
-    [DataMember]
     public required CertificationRequest2 CertificateRequestInformation { get; init; } 
     /// <summary>
     /// Identification of the key.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? KeyIdentification { get; init; } 
     /// <summary>
     /// Version of the key.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? KeyVersion { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CertReqInf", xmlNamespace );
+        CertificateRequestInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (KeyIdentification is IsoMax140Text KeyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "KeyId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(KeyIdentificationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (KeyVersion is IsoMax140Text KeyVersionValue)
+        {
+            writer.WriteStartElement(null, "KeyVrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(KeyVersionValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CertificationRequest1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

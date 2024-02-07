@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides original client order identification and order modification time.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CrossOrderCancel1
+     : IIsoXmlSerilizable<CrossOrderCancel1>
 {
     #nullable enable
     
     /// <summary>
     /// Client Order identification of the previous order (NOT the initial order of the day) as assigned by the institution, used to identify the previous order in cancel requests.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OriginalClientOrderIdentification { get; init; } 
     /// <summary>
     /// Indicates the most recent (or current) CreationDateTime reported for the order. The original order modification time is provided as an optional field on Order Cancel Request to identify that the state of the order has not changed since the request was issued.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? OriginalOrderModificationTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OrgnlClntOrdrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalClientOrderIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (OriginalOrderModificationTime is IsoISODateTime OriginalOrderModificationTimeValue)
+        {
+            writer.WriteStartElement(null, "OrgnlOrdrModTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(OriginalOrderModificationTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static CrossOrderCancel1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Vehicle rental rate
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RentalRate1
+     : IIsoXmlSerilizable<RentalRate1>
 {
     #nullable enable
     
     /// <summary>
     /// Unit of measure used to compute the rental rate.
     /// </summary>
-    [DataMember]
     public PeriodUnit3Code? Period { get; init; } 
     /// <summary>
     /// Other unit of measure used to compute the rental rate.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherPeriod { get; init; } 
     /// <summary>
     /// Rate applied to the vehicle rental for the specified period. 
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? Rate { get; init; } 
     /// <summary>
     /// Duration of the period for which the rental rate is calculated. 
     /// </summary>
-    [DataMember]
     public IsoMax4NumericText? PeriodCount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Period is PeriodUnit3Code PeriodValue)
+        {
+            writer.WriteStartElement(null, "Prd", xmlNamespace );
+            writer.WriteValue(PeriodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherPeriod is IsoMax35Text OtherPeriodValue)
+        {
+            writer.WriteStartElement(null, "OthrPrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherPeriodValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Rate is IsoImpliedCurrencyAndAmount RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(RateValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PeriodCount is IsoMax4NumericText PeriodCountValue)
+        {
+            writer.WriteStartElement(null, "PrdCnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(PeriodCountValue)); // data type Max4NumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static RentalRate1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

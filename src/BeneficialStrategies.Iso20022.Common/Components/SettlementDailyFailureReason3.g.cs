@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the settlement failure reason as defined in the relevant regulation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementDailyFailureReason3
+     : IIsoXmlSerilizable<SettlementDailyFailureReason3>
 {
     #nullable enable
     
     /// <summary>
     /// Fails due to lack of securities.
     /// </summary>
-    [DataMember]
     public required SettlementTotalData1Choice_ FailedSecurities { get; init; } 
     /// <summary>
     /// Fails due to lack of cash.
     /// </summary>
-    [DataMember]
     public required SettlementTotalData1Choice_ FailedCash { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FaildScties", xmlNamespace );
+        FailedSecurities.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FaildCsh", xmlNamespace );
+        FailedCash.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SettlementDailyFailureReason3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

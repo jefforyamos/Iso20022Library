@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the status of the global movement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GlobalDistributionStatus1
+     : IIsoXmlSerilizable<GlobalDistributionStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides information about the processing status of the global movement.
     /// </summary>
-    [DataMember]
     public required DistributionProcessingStatus1 ProcessedStatus { get; init; } 
     /// <summary>
     /// Provides information about the rejection status.
     /// </summary>
-    [DataMember]
     public required DistributionRejectionStatus1 RejectedStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrcdSts", xmlNamespace );
+        ProcessedStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RjctdSts", xmlNamespace );
+        RejectedStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static GlobalDistributionStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

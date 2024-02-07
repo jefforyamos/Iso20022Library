@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the list of criteria to be returned in the contract registration statement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ContractRegistrationStatementCriteria1
+     : IIsoXmlSerilizable<ContractRegistrationStatementCriteria1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the journal of the transactions recorded under the registered currency control contract must be returned or not.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? TransactionJournal { get; init; } 
     /// <summary>
     /// Indicates whether the journal of the supporting documents recorded under the registered currency control contract must be returned or not.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? SupportingDocumentJournal { get; init; } 
     /// <summary>
     /// Indicates whether the journal of additional supporting documents recorded under the registered currency control contract must be returned or not.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? AdditionalSupportingDocumentJournal { get; init; } 
     /// <summary>
     /// Indicates whether the details on the currency control rule against which has been violated must be returned or not.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? RegulatoryRuleValidation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TransactionJournal is IsoTrueFalseIndicator TransactionJournalValue)
+        {
+            writer.WriteStartElement(null, "TxJrnl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TransactionJournalValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SupportingDocumentJournal is IsoTrueFalseIndicator SupportingDocumentJournalValue)
+        {
+            writer.WriteStartElement(null, "SpprtgDocJrnl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(SupportingDocumentJournalValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalSupportingDocumentJournal is IsoTrueFalseIndicator AdditionalSupportingDocumentJournalValue)
+        {
+            writer.WriteStartElement(null, "AddtlSpprtgDocJrnl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AdditionalSupportingDocumentJournalValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (RegulatoryRuleValidation is IsoTrueFalseIndicator RegulatoryRuleValidationValue)
+        {
+            writer.WriteStartElement(null, "RgltryRuleVldtn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(RegulatoryRuleValidationValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ContractRegistrationStatementCriteria1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

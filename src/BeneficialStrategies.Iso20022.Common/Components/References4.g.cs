@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements for the identification of the message and related references.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record References4
+     : IIsoXmlSerilizable<References4>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies a message by a unique identifier and the date and time when the message was created by the sender.
     /// </summary>
-    [DataMember]
     public required MessageIdentification1 MessageIdentification { get; init; } 
     /// <summary>
     /// Identifies a process by a unique identifier and the date and time when the first message belonging to the process was created by the sender. The process identification remains the same in all messages belonging to the same process, from the initial request message to the final account report closing the process.
     /// </summary>
-    [DataMember]
     public required MessageIdentification1 ProcessIdentification { get; init; } 
     /// <summary>
     /// File name of a document logically related to the request.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax70Text> AttachedDocumentName { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax70Text? AttachedDocumentName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PrcId", xmlNamespace );
+        ProcessIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AttachedDocumentName is IsoMax70Text AttachedDocumentNameValue)
+        {
+            writer.WriteStartElement(null, "AttchdDocNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AttachedDocumentNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static References4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

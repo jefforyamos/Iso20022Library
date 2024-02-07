@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AccountParties2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountParties2Choice;
 /// Entity named by the beneficial owner to act on its behalf, often to facilitate dealing, or to conceal the identity of the beneficiary.
 /// </summary>
 public partial record Nominee : AccountParties2Choice_
+     , IIsoXmlSerilizable<Nominee>
 {
     #nullable enable
+    
     /// <summary>
     /// Information about the organisation or individual person.
     /// </summary>
@@ -42,7 +46,7 @@ public partial record Nominee : AccountParties2Choice_
     /// <summary>
     /// Information related to the party profile to be inserted or deleted.
     /// </summary>
-    public IReadOnlyCollection<ModificationScope14> ModifiedInvestorProfileValidation { get; init; } = [];
+    public ValueList<ModificationScope14> ModifiedInvestorProfileValidation { get; init; } = [];
     /// <summary>
     /// Details about the MiFID classification of the account owner.
     /// </summary>
@@ -51,5 +55,71 @@ public partial record Nominee : AccountParties2Choice_
     /// Specifies how information is sent to the account holder.
     /// </summary>
     public InformationDistribution1Code? InformationDistribution { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Pty", xmlNamespace );
+        Party.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MoneyLaunderingCheck is MoneyLaunderingCheck1Choice_ MoneyLaunderingCheckValue)
+        {
+            writer.WriteStartElement(null, "MnyLndrgChck", xmlNamespace );
+            MoneyLaunderingCheckValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OwnershipBeneficiaryRate is IsoPercentageRate OwnershipBeneficiaryRateValue)
+        {
+            writer.WriteStartElement(null, "OwnrshBnfcryRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(OwnershipBeneficiaryRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ClientIdentification is IsoMax35Text ClientIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClntId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (FiscalExemption is IsoYesNoIndicator FiscalExemptionValue)
+        {
+            writer.WriteStartElement(null, "FsclXmptn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(FiscalExemptionValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SignatoryRightIndicator is IsoYesNoIndicator SignatoryRightIndicatorValue)
+        {
+            writer.WriteStartElement(null, "SgntryRghtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SignatoryRightIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ModfdInvstrPrflVldtn", xmlNamespace );
+        ModifiedInvestorProfileValidation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MiFIDClassification is MiFIDClassification1 MiFIDClassificationValue)
+        {
+            writer.WriteStartElement(null, "MiFIDClssfctn", xmlNamespace );
+            MiFIDClassificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InformationDistribution is InformationDistribution1Code InformationDistributionValue)
+        {
+            writer.WriteStartElement(null, "InfDstrbtn", xmlNamespace );
+            writer.WriteValue(InformationDistributionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static new Nominee Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

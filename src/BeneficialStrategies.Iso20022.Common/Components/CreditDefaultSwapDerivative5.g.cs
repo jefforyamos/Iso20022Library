@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Credit default swap derivative specific for reporting derivatives on a credit default swap index.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CreditDefaultSwapDerivative5
+     : IIsoXmlSerilizable<CreditDefaultSwapDerivative5>
 {
     #nullable enable
     
     /// <summary>
     /// Derivative on a credit default swap with the ISIN code of the underlying swap.
     /// </summary>
-    [DataMember]
     public IsoISINOct2015Identifier? UnderlyingCreditDefaultSwapIdentification { get; init; } 
     /// <summary>
     /// Describes the Credit Default Swap Index specific details the derivative is being made on.
     /// </summary>
-    [DataMember]
     public required CreditDefaultSwapIndex3 UnderlyingCreditDefaultSwapIndex { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (UnderlyingCreditDefaultSwapIdentification is IsoISINOct2015Identifier UnderlyingCreditDefaultSwapIdentificationValue)
+        {
+            writer.WriteStartElement(null, "UndrlygCdtDfltSwpId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(UnderlyingCreditDefaultSwapIdentificationValue)); // data type ISINOct2015Identifier System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "UndrlygCdtDfltSwpIndx", xmlNamespace );
+        UnderlyingCreditDefaultSwapIndex.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CreditDefaultSwapDerivative5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

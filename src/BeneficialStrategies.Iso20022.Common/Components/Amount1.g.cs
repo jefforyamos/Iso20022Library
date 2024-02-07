@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Margin amount payable by one party to the other party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Amount1
+     : IIsoXmlSerilizable<Amount1>
 {
     #nullable enable
     
     /// <summary>
     /// Undisputed amount of the margin call request.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount AgreedAmount { get; init; } 
     /// <summary>
     /// Unique identifier for the margin call request.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MarginCallRequestIdentification { get; init; } 
     /// <summary>
     /// Provides additional information related to the margin call amount that has been agreed.
     /// </summary>
-    [DataMember]
     public IsoMax210Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AgrdAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AgreedAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MrgnCallReqId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MarginCallRequestIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax210Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax210Text(AdditionalInformationValue)); // data type Max210Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Amount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

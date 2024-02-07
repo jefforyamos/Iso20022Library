@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Entity involved in an activity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentificationAndAccount6
+     : IIsoXmlSerilizable<PartyIdentificationAndAccount6>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by an organisation, to unambiguously identify a party.
     /// </summary>
-    [DataMember]
     public required PartyIdentification25 PartyIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of an account held by Financing Requestor to First Agent. This account is requested to be used for crediting the amount financed, as a result of the financing process.
     /// </summary>
-    [DataMember]
     public CashAccount7? CreditAccount { get; init; } 
     /// <summary>
     /// Unambiguous identification of an internal bank account used by First Agent to manage the line of credit granted to Financing Requestor. This account is requested to be used for managing the financing process.
     /// </summary>
-    [DataMember]
     public CashAccount7? FinancingAccount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PtyId", xmlNamespace );
+        PartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CreditAccount is CashAccount7 CreditAccountValue)
+        {
+            writer.WriteStartElement(null, "CdtAcct", xmlNamespace );
+            CreditAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancingAccount is CashAccount7 FinancingAccountValue)
+        {
+            writer.WriteStartElement(null, "FincgAcct", xmlNamespace );
+            FinancingAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyIdentificationAndAccount6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes the comparison between the currently established baseline elements and the proposed ones.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyReferenceDataChange2
+     : IIsoXmlSerilizable<PartyReferenceDataChange2>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the party for which the changes are listed in the advice.
     /// </summary>
-    [DataMember]
     public required SystemPartyIdentification8 PartyIdentification { get; init; } 
     /// <summary>
     /// Provides the party data record for which details of the change are provided.
     /// </summary>
-    [DataMember]
-    public ValueList<UpdateLogPartyRecord1Choice_> Record { get; init; } = []; // Warning: Don't know multiplicity.
+    public UpdateLogPartyRecord1Choice_? Record { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _E_5woIp8EeiEt5E1WBt_2Q
     /// <summary>
     /// Specifies the timestamp of the operation.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime OperationTimeStamp { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PtyId", xmlNamespace );
+        PartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize Record, multiplicity Unknown
+        writer.WriteStartElement(null, "OprTmStmp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(OperationTimeStamp)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+    }
+    public static PartyReferenceDataChange2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

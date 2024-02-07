@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.InterestRate33Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate33Choice;
 /// Attributes related specifically to fixed rate of an interest rate contract.
 /// </summary>
 public partial record Fixed : InterestRate33Choice_
+     , IIsoXmlSerilizable<Fixed>
 {
     #nullable enable
+    
     /// <summary>
     /// Indicates the per annum rate of the fixed leg(s) of an interest rate contract.
     /// </summary>
@@ -27,5 +31,41 @@ public partial record Fixed : InterestRate33Choice_
     /// Specifies the time unit associated with the frequency of payments.
     /// </summary>
     public InterestRateFrequency3Choice_? PaymentFrequency { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Rate is SecuritiesTransactionPrice14Choice_ RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            RateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DayCount is InterestComputationMethodFormat7 DayCountValue)
+        {
+            writer.WriteStartElement(null, "DayCnt", xmlNamespace );
+            DayCountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentFrequency is InterestRateFrequency3Choice_ PaymentFrequencyValue)
+        {
+            writer.WriteStartElement(null, "PmtFrqcy", xmlNamespace );
+            PaymentFrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Fixed Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

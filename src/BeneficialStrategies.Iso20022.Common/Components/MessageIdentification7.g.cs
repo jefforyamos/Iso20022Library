@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies a message by a unique identifier and the date and time when the message was created by the sender.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MessageIdentification7
+     : IIsoXmlSerilizable<MessageIdentification7>
 {
     #nullable enable
     
@@ -23,18 +24,50 @@ public partial record MessageIdentification7
     /// Point to point reference, as assigned by the assigner, and sent to the next party in the chain to unambiguously identify the message.
     /// Usage: The assigner has to make sure that MessageIdentification is unique per assignee for a pre-agreed period.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? CreationDateTime { get; init; } 
     /// <summary>
     /// Identifies the first agent in the identification chain, following the payment initiating party.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? FirstAgent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MessageIdentification is IsoMax35Text MessageIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MsgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CreationDateTime is IsoISODateTime CreationDateTimeValue)
+        {
+            writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (FirstAgent is BranchAndFinancialInstitutionIdentification6 FirstAgentValue)
+        {
+            writer.WriteStartElement(null, "FrstAgt", xmlNamespace );
+            FirstAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MessageIdentification7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

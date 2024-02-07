@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Message to be displayed to the cardholder or the cashier.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ActionMessage5
+     : IIsoXmlSerilizable<ActionMessage5>
 {
     #nullable enable
     
     /// <summary>
     /// Format of the content.
     /// </summary>
-    [DataMember]
     public OutputFormat1Code? Format { get; init; } 
     /// <summary>
     /// Text or graphic data to be display or printed to the cardholder or the cashier.
     /// </summary>
-    [DataMember]
     public required IsoMax20000Text MessageContent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Format is OutputFormat1Code FormatValue)
+        {
+            writer.WriteStartElement(null, "Frmt", xmlNamespace );
+            writer.WriteValue(FormatValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MsgCntt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20000Text(MessageContent)); // data type Max20000Text System.String
+        writer.WriteEndElement();
+    }
+    public static ActionMessage5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

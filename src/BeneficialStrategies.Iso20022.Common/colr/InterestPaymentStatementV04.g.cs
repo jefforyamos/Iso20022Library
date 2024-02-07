@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.colr.InterestPaymentStatementV04>;
 
 namespace BeneficialStrategies.Iso20022.colr;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// The InterestPaymentStatement message is used for reporting the interest per period on collateral held.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The InterestPaymentStatement message is sent by either the collateral giver or its collateral manager to the collateral taker or its collateral manager. It is used to report the interest amounts calculated based on the effective posted collateral amount, over a specific period of time agreed by both parties.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|The InterestPaymentStatement message is used for reporting the interest per period on collateral held.")]
-public partial record InterestPaymentStatementV04 : IOuterRecord
+public partial record InterestPaymentStatementV04 : IOuterRecord<InterestPaymentStatementV04,InterestPaymentStatementV04Document>
+    ,IIsoXmlSerilizable<InterestPaymentStatementV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record InterestPaymentStatementV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "IntrstPmtStmt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => InterestPaymentStatementV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -120,6 +127,53 @@ public partial record InterestPaymentStatementV04 : IOuterRecord
     {
         return new InterestPaymentStatementV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("IntrstPmtStmt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Agreement is Agreement4 AgreementValue)
+        {
+            writer.WriteStartElement(null, "Agrmt", xmlNamespace );
+            AgreementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Oblgtn", xmlNamespace );
+        Obligation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StmtParams", xmlNamespace );
+        StatementParameters.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Pagination is Pagination PaginationValue)
+        {
+            writer.WriteStartElement(null, "Pgntn", xmlNamespace );
+            PaginationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "IntrstStmt", xmlNamespace );
+        InterestStatement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InterestPaymentStatementV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -127,9 +181,7 @@ public partial record InterestPaymentStatementV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InterestPaymentStatementV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record InterestPaymentStatementV04Document : IOuterDocument<InterestPaymentStatementV04>
+public partial record InterestPaymentStatementV04Document : IOuterDocument<InterestPaymentStatementV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -145,5 +197,22 @@ public partial record InterestPaymentStatementV04Document : IOuterDocument<Inter
     /// <summary>
     /// The instance of <seealso cref="InterestPaymentStatementV04"/> is required.
     /// </summary>
+    [DataMember(Name=InterestPaymentStatementV04.XmlTag)]
     public required InterestPaymentStatementV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(InterestPaymentStatementV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

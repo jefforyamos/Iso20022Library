@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the request providing the changes and references of the instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RequestDetails17
+     : IIsoXmlSerilizable<RequestDetails17>
 {
     #nullable enable
     
     /// <summary>
     /// References of the transaction for which the intra-balance modification is requested.
     /// </summary>
-    [DataMember]
     public required References14 Reference { get; init; } 
     /// <summary>
     /// Specifies the type of linkage requested.
     /// </summary>
-    [DataMember]
     public LinkageType3Choice_? Linkage { get; init; } 
     /// <summary>
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
-    [DataMember]
     public PriorityNumeric4Choice_? Priority { get; init; } 
     /// <summary>
     /// Specifies another type of processing change request.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericIdentification30> OtherProcessing { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericIdentification30? OtherProcessing { get; init; } 
     /// <summary>
     /// Specifies whether partial settlement is allowed.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? PartialSettlementIndicator { get; init; } 
     /// <summary>
     /// Specifies the clearing channel to be used to process the payment instruction.
     /// </summary>
-    [DataMember]
     public ClearingChannel2Code? ClearingChannel { get; init; } 
     /// <summary>
     /// Information regarding the linkage requested.
     /// </summary>
-    [DataMember]
-    public ValueList<Linkages51> Linkages { get; init; } = []; // Warning: Don't know multiplicity.
+    public Linkages51? Linkages { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ref", xmlNamespace );
+        Reference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Linkage is LinkageType3Choice_ LinkageValue)
+        {
+            writer.WriteStartElement(null, "Lkg", xmlNamespace );
+            LinkageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Priority is PriorityNumeric4Choice_ PriorityValue)
+        {
+            writer.WriteStartElement(null, "Prty", xmlNamespace );
+            PriorityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherProcessing is GenericIdentification30 OtherProcessingValue)
+        {
+            writer.WriteStartElement(null, "OthrPrcg", xmlNamespace );
+            OtherProcessingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PartialSettlementIndicator is IsoYesNoIndicator PartialSettlementIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PrtlSttlmInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PartialSettlementIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ClearingChannel is ClearingChannel2Code ClearingChannelValue)
+        {
+            writer.WriteStartElement(null, "ClrChanl", xmlNamespace );
+            writer.WriteValue(ClearingChannelValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Linkages is Linkages51 LinkagesValue)
+        {
+            writer.WriteStartElement(null, "Lnkgs", xmlNamespace );
+            LinkagesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RequestDetails17 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

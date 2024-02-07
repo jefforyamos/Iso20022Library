@@ -7,78 +7,144 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the amendent request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Amendment3
+     : IIsoXmlSerilizable<Amendment3>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier assigned by the applicant to the undertaking amendment request.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ApplicantRequestNumber { get; init; } 
     /// <summary>
     /// Identification of the undertaking.
     /// </summary>
-    [DataMember]
     public required Undertaking9 UndertakingIdentification { get; init; } 
     /// <summary>
     /// Party requesting the issuance of the amendment.
     /// </summary>
-    [DataMember]
     public required PartyIdentification43 Applicant { get; init; } 
     /// <summary>
     /// Details concerning the requested termination of the undertaking.
     /// </summary>
-    [DataMember]
     public UndertakingTermination3? TerminationDetails { get; init; } 
     /// <summary>
     /// Indication of the amount of increase or decrease to the undertaking amount.
     /// </summary>
-    [DataMember]
     public UndertakingAmount2? IncreaseDecreaseAmount { get; init; } 
     /// <summary>
     /// Requested new expiry terms for the undertaking.
     /// </summary>
-    [DataMember]
     public ExpiryDetails2? NewExpiryDetails { get; init; } 
     /// <summary>
     /// Requested new beneficiary of the undertaking.
     /// </summary>
-    [DataMember]
     public Beneficiary1? NewBeneficiary { get; init; } 
     /// <summary>
     /// Requested new terms and conditions of the undertaking.
     /// </summary>
-    [DataMember]
-    public ValueList<Narrative1> NewUndertakingTermsAndConditions { get; init; } = []; // Warning: Don't know multiplicity.
+    public Narrative1? NewUndertakingTermsAndConditions { get; init; } 
     /// <summary>
     /// Amendment details related to the counter-undertaking.
     /// </summary>
-    [DataMember]
     public Undertaking10? CounterUndertaking { get; init; } 
     /// <summary>
     /// Communication channel for delivery of the amendment.
     /// </summary>
-    [DataMember]
     public CommunicationChannel1? DeliveryChannel { get; init; } 
     /// <summary>
     /// Document or template enclosed in the request.
     /// </summary>
-    [DataMember]
-    public ValueList<Document9> EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
+    public Document9? EnclosedFile { get; init; } 
     /// <summary>
     /// Additional information related to the request.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ApplcntReqNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ApplicantRequestNumber)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UdrtkgId", xmlNamespace );
+        UndertakingIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Applcnt", xmlNamespace );
+        Applicant.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TerminationDetails is UndertakingTermination3 TerminationDetailsValue)
+        {
+            writer.WriteStartElement(null, "TermntnDtls", xmlNamespace );
+            TerminationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IncreaseDecreaseAmount is UndertakingAmount2 IncreaseDecreaseAmountValue)
+        {
+            writer.WriteStartElement(null, "IncrDcrAmt", xmlNamespace );
+            IncreaseDecreaseAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewExpiryDetails is ExpiryDetails2 NewExpiryDetailsValue)
+        {
+            writer.WriteStartElement(null, "NewXpryDtls", xmlNamespace );
+            NewExpiryDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewBeneficiary is Beneficiary1 NewBeneficiaryValue)
+        {
+            writer.WriteStartElement(null, "NewBnfcry", xmlNamespace );
+            NewBeneficiaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewUndertakingTermsAndConditions is Narrative1 NewUndertakingTermsAndConditionsValue)
+        {
+            writer.WriteStartElement(null, "NewUdrtkgTermsAndConds", xmlNamespace );
+            NewUndertakingTermsAndConditionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CounterUndertaking is Undertaking10 CounterUndertakingValue)
+        {
+            writer.WriteStartElement(null, "CntrUdrtkg", xmlNamespace );
+            CounterUndertakingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveryChannel is CommunicationChannel1 DeliveryChannelValue)
+        {
+            writer.WriteStartElement(null, "DlvryChanl", xmlNamespace );
+            DeliveryChannelValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EnclosedFile is Document9 EnclosedFileValue)
+        {
+            writer.WriteStartElement(null, "NclsdFile", xmlNamespace );
+            EnclosedFileValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+    }
+    public static Amendment3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

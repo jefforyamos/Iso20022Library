@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters of a physical delivery.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DeliveryParameters2
+     : IIsoXmlSerilizable<DeliveryParameters2>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the address for the physical delivery is the registered address.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator RegisteredAddressIndicator { get; init; } 
     /// <summary>
     /// Name and address to/from which the physical delivery/receipt of the financial instrument must take place.
     /// </summary>
-    [DataMember]
     public NameAndAddress1? NameAndAddress { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RegdAdrInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RegisteredAddressIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (NameAndAddress is NameAndAddress1 NameAndAddressValue)
+        {
+            writer.WriteStartElement(null, "NmAndAdr", xmlNamespace );
+            NameAndAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DeliveryParameters2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

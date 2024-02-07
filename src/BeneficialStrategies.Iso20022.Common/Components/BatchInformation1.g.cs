@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the underlying batches.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BatchInformation1
+     : IIsoXmlSerilizable<BatchInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Point to point reference assigned by the sending party to unambiguously identify the batch of transactions.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MessageIdentification { get; init; } 
     /// <summary>
     /// Reference assigned by a sending party to unambiguously identify a payment information block within a payment message.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PaymentInformationIdentification { get; init; } 
     /// <summary>
     /// Number of individual transactions included in the batch.
     /// </summary>
-    [DataMember]
     public IsoMax15NumericText? NumberOfTransactions { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MessageIdentification is IsoMax35Text MessageIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MsgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PaymentInformationIdentification is IsoMax35Text PaymentInformationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PmtInfId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PaymentInformationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (NumberOfTransactions is IsoMax15NumericText NumberOfTransactionsValue)
+        {
+            writer.WriteStartElement(null, "NbOfTxs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(NumberOfTransactionsValue)); // data type Max15NumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static BatchInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

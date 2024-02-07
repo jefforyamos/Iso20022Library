@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains transaction details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Transaction153
+     : IIsoXmlSerilizable<Transaction153>
 {
     #nullable enable
     
@@ -23,44 +24,95 @@ public partial record Transaction153
     /// Type of transaction associated with the main service.
     /// For valid values, see "Transaction type codes" in ISO 8583 "Financial transaction card originated messages — Interchange message specifications"
     /// </summary>
-    [DataMember]
     public required ISO8583TransactionTypeCode TransactionType { get; init; } 
     /// <summary>
     /// Further breakdown of the transaction type being performed.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TransactionSubType { get; init; } 
     /// <summary>
     /// Additional functions or services to be performed in conjunction with the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalService2> AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalService2? AdditionalService { get; init; } 
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
-    [DataMember]
     public required TransactionIdentification51 TransactionIdentification { get; init; } 
     /// <summary>
     /// Amount used for reconciliation. 
     /// Calculated based on the transaction amount, except when the transaction amount is absent. When transaction amount is absent, the reconciliation amount is calculated on the detailed amount field. 
     /// </summary>
-    [DataMember]
     public Amount15? ReconciliationAmount { get; init; } 
     /// <summary>
     /// Amounts that are not part of the transaction amount and not included in reconciliation.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalAmounts3> AdditionalAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalAmounts3? AdditionalAmount { get; init; } 
     /// <summary>
     /// Fees not included in the transaction amount.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalFee2> AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalFee2? AdditionalFee { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxTp", xmlNamespace );
+        writer.WriteValue(TransactionType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (TransactionSubType is IsoMax35Text TransactionSubTypeValue)
+        {
+            writer.WriteStartElement(null, "TxSubTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionSubTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalService is AdditionalService2 AdditionalServiceValue)
+        {
+            writer.WriteStartElement(null, "AddtlSvc", xmlNamespace );
+            AdditionalServiceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ReconciliationAmount is Amount15 ReconciliationAmountValue)
+        {
+            writer.WriteStartElement(null, "RcncltnAmt", xmlNamespace );
+            ReconciliationAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalAmount is AdditionalAmounts3 AdditionalAmountValue)
+        {
+            writer.WriteStartElement(null, "AddtlAmt", xmlNamespace );
+            AdditionalAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalFee is AdditionalFee2 AdditionalFeeValue)
+        {
+            writer.WriteStartElement(null, "AddtlFee", xmlNamespace );
+            AdditionalFeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Transaction153 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

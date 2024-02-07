@@ -7,48 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Tax identification information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxIdentification2
+     : IIsoXmlSerilizable<TaxIdentification2>
 {
     #nullable enable
     
     /// <summary>
     /// Tax identification number or identifier.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Type of tax identification number or identifier.
     /// </summary>
-    [DataMember]
     public required TaxIdentificationType1Choice_ TaxIdentificationType { get; init; } 
     /// <summary>
     /// Entity that assigns the identifier.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     /// <summary>
     /// Date at which the identification was issued.
     /// </summary>
-    [DataMember]
     public IsoISODate? IssueDate { get; init; } 
     /// <summary>
     /// Date at which the identification expires.
     /// </summary>
-    [DataMember]
     public IsoISODate? ExpiryDate { get; init; } 
     /// <summary>
     /// Country that issued the tax identification.
     /// </summary>
-    [DataMember]
     public required CountryCode IssuerCountry { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TaxIdTp", xmlNamespace );
+        TaxIdentificationType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Issuer is IsoMax35Text IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (IssueDate is IsoISODate IssueDateValue)
+        {
+            writer.WriteStartElement(null, "IsseDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(IssueDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ExpiryDate is IsoISODate ExpiryDateValue)
+        {
+            writer.WriteStartElement(null, "XpryDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExpiryDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "IssrCtry", xmlNamespace );
+        writer.WriteValue(IssuerCountry.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static TaxIdentification2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

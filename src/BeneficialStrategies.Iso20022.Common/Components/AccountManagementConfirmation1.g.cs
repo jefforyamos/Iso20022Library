@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provide information about the type of request or instruction which triggered this confirmation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountManagementConfirmation1
+     : IIsoXmlSerilizable<AccountManagementConfirmation1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies if the confirmation message applies to an account opening, an account modification request or to a get account details.
     /// </summary>
-    [DataMember]
     public required AccountManagementType2Code ConfirmationType { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of the account opening or modification instruction at application level.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountApplicationIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ConfTp", xmlNamespace );
+        writer.WriteValue(ConfirmationType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AccountApplicationIdentification is IsoMax35Text AccountApplicationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctApplId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountApplicationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountManagementConfirmation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// References linked to the trade leg notification cancellation message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Reference18
+     : IIsoXmlSerilizable<Reference18>
 {
     #nullable enable
     
     /// <summary>
     /// Allocated by the central counterparty - central counterparty trade leg reference identification that uniquely identifies the trade.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TradeLegIdentification { get; init; } 
     /// <summary>
     /// Identification of the message previously sent by the central counterparty.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PreviousMessageIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TradLegId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TradeLegIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (PreviousMessageIdentification is IsoMax35Text PreviousMessageIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrvsMsgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PreviousMessageIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Reference18 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

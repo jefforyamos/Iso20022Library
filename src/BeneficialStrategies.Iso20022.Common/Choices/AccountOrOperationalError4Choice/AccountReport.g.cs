@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AccountOrOperationalError4Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOrOperationalError4Choice
 /// Reports either on the account information or on a business error.
 /// </summary>
 public partial record AccountReport : AccountOrOperationalError4Choice_
+     , IIsoXmlSerilizable<AccountReport>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record AccountReport : AccountOrOperationalError4Choice_
     /// Requested information on the account or business error when information has not been found.
     /// </summary>
     public required AccountOrBusinessError4Choice_ AccountOrError { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AcctId", xmlNamespace );
+        AccountIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctOrErr", xmlNamespace );
+        AccountOrError.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new AccountReport Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

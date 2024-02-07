@@ -7,103 +7,197 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Goods or services that are part of a commercial trade agreement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LineItemDetails7
+     : IIsoXmlSerilizable<LineItemDetails7>
 {
     #nullable enable
     
     /// <summary>
     /// Identification assigned to a line item.
     /// </summary>
-    [DataMember]
     public required IsoMax70Text LineItemIdentification { get; init; } 
     /// <summary>
     /// Specifies the quantity of goods on a line in a trade transaction.
     /// </summary>
-    [DataMember]
     public required Quantity4 Quantity { get; init; } 
     /// <summary>
     /// Variance allowed in the quantity of goods.
     /// </summary>
-    [DataMember]
     public PercentageTolerance1? QuantityTolerance { get; init; } 
     /// <summary>
     /// Amount of money for which goods or services are offered, sold, or bought.
     /// </summary>
-    [DataMember]
     public UnitPrice9? UnitPrice { get; init; } 
     /// <summary>
     /// Variance allowed on a price.
     /// </summary>
-    [DataMember]
     public PercentageTolerance1? PriceTolerance { get; init; } 
     /// <summary>
     /// Name of the product detailed in the corresponding line item.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? ProductName { get; init; } 
     /// <summary>
     /// Identifies the product of the corresponding line item.
     /// </summary>
-    [DataMember]
-    public ValueList<ProductIdentifier2Choice_> ProductIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProductIdentifier2Choice_? ProductIdentifier { get; init; } 
     /// <summary>
     /// Identifies the characteristics of a product.
     /// </summary>
-    [DataMember]
-    public ValueList<ProductCharacteristics1Choice_> ProductCharacteristics { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProductCharacteristics1Choice_? ProductCharacteristics { get; init; } 
     /// <summary>
     /// Identifies the category of product.
     /// </summary>
-    [DataMember]
-    public ValueList<ProductCategory1Choice_> ProductCategory { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProductCategory1Choice_? ProductCategory { get; init; } 
     /// <summary>
     /// Country from which the product originates.
     /// </summary>
-    [DataMember]
-    public ValueList<CountryCode> ProductOrigin { get; init; } = []; // Warning: Don't know multiplicity.
+    public CountryCode? ProductOrigin { get; init; } 
     /// <summary>
     /// Specifies the shipment schedule for the goods.
     /// </summary>
-    [DataMember]
     public ShipmentSchedule1Choice_? ShipmentSchedule { get; init; } 
     /// <summary>
     /// Information related to the conveyance of goods.
     /// </summary>
-    [DataMember]
     public TransportMeans1? RoutingSummary { get; init; } 
     /// <summary>
     /// Specifies the applicable Incoterms and associated location. Latest version of Incoterms in effect at the date of message creation.
     /// </summary>
-    [DataMember]
-    public ValueList<Incoterms1> Incoterms { get; init; } = []; // Warning: Don't know multiplicity.
+    public Incoterms1? Incoterms { get; init; } 
     /// <summary>
     /// Variance on price for the goods.
     /// </summary>
-    [DataMember]
-    public ValueList<Adjustment3> Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
+    public Adjustment3? Adjustment { get; init; } 
     /// <summary>
     /// Maximum charges related to the conveyance of goods.
     /// </summary>
-    [DataMember]
     public Charge12? FreightCharges { get; init; } 
     /// <summary>
     /// Amount of money due to the government or tax authority, according to various pre-defined parameters linked to the value of the goods in a trade transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<Tax13> Tax { get; init; } = []; // Warning: Don't know multiplicity.
+    public Tax13? Tax { get; init; } 
     /// <summary>
     /// Total amount of the line item after adjustments have been applied.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount TotalAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "LineItmId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(LineItemIdentification)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        Quantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (QuantityTolerance is PercentageTolerance1 QuantityToleranceValue)
+        {
+            writer.WriteStartElement(null, "QtyTlrnce", xmlNamespace );
+            QuantityToleranceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnitPrice is UnitPrice9 UnitPriceValue)
+        {
+            writer.WriteStartElement(null, "UnitPric", xmlNamespace );
+            UnitPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PriceTolerance is PercentageTolerance1 PriceToleranceValue)
+        {
+            writer.WriteStartElement(null, "PricTlrnce", xmlNamespace );
+            PriceToleranceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProductName is IsoMax70Text ProductNameValue)
+        {
+            writer.WriteStartElement(null, "PdctNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(ProductNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProductIdentifier is ProductIdentifier2Choice_ ProductIdentifierValue)
+        {
+            writer.WriteStartElement(null, "PdctIdr", xmlNamespace );
+            ProductIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProductCharacteristics is ProductCharacteristics1Choice_ ProductCharacteristicsValue)
+        {
+            writer.WriteStartElement(null, "PdctChrtcs", xmlNamespace );
+            ProductCharacteristicsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProductCategory is ProductCategory1Choice_ ProductCategoryValue)
+        {
+            writer.WriteStartElement(null, "PdctCtgy", xmlNamespace );
+            ProductCategoryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProductOrigin is CountryCode ProductOriginValue)
+        {
+            writer.WriteStartElement(null, "PdctOrgn", xmlNamespace );
+            writer.WriteValue(ProductOriginValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ShipmentSchedule is ShipmentSchedule1Choice_ ShipmentScheduleValue)
+        {
+            writer.WriteStartElement(null, "ShipmntSchdl", xmlNamespace );
+            ShipmentScheduleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RoutingSummary is TransportMeans1 RoutingSummaryValue)
+        {
+            writer.WriteStartElement(null, "RtgSummry", xmlNamespace );
+            RoutingSummaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Incoterms is Incoterms1 IncotermsValue)
+        {
+            writer.WriteStartElement(null, "Incotrms", xmlNamespace );
+            IncotermsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Adjustment is Adjustment3 AdjustmentValue)
+        {
+            writer.WriteStartElement(null, "Adjstmnt", xmlNamespace );
+            AdjustmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FreightCharges is Charge12 FreightChargesValue)
+        {
+            writer.WriteStartElement(null, "FrghtChrgs", xmlNamespace );
+            FreightChargesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Tax is Tax13 TaxValue)
+        {
+            writer.WriteStartElement(null, "Tax", xmlNamespace );
+            TaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(TotalAmount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static LineItemDetails7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

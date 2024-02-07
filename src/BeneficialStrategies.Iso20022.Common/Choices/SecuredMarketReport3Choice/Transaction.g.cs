@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice;
 /// Provides the details of the secured market transaction as reported by the reporting agent.
 /// </summary>
 public partial record Transaction : SecuredMarketReport3Choice_
+     , IIsoXmlSerilizable<Transaction>
 {
     #nullable enable
+    
     /// <summary>
     /// Defines the status of the reported transaction, that is details on whether the transaction is a new transaction, an amendment of a previously reported transaction, a cancellation of a previously reported transaction or a correction to a previously reported and rejected transaction.
     /// </summary>
@@ -98,6 +102,102 @@ public partial record Transaction : SecuredMarketReport3Choice_
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptdTxSts", xmlNamespace );
+        writer.WriteValue(ReportedTransactionStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (BranchIdentification is IsoLEIIdentifier BranchIdentificationValue)
+        {
+            writer.WriteStartElement(null, "BrnchId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(BranchIdentificationValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (UniqueTransactionIdentifier is IsoMax105Text UniqueTransactionIdentifierValue)
+        {
+            writer.WriteStartElement(null, "UnqTxIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax105Text(UniqueTransactionIdentifierValue)); // data type Max105Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PrtryTxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax105Text(ProprietaryTransactionIdentification)); // data type Max105Text System.String
+        writer.WriteEndElement();
+        if (CounterpartyProprietaryTransactionIdentification is IsoMax105Text CounterpartyProprietaryTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyPrtryTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax105Text(CounterpartyProprietaryTransactionIdentificationValue)); // data type Max105Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
+        CounterpartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TripartyAgentIdentification is IsoLEIIdentifier TripartyAgentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TrptyAgtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(TripartyAgentIdentificationValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TradDt", xmlNamespace );
+        TradeDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(SettlementDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(MaturityDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxTp", xmlNamespace );
+        writer.WriteValue(TransactionType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxNmnlAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TransactionNominalAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RateTp", xmlNamespace );
+        writer.WriteValue(RateType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (DealRate is Rate2 DealRateValue)
+        {
+            writer.WriteStartElement(null, "DealRate", xmlNamespace );
+            DealRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FloatingRateRepurchaseAgreement is FloatingRateNote2 FloatingRateRepurchaseAgreementValue)
+        {
+            writer.WriteStartElement(null, "FltgRateRpAgrmt", xmlNamespace );
+            FloatingRateRepurchaseAgreementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BrokeredDeal is BrokeredDeal1Code BrokeredDealValue)
+        {
+            writer.WriteStartElement(null, "BrkrdDeal", xmlNamespace );
+            writer.WriteValue(BrokeredDealValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Coll", xmlNamespace );
+        Collateral.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Transaction Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

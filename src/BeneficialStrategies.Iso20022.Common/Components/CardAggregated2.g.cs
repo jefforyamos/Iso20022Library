@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Globalised card transaction entry details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardAggregated2
+     : IIsoXmlSerilizable<CardAggregated2>
 {
     #nullable enable
     
     /// <summary>
     /// Service in addition to the main service.
     /// </summary>
-    [DataMember]
     public CardPaymentServiceType2Code? AdditionalService { get; init; } 
     /// <summary>
     /// Category code conform to ISO 18245, related to the type of services or goods the merchant provides for the transaction.
     /// </summary>
-    [DataMember]
     public ExternalCardTransactionCategory1Code? TransactionCategory { get; init; } 
     /// <summary>
     /// Unique identification of the sales reconciliation period between the acceptor and the acquirer. This identification might be linked to the identification of the settlement for further verification by the merchant.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SaleReconciliationIdentification { get; init; } 
     /// <summary>
     /// Range of sequence numbers on which the globalisation applies.
     /// </summary>
-    [DataMember]
     public CardSequenceNumberRange1? SequenceNumberRange { get; init; } 
     /// <summary>
     /// Date range on which the globalisation applies.
     /// </summary>
-    [DataMember]
     public DateOrDateTimePeriod1Choice_? TransactionDateRange { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AdditionalService is CardPaymentServiceType2Code AdditionalServiceValue)
+        {
+            writer.WriteStartElement(null, "AddtlSvc", xmlNamespace );
+            writer.WriteValue(AdditionalServiceValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TransactionCategory is ExternalCardTransactionCategory1Code TransactionCategoryValue)
+        {
+            writer.WriteStartElement(null, "TxCtgy", xmlNamespace );
+            writer.WriteValue(TransactionCategoryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SaleReconciliationIdentification is IsoMax35Text SaleReconciliationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleRcncltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReconciliationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SequenceNumberRange is CardSequenceNumberRange1 SequenceNumberRangeValue)
+        {
+            writer.WriteStartElement(null, "SeqNbRg", xmlNamespace );
+            SequenceNumberRangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionDateRange is DateOrDateTimePeriod1Choice_ TransactionDateRangeValue)
+        {
+            writer.WriteStartElement(null, "TxDtRg", xmlNamespace );
+            TransactionDateRangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardAggregated2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

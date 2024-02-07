@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Configuration parameters to communicate with a host.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record HostCommunicationParameter1
+     : IIsoXmlSerilizable<HostCommunicationParameter1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the host.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text HostIdentification { get; init; } 
     /// <summary>
     /// Network parameters of the host.
     /// </summary>
-    [DataMember]
     public NetworkParameters1? Address { get; init; } 
     /// <summary>
     /// Cryptographic key used to communicate with the host.
     /// </summary>
-    [DataMember]
-    public ValueList<CryptographicKey1> Key { get; init; } = []; // Warning: Don't know multiplicity.
+    public CryptographicKey1? Key { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "HstId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(HostIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Address is NetworkParameters1 AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Key is CryptographicKey1 KeyValue)
+        {
+            writer.WriteStartElement(null, "Key", xmlNamespace );
+            KeyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static HostCommunicationParameter1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

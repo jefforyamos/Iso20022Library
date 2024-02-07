@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TransferStatus1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferStatus1Choice;
 /// Status of the transfer is cancelled.
 /// </summary>
 public partial record Cancelled : TransferStatus1Choice_
+     , IIsoXmlSerilizable<Cancelled>
 {
     #nullable enable
+    
     /// <summary>
     /// Indicates that there is no reason available or to report.
     /// </summary>
@@ -31,5 +35,35 @@ public partial record Cancelled : TransferStatus1Choice_
     /// Proprietary identification of the reason for the cancelled status.
     /// </summary>
     public required GenericIdentification1 DataSourceScheme { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NoSpcfdRsn", xmlNamespace );
+        writer.WriteValue(NoSpecifiedReason.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rsn", xmlNamespace );
+        writer.WriteValue(Reason.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtndedRsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedReason)); // data type Extended350Code System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DataSrcSchme", xmlNamespace );
+        DataSourceScheme.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new Cancelled Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

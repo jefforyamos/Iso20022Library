@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of infrastructure which may be a component of a clearing house and which facilitates clearing and settlement for its members by standing between the buyer and the seller. It may net transactions and it substitutes itself as settlement counterparty for each position.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PlaceOfClearingIdentification2
+     : IIsoXmlSerilizable<PlaceOfClearingIdentification2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification of the place of clearing.
     /// </summary>
-    [DataMember]
     public IsoAnyBICDec2014Identifier? Identification { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for a place of clearing.
     /// </summary>
-    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is IsoAnyBICDec2014Identifier IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICDec2014Identifier(IdentificationValue)); // data type AnyBICDec2014Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (LEI is IsoLEIIdentifier LEIValue)
+        {
+            writer.WriteStartElement(null, "LEI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEIValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PlaceOfClearingIdentification2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

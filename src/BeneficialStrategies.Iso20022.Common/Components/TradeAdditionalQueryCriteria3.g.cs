@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Query criteria regarding action type, product classification, venue of execution, asset class, corporate sector nature of counterparty.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeAdditionalQueryCriteria3
+     : IIsoXmlSerilizable<TradeAdditionalQueryCriteria3>
 {
     #nullable enable
     
     /// <summary>
     /// Code list of the action types allowed as query criteria.
     /// </summary>
-    [DataMember]
-    public ValueList<TransactionOperationType3Code> ActionType { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransactionOperationType3Code? ActionType { get; init; } 
     /// <summary>
     /// Indicates the execution venue of the reported transaction.
     /// </summary>
-    [DataMember]
     public SecuritiesTradeVenueCriteria1Choice_? ExecutionVenue { get; init; } 
     /// <summary>
     /// Indicates the nature of the reporting counterparty (if is a CCP, a financial, non-financial counterparty or other type of counterparty).
     /// </summary>
-    [DataMember]
     public PartyNatureType1Code? NatureOfCounterparty { get; init; } 
     /// <summary>
     /// Specifies the corporate sector of the reporting counterparty.
     /// </summary>
-    [DataMember]
     public CorporateSectorCriteria3? CorporateSector { get; init; } 
     /// <summary>
     /// Code list of available values for asset class criteria.
     /// </summary>
-    [DataMember]
-    public ValueList<ProductType4Code> AssetClass { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProductType4Code? AssetClass { get; init; } 
     /// <summary>
     /// Indicates the product classification of the reported transaction.
     /// </summary>
-    [DataMember]
     public ProductClassificationCriteria1? ProductClassification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ActionType is TransactionOperationType3Code ActionTypeValue)
+        {
+            writer.WriteStartElement(null, "ActnTp", xmlNamespace );
+            writer.WriteValue(ActionTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExecutionVenue is SecuritiesTradeVenueCriteria1Choice_ ExecutionVenueValue)
+        {
+            writer.WriteStartElement(null, "ExctnVn", xmlNamespace );
+            ExecutionVenueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NatureOfCounterparty is PartyNatureType1Code NatureOfCounterpartyValue)
+        {
+            writer.WriteStartElement(null, "NtrOfCtrPty", xmlNamespace );
+            writer.WriteValue(NatureOfCounterpartyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CorporateSector is CorporateSectorCriteria3 CorporateSectorValue)
+        {
+            writer.WriteStartElement(null, "CorpSctr", xmlNamespace );
+            CorporateSectorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AssetClass is ProductType4Code AssetClassValue)
+        {
+            writer.WriteStartElement(null, "AsstClss", xmlNamespace );
+            writer.WriteValue(AssetClassValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ProductClassification is ProductClassificationCriteria1 ProductClassificationValue)
+        {
+            writer.WriteStartElement(null, "PdctClssfctn", xmlNamespace );
+            ProductClassificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeAdditionalQueryCriteria3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

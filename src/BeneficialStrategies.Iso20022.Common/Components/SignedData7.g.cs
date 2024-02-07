@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Digital signatures of data from one or several signers.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SignedData7
+     : IIsoXmlSerilizable<SignedData7>
 {
     #nullable enable
     
     /// <summary>
     /// Version of the data structure.
     /// </summary>
-    [DataMember]
     public IsoNumber? Version { get; init; } 
     /// <summary>
     /// Identification of digest algorithm applied before signature.
     /// </summary>
-    [DataMember]
-    public ValueList<AlgorithmIdentification21> DigestAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
+    public AlgorithmIdentification21? DigestAlgorithm { get; init; } 
     /// <summary>
     /// Data to sign.
     /// </summary>
-    [DataMember]
     public EncapsulatedContent3? EncapsulatedContent { get; init; } 
     /// <summary>
     /// Chain of X.509 certificates.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax5000Binary> Certificate { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax5000Binary? Certificate { get; init; } 
     /// <summary>
     /// Digital signature and identification of a signer.
     /// </summary>
-    [DataMember]
-    public ValueList<Signer6> Signer { get; init; } = []; // Warning: Don't know multiplicity.
+    public Signer6? Signer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Version is IsoNumber VersionValue)
+        {
+            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(VersionValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (DigestAlgorithm is AlgorithmIdentification21 DigestAlgorithmValue)
+        {
+            writer.WriteStartElement(null, "DgstAlgo", xmlNamespace );
+            DigestAlgorithmValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EncapsulatedContent is EncapsulatedContent3 EncapsulatedContentValue)
+        {
+            writer.WriteStartElement(null, "NcpsltdCntt", xmlNamespace );
+            EncapsulatedContentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Certificate is IsoMax5000Binary CertificateValue)
+        {
+            writer.WriteStartElement(null, "Cert", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax5000Binary(CertificateValue)); // data type Max5000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (Signer is Signer6 SignerValue)
+        {
+            writer.WriteStartElement(null, "Sgnr", xmlNamespace );
+            SignerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SignedData7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

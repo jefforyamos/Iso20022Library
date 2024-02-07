@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of the status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StatusDetail1
+     : IIsoXmlSerilizable<StatusDetail1>
 {
     #nullable enable
     
     /// <summary>
     /// Country of the institution relevant for the decision.
     /// </summary>
-    [DataMember]
     public CountryCode? Country { get; init; } 
     /// <summary>
     /// Details of the institution which is relevant for the decision.
     /// </summary>
-    [DataMember]
     public required SupervisingAuthorityIdentification1 CompetentAuthority { get; init; } 
     /// <summary>
     /// Code indicating the status following the decision.
     /// </summary>
-    [DataMember]
     public IsoMax10Text? Status { get; init; } 
     /// <summary>
     /// Code indicating the reason of the decision.
     /// </summary>
-    [DataMember]
     public required IsoMax10Text StatusReason { get; init; } 
     /// <summary>
     /// Period of time when the decision is effective.
     /// </summary>
-    [DataMember]
     public Period4Choice_? ActivityPeriod { get; init; } 
     /// <summary>
     /// Any other additional information about the decision.
     /// </summary>
-    [DataMember]
     public IsoMax20000Text? Comment { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Country is CountryCode CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(CountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CmptntAuthrty", xmlNamespace );
+        CompetentAuthority.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Status is IsoMax10Text StatusValue)
+        {
+            writer.WriteStartElement(null, "Sts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10Text(StatusValue)); // data type Max10Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "StsRsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax10Text(StatusReason)); // data type Max10Text System.String
+        writer.WriteEndElement();
+        if (ActivityPeriod is Period4Choice_ ActivityPeriodValue)
+        {
+            writer.WriteStartElement(null, "ActvtyPrd", xmlNamespace );
+            ActivityPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Comment is IsoMax20000Text CommentValue)
+        {
+            writer.WriteStartElement(null, "Cmnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax20000Text(CommentValue)); // data type Max20000Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static StatusDetail1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

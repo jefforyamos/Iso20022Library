@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Name and value of a parameter being returned.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReportParameter1
+     : IIsoXmlSerilizable<ReportParameter1>
 {
     #nullable enable
     
     /// <summary>
     /// Name or type of the parameter being returned.
     /// </summary>
-    [DataMember]
     public required IsoMax70Text Name { get; init; } 
     /// <summary>
     /// Value of the parameter being returned.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text Value { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(Name)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(Value)); // data type Max350Text System.String
+        writer.WriteEndElement();
+    }
+    public static ReportParameter1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

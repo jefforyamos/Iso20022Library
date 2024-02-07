@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Structured information related to the invoice to be financed.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReferredDocumentInformation2
+     : IIsoXmlSerilizable<ReferredDocumentInformation2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of the document, for example commercial invoice.
     /// </summary>
-    [DataMember]
     public ReferredDocumentType1? Type { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification number of the referred document.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DocumentNumber { get; init; } 
     /// <summary>
     /// Date associated with the referred document, eg, date of issue.
     /// </summary>
-    [DataMember]
     public IsoISODate? RelatedDate { get; init; } 
     /// <summary>
     /// Amount of money and currency of a document referred to invoice to be financed.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? DocumentAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is ReferredDocumentType1 TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DocumentNumber is IsoMax35Text DocumentNumberValue)
+        {
+            writer.WriteStartElement(null, "DocNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DocumentNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RelatedDate is IsoISODate RelatedDateValue)
+        {
+            writer.WriteStartElement(null, "RltdDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(RelatedDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (DocumentAmount is IsoActiveCurrencyAndAmount DocumentAmountValue)
+        {
+            writer.WriteStartElement(null, "DocAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(DocumentAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static ReferredDocumentInformation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

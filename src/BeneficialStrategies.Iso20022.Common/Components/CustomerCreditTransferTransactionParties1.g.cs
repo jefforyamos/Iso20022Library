@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies all the parties involved in a serial payment transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CustomerCreditTransferTransactionParties1
+     : IIsoXmlSerilizable<CustomerCreditTransferTransactionParties1>
 {
     #nullable enable
     
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
-    [DataMember]
     public IsoAnyBICIdentifier? DebtorAgent { get; init; } 
     /// <summary>
     /// Agent through which the instructing agent (identified in the "From" element) will reimburse the instructed agent (identified in the "To" element).
     /// </summary>
-    [DataMember]
     public IsoAnyBICIdentifier? InstructingReimbursementAgent { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
-    [DataMember]
     public IsoAnyBICIdentifier? CreditorAgent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DebtorAgent is IsoAnyBICIdentifier DebtorAgentValue)
+        {
+            writer.WriteStartElement(null, "DbtrAgt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(DebtorAgentValue)); // data type AnyBICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (InstructingReimbursementAgent is IsoAnyBICIdentifier InstructingReimbursementAgentValue)
+        {
+            writer.WriteStartElement(null, "InstgRmbrsmntAgt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(InstructingReimbursementAgentValue)); // data type AnyBICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (CreditorAgent is IsoAnyBICIdentifier CreditorAgentValue)
+        {
+            writer.WriteStartElement(null, "CdtrAgt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(CreditorAgentValue)); // data type AnyBICIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CustomerCreditTransferTransactionParties1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

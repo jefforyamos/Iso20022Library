@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// General cryptographic message syntax (CMS) containing encrypted data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ContentInformationType17
+     : IIsoXmlSerilizable<ContentInformationType17>
 {
     #nullable enable
     
     /// <summary>
     /// Type of data protection.
     /// </summary>
-    [DataMember]
     public required ContentType2Code ContentType { get; init; } 
     /// <summary>
     /// Data protection by encryption or by a digital envelope, with an encryption key.
     /// </summary>
-    [DataMember]
     public required EnvelopedData5 EnvelopedData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CnttTp", xmlNamespace );
+        writer.WriteValue(ContentType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EnvlpdData", xmlNamespace );
+        EnvelopedData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ContentInformationType17 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

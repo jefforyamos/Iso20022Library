@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acquirer involved in the card payment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Acquirer2
+     : IIsoXmlSerilizable<Acquirer2>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the acquirer (for example the bank identification number BIN).
     /// </summary>
-    [DataMember]
     public GenericIdentification32? Identification { get; init; } 
     /// <summary>
     /// Version of the payment acquirer parameters of the POI.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ParametersVersion { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is GenericIdentification32 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ParamsVrsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ParametersVersion)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static Acquirer2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

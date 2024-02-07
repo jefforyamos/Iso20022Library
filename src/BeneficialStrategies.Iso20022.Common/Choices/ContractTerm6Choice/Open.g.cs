@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ContractTerm6Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.ContractTerm6Choice;
 /// Transaction is open term, that is, has no fixed maturity date.
 /// </summary>
 public partial record Open : ContractTerm6Choice_
+     , IIsoXmlSerilizable<Open>
 {
-    public required IsoTrueFalseIndicator Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// A flag indicating a True or False value.
+    /// </summary>
+    public required IsoTrueFalseIndicator Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Opn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(Value)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static new Open Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

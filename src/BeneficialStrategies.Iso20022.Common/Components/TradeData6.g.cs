@@ -7,73 +7,137 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information on the status of a trade.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeData6
+     : IIsoXmlSerilizable<TradeData6>
 {
     #nullable enable
     
     /// <summary>
     /// Reference to the identification of the notification for which the status is given, as assigned by the participant that submitted the foreign exchange or derivative trade.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text NotificationIdentification { get; init; } 
     /// <summary>
     /// Reference to the unique system identification assigned to the trade by the central matching system.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MatchingSystemUniqueReference { get; init; } 
     /// <summary>
     /// Reference to the unique matching identification assigned to the trade and to the matching trade from the counterparty by the central matching system.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MatchingSystemMatchingReference { get; init; } 
     /// <summary>
     /// Party that assigned the status to the foreign exchange or derivative trade.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? StatusOriginator { get; init; } 
     /// <summary>
     /// Specifies the new status of a trade.
     /// </summary>
-    [DataMember]
     public required Status6Choice_ CurrentStatus { get; init; } 
     /// <summary>
     /// Additional information on the current status of a trade in a central system.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? CurrentStatusSubType { get; init; } 
     /// <summary>
     /// Specifies the date and time at which the current status was assigned.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? CurrentStatusDateTime { get; init; } 
     /// <summary>
     /// Specifies the previous status of a trade.
     /// </summary>
-    [DataMember]
     public Status6Choice_? PreviousStatus { get; init; } 
     /// <summary>
     /// Additional information on the previous status of a trade in a central system.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? PreviousStatusSubType { get; init; } 
     /// <summary>
     /// Specifies the date and time at which the previous status was assigned.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? PreviousStatusDateTime { get; init; } 
     /// <summary>
     /// Specifies the product for which the status of the confirmation is reported.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ProductType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NtfctnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(NotificationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MtchgSysUnqRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MatchingSystemUniqueReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (MatchingSystemMatchingReference is IsoMax35Text MatchingSystemMatchingReferenceValue)
+        {
+            writer.WriteStartElement(null, "MtchgSysMtchgRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MatchingSystemMatchingReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (StatusOriginator is IsoMax35Text StatusOriginatorValue)
+        {
+            writer.WriteStartElement(null, "StsOrgtr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(StatusOriginatorValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CurSts", xmlNamespace );
+        CurrentStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CurrentStatusSubType is IsoMax70Text CurrentStatusSubTypeValue)
+        {
+            writer.WriteStartElement(null, "CurStsSubTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(CurrentStatusSubTypeValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (CurrentStatusDateTime is IsoISODateTime CurrentStatusDateTimeValue)
+        {
+            writer.WriteStartElement(null, "CurStsDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(CurrentStatusDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (PreviousStatus is Status6Choice_ PreviousStatusValue)
+        {
+            writer.WriteStartElement(null, "PrvsSts", xmlNamespace );
+            PreviousStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousStatusSubType is IsoMax70Text PreviousStatusSubTypeValue)
+        {
+            writer.WriteStartElement(null, "PrvsStsSubTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(PreviousStatusSubTypeValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (PreviousStatusDateTime is IsoISODateTime PreviousStatusDateTimeValue)
+        {
+            writer.WriteStartElement(null, "PrvsStsDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(PreviousStatusDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ProductType is IsoMax35Text ProductTypeValue)
+        {
+            writer.WriteStartElement(null, "PdctTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProductTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeData6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

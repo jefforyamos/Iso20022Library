@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsmt.MisMatchRejectionV02>;
 
 namespace BeneficialStrategies.Iso20022.tsmt;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// The acceptance of mis-matched data sets can be achieved by sending a MisMatchAcceptance message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The MisMatchRejection message is sent by the party requested to accept or reject data set mis-matches to the matching application.|This message is used to reject mis-matches between data sets and the related baseline.|Usage|The MisMatchRejection message can be sent by the party requested to accept or reject data set mis-match to inform that it rejects the data set(s).|The message can be sent in response to a DataSetMatchReport message conveying mis-matches.|The information about the rejection of the mis-matched data sets will be forwarded by the matching application to the submitter of the data sets by a MisMatchRejectionNotification message.|The acceptance of mis-matched data sets can be achieved by sending a MisMatchAcceptance message.")]
-public partial record MisMatchRejectionV02 : IOuterRecord
+public partial record MisMatchRejectionV02 : IOuterRecord<MisMatchRejectionV02,MisMatchRejectionV02Document>
+    ,IIsoXmlSerilizable<MisMatchRejectionV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record MisMatchRejectionV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MisMtchRjctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => MisMatchRejectionV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -103,6 +110,41 @@ public partial record MisMatchRejectionV02 : IOuterRecord
     {
         return new MisMatchRejectionV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MisMtchRjctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RjctnId", xmlNamespace );
+        RejectionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SubmitterTransactionReference is SimpleIdentificationInformation SubmitterTransactionReferenceValue)
+        {
+            writer.WriteStartElement(null, "SubmitrTxRef", xmlNamespace );
+            SubmitterTransactionReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DataSetMtchRptRef", xmlNamespace );
+        DataSetMatchReportReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RjctnRsn", xmlNamespace );
+        RejectionReason.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static MisMatchRejectionV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -110,9 +152,7 @@ public partial record MisMatchRejectionV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MisMatchRejectionV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record MisMatchRejectionV02Document : IOuterDocument<MisMatchRejectionV02>
+public partial record MisMatchRejectionV02Document : IOuterDocument<MisMatchRejectionV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -128,5 +168,22 @@ public partial record MisMatchRejectionV02Document : IOuterDocument<MisMatchReje
     /// <summary>
     /// The instance of <seealso cref="MisMatchRejectionV02"/> is required.
     /// </summary>
+    [DataMember(Name=MisMatchRejectionV02.XmlTag)]
     public required MisMatchRejectionV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(MisMatchRejectionV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

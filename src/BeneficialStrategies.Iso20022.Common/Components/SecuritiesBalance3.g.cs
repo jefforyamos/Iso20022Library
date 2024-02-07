@@ -7,83 +7,160 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Quantity of securities assigned as collateral position.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesBalance3
+     : IIsoXmlSerilizable<SecuritiesBalance3>
 {
     #nullable enable
     
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Quantity of financial instrument at the time of the preparation of the statement. It is the resulting balance of securities post movements for delta (reporting on flow).
     /// </summary>
-    [DataMember]
     public required BalanceQuantity13Choice_ Quantity { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is delivered/received as collateral or as loaned  securities.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? CollateralIndicator { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    [DataMember]
     public SafeKeepingPlace3? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Account from which the collateral is sourced. 
     /// </summary>
-    [DataMember]
     public PartyIdentification232? AccountOwner { get; init; } 
     /// <summary>
     /// Account where financial instruments are maintained. It is the source account.
     /// </summary>
-    [DataMember]
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
-    [DataMember]
     public BlockChainAddressWallet3? BlockChainAddressOrWallet { get; init; } 
     /// <summary>
     /// Provides the status of settlement of an instruction.
     /// </summary>
-    [DataMember]
     public SecuritiesSettlementStatus3Code? SettlementStatus { get; init; } 
     /// <summary>
     /// Currency  in which a security is issued or redenominated.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? DenominationCurrency { get; init; } 
     /// <summary>
     /// Rating and source of the rating of the financial instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<Rating2> RatingDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Rating2? RatingDetails { get; init; } 
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
     /// </summary>
-    [DataMember]
     public ForeignExchangeTerms19? ForeignExchangeDetails { get; init; } 
     /// <summary>
     /// Valuation details for the securities position.
     /// </summary>
-    [DataMember]
     public ValuationsDetails1? ValuationDetails { get; init; } 
     /// <summary>
     /// Identification of the underlying market value lots based on the term of the underlyning trades. The issuer defines the lot identification.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericIdentification178> TransactionLotNumber { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericIdentification178? TransactionLotNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        Quantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CollateralIndicator is IsoYesNoIndicator CollateralIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CollInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CollateralIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SafekeepingPlace is SafeKeepingPlace3 SafekeepingPlaceValue)
+        {
+            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
+            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountOwner is PartyIdentification232 AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingAccount is SecuritiesAccount19 SafekeepingAccountValue)
+        {
+            writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+            SafekeepingAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BlockChainAddressOrWallet is BlockChainAddressWallet3 BlockChainAddressOrWalletValue)
+        {
+            writer.WriteStartElement(null, "BlckChainAdrOrWllt", xmlNamespace );
+            BlockChainAddressOrWalletValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementStatus is SecuritiesSettlementStatus3Code SettlementStatusValue)
+        {
+            writer.WriteStartElement(null, "SttlmSts", xmlNamespace );
+            writer.WriteValue(SettlementStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DenominationCurrency is ActiveOrHistoricCurrencyCode DenominationCurrencyValue)
+        {
+            writer.WriteStartElement(null, "DnmtnCcy", xmlNamespace );
+            writer.WriteValue(DenominationCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (RatingDetails is Rating2 RatingDetailsValue)
+        {
+            writer.WriteStartElement(null, "RatgDtls", xmlNamespace );
+            RatingDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ForeignExchangeDetails is ForeignExchangeTerms19 ForeignExchangeDetailsValue)
+        {
+            writer.WriteStartElement(null, "FXDtls", xmlNamespace );
+            ForeignExchangeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValuationDetails is ValuationsDetails1 ValuationDetailsValue)
+        {
+            writer.WriteStartElement(null, "ValtnDtls", xmlNamespace );
+            ValuationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionLotNumber is GenericIdentification178 TransactionLotNumberValue)
+        {
+            writer.WriteStartElement(null, "TxLotNb", xmlNamespace );
+            TransactionLotNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesBalance3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

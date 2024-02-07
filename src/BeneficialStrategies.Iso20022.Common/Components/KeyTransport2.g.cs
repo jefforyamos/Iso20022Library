@@ -7,38 +7,64 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Key encryption key (KEK), encrypted with a previously distributed asymmetric public key.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record KeyTransport2
+     : IIsoXmlSerilizable<KeyTransport2>
 {
     #nullable enable
     
     /// <summary>
     /// Version of the cryptographic key.
     /// </summary>
-    [DataMember]
     public required IsoNumber Version { get; init; } 
     /// <summary>
     /// Transport key or key encryption key (KEK) for the recipient.
     /// </summary>
-    [DataMember]
     public required CertificateIdentifier1 RecipientIdentification { get; init; } 
     /// <summary>
     /// Algorithm to encrypt the key encryption key (KEK).
     /// </summary>
-    [DataMember]
     public required AlgorithmIdentification7 KeyEncryptionAlgorithm { get; init; } 
     /// <summary>
     /// Encrypted key encryption key (KEK).
     /// </summary>
-    [DataMember]
     public required IsoMax140Binary EncryptedKey { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(Version)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RcptId", xmlNamespace );
+        RecipientIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "KeyNcrptnAlgo", xmlNamespace );
+        KeyEncryptionAlgorithm.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NcrptdKey", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Binary(EncryptedKey)); // data type Max140Binary System.Byte[]
+        writer.WriteEndElement();
+    }
+    public static KeyTransport2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

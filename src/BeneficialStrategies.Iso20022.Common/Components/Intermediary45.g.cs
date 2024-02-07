@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Party that provides services to investors relating to financial products (Investment Funds).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Intermediary45
+     : IIsoXmlSerilizable<Intermediary45>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier of the intermediary.
     /// </summary>
-    [DataMember]
     public required PartyIdentification157 Identification { get; init; } 
     /// <summary>
     /// Function performed by the intermediary (investment funds).
     /// </summary>
-    [DataMember]
     public Role7Choice_? Role { get; init; } 
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>
-    [DataMember]
     public Account30? Account { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Role is Role7Choice_ RoleValue)
+        {
+            writer.WriteStartElement(null, "Role", xmlNamespace );
+            RoleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Account is Account30 AccountValue)
+        {
+            writer.WriteStartElement(null, "Acct", xmlNamespace );
+            AccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Intermediary45 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Sensible data associated with the payment card performing the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PlainCardData13
+     : IIsoXmlSerilizable<PlainCardData13>
 {
     #nullable enable
     
     /// <summary>
     /// Primary Account Number (PAN) of the card.
     /// </summary>
-    [DataMember]
     public IsoMin8Max28NumericText? PAN { get; init; } 
     /// <summary>
     /// Identify a card or a payment token inside a set of cards with the same PAN.
     /// </summary>
-    [DataMember]
     public IsoMin2Max3NumericText? CardSequenceNumber { get; init; } 
     /// <summary>
     /// Date from which the card can be used, expressed either in the YYYY-MM format, or in the YYYY-MM-DD format.
     /// </summary>
-    [DataMember]
     public IsoMax10Text? EffectiveDate { get; init; } 
     /// <summary>
     /// Expiry date of the card expressed either in the YYYY-MM format, or in the YYYY-MM-DD format.
     /// </summary>
-    [DataMember]
     public IsoMax10Text? ExpiryDate { get; init; } 
     /// <summary>
     /// Services attached to the card, as defined in ISO 7813.
     /// </summary>
-    [DataMember]
     public IsoExact3NumericText? ServiceCode { get; init; } 
     /// <summary>
     /// Track number 1 from magnetic stripe card.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Track1 { get; init; } 
     /// <summary>
     /// Track number 2 without control characters (start /end and LRC) issued from the magnetic stripe card or from the ICC if the magnetic stripe was not read.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Track2 { get; init; } 
     /// <summary>
     /// Track number 3 from magnetic stripe card.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Track3 { get; init; } 
     /// <summary>
     /// Name of the cardholder stored on the card.
     /// </summary>
-    [DataMember]
     public IsoMax45Text? CardholderName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PAN is IsoMin8Max28NumericText PANValue)
+        {
+            writer.WriteStartElement(null, "PAN", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMin8Max28NumericText(PANValue)); // data type Min8Max28NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (CardSequenceNumber is IsoMin2Max3NumericText CardSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "CardSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMin2Max3NumericText(CardSequenceNumberValue)); // data type Min2Max3NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (EffectiveDate is IsoMax10Text EffectiveDateValue)
+        {
+            writer.WriteStartElement(null, "FctvDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10Text(EffectiveDateValue)); // data type Max10Text System.String
+            writer.WriteEndElement();
+        }
+        if (ExpiryDate is IsoMax10Text ExpiryDateValue)
+        {
+            writer.WriteStartElement(null, "XpryDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10Text(ExpiryDateValue)); // data type Max10Text System.String
+            writer.WriteEndElement();
+        }
+        if (ServiceCode is IsoExact3NumericText ServiceCodeValue)
+        {
+            writer.WriteStartElement(null, "SvcCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact3NumericText(ServiceCodeValue)); // data type Exact3NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (Track1 is IsoMax140Text Track1Value)
+        {
+            writer.WriteStartElement(null, "Trck1", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(Track1Value)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (Track2 is IsoMax140Text Track2Value)
+        {
+            writer.WriteStartElement(null, "Trck2", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(Track2Value)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (Track3 is IsoMax140Text Track3Value)
+        {
+            writer.WriteStartElement(null, "Trck3", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(Track3Value)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (CardholderName is IsoMax45Text CardholderNameValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax45Text(CardholderNameValue)); // data type Max45Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PlainCardData13 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ATMSignature2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMSignature2Choice;
 /// Digital signature of implicit data depending on the security scheme download procedure.
 /// </summary>
 public partial record DigitalSignature : ATMSignature2Choice_
+     , IIsoXmlSerilizable<DigitalSignature>
 {
     #nullable enable
+    
     /// <summary>
     /// Type of data protection.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record DigitalSignature : ATMSignature2Choice_
     /// Data protected by a digital signatures.
     /// </summary>
     public required SignedData4 SignedData { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CnttTp", xmlNamespace );
+        writer.WriteValue(ContentType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SgndData", xmlNamespace );
+        SignedData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new DigitalSignature Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

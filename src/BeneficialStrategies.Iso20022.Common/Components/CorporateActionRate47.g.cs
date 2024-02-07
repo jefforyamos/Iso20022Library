@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies rates related to a corporate action option.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionRate47
+     : IIsoXmlSerilizable<CorporateActionRate47>
 {
     #nullable enable
     
     /// <summary>
     /// Rate proposed in a remarketing of variable rate notes.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? ProposedRate { get; init; } 
     /// <summary>
     /// Rate of allowed over-subscription.
     /// </summary>
-    [DataMember]
     public RateAndAmountFormat5Choice_? OversubscriptionRate { get; init; } 
     /// <summary>
     /// Requested tax rate in case of breakdown of tax rate, for example, used for adjustment of tax rate. This is the new requested applicable rate.
     /// </summary>
-    [DataMember]
-    public ValueList<RateAndAmountFormat21Choice_> RequestedTaxationRate { get; init; } = []; // Warning: Don't know multiplicity.
+    public RateAndAmountFormat21Choice_? RequestedTaxationRate { get; init; } 
     /// <summary>
     /// Requested rate at which the income will be withheld by the jurisdiction in which the income was originally paid, for which relief at source and/or reclaim may be possible.
     /// </summary>
-    [DataMember]
-    public ValueList<RateAndAmountFormat21Choice_> RequestedWithholdingOfForeignTax { get; init; } = []; // Warning: Don't know multiplicity.
+    public RateAndAmountFormat21Choice_? RequestedWithholdingOfForeignTax { get; init; } 
     /// <summary>
     /// Requested rate at which the income will be withheld by the jurisdiction in which the account owner is located, for which relief at source and/or reclaim may be possible.
     /// </summary>
-    [DataMember]
-    public ValueList<RateAndAmountFormat21Choice_> RequestedWithholdingOfLocalTax { get; init; } = []; // Warning: Don't know multiplicity.
+    public RateAndAmountFormat21Choice_? RequestedWithholdingOfLocalTax { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ProposedRate is IsoPercentageRate ProposedRateValue)
+        {
+            writer.WriteStartElement(null, "PropsdRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(ProposedRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (OversubscriptionRate is RateAndAmountFormat5Choice_ OversubscriptionRateValue)
+        {
+            writer.WriteStartElement(null, "OvrsbcptRate", xmlNamespace );
+            OversubscriptionRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequestedTaxationRate is RateAndAmountFormat21Choice_ RequestedTaxationRateValue)
+        {
+            writer.WriteStartElement(null, "ReqdTaxtnRate", xmlNamespace );
+            RequestedTaxationRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequestedWithholdingOfForeignTax is RateAndAmountFormat21Choice_ RequestedWithholdingOfForeignTaxValue)
+        {
+            writer.WriteStartElement(null, "ReqdWhldgOfFrgnTax", xmlNamespace );
+            RequestedWithholdingOfForeignTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequestedWithholdingOfLocalTax is RateAndAmountFormat21Choice_ RequestedWithholdingOfLocalTaxValue)
+        {
+            writer.WriteStartElement(null, "ReqdWhldgOfLclTax", xmlNamespace );
+            RequestedWithholdingOfLocalTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionRate47 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

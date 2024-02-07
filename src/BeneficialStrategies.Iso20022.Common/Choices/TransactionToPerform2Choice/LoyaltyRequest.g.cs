@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform2Choice;
 /// Content of the Loyalty Request message.
 /// </summary>
 public partial record LoyaltyRequest : TransactionToPerform2Choice_
+     , IIsoXmlSerilizable<LoyaltyRequest>
 {
     #nullable enable
+    
     /// <summary>
     /// To retrieve Card Acquisition Data.
     /// </summary>
@@ -26,6 +30,39 @@ public partial record LoyaltyRequest : TransactionToPerform2Choice_
     /// <summary>
     /// Data related to a Loyalty program or account.
     /// </summary>
-    public LoyaltyRequestData2? Data { get; init;  } // Warning: Don't know multiplicity.
+    public LoyaltyRequestData2? Data { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CustomerOrder is CustomerOrder1 CustomerOrderValue)
+        {
+            writer.WriteStartElement(null, "CstmrOrdr", xmlNamespace );
+            CustomerOrderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Tx", xmlNamespace );
+        Transaction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Data is LoyaltyRequestData2 DataValue)
+        {
+            writer.WriteStartElement(null, "Data", xmlNamespace );
+            DataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new LoyaltyRequest Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

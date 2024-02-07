@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters applied to a fractional number.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RoundingParameters1
+     : IIsoXmlSerilizable<RoundingParameters1>
 {
     #nullable enable
     
     /// <summary>
     /// Float value specifying the value to which rounding is required, eg, 10 means round to a multiple of 10 units/shares, 0.5 means round to a multiple of 0.5 units/shares.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? RoundingModulus { get; init; } 
     /// <summary>
     /// Rounding direction applied to fractional numbers, eg, round up.
     /// </summary>
-    [DataMember]
     public required RoundingDirection1Code RoundingDirection { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (RoundingModulus is IsoDecimalNumber RoundingModulusValue)
+        {
+            writer.WriteStartElement(null, "RndgMdlus", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(RoundingModulusValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RndgDrctn", xmlNamespace );
+        writer.WriteValue(RoundingDirection.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static RoundingParameters1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

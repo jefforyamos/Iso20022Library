@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the quantity of a product in a trade transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Quantity3
+     : IIsoXmlSerilizable<Quantity3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the unit of measurement. For example, kilo, tons.
     /// </summary>
-    [DataMember]
     public required UnitOfMeasure4Code UnitOfMeasureCode { get; init; } 
     /// <summary>
     /// Identifies the unit of measure not present in the code list.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OtherUnitOfMeasure { get; init; } 
     /// <summary>
     /// Quantity of a product on a line specified by a number. For example, 100 (kgs), 50 (pieces).
     /// </summary>
-    [DataMember]
     public required IsoDecimalNumber Value { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UnitOfMeasrCd", xmlNamespace );
+        writer.WriteValue(UnitOfMeasureCode.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrUnitOfMeasr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherUnitOfMeasure)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(Value)); // data type DecimalNumber System.UInt64
+        writer.WriteEndElement();
+    }
+    public static Quantity3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

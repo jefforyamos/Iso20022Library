@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the type and rate of prepayment speed of the fixed income instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PrePaymentSpeed1
+     : IIsoXmlSerilizable<PrePaymentSpeed1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of prepayment speed of the fixed income instrument in coded form.
     /// </summary>
-    [DataMember]
     public required PrePaymentSpeed1Code Type { get; init; } 
     /// <summary>
     /// Rate of prepayment speed of the fixed income instrument.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate Rate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rate", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(Rate)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+    }
+    public static PrePaymentSpeed1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

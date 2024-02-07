@@ -7,75 +7,124 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Characteristics of the statement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Statement78
+     : IIsoXmlSerilizable<Statement78>
 {
     #nullable enable
     
     /// <summary>
     /// Reference common to all pages of a statement.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text StatementIdentification { get; init; } 
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
-    [DataMember]
     public Number3Choice_? ReportNumber { get; init; } 
     /// <summary>
     /// Identification of the SecuritiesStatementQuery message sent to request this statement.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? QueryReference { get; init; } 
     /// <summary>
     /// Date and time of the statement.
     /// </summary>
-    [DataMember]
     public required DateAndDateTime2Choice_ StatementDateTime { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
-    [DataMember]
     public required Frequency22Choice_ Frequency { get; init; } 
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>
-    [DataMember]
     public required UpdateType15Choice_ UpdateType { get; init; } 
     /// <summary>
     /// Specifies whether the client is the collateral taker or giver.
     /// </summary>
-    [DataMember]
     public required CollateralRole1Code CollateralSide { get; init; } 
     /// <summary>
     /// Specifies the basis on which the statement is prepared.
     /// </summary>
-    [DataMember]
     public required StatementBasis14Choice_ StatementBasis { get; init; } 
     /// <summary>
     /// Specifies whether the transactions reported are pending or confirmed.
     /// </summary>
-    [DataMember]
     public StatementStatusType1Code? StatusType { get; init; } 
     /// <summary>
     /// Indicates whether the report is a summary.
     /// If the indicator is set to Y then the report will not contain the securities or cash balances.
     /// If the indicator is set to N then the report will contain the securities or cash balances.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator SummaryIndicator { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "StmtId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(StatementIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ReportNumber is Number3Choice_ ReportNumberValue)
+        {
+            writer.WriteStartElement(null, "RptNb", xmlNamespace );
+            ReportNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (QueryReference is IsoMax35Text QueryReferenceValue)
+        {
+            writer.WriteStartElement(null, "QryRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(QueryReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "StmtDtTm", xmlNamespace );
+        StatementDateTime.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Frqcy", xmlNamespace );
+        Frequency.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UpdTp", xmlNamespace );
+        UpdateType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CollSd", xmlNamespace );
+        writer.WriteValue(CollateralSide.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StmtBsis", xmlNamespace );
+        StatementBasis.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (StatusType is StatementStatusType1Code StatusTypeValue)
+        {
+            writer.WriteStartElement(null, "StsTp", xmlNamespace );
+            writer.WriteValue(StatusTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SummryInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SummaryIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ActvtyInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ActivityIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static Statement78 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

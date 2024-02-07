@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information such as the information to comply with.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionNarrative13
+     : IIsoXmlSerilizable<CorporateActionNarrative13>
 {
     #nullable enable
     
     /// <summary>
     /// Provides information conditions to the account owner that are to be complied with, for example, not open to US/Canadian residents, Qualified Institutional Buyers (QIB) or Sophisticated Investor Letter (SIL) to be provided.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoRestrictedFINXMax350Text> InformationToComplyWith { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax350Text? InformationToComplyWith { get; init; } 
     /// <summary>
     /// Provides additional information on the delivery details of the outturned (derived) securities. This narrative is only to be used in case the securities are not eligible at the agent/custodian, and may not be used for settlement instructions.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoRestrictedFINXMax350Text> DeliveryDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax350Text? DeliveryDetails { get; init; } 
     /// <summary>
     /// Provides additional details pertaining to foreign exchange instructions.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoRestrictedFINXMax350Text> ForeignExchangeInstructionsAdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax350Text? ForeignExchangeInstructionsAdditionalInformation { get; init; } 
     /// <summary>
     /// Disclaimer relative to the information provided in the message. It may be ignored for automated processing. No information about the instruction itself is allowed here.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoRestrictedFINXMax350Text> Disclaimer { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax350Text? Disclaimer { get; init; } 
     /// <summary>
     /// Provides additional details pertaining to the corporate action instruction.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoRestrictedFINXMax350Text> InstructionAdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax350Text? InstructionAdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (InformationToComplyWith is IsoRestrictedFINXMax350Text InformationToComplyWithValue)
+        {
+            writer.WriteStartElement(null, "InfToCmplyWth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(InformationToComplyWithValue)); // data type RestrictedFINXMax350Text System.String
+            writer.WriteEndElement();
+        }
+        if (DeliveryDetails is IsoRestrictedFINXMax350Text DeliveryDetailsValue)
+        {
+            writer.WriteStartElement(null, "DlvryDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(DeliveryDetailsValue)); // data type RestrictedFINXMax350Text System.String
+            writer.WriteEndElement();
+        }
+        if (ForeignExchangeInstructionsAdditionalInformation is IsoRestrictedFINXMax350Text ForeignExchangeInstructionsAdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "FXInstrsAddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(ForeignExchangeInstructionsAdditionalInformationValue)); // data type RestrictedFINXMax350Text System.String
+            writer.WriteEndElement();
+        }
+        if (Disclaimer is IsoRestrictedFINXMax350Text DisclaimerValue)
+        {
+            writer.WriteStartElement(null, "Dsclmr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(DisclaimerValue)); // data type RestrictedFINXMax350Text System.String
+            writer.WriteEndElement();
+        }
+        if (InstructionAdditionalInformation is IsoRestrictedFINXMax350Text InstructionAdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "InstrAddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(InstructionAdditionalInformationValue)); // data type RestrictedFINXMax350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionNarrative13 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

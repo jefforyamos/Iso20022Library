@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.GeneralBusinessOrError6Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.GeneralBusinessOrError6Choice;
 /// Requested business information.
 /// </summary>
 public partial record GeneralBusiness : GeneralBusinessOrError6Choice_
+     , IIsoXmlSerilizable<GeneralBusiness>
 {
     #nullable enable
+    
     /// <summary>
     /// Further information about the criticality or importance of a general business information system.
     /// </summary>
@@ -27,5 +31,41 @@ public partial record GeneralBusiness : GeneralBusinessOrError6Choice_
     /// General business information, in unstructured form.
     /// </summary>
     public IsoMax350Text? SubjectDetails { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Qualifier is InformationQualifierType1 QualifierValue)
+        {
+            writer.WriteStartElement(null, "Qlfr", xmlNamespace );
+            QualifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Subject is IsoMax35Text SubjectValue)
+        {
+            writer.WriteStartElement(null, "Sbjt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SubjectValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SubjectDetails is IsoMax350Text SubjectDetailsValue)
+        {
+            writer.WriteStartElement(null, "SbjtDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(SubjectDetailsValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new GeneralBusiness Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

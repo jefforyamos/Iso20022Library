@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.IntraBalanceMovementCancellationQueryV01>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// - re-send to a third party a copy of a message being sent by the account owner for information (the sub-function of the message is "Copy Duplicate").
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The IntraBalanceMovementCancellationQuery message is sent from an account owner/requestor to a settlement infrastructure to query for the status of intra-balance movement cancellation instruction(s) based on a set of search criteria or business attributes.|The message may also be used to: |- re-send a message sent by the account owner to the account servicer (the sub-function of the message is ""Duplicate"") |- provide a third party with a copy of a message being sent by the account owner for information (the sub-function of the message is ""Copy"") |- re-send to a third party a copy of a message being sent by the account owner for information (the sub-function of the message is ""Copy Duplicate"").")]
-public partial record IntraBalanceMovementCancellationQueryV01 : IOuterRecord
+public partial record IntraBalanceMovementCancellationQueryV01 : IOuterRecord<IntraBalanceMovementCancellationQueryV01,IntraBalanceMovementCancellationQueryV01Document>
+    ,IIsoXmlSerilizable<IntraBalanceMovementCancellationQueryV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record IntraBalanceMovementCancellationQueryV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "IntraBalMvmntCxlQry";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => IntraBalanceMovementCancellationQueryV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -79,6 +86,38 @@ public partial record IntraBalanceMovementCancellationQueryV01 : IOuterRecord
     {
         return new IntraBalanceMovementCancellationQueryV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("IntraBalMvmntCxlQry");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is DocumentIdentification51 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "QryDef", xmlNamespace );
+        QueryDefinition.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IntraBalanceMovementCancellationQueryV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -86,9 +125,7 @@ public partial record IntraBalanceMovementCancellationQueryV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IntraBalanceMovementCancellationQueryV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record IntraBalanceMovementCancellationQueryV01Document : IOuterDocument<IntraBalanceMovementCancellationQueryV01>
+public partial record IntraBalanceMovementCancellationQueryV01Document : IOuterDocument<IntraBalanceMovementCancellationQueryV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -104,5 +141,22 @@ public partial record IntraBalanceMovementCancellationQueryV01Document : IOuterD
     /// <summary>
     /// The instance of <seealso cref="IntraBalanceMovementCancellationQueryV01"/> is required.
     /// </summary>
+    [DataMember(Name=IntraBalanceMovementCancellationQueryV01.XmlTag)]
     public required IntraBalanceMovementCancellationQueryV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(IntraBalanceMovementCancellationQueryV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account to or from which a cash entry is made.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashAccount35
+     : IIsoXmlSerilizable<CashAccount35>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Specifies the nature, or use, of the cash account.
     /// </summary>
-    [DataMember]
     public CashAccountType2Choice_? Type { get; init; } 
     /// <summary>
     /// Specifies the currency of the cash account.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Maximum amount value applied to or by a participant versus a set of counterparts. The multilateral system is taken into account by the transaction administrator to contain the risk in the system.|With the help of the multilateral limit, the direct participant restricts the use of liquidity when clearing payments with all other direct participants for whom no bilateral limit was set.
     /// </summary>
-    [DataMember]
     public Limit5? CurrentMultilateralLimit { get; init; } 
     /// <summary>
     /// Owner of the account which is being queried.
     /// </summary>
-    [DataMember]
     public PartyIdentification125? Owner { get; init; } 
     /// <summary>
     /// Servicer of the account which is being queried.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? Servicer { get; init; } 
     /// <summary>
     /// Balance is calculated with regard to many members in the system.
     /// </summary>
-    [DataMember]
-    public ValueList<CashBalance10> MultilateralBalance { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashBalance10? MultilateralBalance { get; init; } 
     /// <summary>
     /// Limit fixed by a party A with regard to a specific counterparty B and corresponding to the maximum amount of traffic that party A may send to party B. The bilateral limit can be expressed as a debit limit or a credit limit. |With the help of a bilateral limit, the direct participant restricts the use of liquidity when clearing payments with another direct participant.
     /// </summary>
-    [DataMember]
-    public ValueList<BilateralLimit2> CurrentBilateralLimit { get; init; } = []; // Warning: Don't know multiplicity.
+    public BilateralLimit2? CurrentBilateralLimit { get; init; } 
     /// <summary>
     /// Instruction given by a party that has explicit authority to instruct a debit on the account, that is either the debtor or originating party, to the debtor agent, to process liquidity transfers at specified intervals during an implicit or explicit period of time. A standing order is given once and is valid for an open or closed period of time.
     /// </summary>
-    [DataMember]
-    public ValueList<StandingOrder2> StandingOrder { get; init; } = []; // Warning: Don't know multiplicity.
+    public StandingOrder2? StandingOrder { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax70Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Type is CashAccountType2Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveOrHistoricCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CurrentMultilateralLimit is Limit5 CurrentMultilateralLimitValue)
+        {
+            writer.WriteStartElement(null, "CurMulLmt", xmlNamespace );
+            CurrentMultilateralLimitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Owner is PartyIdentification125 OwnerValue)
+        {
+            writer.WriteStartElement(null, "Ownr", xmlNamespace );
+            OwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Servicer is BranchAndFinancialInstitutionIdentification5 ServicerValue)
+        {
+            writer.WriteStartElement(null, "Svcr", xmlNamespace );
+            ServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MultilateralBalance is CashBalance10 MultilateralBalanceValue)
+        {
+            writer.WriteStartElement(null, "MulBal", xmlNamespace );
+            MultilateralBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CurrentBilateralLimit is BilateralLimit2 CurrentBilateralLimitValue)
+        {
+            writer.WriteStartElement(null, "CurBilLmt", xmlNamespace );
+            CurrentBilateralLimitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StandingOrder is StandingOrder2 StandingOrderValue)
+        {
+            writer.WriteStartElement(null, "StgOrdr", xmlNamespace );
+            StandingOrderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CashAccount35 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

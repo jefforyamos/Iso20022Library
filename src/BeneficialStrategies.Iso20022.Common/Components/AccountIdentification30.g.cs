@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the account expressed with a data source scheme.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountIdentification30
+     : IIsoXmlSerilizable<AccountIdentification30>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of account.
     /// </summary>
-    [DataMember]
     public required AccountInformationType1Code AccountType { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public required AccountIdentification26 Identification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AcctTp", xmlNamespace );
+        writer.WriteValue(AccountType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static AccountIdentification30 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

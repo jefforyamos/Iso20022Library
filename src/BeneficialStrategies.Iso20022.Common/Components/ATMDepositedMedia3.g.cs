@@ -7,33 +7,59 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Deposited media put in the safe.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMDepositedMedia3
+     : IIsoXmlSerilizable<ATMDepositedMedia3>
 {
     #nullable enable
     
     /// <summary>
     /// Type of deposited media.
     /// </summary>
-    [DataMember]
     public required ATMMediaType2Code MediaType { get; init; } 
     /// <summary>
     /// Category of deposited media items.
     /// </summary>
-    [DataMember]
     public ATMMediaType3Code? MediaCategory { get; init; } 
     /// <summary>
     /// Media item that are deposited.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMDepositedMedia2> MediaItems { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMDepositedMedia2? MediaItems { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _sB7at64QEeWZgJQOa6iKCQ
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MdiaTp", xmlNamespace );
+        writer.WriteValue(MediaType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (MediaCategory is ATMMediaType3Code MediaCategoryValue)
+        {
+            writer.WriteStartElement(null, "MdiaCtgy", xmlNamespace );
+            writer.WriteValue(MediaCategoryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize MediaItems, multiplicity Unknown
+    }
+    public static ATMDepositedMedia3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

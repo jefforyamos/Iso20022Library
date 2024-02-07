@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.CorporateActionInstructionStatusAdvice002V10>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate), using the relevant elements in the business application header (BAH).
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The CorporateActionInstructionStatusAdvice message is sent by an account servicer to an account owner or its designated agent, to report status of a received corporate action election instruction.||This message is used to advise the status, or a change in status, of a corporate action-related transaction previously instructed by, or executed on behalf of, the account owner. This will include the acknowledgement/rejection of a corporate action instruction.|Usage|The message may also be used to:|- re-send a message previously sent (the sub-function of the message is Duplicate),|- provide a third party with a copy of a message for information (the sub-function of the message is Copy),|- re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate), using the relevant elements in the business application header (BAH).")]
-public partial record CorporateActionInstructionStatusAdvice002V10 : IOuterRecord
+public partial record CorporateActionInstructionStatusAdvice002V10 : IOuterRecord<CorporateActionInstructionStatusAdvice002V10,CorporateActionInstructionStatusAdvice002V10Document>
+    ,IIsoXmlSerilizable<CorporateActionInstructionStatusAdvice002V10>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record CorporateActionInstructionStatusAdvice002V10 : IOuterRecor
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "CorpActnInstrStsAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CorporateActionInstructionStatusAdvice002V10Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -128,6 +135,65 @@ public partial record CorporateActionInstructionStatusAdvice002V10 : IOuterRecor
     {
         return new CorporateActionInstructionStatusAdvice002V10Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("CorpActnInstrStsAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (InstructionIdentification is DocumentIdentification17 InstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "InstrId", xmlNamespace );
+            InstructionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherDocumentIdentification is DocumentIdentification34 OtherDocumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OthrDocId", xmlNamespace );
+            OtherDocumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+        CorporateActionGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InstrPrcgSts", xmlNamespace );
+        InstructionProcessingStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CorporateActionInstruction is CorporateActionOption156 CorporateActionInstructionValue)
+        {
+            writer.WriteStartElement(null, "CorpActnInstr", xmlNamespace );
+            CorporateActionInstructionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProtectInstruction is ProtectInstruction6 ProtectInstructionValue)
+        {
+            writer.WriteStartElement(null, "PrtctInstr", xmlNamespace );
+            ProtectInstructionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is CorporateActionNarrative19 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionInstructionStatusAdvice002V10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -135,9 +201,7 @@ public partial record CorporateActionInstructionStatusAdvice002V10 : IOuterRecor
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CorporateActionInstructionStatusAdvice002V10"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CorporateActionInstructionStatusAdvice002V10Document : IOuterDocument<CorporateActionInstructionStatusAdvice002V10>
+public partial record CorporateActionInstructionStatusAdvice002V10Document : IOuterDocument<CorporateActionInstructionStatusAdvice002V10>, IXmlSerializable
 {
     
     /// <summary>
@@ -153,5 +217,22 @@ public partial record CorporateActionInstructionStatusAdvice002V10Document : IOu
     /// <summary>
     /// The instance of <seealso cref="CorporateActionInstructionStatusAdvice002V10"/> is required.
     /// </summary>
+    [DataMember(Name=CorporateActionInstructionStatusAdvice002V10.XmlTag)]
     public required CorporateActionInstructionStatusAdvice002V10 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CorporateActionInstructionStatusAdvice002V10.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

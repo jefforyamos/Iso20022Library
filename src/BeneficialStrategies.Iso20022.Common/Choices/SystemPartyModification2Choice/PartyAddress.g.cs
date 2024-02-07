@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification2Choice;
 /// Information that locates and identifies a specific address, as defined by postal services.
 /// </summary>
 public partial record PartyAddress : SystemPartyModification2Choice_
+     , IIsoXmlSerilizable<PartyAddress>
 {
     #nullable enable
+    
     /// <summary>
     /// Identifies the nature of the postal address.
     /// </summary>
@@ -78,10 +82,127 @@ public partial record PartyAddress : SystemPartyModification2Choice_
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services, presented in free format text.
     /// </summary>
-    public IReadOnlyCollection<IsoMax70Text> AddressLine { get; init; } = [];
+    public SimpleValueList<IsoMax70Text> AddressLine { get; init; } = [];
     /// <summary>
     /// Specifies the date from which the address is valid.
     /// </summary>
     public IsoISODate? ValidFrom { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AddressType is AddressType3Choice_ AddressTypeValue)
+        {
+            writer.WriteStartElement(null, "AdrTp", xmlNamespace );
+            AddressTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Department is IsoMax70Text DepartmentValue)
+        {
+            writer.WriteStartElement(null, "Dept", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(DepartmentValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (SubDepartment is IsoMax70Text SubDepartmentValue)
+        {
+            writer.WriteStartElement(null, "SubDept", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(SubDepartmentValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (StreetName is IsoMax70Text StreetNameValue)
+        {
+            writer.WriteStartElement(null, "StrtNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(StreetNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (BuildingNumber is IsoMax16Text BuildingNumberValue)
+        {
+            writer.WriteStartElement(null, "BldgNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax16Text(BuildingNumberValue)); // data type Max16Text System.String
+            writer.WriteEndElement();
+        }
+        if (BuildingName is IsoMax35Text BuildingNameValue)
+        {
+            writer.WriteStartElement(null, "BldgNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(BuildingNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Floor is IsoMax70Text FloorValue)
+        {
+            writer.WriteStartElement(null, "Flr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(FloorValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (PostBox is IsoMax16Text PostBoxValue)
+        {
+            writer.WriteStartElement(null, "PstBx", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax16Text(PostBoxValue)); // data type Max16Text System.String
+            writer.WriteEndElement();
+        }
+        if (Room is IsoMax70Text RoomValue)
+        {
+            writer.WriteStartElement(null, "Room", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(RoomValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (PostCode is IsoMax16Text PostCodeValue)
+        {
+            writer.WriteStartElement(null, "PstCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax16Text(PostCodeValue)); // data type Max16Text System.String
+            writer.WriteEndElement();
+        }
+        if (TownName is IsoMax35Text TownNameValue)
+        {
+            writer.WriteStartElement(null, "TwnNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TownNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TownLocationName is IsoMax35Text TownLocationNameValue)
+        {
+            writer.WriteStartElement(null, "TwnLctnNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TownLocationNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DistrictName is IsoMax35Text DistrictNameValue)
+        {
+            writer.WriteStartElement(null, "DstrctNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DistrictNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CountrySubDivision is IsoMax35Text CountrySubDivisionValue)
+        {
+            writer.WriteStartElement(null, "CtrySubDvsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CountrySubDivisionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Country is CountryCode CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(CountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AdrLine", xmlNamespace );
+        AddressLine.Serialize(writer, xmlNamespace, "Max70Text", SerializationFormatter.IsoMax70Text );
+        writer.WriteEndElement();
+        if (ValidFrom is IsoISODate ValidFromValue)
+        {
+            writer.WriteStartElement(null, "VldFr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ValidFromValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static new PartyAddress Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

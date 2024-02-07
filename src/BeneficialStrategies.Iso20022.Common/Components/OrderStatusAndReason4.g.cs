@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status report of a bulk or multiple or switch order cancellation instruction that was previously received.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OrderStatusAndReason4
+     : IIsoXmlSerilizable<OrderStatusAndReason4>
 {
     #nullable enable
     
     /// <summary>
     /// Status of the order.
     /// </summary>
-    [DataMember]
     public required OrderStatus3Code Status { get; init; } 
     /// <summary>
     /// Status of the order is rejected.
     /// </summary>
-    [DataMember]
     public required RejectedStatus4 Rejected { get; init; } 
     /// <summary>
     /// Party that initiates the status of the order.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? StatusInitiator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rjctd", xmlNamespace );
+        Rejected.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (StatusInitiator is PartyIdentification2Choice_ StatusInitiatorValue)
+        {
+            writer.WriteStartElement(null, "StsInitr", xmlNamespace );
+            StatusInitiatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OrderStatusAndReason4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

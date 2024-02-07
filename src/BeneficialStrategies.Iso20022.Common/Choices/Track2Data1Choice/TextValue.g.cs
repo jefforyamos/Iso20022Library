@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Track2Data1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.Track2Data1Choice;
 /// Value of track 2 data expressed in text form.
 /// </summary>
 public partial record TextValue : Track2Data1Choice_
+     , IIsoXmlSerilizable<TextValue>
 {
-    public required IsoMax37Text Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a character string with a maximum length of 37 characters.
+    /// </summary>
+    public required IsoMax37Text Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxtVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax37Text(Value)); // data type Max37Text System.String
+        writer.WriteEndElement();
+    }
+    public static new TextValue Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

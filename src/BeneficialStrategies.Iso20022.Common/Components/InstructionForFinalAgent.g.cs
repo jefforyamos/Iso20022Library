@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Further information related to the processing of the payment instruction, provided by the initiating party, and intended for the final agent.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InstructionForFinalAgent
+     : IIsoXmlSerilizable<InstructionForFinalAgent>
 {
     #nullable enable
     
     /// <summary>
     /// Further information related to the processing of the payment instruction, provided by the initiating party, and intended for the final agent, in coded form.
     /// </summary>
-    [DataMember]
-    public ValueList<Instruction3Code> Code { get; init; } = [];
+    public SimpleValueList<Instruction3Code> Code { get; init; } = [];
     /// <summary>
     /// Instruction to the final agent that is specific to a user community and is required for use within that user community.||Usage: The proprietary element should only be used when the coded element does not provide sufficient codes or when the selected code in the coded element needs to be supplemented by additional information such as a passport number or telephone number.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Proprietary { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Proprietary is IsoMax140Text ProprietaryValue)
+        {
+            writer.WriteStartElement(null, "Prtry", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(ProprietaryValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static InstructionForFinalAgent Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

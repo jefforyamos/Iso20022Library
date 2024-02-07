@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Taxable service charge amount conversions to host currency.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BillingServicesAmount1
+     : IIsoXmlSerilizable<BillingServicesAmount1>
 {
     #nullable enable
     
     /// <summary>
     /// Sum of all the individual taxes on the service expressed in the host currency.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection34 HostAmount { get; init; } 
     /// <summary>
     /// Amount of the tax obligation expressed in the tax region's pricing currency.|Usage: This is the same amount as carried in the host amount but allows the sender to optionally express the value in the pricing currency.
     /// </summary>
-    [DataMember]
     public AmountAndDirection34? PricingAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "HstAmt", xmlNamespace );
+        HostAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PricingAmount is AmountAndDirection34 PricingAmountValue)
+        {
+            writer.WriteStartElement(null, "PricgAmt", xmlNamespace );
+            PricingAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BillingServicesAmount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

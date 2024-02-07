@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentification2Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// (United States) Clearing House Interbank Payment System (CHIPS) Participant Identifier (ID) - identifies financial institutions participating on CHIPS. The CHIPS Participant ID is assigned by the New York Clearing House.
 /// </summary>
 public partial record CHIPSParticipantIdentification : ClearingSystemMemberIdentification2Choice_
+     , IIsoXmlSerilizable<CHIPSParticipantIdentification>
 {
-    public required IsoCHIPSParticipantIdentifier Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// (United States) Clearing House Interbank Payment System (CHIPS) Participant Identifier (ID). Identifies financial institutions participating on CHIPS. The CHIPS Participant ID is assigned by the New York Clearing House.
+    /// </summary>
+    public required IsoCHIPSParticipantIdentifier Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "USCH", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCHIPSParticipantIdentifier(Value)); // data type CHIPSParticipantIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static new CHIPSParticipantIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

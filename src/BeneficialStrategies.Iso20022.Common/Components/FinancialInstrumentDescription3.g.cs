@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Description of the financial instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrumentDescription3
+     : IIsoXmlSerilizable<FinancialInstrumentDescription3>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification7 SecurityIdentification { get; init; } 
     /// <summary>
     /// Place where the referenced financial instrument is listed.
     /// </summary>
-    [DataMember]
     public IsoMICIdentifier? PlaceOfListing { get; init; } 
     /// <summary>
     /// Identification of the place of safekeeping.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? SafekeepingPlace { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SctyId", xmlNamespace );
+        SecurityIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PlaceOfListing is IsoMICIdentifier PlaceOfListingValue)
+        {
+            writer.WriteStartElement(null, "PlcOfListg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(PlaceOfListingValue)); // data type MICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (SafekeepingPlace is PartyIdentification2Choice_ SafekeepingPlaceValue)
+        {
+            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
+            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstrumentDescription3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ClearingExceptionOrExemption3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingExceptionOrExemption3Cho
 /// Set of information specific to counterparties.
 /// </summary>
 public partial record Counterparties : ClearingExceptionOrExemption3Choice_
+     , IIsoXmlSerilizable<Counterparties>
 {
     #nullable enable
+    
     /// <summary>
     /// Identifies the type of clearing exemption or exception that the reporting counterparty has elected.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record Counterparties : ClearingExceptionOrExemption3Choice_
     /// Identifies the type of clearing exemption or exception that the other counterparty has elected.
     /// </summary>
     public NonClearingReason2? OtherCounterparty { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptgCtrPty", xmlNamespace );
+        ReportingCounterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OtherCounterparty is NonClearingReason2 OtherCounterpartyValue)
+        {
+            writer.WriteStartElement(null, "OthrCtrPty", xmlNamespace );
+            OtherCounterpartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Counterparties Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

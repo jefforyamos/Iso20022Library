@@ -7,58 +7,110 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Fees not included in the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalFee2
+     : IIsoXmlSerilizable<AdditionalFee2>
 {
     #nullable enable
     
     /// <summary>
     /// Type or class of fee.
     /// </summary>
-    [DataMember]
     public required TypeOfAmount21Code Type { get; init; } 
     /// <summary>
     /// Additional information to specify the type of amount of fee.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Identification of fee program.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? FeeProgram { get; init; } 
     /// <summary>
     /// Identification of specific fee.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? FeeDescriptor { get; init; } 
     /// <summary>
     /// Amount of one occurrence of the fee amount.
     /// </summary>
-    [DataMember]
     public required FeeAmount3 FeeAmount { get; init; } 
     /// <summary>
     /// Contains the fee amount in reconciliation currency.
     /// </summary>
-    [DataMember]
     public FeeAmount3? FeeReconciliationAmount { get; init; } 
     /// <summary>
     /// Short description of the fee amount.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherType is IsoMax35Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (FeeProgram is IsoMax35Text FeeProgramValue)
+        {
+            writer.WriteStartElement(null, "FeePrgm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(FeeProgramValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (FeeDescriptor is IsoMax35Text FeeDescriptorValue)
+        {
+            writer.WriteStartElement(null, "FeeDscrptr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(FeeDescriptorValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FeeAmt", xmlNamespace );
+        FeeAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FeeReconciliationAmount is FeeAmount3 FeeReconciliationAmountValue)
+        {
+            writer.WriteStartElement(null, "FeeRcncltnAmt", xmlNamespace );
+            FeeReconciliationAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Description is IsoMax140Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(DescriptionValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AdditionalFee2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information identifying the disclosure request for shareholders identification published by the issuer or third party nominated by the issuer in order to receive the disclosure responses from intermediaries in the custody chain.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DisclosureRequestIdentification1
+     : IIsoXmlSerilizable<DisclosureRequestIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Official and unique reference assigned to a shareholders identification disclosure request process by the issuer or third party nominated by him.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text IssuerDisclosureRequestIdentification { get; init; } 
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Date set by the issuer on which shareholders identity is determined based on the settled positions struck in the books of the Issuer CSD or any other first intermediary at the close of business day. 
     /// </summary>
-    [DataMember]
     public required DateFormat46Choice_ ShareholdersDisclosureRecordDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IssrDsclsrReqId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerDisclosureRequestIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ShrhldrsDsclsrRcrdDt", xmlNamespace );
+        ShareholdersDisclosureRecordDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static DisclosureRequestIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

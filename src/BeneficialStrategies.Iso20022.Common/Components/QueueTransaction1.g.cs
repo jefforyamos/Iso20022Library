@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Transaction summmary details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record QueueTransaction1
+     : IIsoXmlSerilizable<QueueTransaction1>
 {
     #nullable enable
     
     /// <summary>
     /// Account owner identification such as BIC.
     /// </summary>
-    [DataMember]
     public required FinancialInstitutionIdentification8 AccountOwner { get; init; } 
     /// <summary>
     /// Identification of the account such as IBAN or local identifier.
     /// </summary>
-    [DataMember]
     public required AccountIdentification4Choice_ Account { get; init; } 
     /// <summary>
     /// Number of transaction per counterparty.
     /// </summary>
-    [DataMember]
     public IsoNumber? NumberOfTransactions { get; init; } 
     /// <summary>
     /// Aggregated amount of the transactions per counterparty.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+        AccountOwner.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Acct", xmlNamespace );
+        Account.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (NumberOfTransactions is IsoNumber NumberOfTransactionsValue)
+        {
+            writer.WriteStartElement(null, "NbOfTxs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfTransactionsValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static QueueTransaction1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

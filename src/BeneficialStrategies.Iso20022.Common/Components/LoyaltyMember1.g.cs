@@ -7,73 +7,146 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details about a member of a loyalty programme.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LoyaltyMember1
+     : IIsoXmlSerilizable<LoyaltyMember1>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the member of the loyalty programme.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     /// <summary>
     /// Address of the loyalty member.
     /// </summary>
-    [DataMember]
     public Address1? Address { get; init; } 
     /// <summary>
     /// Identification of the member of the loyalty programme.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Status of the loyalty programme member for the programme.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MemberStatus { get; init; } 
     /// <summary>
     /// Expiration date of the loyalty programme.
     /// </summary>
-    [DataMember]
     public IsoISODate? ExpirationDate { get; init; } 
     /// <summary>
     /// Value expressed in type of value for the loyalty programme.
     /// </summary>
-    [DataMember]
     public IsoMax10NumericText? LoyaltyValue { get; init; } 
     /// <summary>
     /// Type of value used for the loyalty programme.
     /// </summary>
-    [DataMember]
     public LoyaltyValueType1Code? LoyaltyValueType { get; init; } 
     /// <summary>
     /// Other type of loyalty value used for the programme.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherLoyaltyValueType { get; init; } 
     /// <summary>
     /// Value to be credited on the account of the loyalty programme member. Computed on the monetary part actually paid by the customer for the service.
     /// </summary>
-    [DataMember]
     public IsoMax10NumericText? ValueToCredit { get; init; } 
     /// <summary>
     /// Value to be debited from the account of the loyalty programme member. Computed on the monetary part actually redeemed by the customer for the service.
     /// </summary>
-    [DataMember]
     public IsoMax10NumericText? ValueToDebit { get; init; } 
     /// <summary>
     /// Value on the account of the loyalty programme member after credit (computation on actual payment in monetary value) and debit (redemption in loyalty value).
     /// </summary>
-    [DataMember]
     public IsoMax10NumericText? Balance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax35Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Address is Address1 AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Identification is IsoMax35Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MemberStatus is IsoMax35Text MemberStatusValue)
+        {
+            writer.WriteStartElement(null, "MmbSts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MemberStatusValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ExpirationDate is IsoISODate ExpirationDateValue)
+        {
+            writer.WriteStartElement(null, "XprtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExpirationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (LoyaltyValue is IsoMax10NumericText LoyaltyValueValue)
+        {
+            writer.WriteStartElement(null, "LltyVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10NumericText(LoyaltyValueValue)); // data type Max10NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (LoyaltyValueType is LoyaltyValueType1Code LoyaltyValueTypeValue)
+        {
+            writer.WriteStartElement(null, "LltyValTp", xmlNamespace );
+            writer.WriteValue(LoyaltyValueTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherLoyaltyValueType is IsoMax35Text OtherLoyaltyValueTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrLltyValTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherLoyaltyValueTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ValueToCredit is IsoMax10NumericText ValueToCreditValue)
+        {
+            writer.WriteStartElement(null, "ValToCdt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10NumericText(ValueToCreditValue)); // data type Max10NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (ValueToDebit is IsoMax10NumericText ValueToDebitValue)
+        {
+            writer.WriteStartElement(null, "ValToDbt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10NumericText(ValueToDebitValue)); // data type Max10NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (Balance is IsoMax10NumericText BalanceValue)
+        {
+            writer.WriteStartElement(null, "Bal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10NumericText(BalanceValue)); // data type Max10NumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static LoyaltyMember1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

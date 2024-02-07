@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Regulatory information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RegulatoryInformation1
+     : IIsoXmlSerilizable<RegulatoryInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Sector of economic activity, for example, SAE in the Italian market.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Sector { get; init; } 
     /// <summary>
     /// Branch of economic activity, for example, RAE in the Italian market.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Branch { get; init; } 
     /// <summary>
     /// Group of economic activity, for example, a code issued by a regulator.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Group { get; init; } 
     /// <summary>
     /// Other regulatory information.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Other { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Sector is IsoMax35Text SectorValue)
+        {
+            writer.WriteStartElement(null, "Sctr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SectorValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Branch is IsoMax35Text BranchValue)
+        {
+            writer.WriteStartElement(null, "Brnch", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(BranchValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Group is IsoMax35Text GroupValue)
+        {
+            writer.WriteStartElement(null, "Grp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(GroupValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Other is IsoMax35Text OtherValue)
+        {
+            writer.WriteStartElement(null, "Othr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static RegulatoryInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

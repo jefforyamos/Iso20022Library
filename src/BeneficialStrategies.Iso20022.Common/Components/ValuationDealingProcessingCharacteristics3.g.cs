@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Valuation dealing processing characteristics linked to the instrument, that is, not to the market.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ValuationDealingProcessingCharacteristics3
+     : IIsoXmlSerilizable<ValuationDealingProcessingCharacteristics3>
 {
     #nullable enable
     
     /// <summary>
     /// Frequency of the valuation.
     /// </summary>
-    [DataMember]
     public EventFrequency5Code? ValuationFrequency { get; init; } 
     /// <summary>
     /// Further details regarding the dealing frequency, for example, Tuesday (for weekly dealing) or last business day of the month.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? ValuationFrequencyDescription { get; init; } 
     /// <summary>
     /// Valuation time of the fund.
     /// </summary>
-    [DataMember]
     public IsoISOTime? ValuationTime { get; init; } 
     /// <summary>
     /// Number of decimal places to which quantities of units/shares are rounded.
     /// </summary>
-    [DataMember]
     public IsoNumber? DecimalisationUnits { get; init; } 
     /// <summary>
     /// Number of decimal places to which the price is rounded.
     /// </summary>
-    [DataMember]
     public IsoNumber? DecimalisationPrice { get; init; } 
     /// <summary>
     /// Indicates whether the fund has two prices.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? DualFundIndicator { get; init; } 
     /// <summary>
     /// Type of pricing calculation method.
     /// </summary>
-    [DataMember]
     public PriceMethod1Code? PriceMethod { get; init; } 
     /// <summary>
     /// Currencies in which the prices for the investment fund class are published by the fund management company.
     /// </summary>
-    [DataMember]
-    public ValueList<ActiveCurrencyCode> PriceCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    public ActiveCurrencyCode? PriceCurrency { get; init; } 
     /// <summary>
     /// Additional information about the valuation dealing characteristics.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ValuationFrequency is EventFrequency5Code ValuationFrequencyValue)
+        {
+            writer.WriteStartElement(null, "ValtnFrqcy", xmlNamespace );
+            writer.WriteValue(ValuationFrequencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ValuationFrequencyDescription is IsoMax350Text ValuationFrequencyDescriptionValue)
+        {
+            writer.WriteStartElement(null, "ValtnFrqcyDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(ValuationFrequencyDescriptionValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (ValuationTime is IsoISOTime ValuationTimeValue)
+        {
+            writer.WriteStartElement(null, "ValtnTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(ValuationTimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+        if (DecimalisationUnits is IsoNumber DecimalisationUnitsValue)
+        {
+            writer.WriteStartElement(null, "DcmlstnUnits", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(DecimalisationUnitsValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (DecimalisationPrice is IsoNumber DecimalisationPriceValue)
+        {
+            writer.WriteStartElement(null, "DcmlstnPric", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(DecimalisationPriceValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (DualFundIndicator is IsoYesNoIndicator DualFundIndicatorValue)
+        {
+            writer.WriteStartElement(null, "DualFndInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DualFundIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PriceMethod is PriceMethod1Code PriceMethodValue)
+        {
+            writer.WriteStartElement(null, "PricMtd", xmlNamespace );
+            writer.WriteValue(PriceMethodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PriceCurrency is ActiveCurrencyCode PriceCurrencyValue)
+        {
+            writer.WriteStartElement(null, "PricCcy", xmlNamespace );
+            writer.WriteValue(PriceCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ValuationDealingProcessingCharacteristics3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

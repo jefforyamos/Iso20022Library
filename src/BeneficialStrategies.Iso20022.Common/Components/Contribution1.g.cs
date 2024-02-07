@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information such as the contribution account identification or the requirement amount.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Contribution1
+     : IIsoXmlSerilizable<Contribution1>
 {
     #nullable enable
     
     /// <summary>
     /// Segregation done by the central counterparty based on trading venues/products or other attributes.
     /// </summary>
-    [DataMember]
     public AccountIdentification4Choice_? Account { get; init; } 
     /// <summary>
     /// Total contribution required by the clearing member to participate to the default fund.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount RequiredAmount { get; init; } 
     /// <summary>
     /// Additional amount that the clearing member will have to provide to cover a risk increase. This results from a risk management decision depending on central counterparty specific criteria.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? IncreaseCoverageAmount { get; init; } 
     /// <summary>
     /// Provides the identification for the non-clearing member.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount31? NonClearingMember { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Account is AccountIdentification4Choice_ AccountValue)
+        {
+            writer.WriteStartElement(null, "Acct", xmlNamespace );
+            AccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ReqrdAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(RequiredAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (IncreaseCoverageAmount is IsoActiveCurrencyAndAmount IncreaseCoverageAmountValue)
+        {
+            writer.WriteStartElement(null, "IncrCvrgAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(IncreaseCoverageAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (NonClearingMember is PartyIdentificationAndAccount31 NonClearingMemberValue)
+        {
+            writer.WriteStartElement(null, "NonClrMmb", xmlNamespace );
+            NonClearingMemberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Contribution1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

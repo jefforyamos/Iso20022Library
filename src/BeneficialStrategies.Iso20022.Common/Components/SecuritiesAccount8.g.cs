@@ -7,58 +7,110 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the securities account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesAccount8
+     : IIsoXmlSerilizable<SecuritiesAccount8>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the value is a debit or credit.
     /// </summary>
-    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Identification of the party that owns the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Idenfitication of the account where financial instruments are maintained.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text AccountIdentification { get; init; } 
     /// <summary>
     /// Type of balance.
     /// </summary>
-    [DataMember]
     public SecuritiesBalanceType10FormatChoice_? BalanceType { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    [DataMember]
     public CorporateActionOption1FormatChoice_? OptionType { get; init; } 
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    [DataMember]
     public IsoExact3NumericText? OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the form of the financial instrument.
     /// </summary>
-    [DataMember]
     public FormOfSecurity1Code? SecurityHoldingForm { get; init; } 
     /// <summary>
     /// Specifies if the stamp duty is applicable.
     /// </summary>
-    [DataMember]
     public StampDutyType1FormatChoice_? StampDuty { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AccountOwnerIdentification is PartyIdentification2Choice_ AccountOwnerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnrId", xmlNamespace );
+            AccountOwnerIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AcctId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (BalanceType is SecuritiesBalanceType10FormatChoice_ BalanceTypeValue)
+        {
+            writer.WriteStartElement(null, "BalTp", xmlNamespace );
+            BalanceTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionType is CorporateActionOption1FormatChoice_ OptionTypeValue)
+        {
+            writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+            OptionTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionNumber is IsoExact3NumericText OptionNumberValue)
+        {
+            writer.WriteStartElement(null, "OptnNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact3NumericText(OptionNumberValue)); // data type Exact3NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (SecurityHoldingForm is FormOfSecurity1Code SecurityHoldingFormValue)
+        {
+            writer.WriteStartElement(null, "SctyHldgForm", xmlNamespace );
+            writer.WriteValue(SecurityHoldingFormValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (StampDuty is StampDutyType1FormatChoice_ StampDutyValue)
+        {
+            writer.WriteStartElement(null, "StmpDty", xmlNamespace );
+            StampDutyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesAccount8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

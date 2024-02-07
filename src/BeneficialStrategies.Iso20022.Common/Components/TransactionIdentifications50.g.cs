@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique identifier of a document, message or transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionIdentifications50
+     : IIsoXmlSerilizable<TransactionIdentifications50>
 {
     #nullable enable
     
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account servicer.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax16Text? AccountServicerTransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax16Text? MarketInfrastructureTransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of a counterparty transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax16Text? CounterpartyMarketInfrastructureTransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the transaction assigned by the processor of the instruction other than the account owner the account servicer and the market infrastructure.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax16Text? ProcessorTransactionIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account owner (or the instructing party managing the account).
     /// </summary>
-    [DataMember]
     public required References59Choice_ AccountOwnerTransactionIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountServicerTransactionIdentification is IsoRestrictedFINXMax16Text AccountServicerTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcrTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(AccountServicerTransactionIdentificationValue)); // data type RestrictedFINXMax16Text System.String
+            writer.WriteEndElement();
+        }
+        if (MarketInfrastructureTransactionIdentification is IsoRestrictedFINXMax16Text MarketInfrastructureTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MktInfrstrctrTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(MarketInfrastructureTransactionIdentificationValue)); // data type RestrictedFINXMax16Text System.String
+            writer.WriteEndElement();
+        }
+        if (CounterpartyMarketInfrastructureTransactionIdentification is IsoRestrictedFINXMax16Text CounterpartyMarketInfrastructureTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyMktInfrstrctrTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(CounterpartyMarketInfrastructureTransactionIdentificationValue)); // data type RestrictedFINXMax16Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProcessorTransactionIdentification is IsoRestrictedFINXMax16Text ProcessorTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrcrTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(ProcessorTransactionIdentificationValue)); // data type RestrictedFINXMax16Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AcctOwnrTxId", xmlNamespace );
+        AccountOwnerTransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static TransactionIdentifications50 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

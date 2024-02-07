@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed statistics on derivatives submitted for reconciliation per group of derivative contract.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReconciliationStatisticsPerDerivativeContractGroup3
+     : IIsoXmlSerilizable<ReconciliationStatisticsPerDerivativeContractGroup3>
 {
     #nullable enable
     
     /// <summary>
     /// Detailed statistics on privately traded over-the-counter derivatives.
     /// </summary>
-    [DataMember]
     public required ReconciliationStatisticsPerDerivativeType3 OTC { get; init; } 
     /// <summary>
     /// Detailed statistics on exchange-traded derivatives.
     /// </summary>
-    [DataMember]
     public required ReconciliationStatisticsPerDerivativeType3 ETD { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OTC", xmlNamespace );
+        OTC.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ETD", xmlNamespace );
+        ETD.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ReconciliationStatisticsPerDerivativeContractGroup3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

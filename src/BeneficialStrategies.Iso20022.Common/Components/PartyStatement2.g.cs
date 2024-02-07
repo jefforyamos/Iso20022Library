@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides system date for all of the changes occurred for an entity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyStatement2
+     : IIsoXmlSerilizable<PartyStatement2>
 {
     #nullable enable
     
     /// <summary>
     /// Date for which the statement is valid.
     /// </summary>
-    [DataMember]
     public required IsoISODate SystemDate { get; init; } 
     /// <summary>
     /// Provides information on the actual change occurred to a party.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyReferenceDataChange2> Change { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyReferenceDataChange2? Change { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SysDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(SystemDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (Change is PartyReferenceDataChange2 ChangeValue)
+        {
+            writer.WriteStartElement(null, "Chng", xmlNamespace );
+            ChangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyStatement2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

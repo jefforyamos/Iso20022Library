@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the identification of the reported party through the name and the location.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NameAndLocation1
+     : IIsoXmlSerilizable<NameAndLocation1>
 {
     #nullable enable
     
     /// <summary>
     /// Internal name of the counterparty of the reporting agent used by the reporting agent.
     /// </summary>
-    [DataMember]
     public required IsoMax70Text Name { get; init; } 
     /// <summary>
     /// Location of the country in which the counterparty is incorporated.
     /// </summary>
-    [DataMember]
     public required CountryCode Location { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(Name)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Lctn", xmlNamespace );
+        writer.WriteValue(Location.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static NameAndLocation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

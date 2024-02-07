@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.DebitAuthorisationResponseV05>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// - must be used exclusively between the account owner and the account servicing institution. It must not be used in place of a Resolution Of Investigation message between subsequent agents.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The DebitAuthorisationResponse message is sent by an account owner to its account servicing institution. This message is used to approve or reject a debit authorisation request.|Usage|The DebitAuthorisationResponse message:|- is used to reply to a Debit Authorisation Request message;|- covers one and only one payment instruction at a time. If an account owner needs to reply to several DebitAuthorisationRequest messages, then multiple DebitAuthorisationResponse messages must be sent;|- indicates whether the account owner agrees with the request by means of a code. It also allows further details to be given about the debit authorisation, such as acceptable amount and value date for the debit;|- must be used exclusively between the account owner and the account servicing institution. It must not be used in place of a Resolution Of Investigation message between subsequent agents.")]
-public partial record DebitAuthorisationResponseV05 : IOuterRecord
+public partial record DebitAuthorisationResponseV05 : IOuterRecord<DebitAuthorisationResponseV05,DebitAuthorisationResponseV05Document>
+    ,IIsoXmlSerilizable<DebitAuthorisationResponseV05>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record DebitAuthorisationResponseV05 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "DbtAuthstnRspn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => DebitAuthorisationResponseV05Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -93,6 +100,41 @@ public partial record DebitAuthorisationResponseV05 : IOuterRecord
     {
         return new DebitAuthorisationResponseV05Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("DbtAuthstnRspn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Assgnmt", xmlNamespace );
+        Assignment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Case is Case5 CaseValue)
+        {
+            writer.WriteStartElement(null, "Case", xmlNamespace );
+            CaseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Conf", xmlNamespace );
+        Confirmation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DebitAuthorisationResponseV05 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -100,9 +142,7 @@ public partial record DebitAuthorisationResponseV05 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DebitAuthorisationResponseV05"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record DebitAuthorisationResponseV05Document : IOuterDocument<DebitAuthorisationResponseV05>
+public partial record DebitAuthorisationResponseV05Document : IOuterDocument<DebitAuthorisationResponseV05>, IXmlSerializable
 {
     
     /// <summary>
@@ -118,5 +158,22 @@ public partial record DebitAuthorisationResponseV05Document : IOuterDocument<Deb
     /// <summary>
     /// The instance of <seealso cref="DebitAuthorisationResponseV05"/> is required.
     /// </summary>
+    [DataMember(Name=DebitAuthorisationResponseV05.XmlTag)]
     public required DebitAuthorisationResponseV05 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(DebitAuthorisationResponseV05.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

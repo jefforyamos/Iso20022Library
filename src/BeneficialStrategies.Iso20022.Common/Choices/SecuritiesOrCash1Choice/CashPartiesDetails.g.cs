@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecuritiesOrCash1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesOrCash1Choice;
 /// Cash settlement chain parties and accounts.
 /// </summary>
 public partial record CashPartiesDetails : SecuritiesOrCash1Choice_
+     , IIsoXmlSerilizable<CashPartiesDetails>
 {
     #nullable enable
+    
     /// <summary>
     /// Party to which the payment amount must be ultimately delivered. In some cases, this may be a fund.
     /// </summary>
@@ -31,5 +35,41 @@ public partial record CashPartiesDetails : SecuritiesOrCash1Choice_
     /// Financial institution through which the transaction must pass to reach the account with institution (creditor agent).
     /// </summary>
     public PartyIdentificationAndAccount97? Intermediary2 { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cdtr", xmlNamespace );
+        Creditor.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CdtrAgt", xmlNamespace );
+        CreditorAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Intermediary is PartyIdentificationAndAccount97 IntermediaryValue)
+        {
+            writer.WriteStartElement(null, "Intrmy", xmlNamespace );
+            IntermediaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Intermediary2 is PartyIdentificationAndAccount97 Intermediary2Value)
+        {
+            writer.WriteStartElement(null, "Intrmy2", xmlNamespace );
+            Intermediary2Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new CashPartiesDetails Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

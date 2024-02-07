@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information on the requested settlement time(s) of the payment instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementTimeRequest2
+     : IIsoXmlSerilizable<SettlementTimeRequest2>
 {
     #nullable enable
     
     /// <summary>
     /// Time by which the amount of money must be credited, with confirmation, to the CLS Bank's account at the central bank.|Usage: Time must be expressed in Central European Time (CET).
     /// </summary>
-    [DataMember]
     public IsoISOTime? CLSTime { get; init; } 
     /// <summary>
     /// Time until when the payment may be settled.
     /// </summary>
-    [DataMember]
     public IsoISOTime? TillTime { get; init; } 
     /// <summary>
     /// Time as from when the payment may be settled.
     /// </summary>
-    [DataMember]
     public IsoISOTime? FromTime { get; init; } 
     /// <summary>
     /// Time by when the payment must be settled to avoid rejection.
     /// </summary>
-    [DataMember]
     public IsoISOTime? RejectTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CLSTime is IsoISOTime CLSTimeValue)
+        {
+            writer.WriteStartElement(null, "CLSTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(CLSTimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+        if (TillTime is IsoISOTime TillTimeValue)
+        {
+            writer.WriteStartElement(null, "TillTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(TillTimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+        if (FromTime is IsoISOTime FromTimeValue)
+        {
+            writer.WriteStartElement(null, "FrTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(FromTimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+        if (RejectTime is IsoISOTime RejectTimeValue)
+        {
+            writer.WriteStartElement(null, "RjctTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(RejectTimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementTimeRequest2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.colr.TripartyCollateralAllegementNotificationV01>;
 
 namespace BeneficialStrategies.Iso20022.colr;
 
@@ -32,10 +35,9 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// - a custodian acting on behalf of an investment management institution or a broker/dealer.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope:|This message is sent by a triparty agent after the receipt of a collateral transaction or instruction from the collateral giver or taker to advise  that a counterparty has alleged an instruction or a transaction against the account owner's account at the TPA and that the TPA could not find the corresponding transaction or instruction of the account owner.|The allegement is used for initiation, modification and termination.||In this message, the Sender is the triparty agent and the Receiver is either the collateral taker or the collateral giver or their account servicer.||Usage:|An account servicer sends a SecuritiesSettlementTransactionAllegementNotification to an account owner to advise the account owner that a counterparty has alleged an instruction against the account owner's account at the account servicer and that the account servicer could not find the corresponding instruction of the account owner.|The account servicer/owner relationship may be:|- a central securities depository or another settlement market infrastructure acting on behalf of their participants|- an agent (sub-custodian) acting on behalf of their global custodian customer, or|- a custodian acting on behalf of an investment management institution or a broker/dealer.")]
-public partial record TripartyCollateralAllegementNotificationV01 : IOuterRecord
+public partial record TripartyCollateralAllegementNotificationV01 : IOuterRecord<TripartyCollateralAllegementNotificationV01,TripartyCollateralAllegementNotificationV01Document>
+    ,IIsoXmlSerilizable<TripartyCollateralAllegementNotificationV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -47,6 +49,11 @@ public partial record TripartyCollateralAllegementNotificationV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "TrptyCollAllgmtNtfctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => TripartyCollateralAllegementNotificationV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -145,6 +152,59 @@ public partial record TripartyCollateralAllegementNotificationV01 : IOuterRecord
     {
         return new TripartyCollateralAllegementNotificationV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("TrptyCollAllgmtNtfctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxInstrId", xmlNamespace );
+        TransactionInstructionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Pgntn", xmlNamespace );
+        Pagination.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "GnlParams", xmlNamespace );
+        GeneralParameters.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CollPties", xmlNamespace );
+        CollateralParties.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DealTxDtls", xmlNamespace );
+        DealTransactionDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DealTxDt", xmlNamespace );
+        DealTransactionDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecuritiesMovement is SecuritiesMovement7 SecuritiesMovementValue)
+        {
+            writer.WriteStartElement(null, "SctiesMvmnt", xmlNamespace );
+            SecuritiesMovementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashMovement is CashMovement5 CashMovementValue)
+        {
+            writer.WriteStartElement(null, "CshMvmnt", xmlNamespace );
+            CashMovementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TripartyCollateralAllegementNotificationV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -152,9 +212,7 @@ public partial record TripartyCollateralAllegementNotificationV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TripartyCollateralAllegementNotificationV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record TripartyCollateralAllegementNotificationV01Document : IOuterDocument<TripartyCollateralAllegementNotificationV01>
+public partial record TripartyCollateralAllegementNotificationV01Document : IOuterDocument<TripartyCollateralAllegementNotificationV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -170,5 +228,22 @@ public partial record TripartyCollateralAllegementNotificationV01Document : IOut
     /// <summary>
     /// The instance of <seealso cref="TripartyCollateralAllegementNotificationV01"/> is required.
     /// </summary>
+    [DataMember(Name=TripartyCollateralAllegementNotificationV01.XmlTag)]
     public required TripartyCollateralAllegementNotificationV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(TripartyCollateralAllegementNotificationV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides a settlement party by a choice between a BIC or a name and address or a party identification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementParties120
+     : IIsoXmlSerilizable<SettlementParties120>
 {
     #nullable enable
     
     /// <summary>
     /// Financial institution from which cash will be transferred.
     /// </summary>
-    [DataMember]
     public PartyIdentification242Choice_? DeliveryAgent { get; init; } 
     /// <summary>
     /// Party, within the settlement chain, between the delivery and receiving agents.
     /// </summary>
-    [DataMember]
     public PartyIdentification242Choice_? Intermediary { get; init; } 
     /// <summary>
     /// Financial institution where the payee will receive the funds.
     /// </summary>
-    [DataMember]
     public required PartyIdentification242Choice_ ReceivingAgent { get; init; } 
     /// <summary>
     /// Ultimate institution that will receive the funds when different from the trading or counterparty side.
     /// </summary>
-    [DataMember]
     public PartyIdentification242Choice_? BeneficiaryInstitution { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DeliveryAgent is PartyIdentification242Choice_ DeliveryAgentValue)
+        {
+            writer.WriteStartElement(null, "DlvryAgt", xmlNamespace );
+            DeliveryAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Intermediary is PartyIdentification242Choice_ IntermediaryValue)
+        {
+            writer.WriteStartElement(null, "Intrmy", xmlNamespace );
+            IntermediaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RcvgAgt", xmlNamespace );
+        ReceivingAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BeneficiaryInstitution is PartyIdentification242Choice_ BeneficiaryInstitutionValue)
+        {
+            writer.WriteStartElement(null, "BnfcryInstn", xmlNamespace );
+            BeneficiaryInstitutionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementParties120 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

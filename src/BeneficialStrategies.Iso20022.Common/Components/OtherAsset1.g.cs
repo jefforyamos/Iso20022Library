@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of an asset.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OtherAsset1
+     : IIsoXmlSerilizable<OtherAsset1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of asset.
     /// </summary>
-    [DataMember]
     public required OtherAsset1Choice_ OtherAssetType { get; init; } 
     /// <summary>
     /// Technical identification of the asset.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Name of the asset.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     /// <summary>
     /// Addition identification of the asset.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> OtherIdentification { get; init; } = [];
+    public SimpleValueList<IsoMax35Text> OtherIdentification { get; init; } = [];
     /// <summary>
     /// Additional information about the other asset.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OthrAsstTp", xmlNamespace );
+        OtherAssetType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Name is IsoMax35Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OthrId", xmlNamespace );
+        OtherIdentification.Serialize(writer, xmlNamespace, "Max35Text", SerializationFormatter.IsoMax35Text );
+        writer.WriteEndElement();
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OtherAsset1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

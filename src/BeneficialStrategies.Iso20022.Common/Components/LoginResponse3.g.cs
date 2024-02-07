@@ -7,38 +7,69 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Login Response message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LoginResponse3
+     : IIsoXmlSerilizable<LoginResponse3>
 {
     #nullable enable
     
     /// <summary>
     /// Date and Time of POI Login.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime POIDateTime { get; init; } 
     /// <summary>
     /// Information related to the software of the POI System which manages the Sale to POI protocol.
     /// </summary>
-    [DataMember]
-    public ValueList<PointOfInteractionComponent11> POISoftware { get; init; } = []; // Warning: Don't know multiplicity.
+    public PointOfInteractionComponent11? POISoftware { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _X9MdQy8SEeu125Ip9zFcsQ
     /// <summary>
     /// Capabilities of the POI (Point Of Interaction) performing the transaction.
     /// </summary>
-    [DataMember]
     public PointOfInteractionCapabilities9? POICapabilities { get; init; } 
     /// <summary>
     /// Message to be displayed.
     /// </summary>
-    [DataMember]
     public ActionMessage8? OutputDisplay { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "POIDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(POIDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        // Not sure how to serialize POISoftware, multiplicity Unknown
+        if (POICapabilities is PointOfInteractionCapabilities9 POICapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "POICpblties", xmlNamespace );
+            POICapabilitiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OutputDisplay is ActionMessage8 OutputDisplayValue)
+        {
+            writer.WriteStartElement(null, "OutptDisp", xmlNamespace );
+            OutputDisplayValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LoginResponse3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

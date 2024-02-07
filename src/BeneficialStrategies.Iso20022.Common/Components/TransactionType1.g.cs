@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to identify the transactions to be reported.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionType1
+     : IIsoXmlSerilizable<TransactionType1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the status on the books of the account servicer of the transactions to be reported.
     /// </summary>
-    [DataMember]
     public required EntryStatus2Code Status { get; init; } 
     /// <summary>
     /// Indicates whether the reporting request refers to credit or debit entries.
     /// </summary>
-    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Specifies the minimum value of entries to be reported in the requested message.
     /// </summary>
-    [DataMember]
-    public ValueList<Limit2> FloorLimit { get; init; } = []; // Warning: Don't know multiplicity.
+    public Limit2? FloorLimit { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (FloorLimit is Limit2 FloorLimitValue)
+        {
+            writer.WriteStartElement(null, "FlrLmt", xmlNamespace );
+            FloorLimitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionType1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

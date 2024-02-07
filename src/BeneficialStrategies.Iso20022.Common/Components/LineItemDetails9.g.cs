@@ -7,78 +7,147 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Goods or services that are part of a commercial trade agreement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LineItemDetails9
+     : IIsoXmlSerilizable<LineItemDetails9>
 {
     #nullable enable
     
     /// <summary>
     /// Sequential number assigned to a line item.
     /// </summary>
-    [DataMember]
     public required IsoMax70Text LineItemIdentification { get; init; } 
     /// <summary>
     /// Specifies the quantity of a product in a trade transaction.
     /// </summary>
-    [DataMember]
     public required Quantity4 Quantity { get; init; } 
     /// <summary>
     /// Amount of money for which goods or services are offered, sold, or bought.
     /// </summary>
-    [DataMember]
     public UnitPrice9? UnitPrice { get; init; } 
     /// <summary>
     /// Name of the product detailed in the corresponding line item.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? ProductName { get; init; } 
     /// <summary>
     /// Identifies the product of the corresponding line item.
     /// </summary>
-    [DataMember]
-    public ValueList<ProductIdentifier2Choice_> ProductIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProductIdentifier2Choice_? ProductIdentifier { get; init; } 
     /// <summary>
     /// Identifies the characteristics of product.
     /// </summary>
-    [DataMember]
-    public ValueList<ProductCharacteristics1Choice_> ProductCharacteristics { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProductCharacteristics1Choice_? ProductCharacteristics { get; init; } 
     /// <summary>
     /// Identifies the category of product.
     /// </summary>
-    [DataMember]
-    public ValueList<ProductCategory1Choice_> ProductCategory { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProductCategory1Choice_? ProductCategory { get; init; } 
     /// <summary>
     /// Country of origin of the goods.
     /// </summary>
-    [DataMember]
     public CountryCode? ProductOrigin { get; init; } 
     /// <summary>
     /// Variance on price for the goods.
     /// </summary>
-    [DataMember]
-    public ValueList<Adjustment4> Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
+    public Adjustment4? Adjustment { get; init; } 
     /// <summary>
     /// Charges related to the conveyance of goods.
     /// </summary>
-    [DataMember]
     public Charge13? FreightCharges { get; init; } 
     /// <summary>
     /// Amount of money due to the government or tax authority, according to various pre-defined parameters linked to the value of the goods in a trade transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<Tax12> Tax { get; init; } = []; // Warning: Don't know multiplicity.
+    public Tax12? Tax { get; init; } 
     /// <summary>
     /// Total amount of the line item after adjustments have been applied.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount TotalAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "LineItmId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(LineItemIdentification)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        Quantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (UnitPrice is UnitPrice9 UnitPriceValue)
+        {
+            writer.WriteStartElement(null, "UnitPric", xmlNamespace );
+            UnitPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProductName is IsoMax70Text ProductNameValue)
+        {
+            writer.WriteStartElement(null, "PdctNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(ProductNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProductIdentifier is ProductIdentifier2Choice_ ProductIdentifierValue)
+        {
+            writer.WriteStartElement(null, "PdctIdr", xmlNamespace );
+            ProductIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProductCharacteristics is ProductCharacteristics1Choice_ ProductCharacteristicsValue)
+        {
+            writer.WriteStartElement(null, "PdctChrtcs", xmlNamespace );
+            ProductCharacteristicsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProductCategory is ProductCategory1Choice_ ProductCategoryValue)
+        {
+            writer.WriteStartElement(null, "PdctCtgy", xmlNamespace );
+            ProductCategoryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProductOrigin is CountryCode ProductOriginValue)
+        {
+            writer.WriteStartElement(null, "PdctOrgn", xmlNamespace );
+            writer.WriteValue(ProductOriginValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Adjustment is Adjustment4 AdjustmentValue)
+        {
+            writer.WriteStartElement(null, "Adjstmnt", xmlNamespace );
+            AdjustmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FreightCharges is Charge13 FreightChargesValue)
+        {
+            writer.WriteStartElement(null, "FrghtChrgs", xmlNamespace );
+            FreightChargesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Tax is Tax12 TaxValue)
+        {
+            writer.WriteStartElement(null, "Tax", xmlNamespace );
+            TaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(TotalAmount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static LineItemDetails9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

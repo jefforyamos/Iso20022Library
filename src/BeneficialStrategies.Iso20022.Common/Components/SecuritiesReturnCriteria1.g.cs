@@ -7,103 +7,155 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Return criteria for information to be returned in the report deriving from a query about securities reference data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesReturnCriteria1
+     : IIsoXmlSerilizable<SecuritiesReturnCriteria1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a security.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Name of the security.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator ISOSecurityLongName { get; init; } 
     /// <summary>
     /// Short name of the security expressed as ISO 18773/18774.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator ISOSecurityShortName { get; init; } 
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, for example, common share with voting rights, fully paid, or registered.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator ClassificationFinancialInstrument { get; init; } 
     /// <summary>
     /// Planned final repayment date at the time of issuance.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator MaturityDate { get; init; } 
     /// <summary>
     /// Date/time at which the security was made available.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator IssueDate { get; init; } 
     /// <summary>
     /// Currency in which a security is issued or redenominated.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator IssueCurrency { get; init; } 
     /// <summary>
     /// Primary market or country where a security is issued by the issuer or its agent.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator CountryOfIssue { get; init; } 
     /// <summary>
     /// Specifies the status of the security within its lifecycle.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator SecurityStatus { get; init; } 
     /// <summary>
     /// CSD Investor of a security.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator InvestorCSD { get; init; } 
     /// <summary>
     /// CSD Issuer of a security.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator IssuerCSD { get; init; } 
     /// <summary>
     /// Technical issuer of a security.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator TechnicalIssuerCSD { get; init; } 
     /// <summary>
     /// CSD of a security.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator CSD { get; init; } 
     /// <summary>
     /// Quantity of a security.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator SecuritiesQuantityType { get; init; } 
     /// <summary>
     /// Indicates the minimum quantity (unit or nominal) of a security.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator MinimumDenomination { get; init; } 
     /// <summary>
     /// Minimum multiple quantity (unit or nominal) of securities.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator MinimumMultipleQuantity { get; init; } 
     /// <summary>
     /// Minimum quantity of securities that can be purchased without incurring a larger fee. For example, if the round lot size is 100 and the trade is for 125 shares, then 100 will be processed without a fee and the remaining 25 will incur a service fee for being an odd lot size.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator DeviatingSettlementUnit { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(FinancialInstrumentIdentification)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ISOSctyLngNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(ISOSecurityLongName)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ISOSctyShrtNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(ISOSecurityShortName)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClssfctnFinInstrm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(ClassificationFinancialInstrument)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(MaturityDate)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IsseDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(IssueDate)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IsseCcy", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(IssueCurrency)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CtryOfIsse", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(CountryOfIssue)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctySts", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SecurityStatus)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InvstrCSD", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(InvestorCSD)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IssrCSD", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(IssuerCSD)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TechIssrCSD", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(TechnicalIssuerCSD)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CSD", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(CSD)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctiesQtyTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SecuritiesQuantityType)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MinDnmtn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(MinimumDenomination)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MinMltplQty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(MinimumMultipleQuantity)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DevtgSttlmUnit", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(DeviatingSettlementUnit)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static SecuritiesReturnCriteria1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Batch Response message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BatchResponse4
+     : IIsoXmlSerilizable<BatchResponse4>
 {
     #nullable enable
     
     /// <summary>
     /// Sale System identification of the bacth in an unambiguous way.
     /// </summary>
-    [DataMember]
     public TransactionIdentifier1? SaleBatchIdentification { get; init; } 
     /// <summary>
     /// POI identification of the batch in an unambiguous way.
     /// </summary>
-    [DataMember]
     public TransactionIdentifier1? POIBatchIdentification { get; init; } 
     /// <summary>
     /// Performed transaction content.
     /// </summary>
-    [DataMember]
-    public ValueList<PerformedTransaction4> PerformedTransaction { get; init; } = []; // Warning: Don't know multiplicity.
+    public PerformedTransaction4? PerformedTransaction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SaleBatchIdentification is TransactionIdentifier1 SaleBatchIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleBtchId", xmlNamespace );
+            SaleBatchIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (POIBatchIdentification is TransactionIdentifier1 POIBatchIdentificationValue)
+        {
+            writer.WriteStartElement(null, "POIBtchId", xmlNamespace );
+            POIBatchIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PerformedTransaction is PerformedTransaction4 PerformedTransactionValue)
+        {
+            writer.WriteStartElement(null, "PrfrmdTx", xmlNamespace );
+            PerformedTransactionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BatchResponse4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

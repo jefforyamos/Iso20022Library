@@ -7,83 +7,151 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action instructed balance details at option protect level.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionInstructedBalanceOptionProtectInstructionDetailsSD1
+     : IIsoXmlSerilizable<CorporateActionInstructedBalanceOptionProtectInstructionDetailsSD1>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Instruction reference number assigned by DTC to the uncovered protect instruction.
     /// </summary>
-    [DataMember]
     public required IsoMax15Text ProtectIdentification { get; init; } 
     /// <summary>
     /// Additional Reference number used to uniquely identify uncovered protect instruction.
     /// </summary>
-    [DataMember]
     public IsoMax3NumericText? ProtectSequenceNumber { get; init; } 
     /// <summary>
     /// Option number of the protect instruction.
     /// </summary>
-    [DataMember]
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Date and time of the protect instruction.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime ProtectDate { get; init; } 
     /// <summary>
     /// Date and time of the cover protect. Will be the latest cover date if partial cover transaction occurs.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? CoverProtectDate { get; init; } 
     /// <summary>
     /// Quantity of the protect instruction. For protects which are partially covered, the quanitity will be reduced by the amount partially covered.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity15Choice_ ProtectIdentificationQuantity { get; init; } 
     /// <summary>
     /// Quantity of the Protect instruction which has not been covered.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity15Choice_? ProtectIdentificationUncoveredQuantity { get; init; } 
     /// <summary>
     /// Protect oversubscription quantity.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity15Choice_? ProtectIdentificationOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Status of the Protect Instruction.
     /// </summary>
-    [DataMember]
     public DTCProtectInstructionStatus1Code? ProtectIdentificationStatus { get; init; } 
     /// <summary>
     /// Conditional Quantity for the Protect Instruction.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity15Choice_? ProtectConditionalQuantity { get; init; } 
     /// <summary>
     /// Tender bid price of the protect instruction.
     /// </summary>
-    [DataMember]
     public PriceFormat57Choice_? ProtectTenderBidPrice { get; init; } 
     /// <summary>
     /// Customer identification entered by client upon instruction submission.
     /// </summary>
-    [DataMember]
     public IsoMax15Text? CustomerReferenceIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PrtctId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15Text(ProtectIdentification)); // data type Max15Text System.String
+        writer.WriteEndElement();
+        if (ProtectSequenceNumber is IsoMax3NumericText ProtectSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "PrtctSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(ProtectSequenceNumberValue)); // data type Max3NumericText System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OptnNb", xmlNamespace );
+        OptionNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PrtctDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(ProtectDate)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (CoverProtectDate is IsoISODateTime CoverProtectDateValue)
+        {
+            writer.WriteStartElement(null, "CoverPrtctDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(CoverProtectDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PrtctIdQty", xmlNamespace );
+        ProtectIdentificationQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ProtectIdentificationUncoveredQuantity is FinancialInstrumentQuantity15Choice_ ProtectIdentificationUncoveredQuantityValue)
+        {
+            writer.WriteStartElement(null, "PrtctIdUcvrdQty", xmlNamespace );
+            ProtectIdentificationUncoveredQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProtectIdentificationOversubscriptionQuantity is FinancialInstrumentQuantity15Choice_ ProtectIdentificationOversubscriptionQuantityValue)
+        {
+            writer.WriteStartElement(null, "PrtctIdOvrsbcptQty", xmlNamespace );
+            ProtectIdentificationOversubscriptionQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProtectIdentificationStatus is DTCProtectInstructionStatus1Code ProtectIdentificationStatusValue)
+        {
+            writer.WriteStartElement(null, "PrtctIdSts", xmlNamespace );
+            writer.WriteValue(ProtectIdentificationStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ProtectConditionalQuantity is FinancialInstrumentQuantity15Choice_ ProtectConditionalQuantityValue)
+        {
+            writer.WriteStartElement(null, "PrtctCondlQty", xmlNamespace );
+            ProtectConditionalQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProtectTenderBidPrice is PriceFormat57Choice_ ProtectTenderBidPriceValue)
+        {
+            writer.WriteStartElement(null, "PrtctTndrBidPric", xmlNamespace );
+            ProtectTenderBidPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CustomerReferenceIdentification is IsoMax15Text CustomerReferenceIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CstmrRefId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15Text(CustomerReferenceIdentificationValue)); // data type Max15Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionInstructedBalanceOptionProtectInstructionDetailsSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

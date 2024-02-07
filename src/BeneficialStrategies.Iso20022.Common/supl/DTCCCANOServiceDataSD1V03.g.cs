@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.supl.DTCCCANOServiceDataSD1V03>;
 
 namespace BeneficialStrategies.Iso20022.supl;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// The DTCCCANOServiceDataSD1 message extends ISO corporate action notification (CANO) message with DTCC validation service specific data elements that are not covered by the standard message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The DTCCCANOServiceDataSD1 message extends ISO corporate action notification (CANO) message with DTCC validation service specific data elements that are not covered by the standard message.")]
-public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord
+public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord<DTCCCANOServiceDataSD1V03,DTCCCANOServiceDataSD1V03Document>
+    ,IIsoXmlSerilizable<DTCCCANOServiceDataSD1V03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "DTCCCANOSvcDataSD1";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => DTCCCANOServiceDataSD1V03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -137,6 +144,83 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord
     {
         return new DTCCCANOServiceDataSD1V03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("DTCCCANOSvcDataSD1");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NotificationGeneralInformation is CorporateActionNotificationSD6 NotificationGeneralInformationValue)
+        {
+            writer.WriteStartElement(null, "NtfctnGnlInf", xmlNamespace );
+            NotificationGeneralInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EventsLinkage is CorporateActionEventReferenceSD2 EventsLinkageValue)
+        {
+            writer.WriteStartElement(null, "EvtsLkg", xmlNamespace );
+            EventsLinkageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CorporateActionNotification is CorporateActionNotificationSD1 CorporateActionNotificationValue)
+        {
+            writer.WriteStartElement(null, "CorpActnNtfctn", xmlNamespace );
+            CorporateActionNotificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnderlyingSecurity is FinancialInstrumentAttributesSD7 UnderlyingSecurityValue)
+        {
+            writer.WriteStartElement(null, "UndrlygScty", xmlNamespace );
+            UnderlyingSecurityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CorporateActionDetails is CorporateActionSD4 CorporateActionDetailsValue)
+        {
+            writer.WriteStartElement(null, "CorpActnDtls", xmlNamespace );
+            CorporateActionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CorporateActionDateDetails is CorporateActionDateSD4 CorporateActionDateDetailsValue)
+        {
+            writer.WriteStartElement(null, "CorpActnDtDtls", xmlNamespace );
+            CorporateActionDateDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionDetails is CorporateActionOptionSD5 OptionDetailsValue)
+        {
+            writer.WriteStartElement(null, "OptnDtls", xmlNamespace );
+            OptionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesMovementDetails is SecuritiesOptionSD4 SecuritiesMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "SctiesMvmntDtls", xmlNamespace );
+            SecuritiesMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesMovementSecurityDetails is FinancialInstrumentAttributesSD5 SecuritiesMovementSecurityDetailsValue)
+        {
+            writer.WriteStartElement(null, "SctiesMvmntSctyDtls", xmlNamespace );
+            SecuritiesMovementSecurityDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashMovementDetails is CashOptionSD5 CashMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "CshMvmntDtls", xmlNamespace );
+            CashMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DTCCCANOServiceDataSD1V03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -144,9 +228,7 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCANOServiceDataSD1V03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record DTCCCANOServiceDataSD1V03Document : IOuterDocument<DTCCCANOServiceDataSD1V03>
+public partial record DTCCCANOServiceDataSD1V03Document : IOuterDocument<DTCCCANOServiceDataSD1V03>, IXmlSerializable
 {
     
     /// <summary>
@@ -162,5 +244,22 @@ public partial record DTCCCANOServiceDataSD1V03Document : IOuterDocument<DTCCCAN
     /// <summary>
     /// The instance of <seealso cref="DTCCCANOServiceDataSD1V03"/> is required.
     /// </summary>
+    [DataMember(Name=DTCCCANOServiceDataSD1V03.XmlTag)]
     public required DTCCCANOServiceDataSD1V03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(DTCCCANOServiceDataSD1V03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

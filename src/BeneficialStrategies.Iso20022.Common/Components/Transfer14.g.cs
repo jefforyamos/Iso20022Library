@@ -7,73 +7,134 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Completion of a securities settlement instruction, wherein securities are delivered/debited from a securities account and received/credited to the designated securities account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Transfer14
+     : IIsoXmlSerilizable<Transfer14>
 {
     #nullable enable
     
     /// <summary>
     /// Date and time at which the transfer was received and processed.
     /// </summary>
-    [DataMember]
     public required DateAndDateTimeChoice_ EffectiveTransferDate { get; init; } 
     /// <summary>
     /// Date and time at which a transaction is completed and cleared, ie, securities are delivered.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeChoice_? TradeDate { get; init; } 
     /// <summary>
     /// Identifies whether or not saving plan or withdrawal or switch plan are included in the holdings.
     /// </summary>
-    [DataMember]
-    public ValueList<HoldingsPlanType1Code> HoldingsPlanType { get; init; } = [];
+    public SimpleValueList<HoldingsPlanType1Code> HoldingsPlanType { get; init; } = [];
     /// <summary>
     /// Information related to the financial instrument withdrawn.
     /// </summary>
-    [DataMember]
     public required FinancialInstrument13 FinancialInstrumentDetails { get; init; } 
     /// <summary>
     /// Total quantity of securities settled.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1 TotalUnitsNumber { get; init; } 
     /// <summary>
     /// Information about the units to be transferred.
     /// </summary>
-    [DataMember]
-    public ValueList<Unit3> UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Unit3? UnitsDetails { get; init; } 
     /// <summary>
     /// Total quantity of securities settled.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? PortfolioTransferOutRate { get; init; } 
     /// <summary>
     /// Indicates the rounding direction applied to nearest unit.
     /// </summary>
-    [DataMember]
     public RoundingDirection2Code? Rounding { get; init; } 
     /// <summary>
     /// Value of a security, as booked in an account. Book value is often different from the current market value of the security.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? AveragePrice { get; init; } 
     /// <summary>
     /// Indicates whether the transfer results in a change of beneficial owner.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? OwnAccountTransferIndicator { get; init; } 
     /// <summary>
     /// Additional specific settlement information for non-regulated traded funds.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? NonStandardSettlementInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FctvTrfDt", xmlNamespace );
+        EffectiveTransferDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TradeDate is DateAndDateTimeChoice_ TradeDateValue)
+        {
+            writer.WriteStartElement(null, "TradDt", xmlNamespace );
+            TradeDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "HldgsPlanTp", xmlNamespace );
+        writer.WriteValue(HoldingsPlanType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FinInstrmDtls", xmlNamespace );
+        FinancialInstrumentDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlUnitsNb", xmlNamespace );
+        TotalUnitsNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (UnitsDetails is Unit3 UnitsDetailsValue)
+        {
+            writer.WriteStartElement(null, "UnitsDtls", xmlNamespace );
+            UnitsDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PortfolioTransferOutRate is IsoPercentageRate PortfolioTransferOutRateValue)
+        {
+            writer.WriteStartElement(null, "PrtflTrfOutRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PortfolioTransferOutRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Rounding is RoundingDirection2Code RoundingValue)
+        {
+            writer.WriteStartElement(null, "Rndg", xmlNamespace );
+            writer.WriteValue(RoundingValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AveragePrice is IsoActiveOrHistoricCurrencyAnd13DecimalAmount AveragePriceValue)
+        {
+            writer.WriteStartElement(null, "AvrgPric", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd13DecimalAmount(AveragePriceValue)); // data type ActiveOrHistoricCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (OwnAccountTransferIndicator is IsoYesNoIndicator OwnAccountTransferIndicatorValue)
+        {
+            writer.WriteStartElement(null, "OwnAcctTrfInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OwnAccountTransferIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (NonStandardSettlementInformation is IsoMax350Text NonStandardSettlementInformationValue)
+        {
+            writer.WriteStartElement(null, "NonStdSttlmInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(NonStandardSettlementInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Transfer14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

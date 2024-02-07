@@ -7,68 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Completion of a securities settlement instruction, wherein securities are delivered/debited from a securities account and received/credited to the designated securities account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReceiveInformation4
+     : IIsoXmlSerilizable<ReceiveInformation4>
 {
     #nullable enable
     
     /// <summary>
     /// Date and time at which the securities were exchange at the International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// </summary>
-    [DataMember]
     public DateAndDateTimeChoice_? EffectiveSettlementDate { get; init; } 
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the individual order.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     /// <summary>
     /// Indicates whether the settlement amount includes the stamp duty amount.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator StampDutyIndicator { get; init; } 
     /// <summary>
     /// Deal amount.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? NetAmount { get; init; } 
     /// <summary>
     /// Charge related to the transfer of a financial instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<Charge20> ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Charge20? ChargeDetails { get; init; } 
     /// <summary>
     /// Commission related to the transfer of a financial instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<Commission12> CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Commission12? CommissionDetails { get; init; } 
     /// <summary>
     /// Tax related to the transfer of a financial instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<Tax15> TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Tax15? TaxDetails { get; init; } 
     /// <summary>
     /// Chain of parties involved in the settlement of a transaction.
     /// </summary>
-    [DataMember]
     public required ReceivingPartiesAndAccount4 SettlementPartiesDetails { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator PhysicalTransferIndicator { get; init; } 
     /// <summary>
     /// Parameters of a physical delivery.
     /// </summary>
-    [DataMember]
     public DeliveryParameters4? PhysicalTransferDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (EffectiveSettlementDate is DateAndDateTimeChoice_ EffectiveSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "FctvSttlmDt", xmlNamespace );
+            EffectiveSettlementDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementAmount is IsoActiveCurrencyAndAmount SettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(SettlementAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "StmpDtyInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(StampDutyIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (NetAmount is IsoActiveCurrencyAndAmount NetAmountValue)
+        {
+            writer.WriteStartElement(null, "NetAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(NetAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ChargeDetails is Charge20 ChargeDetailsValue)
+        {
+            writer.WriteStartElement(null, "ChrgDtls", xmlNamespace );
+            ChargeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CommissionDetails is Commission12 CommissionDetailsValue)
+        {
+            writer.WriteStartElement(null, "ComssnDtls", xmlNamespace );
+            CommissionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxDetails is Tax15 TaxDetailsValue)
+        {
+            writer.WriteStartElement(null, "TaxDtls", xmlNamespace );
+            TaxDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SttlmPtiesDtls", xmlNamespace );
+        SettlementPartiesDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PhysTrfInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PhysicalTransferIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (PhysicalTransferDetails is DeliveryParameters4 PhysicalTransferDetailsValue)
+        {
+            writer.WriteStartElement(null, "PhysTrfDtls", xmlNamespace );
+            PhysicalTransferDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ReceiveInformation4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

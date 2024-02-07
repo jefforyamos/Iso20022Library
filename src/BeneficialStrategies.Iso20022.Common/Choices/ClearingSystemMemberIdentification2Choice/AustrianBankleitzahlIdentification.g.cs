@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentification2Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// Austrian Bankleitzahl - identifies Austrian financial institutions on the Austrian national clearing system.
 /// </summary>
 public partial record AustrianBankleitzahlIdentification : ClearingSystemMemberIdentification2Choice_
+     , IIsoXmlSerilizable<AustrianBankleitzahlIdentification>
 {
-    public required IsoAustrianBankleitzahlIdentifier Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Austrian Bankleitzahl. Identifies Austrian financial institutions on the Austrian national clearing system.
+    /// </summary>
+    public required IsoAustrianBankleitzahlIdentifier Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ATBLZ", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoAustrianBankleitzahlIdentifier(Value)); // data type AustrianBankleitzahlIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static new AustrianBankleitzahlIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

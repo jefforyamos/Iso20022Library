@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains the details of the destination. 
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Destination2
+     : IIsoXmlSerilizable<Destination2>
 {
     #nullable enable
     
     /// <summary>
     /// Name and location of the destination.
     /// </summary>
-    [DataMember]
     public IsoMax99Text? NameAndLocation { get; init; } 
     /// <summary>
     /// Specific address of the destination.
     /// </summary>
-    [DataMember]
     public Address1? Address { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NameAndLocation is IsoMax99Text NameAndLocationValue)
+        {
+            writer.WriteStartElement(null, "NmAndLctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax99Text(NameAndLocationValue)); // data type Max99Text System.String
+            writer.WriteEndElement();
+        }
+        if (Address is Address1 AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Destination2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

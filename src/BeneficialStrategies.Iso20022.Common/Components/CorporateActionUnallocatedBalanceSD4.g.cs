@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Balance types related to an unallocated redemption payment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionUnallocatedBalanceSD4
+     : IIsoXmlSerilizable<CorporateActionUnallocatedBalanceSD4>
 {
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Total balance of securities eligible for this corporate action event. The entitlement calculation is based on this balance.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat9? TotalEligibleBalance { get; init; } 
     /// <summary>
     /// Position held in DTC Segregated account. This position is ineligible for payment until released from pledgee.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat9? PledgedBalance { get; init; } 
     /// <summary>
     /// Position held in DTC Segregated account also called account 18. This position is not eligible for instruction processing but will be eligible for payment on mandatory events.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat9? InvestmentPledgedBalance { get; init; } 
     /// <summary>
     /// Position held in DTC Segregated account also called account 22. This position is not eligible for instruction processing but will be eligible for payment on mandatory events. 
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat9? InvestmentUnpledgedBalance { get; init; } 
     /// <summary>
     /// Position held in DTC Segregated account. This position is eligible for payment.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat9? MemoSegregationBalance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (TotalEligibleBalance is SignedQuantityFormat9 TotalEligibleBalanceValue)
+        {
+            writer.WriteStartElement(null, "TtlElgblBal", xmlNamespace );
+            TotalEligibleBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PledgedBalance is SignedQuantityFormat9 PledgedBalanceValue)
+        {
+            writer.WriteStartElement(null, "PldgdBal", xmlNamespace );
+            PledgedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestmentPledgedBalance is SignedQuantityFormat9 InvestmentPledgedBalanceValue)
+        {
+            writer.WriteStartElement(null, "InvstmtPldgdBal", xmlNamespace );
+            InvestmentPledgedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestmentUnpledgedBalance is SignedQuantityFormat9 InvestmentUnpledgedBalanceValue)
+        {
+            writer.WriteStartElement(null, "InvstmtUpldgdBal", xmlNamespace );
+            InvestmentUnpledgedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MemoSegregationBalance is SignedQuantityFormat9 MemoSegregationBalanceValue)
+        {
+            writer.WriteStartElement(null, "MemoSgrtnBal", xmlNamespace );
+            MemoSegregationBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionUnallocatedBalanceSD4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

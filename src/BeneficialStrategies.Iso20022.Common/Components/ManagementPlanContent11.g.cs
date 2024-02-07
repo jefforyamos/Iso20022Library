@@ -7,33 +7,62 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the management plan.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ManagementPlanContent11
+     : IIsoXmlSerilizable<ManagementPlanContent11>
 {
     #nullable enable
     
     /// <summary>
     /// Terminal manager challenge for cryptographic key injection.
     /// </summary>
-    [DataMember]
     public IsoMax140Binary? TMChallenge { get; init; } 
     /// <summary>
     /// Certificate chain of an asymmetric encryption keys for the encryption of temporary transport key of the key to inject.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax10KBinary> KeyEnciphermentCertificate { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax10KBinary? KeyEnciphermentCertificate { get; init; } 
     /// <summary>
     /// Terminal management action to be performed by the point of interaction (POI).
     /// </summary>
-    [DataMember]
-    public ValueList<TMSAction11> Action { get; init; } = []; // Warning: Don't know multiplicity.
+    public TMSAction11? Action { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _LC_71XJsEe299ZbWCkdR_w
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TMChallenge is IsoMax140Binary TMChallengeValue)
+        {
+            writer.WriteStartElement(null, "TMChllng", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Binary(TMChallengeValue)); // data type Max140Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (KeyEnciphermentCertificate is IsoMax10KBinary KeyEnciphermentCertificateValue)
+        {
+            writer.WriteStartElement(null, "KeyNcphrmntCert", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10KBinary(KeyEnciphermentCertificateValue)); // data type Max10KBinary System.Byte[]
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize Action, multiplicity Unknown
+    }
+    public static ManagementPlanContent11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

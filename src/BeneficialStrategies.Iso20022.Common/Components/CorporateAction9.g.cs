@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// An event determined by a corporation's board of directors, that changes the existing corporate capital structure or financial condition.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateAction9
+     : IIsoXmlSerilizable<CorporateAction9>
 {
     #nullable enable
     
     /// <summary>
     /// Type of corporate action event, in a free-text format.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text EventType { get; init; } 
     /// <summary>
     /// Identification of a corporate action assigned by an official central body/entity within a given market.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text EventIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "EvtTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(EventType)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EvtId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(EventIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static CorporateAction9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

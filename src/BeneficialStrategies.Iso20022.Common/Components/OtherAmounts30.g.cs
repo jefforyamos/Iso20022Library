@@ -7,148 +7,296 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies other amounts pertaining to the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OtherAmounts30
+     : IIsoXmlSerilizable<OtherAmounts30>
 {
     #nullable enable
     
     /// <summary>
     /// Interest amount that has accrued in between coupon payment periods.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? AccruedInterestAmount { get; init; } 
     /// <summary>
     /// Amount of money paid for the provision of financial services that cannot be categorised by another qualifier.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? ChargesFees { get; init; } 
     /// <summary>
     /// Amount of country, national or federal tax charged by the jurisdiction in which the account servicer is located.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? CountryNationalFederalTax { get; init; } 
     /// <summary>
     /// Principal amount of a trade (price multiplied by quantity).
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? TradeAmount { get; init; } 
     /// <summary>
     /// Amount of money paid to an executing broker as a commission.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? ExecutingBrokerAmount { get; init; } 
     /// <summary>
     /// Amount of money defined as a discount on a new issue or on a tranche of an existing issue.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? IssueDiscountAllowance { get; init; } 
     /// <summary>
     /// Amount of payment levy tax.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? PaymentLevyTax { get; init; } 
     /// <summary>
     /// Tax charged by the jurisdiction in which the financial instrument settles.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? LocalTax { get; init; } 
     /// <summary>
     /// Local tax country specific.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? LocalTaxCountrySpecific { get; init; } 
     /// <summary>
     /// Amount of commission paid to a local broker.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? LocalBrokerCommission { get; init; } 
     /// <summary>
     /// Amount of money deposited by the trading party in a margin account.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? Margin { get; init; } 
     /// <summary>
     /// An amount that is not indicated by a known business denomination.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? Other { get; init; } 
     /// <summary>
     /// Amount of money charged by a regulatory authority, for example, Securities and Exchange fees.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? RegulatoryAmount { get; init; } 
     /// <summary>
     /// All costs related to the physical delivery of documents such as stamps, postage, carrier fees, insurances or messenger services.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? ShippingAmount { get; init; } 
     /// <summary>
     /// Amount of drawdown or other reduction from or in addition to the deal price.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? SpecialConcession { get; init; } 
     /// <summary>
     /// Amount of stamp duty.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? StampDuty { get; init; } 
     /// <summary>
     /// Amount of stock exchange tax.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? StockExchangeTax { get; init; } 
     /// <summary>
     /// Amount of tax levied on a transfer of ownership of financial instrument.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? TransferTax { get; init; } 
     /// <summary>
     /// Amount of transaction tax.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? TransactionTax { get; init; } 
     /// <summary>
     /// Amount of value-added tax.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? ValueAddedTax { get; init; } 
     /// <summary>
     /// Amount of money that will be withheld by a tax authority.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? WithholdingTax { get; init; } 
     /// <summary>
     /// Amount representing the difference between the cost and the current price of a security. In the context of securities settlement, it is the amount paid or received when the instructions are netted or paired off.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? NetGainLoss { get; init; } 
     /// <summary>
     /// Amount of consumption tax.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? ConsumptionTax { get; init; } 
     /// <summary>
     /// Amount of unpaid interest (on bonds which have defaulted and have subsequently |restructured), which is capitalized and added to the original principal amount of the bond.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? AccruedCapitalisationAmount { get; init; } 
     /// <summary>
     /// Cost of the securities. May be requested in some countries for tax purposes.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? BookValue { get; init; } 
     /// <summary>
     /// Value of the collateral available for the delivery settlement process at the account level.
     /// </summary>
-    [DataMember]
     public AmountAndDirection44? CollateralMonitorAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccruedInterestAmount is AmountAndDirection44 AccruedInterestAmountValue)
+        {
+            writer.WriteStartElement(null, "AcrdIntrstAmt", xmlNamespace );
+            AccruedInterestAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ChargesFees is AmountAndDirection44 ChargesFeesValue)
+        {
+            writer.WriteStartElement(null, "ChrgsFees", xmlNamespace );
+            ChargesFeesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CountryNationalFederalTax is AmountAndDirection44 CountryNationalFederalTaxValue)
+        {
+            writer.WriteStartElement(null, "CtryNtlFdrlTax", xmlNamespace );
+            CountryNationalFederalTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeAmount is AmountAndDirection44 TradeAmountValue)
+        {
+            writer.WriteStartElement(null, "TradAmt", xmlNamespace );
+            TradeAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExecutingBrokerAmount is AmountAndDirection44 ExecutingBrokerAmountValue)
+        {
+            writer.WriteStartElement(null, "ExctgBrkrAmt", xmlNamespace );
+            ExecutingBrokerAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssueDiscountAllowance is AmountAndDirection44 IssueDiscountAllowanceValue)
+        {
+            writer.WriteStartElement(null, "IsseDscntAllwnc", xmlNamespace );
+            IssueDiscountAllowanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentLevyTax is AmountAndDirection44 PaymentLevyTaxValue)
+        {
+            writer.WriteStartElement(null, "PmtLevyTax", xmlNamespace );
+            PaymentLevyTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LocalTax is AmountAndDirection44 LocalTaxValue)
+        {
+            writer.WriteStartElement(null, "LclTax", xmlNamespace );
+            LocalTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LocalTaxCountrySpecific is AmountAndDirection44 LocalTaxCountrySpecificValue)
+        {
+            writer.WriteStartElement(null, "LclTaxCtrySpcfc", xmlNamespace );
+            LocalTaxCountrySpecificValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LocalBrokerCommission is AmountAndDirection44 LocalBrokerCommissionValue)
+        {
+            writer.WriteStartElement(null, "LclBrkrComssn", xmlNamespace );
+            LocalBrokerCommissionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Margin is AmountAndDirection44 MarginValue)
+        {
+            writer.WriteStartElement(null, "Mrgn", xmlNamespace );
+            MarginValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Other is AmountAndDirection44 OtherValue)
+        {
+            writer.WriteStartElement(null, "Othr", xmlNamespace );
+            OtherValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RegulatoryAmount is AmountAndDirection44 RegulatoryAmountValue)
+        {
+            writer.WriteStartElement(null, "RgltryAmt", xmlNamespace );
+            RegulatoryAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ShippingAmount is AmountAndDirection44 ShippingAmountValue)
+        {
+            writer.WriteStartElement(null, "ShppgAmt", xmlNamespace );
+            ShippingAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SpecialConcession is AmountAndDirection44 SpecialConcessionValue)
+        {
+            writer.WriteStartElement(null, "SpclCncssn", xmlNamespace );
+            SpecialConcessionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StampDuty is AmountAndDirection44 StampDutyValue)
+        {
+            writer.WriteStartElement(null, "StmpDty", xmlNamespace );
+            StampDutyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StockExchangeTax is AmountAndDirection44 StockExchangeTaxValue)
+        {
+            writer.WriteStartElement(null, "StockXchgTax", xmlNamespace );
+            StockExchangeTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransferTax is AmountAndDirection44 TransferTaxValue)
+        {
+            writer.WriteStartElement(null, "TrfTax", xmlNamespace );
+            TransferTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionTax is AmountAndDirection44 TransactionTaxValue)
+        {
+            writer.WriteStartElement(null, "TxTax", xmlNamespace );
+            TransactionTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValueAddedTax is AmountAndDirection44 ValueAddedTaxValue)
+        {
+            writer.WriteStartElement(null, "ValAddedTax", xmlNamespace );
+            ValueAddedTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (WithholdingTax is AmountAndDirection44 WithholdingTaxValue)
+        {
+            writer.WriteStartElement(null, "WhldgTax", xmlNamespace );
+            WithholdingTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NetGainLoss is AmountAndDirection44 NetGainLossValue)
+        {
+            writer.WriteStartElement(null, "NetGnLoss", xmlNamespace );
+            NetGainLossValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ConsumptionTax is AmountAndDirection44 ConsumptionTaxValue)
+        {
+            writer.WriteStartElement(null, "CsmptnTax", xmlNamespace );
+            ConsumptionTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccruedCapitalisationAmount is AmountAndDirection44 AccruedCapitalisationAmountValue)
+        {
+            writer.WriteStartElement(null, "AcrdCptlstnAmt", xmlNamespace );
+            AccruedCapitalisationAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BookValue is AmountAndDirection44 BookValueValue)
+        {
+            writer.WriteStartElement(null, "BookVal", xmlNamespace );
+            BookValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollateralMonitorAmount is AmountAndDirection44 CollateralMonitorAmountValue)
+        {
+            writer.WriteStartElement(null, "CollMntrAmt", xmlNamespace );
+            CollateralMonitorAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OtherAmounts30 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

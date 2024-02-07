@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to a key exchange activity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record KeyExchangeInitiation1
+     : IIsoXmlSerilizable<KeyExchangeInitiation1>
 {
     #nullable enable
     
     /// <summary>
     /// Contains or describes conditions and characteristics of the transaction.
     /// </summary>
-    [DataMember]
     public Context8? Context { get; init; } 
     /// <summary>
     /// Details of an exchange or interaction between parties to perform a specific function.
     /// </summary>
-    [DataMember]
     public required Transaction100 Transaction { get; init; } 
     /// <summary>
     /// Contains protected data and the attributes used to protect the data.
     /// </summary>
-    [DataMember]
-    public ValueList<ProtectedData1> ProtectedData { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProtectedData1? ProtectedData { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Context is Context8 ContextValue)
+        {
+            writer.WriteStartElement(null, "Cntxt", xmlNamespace );
+            ContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Tx", xmlNamespace );
+        Transaction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ProtectedData is ProtectedData1 ProtectedDataValue)
+        {
+            writer.WriteStartElement(null, "PrtctdData", xmlNamespace );
+            ProtectedDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static KeyExchangeInitiation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

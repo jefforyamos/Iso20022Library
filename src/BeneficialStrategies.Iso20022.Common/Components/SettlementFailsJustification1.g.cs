@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the justification for the derogation justification on the reporting of settlement fails instructions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementFailsJustification1
+     : IIsoXmlSerilizable<SettlementFailsJustification1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the value of settlement fails, which does not exceed the limit value as specified in the local regulation.
     /// </summary>
-    [DataMember]
     public required IsoMax20PositiveDecimalNumber Value { get; init; } 
     /// <summary>
     /// Specifies the rate of settlement fails, which does not exceed the limits rate as specified in the local regulation.
     /// </summary>
-    [DataMember]
     public required SettlementDataRate1Choice_ Rate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20PositiveDecimalNumber(Value)); // data type Max20PositiveDecimalNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rate", xmlNamespace );
+        Rate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SettlementFailsJustification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

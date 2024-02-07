@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.QuantityRange1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityRange1Choice;
 /// Lower boundary of a range of quantity values.
 /// </summary>
 public partial record FromQuantity : QuantityRange1Choice_
+     , IIsoXmlSerilizable<FromQuantity>
 {
     #nullable enable
+    
     /// <summary>
     /// Quantity value of the range limit.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record FromQuantity : QuantityRange1Choice_
     /// Indicates whether the boundary quantity is included in the range of quantity values.
     /// </summary>
     public required IsoYesNoIndicator Included { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Bdry", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(Boundary)); // data type DecimalNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Incl", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Included)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static new FromQuantity Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

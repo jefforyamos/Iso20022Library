@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.colr.TripartyCollateralTransactionInstructionProcessingStatusAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.colr;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// This message provides the status of the Triparty collateral transaction or instruction.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope: |This message is sent by a triparty agent after the receipt of a collateral instruction from its client.||In this message, the Sender is the triparty agent and the Receiver is either the collateral taker or the collateral giver or their account servicer.||Usage:|This message provides the status of the Triparty collateral transaction or instruction.")]
-public partial record TripartyCollateralTransactionInstructionProcessingStatusAdviceV01 : IOuterRecord
+public partial record TripartyCollateralTransactionInstructionProcessingStatusAdviceV01 : IOuterRecord<TripartyCollateralTransactionInstructionProcessingStatusAdviceV01,TripartyCollateralTransactionInstructionProcessingStatusAdviceV01Document>
+    ,IIsoXmlSerilizable<TripartyCollateralTransactionInstructionProcessingStatusAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record TripartyCollateralTransactionInstructionProcessingStatusAd
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "TrptyCollTxInstrPrcgStsAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => TripartyCollateralTransactionInstructionProcessingStatusAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -176,6 +183,83 @@ public partial record TripartyCollateralTransactionInstructionProcessingStatusAd
     {
         return new TripartyCollateralTransactionInstructionProcessingStatusAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("TrptyCollTxInstrPrcgStsAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxInstrId", xmlNamespace );
+        TransactionInstructionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CancellationRequestReference is IsoMax35Text CancellationRequestReferenceValue)
+        {
+            writer.WriteStartElement(null, "CxlReqRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CancellationRequestReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Pgntn", xmlNamespace );
+        Pagination.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (InstructionProcessingStatus is ProcessingStatus82Choice_ InstructionProcessingStatusValue)
+        {
+            writer.WriteStartElement(null, "InstrPrcgSts", xmlNamespace );
+            InstructionProcessingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MatchingStatus is MatchingStatus33Choice_ MatchingStatusValue)
+        {
+            writer.WriteStartElement(null, "MtchgSts", xmlNamespace );
+            MatchingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CancellationProcessingStatus is CancellationStatus30Choice_ CancellationProcessingStatusValue)
+        {
+            writer.WriteStartElement(null, "CxlPrcgSts", xmlNamespace );
+            CancellationProcessingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "GnlParams", xmlNamespace );
+        GeneralParameters.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CollPties", xmlNamespace );
+        CollateralParties.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DealTxDtls", xmlNamespace );
+        DealTransactionDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DealTxDt", xmlNamespace );
+        DealTransactionDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecuritiesMovement is SecuritiesMovement8 SecuritiesMovementValue)
+        {
+            writer.WriteStartElement(null, "SctiesMvmnt", xmlNamespace );
+            SecuritiesMovementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashMovement is CashMovement7 CashMovementValue)
+        {
+            writer.WriteStartElement(null, "CshMvmnt", xmlNamespace );
+            CashMovementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TripartyCollateralTransactionInstructionProcessingStatusAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -183,9 +267,7 @@ public partial record TripartyCollateralTransactionInstructionProcessingStatusAd
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TripartyCollateralTransactionInstructionProcessingStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record TripartyCollateralTransactionInstructionProcessingStatusAdviceV01Document : IOuterDocument<TripartyCollateralTransactionInstructionProcessingStatusAdviceV01>
+public partial record TripartyCollateralTransactionInstructionProcessingStatusAdviceV01Document : IOuterDocument<TripartyCollateralTransactionInstructionProcessingStatusAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -201,5 +283,22 @@ public partial record TripartyCollateralTransactionInstructionProcessingStatusAd
     /// <summary>
     /// The instance of <seealso cref="TripartyCollateralTransactionInstructionProcessingStatusAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=TripartyCollateralTransactionInstructionProcessingStatusAdviceV01.XmlTag)]
     public required TripartyCollateralTransactionInstructionProcessingStatusAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(TripartyCollateralTransactionInstructionProcessingStatusAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,48 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the tranches defined for the loan contract.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LoanContractTranche1
+     : IIsoXmlSerilizable<LoanContractTranche1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique sequence number of the tranche.
     /// </summary>
-    [DataMember]
     public required IsoNumber TrancheNumber { get; init; } 
     /// <summary>
     /// Expected tranche payment date.
     /// </summary>
-    [DataMember]
     public required IsoISODate ExpectedDate { get; init; } 
     /// <summary>
     /// Amount of the tranche as defined in the loan contract.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Loan tranche due date.
     /// </summary>
-    [DataMember]
     public IsoISODate? DueDate { get; init; } 
     /// <summary>
     /// Loan tranche duration in a coded form.
     /// </summary>
-    [DataMember]
     public IsoExact1NumericText? DurationCode { get; init; } 
     /// <summary>
     /// Indicates whether this tranche is the last tranche of the full report.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? LastTrancheIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TrchNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(TrancheNumber)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XpctdDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ExpectedDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (DueDate is IsoISODate DueDateValue)
+        {
+            writer.WriteStartElement(null, "DueDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DueDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (DurationCode is IsoExact1NumericText DurationCodeValue)
+        {
+            writer.WriteStartElement(null, "DrtnCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact1NumericText(DurationCodeValue)); // data type Exact1NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (LastTrancheIndicator is IsoYesNoIndicator LastTrancheIndicatorValue)
+        {
+            writer.WriteStartElement(null, "LastTrchInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(LastTrancheIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static LoanContractTranche1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

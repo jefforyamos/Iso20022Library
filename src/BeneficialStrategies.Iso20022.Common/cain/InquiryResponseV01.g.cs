@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.cain.InquiryResponseV01>;
 
 namespace BeneficialStrategies.Iso20022.cain;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// The InquiryResponse message is sent by an issuer or an agent to an acquirer in response to an  InquiryInitiation message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The InquiryResponse message is sent by an issuer or an agent to an acquirer in response to an  InquiryInitiation message.")]
-public partial record InquiryResponseV01 : IOuterRecord
+public partial record InquiryResponseV01 : IOuterRecord<InquiryResponseV01,InquiryResponseV01Document>
+    ,IIsoXmlSerilizable<InquiryResponseV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record InquiryResponseV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "NqryRspn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => InquiryResponseV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -76,6 +83,35 @@ public partial record InquiryResponseV01 : IOuterRecord
     {
         return new InquiryResponseV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("NqryRspn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Body", xmlNamespace );
+        Body.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecurityTrailer is ContentInformationType20 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InquiryResponseV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -83,9 +119,7 @@ public partial record InquiryResponseV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InquiryResponseV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record InquiryResponseV01Document : IOuterDocument<InquiryResponseV01>
+public partial record InquiryResponseV01Document : IOuterDocument<InquiryResponseV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -101,5 +135,22 @@ public partial record InquiryResponseV01Document : IOuterDocument<InquiryRespons
     /// <summary>
     /// The instance of <seealso cref="InquiryResponseV01"/> is required.
     /// </summary>
+    [DataMember(Name=InquiryResponseV01.XmlTag)]
     public required InquiryResponseV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(InquiryResponseV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

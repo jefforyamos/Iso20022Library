@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Values either taken directly from the reporting fields as defined in the local regulation or derived from those fields that will be used by trade repositories to calculate positions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PositionSet4
+     : IIsoXmlSerilizable<PositionSet4>
 {
     #nullable enable
     
     /// <summary>
     /// Variables related to derivatives that are used to group derivatives together into positions.
     /// </summary>
-    [DataMember]
     public required PositionSetCollateralDimensions2 Dimensions { get; init; } 
     /// <summary>
     /// Variables used to quantify the different calculations.
     /// </summary>
-    [DataMember]
     public required PositionSetCollateralMetrics1 Metrics { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Dmnsns", xmlNamespace );
+        Dimensions.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Mtrcs", xmlNamespace );
+        Metrics.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static PositionSet4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

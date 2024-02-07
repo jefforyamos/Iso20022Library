@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Query of a trade party based on the identification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradePartyIdentificationQuery8
+     : IIsoXmlSerilizable<TradePartyIdentificationQuery8>
 {
     #nullable enable
     
     /// <summary>
     /// Legal entity identifier code used to recognise the counterparty of the reporting agent for the reported transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoLEIIdentifier> LEI { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoLEIIdentifier? LEI { get; init; } 
     /// <summary>
     /// Business identifier code used to identify the trade party.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoAnyBICDec2014Identifier> AnyBIC { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoAnyBICDec2014Identifier? AnyBIC { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the client counterparty.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax50Text> ClientIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax50Text? ClientIdentification { get; init; } 
     /// <summary>
     /// Field can be queried for not reported value.
     /// </summary>
-    [DataMember]
     public NotReported1Code? NotReported { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (LEI is IsoLEIIdentifier LEIValue)
+        {
+            writer.WriteStartElement(null, "LEI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEIValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (AnyBIC is IsoAnyBICDec2014Identifier AnyBICValue)
+        {
+            writer.WriteStartElement(null, "AnyBIC", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICDec2014Identifier(AnyBICValue)); // data type AnyBICDec2014Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (ClientIdentification is IsoMax50Text ClientIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClntId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax50Text(ClientIdentificationValue)); // data type Max50Text System.String
+            writer.WriteEndElement();
+        }
+        if (NotReported is NotReported1Code NotReportedValue)
+        {
+            writer.WriteStartElement(null, "NotRptd", xmlNamespace );
+            writer.WriteValue(NotReportedValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static TradePartyIdentificationQuery8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

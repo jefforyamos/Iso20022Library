@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Restriction References applied on the transaction for which the securities settlement condition modification is requested.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RestrictionIdentification1
+     : IIsoXmlSerilizable<RestrictionIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Restriction identification removal or addition applied on the transaction expressed as a code.
     /// </summary>
-    [DataMember]
     public required RestrictionReference1Code Code { get; init; } 
     /// <summary>
     /// Restriction identification applied on the transaction.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static RestrictionIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

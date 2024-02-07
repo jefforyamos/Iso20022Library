@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.GetAccountV07>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -37,10 +40,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// Additional information on the generic design of the Get/Return messages can be found in the section How to Use the Cash Management Messages.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The GetAccount message is sent by a member to the transaction administrator.|It is used to request information on the details of one or more accounts held at the transaction administrator, including information on the balances.|Usage|At any time during the operating hours of the system, the member can query the transaction administrator to get information about the account(s) that the transaction administrator maintains for the member.|For example, this may be necessary in order to perform the appropriate liquidity management and the funds transfers between accounts.|The member can request information about accounts through a series of criteria, corresponding to the known information stored at the transaction administrator.|The query can concern one or more specific accounts, accounts of a particular identification, or a particular type. The purpose of the query may be to obtain one or more types of balance.|The member can request information based on the following elements:|- account identification|- account type (this element can be used to refine the query when the account identification represents, for example, a group of accounts)|- balance type (if not present, all balances are requested)|- type of counterparty: bilateral or multilateral (note that, by default, a balance is multilateral unless a particular counterparty is specified)|- identification of the counterparty when a bilateral balance is requested|- balance value date (if not present in the GetAccount message, the ReturnAccount message will contain the latest available balance)|This message will be answered by a ReturnAccount message.|Additional information on the generic design of the Get/Return messages can be found in the section How to Use the Cash Management Messages.")]
-public partial record GetAccountV07 : IOuterRecord
+public partial record GetAccountV07 : IOuterRecord<GetAccountV07,GetAccountV07Document>
+    ,IIsoXmlSerilizable<GetAccountV07>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -52,6 +54,11 @@ public partial record GetAccountV07 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "GetAcct";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => GetAccountV07Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -91,6 +98,38 @@ public partial record GetAccountV07 : IOuterRecord
     {
         return new GetAccountV07Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("GetAcct");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+        MessageHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountQueryDefinition is AccountQuery3 AccountQueryDefinitionValue)
+        {
+            writer.WriteStartElement(null, "AcctQryDef", xmlNamespace );
+            AccountQueryDefinitionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static GetAccountV07 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -98,9 +137,7 @@ public partial record GetAccountV07 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="GetAccountV07"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record GetAccountV07Document : IOuterDocument<GetAccountV07>
+public partial record GetAccountV07Document : IOuterDocument<GetAccountV07>, IXmlSerializable
 {
     
     /// <summary>
@@ -116,5 +153,22 @@ public partial record GetAccountV07Document : IOuterDocument<GetAccountV07>
     /// <summary>
     /// The instance of <seealso cref="GetAccountV07"/> is required.
     /// </summary>
+    [DataMember(Name=GetAccountV07.XmlTag)]
     public required GetAccountV07 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(GetAccountV07.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

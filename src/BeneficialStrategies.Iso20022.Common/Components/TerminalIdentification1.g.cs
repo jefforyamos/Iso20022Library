@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the terminal performing the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TerminalIdentification1
+     : IIsoXmlSerilizable<TerminalIdentification1>
 {
     #nullable enable
     
@@ -23,23 +24,57 @@ public partial record TerminalIdentification1
     /// Identification of the terminal.
     /// ISO 8583 bit 41
     /// </summary>
-    [DataMember]
     public required IsoMax16Text Identification { get; init; } 
     /// <summary>
     /// Assignor of the terminal identification.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Assigner { get; init; } 
     /// <summary>
     /// Country of the terminal.
     /// </summary>
-    [DataMember]
     public IsoMin2Max3AlphaText? Country { get; init; } 
     /// <summary>
     /// Short name of the terminal.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax16Text(Identification)); // data type Max16Text System.String
+        writer.WriteEndElement();
+        if (Assigner is IsoMax35Text AssignerValue)
+        {
+            writer.WriteStartElement(null, "Assgnr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AssignerValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Country is IsoMin2Max3AlphaText CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMin2Max3AlphaText(CountryValue)); // data type Min2Max3AlphaText System.String
+            writer.WriteEndElement();
+        }
+        if (ShortName is IsoMax35Text ShortNameValue)
+        {
+            writer.WriteStartElement(null, "ShrtNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ShortNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TerminalIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

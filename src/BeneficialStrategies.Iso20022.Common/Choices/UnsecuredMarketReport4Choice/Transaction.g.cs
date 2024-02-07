@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.UnsecuredMarketReport4Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.UnsecuredMarketReport4Choice;
 /// Provides the details of the unsecured market transaction as reported by the reporting agent.
 /// </summary>
 public partial record Transaction : UnsecuredMarketReport4Choice_
+     , IIsoXmlSerilizable<Transaction>
 {
     #nullable enable
+    
     /// <summary>
     /// Defines the status of the reported transaction, that is details on whether the transaction is a new transaction, an amendment of a previously reported transaction, a cancellation of a previously reported transaction or a correction to a previously reported and rejected transaction.
     /// </summary>
@@ -104,10 +108,118 @@ public partial record Transaction : UnsecuredMarketReport4Choice_
     /// <summary>
     /// Provides the option details, when the transaction reported is a call/put option.
     /// </summary>
-    public IReadOnlyCollection<Option12> CallPutOption { get; init; } = [];
+    public ValueList<Option12> CallPutOption { get; init; } = [];
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptdTxSts", xmlNamespace );
+        writer.WriteValue(ReportedTransactionStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (NovationStatus is NovationStatus1Code NovationStatusValue)
+        {
+            writer.WriteStartElement(null, "NvtnSts", xmlNamespace );
+            writer.WriteValue(NovationStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (BranchIdentification is IsoLEIIdentifier BranchIdentificationValue)
+        {
+            writer.WriteStartElement(null, "BrnchId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(BranchIdentificationValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (UniqueTransactionIdentifier is IsoMax105Text UniqueTransactionIdentifierValue)
+        {
+            writer.WriteStartElement(null, "UnqTxIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax105Text(UniqueTransactionIdentifierValue)); // data type Max105Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PrtryTxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax105Text(ProprietaryTransactionIdentification)); // data type Max105Text System.String
+        writer.WriteEndElement();
+        if (RelatedProprietaryTransactionIdentification is IsoMax105Text RelatedProprietaryTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RltdPrtryTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax105Text(RelatedProprietaryTransactionIdentificationValue)); // data type Max105Text System.String
+            writer.WriteEndElement();
+        }
+        if (CounterpartyProprietaryTransactionIdentification is IsoMax105Text CounterpartyProprietaryTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyPrtryTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax105Text(CounterpartyProprietaryTransactionIdentificationValue)); // data type Max105Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
+        CounterpartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradDt", xmlNamespace );
+        TradeDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(SettlementDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(MaturityDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxTp", xmlNamespace );
+        writer.WriteValue(TransactionType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InstrmTp", xmlNamespace );
+        writer.WriteValue(InstrumentType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxNmnlAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TransactionNominalAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DealPric", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(DealPrice)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RateTp", xmlNamespace );
+        writer.WriteValue(RateType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (DealRate is IsoPercentageRate DealRateValue)
+        {
+            writer.WriteStartElement(null, "DealRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(DealRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (FloatingRateNote is FloatingRateNote2 FloatingRateNoteValue)
+        {
+            writer.WriteStartElement(null, "FltgRateNote", xmlNamespace );
+            FloatingRateNoteValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BrokeredDeal is BrokeredDeal1Code BrokeredDealValue)
+        {
+            writer.WriteStartElement(null, "BrkrdDeal", xmlNamespace );
+            writer.WriteValue(BrokeredDealValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CallPutOptn", xmlNamespace );
+        CallPutOption.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Transaction Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

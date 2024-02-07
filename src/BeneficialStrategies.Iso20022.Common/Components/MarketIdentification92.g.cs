@@ -7,98 +7,178 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details on a trading venue as per ISO 10383.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MarketIdentification92
+     : IIsoXmlSerilizable<MarketIdentification92>
 {
     #nullable enable
     
     /// <summary>
     /// Operating MIC of the venue.
     /// </summary>
-    [DataMember]
     public required IsoMICIdentifier Operating { get; init; } 
     /// <summary>
     /// Segment MIC of the venue where it exists, otherwise the Operating MIC.
     /// </summary>
-    [DataMember]
     public required IsoMICIdentifier Segment { get; init; } 
     /// <summary>
     /// Define the type of Market Identification Code that is being supplied.
     /// </summary>
-    [DataMember]
     public required MarketIdentification1Code Type { get; init; } 
     /// <summary>
     /// Provides the category of market the venue operates in.
     /// </summary>
-    [DataMember]
     public TradingVenue1Code? Category { get; init; } 
     /// <summary>
     /// The name or description of the institution, market, or infrastructure.
     /// </summary>
-    [DataMember]
     public required IsoMax450Text InstitutionName { get; init; } 
     /// <summary>
     /// Known acronym of the institution, market, or infrastructure.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Acronym { get; init; } 
     /// <summary>
     /// City where the institution, market, or infrastructure operates.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? City { get; init; } 
     /// <summary>
     /// Two character country code and country name as per ISO 3166.
     /// </summary>
-    [DataMember]
     public required CountryCodeAndName3 Country { get; init; } 
     /// <summary>
     /// The name of the national competent authority associated with the MIC.
     /// </summary>
-    [DataMember]
     public IsoMax450Text? AuthorityName { get; init; } 
     /// <summary>
     /// Website URI of the institution, market, or infrastructure.
     /// </summary>
-    [DataMember]
     public IsoMax210Text? WebSite { get; init; } 
     /// <summary>
     /// Details additional information about the market operator.
     /// </summary>
-    [DataMember]
     public IsoMax450Text? Note { get; init; } 
     /// <summary>
     /// Additional information to help users identify the exchange or understand a modification.
     /// </summary>
-    [DataMember]
     public Modification1Code? Modification { get; init; } 
     /// <summary>
     /// First date of the MIC issuance.
     /// </summary>
-    [DataMember]
     public IsoISODate? CreationDate { get; init; } 
     /// <summary>
     /// Details the validity of the specific record.
     /// </summary>
-    [DataMember]
     public required Period4Choice_ ValidityPeriod { get; init; } 
     /// <summary>
     /// Date when the market identification code was last modified.
     /// </summary>
-    [DataMember]
     public IsoISODate? StatusDate { get; init; } 
     /// <summary>
     /// Date when this record was last modified.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? LastUpdatedDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Oprg", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMICIdentifier(Operating)); // data type MICIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sgmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMICIdentifier(Segment)); // data type MICIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Category is TradingVenue1Code CategoryValue)
+        {
+            writer.WriteStartElement(null, "Ctgy", xmlNamespace );
+            writer.WriteValue(CategoryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InstnNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax450Text(InstitutionName)); // data type Max450Text System.String
+        writer.WriteEndElement();
+        if (Acronym is IsoMax35Text AcronymValue)
+        {
+            writer.WriteStartElement(null, "Acrnm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AcronymValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (City is IsoMax35Text CityValue)
+        {
+            writer.WriteStartElement(null, "City", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CityValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Ctry", xmlNamespace );
+        Country.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AuthorityName is IsoMax450Text AuthorityNameValue)
+        {
+            writer.WriteStartElement(null, "AuthrtyNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax450Text(AuthorityNameValue)); // data type Max450Text System.String
+            writer.WriteEndElement();
+        }
+        if (WebSite is IsoMax210Text WebSiteValue)
+        {
+            writer.WriteStartElement(null, "WebSite", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax210Text(WebSiteValue)); // data type Max210Text System.String
+            writer.WriteEndElement();
+        }
+        if (Note is IsoMax450Text NoteValue)
+        {
+            writer.WriteStartElement(null, "Note", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax450Text(NoteValue)); // data type Max450Text System.String
+            writer.WriteEndElement();
+        }
+        if (Modification is Modification1Code ModificationValue)
+        {
+            writer.WriteStartElement(null, "Mod", xmlNamespace );
+            writer.WriteValue(ModificationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CreationDate is IsoISODate CreationDateValue)
+        {
+            writer.WriteStartElement(null, "CreDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(CreationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "VldtyPrd", xmlNamespace );
+        ValidityPeriod.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (StatusDate is IsoISODate StatusDateValue)
+        {
+            writer.WriteStartElement(null, "StsDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(StatusDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (LastUpdatedDate is IsoISODateTime LastUpdatedDateValue)
+        {
+            writer.WriteStartElement(null, "LastUpdtdDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(LastUpdatedDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static MarketIdentification92 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

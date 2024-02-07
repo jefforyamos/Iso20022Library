@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data on transaction requiring reconciliation or pairing.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReconciliationReport8
+     : IIsoXmlSerilizable<ReconciliationReport8>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Set of information related to transactions that are subject of reconciliation.
     /// </summary>
-    [DataMember]
     public required TradeTransactionIdentification19 TransactionIdentification { get; init; } 
     /// <summary>
     /// Indication whether information was modified.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator Modified { get; init; } 
     /// <summary>
     /// Indication whether the reconciliation is required.
     /// </summary>
-    [DataMember]
     public required ReconciliationStatus8Choice_ ReconciliationStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TechnicalRecordIdentification is IsoMax140Text TechnicalRecordIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(TechnicalRecordIdentificationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Modfd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(Modified)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RcncltnSts", xmlNamespace );
+        ReconciliationStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ReconciliationReport8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

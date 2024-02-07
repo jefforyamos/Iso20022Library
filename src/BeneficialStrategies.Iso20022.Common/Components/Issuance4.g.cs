@@ -7,73 +7,146 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Preparation/bringing to market of a security (also known as primary market or Initial Public Offering (IPO) issuance).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Issuance4
+     : IIsoXmlSerilizable<Issuance4>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates where the financial instrument was issued.
     /// </summary>
-    [DataMember]
     public IsoMICIdentifier? IssuePlace { get; init; } 
     /// <summary>
     /// Country where a security is issued by the issuer or its agent.
     /// </summary>
-    [DataMember]
     public CountryCode? CountryOfIssue { get; init; } 
     /// <summary>
     /// Date/time at which the security was made available.
     /// </summary>
-    [DataMember]
     public IsoISODate? IssueDate { get; init; } 
     /// <summary>
     /// Date/time, as announced by the issuer, at which the securities will be issued.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? AnnouncementDate { get; init; } 
     /// <summary>
     /// Legal entity that has the right to issue securities.
     /// </summary>
-    [DataMember]
     public Organisation27? IssuerOrganisation { get; init; } 
     /// <summary>
     /// Total original amount or quantity published.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1Choice_? IssueNominalAmount { get; init; } 
     /// <summary>
     /// Figure used as a control to verify whether the information provided is correct. It represents the issue size multiplied by the issue price.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? FullIssuedAmount { get; init; } 
     /// <summary>
     /// Represents the total amount/quantity of the proceeds from the sale of all securities in the initial offering. This amount/quantity is known after the new issue is priced.
     /// </summary>
-    [DataMember]
     public IsoNumber? IssueSize { get; init; } 
     /// <summary>
     /// Initial issue price of the asset.
     /// </summary>
-    [DataMember]
     public PriceValue1? IssuePrice { get; init; } 
     /// <summary>
     /// Way in which the issue will be marketed to the primary market, via individual dealers (so called non syndicated distribution) or via a syndicate of managers, underwriters and selling group members (so called syndicated distribution).
     /// </summary>
-    [DataMember]
     public SecuritiesTransactionType31Choice_? IssuanceDistribution { get; init; } 
     /// <summary>
     /// Jurisdiction (country, county, state, province, city) of the issue.
     /// </summary>
-    [DataMember]
-    public ValueList<Jurisdiction1> GoverningLaw { get; init; } = []; // Warning: Don't know multiplicity.
+    public Jurisdiction1? GoverningLaw { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (IssuePlace is IsoMICIdentifier IssuePlaceValue)
+        {
+            writer.WriteStartElement(null, "IssePlc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(IssuePlaceValue)); // data type MICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (CountryOfIssue is CountryCode CountryOfIssueValue)
+        {
+            writer.WriteStartElement(null, "CtryOfIsse", xmlNamespace );
+            writer.WriteValue(CountryOfIssueValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (IssueDate is IsoISODate IssueDateValue)
+        {
+            writer.WriteStartElement(null, "IsseDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(IssueDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (AnnouncementDate is IsoISODateTime AnnouncementDateValue)
+        {
+            writer.WriteStartElement(null, "AnncmntDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(AnnouncementDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (IssuerOrganisation is Organisation27 IssuerOrganisationValue)
+        {
+            writer.WriteStartElement(null, "IssrOrg", xmlNamespace );
+            IssuerOrganisationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssueNominalAmount is FinancialInstrumentQuantity1Choice_ IssueNominalAmountValue)
+        {
+            writer.WriteStartElement(null, "IsseNmnlAmt", xmlNamespace );
+            IssueNominalAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FullIssuedAmount is IsoActiveCurrencyAndAmount FullIssuedAmountValue)
+        {
+            writer.WriteStartElement(null, "FullIssdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(FullIssuedAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (IssueSize is IsoNumber IssueSizeValue)
+        {
+            writer.WriteStartElement(null, "IsseSz", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(IssueSizeValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (IssuePrice is PriceValue1 IssuePriceValue)
+        {
+            writer.WriteStartElement(null, "IssePric", xmlNamespace );
+            IssuePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssuanceDistribution is SecuritiesTransactionType31Choice_ IssuanceDistributionValue)
+        {
+            writer.WriteStartElement(null, "IssncDstrbtn", xmlNamespace );
+            IssuanceDistributionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GoverningLaw is Jurisdiction1 GoverningLawValue)
+        {
+            writer.WriteStartElement(null, "GovngLaw", xmlNamespace );
+            GoverningLawValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Issuance4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide identification information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IdentificationInformation1
+     : IIsoXmlSerilizable<IdentificationInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Account owner that owes an amount of money or to whom an amount of money is due.
     /// </summary>
-    [DataMember]
     public PartyIdentification32? Party { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of a party.
     /// </summary>
-    [DataMember]
     public AccountIdentification4Choice_? Account { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for a party.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? Agent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Party is PartyIdentification32 PartyValue)
+        {
+            writer.WriteStartElement(null, "Pty", xmlNamespace );
+            PartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Account is AccountIdentification4Choice_ AccountValue)
+        {
+            writer.WriteStartElement(null, "Acct", xmlNamespace );
+            AccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Agent is BranchAndFinancialInstitutionIdentification4 AgentValue)
+        {
+            writer.WriteStartElement(null, "Agt", xmlNamespace );
+            AgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IdentificationInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

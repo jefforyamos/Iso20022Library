@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional information that can not be captured in the structured fields and/or any other specific block.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Extension1
+     : IIsoXmlSerilizable<Extension1>
 {
     #nullable enable
     
     /// <summary>
     /// Name qualifying the information provided in the Text field, and place where this information should be inserted.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Text of the extension.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text Text { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Txt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(Text)); // data type Max350Text System.String
+        writer.WriteEndElement();
+    }
+    public static Extension1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

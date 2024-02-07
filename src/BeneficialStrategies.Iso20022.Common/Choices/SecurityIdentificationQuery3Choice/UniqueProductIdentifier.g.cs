@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentificationQuery3Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentificationQuery3Choi
 /// Identification through a unique product identifier.
 /// </summary>
 public partial record UniqueProductIdentifier : SecurityIdentificationQuery3Choice_
+     , IIsoXmlSerilizable<UniqueProductIdentifier>
 {
-    public required IsoMax52Text Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a character string with a maximum length of 52 characters.
+    /// </summary>
+    public required IsoMax52Text Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UnqPdctIdr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax52Text(Value)); // data type Max52Text System.String
+        writer.WriteEndElement();
+    }
+    public static new UniqueProductIdentifier Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

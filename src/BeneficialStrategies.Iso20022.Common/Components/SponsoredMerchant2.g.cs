@@ -7,58 +7,113 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Merchant using the payment services of the card acceptor. The sponsored merchant is not acting as the card acceptor; the latter remaining the only party liable for the transaction vis-à-vis the acquirer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SponsoredMerchant2
+     : IIsoXmlSerilizable<SponsoredMerchant2>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the sponsored merchant.
     /// </summary>
-    [DataMember]
     public required PartyIdentification262 Identification { get; init; } 
     /// <summary>
     /// Contains the full name of the sponsored merchant.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? CommonName { get; init; } 
     /// <summary>
     /// Legal Corporate Name of the sponsored merchant.
     /// </summary>
-    [DataMember]
     public IsoMax99Text? LegalCorporateName { get; init; } 
     /// <summary>
     /// Address of the sponsored merchant. 
     /// </summary>
-    [DataMember]
     public Address2? Address { get; init; } 
     /// <summary>
     /// Additional information used when card acceptor street address is insufficient.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? AdditionalAddressInformation { get; init; } 
     /// <summary>
     /// Location of the acceptor in latitude/longitude decimal degrees.
     /// </summary>
-    [DataMember]
     public IsoGeographicPointInDecimalDegrees? GeographicLocation { get; init; } 
     /// <summary>
     /// Additional sponsored merchant data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     /// <summary>
     /// Contains local language equivalent(s) of data in the current component.
     /// </summary>
-    [DataMember]
     public LocalData5? LocalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CommonName is IsoMax140Text CommonNameValue)
+        {
+            writer.WriteStartElement(null, "CmonNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(CommonNameValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (LegalCorporateName is IsoMax99Text LegalCorporateNameValue)
+        {
+            writer.WriteStartElement(null, "LglCorpNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax99Text(LegalCorporateNameValue)); // data type Max99Text System.String
+            writer.WriteEndElement();
+        }
+        if (Address is Address2 AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalAddressInformation is IsoMax256Text AdditionalAddressInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlAdrInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(AdditionalAddressInformationValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (GeographicLocation is IsoGeographicPointInDecimalDegrees GeographicLocationValue)
+        {
+            writer.WriteStartElement(null, "GeogcLctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoGeographicPointInDecimalDegrees(GeographicLocationValue)); // data type GeographicPointInDecimalDegrees System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LocalData is LocalData5 LocalDataValue)
+        {
+            writer.WriteStartElement(null, "LclData", xmlNamespace );
+            LocalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SponsoredMerchant2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

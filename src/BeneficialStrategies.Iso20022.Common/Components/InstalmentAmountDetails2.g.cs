@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Instalment amount details
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InstalmentAmountDetails2
+     : IIsoXmlSerilizable<InstalmentAmountDetails2>
 {
     #nullable enable
     
     /// <summary>
     /// Instalment amount detail type.
     /// </summary>
-    [DataMember]
     public InstalmentAmountDetailsType2Code? Type { get; init; } 
     /// <summary>
     /// Other instalment amount detail type.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Grace period sub type. 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SubType { get; init; } 
     /// <summary>
     /// Detailed instalment amount.
     /// </summary>
-    [DataMember]
     public Amount16? Amount { get; init; } 
     /// <summary>
     /// Rate expressed as a percentage, that is, in hundredths, example, 0.7 is 7/10 of a percent, and 7.0 is 7%.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Percentage { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is InstalmentAmountDetailsType2Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherType is IsoMax35Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SubType is IsoMax35Text SubTypeValue)
+        {
+            writer.WriteStartElement(null, "SubTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SubTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Amount is Amount16 AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            AmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Percentage is IsoPercentageRate PercentageValue)
+        {
+            writer.WriteStartElement(null, "Pctg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PercentageValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static InstalmentAmountDetails2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

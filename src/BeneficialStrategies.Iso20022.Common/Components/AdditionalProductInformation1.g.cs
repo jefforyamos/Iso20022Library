@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional information required for distribution in the German market.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalProductInformation1
+     : IIsoXmlSerilizable<AdditionalProductInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Category of fund product.  When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT V3.1) reference 09000.
     /// </summary>
-    [DataMember]
     public ESGCategoryGermanFundMarket1Code? ESGCategoryGermanFundMarket { get; init; } 
     /// <summary>
     /// Category of structured securities product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT V3.1) reference 09000.
     /// </summary>
-    [DataMember]
     public ESGCategoryGermanStructuredSecuritiesMarket1Code? ESGCategoryGermanStructuredSecuritiesMarket { get; init; } 
     /// <summary>
     /// Specifies if the focus will be Environmental, Social or Governance.  When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT V3.1) reference 09010.
     /// </summary>
-    [DataMember]
     public ESGFocus1Code? ESGFocus { get; init; } 
     /// <summary>
     /// ESG label or standard of a product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT V3.1) reference 09020.
     /// </summary>
-    [DataMember]
-    public ValueList<ESGLabelOrStandard1Code> ESGLabelOrStandard { get; init; } = []; // Warning: Don't know multiplicity.
+    public ESGLabelOrStandard1Code? ESGLabelOrStandard { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ESGCategoryGermanFundMarket is ESGCategoryGermanFundMarket1Code ESGCategoryGermanFundMarketValue)
+        {
+            writer.WriteStartElement(null, "ESGCtgyGrmnFndMkt", xmlNamespace );
+            writer.WriteValue(ESGCategoryGermanFundMarketValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ESGCategoryGermanStructuredSecuritiesMarket is ESGCategoryGermanStructuredSecuritiesMarket1Code ESGCategoryGermanStructuredSecuritiesMarketValue)
+        {
+            writer.WriteStartElement(null, "ESGCtgyGrmnStrdSctiesMkt", xmlNamespace );
+            writer.WriteValue(ESGCategoryGermanStructuredSecuritiesMarketValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ESGFocus is ESGFocus1Code ESGFocusValue)
+        {
+            writer.WriteStartElement(null, "ESGFcs", xmlNamespace );
+            writer.WriteValue(ESGFocusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ESGLabelOrStandard is ESGLabelOrStandard1Code ESGLabelOrStandardValue)
+        {
+            writer.WriteStartElement(null, "ESGLablOrStd", xmlNamespace );
+            writer.WriteValue(ESGLabelOrStandardValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static AdditionalProductInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

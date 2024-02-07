@@ -7,68 +7,136 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Capabilities of the ATM terminal.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PointOfInteractionCapabilities7
+     : IIsoXmlSerilizable<PointOfInteractionCapabilities7>
 {
     #nullable enable
     
     /// <summary>
     /// Card reading capabilities of the ATM performing the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<CardDataReading4Code> CardReadData { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardDataReading4Code? CardReadData { get; init; } 
     /// <summary>
     /// Card writing capabilities of the terminal performing the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<CardDataReading4Code> CardWriteData { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardDataReading4Code? CardWriteData { get; init; } 
     /// <summary>
     /// Customer and card authentication capabilities available at the ATM.
     /// </summary>
-    [DataMember]
-    public ValueList<CardholderVerificationCapability3Code> Authentication { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardholderVerificationCapability3Code? Authentication { get; init; } 
     /// <summary>
     /// Maximum number of digits the ATM is able to accept when the cardholder enters its PIN.
     /// </summary>
-    [DataMember]
     public IsoNumber? PINLengthCapabilities { get; init; } 
     /// <summary>
     /// Maximum number of characters of the approval code the ATM is able to manage.
     /// </summary>
-    [DataMember]
     public IsoNumber? ApprovalCodeLength { get; init; } 
     /// <summary>
     /// Maximum data length in bytes that a card issuer can return to the ICC at the terminal.
     /// </summary>
-    [DataMember]
     public IsoNumber? MaxScriptLength { get; init; } 
     /// <summary>
     /// True if the ATM is able to capture card.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CardCaptureCapable { get; init; } 
     /// <summary>
     /// Type of media the ATM is able to dispense.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMMediaType1Code> WithdrawalMedia { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMMediaType1Code? WithdrawalMedia { get; init; } 
     /// <summary>
     /// Type of media the customer is able to deposit in the ATM.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMMediaType2Code> DepositedMedia { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMMediaType2Code? DepositedMedia { get; init; } 
     /// <summary>
     /// Capabilities of the terminal to display or print message to the cardholder and the merchant.
     /// </summary>
-    [DataMember]
-    public ValueList<DisplayCapabilities5> MessageCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    public DisplayCapabilities5? MessageCapabilities { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CardReadData is CardDataReading4Code CardReadDataValue)
+        {
+            writer.WriteStartElement(null, "CardRdData", xmlNamespace );
+            writer.WriteValue(CardReadDataValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CardWriteData is CardDataReading4Code CardWriteDataValue)
+        {
+            writer.WriteStartElement(null, "CardWrtData", xmlNamespace );
+            writer.WriteValue(CardWriteDataValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Authentication is CardholderVerificationCapability3Code AuthenticationValue)
+        {
+            writer.WriteStartElement(null, "Authntcn", xmlNamespace );
+            writer.WriteValue(AuthenticationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PINLengthCapabilities is IsoNumber PINLengthCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "PINLngthCpblties", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(PINLengthCapabilitiesValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (ApprovalCodeLength is IsoNumber ApprovalCodeLengthValue)
+        {
+            writer.WriteStartElement(null, "ApprvlCdLngth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(ApprovalCodeLengthValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (MaxScriptLength is IsoNumber MaxScriptLengthValue)
+        {
+            writer.WriteStartElement(null, "MxScrptLngth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MaxScriptLengthValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (CardCaptureCapable is IsoTrueFalseIndicator CardCaptureCapableValue)
+        {
+            writer.WriteStartElement(null, "CardCaptrCpbl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CardCaptureCapableValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (WithdrawalMedia is ATMMediaType1Code WithdrawalMediaValue)
+        {
+            writer.WriteStartElement(null, "WdrwlMdia", xmlNamespace );
+            writer.WriteValue(WithdrawalMediaValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DepositedMedia is ATMMediaType2Code DepositedMediaValue)
+        {
+            writer.WriteStartElement(null, "DpstdMdia", xmlNamespace );
+            writer.WriteValue(DepositedMediaValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MessageCapabilities is DisplayCapabilities5 MessageCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "MsgCpblties", xmlNamespace );
+            MessageCapabilitiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PointOfInteractionCapabilities7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the aggregated data of settlement fails instructions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementFailsData4
+     : IIsoXmlSerilizable<SettlementFailsData4>
 {
     #nullable enable
     
     /// <summary>
     /// Total of all types of settlement transactions.
     /// </summary>
-    [DataMember]
     public required SettlementTotalData1 Total { get; init; } 
     /// <summary>
     /// Further details on the reason for the settlement fails.
     /// </summary>
-    [DataMember]
     public required SettlementFailureReason3 FailureReason { get; init; } 
     /// <summary>
     /// Eligible for derogation under the local regulation on settlement discipline, including the justification.
     /// </summary>
-    [DataMember]
     public required SettlementFailsDerogation1 EligibleForDerogation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ttl", xmlNamespace );
+        Total.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FailrRsn", xmlNamespace );
+        FailureReason.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ElgblForDrgtn", xmlNamespace );
+        EligibleForDerogation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SettlementFailsData4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

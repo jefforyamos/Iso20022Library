@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters to synchronise a real time clock.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ClockSynchronisation3
+     : IIsoXmlSerilizable<ClockSynchronisation3>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the time zone where is located the POI (Point Of Interaction), as definined by the IANA (Internet Assigned Number Authority) time zone data base.
     /// </summary>
-    [DataMember]
     public required IsoMax70Text POITimeZone { get; init; } 
     /// <summary>
     /// Parameters to contact a time server.
     /// </summary>
-    [DataMember]
-    public ValueList<NetworkParameters7> SynchronisationServer { get; init; } = []; // Warning: Don't know multiplicity.
+    public NetworkParameters7? SynchronisationServer { get; init; } 
     /// <summary>
     /// Delay between two contacts of the server.
     /// </summary>
-    [DataMember]
     public IsoISOTime? Delay { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "POITmZone", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(POITimeZone)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        if (SynchronisationServer is NetworkParameters7 SynchronisationServerValue)
+        {
+            writer.WriteStartElement(null, "SynctnSvr", xmlNamespace );
+            SynchronisationServerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Delay is IsoISOTime DelayValue)
+        {
+            writer.WriteStartElement(null, "Dely", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(DelayValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static ClockSynchronisation3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

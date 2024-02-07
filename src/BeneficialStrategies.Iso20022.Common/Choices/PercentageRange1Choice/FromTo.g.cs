@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PercentageRange1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PercentageRange1Choice;
 /// Range of valid percentage rates.
 /// </summary>
 public partial record FromTo : PercentageRange1Choice_
+     , IIsoXmlSerilizable<FromTo>
 {
     #nullable enable
+    
     /// <summary>
     /// Lower boundary of a range of percentage rates.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record FromTo : PercentageRange1Choice_
     /// Upper boundary of a range of percentage rates.
     /// </summary>
     public required PercentageRangeBoundary1 To { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Fr", xmlNamespace );
+        From.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "To", xmlNamespace );
+        To.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new FromTo Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

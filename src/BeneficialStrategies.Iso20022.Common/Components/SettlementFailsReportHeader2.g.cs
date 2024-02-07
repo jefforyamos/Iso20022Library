@@ -7,44 +7,72 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies parameters of the report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementFailsReportHeader2
+     : IIsoXmlSerilizable<SettlementFailsReportHeader2>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the reporting timestamp, when the report was submitted from the CSD to the Competent Authority.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Period covered by the report.
     /// </summary>
-    [DataMember]
     public required DatePeriod2 ReportingPeriod { get; init; } 
     /// <summary>
     /// Specifies the currency used to report the aggregated values of the transactions.
     /// Usage: this is the currency in which the values have to be reported, when no explicit currency is provided.
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Provides the status of the report.
     /// </summary>
-    [DataMember]
     public required TransactionOperationType4Code ReportStatus { get; init; } 
     /// <summary>
     /// Specifies the securities settlement system used in a settlement process.
     /// </summary>
-    [DataMember]
     public required SecuritiesSettlementSystemIdentification2 SecuritiesSettlementSystem { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptgPrd", xmlNamespace );
+        ReportingPeriod.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Ccy", xmlNamespace );
+        writer.WriteValue(Currency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptSts", xmlNamespace );
+        writer.WriteValue(ReportStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctiesSttlmSys", xmlNamespace );
+        SecuritiesSettlementSystem.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SettlementFailsReportHeader2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

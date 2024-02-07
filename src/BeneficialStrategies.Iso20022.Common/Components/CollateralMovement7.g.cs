@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the agreed amount and the collateral movement direction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralMovement7
+     : IIsoXmlSerilizable<CollateralMovement7>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the call amount that is agreed and that will result in a collateral movement.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount AgreedAmount { get; init; } 
     /// <summary>
     /// Provides the collateral movement direction that is a delivery and optionaly a return, or a return only.
     /// </summary>
-    [DataMember]
-    public ValueList<CollateralMovement4Choice_> MovementDirection { get; init; } = []; // Warning: Don't know multiplicity.
+    public CollateralMovement4Choice_? MovementDirection { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AgrdAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AgreedAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (MovementDirection is CollateralMovement4Choice_ MovementDirectionValue)
+        {
+            writer.WriteStartElement(null, "MvmntDrctn", xmlNamespace );
+            MovementDirectionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralMovement7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Further information related to the processing of the charges instruction that may need to be acted upon by the instructed agent. The instruction may relate to an instruction that has to be executed by the instructed agent, or may be information required by the instructed agent.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InstructionForInstructedAgent1
+     : IIsoXmlSerilizable<InstructionForInstructedAgent1>
 {
     #nullable enable
     
     /// <summary>
     /// Coded information related to the processing of the payment instruction, provided by the initiating party, and intended for the instructed agent.
     /// </summary>
-    [DataMember]
     public ExternalInstructedAgentInstruction1Code? Code { get; init; } 
     /// <summary>
     /// Further information complementing the coded instruction or instruction to the instructed agent that is bilaterally agreed or specific to a user community.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? InstructionInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Code is ExternalInstructedAgentInstruction1Code CodeValue)
+        {
+            writer.WriteStartElement(null, "Cd", xmlNamespace );
+            writer.WriteValue(CodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (InstructionInformation is IsoMax140Text InstructionInformationValue)
+        {
+            writer.WriteStartElement(null, "InstrInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(InstructionInformationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static InstructionForInstructedAgent1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides further details on the settlement of the instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementInstruction14
+     : IIsoXmlSerilizable<SettlementInstruction14>
 {
     #nullable enable
     
     /// <summary>
     /// Method used to settle the (batch of) payment instructions.
     /// </summary>
-    [DataMember]
     public required SettlementMethod2Code SettlementMethod { get; init; } 
     /// <summary>
     /// A specific purpose account used to post debit and credit entries as a result of the transaction.
     /// </summary>
-    [DataMember]
     public CashAccount40? SettlementAccount { get; init; } 
     /// <summary>
     /// Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
     /// </summary>
-    [DataMember]
     public ClearingSystemIdentification3Choice_? ClearingSystem { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttlmMtd", xmlNamespace );
+        writer.WriteValue(SettlementMethod.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SettlementAccount is CashAccount40 SettlementAccountValue)
+        {
+            writer.WriteStartElement(null, "SttlmAcct", xmlNamespace );
+            SettlementAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingSystem is ClearingSystemIdentification3Choice_ ClearingSystemValue)
+        {
+            writer.WriteStartElement(null, "ClrSys", xmlNamespace );
+            ClearingSystemValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementInstruction14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

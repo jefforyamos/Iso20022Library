@@ -7,58 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Investment fund transactions for a specific financial instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestmentFundTransactionsByFund1
+     : IIsoXmlSerilizable<InvestmentFundTransactionsByFund1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a security by an ISIN.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? Name { get; init; } 
     /// <summary>
     /// Additional information about a financial instrument to help identify the instrument.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SupplementaryIdentification { get; init; } 
     /// <summary>
     /// Specifies the form, ie, ownership, of the security.
     /// </summary>
-    [DataMember]
     public FormOfSecurity1Code? Form { get; init; } 
     /// <summary>
     /// Features of units offered by a fund. For example, a unit may have a specific load structure, eg, front end or back end, an income policy, eg, pay out or accumulate, or a trailer policy, eg, with or without. Fund classes are typically denoted by a single character, eg, 'Class A', 'Class 2'.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClassType { get; init; } 
     /// <summary>
     /// Income policy relating to a class type, ie, if income is paid out or retained in the fund.
     /// </summary>
-    [DataMember]
     public DistributionPolicy1Code? DistributionPolicy { get; init; } 
     /// <summary>
     /// Process of buying, selling, switching or transferring fund units.
     /// </summary>
-    [DataMember]
-    public ValueList<InvestmentFundTransaction2> TransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public InvestmentFundTransaction2? TransactionDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _VG0G0Np-Ed-ak6NoX_4Aeg_-3482322
     /// <summary>
     /// Balance of the financial instrument for this specific statement page.
     /// </summary>
-    [DataMember]
     public PaginationBalance1? BalanceByPage { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Name is IsoMax350Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(NameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (SupplementaryIdentification is IsoMax35Text SupplementaryIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SplmtryId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SupplementaryIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Form is FormOfSecurity1Code FormValue)
+        {
+            writer.WriteStartElement(null, "Form", xmlNamespace );
+            writer.WriteValue(FormValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ClassType is IsoMax35Text ClassTypeValue)
+        {
+            writer.WriteStartElement(null, "ClssTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClassTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DistributionPolicy is DistributionPolicy1Code DistributionPolicyValue)
+        {
+            writer.WriteStartElement(null, "DstrbtnPlcy", xmlNamespace );
+            writer.WriteValue(DistributionPolicyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize TransactionDetails, multiplicity Unknown
+        if (BalanceByPage is PaginationBalance1 BalanceByPageValue)
+        {
+            writer.WriteStartElement(null, "BalByPg", xmlNamespace );
+            BalanceByPageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InvestmentFundTransactionsByFund1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

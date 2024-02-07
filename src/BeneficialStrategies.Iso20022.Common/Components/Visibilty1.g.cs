@@ -7,34 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of the visibility of the creditor enrolment as shown to the debtors.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Visibilty1
+     : IIsoXmlSerilizable<Visibilty1>
 {
     #nullable enable
     
     /// <summary>
     /// Start date when the information will be shown to the debtors.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? StartDate { get; init; } 
     /// <summary>
     /// End date when the information will be shown to the debtors.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? EndDate { get; init; } 
     /// <summary>
     /// Indicates whether the information is shown to the debtors or not.
     /// Usage: when absent, the default value is no limited visibility (false).
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? LimitedVisibility { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (StartDate is DateAndDateTime2Choice_ StartDateValue)
+        {
+            writer.WriteStartElement(null, "StartDt", xmlNamespace );
+            StartDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EndDate is DateAndDateTime2Choice_ EndDateValue)
+        {
+            writer.WriteStartElement(null, "EndDt", xmlNamespace );
+            EndDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LimitedVisibility is IsoTrueFalseIndicator LimitedVisibilityValue)
+        {
+            writer.WriteStartElement(null, "LtdVsblty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(LimitedVisibilityValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Visibilty1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

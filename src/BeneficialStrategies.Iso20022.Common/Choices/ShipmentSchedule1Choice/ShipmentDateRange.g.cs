@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ShipmentSchedule1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.ShipmentSchedule1Choice;
 /// Specifies an earliest shipment date and a latest shipment date.
 /// </summary>
 public partial record ShipmentDateRange : ShipmentSchedule1Choice_
+     , IIsoXmlSerilizable<ShipmentDateRange>
 {
     #nullable enable
+    
     /// <summary>
     /// Earliest date whereby the goods must be shipped.
     /// </summary>
@@ -23,5 +27,35 @@ public partial record ShipmentDateRange : ShipmentSchedule1Choice_
     /// Latest date whereby the goods must be shipped.
     /// </summary>
     public IsoISODate? LatestShipmentDate { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (EarliestShipmentDate is IsoISODate EarliestShipmentDateValue)
+        {
+            writer.WriteStartElement(null, "EarlstShipmntDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(EarliestShipmentDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (LatestShipmentDate is IsoISODate LatestShipmentDateValue)
+        {
+            writer.WriteStartElement(null, "LatstShipmntDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(LatestShipmentDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static new ShipmentDateRange Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

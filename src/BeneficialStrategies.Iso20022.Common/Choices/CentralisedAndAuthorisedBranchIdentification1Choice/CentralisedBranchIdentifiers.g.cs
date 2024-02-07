@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CentralisedAndAuthorisedBranchIdentification1Choice;
 
@@ -13,11 +15,33 @@ namespace BeneficialStrategies.Iso20022.Choices.CentralisedAndAuthorisedBranchId
 /// Identifier of the centralised branch.
 /// </summary>
 public partial record CentralisedBranchIdentifiers : CentralisedAndAuthorisedBranchIdentification1Choice_
+     , IIsoXmlSerilizable<CentralisedBranchIdentifiers>
 {
     #nullable enable
+    
     /// <summary>
     /// Repeated identifiers.
     /// </summary>
     public FinancialInstitutionIdentification9? List { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _Bwxs8CD1Eeav65mEytrgaA
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize List, multiplicity Unknown
+    }
+    public static new CentralisedBranchIdentifiers Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

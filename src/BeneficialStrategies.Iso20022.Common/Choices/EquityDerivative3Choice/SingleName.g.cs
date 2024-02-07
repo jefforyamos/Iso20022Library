@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.EquityDerivative3Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.EquityDerivative3Choice;
 /// Populated when sub asset class is either swaps or portfolio swaps and the underlying type is a single name.
 /// </summary>
 public partial record SingleName : EquityDerivative3Choice_
+     , IIsoXmlSerilizable<SingleName>
 {
-    public required UnderlyingEquityType5Code Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies the type for a contract for equity derivatives.
+    /// </summary>
+    public required UnderlyingEquityType5Code Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SnglNm", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new SingleName Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

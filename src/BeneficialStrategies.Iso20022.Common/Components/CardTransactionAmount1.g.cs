@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amounts of the transaction expressed within the terminal currency.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardTransactionAmount1
+     : IIsoXmlSerilizable<CardTransactionAmount1>
 {
     #nullable enable
     
@@ -23,24 +24,58 @@ public partial record CardTransactionAmount1
     /// Total amount of the transaction expressed within the terminal currency.
     /// It corresponds to ISO 8583 field number 4, completed by the field number 49 for the versions 87 and 93.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount TotalAmount { get; init; } 
     /// <summary>
     /// Qualifies the amount of the transaction.
     /// </summary>
-    [DataMember]
     public TypeOfAmount1Code? AmountQualifier { get; init; } 
     /// <summary>
     /// Present when cardholder billing currency differs from transaction currency expressed in transaction amount. It may be populated by the scheme or intermediary processor as normally acceptor does not know cardholder billing currency.
     /// </summary>
-    [DataMember]
     public DetailedAmount8? CardholderBillingTransactionAmount { get; init; } 
     /// <summary>
     /// Details of the transaction amount, for informational purpose, for instance to be included within cardholder statement.
     /// It corresponds partially to ISO 8583 field number 54.
     /// </summary>
-    [DataMember]
-    public ValueList<DetailedAmount9> DetailedAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public DetailedAmount9? DetailedAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(TotalAmount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (AmountQualifier is TypeOfAmount1Code AmountQualifierValue)
+        {
+            writer.WriteStartElement(null, "AmtQlfr", xmlNamespace );
+            writer.WriteValue(AmountQualifierValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CardholderBillingTransactionAmount is DetailedAmount8 CardholderBillingTransactionAmountValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrBllgTxAmt", xmlNamespace );
+            CardholderBillingTransactionAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DetailedAmount is DetailedAmount9 DetailedAmountValue)
+        {
+            writer.WriteStartElement(null, "DtldAmt", xmlNamespace );
+            DetailedAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardTransactionAmount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains amount details for a specific type of charge.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Amount12
+     : IIsoXmlSerilizable<Amount12>
 {
     #nullable enable
     
     /// <summary>
     /// Type of hours worked. 
     /// </summary>
-    [DataMember]
     public TemporaryServicesCharge1Code? Type { get; init; } 
     /// <summary>
     /// Other type of hours worked. 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Contains the rate per hour. 
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? Rate { get; init; } 
     /// <summary>
     /// Contains the number of hours worked. 
     /// </summary>
-    [DataMember]
     public IsoMax6NumericText? Hours { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is TemporaryServicesCharge1Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherType is IsoMax35Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Rate is IsoImpliedCurrencyAndAmount RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(RateValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Hours is IsoMax6NumericText HoursValue)
+        {
+            writer.WriteStartElement(null, "Hrs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax6NumericText(HoursValue)); // data type Max6NumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Amount12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

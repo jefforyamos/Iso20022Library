@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the extended parameters for an Isabel payment file.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IsabelExtendedHeader1
+     : IIsoXmlSerilizable<IsabelExtendedHeader1>
 {
     #nullable enable
     
     /// <summary>
     /// SEPA related information for a payment file.
     /// </summary>
-    [DataMember]
     public IsabelSEPAFile1? SEPA { get; init; } 
     /// <summary>
     /// Belgian bank protocol number (BPN) of the receiving bank.
     /// </summary>
-    [DataMember]
     public IsoMax3Text? BPNFinancialInstitution { get; init; } 
     /// <summary>
     /// Business identification code of the receiving bank.
     /// </summary>
-    [DataMember]
     public IsoBICFIIdentifier? BICFinancialInstitution { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SEPA is IsabelSEPAFile1 SEPAValue)
+        {
+            writer.WriteStartElement(null, "SEPA", xmlNamespace );
+            SEPAValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BPNFinancialInstitution is IsoMax3Text BPNFinancialInstitutionValue)
+        {
+            writer.WriteStartElement(null, "BPNFI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3Text(BPNFinancialInstitutionValue)); // data type Max3Text System.String
+            writer.WriteEndElement();
+        }
+        if (BICFinancialInstitution is IsoBICFIIdentifier BICFinancialInstitutionValue)
+        {
+            writer.WriteStartElement(null, "BICFI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBICFIIdentifier(BICFinancialInstitutionValue)); // data type BICFIIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static IsabelExtendedHeader1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

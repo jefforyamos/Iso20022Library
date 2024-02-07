@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed statistics for submitted derivatives per action type.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StatisticsPerActionType1
+     : IIsoXmlSerilizable<StatisticsPerActionType1>
 {
     #nullable enable
     
     /// <summary>
     /// Total number of derivatives which have been reported.
     /// </summary>
-    [DataMember]
     public required IsoMax20PositiveNumber All { get; init; } 
     /// <summary>
     /// Number of derivatives which have been reported as new.
     /// </summary>
-    [DataMember]
     public required IsoMax20PositiveNumber New { get; init; } 
     /// <summary>
     /// Number of derivatives which have been reported as modified.
     /// </summary>
-    [DataMember]
     public required IsoMax20PositiveNumber Modification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "All", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20PositiveNumber(All)); // data type Max20PositiveNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "New", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20PositiveNumber(New)); // data type Max20PositiveNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Mod", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20PositiveNumber(Modification)); // data type Max20PositiveNumber System.UInt64
+        writer.WriteEndElement();
+    }
+    public static StatisticsPerActionType1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

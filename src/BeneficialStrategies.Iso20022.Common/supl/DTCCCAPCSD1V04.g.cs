@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.supl.DTCCCAPCSD1V04>;
 
 namespace BeneficialStrategies.Iso20022.supl;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// The DTCCCAPCSD1 message extends ISO corporate action movement preliminary advice cancellation advice (CAPC) message with DTCC corporate action elements not covered in the standard message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The DTCCCAPCSD1 message extends ISO corporate action movement preliminary advice cancellation advice (CAPC) message with DTCC corporate action elements not covered in the standard message.")]
-public partial record DTCCCAPCSD1V04 : IOuterRecord
+public partial record DTCCCAPCSD1V04 : IOuterRecord<DTCCCAPCSD1V04,DTCCCAPCSD1V04Document>
+    ,IIsoXmlSerilizable<DTCCCAPCSD1V04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record DTCCCAPCSD1V04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "DTCCCAPCSD1";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => DTCCCAPCSD1V04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -65,6 +72,35 @@ public partial record DTCCCAPCSD1V04 : IOuterRecord
     {
         return new DTCCCAPCSD1V04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("DTCCCAPCSD1");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CorporateActionGeneralInformation is CorporateActionGeneralInformationSD54 CorporateActionGeneralInformationValue)
+        {
+            writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+            CorporateActionGeneralInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnderlyingSecurity is FinancialInstrumentAttributesSD20 UnderlyingSecurityValue)
+        {
+            writer.WriteStartElement(null, "UndrlygScty", xmlNamespace );
+            UnderlyingSecurityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DTCCCAPCSD1V04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -72,9 +108,7 @@ public partial record DTCCCAPCSD1V04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCAPCSD1V04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record DTCCCAPCSD1V04Document : IOuterDocument<DTCCCAPCSD1V04>
+public partial record DTCCCAPCSD1V04Document : IOuterDocument<DTCCCAPCSD1V04>, IXmlSerializable
 {
     
     /// <summary>
@@ -90,5 +124,22 @@ public partial record DTCCCAPCSD1V04Document : IOuterDocument<DTCCCAPCSD1V04>
     /// <summary>
     /// The instance of <seealso cref="DTCCCAPCSD1V04"/> is required.
     /// </summary>
+    [DataMember(Name=DTCCCAPCSD1V04.XmlTag)]
     public required DTCCCAPCSD1V04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(DTCCCAPCSD1V04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,54 +7,101 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardPaymentEnvironment59
+     : IIsoXmlSerilizable<CardPaymentEnvironment59>
 {
     #nullable enable
     
     /// <summary>
     /// Acquirer involved in the card payment.
     /// </summary>
-    [DataMember]
     public Acquirer4? Acquirer { get; init; } 
     /// <summary>
     /// Merchant performing the card payment.
     /// Usage: In some cases, merchant and acceptor may be regarded as the same entity.
     /// </summary>
-    [DataMember]
     public Organisation25? Merchant { get; init; } 
     /// <summary>
     /// Point of interaction (POI) performing the transaction.
     /// </summary>
-    [DataMember]
     public required PointOfInteraction7 POI { get; init; } 
     /// <summary>
     /// Payment card performing the transaction.
     /// </summary>
-    [DataMember]
     public required PaymentCard26 Card { get; init; } 
     /// <summary>
     /// Device used by the customer to perform the payment.
     /// </summary>
-    [DataMember]
     public CustomerDevice1? CustomerDevice { get; init; } 
     /// <summary>
     /// Container of tenders used by the customer to perform the payment.
     /// </summary>
-    [DataMember]
     public CustomerDevice1? Wallet { get; init; } 
     /// <summary>
     /// Payment token information.
     /// </summary>
-    [DataMember]
     public CardPaymentToken3? PaymentToken { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Acquirer is Acquirer4 AcquirerValue)
+        {
+            writer.WriteStartElement(null, "Acqrr", xmlNamespace );
+            AcquirerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Merchant is Organisation25 MerchantValue)
+        {
+            writer.WriteStartElement(null, "Mrchnt", xmlNamespace );
+            MerchantValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "POI", xmlNamespace );
+        POI.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Card", xmlNamespace );
+        Card.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CustomerDevice is CustomerDevice1 CustomerDeviceValue)
+        {
+            writer.WriteStartElement(null, "CstmrDvc", xmlNamespace );
+            CustomerDeviceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Wallet is CustomerDevice1 WalletValue)
+        {
+            writer.WriteStartElement(null, "Wllt", xmlNamespace );
+            WalletValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentToken is CardPaymentToken3 PaymentTokenValue)
+        {
+            writer.WriteStartElement(null, "PmtTkn", xmlNamespace );
+            PaymentTokenValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardPaymentEnvironment59 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

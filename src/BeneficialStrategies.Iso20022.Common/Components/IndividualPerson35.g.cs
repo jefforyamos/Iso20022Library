@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IndividualPerson35
+     : IIsoXmlSerilizable<IndividualPerson35>
 {
     #nullable enable
     
     /// <summary>
     /// First name of the person.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? GivenName { get; init; } 
     /// <summary>
     /// Second name of the person.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MiddleName { get; init; } 
     /// <summary>
     /// Name by which the party is known and which is usually used to identify that party.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text Name { get; init; } 
     /// <summary>
     /// Gender of the person.
     /// </summary>
-    [DataMember]
     public Gender1Code? Gender { get; init; } 
     /// <summary>
     /// Date on which the person is born.
     /// </summary>
-    [DataMember]
     public IsoISODate? BirthDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (GivenName is IsoMax35Text GivenNameValue)
+        {
+            writer.WriteStartElement(null, "GvnNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(GivenNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MiddleName is IsoMax35Text MiddleNameValue)
+        {
+            writer.WriteStartElement(null, "MddlNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MiddleNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(Name)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (Gender is Gender1Code GenderValue)
+        {
+            writer.WriteStartElement(null, "Gndr", xmlNamespace );
+            writer.WriteValue(GenderValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (BirthDate is IsoISODate BirthDateValue)
+        {
+            writer.WriteStartElement(null, "BirthDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(BirthDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static IndividualPerson35 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

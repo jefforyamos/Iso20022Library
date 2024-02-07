@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Cash settlement parties and accounts.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashSettlement2
+     : IIsoXmlSerilizable<CashSettlement2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of modification to be applied.
     /// </summary>
-    [DataMember]
     public required DataModification2Code ModificationScopeIndication { get; init; } 
     /// <summary>
     /// Account to credit or debit. When this is an account to debit, this is for the payment of a subscription to an investment fund, a savings plan payment, the purchase of securities or the payment of charges. When this is an account to credit, this is for the payment of an amount as a result of a redemption of investment fund units, the sale of securities, interest and dividend payments. A single account may be specified for all cash movements on the account or cash accounts may be specified for specific types of transactions on the account.
     /// </summary>
-    [DataMember]
-    public ValueList<CashAccount33> CashAccountDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashAccount33? CashAccountDetails { get; init; } 
     /// <summary>
     /// Method of payment other than a cash account.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentInstrument13> OtherCashSettlementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentInstrument13? OtherCashSettlementDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ModScpIndctn", xmlNamespace );
+        writer.WriteValue(ModificationScopeIndication.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (CashAccountDetails is CashAccount33 CashAccountDetailsValue)
+        {
+            writer.WriteStartElement(null, "CshAcctDtls", xmlNamespace );
+            CashAccountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherCashSettlementDetails is PaymentInstrument13 OtherCashSettlementDetailsValue)
+        {
+            writer.WriteStartElement(null, "OthrCshSttlmDtls", xmlNamespace );
+            OtherCashSettlementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CashSettlement2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

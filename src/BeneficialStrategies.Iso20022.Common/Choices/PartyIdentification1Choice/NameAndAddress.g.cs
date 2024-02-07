@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification1Choice;
 /// Name by which a party is known and which is usually used to identify that party.
 /// </summary>
 public partial record NameAndAddress : PartyIdentification1Choice_
+     , IIsoXmlSerilizable<NameAndAddress>
 {
     #nullable enable
+    
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record NameAndAddress : PartyIdentification1Choice_
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
     public LongPostalAddress1Choice_? Address { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Name)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Address is LongPostalAddress1Choice_ AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new NameAndAddress Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

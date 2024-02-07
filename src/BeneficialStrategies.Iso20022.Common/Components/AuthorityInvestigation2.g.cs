@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the requested authority investigation information details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AuthorityInvestigation2
+     : IIsoXmlSerilizable<AuthorityInvestigation2>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the type requested information as a code.
     /// </summary>
-    [DataMember]
     public required AuthorityRequestType1 Type { get; init; } 
     /// <summary>
     /// Identifies the roles the customer plays in the requested information.
     /// </summary>
-    [DataMember]
     public required InvestigatedParties1Choice_ InvestigatedRoles { get; init; } 
     /// <summary>
     /// Specifies the additional investigated parties.
     /// </summary>
-    [DataMember]
     public InvestigatedParties1Choice_? AdditionalInvestigatedParties { get; init; } 
     /// <summary>
     /// Additional information, in free text form, to complement the requested information.
     /// </summary>
-    [DataMember]
     public IsoMax500Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InvstgtdRoles", xmlNamespace );
+        InvestigatedRoles.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalInvestigatedParties is InvestigatedParties1Choice_ AdditionalInvestigatedPartiesValue)
+        {
+            writer.WriteStartElement(null, "AddtlInvstgtdPties", xmlNamespace );
+            AdditionalInvestigatedPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax500Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Text(AdditionalInformationValue)); // data type Max500Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AuthorityInvestigation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

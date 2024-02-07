@@ -7,48 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Processing characteristics linked to the instrument, ie, not to the market.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProcessingCharacteristics1
+     : IIsoXmlSerilizable<ProcessingCharacteristics1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether a subscription or a redemption can be instructed by amount.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator AmountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether subscriptions or redemptions may be placed as a number of units.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator UnitsIndicator { get; init; } 
     /// <summary>
     /// Currency in which a subscription or redemption is accepted.
     /// </summary>
-    [DataMember]
-    public ValueList<ActiveCurrencyCode> DealingCurrencyAccepted { get; init; } = []; // Warning: Don't know multiplicity.
+    public ActiveCurrencyCode? DealingCurrencyAccepted { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _UBrDttp-Ed-ak6NoX_4Aeg_1655381109
     /// <summary>
     /// Last date/time at which an order to subscribe or redeem can be given.
     /// </summary>
-    [DataMember]
     public required IsoISOTime DealingCutOffTime { get; init; } 
     /// <summary>
     /// TimeFrame or period concept that allows definition of a period as number of days before or after a defined activity.
     /// </summary>
-    [DataMember]
     public required TimeFrame3Choice_ DealingCutOffTimeFrame { get; init; } 
     /// <summary>
     /// An agreed number of days after the Trade date (T) used to define standard timeframes e.g T+3 settlement period ||Where T = the date the price is applied to a transaction.
     /// </summary>
-    [DataMember]
     public required Timeframe2Choice_ SettlementCycle { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AmtInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AmountIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UnitsInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(UnitsIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        // Not sure how to serialize DealingCurrencyAccepted, multiplicity Unknown
+        writer.WriteStartElement(null, "DealgCutOffTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISOTime(DealingCutOffTime)); // data type ISOTime System.TimeOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DealgCutOffTmFrame", xmlNamespace );
+        DealingCutOffTimeFrame.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmCycl", xmlNamespace );
+        SettlementCycle.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ProcessingCharacteristics1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details about the accepted collateral substitution.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralSubstitutionResponse1
+     : IIsoXmlSerilizable<CollateralSubstitutionResponse1>
 {
     #nullable enable
     
     /// <summary>
     /// Reference to the collateral substitution request identification.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text CollateralSubstitutionRequestIdentification { get; init; } 
     /// <summary>
     /// Provides the accepted collateral substitution amount.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? AcceptedAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CollSbstitnReqId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(CollateralSubstitutionRequestIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (AcceptedAmount is IsoActiveCurrencyAndAmount AcceptedAmountValue)
+        {
+            writer.WriteStartElement(null, "AccptdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AcceptedAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralSubstitutionResponse1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

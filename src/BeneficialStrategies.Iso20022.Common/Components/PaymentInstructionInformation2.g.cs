@@ -7,83 +7,147 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of characteristics that apply to the credit side of the payment transactions included in the direct debit transaction initiation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentInstructionInformation2
+     : IIsoXmlSerilizable<PaymentInstructionInformation2>
 {
     #nullable enable
     
     /// <summary>
     /// Reference assigned by a sending party to unambiguously identify the payment information block within the message.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PaymentInformationIdentification { get; init; } 
     /// <summary>
     /// Specifies the means of payment that will be used to move the amount of money.
     /// </summary>
-    [DataMember]
     public required PaymentMethod2Code PaymentMethod { get; init; } 
     /// <summary>
     /// Set of elements used to further specify the type of transaction.
     /// </summary>
-    [DataMember]
     public PaymentTypeInformation2? PaymentTypeInformation { get; init; } 
     /// <summary>
     /// Date at which the creditor requests the amount of money to be collected from the debtor.
     /// </summary>
-    [DataMember]
     public required IsoISODate RequestedCollectionDate { get; init; } 
     /// <summary>
     /// Party to which an amount of money is due.
     /// </summary>
-    [DataMember]
     public required PartyIdentification8 Creditor { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the creditor to which a credit entry will be posted as a result of the payment transaction.
     /// </summary>
-    [DataMember]
     public required CashAccount7 CreditorAccount { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
-    [DataMember]
     public required BranchAndFinancialInstitutionIdentification3 CreditorAgent { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the creditor agent at its servicing agent to which a credit entry will be made as a result of the payment transaction.
     /// </summary>
-    [DataMember]
     public CashAccount7? CreditorAgentAccount { get; init; } 
     /// <summary>
     /// Ultimate party to which an amount of money is due.
     /// </summary>
-    [DataMember]
     public PartyIdentification8? UltimateCreditor { get; init; } 
     /// <summary>
     /// Specifies which party/parties will bear the charges associated with the processing of the payment transaction.
     /// </summary>
-    [DataMember]
     public ChargeBearerType1Code? ChargeBearer { get; init; } 
     /// <summary>
     /// Account used to process charges associated with a transaction.||Usage: charges account should be used when charges have to be booked to an account different from the account identified in debtor's account.
     /// </summary>
-    [DataMember]
     public CashAccount7? ChargesAccount { get; init; } 
     /// <summary>
     /// Agent that services a charges account. ||Usage: charges account agent should only be used when the charges account agent is different from the creditor agent.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? ChargesAccountAgent { get; init; } 
     /// <summary>
     /// Set of elements providing information specific to the individual transaction(s) included in the message.
     /// </summary>
-    [DataMember]
-    public ValueList<DirectDebitTransactionInformation1> DirectDebitTransactionInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public DirectDebitTransactionInformation1? DirectDebitTransactionInformation { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _PzhBM9p-Ed-ak6NoX_4Aeg_-726886228
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PaymentInformationIdentification is IsoMax35Text PaymentInformationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PmtInfId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PaymentInformationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PmtMtd", xmlNamespace );
+        writer.WriteValue(PaymentMethod.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (PaymentTypeInformation is PaymentTypeInformation2 PaymentTypeInformationValue)
+        {
+            writer.WriteStartElement(null, "PmtTpInf", xmlNamespace );
+            PaymentTypeInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ReqdColltnDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(RequestedCollectionDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Cdtr", xmlNamespace );
+        Creditor.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CdtrAcct", xmlNamespace );
+        CreditorAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CdtrAgt", xmlNamespace );
+        CreditorAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CreditorAgentAccount is CashAccount7 CreditorAgentAccountValue)
+        {
+            writer.WriteStartElement(null, "CdtrAgtAcct", xmlNamespace );
+            CreditorAgentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UltimateCreditor is PartyIdentification8 UltimateCreditorValue)
+        {
+            writer.WriteStartElement(null, "UltmtCdtr", xmlNamespace );
+            UltimateCreditorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ChargeBearer is ChargeBearerType1Code ChargeBearerValue)
+        {
+            writer.WriteStartElement(null, "ChrgBr", xmlNamespace );
+            writer.WriteValue(ChargeBearerValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ChargesAccount is CashAccount7 ChargesAccountValue)
+        {
+            writer.WriteStartElement(null, "ChrgsAcct", xmlNamespace );
+            ChargesAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ChargesAccountAgent is BranchAndFinancialInstitutionIdentification3 ChargesAccountAgentValue)
+        {
+            writer.WriteStartElement(null, "ChrgsAcctAgt", xmlNamespace );
+            ChargesAccountAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize DirectDebitTransactionInformation, multiplicity Unknown
+    }
+    public static PaymentInstructionInformation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

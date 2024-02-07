@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies additional parameters to the message or transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalParameters2
+     : IIsoXmlSerilizable<AdditionalParameters2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether there exists a pre-confirmation.
     /// </summary>
-    [DataMember]
     public PreConfirmation1Code? PreConfirmation { get; init; } 
     /// <summary>
     /// Specifies partial settlement information.
     /// </summary>
-    [DataMember]
     public PartialSettlement1Code? PartialSettlement { get; init; } 
     /// <summary>
     /// Identification of the confirmation previously sent to confirm the partial settlement of a transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PreviousPartialConfirmationIdentification { get; init; } 
     /// <summary>
     /// Unique reference identifying the triparty collateral management transaction from the triparty agent's point of view.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TripartyAgentCollateralTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique reference identifying the triparty collateral management transaction from the client's point of view.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClientTripartyCollateralTransactionIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PreConfirmation is PreConfirmation1Code PreConfirmationValue)
+        {
+            writer.WriteStartElement(null, "PreConf", xmlNamespace );
+            writer.WriteValue(PreConfirmationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PartialSettlement is PartialSettlement1Code PartialSettlementValue)
+        {
+            writer.WriteStartElement(null, "PrtlSttlm", xmlNamespace );
+            writer.WriteValue(PartialSettlementValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PreviousPartialConfirmationIdentification is IsoMax35Text PreviousPartialConfirmationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrvsPrtlConfId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PreviousPartialConfirmationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TripartyAgentCollateralTransactionIdentification is IsoMax35Text TripartyAgentCollateralTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TrptyAgtCollTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TripartyAgentCollateralTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClientTripartyCollateralTransactionIdentification is IsoMax35Text ClientTripartyCollateralTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClntTrptyCollTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientTripartyCollateralTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AdditionalParameters2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

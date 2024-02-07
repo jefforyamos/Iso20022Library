@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CommunicationChannel1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.CommunicationChannel1Choice;
 /// CBRF communication channel mode.
 /// </summary>
 public partial record ChannelMode : CommunicationChannel1Choice_
+     , IIsoXmlSerilizable<ChannelMode>
 {
-    public required IsoExact1NumericText Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a numeric string with an exact length of1digit.
+    /// </summary>
+    public required IsoExact1NumericText Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ChanlMd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact1NumericText(Value)); // data type Exact1NumericText System.String
+        writer.WriteEndElement();
+    }
+    public static new ChannelMode Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

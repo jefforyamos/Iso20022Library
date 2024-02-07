@@ -7,38 +7,64 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the overall amount of "not yet executed" predefined liquidity transfer orders or "defined" by a system participant in its sphere of responsibility within the system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StandingOrderTotalAmount1
+     : IIsoXmlSerilizable<StandingOrderTotalAmount1>
 {
     #nullable enable
     
     /// <summary>
     /// Total defined amount of predefined liquidity transfer orders.
     /// </summary>
-    [DataMember]
     public required TotalAmountAndCurrency1 SetPredefinedOrder { get; init; } 
     /// <summary>
     /// Total amount of not yet executed predefined liquidity transfer orders.
     /// </summary>
-    [DataMember]
     public required TotalAmountAndCurrency1 PendingPredefinedOrder { get; init; } 
     /// <summary>
     /// Total defined amount of standing liquidity transfer orders.
     /// </summary>
-    [DataMember]
     public required TotalAmountAndCurrency1 SetStandingOrder { get; init; } 
     /// <summary>
     /// Total amount of not yet executed standing liquidity transfer orders.
     /// </summary>
-    [DataMember]
     public required TotalAmountAndCurrency1 PendingStandingOrder { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SetPrdfndOrdr", xmlNamespace );
+        SetPredefinedOrder.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PdgPrdfndOrdr", xmlNamespace );
+        PendingPredefinedOrder.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SetStgOrdr", xmlNamespace );
+        SetStandingOrder.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PdgStgOrdr", xmlNamespace );
+        PendingStandingOrder.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static StandingOrderTotalAmount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

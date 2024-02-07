@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to a linked transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Linkages17
+     : IIsoXmlSerilizable<Linkages17>
 {
     #nullable enable
     
     /// <summary>
     /// When the transaction is to be executed relative to a linked transaction.
     /// </summary>
-    [DataMember]
     public ProcessingPosition1Choice_? ProcessingPosition { get; init; } 
     /// <summary>
     /// Message type number/message identifier of the message referenced in the linkage sequence.
     /// </summary>
-    [DataMember]
     public DocumentNumber1Choice_? MessageNumber { get; init; } 
     /// <summary>
     /// Reference to the linked transaction.
     /// </summary>
-    [DataMember]
     public required References25Choice_ Reference { get; init; } 
     /// <summary>
     /// Quantity of financial instruments of the linked transaction to be paired-off or turned.
     /// </summary>
-    [DataMember]
     public PairedOrTurnedQuantity1Choice_? LinkedQuantity { get; init; } 
     /// <summary>
     /// Party that generates the reference.
     /// </summary>
-    [DataMember]
     public PartyIdentification36Choice_? ReferenceOwner { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ProcessingPosition is ProcessingPosition1Choice_ ProcessingPositionValue)
+        {
+            writer.WriteStartElement(null, "PrcgPos", xmlNamespace );
+            ProcessingPositionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageNumber is DocumentNumber1Choice_ MessageNumberValue)
+        {
+            writer.WriteStartElement(null, "MsgNb", xmlNamespace );
+            MessageNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Ref", xmlNamespace );
+        Reference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LinkedQuantity is PairedOrTurnedQuantity1Choice_ LinkedQuantityValue)
+        {
+            writer.WriteStartElement(null, "LkdQty", xmlNamespace );
+            LinkedQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReferenceOwner is PartyIdentification36Choice_ ReferenceOwnerValue)
+        {
+            writer.WriteStartElement(null, "RefOwnr", xmlNamespace );
+            ReferenceOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Linkages17 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

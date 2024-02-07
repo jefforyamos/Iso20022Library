@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.ModifyMemberV04>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -32,10 +35,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// In principle, the transaction administrator may send a Receipt message as a reply to the ModifyMember request. To verify the outcome of the request, the member may submit a GetMember message with the appropriate search criteria.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The ModifyMember message is sent by a member to the transaction administrator.|It is used to request modifications to the static data related to the profile of a member that the transaction administrator maintains.|Usage|The transaction administrator is in charge of providing the members with business information. The term business information covers all information related to the management of the system, that is, not related to the transactions entered into the system. The type of business information available can vary depending on the system. Among other things, it can, refer to information about the membership of the system.|At any time during the operating hours of the system, the member can request the transaction administrator to modify the information it maintains about the member.|The member will submit a message requesting modifications in one or more of the following criteria:|- identification of the member|- contact information for the member organization: postal address, e-mail address, telephone or fax number|- identification of contact persons for the member, their role and/or details (postal address, e-mail address, telephone or fax number)|Based on the criteria received within the Modify Member message, the transaction administrator will execute or reject the requested modifications.|In principle, the transaction administrator may send a Receipt message as a reply to the ModifyMember request. To verify the outcome of the request, the member may submit a GetMember message with the appropriate search criteria.")]
-public partial record ModifyMemberV04 : IOuterRecord
+public partial record ModifyMemberV04 : IOuterRecord<ModifyMemberV04,ModifyMemberV04Document>
+    ,IIsoXmlSerilizable<ModifyMemberV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -47,6 +49,11 @@ public partial record ModifyMemberV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "ModfyMmb";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ModifyMemberV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -97,6 +104,38 @@ public partial record ModifyMemberV04 : IOuterRecord
     {
         return new ModifyMemberV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("ModfyMmb");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+        MessageHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MmbId", xmlNamespace );
+        MemberIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NewMmbValSet", xmlNamespace );
+        NewMemberValueSet.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ModifyMemberV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -104,9 +143,7 @@ public partial record ModifyMemberV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ModifyMemberV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ModifyMemberV04Document : IOuterDocument<ModifyMemberV04>
+public partial record ModifyMemberV04Document : IOuterDocument<ModifyMemberV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -122,5 +159,22 @@ public partial record ModifyMemberV04Document : IOuterDocument<ModifyMemberV04>
     /// <summary>
     /// The instance of <seealso cref="ModifyMemberV04"/> is required.
     /// </summary>
+    [DataMember(Name=ModifyMemberV04.XmlTag)]
     public required ModifyMemberV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ModifyMemberV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Foreign Exchange Derivative which is either deliverable or non-deliverable.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ForeignExchangeDerivative2
+     : IIsoXmlSerilizable<ForeignExchangeDerivative2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of deliverable and non-deliverable forwards, options and swaps contract.	.
     /// </summary>
-    [DataMember]
     public required AssetClassSubProductType19Code ContractSubType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CtrctSubTp", xmlNamespace );
+        writer.WriteValue(ContractSubType.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static ForeignExchangeDerivative2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

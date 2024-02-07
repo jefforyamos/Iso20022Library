@@ -7,128 +7,250 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Single terminal management action to be performed by the point of interaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TMSAction11
+     : IIsoXmlSerilizable<TMSAction11>
 {
     #nullable enable
     
     /// <summary>
     /// Types of action to be performed by a point of interaction (POI).
     /// </summary>
-    [DataMember]
     public required TerminalManagementAction5Code Type { get; init; } 
     /// <summary>
     /// Host access information.
     /// </summary>
-    [DataMember]
     public NetworkParameters7? RemoteAccess { get; init; } 
     /// <summary>
     /// Cryptographic key used to communicate with the host.
     /// </summary>
-    [DataMember]
-    public ValueList<KEKIdentifier5> Key { get; init; } = []; // Warning: Don't know multiplicity.
+    public KEKIdentifier5? Key { get; init; } 
     /// <summary>
     /// Identification of the master terminal manager or the terminal manager with which the POI has to perform the action.
     /// </summary>
-    [DataMember]
     public GenericIdentification176? TerminalManagerIdentification { get; init; } 
     /// <summary>
     /// TMS protocol to use for performing the maintenance action.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TMSProtocol { get; init; } 
     /// <summary>
     /// Version of the TMS protocol to use to perform the maintenance action.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TMSProtocolVersion { get; init; } 
     /// <summary>
     /// Data set on which the action has to be performed.
     /// </summary>
-    [DataMember]
     public DataSetIdentification10? DataSetIdentification { get; init; } 
     /// <summary>
     /// Type of POI components to send in a status report.
     /// </summary>
-    [DataMember]
-    public ValueList<DataSetCategory18Code> ComponentType { get; init; } = []; // Warning: Don't know multiplicity.
+    public DataSetCategory18Code? ComponentType { get; init; } 
     /// <summary>
     /// Identifies the delegation scope assigned by the MTM.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DelegationScopeIdentification { get; init; } 
     /// <summary>
     /// This element contains all information relevant to the DelegationScopeIdentification. The format of this element is out of scope of this definition.
     /// </summary>
-    [DataMember]
     public IsoMax3000Binary? DelegationScopeDefinition { get; init; } 
     /// <summary>
     /// Contains the necessary information to secure the management of the Delegation. The format of this element is out of scope of this definition.
     /// </summary>
-    [DataMember]
     public IsoMax5000Binary? DelegationProof { get; init; } 
     /// <summary>
     /// Protected proof of delegation.
     /// </summary>
-    [DataMember]
     public ContentInformationType34? ProtectedDelegationProof { get; init; } 
     /// <summary>
     /// Event on which the action has to be activated by the point of interaction (POI).
     /// </summary>
-    [DataMember]
     public required TerminalManagementActionTrigger1Code Trigger { get; init; } 
     /// <summary>
     /// Additional process to perform before starting or after completing the action by the point of interaction (POI).
     /// </summary>
-    [DataMember]
-    public ValueList<TerminalManagementAdditionalProcess1Code> AdditionalProcess { get; init; } = []; // Warning: Don't know multiplicity.
+    public TerminalManagementAdditionalProcess1Code? AdditionalProcess { get; init; } 
     /// <summary>
     /// Definition of retry process if activation of the action fails.
     /// </summary>
-    [DataMember]
     public ProcessRetry3? ReTry { get; init; } 
     /// <summary>
     /// Date and time the action has to be performed.
     /// </summary>
-    [DataMember]
     public ProcessTiming5? TimeCondition { get; init; } 
     /// <summary>
     /// Terminal manager challenge for cryptographic key injection.
     /// </summary>
-    [DataMember]
     public IsoMax140Binary? TMChallenge { get; init; } 
     /// <summary>
     /// Certificate chain for the encryption of temporary transport key of the key to inject.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax10KBinary> KeyEnciphermentCertificate { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax10KBinary? KeyEnciphermentCertificate { get; init; } 
     /// <summary>
     /// Action to perform in case of error on the related action in progress.
     /// </summary>
-    [DataMember]
-    public ValueList<ErrorAction5> ErrorAction { get; init; } = []; // Warning: Don't know multiplicity.
+    public ErrorAction5? ErrorAction { get; init; } 
     /// <summary>
     /// Additional information about the maintenance action.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax3000Binary> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax3000Binary? AdditionalInformation { get; init; } 
     /// <summary>
     /// Configuration of a message item.
     /// </summary>
-    [DataMember]
-    public ValueList<MessageItemCondition2> MessageItem { get; init; } = []; // Warning: Don't know multiplicity.
+    public MessageItemCondition2? MessageItem { get; init; } 
     /// <summary>
     /// Information related to a device request of the POI.
     /// </summary>
-    [DataMember]
     public DeviceRequest6? DeviceRequest { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (RemoteAccess is NetworkParameters7 RemoteAccessValue)
+        {
+            writer.WriteStartElement(null, "RmotAccs", xmlNamespace );
+            RemoteAccessValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Key is KEKIdentifier5 KeyValue)
+        {
+            writer.WriteStartElement(null, "Key", xmlNamespace );
+            KeyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TerminalManagerIdentification is GenericIdentification176 TerminalManagerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TermnlMgrId", xmlNamespace );
+            TerminalManagerIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TMSProtocol is IsoMax35Text TMSProtocolValue)
+        {
+            writer.WriteStartElement(null, "TMSPrtcol", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TMSProtocolValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TMSProtocolVersion is IsoMax35Text TMSProtocolVersionValue)
+        {
+            writer.WriteStartElement(null, "TMSPrtcolVrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TMSProtocolVersionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DataSetIdentification is DataSetIdentification10 DataSetIdentificationValue)
+        {
+            writer.WriteStartElement(null, "DataSetId", xmlNamespace );
+            DataSetIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ComponentType is DataSetCategory18Code ComponentTypeValue)
+        {
+            writer.WriteStartElement(null, "CmpntTp", xmlNamespace );
+            writer.WriteValue(ComponentTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DelegationScopeIdentification is IsoMax35Text DelegationScopeIdentificationValue)
+        {
+            writer.WriteStartElement(null, "DlgtnScpId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DelegationScopeIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DelegationScopeDefinition is IsoMax3000Binary DelegationScopeDefinitionValue)
+        {
+            writer.WriteStartElement(null, "DlgtnScpDef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3000Binary(DelegationScopeDefinitionValue)); // data type Max3000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (DelegationProof is IsoMax5000Binary DelegationProofValue)
+        {
+            writer.WriteStartElement(null, "DlgtnProof", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax5000Binary(DelegationProofValue)); // data type Max5000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (ProtectedDelegationProof is ContentInformationType34 ProtectedDelegationProofValue)
+        {
+            writer.WriteStartElement(null, "PrtctdDlgtnProof", xmlNamespace );
+            ProtectedDelegationProofValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Trggr", xmlNamespace );
+        writer.WriteValue(Trigger.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AdditionalProcess is TerminalManagementAdditionalProcess1Code AdditionalProcessValue)
+        {
+            writer.WriteStartElement(null, "AddtlPrc", xmlNamespace );
+            writer.WriteValue(AdditionalProcessValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ReTry is ProcessRetry3 ReTryValue)
+        {
+            writer.WriteStartElement(null, "ReTry", xmlNamespace );
+            ReTryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TimeCondition is ProcessTiming5 TimeConditionValue)
+        {
+            writer.WriteStartElement(null, "TmCond", xmlNamespace );
+            TimeConditionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TMChallenge is IsoMax140Binary TMChallengeValue)
+        {
+            writer.WriteStartElement(null, "TMChllng", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Binary(TMChallengeValue)); // data type Max140Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (KeyEnciphermentCertificate is IsoMax10KBinary KeyEnciphermentCertificateValue)
+        {
+            writer.WriteStartElement(null, "KeyNcphrmntCert", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10KBinary(KeyEnciphermentCertificateValue)); // data type Max10KBinary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (ErrorAction is ErrorAction5 ErrorActionValue)
+        {
+            writer.WriteStartElement(null, "ErrActn", xmlNamespace );
+            ErrorActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax3000Binary AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3000Binary(AdditionalInformationValue)); // data type Max3000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (MessageItem is MessageItemCondition2 MessageItemValue)
+        {
+            writer.WriteStartElement(null, "MsgItm", xmlNamespace );
+            MessageItemValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeviceRequest is DeviceRequest6 DeviceRequestValue)
+        {
+            writer.WriteStartElement(null, "DvcReq", xmlNamespace );
+            DeviceRequestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TMSAction11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

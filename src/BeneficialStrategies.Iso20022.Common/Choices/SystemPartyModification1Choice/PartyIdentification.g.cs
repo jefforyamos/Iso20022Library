@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification1Choice;
 /// Unique identification to unambiguously identify the party within the system.
 /// </summary>
 public partial record PartyIdentification : SystemPartyModification1Choice_
+     , IIsoXmlSerilizable<PartyIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Starting date from which the identification is valid.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record PartyIdentification : SystemPartyModification1Choice_
     /// Unique and unambiguous way to identify a system party.
     /// </summary>
     public IsoBICFIIdentifier? Identification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "VldFr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ValidFrom)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (Identification is IsoBICFIIdentifier IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBICFIIdentifier(IdentificationValue)); // data type BICFIIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new PartyIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

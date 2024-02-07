@@ -7,70 +7,132 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Key exchange activity transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Transaction133
+     : IIsoXmlSerilizable<Transaction133>
 {
     #nullable enable
     
     /// <summary>
     /// Type of key exchange function being performed.
     /// </summary>
-    [DataMember]
     public required CardServiceType5Code KeyExchangeFunction { get; init; } 
     /// <summary>
     /// Other key exchange function being performed.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherKeyExchangeFunction { get; init; } 
     /// <summary>
     /// Reason or purpose to send the message.
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    [DataMember]
-    public ValueList<ISO8583MessageReasonCode> MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public ISO8583MessageReasonCode? MessageReason { get; init; } 
     /// <summary>
     /// Alternate reason to send a message.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax256Text> AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax256Text? AlternateMessageReason { get; init; } 
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
-    [DataMember]
     public required TransactionIdentification12 TransactionIdentification { get; init; } 
     /// <summary>
     /// Defines the type of key being exchanged.
     /// </summary>
-    [DataMember]
     public KeyType1Code? KeyExchangeType { get; init; } 
     /// <summary>
     /// Other type of key being exchanged.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherKeyExchangeType { get; init; } 
     /// <summary>
     /// Contains information pertaining to a key exchange. 
     /// ISO 8583 bit 96
     /// </summary>
-    [DataMember]
     public KeyExchangeData1? KeyExchangeData { get; init; } 
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalFee2> AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalFee2? AdditionalFee { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "KeyXchgFctn", xmlNamespace );
+        writer.WriteValue(KeyExchangeFunction.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherKeyExchangeFunction is IsoMax35Text OtherKeyExchangeFunctionValue)
+        {
+            writer.WriteStartElement(null, "OthrKeyXchgFctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherKeyExchangeFunctionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MessageReason is ISO8583MessageReasonCode MessageReasonValue)
+        {
+            writer.WriteStartElement(null, "MsgRsn", xmlNamespace );
+            writer.WriteValue(MessageReasonValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AlternateMessageReason is IsoMax256Text AlternateMessageReasonValue)
+        {
+            writer.WriteStartElement(null, "AltrnMsgRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(AlternateMessageReasonValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (KeyExchangeType is KeyType1Code KeyExchangeTypeValue)
+        {
+            writer.WriteStartElement(null, "KeyXchgTp", xmlNamespace );
+            writer.WriteValue(KeyExchangeTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherKeyExchangeType is IsoMax35Text OtherKeyExchangeTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrKeyXchgTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherKeyExchangeTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (KeyExchangeData is KeyExchangeData1 KeyExchangeDataValue)
+        {
+            writer.WriteStartElement(null, "KeyXchgData", xmlNamespace );
+            KeyExchangeDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalFee is AdditionalFee2 AdditionalFeeValue)
+        {
+            writer.WriteStartElement(null, "AddtlFee", xmlNamespace );
+            AdditionalFeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Transaction133 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

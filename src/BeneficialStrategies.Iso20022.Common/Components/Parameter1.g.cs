@@ -7,23 +7,46 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters associated to a cryptographic algorithm.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Parameter1
+     : IIsoXmlSerilizable<Parameter1>
 {
     #nullable enable
     
     /// <summary>
     /// Initialisation vector of a cipher block chaining (CBC) mode encryption.
     /// </summary>
-    [DataMember]
     public IsoMax500Binary? InitialisationVector { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (InitialisationVector is IsoMax500Binary InitialisationVectorValue)
+        {
+            writer.WriteStartElement(null, "InitlstnVctr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Binary(InitialisationVectorValue)); // data type Max500Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static Parameter1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

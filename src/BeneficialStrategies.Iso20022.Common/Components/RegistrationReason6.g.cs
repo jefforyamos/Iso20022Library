@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reason of registration.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RegistrationReason6
+     : IIsoXmlSerilizable<RegistrationReason6>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the reason of the holding status.
     /// </summary>
-    [DataMember]
     public required Registration12Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax210Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        Code.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoRestrictedFINXMax210Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax210Text(AdditionalInformationValue)); // data type RestrictedFINXMax210Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static RegistrationReason6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

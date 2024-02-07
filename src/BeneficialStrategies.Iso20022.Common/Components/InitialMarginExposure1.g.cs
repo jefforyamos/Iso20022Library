@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Liability a clearing member has to a central counterparty with respect to potential future exposures.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InitialMarginExposure1
+     : IIsoXmlSerilizable<InitialMarginExposure1>
 {
     #nullable enable
     
     /// <summary>
     /// Initial margin requirement for margin account.
     /// </summary>
-    [DataMember]
     public required Amount3 Amount { get; init; } 
     /// <summary>
     /// Classification of component used in the calculation of the total initial margin requirement.
     /// </summary>
-    [DataMember]
     public required MarginType2Choice_ Type { get; init; } 
     /// <summary>
     /// Indicates whether the component is considered a core part of the margin model. Usage: In the context of European central counterparties, if the component is included in backtesting procedures in order to assess the performance of the initial margin model as required by EMIR RTS Article (49)(1).
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator CoreIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        Amount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CoreInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CoreIndicator)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static InitialMarginExposure1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

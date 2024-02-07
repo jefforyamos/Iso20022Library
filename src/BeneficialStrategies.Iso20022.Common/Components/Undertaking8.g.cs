@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about an undertaking.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Undertaking8
+     : IIsoXmlSerilizable<Undertaking8>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier assigned by the issuer to the undertaking, for example the guarantee or standby number.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Party that issues the undertaking.
     /// </summary>
-    [DataMember]
     public required PartyIdentification43 Issuer { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier assigned by the applicant to the undertaking.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ApplicantReferenceNumber { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier assigned by the beneficiary to the undertaking.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? BeneficiaryReferenceNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Issr", xmlNamespace );
+        Issuer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ApplicantReferenceNumber is IsoMax35Text ApplicantReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "ApplcntRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ApplicantReferenceNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (BeneficiaryReferenceNumber is IsoMax35Text BeneficiaryReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "BnfcryRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(BeneficiaryReferenceNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Undertaking8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

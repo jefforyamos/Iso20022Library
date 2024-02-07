@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action details periods details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionPeriodSD3
+     : IIsoXmlSerilizable<CorporateActionPeriodSD3>
 {
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Period during which the securities can be submitted to reorganisation deposit service at DTC (The Depository Trust Corporation). DTC "first day for reorganisation deposit" (start date) is the day on which security is eligible for reorganisation deposit service at DTC. DTC "last day for reorganisation deposit" is the last day on which securities are eligible to be submitted for reorganisation deposit service at DTC.
     /// </summary>
-    [DataMember]
     public Period13? DTCReorganisationDepositPeriod { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (DTCReorganisationDepositPeriod is Period13 DTCReorganisationDepositPeriodValue)
+        {
+            writer.WriteStartElement(null, "DTCReorgDpstPrd", xmlNamespace );
+            DTCReorganisationDepositPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionPeriodSD3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

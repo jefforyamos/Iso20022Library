@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.BankServicesBillingStatementV01>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// The BankServicesBillingStatement message is intended for use with the ISO 20022 Business Application Header.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The BankServicesBillingStatement message is used to send from a Financial Institution (FI) to its wholesale customers (corporations, governments, institutions, etc.), information describing the FI’s billing of services rendered in the form of an electronic statement in a standardised format. The BankServicesBillingStatement is a periodic (usually end of month) recounting of all service chargeable events that occurred during a reporting cycle, typically a calendar month, along with detailed tax and currency translation information. Account balance information, although strongly recommended, is not required.|Usage|The BankServicesBillingStatement message is designed to provide details related to invoices (or an advice of debit) which a financial institution may supply to its customers. The BankServicesBillingStatement is not expressly designed to be an invoice, nor to replace invoices currently in use. The message may be used as an invoice by agreement between the sender and the receiver. No regulatory or legislative requirements were considered when creating this message standard. Users of the BankServicesBillingStatment message are cautioned to be aware of any regulatory or legal requirement for invoices before replacing existing invoices.|The BankServicesBillingStatement message can supply the detail supporting separate invoices or debits but it is not the invoice or advice of debit of record. The BankServicesBillingStatement message must accurately reflect all the charge and tax related events that occurred during the calendar month and how the FI and taxing authorities were compensated for these events. The BSB does not ask the Financial Institution to revise its established pricing and billing procedures. |How, when and what the customer is actually charged for remains in place. The BankServicesBillingStatement message asks the Financial Institution to aggregate and report what actually happened during the calendar month.|The BankServicesBillingStatement message is intended for use with the ISO 20022 Business Application Header.")]
-public partial record BankServicesBillingStatementV01 : IOuterRecord
+public partial record BankServicesBillingStatementV01 : IOuterRecord<BankServicesBillingStatementV01,BankServicesBillingStatementV01Document>
+    ,IIsoXmlSerilizable<BankServicesBillingStatementV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record BankServicesBillingStatementV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "BkSvcsBllgStmt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => BankServicesBillingStatementV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -73,6 +80,29 @@ public partial record BankServicesBillingStatementV01 : IOuterRecord
     {
         return new BankServicesBillingStatementV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("BkSvcsBllgStmt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptHdr", xmlNamespace );
+        ReportHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BllgStmtGrp", xmlNamespace );
+        BillingStatementGroup.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static BankServicesBillingStatementV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -80,9 +110,7 @@ public partial record BankServicesBillingStatementV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BankServicesBillingStatementV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record BankServicesBillingStatementV01Document : IOuterDocument<BankServicesBillingStatementV01>
+public partial record BankServicesBillingStatementV01Document : IOuterDocument<BankServicesBillingStatementV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -98,5 +126,22 @@ public partial record BankServicesBillingStatementV01Document : IOuterDocument<B
     /// <summary>
     /// The instance of <seealso cref="BankServicesBillingStatementV01"/> is required.
     /// </summary>
+    [DataMember(Name=BankServicesBillingStatementV01.XmlTag)]
     public required BankServicesBillingStatementV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(BankServicesBillingStatementV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

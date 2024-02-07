@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.SecuritiesSettlementTransactionModificationRequestStatusAdvice002V04>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -32,10 +35,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// using the relevant elements in the Business Application Header.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account servicer sends a SecuritiesSettlementTransactionModificationRequestStatusAdvice to an account owner to advise the status of a SecuritiesSettlementModificationRequest message previously sent by the account owner.|The account servicer may be:|- a central securities depository or another settlement market infrastructure managing securities settlement transactions on behalf of their participants|- an custodian acting as an accounting and/or settlement agent.||Usage|The message may also be used to:|- re-send a message sent by the account owner to the account servicer,|- provide a third party with a copy of a message being sent by the account owner for information,|- re-send to a third party a copy of a message being sent by the account owner for information|using the relevant elements in the Business Application Header.")]
-public partial record SecuritiesSettlementTransactionModificationRequestStatusAdvice002V04 : IOuterRecord
+public partial record SecuritiesSettlementTransactionModificationRequestStatusAdvice002V04 : IOuterRecord<SecuritiesSettlementTransactionModificationRequestStatusAdvice002V04,SecuritiesSettlementTransactionModificationRequestStatusAdvice002V04Document>
+    ,IIsoXmlSerilizable<SecuritiesSettlementTransactionModificationRequestStatusAdvice002V04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -47,6 +49,11 @@ public partial record SecuritiesSettlementTransactionModificationRequestStatusAd
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesSttlmTxModReqStsAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesSettlementTransactionModificationRequestStatusAdvice002V04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -124,6 +131,56 @@ public partial record SecuritiesSettlementTransactionModificationRequestStatusAd
     {
         return new SecuritiesSettlementTransactionModificationRequestStatusAdvice002V04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesSttlmTxModReqStsAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ModReqRef", xmlNamespace );
+        ModificationRequestReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountOwner is PartyIdentification109 AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+        SafekeepingAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionIdentification is TransactionIdentifications37 TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            TransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ModPrcgSts", xmlNamespace );
+        ModificationProcessingStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionDetails is TransactionDetails84 TransactionDetailsValue)
+        {
+            writer.WriteStartElement(null, "TxDtls", xmlNamespace );
+            TransactionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesSettlementTransactionModificationRequestStatusAdvice002V04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -131,9 +188,7 @@ public partial record SecuritiesSettlementTransactionModificationRequestStatusAd
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementTransactionModificationRequestStatusAdvice002V04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesSettlementTransactionModificationRequestStatusAdvice002V04Document : IOuterDocument<SecuritiesSettlementTransactionModificationRequestStatusAdvice002V04>
+public partial record SecuritiesSettlementTransactionModificationRequestStatusAdvice002V04Document : IOuterDocument<SecuritiesSettlementTransactionModificationRequestStatusAdvice002V04>, IXmlSerializable
 {
     
     /// <summary>
@@ -149,5 +204,22 @@ public partial record SecuritiesSettlementTransactionModificationRequestStatusAd
     /// <summary>
     /// The instance of <seealso cref="SecuritiesSettlementTransactionModificationRequestStatusAdvice002V04"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesSettlementTransactionModificationRequestStatusAdvice002V04.XmlTag)]
     public required SecuritiesSettlementTransactionModificationRequestStatusAdvice002V04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesSettlementTransactionModificationRequestStatusAdvice002V04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

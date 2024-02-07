@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.IntermediaryRoleChoice1;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.IntermediaryRoleChoice1;
 /// Role of the party in the activity.
 /// </summary>
 public partial record Role : IntermediaryRoleChoice1_
+     , IIsoXmlSerilizable<Role>
 {
-    public required InvestmentFundRole4Code Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies the role played by an actor in an investment fund transaction.
+    /// </summary>
+    public required InvestmentFundRole4Code Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Role", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new Role Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

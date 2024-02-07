@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Card used to represent a financial account for the purpose of payment settlement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialCard1
+     : IIsoXmlSerilizable<FinancialCard1>
 {
     #nullable enable
     
     /// <summary>
     /// Monetary value of the credit limit for this financial card.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoCurrencyAndAmount> CreditLimitAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount? CreditLimitAmount { get; init; } 
     /// <summary>
     /// Monetary value of the credit available for this financial card.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoCurrencyAndAmount> CreditAvailableAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount? CreditAvailableAmount { get; init; } 
     /// <summary>
     /// Interest rate expressed as a percentage for this financial card.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? InterestRatePercent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CreditLimitAmount is IsoCurrencyAndAmount CreditLimitAmountValue)
+        {
+            writer.WriteStartElement(null, "CdtLmtAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(CreditLimitAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CreditAvailableAmount is IsoCurrencyAndAmount CreditAvailableAmountValue)
+        {
+            writer.WriteStartElement(null, "CdtAvlblAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(CreditAvailableAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (InterestRatePercent is IsoPercentageRate InterestRatePercentValue)
+        {
+            writer.WriteStartElement(null, "IntrstRatePct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(InterestRatePercentValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialCard1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

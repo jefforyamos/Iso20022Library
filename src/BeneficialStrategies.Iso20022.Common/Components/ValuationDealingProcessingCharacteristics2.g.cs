@@ -7,53 +7,84 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Valuation dealing processing characteristics linked to the instrument, ie, not to the market.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ValuationDealingProcessingCharacteristics2
+     : IIsoXmlSerilizable<ValuationDealingProcessingCharacteristics2>
 {
     #nullable enable
     
     /// <summary>
     /// Frequency of the valuation.
     /// </summary>
-    [DataMember]
     public required EventFrequency5Code ValuationFrequency { get; init; } 
     /// <summary>
     /// Further details regarding the dealing frequency, eg, Tuesday (for weekly dealing) or last business day of the month.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text ValuationFrequencyDescription { get; init; } 
     /// <summary>
     /// Number of decimal places to which quantities of units/shares are rounded.
     /// </summary>
-    [DataMember]
     public required IsoNumber DecimalisationUnits { get; init; } 
     /// <summary>
     /// Number of decimal places to which quantities of units/shares are rounded.
     /// </summary>
-    [DataMember]
     public required IsoNumber DecimalisationPrice { get; init; } 
     /// <summary>
     /// Indicates whether the fund has two prices.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator DualFundIndicator { get; init; } 
     /// <summary>
     /// Type of pricing calculation method.
     /// </summary>
-    [DataMember]
     public required PriceMethod1Code PriceMethod { get; init; } 
     /// <summary>
     /// Currencies in which the prices for the investment fund class are published by the fund management company.
     /// </summary>
-    [DataMember]
-    public ValueList<ActiveCurrencyCode> PriceCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    public ActiveCurrencyCode? PriceCurrency { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _UBYIxNp-Ed-ak6NoX_4Aeg_689276743
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ValtnFrqcy", xmlNamespace );
+        writer.WriteValue(ValuationFrequency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ValtnFrqcyDesc", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(ValuationFrequencyDescription)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DcmlstnUnits", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(DecimalisationUnits)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DcmlstnPric", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(DecimalisationPrice)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DualFndInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DualFundIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PricMtd", xmlNamespace );
+        writer.WriteValue(PriceMethod.ToString()); // Enum value
+        writer.WriteEndElement();
+        // Not sure how to serialize PriceCurrency, multiplicity Unknown
+    }
+    public static ValuationDealingProcessingCharacteristics2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

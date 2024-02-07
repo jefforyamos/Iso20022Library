@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action instructed balance details at option level.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionInstructedBalanceOptionBalanceDetailsSD2
+     : IIsoXmlSerilizable<CorporateActionInstructedBalanceOptionBalanceDetailsSD2>
 {
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Option Number of the extended balances.
     /// </summary>
-    [DataMember]
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Balance of uncovered protect transactions at an option level.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat9? OptionUncoveredProtectBalance { get; init; } 
     /// <summary>
     /// Daily total of instructions for a given option. Balance will include only made instructions.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat9? OptionDailyInstructedBalance { get; init; } 
     /// <summary>
     /// For rights subscription events, total number of oversubscribed units. When there is an oversubscription privilege, this quantity will be included within the Instructed quantity in the core message.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat9? OptionOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// For election merger events, the balance that is being moved into another option number for payment due to the proration of the original option.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat9? OptionUnacceptedBalance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OptnNb", xmlNamespace );
+        OptionNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OptionUncoveredProtectBalance is SignedQuantityFormat9 OptionUncoveredProtectBalanceValue)
+        {
+            writer.WriteStartElement(null, "OptnUcvrdPrtctBal", xmlNamespace );
+            OptionUncoveredProtectBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionDailyInstructedBalance is SignedQuantityFormat9 OptionDailyInstructedBalanceValue)
+        {
+            writer.WriteStartElement(null, "OptnDalyInstdBal", xmlNamespace );
+            OptionDailyInstructedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionOversubscriptionQuantity is SignedQuantityFormat9 OptionOversubscriptionQuantityValue)
+        {
+            writer.WriteStartElement(null, "OptnOvrsbcptQty", xmlNamespace );
+            OptionOversubscriptionQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionUnacceptedBalance is SignedQuantityFormat9 OptionUnacceptedBalanceValue)
+        {
+            writer.WriteStartElement(null, "OptnUaccptdBal", xmlNamespace );
+            OptionUnacceptedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionInstructedBalanceOptionBalanceDetailsSD2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

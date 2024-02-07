@@ -7,93 +7,174 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action notification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionNotificationSD2
+     : IIsoXmlSerilizable<CorporateActionNotificationSD2>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Status of a notice of change.
     /// </summary>
-    [DataMember]
     public required DerivativeWorkflowStatus1Code DerivativeWorkflowStatus { get; init; } 
     /// <summary>
     /// Exchange where the derivative is traded.
     /// </summary>
-    [DataMember]
     public required IsoMax4AlphaNumericText DerivativeExchange { get; init; } 
     /// <summary>
     /// Date when the notice of change to the derivative is published by the exchange.
     /// </summary>
-    [DataMember]
     public IsoISODate? DerivativePublicationDate { get; init; } 
     /// <summary>
     /// Effective date of the adjustment to the derivative contract.
     /// </summary>
-    [DataMember]
     public required IsoISODate DerivativeAdjustmentDate { get; init; } 
     /// <summary>
     /// Method (usually a formula) that will be used to calculate the adjustment factor that will be applied to the derivative to account for the impact of a corporate action event on the underlying equity.
     /// </summary>
-    [DataMember]
     public IsoMax1025Text? DerivativeCalculationMethod { get; init; } 
     /// <summary>
     /// Adjustment factor to be applied to the derivative contract to account for the impact of a corporate action event on the underlying equity. Derived by using the calculation method.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? DerivativeFactor { get; init; } 
     /// <summary>
     /// Indicates whether the deliverable stock amount on the derivative contract will be changed.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? LotSizeChangeFlag { get; init; } 
     /// <summary>
     /// Method that is used to calculate the new stock deliverable on the derivative contract. Usually multiplication or division by a stated figure but may include explanatory text and examples.
     /// </summary>
-    [DataMember]
     public IsoMax1025Text? LotAdjustmentMethod { get; init; } 
     /// <summary>
     /// Indicates whether there is a new strike price for the change of the derivative contract as a result of the corporate action.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? StrikePriceChangeFlag { get; init; } 
     /// <summary>
     /// Method that will be used to adjust the strike price. May include the number of decimal places and rounding rules, example up or down.
     /// </summary>
-    [DataMember]
     public IsoMax500Text? StrikePriceRoundingMethod { get; init; } 
     /// <summary>
     /// Indicates whether a residual cash is paid on the derivative contract. For example, this may be a cash element that is included in the terms of a takeover that the underlying equity is subject to.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ResidualCashFlag { get; init; } 
     /// <summary>
     /// Price of the security to be used in factor calculations. Usually the closing price of the underlying equity on the effective date of the contract adjustment.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? ReferencePrice { get; init; } 
     /// <summary>
     /// Currency associated with the reference price.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? ReferencePriceCurrency { get; init; } 
     /// <summary>
     /// Indicates whether the derivative data has/hasn't been approved by a validation service.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ApprovedFlag { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DerivWorkflwSts", xmlNamespace );
+        writer.WriteValue(DerivativeWorkflowStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DerivXchg", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(DerivativeExchange)); // data type Max4AlphaNumericText System.String
+        writer.WriteEndElement();
+        if (DerivativePublicationDate is IsoISODate DerivativePublicationDateValue)
+        {
+            writer.WriteStartElement(null, "DerivPblctnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DerivativePublicationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DerivAdjstmntDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(DerivativeAdjustmentDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (DerivativeCalculationMethod is IsoMax1025Text DerivativeCalculationMethodValue)
+        {
+            writer.WriteStartElement(null, "DerivClctnMtd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1025Text(DerivativeCalculationMethodValue)); // data type Max1025Text System.String
+            writer.WriteEndElement();
+        }
+        if (DerivativeFactor is IsoDecimalNumber DerivativeFactorValue)
+        {
+            writer.WriteStartElement(null, "DerivFctr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(DerivativeFactorValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (LotSizeChangeFlag is IsoYesNoIndicator LotSizeChangeFlagValue)
+        {
+            writer.WriteStartElement(null, "LotSzChngFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(LotSizeChangeFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (LotAdjustmentMethod is IsoMax1025Text LotAdjustmentMethodValue)
+        {
+            writer.WriteStartElement(null, "LotAdjstmntMtd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1025Text(LotAdjustmentMethodValue)); // data type Max1025Text System.String
+            writer.WriteEndElement();
+        }
+        if (StrikePriceChangeFlag is IsoYesNoIndicator StrikePriceChangeFlagValue)
+        {
+            writer.WriteStartElement(null, "StrkPricChngFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(StrikePriceChangeFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (StrikePriceRoundingMethod is IsoMax500Text StrikePriceRoundingMethodValue)
+        {
+            writer.WriteStartElement(null, "StrkPricRndgMtd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Text(StrikePriceRoundingMethodValue)); // data type Max500Text System.String
+            writer.WriteEndElement();
+        }
+        if (ResidualCashFlag is IsoYesNoIndicator ResidualCashFlagValue)
+        {
+            writer.WriteStartElement(null, "RsdlCshFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ResidualCashFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ReferencePrice is IsoDecimalNumber ReferencePriceValue)
+        {
+            writer.WriteStartElement(null, "RefPric", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(ReferencePriceValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (ReferencePriceCurrency is ActiveCurrencyCode ReferencePriceCurrencyValue)
+        {
+            writer.WriteStartElement(null, "RefPricCcy", xmlNamespace );
+            writer.WriteValue(ReferencePriceCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ApprovedFlag is IsoYesNoIndicator ApprovedFlagValue)
+        {
+            writer.WriteStartElement(null, "ApprvdFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ApprovedFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionNotificationSD2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

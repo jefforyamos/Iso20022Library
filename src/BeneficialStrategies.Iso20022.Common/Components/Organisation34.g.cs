@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information which describes the organisation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Organisation34
+     : IIsoXmlSerilizable<Organisation34>
 {
     #nullable enable
     
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? FullLegalName { get; init; } 
     /// <summary>
     /// Unique and unambiguous way of identifying an organisation.
     /// </summary>
-    [DataMember]
     public required OrganisationIdentification29 OrganisationIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FullLegalName is IsoMax350Text FullLegalNameValue)
+        {
+            writer.WriteStartElement(null, "FullLglNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(FullLegalNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OrgId", xmlNamespace );
+        OrganisationIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static Organisation34 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

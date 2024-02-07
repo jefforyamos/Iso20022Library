@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Query criteria on a trade transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeQueryCriteria13
+     : IIsoXmlSerilizable<TradeQueryCriteria13>
 {
     #nullable enable
     
@@ -23,33 +24,74 @@ public partial record TradeQueryCriteria13
     /// Field to define whether the query response file will include all reports submitted for a trade [true]or only the current state of the trade [false].
     /// If false is selected, the reporting timestamp field cannot be used.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator TradeLifeCycleHistory { get; init; } 
     /// <summary>
     /// Field to define whether if the query response file will include all trades or only the outstanding trades.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator OutstandingTradeIndicator { get; init; } 
     /// <summary>
     /// Query criteria related to counterparties.
     /// </summary>
-    [DataMember]
     public TradePartyQueryCriteria6? TradePartyCriteria { get; init; } 
     /// <summary>
     /// Indicates the query criteria related to financial instruments.
     /// </summary>
-    [DataMember]
     public TradeSecurityIdentificationQueryCriteria3? FinancialInstrumentCriteria { get; init; } 
     /// <summary>
     /// Query criteria related to time values.
     /// </summary>
-    [DataMember]
     public TradeDateTimeQueryCriteria5? TimeCriteria { get; init; } 
     /// <summary>
     /// Query criteria related to other fields.
     /// </summary>
-    [DataMember]
     public TradeAdditionalQueryCriteria9? OtherCriteria { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TradLifeCyclHstry", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TradeLifeCycleHistory)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OutsdngTradInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(OutstandingTradeIndicator)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        if (TradePartyCriteria is TradePartyQueryCriteria6 TradePartyCriteriaValue)
+        {
+            writer.WriteStartElement(null, "TradPtyCrit", xmlNamespace );
+            TradePartyCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentCriteria is TradeSecurityIdentificationQueryCriteria3 FinancialInstrumentCriteriaValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmCrit", xmlNamespace );
+            FinancialInstrumentCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TimeCriteria is TradeDateTimeQueryCriteria5 TimeCriteriaValue)
+        {
+            writer.WriteStartElement(null, "TmCrit", xmlNamespace );
+            TimeCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherCriteria is TradeAdditionalQueryCriteria9 OtherCriteriaValue)
+        {
+            writer.WriteStartElement(null, "OthrCrit", xmlNamespace );
+            OtherCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeQueryCriteria13 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

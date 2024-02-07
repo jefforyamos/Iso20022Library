@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Programme or brand of the card for the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardProgrammeMode3
+     : IIsoXmlSerilizable<CardProgrammeMode3>
 {
     #nullable enable
     
     /// <summary>
     /// Type of card programme or brand.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Identification of the card programme or brand.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Additional identification of the party.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is IsoMax35Text TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (AdditionalIdentification is AdditionalData1 AdditionalIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AddtlId", xmlNamespace );
+            AdditionalIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardProgrammeMode3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

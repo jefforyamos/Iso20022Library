@@ -7,50 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of a payment compensation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Compensation4
+     : IIsoXmlSerilizable<Compensation4>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of money to be paid in compensation.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// Usage: The debtor agent is the payer of the compensation amount.
     /// </summary>
-    [DataMember]
     public required BranchAndFinancialInstitutionIdentification6 DebtorAgent { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the debtor agent at its servicing agent in the payment chain.
     /// </summary>
-    [DataMember]
     public CashAccount40? DebtorAgentAccount { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// Usage: The creditor agent is the payee of the compensation amount.
     /// </summary>
-    [DataMember]
     public required BranchAndFinancialInstitutionIdentification6 CreditorAgent { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the creditor agent at its servicing agent to which a credit entry will be made as a result of the payment transaction.
     /// </summary>
-    [DataMember]
     public CashAccount40? CreditorAgentAccount { get; init; } 
     /// <summary>
     /// Reason for the payment compensation.
     /// </summary>
-    [DataMember]
     public required CompensationReason1Choice_ Reason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DbtrAgt", xmlNamespace );
+        DebtorAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DebtorAgentAccount is CashAccount40 DebtorAgentAccountValue)
+        {
+            writer.WriteStartElement(null, "DbtrAgtAcct", xmlNamespace );
+            DebtorAgentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CdtrAgt", xmlNamespace );
+        CreditorAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CreditorAgentAccount is CashAccount40 CreditorAgentAccountValue)
+        {
+            writer.WriteStartElement(null, "CdtrAgtAcct", xmlNamespace );
+            CreditorAgentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Rsn", xmlNamespace );
+        Reason.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static Compensation4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

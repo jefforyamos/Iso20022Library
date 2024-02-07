@@ -7,58 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Goods or services that are part of a commercial trade agreement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CommercialDataSet3
+     : IIsoXmlSerilizable<CommercialDataSet3>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the commercial data set.
     /// </summary>
-    [DataMember]
     public required DocumentIdentification1 DataSetIdentification { get; init; } 
     /// <summary>
     /// Reference to the identification of the underlying commercial document.
     /// </summary>
-    [DataMember]
     public required InvoiceIdentification1 CommercialDocumentReference { get; init; } 
     /// <summary>
     /// Party that buys goods or services, or a financial instrument.
     /// </summary>
-    [DataMember]
     public required PartyIdentification26 Buyer { get; init; } 
     /// <summary>
     /// Party that sells goods or services, or a financial instrument.
     /// </summary>
-    [DataMember]
     public required PartyIdentification26 Seller { get; init; } 
     /// <summary>
     /// Party to be invoiced for the purchase.
     /// </summary>
-    [DataMember]
     public PartyIdentification26? BillTo { get; init; } 
     /// <summary>
     /// Information about the goods and/or services of the underlying transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<LineItem9> Goods { get; init; } = []; // Warning: Don't know multiplicity.
+    public LineItem9? Goods { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _Spw1mdp-Ed-ak6NoX_4Aeg_720183528
     /// <summary>
     /// Specifies the payment terms by means of a code and a limit in time.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentTerms1> PaymentTerms { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentTerms1? PaymentTerms { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _Sp5_gNp-Ed-ak6NoX_4Aeg_720184134
     /// <summary>
     /// Specifies how the transaction should be settled.
     /// </summary>
-    [DataMember]
     public required SettlementTerms2 SettlementTerms { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DataSetId", xmlNamespace );
+        DataSetIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ComrclDocRef", xmlNamespace );
+        CommercialDocumentReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Buyr", xmlNamespace );
+        Buyer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sellr", xmlNamespace );
+        Seller.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BillTo is PartyIdentification26 BillToValue)
+        {
+            writer.WriteStartElement(null, "BllTo", xmlNamespace );
+            BillToValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize Goods, multiplicity Unknown
+        // Not sure how to serialize PaymentTerms, multiplicity Unknown
+        writer.WriteStartElement(null, "SttlmTerms", xmlNamespace );
+        SettlementTerms.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CommercialDataSet3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

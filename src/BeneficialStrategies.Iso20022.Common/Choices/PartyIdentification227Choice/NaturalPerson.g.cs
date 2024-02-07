@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification227Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification227Choice;
 /// Private person.
 /// </summary>
 public partial record NaturalPerson : PartyIdentification227Choice_
+     , IIsoXmlSerilizable<NaturalPerson>
 {
     #nullable enable
+    
     /// <summary>
     /// Name and address of the party.
     /// </summary>
@@ -27,5 +31,38 @@ public partial record NaturalPerson : PartyIdentification227Choice_
     /// Natural person local identification and type.
     /// </summary>
     public NaturalPersonIdentification1? Identification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NmAndAdr", xmlNamespace );
+        NameAndAddress.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (EmailAddress is IsoMax256Text EmailAddressValue)
+        {
+            writer.WriteStartElement(null, "EmailAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(EmailAddressValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (Identification is NaturalPersonIdentification1 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new NaturalPerson Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

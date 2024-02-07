@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.AgentCAStandingInstructionStatusAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// When this message is used to report the status of a standing instruction cancellation request, the building block Standing Instruction Cancellation Request Identification must be present.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|This message is sent by an issuer (or its agent) to the CSD to report the status, or a change in status, of a standing instruction request or the status of a standing instruction cancellation request.|Usage|When this message is used to report the status of a standing instruction request, the building block Standing Instruction Request Identification must be present.|When this message is used to report the status of a standing instruction cancellation request, the building block Standing Instruction Cancellation Request Identification must be present.")]
-public partial record AgentCAStandingInstructionStatusAdviceV01 : IOuterRecord
+public partial record AgentCAStandingInstructionStatusAdviceV01 : IOuterRecord<AgentCAStandingInstructionStatusAdviceV01,AgentCAStandingInstructionStatusAdviceV01Document>
+    ,IIsoXmlSerilizable<AgentCAStandingInstructionStatusAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record AgentCAStandingInstructionStatusAdviceV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AgtCAStgInstrStsAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AgentCAStandingInstructionStatusAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -111,6 +118,41 @@ public partial record AgentCAStandingInstructionStatusAdviceV01 : IOuterRecord
     {
         return new AgentCAStandingInstructionStatusAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AgtCAStgInstrStsAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AgtCAStgInstrReqId", xmlNamespace );
+        AgentCAStandingInstructionRequestIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AgtCAStgInstrCxlReqId", xmlNamespace );
+        AgentCAStandingInstructionCancellationRequestIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StgInstrGnlInf", xmlNamespace );
+        StandingInstructionGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StgInstrReqSts", xmlNamespace );
+        StandingInstructionRequestStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StgInstrCxlReqSts", xmlNamespace );
+        StandingInstructionCancellationRequestStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static AgentCAStandingInstructionStatusAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -118,9 +160,7 @@ public partial record AgentCAStandingInstructionStatusAdviceV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAStandingInstructionStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AgentCAStandingInstructionStatusAdviceV01Document : IOuterDocument<AgentCAStandingInstructionStatusAdviceV01>
+public partial record AgentCAStandingInstructionStatusAdviceV01Document : IOuterDocument<AgentCAStandingInstructionStatusAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -136,5 +176,22 @@ public partial record AgentCAStandingInstructionStatusAdviceV01Document : IOuter
     /// <summary>
     /// The instance of <seealso cref="AgentCAStandingInstructionStatusAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=AgentCAStandingInstructionStatusAdviceV01.XmlTag)]
     public required AgentCAStandingInstructionStatusAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AgentCAStandingInstructionStatusAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

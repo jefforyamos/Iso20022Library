@@ -7,38 +7,64 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies a ratio: amount price and price fixing date per financial instrument quantity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AmountPricePerFinancialInstrumentQuantity9
+     : IIsoXmlSerilizable<AmountPricePerFinancialInstrumentQuantity9>
 {
     #nullable enable
     
     /// <summary>
     /// Type of amount price.
     /// </summary>
-    [DataMember]
     public required YieldedOrValueType1Choice_ AmountPriceType { get; init; } 
     /// <summary>
     /// Value given to a price.
     /// </summary>
-    [DataMember]
     public required PriceRateOrAmount3Choice_ PriceValue { get; init; } 
     /// <summary>
     /// Quantity of financial instrument.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ FinancialInstrumentQuantity { get; init; } 
     /// <summary>
     /// Date at which the actual price for a financial instrument is fixed.
     /// </summary>
-    [DataMember]
     public required IsoISODate PriceFixingDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AmtPricTp", xmlNamespace );
+        AmountPriceType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PricVal", xmlNamespace );
+        PriceValue.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FinInstrmQty", xmlNamespace );
+        FinancialInstrumentQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PricFxgDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(PriceFixingDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+    }
+    public static AmountPricePerFinancialInstrumentQuantity9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

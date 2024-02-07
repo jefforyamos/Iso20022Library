@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the legal basis of the request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LegalMandate1
+     : IIsoXmlSerilizable<LegalMandate1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the legal mandate paragraph in law which gives power to the authority's request.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Paragraph { get; init; } 
     /// <summary>
     /// Specifies any additional information describing how or why the paragraph of law should be applied.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? Disclaimer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Prgrph", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Paragraph)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Disclaimer is IsoMax350Text DisclaimerValue)
+        {
+            writer.WriteStartElement(null, "Dsclmr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(DisclaimerValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static LegalMandate1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

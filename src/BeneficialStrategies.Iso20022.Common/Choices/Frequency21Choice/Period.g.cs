@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Frequency21Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Frequency21Choice;
 /// Frequency expressed as a proprietary code.
 /// </summary>
 public partial record Period : Frequency21Choice_
+     , IIsoXmlSerilizable<Period>
 {
     #nullable enable
+    
     /// <summary>
     /// Period for which the number of instructions are to be created and processed.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record Period : Frequency21Choice_
     /// Number of instructions to be created and processed during the specified period.
     /// </summary>
     public required IsoDecimalNumber CountPerPeriod { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CntPerPrd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(CountPerPeriod)); // data type DecimalNumber System.UInt64
+        writer.WriteEndElement();
+    }
+    public static new Period Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,58 +7,98 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// General characteristics related to a statement which reports information for a precise date.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Statement7
+     : IIsoXmlSerilizable<Statement7>
 {
     #nullable enable
     
     /// <summary>
     /// Reference of the statement.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Reference { get; init; } 
     /// <summary>
     /// Date of the statement.
     /// </summary>
-    [DataMember]
     public required DateAndDateTimeChoice_ StatementDateTime { get; init; } 
     /// <summary>
     /// Preparation date of the statement.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeChoice_? CreationDateTime { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
-    [DataMember]
     public required FrequencyCodeAndDSSCode1Choice_ Frequency { get; init; } 
     /// <summary>
     /// Indicates whether the report is complete or contains changes only.
     /// </summary>
-    [DataMember]
     public required StatementUpdateTypeCodeAndDSSCodeChoice_ UpdateType { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     /// <summary>
     /// Type of balance on which the statement is prepared.
     /// </summary>
-    [DataMember]
     public required StatementBasisCodeAndDSSCodeChoice_ StatementBasis { get; init; } 
     /// <summary>
     /// Sequential number of the statement.
     /// </summary>
-    [DataMember]
     public IsoMax5NumericText? ReportNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ref", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Reference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StmtDtTm", xmlNamespace );
+        StatementDateTime.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CreationDateTime is DateAndDateTimeChoice_ CreationDateTimeValue)
+        {
+            writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+            CreationDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Frqcy", xmlNamespace );
+        Frequency.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UpdTp", xmlNamespace );
+        UpdateType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ActvtyInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ActivityIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StmtBsis", xmlNamespace );
+        StatementBasis.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ReportNumber is IsoMax5NumericText ReportNumberValue)
+        {
+            writer.WriteStartElement(null, "RptNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax5NumericText(ReportNumberValue)); // data type Max5NumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Statement7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

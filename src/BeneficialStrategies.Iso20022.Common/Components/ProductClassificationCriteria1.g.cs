@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Criteria regarding product classification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProductClassificationCriteria1
+     : IIsoXmlSerilizable<ProductClassificationCriteria1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifier is an ISO 10962 Classification of Financial Instrument (CFI).
     /// </summary>
-    [DataMember]
-    public ValueList<IsoCFIOct2015Identifier> ClassificationFinancialInstrument { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoCFIOct2015Identifier? ClassificationFinancialInstrument { get; init; } 
     /// <summary>
     /// Identification through a unique product identifier.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax52Text> UniqueProductIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax52Text? UniqueProductIdentifier { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ClassificationFinancialInstrument is IsoCFIOct2015Identifier ClassificationFinancialInstrumentValue)
+        {
+            writer.WriteStartElement(null, "ClssfctnFinInstrm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCFIOct2015Identifier(ClassificationFinancialInstrumentValue)); // data type CFIOct2015Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (UniqueProductIdentifier is IsoMax52Text UniqueProductIdentifierValue)
+        {
+            writer.WriteStartElement(null, "UnqPdctIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(UniqueProductIdentifierValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ProductClassificationCriteria1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.semt.SecuritiesSettlementTransactionAuditTrailReportV03>;
 
 namespace BeneficialStrategies.Iso20022.semt;
 
@@ -29,10 +32,9 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// using the relevant elements in the Business Application Header.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|This message is sent by the Market Infrastructure to the CSD to advise of the history of all the statuses, modifications, replacement and cancellation of a specific transaction during its whole life cycle when the instructing party is a direct participant to the Settlement Infrastructure.||Usage|The message may also be used to: |- re-send a message sent by the market infrastructure to the direct participant,|- provide a third party with a copy of a message being sent by the market infrastructure for information,|- re-send to a third party a copy of a message being sent by the market infrastructure for information|using the relevant elements in the Business Application Header.")]
-public partial record SecuritiesSettlementTransactionAuditTrailReportV03 : IOuterRecord
+public partial record SecuritiesSettlementTransactionAuditTrailReportV03 : IOuterRecord<SecuritiesSettlementTransactionAuditTrailReportV03,SecuritiesSettlementTransactionAuditTrailReportV03Document>
+    ,IIsoXmlSerilizable<SecuritiesSettlementTransactionAuditTrailReportV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -44,6 +46,11 @@ public partial record SecuritiesSettlementTransactionAuditTrailReportV03 : IOute
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesSttlmTxAudtTrlRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesSettlementTransactionAuditTrailReportV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -111,6 +118,53 @@ public partial record SecuritiesSettlementTransactionAuditTrailReportV03 : IOute
     {
         return new SecuritiesSettlementTransactionAuditTrailReportV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesSttlmTxAudtTrlRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Pgntn", xmlNamespace );
+        Pagination.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (QueryReference is Identification14 QueryReferenceValue)
+        {
+            writer.WriteStartElement(null, "QryRef", xmlNamespace );
+            QueryReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionIdentification is TransactionIdentifications29 TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            TransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+        SafekeepingAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountOwner is PartyIdentification98 AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StatusTrail is StatusTrail6 StatusTrailValue)
+        {
+            writer.WriteStartElement(null, "StsTrl", xmlNamespace );
+            StatusTrailValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesSettlementTransactionAuditTrailReportV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -118,9 +172,7 @@ public partial record SecuritiesSettlementTransactionAuditTrailReportV03 : IOute
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementTransactionAuditTrailReportV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesSettlementTransactionAuditTrailReportV03Document : IOuterDocument<SecuritiesSettlementTransactionAuditTrailReportV03>
+public partial record SecuritiesSettlementTransactionAuditTrailReportV03Document : IOuterDocument<SecuritiesSettlementTransactionAuditTrailReportV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -136,5 +188,22 @@ public partial record SecuritiesSettlementTransactionAuditTrailReportV03Document
     /// <summary>
     /// The instance of <seealso cref="SecuritiesSettlementTransactionAuditTrailReportV03"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesSettlementTransactionAuditTrailReportV03.XmlTag)]
     public required SecuritiesSettlementTransactionAuditTrailReportV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesSettlementTransactionAuditTrailReportV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

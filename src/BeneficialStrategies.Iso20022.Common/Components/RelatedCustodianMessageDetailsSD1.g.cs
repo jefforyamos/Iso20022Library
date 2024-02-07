@@ -7,68 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides selected corporate action events message details extracted from the related custodian messages received.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RelatedCustodianMessageDetailsSD1
+     : IIsoXmlSerilizable<RelatedCustodianMessageDetailsSD1>
 {
     #nullable enable
     
     /// <summary>
     /// Reference the CAEV value from the received custodian message. Applicable to custodian service only.
     /// </summary>
-    [DataMember]
     public required IsoMax4AlphaNumericText ReceivedEventType { get; init; } 
     /// <summary>
     /// Reference the CAMV value from the received custodian message. Applicable to custodian service only.
     /// </summary>
-    [DataMember]
     public required IsoMax4AlphaNumericText ReceivedMandatoryVoluntaryEventType { get; init; } 
     /// <summary>
     /// Reference the CORP value from the received custodian message. Applicable to custodian service only.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINXMax16Text ReceivedCorporateActionEventIdentification { get; init; } 
     /// <summary>
     /// Rate that the ISO message was received from the custodian. Applicable to custodian service only.
     /// </summary>
-    [DataMember]
     public required IsoISODate ReceivedDate { get; init; } 
     /// <summary>
     /// Time of day that the ISO message was received from the custodian. Applicable to custodian service only.
     /// </summary>
-    [DataMember]
     public IsoISOTime? ReceivedTime { get; init; } 
     /// <summary>
     /// Reference of the ISO15022 MT message type received from the custodian message. Applicable to custodian service only.
     /// </summary>
-    [DataMember]
     public required IsoExact3NumericText InboundISOMessageType { get; init; } 
     /// <summary>
     /// BIC Code of the recipient of the custodian record on a received message. Applicable to custodian service only.
     /// </summary>
-    [DataMember]
     public required IsoAnyBICIdentifier InboundISOMessageReceiverBIC { get; init; } 
     /// <summary>
     /// Sender related reference from the received custodian message. Applicable to custodian service only.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINXMax16Text ReceivedRelatedReference { get; init; } 
     /// <summary>
     /// Sender SEME from received custodian message. Applicable to custodian service only.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINXMax16Text ReceivedSenderMessageReference { get; init; } 
     /// <summary>
     /// BIC Code of the sender of the custodian record on a received message. Applicable to custodian service only.
     /// </summary>
-    [DataMember]
     public required IsoAnyBICIdentifier InboundISOMessageSenderBIC { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RcvdEvtTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(ReceivedEventType)); // data type Max4AlphaNumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RcvdMndtryVlntryEvtTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(ReceivedMandatoryVoluntaryEventType)); // data type Max4AlphaNumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RcvdCorpActnEvtId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(ReceivedCorporateActionEventIdentification)); // data type RestrictedFINXMax16Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RcvdDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ReceivedDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (ReceivedTime is IsoISOTime ReceivedTimeValue)
+        {
+            writer.WriteStartElement(null, "RcvdTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(ReceivedTimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InbndISOMT", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact3NumericText(InboundISOMessageType)); // data type Exact3NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InbndISOMsgRcvrBIC", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(InboundISOMessageReceiverBIC)); // data type AnyBICIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RcvdRltdRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(ReceivedRelatedReference)); // data type RestrictedFINXMax16Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RcvdSndrMsgRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(ReceivedSenderMessageReference)); // data type RestrictedFINXMax16Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InbndISOMsgSndrBIC", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(InboundISOMessageSenderBIC)); // data type AnyBICIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static RelatedCustodianMessageDetailsSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

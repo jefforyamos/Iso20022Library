@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a document.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Document9
+     : IIsoXmlSerilizable<Document9>
 {
     #nullable enable
     
     /// <summary>
     /// Type of document or template.
     /// </summary>
-    [DataMember]
     public required UndertakingDocumentType1Choice_ Type { get; init; } 
     /// <summary>
     /// Identification of the document or template.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Format of the document or template, such as PDF, XML, XSLT.
     /// </summary>
-    [DataMember]
     public DocumentFormat1Choice_? Format { get; init; } 
     /// <summary>
     /// Binary file representing the enclosed document or template, such as a PDF file, image file, XML file, MT message.
     /// </summary>
-    [DataMember]
     public required IsoMax2MBBinary Enclosure { get; init; } 
     /// <summary>
     /// Digital signature of the enclosed binary file.
     /// </summary>
-    [DataMember]
     public PartyAndSignature2? DigitalSignature { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Format is DocumentFormat1Choice_ FormatValue)
+        {
+            writer.WriteStartElement(null, "Frmt", xmlNamespace );
+            FormatValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Nclsr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax2MBBinary(Enclosure)); // data type Max2MBBinary System.Byte[]
+        writer.WriteEndElement();
+        if (DigitalSignature is PartyAndSignature2 DigitalSignatureValue)
+        {
+            writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
+            DigitalSignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Document9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

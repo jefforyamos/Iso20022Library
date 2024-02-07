@@ -7,73 +7,137 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Configuration parameters to communicate with a sale system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SaleToPOIProtocolParameter3
+     : IIsoXmlSerilizable<SaleToPOIProtocolParameter3>
 {
     #nullable enable
     
     /// <summary>
     /// Type of action for the configuration parameters.
     /// </summary>
-    [DataMember]
     public required TerminalManagementAction3Code ActionType { get; init; } 
     /// <summary>
     /// Identification of the merchant.
     /// </summary>
-    [DataMember]
     public Organisation26? MerchantIdentification { get; init; } 
     /// <summary>
     /// Version of the parameters.
     /// </summary>
-    [DataMember]
     public required IsoMax256Text Version { get; init; } 
     /// <summary>
     /// Identification used to retrieve HostCommunicationParameters.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text HostIdentification { get; init; } 
     /// <summary>
     /// Identification of the POI during communication with sale system.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MerchantPOIIdentification { get; init; } 
     /// <summary>
     /// Identification of the SaleSystem connected to the POI.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SaleIdentification { get; init; } 
     /// <summary>
     /// Identify a message that a Sale system could send to the POI system.
     /// </summary>
-    [DataMember]
-    public ValueList<RetailerMessage1Code> AllowedSaleMessage { get; init; } = []; // Warning: Don't know multiplicity.
+    public RetailerMessage1Code? AllowedSaleMessage { get; init; } 
     /// <summary>
     /// Identify a message that a POI system could send to the Sale system.
     /// </summary>
-    [DataMember]
-    public ValueList<RetailerMessage1Code> AllowedPOIMessage { get; init; } = []; // Warning: Don't know multiplicity.
+    public RetailerMessage1Code? AllowedPOIMessage { get; init; } 
     /// <summary>
     /// Identify a service that a POI system could support to the Sale system.
     /// </summary>
-    [DataMember]
-    public ValueList<RetailerService2Code> AllowedPOIService { get; init; } = []; // Warning: Don't know multiplicity.
+    public RetailerService2Code? AllowedPOIService { get; init; } 
     /// <summary>
     /// Identify a device request that a Sale system could ask to the POI system.
     /// </summary>
-    [DataMember]
-    public ValueList<RetailerService8Code> AllowedSaleDevice { get; init; } = []; // Warning: Don't know multiplicity.
+    public RetailerService8Code? AllowedSaleDevice { get; init; } 
     /// <summary>
     /// List of types that the receiver supports and that the sender could use as type of an ExternallyDefinedData message component.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax1025Text> ExternallyTypeSupported { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax1025Text? ExternallyTypeSupported { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ActnTp", xmlNamespace );
+        writer.WriteValue(ActionType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (MerchantIdentification is Organisation26 MerchantIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MrchntId", xmlNamespace );
+            MerchantIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax256Text(Version)); // data type Max256Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "HstId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(HostIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (MerchantPOIIdentification is IsoMax35Text MerchantPOIIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MrchntPOIId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MerchantPOIIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SaleIdentification is IsoMax35Text SaleIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AllowedSaleMessage is RetailerMessage1Code AllowedSaleMessageValue)
+        {
+            writer.WriteStartElement(null, "AllwdSaleMsg", xmlNamespace );
+            writer.WriteValue(AllowedSaleMessageValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AllowedPOIMessage is RetailerMessage1Code AllowedPOIMessageValue)
+        {
+            writer.WriteStartElement(null, "AllwdPOIMsg", xmlNamespace );
+            writer.WriteValue(AllowedPOIMessageValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AllowedPOIService is RetailerService2Code AllowedPOIServiceValue)
+        {
+            writer.WriteStartElement(null, "AllwdPOISvc", xmlNamespace );
+            writer.WriteValue(AllowedPOIServiceValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AllowedSaleDevice is RetailerService8Code AllowedSaleDeviceValue)
+        {
+            writer.WriteStartElement(null, "AllwdSaleDvc", xmlNamespace );
+            writer.WriteValue(AllowedSaleDeviceValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExternallyTypeSupported is IsoMax1025Text ExternallyTypeSupportedValue)
+        {
+            writer.WriteStartElement(null, "XtrnlyTpSpprtd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1025Text(ExternallyTypeSupportedValue)); // data type Max1025Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SaleToPOIProtocolParameter3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

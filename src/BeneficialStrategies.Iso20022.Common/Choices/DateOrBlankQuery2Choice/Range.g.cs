@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.DateOrBlankQuery2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.DateOrBlankQuery2Choice;
 /// Indicates the date range.
 /// </summary>
 public partial record Range : DateOrBlankQuery2Choice_
+     , IIsoXmlSerilizable<Range>
 {
     #nullable enable
+    
     /// <summary>
     /// Start date of the range.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record Range : DateOrBlankQuery2Choice_
     /// End date of the range.
     /// </summary>
     public required IsoISODate ToDate { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FromDate is IsoISODate FromDateValue)
+        {
+            writer.WriteStartElement(null, "FrDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(FromDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ToDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ToDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+    }
+    public static new Range Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

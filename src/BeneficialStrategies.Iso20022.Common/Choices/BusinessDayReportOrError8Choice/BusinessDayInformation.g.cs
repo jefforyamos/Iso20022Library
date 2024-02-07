@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.BusinessDayReportOrError8Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.BusinessDayReportOrError8Choice;
 /// Requested system details for a specific business day.
 /// </summary>
 public partial record BusinessDayInformation : BusinessDayReportOrError8Choice_
+     , IIsoXmlSerilizable<BusinessDayInformation>
 {
     #nullable enable
+    
     /// <summary>
     /// Date for which the availability information is provided.
     /// </summary>
@@ -26,6 +30,42 @@ public partial record BusinessDayInformation : BusinessDayReportOrError8Choice_
     /// <summary>
     /// Information relating to system operations and foreseen events relating to the operation of the system.
     /// </summary>
-    public SystemAvailabilityAndEvents2? SystemInformationPerCurrency { get; init;  } // Warning: Don't know multiplicity.
+    public SystemAvailabilityAndEvents2? SystemInformationPerCurrency { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SystemDate is IsoISODate SystemDateValue)
+        {
+            writer.WriteStartElement(null, "SysDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(SystemDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SystemStatus is SystemStatus3 SystemStatusValue)
+        {
+            writer.WriteStartElement(null, "SysSts", xmlNamespace );
+            SystemStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SystemInformationPerCurrency is SystemAvailabilityAndEvents2 SystemInformationPerCurrencyValue)
+        {
+            writer.WriteStartElement(null, "SysInfPerCcy", xmlNamespace );
+            SystemInformationPerCurrencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new BusinessDayInformation Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

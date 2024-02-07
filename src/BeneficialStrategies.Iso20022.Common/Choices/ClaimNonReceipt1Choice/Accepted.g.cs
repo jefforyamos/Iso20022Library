@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ClaimNonReceipt1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.ClaimNonReceipt1Choice;
 /// Claim non-receipt is accepted and processed by the agent.
 /// </summary>
 public partial record Accepted : ClaimNonReceipt1Choice_
+     , IIsoXmlSerilizable<Accepted>
 {
     #nullable enable
+    
     /// <summary>
     /// Specifies the date the original payment instruction was processed.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record Accepted : ClaimNonReceipt1Choice_
     /// Specifies the next party the original payment instruction was sent to.
     /// </summary>
     public required BranchAndFinancialInstitutionIdentification5 OriginalNextAgent { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DtPrcd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(DateProcessed)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgnlNxtAgt", xmlNamespace );
+        OriginalNextAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new Accepted Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,68 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information on the delegation of a maintenance action or maintenance function.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MaintenanceDelegation16
+     : IIsoXmlSerilizable<MaintenanceDelegation16>
 {
     #nullable enable
     
     /// <summary>
     /// Maintenance service to be delegated.
     /// </summary>
-    [DataMember]
-    public ValueList<DataSetCategory16Code> MaintenanceService { get; init; } = []; // Warning: Don't know multiplicity.
+    public DataSetCategory16Code? MaintenanceService { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _4PP9AXIrEe299ZbWCkdR_w
     /// <summary>
     /// Response of the MTM to the delegation of the maintenance service.
     /// </summary>
-    [DataMember]
     public required Response2Code Response { get; init; } 
     /// <summary>
     /// Reason of the response of the MTM.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ResponseReason { get; init; } 
     /// <summary>
     /// Type of delegation action.
     /// </summary>
-    [DataMember]
     public required TerminalManagementAction3Code DelegationType { get; init; } 
     /// <summary>
     /// Subset of the terminal estate for the delegated actions, for instance for pilot or key deactivation). The subset may be expressed as a list of POI or terminal estate subset identifier.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> POISubset { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? POISubset { get; init; } 
     /// <summary>
     /// Identifies the delegation scope assigned by the MTM.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DelegationScopeIdentification { get; init; } 
     /// <summary>
     /// This element contains all information relevant to the DelegationScopeIdentification. The format of this element is out of scope of this definition.
     /// </summary>
-    [DataMember]
     public IsoMax3000Binary? DelegationScopeDefinition { get; init; } 
     /// <summary>
     /// Contains the necessary information to secure the management of the Delegation. The format of this element is out of scope of this definition.
     /// </summary>
-    [DataMember]
     public IsoMax5000Binary? DelegationProof { get; init; } 
     /// <summary>
     /// Protected proof of delegation.
     /// </summary>
-    [DataMember]
     public ContentInformationType34? ProtectedDelegationProof { get; init; } 
     /// <summary>
     /// Association of the TM identifier and the MTM identifier of a POI.
     /// </summary>
-    [DataMember]
-    public ValueList<MaintenanceIdentificationAssociation1> POIIdentificationAssociation { get; init; } = []; // Warning: Don't know multiplicity.
+    public MaintenanceIdentificationAssociation1? POIIdentificationAssociation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize MaintenanceService, multiplicity Unknown
+        writer.WriteStartElement(null, "Rspn", xmlNamespace );
+        writer.WriteValue(Response.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ResponseReason is IsoMax35Text ResponseReasonValue)
+        {
+            writer.WriteStartElement(null, "RspnRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ResponseReasonValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DlgtnTp", xmlNamespace );
+        writer.WriteValue(DelegationType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (POISubset is IsoMax35Text POISubsetValue)
+        {
+            writer.WriteStartElement(null, "POISubset", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(POISubsetValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DelegationScopeIdentification is IsoMax35Text DelegationScopeIdentificationValue)
+        {
+            writer.WriteStartElement(null, "DlgtnScpId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DelegationScopeIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DelegationScopeDefinition is IsoMax3000Binary DelegationScopeDefinitionValue)
+        {
+            writer.WriteStartElement(null, "DlgtnScpDef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3000Binary(DelegationScopeDefinitionValue)); // data type Max3000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (DelegationProof is IsoMax5000Binary DelegationProofValue)
+        {
+            writer.WriteStartElement(null, "DlgtnProof", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax5000Binary(DelegationProofValue)); // data type Max5000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (ProtectedDelegationProof is ContentInformationType34 ProtectedDelegationProofValue)
+        {
+            writer.WriteStartElement(null, "PrtctdDlgtnProof", xmlNamespace );
+            ProtectedDelegationProofValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (POIIdentificationAssociation is MaintenanceIdentificationAssociation1 POIIdentificationAssociationValue)
+        {
+            writer.WriteStartElement(null, "POIIdAssoctn", xmlNamespace );
+            POIIdentificationAssociationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MaintenanceDelegation16 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

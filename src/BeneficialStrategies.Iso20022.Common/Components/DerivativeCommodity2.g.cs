@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the details of a commodity derivative.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DerivativeCommodity2
+     : IIsoXmlSerilizable<DerivativeCommodity2>
 {
     #nullable enable
     
     /// <summary>
     /// Commodity product attributes.
     /// </summary>
-    [DataMember]
     public required AssetClassCommodity3Choice_ Product { get; init; } 
     /// <summary>
     /// Transaction type as specified by the trading venue.
     /// </summary>
-    [DataMember]
     public AssetClassTransactionType1Code? TransactionType { get; init; } 
     /// <summary>
     /// Final price type as specified by the trading venue.
     /// </summary>
-    [DataMember]
     public AssetPriceType1Code? FinalPriceType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Pdct", xmlNamespace );
+        Product.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionType is AssetClassTransactionType1Code TransactionTypeValue)
+        {
+            writer.WriteStartElement(null, "TxTp", xmlNamespace );
+            writer.WriteValue(TransactionTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (FinalPriceType is AssetPriceType1Code FinalPriceTypeValue)
+        {
+            writer.WriteStartElement(null, "FnlPricTp", xmlNamespace );
+            writer.WriteValue(FinalPriceTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static DerivativeCommodity2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

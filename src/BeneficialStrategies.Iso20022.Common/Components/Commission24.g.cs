@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money due to a party as compensation for a service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Commission24
+     : IIsoXmlSerilizable<Commission24>
 {
     #nullable enable
     
     /// <summary>
     /// Specification of the commission type.
     /// </summary>
-    [DataMember]
     public required CommissionType6Choice_ Type { get; init; } 
     /// <summary>
     /// Amount of money due to a party as compensation for a service.
     /// </summary>
-    [DataMember]
     public required AmountOrRate2Choice_ Commission { get; init; } 
     /// <summary>
     /// Information related to an identification, eg, party identification or account identification.
     /// </summary>
-    [DataMember]
     public PartyIdentification117? RecipientIdentification { get; init; } 
     /// <summary>
     /// Date at which an operation is triggered to calculate, for instance, a commission, fee, asset values, etc.
     /// </summary>
-    [DataMember]
     public IsoISODate? CalculationDate { get; init; } 
     /// <summary>
     /// Total value of the commissions for a specific trade.
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? TotalCommission { get; init; } 
     /// <summary>
     /// Amount that results of the calculation of VAT on net fees, according to the transaction current tariffs.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalVATAmount { get; init; } 
     /// <summary>
     /// Specifies the VAT rate.
     /// </summary>
-    [DataMember]
     public IsoBaseOneRate? VATRate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Comssn", xmlNamespace );
+        Commission.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RecipientIdentification is PartyIdentification117 RecipientIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcptId", xmlNamespace );
+            RecipientIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CalculationDate is IsoISODate CalculationDateValue)
+        {
+            writer.WriteStartElement(null, "ClctnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(CalculationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (TotalCommission is AmountAndDirection29 TotalCommissionValue)
+        {
+            writer.WriteStartElement(null, "TtlComssn", xmlNamespace );
+            TotalCommissionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalVATAmount is IsoActiveCurrencyAndAmount TotalVATAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlVATAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalVATAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (VATRate is IsoBaseOneRate VATRateValue)
+        {
+            writer.WriteStartElement(null, "VATRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(VATRateValue)); // data type BaseOneRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static Commission24 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

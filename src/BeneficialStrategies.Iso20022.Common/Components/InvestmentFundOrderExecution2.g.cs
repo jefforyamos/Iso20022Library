@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reference of an order, client or deal reference.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestmentFundOrderExecution2
+     : IIsoXmlSerilizable<InvestmentFundOrderExecution2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OrderReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of an order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order cancellation, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DealReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OrderReference is IsoMax35Text OrderReferenceValue)
+        {
+            writer.WriteStartElement(null, "OrdrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OrderReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClientReference is IsoMax35Text ClientReferenceValue)
+        {
+            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DealReference is IsoMax35Text DealReferenceValue)
+        {
+            writer.WriteStartElement(null, "DealRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DealReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static InvestmentFundOrderExecution2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

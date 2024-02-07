@@ -7,58 +7,107 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the attributes of the benchmark, which is / are being created.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BenchmarkCreate1
+     : IIsoXmlSerilizable<BenchmarkCreate1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice messages.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the benchmark.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification19 Identification { get; init; } 
     /// <summary>
     /// Any other additional information about the benchmark.
     /// </summary>
-    [DataMember]
     public required BenchmarkDetail1 Other { get; init; } 
     /// <summary>
     /// Set of identifiers of the party who is administrating the benchmark.
     /// </summary>
-    [DataMember]
     public required PartyIdentification136 Administrator { get; init; } 
     /// <summary>
     /// Set of identifiers of the party who is the supervised entity endorsing the benchmark.
     /// </summary>
-    [DataMember]
     public PartyIdentification136? EndorsingParty { get; init; } 
     /// <summary>
     /// Status of the decision taken by a relevant institution concerning the benchmark.
     /// </summary>
-    [DataMember]
     public StatusDetail1? Status { get; init; } 
     /// <summary>
     /// Period of time when the associated record is technically valid.
     /// </summary>
-    [DataMember]
     public Period4Choice_? TechnicalValidityPeriod { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TechnicalRecordIdentification is IsoMax35Text TechnicalRecordIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TechnicalRecordIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Othr", xmlNamespace );
+        Other.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Admstr", xmlNamespace );
+        Administrator.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (EndorsingParty is PartyIdentification136 EndorsingPartyValue)
+        {
+            writer.WriteStartElement(null, "NdrsngPty", xmlNamespace );
+            EndorsingPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Status is StatusDetail1 StatusValue)
+        {
+            writer.WriteStartElement(null, "Sts", xmlNamespace );
+            StatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TechnicalValidityPeriod is Period4Choice_ TechnicalValidityPeriodValue)
+        {
+            writer.WriteStartElement(null, "TechVldtyPrd", xmlNamespace );
+            TechnicalValidityPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BenchmarkCreate1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Traded venue related fields.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradingVenueAttributes1
+     : IIsoXmlSerilizable<TradingVenueAttributes1>
 {
     #nullable enable
     
     /// <summary>
     /// Segment MIC for the trading venue or systematic internaliser, where applicable, otherwise the operating MIC.
     /// </summary>
-    [DataMember]
     public required IsoMICIdentifier Identification { get; init; } 
     /// <summary>
     /// Indicates whether the issuer of the financial instrument has requested or approved the trading or admission to trading of their financial instruments on a trading venue.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator IssuerRequest { get; init; } 
     /// <summary>
     /// Date and time the issuer has approved the admission to trading or trading of its financial instruments on the trading venue.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? AdmissionApprovalDateByIssuer { get; init; } 
     /// <summary>
     /// Date and time when the request for admission on the trading venue was made for the instrument.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? RequestForAdmissionDate { get; init; } 
     /// <summary>
     /// Date and time of the admission to trading on the trading venue or the date and time when the instrument was first traded or an order or quote was first received by the trading venue.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? FirstTradeDate { get; init; } 
     /// <summary>
     /// Date and time when the financial instrument ceases to be traded or to be admitted to trading on the trading venue. Where this date and time is unavailable, the field shall not be populated.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? TerminationDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMICIdentifier(Identification)); // data type MICIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IssrReq", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(IssuerRequest)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        if (AdmissionApprovalDateByIssuer is IsoISODateTime AdmissionApprovalDateByIssuerValue)
+        {
+            writer.WriteStartElement(null, "AdmssnApprvlDtByIssr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(AdmissionApprovalDateByIssuerValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (RequestForAdmissionDate is IsoISODateTime RequestForAdmissionDateValue)
+        {
+            writer.WriteStartElement(null, "ReqForAdmssnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(RequestForAdmissionDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (FirstTradeDate is IsoISODateTime FirstTradeDateValue)
+        {
+            writer.WriteStartElement(null, "FrstTradDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(FirstTradeDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (TerminationDate is IsoISODateTime TerminationDateValue)
+        {
+            writer.WriteStartElement(null, "TermntnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(TerminationDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static TradingVenueAttributes1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

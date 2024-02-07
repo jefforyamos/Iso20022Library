@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides reasons of rejecting transactions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RejectionReason47
+     : IIsoXmlSerilizable<RejectionReason47>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a transaction.
     /// </summary>
-    [DataMember]
     public required TransactionIdentification1Choice_ TransactionIdentification { get; init; } 
     /// <summary>
     /// Information on status of submitted transactions.
     /// </summary>
-    [DataMember]
     public required ReportingMessageStatus1Code Status { get; init; } 
     /// <summary>
     /// Acceptance criteria of the transaction.
     /// </summary>
-    [DataMember]
     public GenericValidationRuleIdentification1? DetailedValidationRule { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (DetailedValidationRule is GenericValidationRuleIdentification1 DetailedValidationRuleValue)
+        {
+            writer.WriteStartElement(null, "DtldVldtnRule", xmlNamespace );
+            DetailedValidationRuleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RejectionReason47 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

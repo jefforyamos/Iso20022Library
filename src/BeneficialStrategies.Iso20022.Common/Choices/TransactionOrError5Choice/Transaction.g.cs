@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TransactionOrError5Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionOrError5Choice;
 /// Requested information on the payment transaction.
 /// </summary>
 public partial record Transaction : TransactionOrError5Choice_
+     , IIsoXmlSerilizable<Transaction>
 {
     #nullable enable
+    
     /// <summary>
     /// Destination of the payment (be it a member or a system or both).
     /// </summary>
@@ -39,5 +43,59 @@ public partial record Transaction : TransactionOrError5Choice_
     /// Provides the references of the underlying securities transaction.
     /// </summary>
     public SecuritiesTransactionReferences1? SecuritiesTransactionReferences { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PaymentTo is System2 PaymentToValue)
+        {
+            writer.WriteStartElement(null, "PmtTo", xmlNamespace );
+            PaymentToValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentFrom is System2 PaymentFromValue)
+        {
+            writer.WriteStartElement(null, "PmtFr", xmlNamespace );
+            PaymentFromValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditDebitIndicator is CreditDebitCode CreditDebitIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+            writer.WriteValue(CreditDebitIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Payment is PaymentInstruction32 PaymentValue)
+        {
+            writer.WriteStartElement(null, "Pmt", xmlNamespace );
+            PaymentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountEntry is CashAccountAndEntry4 AccountEntryValue)
+        {
+            writer.WriteStartElement(null, "AcctNtry", xmlNamespace );
+            AccountEntryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesTransactionReferences is SecuritiesTransactionReferences1 SecuritiesTransactionReferencesValue)
+        {
+            writer.WriteStartElement(null, "SctiesTxRefs", xmlNamespace );
+            SecuritiesTransactionReferencesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Transaction Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

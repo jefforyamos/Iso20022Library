@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies whether the transaction is on hold/blocked/frozen.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record HoldIndicator6
+     : IIsoXmlSerilizable<HoldIndicator6>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the transaction is on hold/blocked/frozen.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Indicator { get; init; } 
     /// <summary>
     /// Specifies the reason of the registration status.
     /// </summary>
-    [DataMember]
-    public ValueList<RegistrationReason5> Reason { get; init; } = []; // Warning: Don't know multiplicity.
+    public RegistrationReason5? Reason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ind", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Indicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (Reason is RegistrationReason5 ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            ReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static HoldIndicator6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

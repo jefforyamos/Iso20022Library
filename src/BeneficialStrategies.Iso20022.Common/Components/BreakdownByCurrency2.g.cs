@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the cash-in and cash-out flows by currency.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BreakdownByCurrency2
+     : IIsoXmlSerilizable<BreakdownByCurrency2>
 {
     #nullable enable
     
     /// <summary>
     /// Currency for which the cash flow is being reported.
     /// </summary>
-    [DataMember]
     public required ActiveOrHistoricCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Cash movement out of the fund as a result of transactions in shares in an investment fund, for example, redemptions or switch-outs.
     /// </summary>
-    [DataMember]
-    public ValueList<CashOutForecast5> CashOutForecast { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashOutForecast5? CashOutForecast { get; init; } 
     /// <summary>
     /// Cash movement into the fund as a result of transactions in shares in an investment fund, for example, subscriptions or switch-ins.
     /// </summary>
-    [DataMember]
-    public ValueList<CashInForecast5> CashInForecast { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashInForecast5? CashInForecast { get; init; } 
     /// <summary>
     /// Net cash as a result of the cash-in and cash-out flows specified for the currency.
     /// </summary>
-    [DataMember]
-    public ValueList<NetCashForecast4> NetCashForecast { get; init; } = []; // Warning: Don't know multiplicity.
+    public NetCashForecast4? NetCashForecast { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ccy", xmlNamespace );
+        writer.WriteValue(Currency.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (CashOutForecast is CashOutForecast5 CashOutForecastValue)
+        {
+            writer.WriteStartElement(null, "CshOutFcst", xmlNamespace );
+            CashOutForecastValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashInForecast is CashInForecast5 CashInForecastValue)
+        {
+            writer.WriteStartElement(null, "CshInFcst", xmlNamespace );
+            CashInForecastValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NetCashForecast is NetCashForecast4 NetCashForecastValue)
+        {
+            writer.WriteStartElement(null, "NetCshFcst", xmlNamespace );
+            NetCashForecastValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BreakdownByCurrency2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Structured information supplied to enable the matching, ie, reconciliation, of a payment with the items that the payment is intended to settle, eg, commercial invoices in an accounts receivable system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StructuredRemittanceInformation2
+     : IIsoXmlSerilizable<StructuredRemittanceInformation2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the nature of the referred document/transaction, eg, invoice or credit note.
     /// </summary>
-    [DataMember]
     public DocumentType1Code? ReferredDocumentType { get; init; } 
     /// <summary>
     /// Date associated with the referred document, eg, date of issue.
     /// </summary>
-    [DataMember]
     public IsoISODate? ReferredDocumentRelatedDate { get; init; } 
     /// <summary>
     /// Amount of money and currency of a document referred to in the remittance section. The amount is typically either the original amount due and payable, or the amount actually remitted for the referred document.
     /// </summary>
-    [DataMember]
-    public ValueList<ReferredDocumentAmount1Choice_> ReferredDocumentAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public ReferredDocumentAmount1Choice_? ReferredDocumentAmount { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of a document that distinguishes that document from another document referred to in the remittance information, usually assigned by the originator of the referred document/transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DocumentReferenceNumber { get; init; } 
     /// <summary>
     /// Unique and unambiguous reference assigned by the creditor to refer to the payment transaction.||Usage: if available, the initiating party should provide this reference in the structured remittance information, to enable reconciliation by the creditor upon receipt of the cash.||If the business context requires the use of a creditor reference or a payment remit identification, and only one identifier can be passed through the end-to-end chain, the creditor's reference or payment remittance identification should be quoted in the end-to-end transaction identification.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CreditorReference { get; init; } 
     /// <summary>
     /// Identification of the organization issuing the invoice when different than the creditor or final party.
     /// </summary>
-    [DataMember]
     public PartyIdentification1? Invoicer { get; init; } 
     /// <summary>
     /// Identification of the party to whom an invoice is issued, when different than the originator or debtor.
     /// </summary>
-    [DataMember]
     public PartyIdentification1? Invoicee { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReferredDocumentType is DocumentType1Code ReferredDocumentTypeValue)
+        {
+            writer.WriteStartElement(null, "RfrdDocTp", xmlNamespace );
+            writer.WriteValue(ReferredDocumentTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ReferredDocumentRelatedDate is IsoISODate ReferredDocumentRelatedDateValue)
+        {
+            writer.WriteStartElement(null, "RfrdDocRltdDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ReferredDocumentRelatedDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ReferredDocumentAmount is ReferredDocumentAmount1Choice_ ReferredDocumentAmountValue)
+        {
+            writer.WriteStartElement(null, "RfrdDocAmt", xmlNamespace );
+            ReferredDocumentAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DocumentReferenceNumber is IsoMax35Text DocumentReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "DocRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DocumentReferenceNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CreditorReference is IsoMax35Text CreditorReferenceValue)
+        {
+            writer.WriteStartElement(null, "CdtrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CreditorReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Invoicer is PartyIdentification1 InvoicerValue)
+        {
+            writer.WriteStartElement(null, "Invcr", xmlNamespace );
+            InvoicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Invoicee is PartyIdentification1 InvoiceeValue)
+        {
+            writer.WriteStartElement(null, "Invcee", xmlNamespace );
+            InvoiceeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static StructuredRemittanceInformation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

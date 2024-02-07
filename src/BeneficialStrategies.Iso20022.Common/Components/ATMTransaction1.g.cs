@@ -7,78 +7,153 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Withdrawal transaction for which an authorisation is requested.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMTransaction1
+     : IIsoXmlSerilizable<ATMTransaction1>
 {
     #nullable enable
     
     /// <summary>
     /// True if cash has to be dispensed by the ATM for the transaction.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CashDispensed { get; init; } 
     /// <summary>
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
-    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period assigned by the ATM.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     /// <summary>
     /// Unprotected account information.
     /// </summary>
-    [DataMember]
     public CardAccount3? AccountData { get; init; } 
     /// <summary>
     /// Encryption of account information.
     /// </summary>
-    [DataMember]
     public ContentInformationType10? ProtectedAccountData { get; init; } 
     /// <summary>
     /// Amount to be authorised by the issuer.
     /// </summary>
-    [DataMember]
     public AmountAndCurrency1? TotalRequestedAmount { get; init; } 
     /// <summary>
     /// Amounts of the withdrawal transaction.
     /// </summary>
-    [DataMember]
     public DetailedAmount12? DetailedRequestedAmount { get; init; } 
     /// <summary>
     /// Currency conversion accepted by the customer, either to convert the amount to dispense in the base currency of the ATM, or to convert the total requested amount in the currency of the customer (so called dynamic currency conversion).
     /// </summary>
-    [DataMember]
     public CurrencyConversion4? CurrencyConversion { get; init; } 
     /// <summary>
     /// Media mix algorithm, the identification of the algorithm is an agreement between the ATM and the ATM manager.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SelectedMixType { get; init; } 
     /// <summary>
     /// Media mix selected.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMMediaMix1> SelectedMix { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMMediaMix1? SelectedMix { get; init; } 
     /// <summary>
     /// True if a receipt has be requested by the customer.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? RequestedReceipt { get; init; } 
     /// <summary>
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
-    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CashDispensed is IsoTrueFalseIndicator CashDispensedValue)
+        {
+            writer.WriteStartElement(null, "CshDspnsd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CashDispensedValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ReconciliationIdentification is IsoMax35Text ReconciliationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcncltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReconciliationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountData is CardAccount3 AccountDataValue)
+        {
+            writer.WriteStartElement(null, "AcctData", xmlNamespace );
+            AccountDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProtectedAccountData is ContentInformationType10 ProtectedAccountDataValue)
+        {
+            writer.WriteStartElement(null, "PrtctdAcctData", xmlNamespace );
+            ProtectedAccountDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalRequestedAmount is AmountAndCurrency1 TotalRequestedAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlReqdAmt", xmlNamespace );
+            TotalRequestedAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DetailedRequestedAmount is DetailedAmount12 DetailedRequestedAmountValue)
+        {
+            writer.WriteStartElement(null, "DtldReqdAmt", xmlNamespace );
+            DetailedRequestedAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CurrencyConversion is CurrencyConversion4 CurrencyConversionValue)
+        {
+            writer.WriteStartElement(null, "CcyConvs", xmlNamespace );
+            CurrencyConversionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SelectedMixType is IsoMax35Text SelectedMixTypeValue)
+        {
+            writer.WriteStartElement(null, "SelctdMixTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SelectedMixTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SelectedMix is ATMMediaMix1 SelectedMixValue)
+        {
+            writer.WriteStartElement(null, "SelctdMix", xmlNamespace );
+            SelectedMixValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequestedReceipt is IsoTrueFalseIndicator RequestedReceiptValue)
+        {
+            writer.WriteStartElement(null, "ReqdRct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(RequestedReceiptValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ICCRelatedData is IsoMax10000Binary ICCRelatedDataValue)
+        {
+            writer.WriteStartElement(null, "ICCRltdData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(ICCRelatedDataValue)); // data type Max10000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMTransaction1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

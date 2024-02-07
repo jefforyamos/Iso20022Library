@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains additional data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalData2
+     : IIsoXmlSerilizable<AdditionalData2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of information.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Detail of the specific type of data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> Details { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? Details { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is IsoMax35Text TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Details is AdditionalData1 DetailsValue)
+        {
+            writer.WriteStartElement(null, "Dtls", xmlNamespace );
+            DetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AdditionalData2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

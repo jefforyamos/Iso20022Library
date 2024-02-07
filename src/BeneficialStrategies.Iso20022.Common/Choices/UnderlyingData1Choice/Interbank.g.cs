@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.UnderlyingData1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingData1Choice;
 /// Reference details on the original interbank payment transaction.
 /// </summary>
 public partial record Interbank : UnderlyingData1Choice_
+     , IIsoXmlSerilizable<Interbank>
 {
     #nullable enable
+    
     /// <summary>
     /// Set of elements used to provide information on the original message.
     /// </summary>
@@ -51,5 +55,77 @@ public partial record Interbank : UnderlyingData1Choice_
     /// Agreement under which or rules under which the transaction should be processed.
     /// </summary>
     public ServiceLevel8Choice_? OriginalServiceLevel { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OriginalGroupInformation is UnderlyingGroupInformation1 OriginalGroupInformationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlGrpInf", xmlNamespace );
+            OriginalGroupInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalInstructionIdentification is IsoMax35Text OriginalInstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlInstrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalInstructionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalEndToEndIdentification is IsoMax35Text OriginalEndToEndIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlEndToEndId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalEndToEndIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalTransactionIdentification is IsoMax35Text OriginalTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalUETR is IsoUUIDv4Identifier OriginalUETRValue)
+        {
+            writer.WriteStartElement(null, "OrgnlUETR", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoUUIDv4Identifier(OriginalUETRValue)); // data type UUIDv4Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalInterbankSettlementAmount is IsoActiveOrHistoricCurrencyAndAmount OriginalInterbankSettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "OrgnlIntrBkSttlmAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(OriginalInterbankSettlementAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (OriginalInterbankSettlementDate is IsoISODate OriginalInterbankSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "OrgnlIntrBkSttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(OriginalInterbankSettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (OriginalTransactionReference is OriginalTransactionReference35 OriginalTransactionReferenceValue)
+        {
+            writer.WriteStartElement(null, "OrgnlTxRef", xmlNamespace );
+            OriginalTransactionReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalServiceLevel is ServiceLevel8Choice_ OriginalServiceLevelValue)
+        {
+            writer.WriteStartElement(null, "OrgnlSvcLvl", xmlNamespace );
+            OriginalServiceLevelValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Interbank Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

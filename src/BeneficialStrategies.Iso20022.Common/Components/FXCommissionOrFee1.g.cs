@@ -7,34 +7,61 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the foreign exchange commissions and fees amounts.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FXCommissionOrFee1
+     : IIsoXmlSerilizable<FXCommissionOrFee1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of the commission or fee.
     /// </summary>
-    [DataMember]
     public required FXAmountType1Choice_ Type { get; init; } 
     /// <summary>
     /// Amount or rate of the commissions and fees.
     /// </summary>
-    [DataMember]
     public required AmountOrRate4Choice_ AmountOrRate { get; init; } 
     /// <summary>
     /// Indicates that the amount or rate value is positive or negative.
     /// Usage: when absent, it means that amount value is 0 or positive.
     /// </summary>
-    [DataMember]
     public IsoPlusOrMinusIndicator? Sign { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AmtOrRate", xmlNamespace );
+        AmountOrRate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Sign is IsoPlusOrMinusIndicator SignValue)
+        {
+            writer.WriteStartElement(null, "Sgn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPlusOrMinusIndicator(SignValue)); // data type PlusOrMinusIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static FXCommissionOrFee1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

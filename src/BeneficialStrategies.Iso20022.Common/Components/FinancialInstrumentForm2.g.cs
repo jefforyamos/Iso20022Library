@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates the form of the financial Instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrumentForm2
+     : IIsoXmlSerilizable<FinancialInstrumentForm2>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the booking appearance of the financial Instrument.
     /// </summary>
-    [DataMember]
     public Appearance3Choice_? BookingAppearance { get; init; } 
     /// <summary>
     /// Specifies the form, ie, ownership, of the security.
     /// </summary>
-    [DataMember]
     public FormOfSecurity8Choice_? LegalForm { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (BookingAppearance is Appearance3Choice_ BookingAppearanceValue)
+        {
+            writer.WriteStartElement(null, "BookgApprnc", xmlNamespace );
+            BookingAppearanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LegalForm is FormOfSecurity8Choice_ LegalFormValue)
+        {
+            writer.WriteStartElement(null, "LglForm", xmlNamespace );
+            LegalFormValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstrumentForm2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

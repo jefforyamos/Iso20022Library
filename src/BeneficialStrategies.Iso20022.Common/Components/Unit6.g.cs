@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the units to settle.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Unit6
+     : IIsoXmlSerilizable<Unit6>
 {
     #nullable enable
     
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
     /// <summary>
     /// Date upon which the investor purchased the financial instrument.
     /// </summary>
-    [DataMember]
     public IsoISODate? AcquisitionDate { get; init; } 
     /// <summary>
     /// Certificate representing the security that is delivered.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> CertificateNumber { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? CertificateNumber { get; init; } 
     /// <summary>
     /// Tax group to which the purchased investment fund units belong. The investor indicates to the intermediary operating pooled nominees, which type of unit is to be sold.
     /// </summary>
-    [DataMember]
     public UKTaxGroupUnitCode? Group1Or2Units { get; init; } 
     /// <summary>
     /// Information related to the price of the transferred units.
     /// </summary>
-    [DataMember]
     public UnitPrice21? PriceDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UnitsNb", xmlNamespace );
+        UnitsNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AcquisitionDate is IsoISODate AcquisitionDateValue)
+        {
+            writer.WriteStartElement(null, "AcqstnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(AcquisitionDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (CertificateNumber is IsoMax35Text CertificateNumberValue)
+        {
+            writer.WriteStartElement(null, "CertNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CertificateNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Group1Or2Units is UKTaxGroupUnitCode Group1Or2UnitsValue)
+        {
+            writer.WriteStartElement(null, "Grp1Or2Units", xmlNamespace );
+            writer.WriteValue(Group1Or2UnitsValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PriceDetails is UnitPrice21 PriceDetailsValue)
+        {
+            writer.WriteStartElement(null, "PricDtls", xmlNamespace );
+            PriceDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Unit6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,67 +7,59 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Processing characteristics linked to the instrument, ie, not to the market.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProcessingCharacteristics3
+     : IIsoXmlSerilizable<ProcessingCharacteristics3>
 {
     #nullable enable
     
     /// <summary>
     /// Currency in which a subscription or redemption is accepted.
     /// </summary>
-    [DataMember]
-    public ValueList<ActiveCurrencyCode> DealingCurrencyAccepted { get; init; } = []; // Warning: Don't know multiplicity.
+    public ActiveCurrencyCode? DealingCurrencyAccepted { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _UA7c0Np-Ed-ak6NoX_4Aeg_-749835087
     /// <summary>
     /// Authorization to claim redemption proceeds.
     /// </summary>
-    [DataMember]
     public required Forms RedemptionAuthorisation { get; init; } 
     /// <summary>
     /// Indicates whether a subscription or a redemption can be instructed by amount.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator AmountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether subscriptions or redemptions may be placed as a number of units.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator UnitsIndicator { get; init; } 
     /// <summary>
     /// Specifies the location of the main fund order desk.
     /// </summary>
-    [DataMember]
     public required MainFundOrderDeskLocation1 MainFundOrderDeskLocation { get; init; } 
     /// <summary>
     /// Last date/time at which an order to subscribe or redeem can be given.
     /// </summary>
-    [DataMember]
     public required IsoISOTime DealingCutOffTime { get; init; } 
     /// <summary>
     /// TimeFrame or period concept that allows definition of a period as number of days before or after a defined activity.
     /// </summary>
-    [DataMember]
     public required TimeFrame3 DealingCutOffTimeFrame { get; init; } 
     /// <summary>
     /// Frequency at which the subscriptions are done.
     /// </summary>
-    [DataMember]
     public required EventFrequency5Code DealingFrequency { get; init; } 
     /// <summary>
     /// Description of frequency at which the subscription is done.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text DealingFrequencyDescription { get; init; } 
     /// <summary>
     /// Specific period, eg, for some guaranteed funds, during which the units/shares may be redeemed.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? LimitedPeriod { get; init; } 
     /// <summary>
     /// Indicate the last business day following the day on which a redemption order is priced (T) by which settlement will be due
@@ -75,8 +67,58 @@ public partial record ProcessingCharacteristics3
     /// renunciation, indicate the last business day following receipt of the relevant renunciation documentation by the main Fund
     /// Order Desk (R) by which the proceeds will be sent.&nbsp; Examples of the above would be T+3, R+4 etc.
     /// </summary>
-    [DataMember]
     public required TimeFrame4Choice_ SettlementCycle { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize DealingCurrencyAccepted, multiplicity Unknown
+        writer.WriteStartElement(null, "RedAuthstn", xmlNamespace );
+        RedemptionAuthorisation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AmtInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AmountIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UnitsInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(UnitsIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MainFndOrdrDskLctn", xmlNamespace );
+        MainFundOrderDeskLocation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DealgCutOffTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISOTime(DealingCutOffTime)); // data type ISOTime System.TimeOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DealgCutOffTmFrame", xmlNamespace );
+        DealingCutOffTimeFrame.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DealgFrqcy", xmlNamespace );
+        writer.WriteValue(DealingFrequency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DealgFrqcyDesc", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(DealingFrequencyDescription)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (LimitedPeriod is IsoMax350Text LimitedPeriodValue)
+        {
+            writer.WriteStartElement(null, "LtdPrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(LimitedPeriodValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SttlmCycl", xmlNamespace );
+        SettlementCycle.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ProcessingCharacteristics3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

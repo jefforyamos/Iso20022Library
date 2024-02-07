@@ -7,55 +7,105 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to counterparty identification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Counterparty45
+     : IIsoXmlSerilizable<Counterparty45>
 {
     #nullable enable
     
     /// <summary>
     /// Unique code identifying the reporting counterparty of the contract.
     /// </summary>
-    [DataMember]
     public required PartyIdentification248Choice_ Identification { get; init; } 
     /// <summary>
     /// Indicates if the reporting counterparty is a central counterparty, a financial, non-financial counterparty or other type of counterparty in accordance with regulation.
     /// </summary>
-    [DataMember]
     public CounterpartyTradeNature15Choice_? Nature { get; init; } 
     /// <summary>
     /// Identifies the trading capacity of the seller.
     /// </summary>
-    [DataMember]
     public TradingCapacity7Code? TradingCapacity { get; init; } 
     /// <summary>
     /// Indicates the direction or side of the derivative transaction from the perspective of the reporting counterparty. 
     /// Usage:
     /// CounterpartySide should be used for the instruments such as most forwards and forward-like contracts (except for foreign exchange forwards and foreign exchange non-deliverable forwards); most options and option-like contracts including swaptions, caps and floors; credit default swaps; variance, volatility and correlation swaps; contracts for difference and spreadbets.
     /// </summary>
-    [DataMember]
     public Direction4Choice_? DirectionOrSide { get; init; } 
     /// <summary>
     /// Location of the trading desk or trader responsible for the decision of entering into or execution of the transaction.
     /// </summary>
-    [DataMember]
     public CountryCode? TraderLocation { get; init; } 
     /// <summary>
     /// Location of the trade party or the branch/office of the trade party to which the transaction is booked.
     /// </summary>
-    [DataMember]
     public CountryCode? BookingLocation { get; init; } 
     /// <summary>
     /// Provides details on the reporting exemption of a counterparty.
     /// </summary>
-    [DataMember]
     public ReportingExemption1? ReportingExemption { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Nature is CounterpartyTradeNature15Choice_ NatureValue)
+        {
+            writer.WriteStartElement(null, "Ntr", xmlNamespace );
+            NatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradingCapacity is TradingCapacity7Code TradingCapacityValue)
+        {
+            writer.WriteStartElement(null, "TradgCpcty", xmlNamespace );
+            writer.WriteValue(TradingCapacityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DirectionOrSide is Direction4Choice_ DirectionOrSideValue)
+        {
+            writer.WriteStartElement(null, "DrctnOrSd", xmlNamespace );
+            DirectionOrSideValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TraderLocation is CountryCode TraderLocationValue)
+        {
+            writer.WriteStartElement(null, "TradrLctn", xmlNamespace );
+            writer.WriteValue(TraderLocationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (BookingLocation is CountryCode BookingLocationValue)
+        {
+            writer.WriteStartElement(null, "BookgLctn", xmlNamespace );
+            writer.WriteValue(BookingLocationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ReportingExemption is ReportingExemption1 ReportingExemptionValue)
+        {
+            writer.WriteStartElement(null, "RptgXmptn", xmlNamespace );
+            ReportingExemptionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Counterparty45 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

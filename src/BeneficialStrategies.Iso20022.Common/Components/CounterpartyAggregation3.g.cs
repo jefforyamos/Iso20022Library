@@ -7,53 +7,99 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the valuation details per counterparty aggregation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CounterpartyAggregation3
+     : IIsoXmlSerilizable<CounterpartyAggregation3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether it is a Call option (right to purchase a specific underlying asset) or a Put option (right to sell a specific underlying asset).
     /// </summary>
-    [DataMember]
     public OptionType6Choice_? OptionType { get; init; } 
     /// <summary>
     /// Indication whether the counterparties to the transaction have agreed to an evergreen or extendable repo.
     /// </summary>
-    [DataMember]
     public RepoTerminationOption1Code? TerminationOption { get; init; } 
     /// <summary>
     /// Provides information on the baskets identification and the Eligiblity Set Profile.
     /// </summary>
-    [DataMember]
     public BasketIdentificationAndEligibilitySetProfile1? BasketIdentificationAndEligibilitySetProfile { get; init; } 
     /// <summary>
     /// Provides  the identification of the party or parties associated with the collateral agreement
     /// </summary>
-    [DataMember]
     public required CollateralParties11 CollateralParties { get; init; } 
     /// <summary>
     /// Provides details on the collateral valuation.
     /// </summary>
-    [DataMember]
-    public ValueList<CollateralAmount16> ValuationAmounts { get; init; } = []; // Warning: Don't know multiplicity.
+    public CollateralAmount16? ValuationAmounts { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _SwlWzSs_EeySlt9bF77XfA
     /// <summary>
     /// The collateral excess/shortage expressed in the percentage of the collateral required.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? MarginRate { get; init; } 
     /// <summary>
     /// Provides the status after comparing the total collateral required and the total collateral value of all transactions against counterparty.
     /// </summary>
-    [DataMember]
     public CollateralStatus1Code? GlobalCounterpartyStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OptionType is OptionType6Choice_ OptionTypeValue)
+        {
+            writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+            OptionTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TerminationOption is RepoTerminationOption1Code TerminationOptionValue)
+        {
+            writer.WriteStartElement(null, "TermntnOptn", xmlNamespace );
+            writer.WriteValue(TerminationOptionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (BasketIdentificationAndEligibilitySetProfile is BasketIdentificationAndEligibilitySetProfile1 BasketIdentificationAndEligibilitySetProfileValue)
+        {
+            writer.WriteStartElement(null, "BsktIdAndElgbltySetPrfl", xmlNamespace );
+            BasketIdentificationAndEligibilitySetProfileValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CollPties", xmlNamespace );
+        CollateralParties.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize ValuationAmounts, multiplicity Unknown
+        if (MarginRate is IsoPercentageRate MarginRateValue)
+        {
+            writer.WriteStartElement(null, "MrgnRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(MarginRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (GlobalCounterpartyStatus is CollateralStatus1Code GlobalCounterpartyStatusValue)
+        {
+            writer.WriteStartElement(null, "GblCtrPtySts", xmlNamespace );
+            writer.WriteValue(GlobalCounterpartyStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static CounterpartyAggregation3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

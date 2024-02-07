@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.IntraBalanceOrOperationalError9Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraBalanceOrOperationalError9C
 /// Further details of the intrabalance cancellation transactions.
 /// </summary>
 public partial record Cancellations : IntraBalanceOrOperationalError9Choice_
+     , IIsoXmlSerilizable<Cancellations>
 {
     #nullable enable
+    
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
@@ -35,5 +39,49 @@ public partial record Cancellations : IntraBalanceOrOperationalError9Choice_
     /// Further details of the individual intrabalance cancellation transaction.
     /// </summary>
     public IntraBalanceCancellation6? Cancellation { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _qIqm7TnfEem7JZMuWtwtsg
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CashAccount is CashAccount38 CashAccountValue)
+        {
+            writer.WriteStartElement(null, "CshAcct", xmlNamespace );
+            CashAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccountOwner is SystemPartyIdentification8 CashAccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "CshAcctOwnr", xmlNamespace );
+            CashAccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccountServicer is BranchAndFinancialInstitutionIdentification6 CashAccountServicerValue)
+        {
+            writer.WriteStartElement(null, "CshAcctSvcr", xmlNamespace );
+            CashAccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProcessingStatus is ProcessingStatus69Choice_ ProcessingStatusValue)
+        {
+            writer.WriteStartElement(null, "PrcgSts", xmlNamespace );
+            ProcessingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize Cancellation, multiplicity Unknown
+    }
+    public static new Cancellations Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

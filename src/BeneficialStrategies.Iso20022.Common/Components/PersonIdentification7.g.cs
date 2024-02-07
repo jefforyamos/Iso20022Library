@@ -7,78 +7,156 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of unique and unambiguous ways to identify a person.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PersonIdentification7
+     : IIsoXmlSerilizable<PersonIdentification7>
 {
     #nullable enable
     
     /// <summary>
     /// Number assigned by a license authority to a driver's license.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DriversLicenseNumber { get; init; } 
     /// <summary>
     /// Number assigned by an agent to identify its customer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CustomerNumber { get; init; } 
     /// <summary>
     /// Number assigned by a social security agency.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SocialSecurityNumber { get; init; } 
     /// <summary>
     /// Number assigned by a government agency to identify foreign nationals.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AlienRegistrationNumber { get; init; } 
     /// <summary>
     /// Number assigned by a passport authority to a passport.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PassportNumber { get; init; } 
     /// <summary>
     /// Number assigned by a tax authority to an entity.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TaxIdentificationNumber { get; init; } 
     /// <summary>
     /// Number assigned by a national authority to an identity card.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? IdentityCardNumber { get; init; } 
     /// <summary>
     /// Number assigned to an employer by a registration authority.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? EmployerIdentificationNumber { get; init; } 
     /// <summary>
     /// Number assigned to an employee by a employer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? EmployeeIdentificationNumber { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
-    [DataMember]
     public IsoMax256Text? EmailAddress { get; init; } 
     /// <summary>
     /// Date and place of birth of a person.
     /// </summary>
-    [DataMember]
     public DateAndPlaceOfBirth? DateAndPlaceOfBirth { get; init; } 
     /// <summary>
     /// Unique identification of a person, as assigned by an institution, using an identification scheme.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericIdentification4> Other { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericIdentification4? Other { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DriversLicenseNumber is IsoMax35Text DriversLicenseNumberValue)
+        {
+            writer.WriteStartElement(null, "DrvrsLicNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DriversLicenseNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CustomerNumber is IsoMax35Text CustomerNumberValue)
+        {
+            writer.WriteStartElement(null, "CstmrNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CustomerNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SocialSecurityNumber is IsoMax35Text SocialSecurityNumberValue)
+        {
+            writer.WriteStartElement(null, "SclSctyNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SocialSecurityNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AlienRegistrationNumber is IsoMax35Text AlienRegistrationNumberValue)
+        {
+            writer.WriteStartElement(null, "AlnRegnNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AlienRegistrationNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PassportNumber is IsoMax35Text PassportNumberValue)
+        {
+            writer.WriteStartElement(null, "PsptNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PassportNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TaxIdentificationNumber is IsoMax35Text TaxIdentificationNumberValue)
+        {
+            writer.WriteStartElement(null, "TaxIdNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TaxIdentificationNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (IdentityCardNumber is IsoMax35Text IdentityCardNumberValue)
+        {
+            writer.WriteStartElement(null, "IdntyCardNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentityCardNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (EmployerIdentificationNumber is IsoMax35Text EmployerIdentificationNumberValue)
+        {
+            writer.WriteStartElement(null, "MplyrIdNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(EmployerIdentificationNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (EmployeeIdentificationNumber is IsoMax35Text EmployeeIdentificationNumberValue)
+        {
+            writer.WriteStartElement(null, "MplyeeIdNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(EmployeeIdentificationNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (EmailAddress is IsoMax256Text EmailAddressValue)
+        {
+            writer.WriteStartElement(null, "EmailAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(EmailAddressValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (DateAndPlaceOfBirth is DateAndPlaceOfBirth DateAndPlaceOfBirthValue)
+        {
+            writer.WriteStartElement(null, "DtAndPlcOfBirth", xmlNamespace );
+            DateAndPlaceOfBirthValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Other is GenericIdentification4 OtherValue)
+        {
+            writer.WriteStartElement(null, "Othr", xmlNamespace );
+            OtherValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PersonIdentification7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

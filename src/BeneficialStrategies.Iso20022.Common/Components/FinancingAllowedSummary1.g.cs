@@ -7,53 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Summary information about amount financed.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancingAllowedSummary1
+     : IIsoXmlSerilizable<FinancingAllowedSummary1>
 {
     #nullable enable
     
     /// <summary>
     /// Number of invoices/instalments financed.
     /// </summary>
-    [DataMember]
     public required IsoNumber FinancedItemNumber { get; init; } 
     /// <summary>
     /// Sum of the original total amounts of the invoices accepted for financing.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalAcceptedItemsAmount { get; init; } 
     /// <summary>
     /// Percentage rate applied to calculate the total amount financed related to the total amounts of the invoices accepted for financing. It represents the average percentage rate applied to all single invoice requests financed. It can be calculated as result of "TotalFinancedAmount" divided by "TotalAcceptedItemsAmount".
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? AppliedPercentage { get; init; } 
     /// <summary>
     /// Total amount financed, defined as the entire financed amount of the requests.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalFinancedAmount { get; init; } 
     /// <summary>
     /// Set of dates (eg book date, credit date) related to the crediting of the financed amount.
     /// </summary>
-    [DataMember]
     public FinancingDateDetails1? FinancingDateDetails { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account, held by Financing Requestor, actually used for crediting the amount financed.
     /// </summary>
-    [DataMember]
     public CashAccount7? CreditAccount { get; init; } 
     /// <summary>
     /// Unambiguous identification of the internal bank account actually used by First Agent to manage the line of credit granted to Financing Requestor.
     /// </summary>
-    [DataMember]
     public CashAccount7? FinancingAccount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FincdItmNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(FinancedItemNumber)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlAccptdItmsAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalAcceptedItemsAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (AppliedPercentage is IsoPercentageRate AppliedPercentageValue)
+        {
+            writer.WriteStartElement(null, "ApldPctg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(AppliedPercentageValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TtlFincdAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalFinancedAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (FinancingDateDetails is FinancingDateDetails1 FinancingDateDetailsValue)
+        {
+            writer.WriteStartElement(null, "FincgDtDtls", xmlNamespace );
+            FinancingDateDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditAccount is CashAccount7 CreditAccountValue)
+        {
+            writer.WriteStartElement(null, "CdtAcct", xmlNamespace );
+            CreditAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancingAccount is CashAccount7 FinancingAccountValue)
+        {
+            writer.WriteStartElement(null, "FincgAcct", xmlNamespace );
+            FinancingAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancingAllowedSummary1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

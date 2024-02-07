@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Balance of a financial instrument for a specific statement page.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaginationBalance1
+     : IIsoXmlSerilizable<PaginationBalance1>
 {
     #nullable enable
     
     /// <summary>
     /// Opening balance of the financial instrument in the statement.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1? FirstOpeningBalance { get; init; } 
     /// <summary>
     /// Opening balance of this page only. It must be the interemdiary closing balance of the previous page (part of the same statement).
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1? IntermediaryOpeningBalance { get; init; } 
     /// <summary>
     /// Closing balance of the financial instrument in the statement.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1? FinalClosingBalance { get; init; } 
     /// <summary>
     /// Closing Balance of this page only. Must be the interemdiary opening balance of the next page (part of the same statement).
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1? IntermediaryClosingBalance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FirstOpeningBalance is FinancialInstrumentQuantity1 FirstOpeningBalanceValue)
+        {
+            writer.WriteStartElement(null, "FrstOpngBal", xmlNamespace );
+            FirstOpeningBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryOpeningBalance is FinancialInstrumentQuantity1 IntermediaryOpeningBalanceValue)
+        {
+            writer.WriteStartElement(null, "IntrmyOpngBal", xmlNamespace );
+            IntermediaryOpeningBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinalClosingBalance is FinancialInstrumentQuantity1 FinalClosingBalanceValue)
+        {
+            writer.WriteStartElement(null, "FnlClsgBal", xmlNamespace );
+            FinalClosingBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryClosingBalance is FinancialInstrumentQuantity1 IntermediaryClosingBalanceValue)
+        {
+            writer.WriteStartElement(null, "IntrmyClsgBal", xmlNamespace );
+            IntermediaryClosingBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaginationBalance1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

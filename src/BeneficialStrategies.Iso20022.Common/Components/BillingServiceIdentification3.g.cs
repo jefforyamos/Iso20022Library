@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the service to be billed.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BillingServiceIdentification3
+     : IIsoXmlSerilizable<BillingServiceIdentification3>
 {
     #nullable enable
     
     /// <summary>
     /// Financial institution's own, internal service identification code, different from the common code.|Usage: The financial institution own code is used to uniquely identify the service within the financial institution.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Defines the financial institution sub-service identification if the financial institution service identification code is used for more than one service.
     /// </summary>
-    [DataMember]
     public BillingSubServiceIdentification1? SubService { get; init; } 
     /// <summary>
     /// Specifies further details to describe the financial institution service description, which is not the standard description related to the common code.
     /// </summary>
-    [DataMember]
     public required IsoMax70Text Description { get; init; } 
     /// <summary>
     /// Standard reference code used to uniquely identify this service across financial institutions. This is not the financial institution’s internal bank service identification.
     /// </summary>
-    [DataMember]
     public BillingServiceCommonIdentification1? CommonCode { get; init; } 
     /// <summary>
     /// Full identification of the type of underlying transaction resulting in an service billing.
     /// </summary>
-    [DataMember]
     public BankTransactionCodeStructure4? BankTransactionCode { get; init; } 
     /// <summary>
     /// Type used to classify or organise different services by common characteristics.
     /// </summary>
-    [DataMember]
     public IsoMax12Text? ServiceType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (SubService is BillingSubServiceIdentification1 SubServiceValue)
+        {
+            writer.WriteStartElement(null, "SubSvc", xmlNamespace );
+            SubServiceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Desc", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(Description)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        if (CommonCode is BillingServiceCommonIdentification1 CommonCodeValue)
+        {
+            writer.WriteStartElement(null, "CmonCd", xmlNamespace );
+            CommonCodeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BankTransactionCode is BankTransactionCodeStructure4 BankTransactionCodeValue)
+        {
+            writer.WriteStartElement(null, "BkTxCd", xmlNamespace );
+            BankTransactionCodeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ServiceType is IsoMax12Text ServiceTypeValue)
+        {
+            writer.WriteStartElement(null, "SvcTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax12Text(ServiceTypeValue)); // data type Max12Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static BillingServiceIdentification3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

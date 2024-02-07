@@ -7,48 +7,81 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a message previously sent.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OriginalMessage1
+     : IIsoXmlSerilizable<OriginalMessage1>
 {
     #nullable enable
     
     /// <summary>
     /// XML schema-instance namespace, for example "tsin.008.001.01".
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MessageDefinitionIdentifier { get; init; } 
     /// <summary>
     /// Message sender specified in the original message.|
     /// </summary>
-    [DataMember]
     public required Party9Choice_ From { get; init; } 
     /// <summary>
     /// Message recipient specified in the original message.
     /// </summary>
-    [DataMember]
     public required Party9Choice_ To { get; init; } 
     /// <summary>
     /// Message identification specified in the original message.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text BusinessMessageIdentifier { get; init; } 
     /// <summary>
     /// Message creation date and time specified in the original message.
     /// </summary>
-    [DataMember]
     public required IsoISONormalisedDateTime CreationDate { get; init; } 
     /// <summary>
     /// Indicates whether the message is a copy, a duplicate or a copy of a duplicate of a previously sent ISO 20022 message.
     /// </summary>
-    [DataMember]
     public CopyDuplicate1Code? CopyDuplicate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgDefIdr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageDefinitionIdentifier)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Fr", xmlNamespace );
+        From.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "To", xmlNamespace );
+        To.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BizMsgIdr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(BusinessMessageIdentifier)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CreDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISONormalisedDateTime(CreationDate)); // data type ISONormalisedDateTime System.DateTime
+        writer.WriteEndElement();
+        if (CopyDuplicate is CopyDuplicate1Code CopyDuplicateValue)
+        {
+            writer.WriteStartElement(null, "CpyDplct", xmlNamespace );
+            writer.WriteValue(CopyDuplicateValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static OriginalMessage1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

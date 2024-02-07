@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Holding of a financial asset as collateral.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AssetHolding1
+     : IIsoXmlSerilizable<AssetHolding1>
 {
     #nullable enable
     
     /// <summary>
     /// Mark-to-market post-haircut value of the collateral asset holding.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAnd24Amount PostHaircutValue { get; init; } 
     /// <summary>
     /// Specifies financial instrument pledged as collateral.
     /// </summary>
-    [DataMember]
     public required AssetHolding1Choice_ AssetType { get; init; } 
     /// <summary>
     /// Identifies whether collateral relates to default fund requirements or initial margin requirements.
     /// </summary>
-    [DataMember]
     public required CollateralAccountType3Code CollateralRequirement { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PstHrcutVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd24Amount(PostHaircutValue)); // data type ActiveCurrencyAnd24Amount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AsstTp", xmlNamespace );
+        AssetType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CollRqrmnt", xmlNamespace );
+        writer.WriteValue(CollateralRequirement.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static AssetHolding1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

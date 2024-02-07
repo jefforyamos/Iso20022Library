@@ -7,43 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Message authentication code (MAC), computed on the data to protect with an encryption key.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AuthenticatedData3
+     : IIsoXmlSerilizable<AuthenticatedData3>
 {
     #nullable enable
     
     /// <summary>
     /// Version of the data structure.
     /// </summary>
-    [DataMember]
     public IsoNumber? Version { get; init; } 
     /// <summary>
     /// Information related to the transport key.
     /// </summary>
-    [DataMember]
-    public ValueList<Recipient3Choice_> Recipient { get; init; } = []; // Warning: Don't know multiplicity.
+    public Recipient3Choice_? Recipient { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _5MUU8zF2EeO118ZQJgaQSQ
     /// <summary>
     /// Algorithm to compute message authentication code (MAC).
     /// </summary>
-    [DataMember]
     public required AlgorithmIdentification10 MACAlgorithm { get; init; } 
     /// <summary>
     /// Data to authenticate.
     /// </summary>
-    [DataMember]
     public required EncapsulatedContent2 EncapsulatedContent { get; init; } 
     /// <summary>
     /// Encrypted data which authenticates the data.
     /// </summary>
-    [DataMember]
     public required IsoMax35Binary MAC { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Version is IsoNumber VersionValue)
+        {
+            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(VersionValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize Recipient, multiplicity Unknown
+        writer.WriteStartElement(null, "MACAlgo", xmlNamespace );
+        MACAlgorithm.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NcpsltdCntt", xmlNamespace );
+        EncapsulatedContent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MAC", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Binary(MAC)); // data type Max35Binary System.Byte[]
+        writer.WriteEndElement();
+    }
+    public static AuthenticatedData3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

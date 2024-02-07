@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.MandateRelatedData1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.MandateRelatedData1Choice;
 /// Specific credit transfer mandate data.
 /// </summary>
 public partial record CreditTransferMandate : MandateRelatedData1Choice_
+     , IIsoXmlSerilizable<CreditTransferMandate>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique identification, as assigned by the creditor, to unambiguously identify the mandate.
     /// </summary>
@@ -53,5 +57,77 @@ public partial record CreditTransferMandate : MandateRelatedData1Choice_
     /// The reason will allow the user to distinguish between different mandates for the same creditor.
     /// </summary>
     public MandateSetupReason1Choice_? Reason { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MandateIdentification is IsoMax35Text MandateIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MndtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MandateIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Type is MandateTypeInformation2 TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DateOfSignature is IsoISODate DateOfSignatureValue)
+        {
+            writer.WriteStartElement(null, "DtOfSgntr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateOfSignatureValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (DateOfVerification is IsoISODateTime DateOfVerificationValue)
+        {
+            writer.WriteStartElement(null, "DtOfVrfctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(DateOfVerificationValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ElectronicSignature is IsoMax10KBinary ElectronicSignatureValue)
+        {
+            writer.WriteStartElement(null, "ElctrncSgntr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10KBinary(ElectronicSignatureValue)); // data type Max10KBinary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (FirstPaymentDate is IsoISODate FirstPaymentDateValue)
+        {
+            writer.WriteStartElement(null, "FrstPmtDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(FirstPaymentDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (FinalPaymentDate is IsoISODate FinalPaymentDateValue)
+        {
+            writer.WriteStartElement(null, "FnlPmtDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(FinalPaymentDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Frequency is Frequency36Choice_ FrequencyValue)
+        {
+            writer.WriteStartElement(null, "Frqcy", xmlNamespace );
+            FrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Reason is MandateSetupReason1Choice_ ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            ReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new CreditTransferMandate Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of the modification to be applied on the securities account reference data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesAccountModification2
+     : IIsoXmlSerilizable<SecuritiesAccountModification2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of requested modification.
     /// </summary>
-    [DataMember]
     public required DataModification1Code ScopeIndication { get; init; } 
     /// <summary>
     /// Specifies which elements to be modified for the securities account reference data.
     /// </summary>
-    [DataMember]
     public required SecuritiesAccountModification2Choice_ RequestedModification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ScpIndctn", xmlNamespace );
+        writer.WriteValue(ScopeIndication.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ReqdMod", xmlNamespace );
+        RequestedModification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SecuritiesAccountModification2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

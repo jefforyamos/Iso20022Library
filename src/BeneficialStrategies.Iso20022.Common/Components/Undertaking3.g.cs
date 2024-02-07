@@ -7,168 +7,301 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Independent undertaking, such as a demand guarantee or standby letter of credit, that provides financial assurance, to be honoured on the presentation of documents that comply with its terms and conditions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Undertaking3
+     : IIsoXmlSerilizable<Undertaking3>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier assigned by the issuer to the undertaking, for example the guarantee or standby number.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Name of undertaking such as, demand guarantee, standby letter of credit.
     /// </summary>
-    [DataMember]
     public required UndertakingIssuanceName1Code Name { get; init; } 
     /// <summary>
     /// Type of undertaking, for example, performance, payment.
     /// </summary>
-    [DataMember]
     public UndertakingType1Choice_? Type { get; init; } 
     /// <summary>
     /// Type of the undertaking issuance.
     /// </summary>
-    [DataMember]
     public required IssuanceType1Code IssuanceType { get; init; } 
     /// <summary>
     /// Party named in the undertaking as the “applicant”.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyIdentification43> Applicant { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyIdentification43? Applicant { get; init; } 
     /// <summary>
     /// Party that issues the undertaking (or counter-undertaking).
     /// </summary>
-    [DataMember]
     public required PartyIdentification43 Issuer { get; init; } 
     /// <summary>
     /// Party in whose favour the undertaking (or counter-undertaking) is issued.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyIdentification43> Beneficiary { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyIdentification43? Beneficiary { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _90ufMnltEeG7BsjMvd1mEw_1504245767
     /// <summary>
     /// Date on which the undertaking is issued.
     /// </summary>
-    [DataMember]
     public required IsoISODate DateOfIssuance { get; init; } 
     /// <summary>
     /// Location which is to be regarded as the place from which the undertaking is issued.
     /// </summary>
-    [DataMember]
     public PostalAddress12? PlaceOfIssue { get; init; } 
     /// <summary>
     /// Party asked to advise the undertaking to the beneficiary or to another advising party at the request of the issuer.
     /// </summary>
-    [DataMember]
     public PartyIdentification43? AdvisingParty { get; init; } 
     /// <summary>
     /// Additional party asked to advise the undertaking.
     /// </summary>
-    [DataMember]
     public PartyIdentification43? SecondAdvisingParty { get; init; } 
     /// <summary>
     /// Details related to the amount of the undertaking.
     /// </summary>
-    [DataMember]
     public required UndertakingAmount1 UndertakingAmount { get; init; } 
     /// <summary>
     /// Details related to the expiry of the undertaking.
     /// </summary>
-    [DataMember]
     public required ExpiryDetails1 ExpiryDetails { get; init; } 
     /// <summary>
     /// Indicates whether or not the advising bank (confirmer) is requested to add its confirmation to the undertaking.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ConfirmationIndicator { get; init; } 
     /// <summary>
     /// Indicates the type of party requested to add its confirmation to the undertaking.
     /// </summary>
-    [DataMember]
     public ExternalTypeOfParty1Code? ConfirmationPartyType { get; init; } 
     /// <summary>
     /// Party, in addition to the other parties specified in the undertaking, that is also related to the undertaking.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyAndType1> AdditionalParty { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyAndType1? AdditionalParty { get; init; } 
     /// <summary>
     /// Rules and laws governing the undertaking.
     /// </summary>
-    [DataMember]
     public required GovernanceRules1 GovernanceRulesAndLaw { get; init; } 
     /// <summary>
     /// Details of the underlying transaction for which the undertaking is issued.
     /// </summary>
-    [DataMember]
-    public ValueList<UnderlyingTradeTransaction1> UnderlyingTransaction { get; init; } = []; // Warning: Don't know multiplicity.
+    public UnderlyingTradeTransaction1? UnderlyingTransaction { get; init; } 
     /// <summary>
     /// Presentation details related to the undertaking.
     /// </summary>
-    [DataMember]
     public Presentation1? PresentationDetails { get; init; } 
     /// <summary>
     /// Terms and conditions of the undertaking.
     /// </summary>
-    [DataMember]
-    public ValueList<Narrative1> UndertakingTermsAndConditions { get; init; } = []; // Warning: Don't know multiplicity.
+    public Narrative1? UndertakingTermsAndConditions { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _91BaJHltEeG7BsjMvd1mEw_1083323567
     /// <summary>
     /// Indicates that multiple demands are not permitted.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? MultipleDemandIndicator { get; init; } 
     /// <summary>
     /// Indicates that partial demands/drawings are not permitted.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? PartialDemandIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the applicant/obligor or beneficiary is responsible for payment of the confirmation charges.
     /// </summary>
-    [DataMember]
     public ExternalTypeOfParty1Code? ConfirmationChargesPayableBy { get; init; } 
     /// <summary>
     /// Indicates whether the applicant/obligor or beneficiary is responsible for payment of the transfer charges.
     /// </summary>
-    [DataMember]
     public ExternalTypeOfParty1Code? TransferChargesPayableBy { get; init; } 
     /// <summary>
     /// Details related to a variation in amount that is automatically applied.
     /// </summary>
-    [DataMember]
-    public ValueList<AutomaticVariation1> AutomaticAmountVariation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AutomaticVariation1? AutomaticAmountVariation { get; init; } 
     /// <summary>
     /// Details of the communication channel.
     /// </summary>
-    [DataMember]
     public CommunicationChannel1? DeliveryChannel { get; init; } 
     /// <summary>
     /// Indicates whether the undertaking is transferable.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? TransferIndicator { get; init; } 
     /// <summary>
     /// Document or template enclosed in the undertaking directly related to the issued undertaking.
     /// </summary>
-    [DataMember]
-    public ValueList<Document9> EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
+    public Document9? EnclosedFile { get; init; } 
     /// <summary>
     /// Additional information related to the undertaking.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     /// <summary>
     /// Details of the local or ancillary undertaking requested to be issued by a local or other issuing institution.
     /// </summary>
-    [DataMember]
     public Undertaking4? RequestedLocalUndertaking { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(Name.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Type is UndertakingType1Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "IssncTp", xmlNamespace );
+        writer.WriteValue(IssuanceType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Applicant is PartyIdentification43 ApplicantValue)
+        {
+            writer.WriteStartElement(null, "Applcnt", xmlNamespace );
+            ApplicantValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Issr", xmlNamespace );
+        Issuer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize Beneficiary, multiplicity Unknown
+        writer.WriteStartElement(null, "DtOfIssnc", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(DateOfIssuance)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (PlaceOfIssue is PostalAddress12 PlaceOfIssueValue)
+        {
+            writer.WriteStartElement(null, "PlcOfIsse", xmlNamespace );
+            PlaceOfIssueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdvisingParty is PartyIdentification43 AdvisingPartyValue)
+        {
+            writer.WriteStartElement(null, "AdvsgPty", xmlNamespace );
+            AdvisingPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecondAdvisingParty is PartyIdentification43 SecondAdvisingPartyValue)
+        {
+            writer.WriteStartElement(null, "ScndAdvsgPty", xmlNamespace );
+            SecondAdvisingPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "UdrtkgAmt", xmlNamespace );
+        UndertakingAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XpryDtls", xmlNamespace );
+        ExpiryDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ConfirmationIndicator is IsoYesNoIndicator ConfirmationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ConfInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ConfirmationIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ConfirmationPartyType is ExternalTypeOfParty1Code ConfirmationPartyTypeValue)
+        {
+            writer.WriteStartElement(null, "ConfPtyTp", xmlNamespace );
+            writer.WriteValue(ConfirmationPartyTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AdditionalParty is PartyAndType1 AdditionalPartyValue)
+        {
+            writer.WriteStartElement(null, "AddtlPty", xmlNamespace );
+            AdditionalPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "GovncRulesAndLaw", xmlNamespace );
+        GovernanceRulesAndLaw.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (UnderlyingTransaction is UnderlyingTradeTransaction1 UnderlyingTransactionValue)
+        {
+            writer.WriteStartElement(null, "UndrlygTx", xmlNamespace );
+            UnderlyingTransactionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PresentationDetails is Presentation1 PresentationDetailsValue)
+        {
+            writer.WriteStartElement(null, "PresntnDtls", xmlNamespace );
+            PresentationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize UndertakingTermsAndConditions, multiplicity Unknown
+        if (MultipleDemandIndicator is IsoYesNoIndicator MultipleDemandIndicatorValue)
+        {
+            writer.WriteStartElement(null, "MltplDmndInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MultipleDemandIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PartialDemandIndicator is IsoYesNoIndicator PartialDemandIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PrtlDmndInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PartialDemandIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ConfirmationChargesPayableBy is ExternalTypeOfParty1Code ConfirmationChargesPayableByValue)
+        {
+            writer.WriteStartElement(null, "ConfChrgsPyblBy", xmlNamespace );
+            writer.WriteValue(ConfirmationChargesPayableByValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TransferChargesPayableBy is ExternalTypeOfParty1Code TransferChargesPayableByValue)
+        {
+            writer.WriteStartElement(null, "TrfChrgsPyblBy", xmlNamespace );
+            writer.WriteValue(TransferChargesPayableByValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AutomaticAmountVariation is AutomaticVariation1 AutomaticAmountVariationValue)
+        {
+            writer.WriteStartElement(null, "AutomtcAmtVartn", xmlNamespace );
+            AutomaticAmountVariationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveryChannel is CommunicationChannel1 DeliveryChannelValue)
+        {
+            writer.WriteStartElement(null, "DlvryChanl", xmlNamespace );
+            DeliveryChannelValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransferIndicator is IsoYesNoIndicator TransferIndicatorValue)
+        {
+            writer.WriteStartElement(null, "TrfInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(TransferIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (EnclosedFile is Document9 EnclosedFileValue)
+        {
+            writer.WriteStartElement(null, "NclsdFile", xmlNamespace );
+            EnclosedFileValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+        if (RequestedLocalUndertaking is Undertaking4 RequestedLocalUndertakingValue)
+        {
+            writer.WriteStartElement(null, "ReqdLclUdrtkg", xmlNamespace );
+            RequestedLocalUndertakingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Undertaking3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

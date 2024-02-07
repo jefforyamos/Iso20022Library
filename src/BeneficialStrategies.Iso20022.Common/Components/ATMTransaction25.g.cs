@@ -7,58 +7,110 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the reconciliation request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMTransaction25
+     : IIsoXmlSerilizable<ATMTransaction25>
 {
     #nullable enable
     
     /// <summary>
     /// Type of logical or physical operation on the ATM for which the counters are computed.
     /// </summary>
-    [DataMember]
     public ATMOperation1Code? TypeOfOperation { get; init; } 
     /// <summary>
     /// Identification of the reconciliation transaction.
     /// </summary>
-    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ReconciliationIdentification { get; init; } 
     /// <summary>
     /// Current totals of the ATM.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMTotals1> ATMTotals { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMTotals1? ATMTotals { get; init; } 
     /// <summary>
     /// Information on the cassette of the ATM.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMCassette2> Cassette { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMCassette2? Cassette { get; init; } 
     /// <summary>
     /// Transaction counters that are set to zero after a reconciliation with counter reinitialisation command.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMTotals3> TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMTotals3? TransactionTotals { get; init; } 
     /// <summary>
     /// Total number of retained cards.
     /// </summary>
-    [DataMember]
     public IsoNumber? RetainedCard { get; init; } 
     /// <summary>
     /// Additional information about reconciliation.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? AdditionalTransactionInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TypeOfOperation is ATMOperation1Code TypeOfOperationValue)
+        {
+            writer.WriteStartElement(null, "TpOfOpr", xmlNamespace );
+            writer.WriteValue(TypeOfOperationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RcncltnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ReconciliationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ATMTotals is ATMTotals1 ATMTotalsValue)
+        {
+            writer.WriteStartElement(null, "ATMTtls", xmlNamespace );
+            ATMTotalsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Cassette is ATMCassette2 CassetteValue)
+        {
+            writer.WriteStartElement(null, "Csstt", xmlNamespace );
+            CassetteValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionTotals is ATMTotals3 TransactionTotalsValue)
+        {
+            writer.WriteStartElement(null, "TxTtls", xmlNamespace );
+            TransactionTotalsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RetainedCard is IsoNumber RetainedCardValue)
+        {
+            writer.WriteStartElement(null, "RtndCard", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(RetainedCardValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (AdditionalTransactionInformation is IsoMax140Text AdditionalTransactionInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlTxInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalTransactionInformationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMTransaction25 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

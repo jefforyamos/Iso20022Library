@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides detailed information on the number of reported items with their respective acceptance status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NumberOfItemsPerStatus1
+     : IIsoXmlSerilizable<NumberOfItemsPerStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Common status of the report items for which the number of report items is specified in NumberOfItems.
     /// </summary>
-    [DataMember]
     public required ReportItemStatus1Code Status { get; init; } 
     /// <summary>
     /// Number of items for the status.
     /// </summary>
-    [DataMember]
     public required IsoMax15NumericText NumberOfItems { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NbOfItms", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(NumberOfItems)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+    }
+    public static NumberOfItemsPerStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.ClaimNonReceipt>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// Scope|The Claim Non Receipt message is sent by a case creator/case assigner to a case assignee.|This message allows to initiate an investigation in case the beneficiary of a payment has not received an expected payment.|Usage|Note 1: Although there are cases where a creditor would contact the creditor's bank when claiming non-receipt, the activity only retained the scenario where the beneficiary claims non-receipt with its debtor, the debtor in its turn contacting the first agent. Therefore the investigation follows the same route as the original instruction.|Note 2: This message is also used to report a missing cover. The rationale behind this is that the beneficiary of the cover (receiver of the payment instruction) missing the cover would be in the very same position as a beneficiary expecting a credit to its account and would therefore trigger the same processes.|In case of a Missing cover, the case will be assigned to the sender of the payment instruction, before following the route of the payment instruction.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The Claim Non Receipt message is sent by a case creator/case assigner to a case assignee.|This message allows to initiate an investigation in case the beneficiary of a payment has not received an expected payment.|Usage|Note 1: Although there are cases where a creditor would contact the creditor's bank when claiming non-receipt, the activity only retained the scenario where the beneficiary claims non-receipt with its debtor, the debtor in its turn contacting the first agent. Therefore the investigation follows the same route as the original instruction.|Note 2: This message is also used to report a missing cover. The rationale behind this is that the beneficiary of the cover (receiver of the payment instruction) missing the cover would be in the very same position as a beneficiary expecting a credit to its account and would therefore trigger the same processes.|In case of a Missing cover, the case will be assigned to the sender of the payment instruction, before following the route of the payment instruction.")]
-public partial record ClaimNonReceipt : IOuterRecord
+public partial record ClaimNonReceipt : IOuterRecord<ClaimNonReceipt,ClaimNonReceiptDocument>
+    ,IIsoXmlSerilizable<ClaimNonReceipt>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record ClaimNonReceipt : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "camt.027.001.01";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ClaimNonReceiptDocument.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -86,6 +93,38 @@ public partial record ClaimNonReceipt : IOuterRecord
     {
         return new ClaimNonReceiptDocument { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("camt.027.001.01");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Assgnmt", xmlNamespace );
+        Assignment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Case", xmlNamespace );
+        Case.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Undrlyg", xmlNamespace );
+        Underlying.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MissingCover is MissingCover MissingCoverValue)
+        {
+            writer.WriteStartElement(null, "MssngCover", xmlNamespace );
+            MissingCoverValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ClaimNonReceipt Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -93,9 +132,7 @@ public partial record ClaimNonReceipt : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ClaimNonReceipt"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ClaimNonReceiptDocument : IOuterDocument<ClaimNonReceipt>
+public partial record ClaimNonReceiptDocument : IOuterDocument<ClaimNonReceipt>, IXmlSerializable
 {
     
     /// <summary>
@@ -111,5 +148,22 @@ public partial record ClaimNonReceiptDocument : IOuterDocument<ClaimNonReceipt>
     /// <summary>
     /// The instance of <seealso cref="ClaimNonReceipt"/> is required.
     /// </summary>
+    [DataMember(Name=ClaimNonReceipt.XmlTag)]
     public required ClaimNonReceipt Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ClaimNonReceipt.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

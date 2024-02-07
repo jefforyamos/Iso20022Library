@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional specific query criteria.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalQueryParameters14
+     : IIsoXmlSerilizable<AdditionalQueryParameters14>
 {
     #nullable enable
     
     /// <summary>
     /// Request to obtain a Securities Transaction Pending Report for transactions with the specified status.
     /// </summary>
-    [DataMember]
     public Status22Choice_? Status { get; init; } 
     /// <summary>
     /// Request to obtain a Securities Transaction Pending Report for transactions with the specified status reason.
     /// </summary>
-    [DataMember]
-    public ValueList<Reason20Choice_> Reason { get; init; } = []; // Warning: Don't know multiplicity.
+    public Reason20Choice_? Reason { get; init; } 
     /// <summary>
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
-    [DataMember]
-    public ValueList<SecurityIdentification20> FinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecurityIdentification20? FinancialInstrumentIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Status is Status22Choice_ StatusValue)
+        {
+            writer.WriteStartElement(null, "Sts", xmlNamespace );
+            StatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Reason is Reason20Choice_ ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            ReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentIdentification is SecurityIdentification20 FinancialInstrumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+            FinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AdditionalQueryParameters14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Deposit taking institution with which a central counterparty has accounts used to concentrate cash funds before or after investment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ConcentrationAgent1
+     : IIsoXmlSerilizable<ConcentrationAgent1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the concentration agent.
     /// </summary>
-    [DataMember]
     public required IsoLEIIdentifier Identification { get; init; } 
     /// <summary>
     /// Inflows and outflows to and from the CCP’s concentration accounts aggregated across all business lines / waterfalls. 
     /// </summary>
-    [DataMember]
-    public ValueList<ConcentrationAccount1> Account { get; init; } = []; // Warning: Don't know multiplicity.
+    public ConcentrationAccount1? Account { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _2W_MUBXrEeejf-cbr8l5qw
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(Identification)); // data type LEIIdentifier System.String
+        writer.WriteEndElement();
+        // Not sure how to serialize Account, multiplicity Unknown
+    }
+    public static ConcentrationAgent1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

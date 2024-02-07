@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains the details of the job or task of the individual working in a temporary capacity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TemporaryServicesJob1
+     : IIsoXmlSerilizable<TemporaryServicesJob1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the job or task being performed by the individual working in a temporary capacity.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? JobCode { get; init; } 
     /// <summary>
     /// Contains the description of the job or task of the individual working in a temporary capacity.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? Description { get; init; } 
     /// <summary>
     /// Contains the start date of the job. 
     /// </summary>
-    [DataMember]
     public IsoISODate? StartDate { get; init; } 
     /// <summary>
     /// Duration of the job expressed in number of days. 
     /// </summary>
-    [DataMember]
     public IsoMax5NumericText? Duration { get; init; } 
     /// <summary>
     /// Contains the end date of the job. 
     /// </summary>
-    [DataMember]
     public IsoISODate? EndDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (JobCode is IsoMax35Text JobCodeValue)
+        {
+            writer.WriteStartElement(null, "JobCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(JobCodeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Description is IsoMax256Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(DescriptionValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (StartDate is IsoISODate StartDateValue)
+        {
+            writer.WriteStartElement(null, "StartDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(StartDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Duration is IsoMax5NumericText DurationValue)
+        {
+            writer.WriteStartElement(null, "Drtn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax5NumericText(DurationValue)); // data type Max5NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (EndDate is IsoISODate EndDateValue)
+        {
+            writer.WriteStartElement(null, "EndDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(EndDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static TemporaryServicesJob1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

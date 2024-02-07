@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Result of performed transactions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PerformedTransaction5
+     : IIsoXmlSerilizable<PerformedTransaction5>
 {
     #nullable enable
     
     /// <summary>
     /// Response for this performed transaction.
     /// </summary>
-    [DataMember]
     public required ResponseType11 Response { get; init; } 
     /// <summary>
     /// Unique identification of a sale transaction.
     /// </summary>
-    [DataMember]
     public TransactionIdentifier1? SaleTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identification of a POI transaction.
     /// </summary>
-    [DataMember]
     public TransactionIdentifier1? POITransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the POI reconciliation period.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? POIReconciliationIdentification { get; init; } 
     /// <summary>
     /// Data related to the result of a processed payment transaction.
     /// </summary>
-    [DataMember]
     public RetailerPaymentResult5? PaymentResult { get; init; } 
     /// <summary>
     /// Data related to the result of a processed Loyalty transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<LoyaltyResult3> LoyaltyResult { get; init; } = []; // Warning: Don't know multiplicity.
+    public LoyaltyResult3? LoyaltyResult { get; init; } 
     /// <summary>
     /// Amount of the payment or loyalty to reverse.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? ReversedAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Rspn", xmlNamespace );
+        Response.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SaleTransactionIdentification is TransactionIdentifier1 SaleTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleTxId", xmlNamespace );
+            SaleTransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (POITransactionIdentification is TransactionIdentifier1 POITransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "POITxId", xmlNamespace );
+            POITransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (POIReconciliationIdentification is IsoMax35Text POIReconciliationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "POIRcncltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(POIReconciliationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PaymentResult is RetailerPaymentResult5 PaymentResultValue)
+        {
+            writer.WriteStartElement(null, "PmtRslt", xmlNamespace );
+            PaymentResultValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LoyaltyResult is LoyaltyResult3 LoyaltyResultValue)
+        {
+            writer.WriteStartElement(null, "LltyRslt", xmlNamespace );
+            LoyaltyResultValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReversedAmount is IsoImpliedCurrencyAndAmount ReversedAmountValue)
+        {
+            writer.WriteStartElement(null, "RvsdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ReversedAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static PerformedTransaction5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

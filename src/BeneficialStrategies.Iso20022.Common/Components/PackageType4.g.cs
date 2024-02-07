@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Chunk of a software package.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PackageType4
+     : IIsoXmlSerilizable<PackageType4>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the software packages of which the chunk belongs.
     /// </summary>
-    [DataMember]
     public GenericIdentification176? PackageIdentification { get; init; } 
     /// <summary>
     /// Full length of software package identified through PackageIdentification.
     /// </summary>
-    [DataMember]
     public IsoPositiveNumber? PackageLength { get; init; } 
     /// <summary>
     /// Place of the first following PackageBlock, beginning with 0, in the full software package identified through PackageIdentification.
     /// </summary>
-    [DataMember]
     public IsoPositiveNumber? OffsetStart { get; init; } 
     /// <summary>
     /// Following place of the last following PackageBlock in the full software package identified through PackageIdentification.
     /// </summary>
-    [DataMember]
     public IsoPositiveNumber? OffsetEnd { get; init; } 
     /// <summary>
     /// Consecutive slices of the full software package identified through PackageIdentification starting with first slice at the place identified with OffsetStart and ending with the last slice at the previous place identified with OffsetEnd.
     /// </summary>
-    [DataMember]
-    public ValueList<ExternallyDefinedData4> PackageBlock { get; init; } = []; // Warning: Don't know multiplicity.
+    public ExternallyDefinedData4? PackageBlock { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PackageIdentification is GenericIdentification176 PackageIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PackgId", xmlNamespace );
+            PackageIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PackageLength is IsoPositiveNumber PackageLengthValue)
+        {
+            writer.WriteStartElement(null, "PackgLngth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPositiveNumber(PackageLengthValue)); // data type PositiveNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (OffsetStart is IsoPositiveNumber OffsetStartValue)
+        {
+            writer.WriteStartElement(null, "OffsetStart", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPositiveNumber(OffsetStartValue)); // data type PositiveNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (OffsetEnd is IsoPositiveNumber OffsetEndValue)
+        {
+            writer.WriteStartElement(null, "OffsetEnd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPositiveNumber(OffsetEndValue)); // data type PositiveNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (PackageBlock is ExternallyDefinedData4 PackageBlockValue)
+        {
+            writer.WriteStartElement(null, "PackgBlck", xmlNamespace );
+            PackageBlockValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PackageType4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

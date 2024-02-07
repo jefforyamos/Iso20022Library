@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines an encapsulated form of an ISO 20022 message and, if present, its associated Business Application Header. The encapsulation guarantees uniqueness of ID/IDREFs though the use of the Prefix element. This element can be added during message preparation to ID/IDREFs. In order to verify the signature in the Hdr element or inside the encapsulated message, for each occurrence of an ID orIDREF that possesses the same value as a prefix, the prefix part is removed before signature verification. This is not done for surrounding signatures.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record EncapsulatedBusinessMessage1
+     : IIsoXmlSerilizable<EncapsulatedBusinessMessage1>
 {
     #nullable enable
     
     /// <summary>
     /// The Business Application Header associated to the encapsulated message if it exists.
     /// </summary>
-    [DataMember]
     public BusinessApplicationHeader1? Header { get; init; } 
     /// <summary>
     /// Prefix of ID/IDREFs in the encapsulated message to be removed before signature verification.
     /// </summary>
-    [DataMember]
     public IsoID? Prefix { get; init; } 
     /// <summary>
     /// If yes, the Msg element contains only a subset of the original message.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Partial { get; init; } 
     /// <summary>
     /// The encapsulated ISO 20022 message.
     /// </summary>
-    [DataMember]
     public required StrictPayload Message { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Header is BusinessApplicationHeader1 HeaderValue)
+        {
+            writer.WriteStartElement(null, "Hdr", xmlNamespace );
+            HeaderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Prefix is IsoID PrefixValue)
+        {
+            writer.WriteStartElement(null, "Prfx", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoID(PrefixValue)); // data type ID System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Prtl", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Partial)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Msg", xmlNamespace );
+        Message.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static EncapsulatedBusinessMessage1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

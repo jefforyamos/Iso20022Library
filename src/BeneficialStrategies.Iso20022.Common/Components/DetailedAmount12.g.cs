@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amounts of the withdrawal transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DetailedAmount12
+     : IIsoXmlSerilizable<DetailedAmount12>
 {
     #nullable enable
     
     /// <summary>
     /// Amount to be dispensed by the ATM after the approval of the withdrawal transaction.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount AmountToDispense { get; init; } 
     /// <summary>
     /// Currency of the amount to dispense when different from the base currency of the ATM.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Withdrawal fees, accepted by the customer.
     /// </summary>
-    [DataMember]
-    public ValueList<DetailedAmount13> Fees { get; init; } = []; // Warning: Don't know multiplicity.
+    public DetailedAmount13? Fees { get; init; } 
     /// <summary>
     /// Amount of the donation.
     /// </summary>
-    [DataMember]
-    public ValueList<DetailedAmount13> Donation { get; init; } = []; // Warning: Don't know multiplicity.
+    public DetailedAmount13? Donation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AmtToDspns", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(AmountToDispense)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Fees is DetailedAmount13 FeesValue)
+        {
+            writer.WriteStartElement(null, "Fees", xmlNamespace );
+            FeesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Donation is DetailedAmount13 DonationValue)
+        {
+            writer.WriteStartElement(null, "Dontn", xmlNamespace );
+            DonationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DetailedAmount12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

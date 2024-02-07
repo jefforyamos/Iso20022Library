@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.RatioFormat1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.RatioFormat1Choice;
 /// The ratio is expressed as an amount per another amount.
 /// </summary>
 public partial record AmountToAmount : RatioFormat1Choice_
+     , IIsoXmlSerilizable<AmountToAmount>
 {
     #nullable enable
+    
     /// <summary>
     /// Numerator of the quotient of amounts.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record AmountToAmount : RatioFormat1Choice_
     /// Denominator of the quotient of amounts.
     /// </summary>
     public required IsoActiveCurrencyAndAmount Amount2 { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt1", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount1)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt2", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount2)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static new AmountToAmount Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

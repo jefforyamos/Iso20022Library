@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide further information on the reason for the unable to apply investigation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MissingOrIncorrectInformation2
+     : IIsoXmlSerilizable<MissingOrIncorrectInformation2>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the request is related to an AML (Anti Money Laundering) investigation or not.
     /// </summary>
-    [DataMember]
     public IsoAMLIndicator? AntiMoneyLaunderingRequest { get; init; } 
     /// <summary>
     /// Indicates the missing information.
     /// </summary>
-    [DataMember]
-    public ValueList<UnableToApplyMissingInformation2Code> MissingInformation { get; init; } = [];
+    public SimpleValueList<UnableToApplyMissingInformation2Code> MissingInformation { get; init; } = [];
     /// <summary>
     /// Indicates, in a coded form, the incorrect information.
     /// </summary>
-    [DataMember]
-    public ValueList<UnableToApplyIncorrectInformation3Code> IncorrectInformation { get; init; } = [];
+    public SimpleValueList<UnableToApplyIncorrectInformation3Code> IncorrectInformation { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AntiMoneyLaunderingRequest is IsoAMLIndicator AntiMoneyLaunderingRequestValue)
+        {
+            writer.WriteStartElement(null, "AMLReq", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAMLIndicator(AntiMoneyLaunderingRequestValue)); // data type AMLIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MssngInf", xmlNamespace );
+        writer.WriteValue(MissingInformation.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IncrrctInf", xmlNamespace );
+        writer.WriteValue(IncorrectInformation.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static MissingOrIncorrectInformation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,39 +7,68 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the money market statistical status report header details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MoneyMarketStatusReportHeader1
+     : IIsoXmlSerilizable<MoneyMarketStatusReportHeader1>
 {
     #nullable enable
     
     /// <summary>
     /// Agent which is subject to reporting requirements.
     /// </summary>
-    [DataMember]
     public required IsoLEIIdentifier ReportingAgent { get; init; } 
     /// <summary>
     /// For daily reporting this is the day to which the transaction data in the status message refers (trade date or amendment date if there are corrections).
     /// For periodic reporting this is the first and the last day to which the transaction data in the status message refers (trade date or amendment date in case of corrections).
     /// </summary>
-    [DataMember]
     public required DateTimePeriod1 ReportingPeriod { get; init; } 
     /// <summary>
     /// Provides the status for the full report.
     /// </summary>
-    [DataMember]
     public required StatisticalReportingStatus1Code ReportStatus { get; init; } 
     /// <summary>
     /// Provides the details of the rule which could not be validated.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericValidationRuleIdentification1> ValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericValidationRuleIdentification1? ValidationRule { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptgAgt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(ReportingAgent)); // data type LEIIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptgPrd", xmlNamespace );
+        ReportingPeriod.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptSts", xmlNamespace );
+        writer.WriteValue(ReportStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ValidationRule is GenericValidationRuleIdentification1 ValidationRuleValue)
+        {
+            writer.WriteStartElement(null, "VldtnRule", xmlNamespace );
+            ValidationRuleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MoneyMarketStatusReportHeader1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

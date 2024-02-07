@@ -7,501 +7,761 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AllExternalDerivedRegisteredCodeSets1
+     : IIsoXmlSerilizable<AllExternalDerivedRegisteredCodeSets1>
 {
     #nullable enable
     
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalAcceptedReason1Code ExternalAcceptedReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalAccountIdentification1Code ExternalAccountIdentification1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalAgentInstruction1Code ExternalAgentInstruction1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalAgreementType1Code ExternalAgreementType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalAuthenticationChannel1Code ExternalAuthenticationChannel1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalAuthenticationMethod1Code ExternalAuthenticationMethod1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalAuthorityExchangeReason1Code ExternalAuthorityExchangeReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalAuthorityIdentification1Code ExternalAuthorityIdentification1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalBalanceSubType1Code ExternalBalanceSubType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalBalanceType1Code ExternalBalanceType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalBankTransactionDomain1Code ExternalBankTransactionDomain1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalBankTransactionFamily1Code ExternalBankTransactionFamily1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalBankTransactionSubFamily1Code ExternalBankTransactionSubFamily1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalBillingBalanceType1Code ExternalBillingBalanceType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalBillingCompensationType1Code ExternalBillingCompensationType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalBillingRateIdentification1Code ExternalBillingRateIdentification1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalCancellationReason1Code ExternalCancellationReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalCardTransactionCategory1Code ExternalCardTransactionCategory1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalCashAccountType1Code ExternalCashAccountType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalCashClearingSystem1Code ExternalCashClearingSystem1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalCategoryPurpose1Code ExternalCategoryPurpose1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalChannel1Code ExternalChannel1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalChargeType1Code ExternalChargeType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalChequeAgentInstruction1Code ExternalChequeAgentInstruction1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalChequeCancellationReason1Code ExternalChequeCancellationReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalChequeCancellationStatus1Code ExternalChequeCancellationStatus1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalClaimNonReceiptRejection1Code ExternalClaimNonReceiptRejection1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalClearingSystemIdentification1Code ExternalClearingSystemIdentification1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalCommunicationFormat1Code ExternalCommunicationFormat1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalContractBalanceType1Code ExternalContractBalanceType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalContractClosureReason1Code ExternalContractClosureReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalCreditLineType1Code ExternalCreditLineType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalCreditorAgentInstruction1Code ExternalCreditorAgentInstruction1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalCreditorEnrolmentAmendmentReason1Code ExternalCreditorEnrolmentAmendmentReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalCreditorEnrolmentCancellationReason1Code ExternalCreditorEnrolmentCancellationReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalCreditorEnrolmentStatusReason1Code ExternalCreditorEnrolmentStatusReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalDateFrequency1Code ExternalDateFrequency1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalDebtorActivationAmendmentReason1Code ExternalDebtorActivationAmendmentReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalDebtorActivationCancellationReason1Code ExternalDebtorActivationCancellationReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalDebtorActivationStatusReason1Code ExternalDebtorActivationStatusReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalDebtorAgentInstruction1Code ExternalDebtorAgentInstruction1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalDiscountAmountType1Code ExternalDiscountAmountType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalDiscrepancy1Code ExternalDiscrepancy1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalDocumentFormat1Code ExternalDocumentFormat1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalDocumentLineType1Code ExternalDocumentLineType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalDocumentPurpose1Code ExternalDocumentPurpose1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalDocumentType1Code ExternalDocumentType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalEffectiveDateParameter1Code ExternalEffectiveDateParameter1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalEncryptedElementIdentification1Code ExternalEncryptedElementIdentification1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalEnquiryRequestType1Code ExternalEnquiryRequestType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalEntryStatus1Code ExternalEntryStatus1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalFinancialInstitutionIdentification1Code ExternalFinancialInstitutionIdentification1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalFinancialInstrumentIdentificationType1Code ExternalFinancialInstrumentIdentificationType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalFinancialInstrumentProductType1Code ExternalFinancialInstrumentProductType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalGarnishmentType1Code ExternalGarnishmentType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalIncoterms1Code ExternalIncoterms1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalInformationType1Code ExternalInformationType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalInstructedAgentInstruction1Code ExternalInstructedAgentInstruction1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalInvestigationExecutionConfirmation1Code ExternalInvestigationExecutionConfirmation1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalLetterType1Code ExternalLetterType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalLocalInstrument1Code ExternalLocalInstrument1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalMandateReason1Code ExternalMandateReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalMandateSetupReason1Code ExternalMandateSetupReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalMandateStatus1Code ExternalMandateStatus1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalMandateSuspensionReason1Code ExternalMandateSuspensionReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalMarketArea1Code ExternalMarketArea1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalMarketInfrastructure1Code ExternalMarketInfrastructure1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalModelFormIdentification1Code ExternalModelFormIdentification1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalNarrativeType1Code ExternalNarrativeType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalNotificationCancellationReason1Code ExternalNotificationCancellationReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalOrganisationIdentification1Code ExternalOrganisationIdentification1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalPackagingType1Code ExternalPackagingType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalPaymentCancellationRejection1Code ExternalPaymentCancellationRejection1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalPaymentCompensationReason1Code ExternalPaymentCompensationReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalPaymentControlRequestType1Code ExternalPaymentControlRequestType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalPaymentGroupStatus1Code ExternalPaymentGroupStatus1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalPaymentModificationRejection1Code ExternalPaymentModificationRejection1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalPaymentRole1Code ExternalPaymentRole1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalPaymentTransactionStatus1Code ExternalPaymentTransactionStatus1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalPendingProcessingReason1Code ExternalPendingProcessingReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalPersonIdentification1Code ExternalPersonIdentification1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalProxyAccountType1Code ExternalProxyAccountType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalPurpose1Code ExternalPurpose1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalRatesAndTenors1Code ExternalRatesAndTenors1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalReceivedReason1Code ExternalReceivedReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalRejectedReason1Code ExternalRejectedReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalRelativeTo1Code ExternalRelativeTo1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalReportingSource1Code ExternalReportingSource1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalRePresentmentReason1Code ExternalRePresentmentReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalReservationType1Code ExternalReservationType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalReturnReason1Code ExternalReturnReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalReversalReason1Code ExternalReversalReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalSecuritiesLendingType1Code ExternalSecuritiesLendingType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalSecuritiesPurpose1Code ExternalSecuritiesPurpose1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalSecuritiesUpdateReason1Code ExternalSecuritiesUpdateReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalServiceLevel1Code ExternalServiceLevel1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalShipmentCondition1Code ExternalShipmentCondition1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalStatusReason1Code ExternalStatusReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalSystemBalanceType1Code ExternalSystemBalanceType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalSystemErrorHandling1Code ExternalSystemErrorHandling1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalSystemEventType1Code ExternalSystemEventType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalSystemMemberType1Code ExternalSystemMemberType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalSystemPartyType1Code ExternalSystemPartyType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalTaxAmountType1Code ExternalTaxAmountType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalTechnicalInputChannel1Code ExternalTechnicalInputChannel1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalTradeMarket1Code ExternalTradeMarket1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalTradeTransactionCondition1Code ExternalTradeTransactionCondition1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalTypeOfParty1Code ExternalTypeOfParty1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalUnableToApplyIncorrectData1Code ExternalUnableToApplyIncorrectData1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalUnableToApplyMissingData1Code ExternalUnableToApplyMissingData1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalUnderlyingTradeTransactionType1Code ExternalUnderlyingTradeTransactionType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalUndertakingAmountType1Code ExternalUndertakingAmountType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalUndertakingChargeType1Code ExternalUndertakingChargeType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalUndertakingDocumentType1Code ExternalUndertakingDocumentType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalUndertakingStatusCategory1Code ExternalUndertakingStatusCategory1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalUndertakingType1Code ExternalUndertakingType1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalValidationRuleIdentification1Code ExternalValidationRuleIdentification1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalVerificationReason1Code ExternalVerificationReason1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalBenchmarkCurveName1Code ExternalBenchmarkCurveName1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalUnitOfMeasure1Code ExternalUnitOfMeasure1Code { get; init; } 
     /// <summary>
     /// </summary>
-    [DataMember]
     public required ExternalPartyRelationshipType1Code ExternalPartyRelationshipType1Code { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "XtrnlAccptdRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalAcceptedReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlAcctId1Cd", xmlNamespace );
+        writer.WriteValue(ExternalAccountIdentification1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlAgtInstr1Cd", xmlNamespace );
+        writer.WriteValue(ExternalAgentInstruction1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlAgrmtTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalAgreementType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlAuthntcnChanl1Cd", xmlNamespace );
+        writer.WriteValue(ExternalAuthenticationChannel1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlAuthntcnMtd1Cd", xmlNamespace );
+        writer.WriteValue(ExternalAuthenticationMethod1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlAuthrtyXchgRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalAuthorityExchangeReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlAuthrtyId1Cd", xmlNamespace );
+        writer.WriteValue(ExternalAuthorityIdentification1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlBalSubTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalBalanceSubType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlBalTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalBalanceType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlBkTxDomn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalBankTransactionDomain1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlBkTxFmly1Cd", xmlNamespace );
+        writer.WriteValue(ExternalBankTransactionFamily1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlBkTxSubFmly1Cd", xmlNamespace );
+        writer.WriteValue(ExternalBankTransactionSubFamily1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlBllgBalTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalBillingBalanceType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlBllgCompstnTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalBillingCompensationType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlBllgRateId1Cd", xmlNamespace );
+        writer.WriteValue(ExternalBillingRateIdentification1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlCxlRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalCancellationReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlCardTxCtgy1Cd", xmlNamespace );
+        writer.WriteValue(ExternalCardTransactionCategory1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlCshAcctTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalCashAccountType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlCshClrSys1Cd", xmlNamespace );
+        writer.WriteValue(ExternalCashClearingSystem1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlCtgyPurp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalCategoryPurpose1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlChanl1Cd", xmlNamespace );
+        writer.WriteValue(ExternalChannel1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlChrgTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalChargeType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlChqAgtInstr1Cd", xmlNamespace );
+        writer.WriteValue(ExternalChequeAgentInstruction1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlChqCxlRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalChequeCancellationReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlChqCxlSts1Cd", xmlNamespace );
+        writer.WriteValue(ExternalChequeCancellationStatus1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlClmNonRctRjctn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalClaimNonReceiptRejection1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlClrSysId1Cd", xmlNamespace );
+        writer.WriteValue(ExternalClearingSystemIdentification1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlComFrmt1Cd", xmlNamespace );
+        writer.WriteValue(ExternalCommunicationFormat1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlCtrctBalTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalContractBalanceType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlCtrctClsrRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalContractClosureReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlCdtLineTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalCreditLineType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlCdtrAgtInstr1Cd", xmlNamespace );
+        writer.WriteValue(ExternalCreditorAgentInstruction1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlCdtrEnrlmntAmdmntRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalCreditorEnrolmentAmendmentReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlCdtrEnrlmntCxlRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalCreditorEnrolmentCancellationReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlCdtrEnrlmntStsRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalCreditorEnrolmentStatusReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlDtFrqcy1Cd", xmlNamespace );
+        writer.WriteValue(ExternalDateFrequency1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlDbtrActvtnAmdmntRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalDebtorActivationAmendmentReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlDbtrActvtnCxlRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalDebtorActivationCancellationReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlDbtrActvtnStsRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalDebtorActivationStatusReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlDbtrAgtInstr1Cd", xmlNamespace );
+        writer.WriteValue(ExternalDebtorAgentInstruction1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlDscntAmtTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalDiscountAmountType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlDscrpncy1Cd", xmlNamespace );
+        writer.WriteValue(ExternalDiscrepancy1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlDocFrmt1Cd", xmlNamespace );
+        writer.WriteValue(ExternalDocumentFormat1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlDocLineTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalDocumentLineType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlDocPurp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalDocumentPurpose1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlDocTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalDocumentType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlFctvDtParam1Cd", xmlNamespace );
+        writer.WriteValue(ExternalEffectiveDateParameter1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlNcrptdElmtId1Cd", xmlNamespace );
+        writer.WriteValue(ExternalEncryptedElementIdentification1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlEnqryReqTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalEnquiryRequestType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlNtrySts1Cd", xmlNamespace );
+        writer.WriteValue(ExternalEntryStatus1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlFIId1Cd", xmlNamespace );
+        writer.WriteValue(ExternalFinancialInstitutionIdentification1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlFinInstrmIdTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalFinancialInstrumentIdentificationType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlFinInstrmPdctTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalFinancialInstrumentProductType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlGrnshmtTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalGarnishmentType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlIncotrms1Cd", xmlNamespace );
+        writer.WriteValue(ExternalIncoterms1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlInfTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalInformationType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlInstdAgtInstr1Cd", xmlNamespace );
+        writer.WriteValue(ExternalInstructedAgentInstruction1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlInvstgtnExctnConf1Cd", xmlNamespace );
+        writer.WriteValue(ExternalInvestigationExecutionConfirmation1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlLttrTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalLetterType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlLclInstrm1Cd", xmlNamespace );
+        writer.WriteValue(ExternalLocalInstrument1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlMndtRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalMandateReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlMndtStpRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalMandateSetupReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlMndtSts1Cd", xmlNamespace );
+        writer.WriteValue(ExternalMandateStatus1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlMndtSspnsnRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalMandateSuspensionReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlMktArea1Cd", xmlNamespace );
+        writer.WriteValue(ExternalMarketArea1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlMktInfrstrctr1Cd", xmlNamespace );
+        writer.WriteValue(ExternalMarketInfrastructure1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlMdlFormId1Cd", xmlNamespace );
+        writer.WriteValue(ExternalModelFormIdentification1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlNrrtvTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalNarrativeType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlNtfctnCxlRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalNotificationCancellationReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlOrgId1Cd", xmlNamespace );
+        writer.WriteValue(ExternalOrganisationIdentification1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlPackgngTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalPackagingType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlPmtCxlRjctn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalPaymentCancellationRejection1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlPmtCompstnRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalPaymentCompensationReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlPmtCtrlReqTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalPaymentControlRequestType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlPmtGrpSts1Cd", xmlNamespace );
+        writer.WriteValue(ExternalPaymentGroupStatus1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlPmtModRjctn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalPaymentModificationRejection1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlPmtRole1Cd", xmlNamespace );
+        writer.WriteValue(ExternalPaymentRole1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlPmtTxSts1Cd", xmlNamespace );
+        writer.WriteValue(ExternalPaymentTransactionStatus1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlPdgPrcgRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalPendingProcessingReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlPrsnId1Cd", xmlNamespace );
+        writer.WriteValue(ExternalPersonIdentification1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlPrxyAcctTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalProxyAccountType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlPurp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalPurpose1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlRatesAndTnrs1Cd", xmlNamespace );
+        writer.WriteValue(ExternalRatesAndTenors1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlRcvdRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalReceivedReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlRjctdRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalRejectedReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlRltvTo1Cd", xmlNamespace );
+        writer.WriteValue(ExternalRelativeTo1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlRptgSrc1Cd", xmlNamespace );
+        writer.WriteValue(ExternalReportingSource1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlRePresntmntRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalRePresentmentReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlRsvatnTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalReservationType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlRtrRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalReturnReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlRvslRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalReversalReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlSctiesLndgTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalSecuritiesLendingType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlSctiesPurp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalSecuritiesPurpose1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlSctiesUpdRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalSecuritiesUpdateReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlSvcLvl1Cd", xmlNamespace );
+        writer.WriteValue(ExternalServiceLevel1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlShipmntCond1Cd", xmlNamespace );
+        writer.WriteValue(ExternalShipmentCondition1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlStsRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalStatusReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlSysBalTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalSystemBalanceType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlSysErrHdlg1Cd", xmlNamespace );
+        writer.WriteValue(ExternalSystemErrorHandling1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlSysEvtTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalSystemEventType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlSysMmbTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalSystemMemberType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlSysPtyTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalSystemPartyType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlTaxAmtTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalTaxAmountType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlTechInptChanl1Cd", xmlNamespace );
+        writer.WriteValue(ExternalTechnicalInputChannel1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlTradMkt1Cd", xmlNamespace );
+        writer.WriteValue(ExternalTradeMarket1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlTradTxCond1Cd", xmlNamespace );
+        writer.WriteValue(ExternalTradeTransactionCondition1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlTpOfPty1Cd", xmlNamespace );
+        writer.WriteValue(ExternalTypeOfParty1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlUblToApplyIncrrctData1Cd", xmlNamespace );
+        writer.WriteValue(ExternalUnableToApplyIncorrectData1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlUblToApplyMssngData1Cd", xmlNamespace );
+        writer.WriteValue(ExternalUnableToApplyMissingData1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlUndrlygTradTxTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalUnderlyingTradeTransactionType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlUdrtkgAmtTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalUndertakingAmountType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlUdrtkgChrgTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalUndertakingChargeType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlUdrtkgDocTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalUndertakingDocumentType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlUdrtkgStsCtgy1Cd", xmlNamespace );
+        writer.WriteValue(ExternalUndertakingStatusCategory1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlUdrtkgTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalUndertakingType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlVldtnRuleId1Cd", xmlNamespace );
+        writer.WriteValue(ExternalValidationRuleIdentification1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlVrfctnRsn1Cd", xmlNamespace );
+        writer.WriteValue(ExternalVerificationReason1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlBchmkCrvNm1Cd", xmlNamespace );
+        writer.WriteValue(ExternalBenchmarkCurveName1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlUnitOfMeasr1Cd", xmlNamespace );
+        writer.WriteValue(ExternalUnitOfMeasure1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtrnlPtyRltshTp1Cd", xmlNamespace );
+        writer.WriteValue(ExternalPartyRelationshipType1Code.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static AllExternalDerivedRegisteredCodeSets1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

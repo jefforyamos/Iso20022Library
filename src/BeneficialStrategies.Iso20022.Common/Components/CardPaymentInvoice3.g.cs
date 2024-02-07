@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed invoice data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardPaymentInvoice3
+     : IIsoXmlSerilizable<CardPaymentInvoice3>
 {
     #nullable enable
     
     /// <summary>
     /// General data relevant to the main body of the invoice such as date of issue, currency code and identification number.
     /// </summary>
-    [DataMember]
     public required InvoiceHeader3 InvoiceHeader { get; init; } 
     /// <summary>
     /// Contractual details related to the agreement between parties.
     /// </summary>
-    [DataMember]
     public required TradeAgreement16 TradeAgreement { get; init; } 
     /// <summary>
     /// Supply chain shipping arrangements for delivery of invoiced products and/or services.
     /// </summary>
-    [DataMember]
     public required TradeDelivery3 TradeDelivery { get; init; } 
     /// <summary>
     /// Unit of information showing the related provision of products and/or services and monetary summations reported as a discrete line items.
     /// </summary>
-    [DataMember]
-    public ValueList<LineItem17> LineItem { get; init; } = []; // Warning: Don't know multiplicity.
+    public LineItem17? LineItem { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "InvcHdr", xmlNamespace );
+        InvoiceHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradAgrmt", xmlNamespace );
+        TradeAgreement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradDlvry", xmlNamespace );
+        TradeDelivery.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LineItem is LineItem17 LineItemValue)
+        {
+            writer.WriteStartElement(null, "LineItm", xmlNamespace );
+            LineItemValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardPaymentInvoice3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Body of the Abort Request message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AbortData4
+     : IIsoXmlSerilizable<AbortData4>
 {
     #nullable enable
     
     /// <summary>
     /// Message identifier.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ExchangeIdentification { get; init; } 
     /// <summary>
     /// Reason of aborting a transaction.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text AbortReason { get; init; } 
     /// <summary>
     /// To display an abort message to the Customer.
     /// </summary>
-    [DataMember]
     public ActionMessage9? DisplayOutput { get; init; } 
     /// <summary>
     /// Outcome of the transaction at the acceptor.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? TransactionSuccess { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "XchgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ExchangeIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AbrtRsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(AbortReason)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        if (DisplayOutput is ActionMessage9 DisplayOutputValue)
+        {
+            writer.WriteStartElement(null, "DispOutpt", xmlNamespace );
+            DisplayOutputValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionSuccess is IsoTrueFalseIndicator TransactionSuccessValue)
+        {
+            writer.WriteStartElement(null, "TxSucss", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TransactionSuccessValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AbortData4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Execution of a subscription order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SubscriptionInformation1
+     : IIsoXmlSerilizable<SubscriptionInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Date the investment plan starts.
     /// </summary>
-    [DataMember]
     public required IsoISODate DateOfFirstSubscription { get; init; } 
     /// <summary>
     /// Amount subscribed in the current tax year into equity (not including dividends).
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? EquityComponent { get; init; } 
     /// <summary>
     /// Amount subscribed in the current tax year into cash.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? CashComponent { get; init; } 
     /// <summary>
     /// Total amount subscribed in the current tax year.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalAmountYearToDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DtOfFrstSbcpt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(DateOfFirstSubscription)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (EquityComponent is IsoActiveCurrencyAndAmount EquityComponentValue)
+        {
+            writer.WriteStartElement(null, "EqtyCmpnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(EquityComponentValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CashComponent is IsoActiveCurrencyAndAmount CashComponentValue)
+        {
+            writer.WriteStartElement(null, "CshCmpnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CashComponentValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TtlAmtYrToDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalAmountYearToDate)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static SubscriptionInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

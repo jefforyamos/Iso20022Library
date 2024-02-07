@@ -7,33 +7,59 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Encrypted data with encryption key.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record EnvelopedData2
+     : IIsoXmlSerilizable<EnvelopedData2>
 {
     #nullable enable
     
     /// <summary>
     /// Version of the data structure.
     /// </summary>
-    [DataMember]
     public IsoNumber? Version { get; init; } 
     /// <summary>
     /// Transport key or key encryption key (KEK) identification for the recipient.
     /// </summary>
-    [DataMember]
-    public ValueList<Recipient2Choice_> Recipient { get; init; } = []; // Warning: Don't know multiplicity.
+    public Recipient2Choice_? Recipient { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _ebDkJQioEeKn9O5oyej_zw
     /// <summary>
     /// Encrypted data with an encryption key.
     /// </summary>
-    [DataMember]
     public required EncryptedContent2 EncryptedContent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Version is IsoNumber VersionValue)
+        {
+            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(VersionValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize Recipient, multiplicity Unknown
+        writer.WriteStartElement(null, "NcrptdCntt", xmlNamespace );
+        EncryptedContent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static EnvelopedData2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the implementation and version.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MarketPracticeVersion1
+     : IIsoXmlSerilizable<MarketPracticeVersion1>
 {
     #nullable enable
     
     /// <summary>
     /// Market practice, for example, “UKTRANSFERS”, “FINDELSLT”.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Name { get; init; } 
     /// <summary>
     /// Year and month, for example, 2013-06.
     /// </summary>
-    [DataMember]
     public IsoISOYearMonth? Date { get; init; } 
     /// <summary>
     /// Version of the market practice.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Number { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Name)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Date is IsoISOYearMonth DateValue)
+        {
+            writer.WriteStartElement(null, "Dt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOYearMonth(DateValue)); // data type ISOYearMonth System.UInt16
+            writer.WriteEndElement();
+        }
+        if (Number is IsoMax35Text NumberValue)
+        {
+            writer.WriteStartElement(null, "Nb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static MarketPracticeVersion1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

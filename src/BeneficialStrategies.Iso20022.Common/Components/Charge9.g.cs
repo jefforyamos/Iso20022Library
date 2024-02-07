@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money associated with a service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Charge9
+     : IIsoXmlSerilizable<Charge9>
 {
     #nullable enable
     
     /// <summary>
     /// Type of service for which a charge is asked or paid.
     /// </summary>
-    [DataMember]
     public required ChargeType2 Type { get; init; } 
     /// <summary>
     /// Amount of money asked or paid for the charge.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
     /// <summary>
     /// Calculation basis for the charge or fee.
     /// </summary>
-    [DataMember]
     public CalculationBasis1? CalculationBasis { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(Amount)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+        writer.WriteEndElement();
+        if (CalculationBasis is CalculationBasis1 CalculationBasisValue)
+        {
+            writer.WriteStartElement(null, "ClctnBsis", xmlNamespace );
+            CalculationBasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Charge9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

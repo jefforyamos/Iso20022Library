@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TradeData37Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData37Choice;
 /// Information concerning the reporting at transaction level.
 /// </summary>
 public partial record State : TradeData37Choice_
+     , IIsoXmlSerilizable<State>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
@@ -26,7 +30,7 @@ public partial record State : TradeData37Choice_
     /// <summary>
     /// Provides the details of the security or cash pledged as collateral.
     /// </summary>
-    public CollateralType19? CollateralComponent { get; init;  } // Warning: Don't know multiplicity.
+    public CollateralType19? CollateralComponent { get; init; } 
     /// <summary>
     /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
     /// </summary>
@@ -38,7 +42,7 @@ public partial record State : TradeData37Choice_
     /// <summary>
     /// Information on funding sources used to finance margin loans.
     /// </summary>
-    public FundingSource3? FundingSource { get; init;  } // Warning: Don't know multiplicity.
+    public FundingSource3? FundingSource { get; init; } 
     /// <summary>
     /// List of possible values for TRs reconciliation purposes.
     /// </summary>
@@ -50,6 +54,66 @@ public partial record State : TradeData37Choice_
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TechnicalRecordIdentification is IsoMax140Text TechnicalRecordIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(TechnicalRecordIdentificationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CtrPty", xmlNamespace );
+        Counterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CollateralComponent is CollateralType19 CollateralComponentValue)
+        {
+            writer.WriteStartElement(null, "CollCmpnt", xmlNamespace );
+            CollateralComponentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "EvtDay", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(EventDay)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptgDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(ReportingDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (FundingSource is FundingSource3 FundingSourceValue)
+        {
+            writer.WriteStartElement(null, "FndgSrc", xmlNamespace );
+            FundingSourceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReconciliationFlag is ReconciliationFlag2 ReconciliationFlagValue)
+        {
+            writer.WriteStartElement(null, "RcncltnFlg", xmlNamespace );
+            ReconciliationFlagValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CtrctMod", xmlNamespace );
+        ContractModification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new State Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

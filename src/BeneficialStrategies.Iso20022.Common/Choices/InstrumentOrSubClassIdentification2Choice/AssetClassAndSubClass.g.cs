@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.InstrumentOrSubClassIdentification2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.InstrumentOrSubClassIdentificati
 /// Identifies the asset class and sub-class of non-equity instruments to which the result relates
 /// </summary>
 public partial record AssetClassAndSubClass : InstrumentOrSubClassIdentification2Choice_
+     , IIsoXmlSerilizable<AssetClassAndSubClass>
 {
     #nullable enable
+    
     /// <summary>
     /// Asset class of non-equity instruments to which the result relates
     /// </summary>
@@ -27,5 +31,38 @@ public partial record AssetClassAndSubClass : InstrumentOrSubClassIdentification
     /// Identification of non-equity financial instruments.
     /// </summary>
     public NonEquityInstrumentReportingClassification1Code? FinancialInstrumentClassification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AsstClss", xmlNamespace );
+        writer.WriteValue(AssetClass.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (DerivativeSubClass is NonEquitySubClass1 DerivativeSubClassValue)
+        {
+            writer.WriteStartElement(null, "DerivSubClss", xmlNamespace );
+            DerivativeSubClassValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentClassification is NonEquityInstrumentReportingClassification1Code FinancialInstrumentClassificationValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmClssfctn", xmlNamespace );
+            writer.WriteValue(FinancialInstrumentClassificationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static new AssetClassAndSubClass Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

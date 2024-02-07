@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifier of a token provider requestor.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentTokenIdentifiers1
+     : IIsoXmlSerilizable<PaymentTokenIdentifiers1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifier of the token provider.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ProviderIdentification { get; init; } 
     /// <summary>
     /// Identifier of the token requestor.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text RequestorIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrvdrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ProviderIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RqstrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(RequestorIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static PaymentTokenIdentifiers1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains information that identifies or is specific to a transaction jurisdiction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Jurisdiction2
+     : IIsoXmlSerilizable<Jurisdiction2>
 {
     #nullable enable
     
     /// <summary>
     /// When true, indicates the transaction is considered to be domestic.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? DomesticIndicator { get; init; } 
     /// <summary>
     /// Identifies the reason the transaction is considered to be domestic or non-domestic.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DomesticQualification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DomesticIndicator is IsoTrueFalseIndicator DomesticIndicatorValue)
+        {
+            writer.WriteStartElement(null, "DmstInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DomesticIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (DomesticQualification is IsoMax35Text DomesticQualificationValue)
+        {
+            writer.WriteStartElement(null, "DmstQlfctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DomesticQualificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Jurisdiction2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

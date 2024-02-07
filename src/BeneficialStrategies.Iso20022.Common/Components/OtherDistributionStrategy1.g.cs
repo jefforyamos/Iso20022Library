@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Other distribution strategy.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OtherDistributionStrategy1
+     : IIsoXmlSerilizable<OtherDistributionStrategy1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of distribution strategy.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DistributionStrategyType { get; init; } 
     /// <summary>
     /// Choice of formats for the specification of whether the product is aimed at the type of return profile.
     /// </summary>
-    [DataMember]
     public DistributionStrategy1Choice_? Target { get; init; } 
     /// <summary>
     /// Additional information about the target market and the investor's risk tolerance.
     /// </summary>
-    [DataMember]
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DistributionStrategyType is IsoMax35Text DistributionStrategyTypeValue)
+        {
+            writer.WriteStartElement(null, "DstrbtnStrtgyTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DistributionStrategyTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Target is DistributionStrategy1Choice_ TargetValue)
+        {
+            writer.WriteStartElement(null, "Trgt", xmlNamespace );
+            TargetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OtherDistributionStrategy1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

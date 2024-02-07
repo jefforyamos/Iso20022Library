@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the terms of the contract in case of fixed interest rates.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FixedTermContract2
+     : IIsoXmlSerilizable<FixedTermContract2>
 {
     #nullable enable
     
     /// <summary>
     /// Date on which the counterparties contractually agree the exchange of securities or commodities versus collateral for the closing leg (forward leg) of the secured financing transaction. This information shall not be reported for open term agreements.
     /// </summary>
-    [DataMember]
     public IsoISODate? MaturityDate { get; init; } 
     /// <summary>
     /// Indication whether the counterparties to the transaction have agreed to an evergreen or extendable agreement.
     /// </summary>
-    [DataMember]
     public RepoTerminationOption2Code? TerminationOption { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MaturityDate is IsoISODate MaturityDateValue)
+        {
+            writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(MaturityDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (TerminationOption is RepoTerminationOption2Code TerminationOptionValue)
+        {
+            writer.WriteStartElement(null, "TermntnOptn", xmlNamespace );
+            writer.WriteValue(TerminationOptionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static FixedTermContract2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a key encryption key (KEK), using previously distributed symmetric key.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record KEKIdentifier5
+     : IIsoXmlSerilizable<KEKIdentifier5>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the cryptographic key.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text KeyIdentification { get; init; } 
     /// <summary>
     /// Version of the cryptographic key.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text KeyVersion { get; init; } 
     /// <summary>
     /// Number of usages of the cryptographic key.
     /// </summary>
-    [DataMember]
     public IsoNumber? SequenceNumber { get; init; } 
     /// <summary>
     /// Identification used for derivation of a unique key from a master key provided for the data protection.
     /// </summary>
-    [DataMember]
     public IsoMin5Max16Binary? DerivationIdentification { get; init; } 
     /// <summary>
     /// Type of algorithm used by the cryptographic key.
     /// </summary>
-    [DataMember]
     public CryptographicKeyType3Code? Type { get; init; } 
     /// <summary>
     /// Allowed usage of the key.
     /// </summary>
-    [DataMember]
-    public ValueList<KeyUsage1Code> Function { get; init; } = []; // Warning: Don't know multiplicity.
+    public KeyUsage1Code? Function { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "KeyId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(KeyIdentification)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "KeyVrsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(KeyVersion)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        if (SequenceNumber is IsoNumber SequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "SeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(SequenceNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (DerivationIdentification is IsoMin5Max16Binary DerivationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "DerivtnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMin5Max16Binary(DerivationIdentificationValue)); // data type Min5Max16Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (Type is CryptographicKeyType3Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Function is KeyUsage1Code FunctionValue)
+        {
+            writer.WriteStartElement(null, "Fctn", xmlNamespace );
+            writer.WriteValue(FunctionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static KEKIdentifier5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

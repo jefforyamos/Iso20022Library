@@ -7,78 +7,147 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// This component defines the service to be called.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ServiceRequest3
+     : IIsoXmlSerilizable<ServiceRequest3>
 {
     #nullable enable
     
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
-    [DataMember]
     public required CardPaymentEnvironment75 Environment { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
-    [DataMember]
     public required CardPaymentContext28 Context { get; init; } 
     /// <summary>
     /// Define the type of service requested.
     /// </summary>
-    [DataMember]
     public required RetailerService2Code ServiceContent { get; init; } 
     /// <summary>
     /// Content of the payment request.
     /// </summary>
-    [DataMember]
     public PaymentRequest2? PaymentRequest { get; init; } 
     /// <summary>
     /// Content of the reversal request.
     /// </summary>
-    [DataMember]
     public ReversalRequest2? ReversalRequest { get; init; } 
     /// <summary>
     /// Content of a Balance Inquiry Request.
     /// </summary>
-    [DataMember]
     public BalanceInquiryRequest3? BalanceInquiryRequest { get; init; } 
     /// <summary>
     /// Content of the Loyalty Request.
     /// </summary>
-    [DataMember]
     public LoyaltyRequest2? LoyaltyRequest { get; init; } 
     /// <summary>
     /// Content of a Stored Value Request.
     /// </summary>
-    [DataMember]
     public StoredValueRequest3? StoredValueRequest { get; init; } 
     /// <summary>
     /// Content of the Batch Request.
     /// </summary>
-    [DataMember]
     public BatchRequest2? BatchRequest { get; init; } 
     /// <summary>
     /// Content of the Enable Service Request.
     /// </summary>
-    [DataMember]
     public EnableServiceRequest2? EnableServiceRequest { get; init; } 
     /// <summary>
     /// Content of the Card Acquisition Request.
     /// </summary>
-    [DataMember]
     public CardAcquisitionRequest2? CardAcquisitionRequest { get; init; } 
     /// <summary>
     /// Additional information incorporated as an extension to the message.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Envt", xmlNamespace );
+        Environment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Cntxt", xmlNamespace );
+        Context.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SvcCntt", xmlNamespace );
+        writer.WriteValue(ServiceContent.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (PaymentRequest is PaymentRequest2 PaymentRequestValue)
+        {
+            writer.WriteStartElement(null, "PmtReq", xmlNamespace );
+            PaymentRequestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReversalRequest is ReversalRequest2 ReversalRequestValue)
+        {
+            writer.WriteStartElement(null, "RvslReq", xmlNamespace );
+            ReversalRequestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BalanceInquiryRequest is BalanceInquiryRequest3 BalanceInquiryRequestValue)
+        {
+            writer.WriteStartElement(null, "BalNqryReq", xmlNamespace );
+            BalanceInquiryRequestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LoyaltyRequest is LoyaltyRequest2 LoyaltyRequestValue)
+        {
+            writer.WriteStartElement(null, "LltyReq", xmlNamespace );
+            LoyaltyRequestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StoredValueRequest is StoredValueRequest3 StoredValueRequestValue)
+        {
+            writer.WriteStartElement(null, "StordValReq", xmlNamespace );
+            StoredValueRequestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BatchRequest is BatchRequest2 BatchRequestValue)
+        {
+            writer.WriteStartElement(null, "BtchReq", xmlNamespace );
+            BatchRequestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EnableServiceRequest is EnableServiceRequest2 EnableServiceRequestValue)
+        {
+            writer.WriteStartElement(null, "NblSvcReq", xmlNamespace );
+            EnableServiceRequestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CardAcquisitionRequest is CardAcquisitionRequest2 CardAcquisitionRequestValue)
+        {
+            writer.WriteStartElement(null, "CardAcqstnReq", xmlNamespace );
+            CardAcquisitionRequestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ServiceRequest3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

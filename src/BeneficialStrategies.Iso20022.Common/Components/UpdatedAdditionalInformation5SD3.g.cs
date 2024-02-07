@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Extension for updated additional information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UpdatedAdditionalInformation5SD3
+     : IIsoXmlSerilizable<UpdatedAdditionalInformation5SD3>
 {
     #nullable enable
     
@@ -23,37 +24,84 @@ public partial record UpdatedAdditionalInformation5SD3
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance. 
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Total distribution fund rate per share.
     /// 一株あたりの交付金先等の額.
     /// </summary>
-    [DataMember]
     public RateAndAmountFormat36Choice_? DistributionAmountPerShare { get; init; } 
     /// <summary>
     /// Rate information of how much net asset decrease happens as a result of the fund distribution.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? NetAssetDecreaseRatio { get; init; } 
     /// <summary>
     /// Distribution amount of accumulated profit per share.
     /// 一株あたり利益剰余金の額.
     /// </summary>
-    [DataMember]
     public RateAndAmountFormat36Choice_? AccumulatedProfitPerShare { get; init; } 
     /// <summary>
     /// Taxable distribution amount of dividend.
     /// 一株あたりみなし配当の額.
     /// </summary>
-    [DataMember]
     public RateAndAmountFormat36Choice_? DeemedDividendPerShare { get; init; } 
     /// <summary>
     /// Tax exempted distribution amount of dividend. 
     /// 一株あたりみなし譲渡収入の額.
     /// </summary>
-    [DataMember]
     public RateAndAmountFormat36Choice_? ResidualDistributionAmountPerShare { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (DistributionAmountPerShare is RateAndAmountFormat36Choice_ DistributionAmountPerShareValue)
+        {
+            writer.WriteStartElement(null, "DstrbtnAmtPerShr", xmlNamespace );
+            DistributionAmountPerShareValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NetAssetDecreaseRatio is IsoPercentageRate NetAssetDecreaseRatioValue)
+        {
+            writer.WriteStartElement(null, "NetAsstDcrRatio", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(NetAssetDecreaseRatioValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (AccumulatedProfitPerShare is RateAndAmountFormat36Choice_ AccumulatedProfitPerShareValue)
+        {
+            writer.WriteStartElement(null, "AcmltdPrftPerShr", xmlNamespace );
+            AccumulatedProfitPerShareValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeemedDividendPerShare is RateAndAmountFormat36Choice_ DeemedDividendPerShareValue)
+        {
+            writer.WriteStartElement(null, "DmdDvddPerShr", xmlNamespace );
+            DeemedDividendPerShareValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ResidualDistributionAmountPerShare is RateAndAmountFormat36Choice_ ResidualDistributionAmountPerShareValue)
+        {
+            writer.WriteStartElement(null, "RsdlDstrbtnAmtPerShr", xmlNamespace );
+            ResidualDistributionAmountPerShareValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static UpdatedAdditionalInformation5SD3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

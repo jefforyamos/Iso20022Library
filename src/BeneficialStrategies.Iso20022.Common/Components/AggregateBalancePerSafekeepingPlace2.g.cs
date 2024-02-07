@@ -7,68 +7,122 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Net position of a segregated holding, in a single security, within the overall position held in a securities account at a specified place of safekeeping.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AggregateBalancePerSafekeepingPlace2
+     : IIsoXmlSerilizable<AggregateBalancePerSafekeepingPlace2>
 {
     #nullable enable
     
     /// <summary>
     /// Total quantity of financial instrument for the referenced holding.
     /// </summary>
-    [DataMember]
     public required BalanceQuantity1Choice_ AggregateBalance { get; init; } 
     /// <summary>
     /// Specifies the number of days used for calculating the accrued interest amount.
     /// </summary>
-    [DataMember]
     public IsoNumber? DaysAccrued { get; init; } 
     /// <summary>
     /// Total value of a balance of the securities account for a specific financial instrument, expressed in one or more currencies.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoActiveOrHistoricCurrencyAndAmount> HoldingValue { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoActiveOrHistoricCurrencyAndAmount? HoldingValue { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _VLvDF9p-Ed-ak6NoX_4Aeg_1033088415
     /// <summary>
     /// Interest amount that has accrued in between coupon payment periods.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? AccruedInterestAmount { get; init; } 
     /// <summary>
     /// Value of a security, as booked in an account. Book value is often different from the current market value of the security.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? BookValue { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Securities Depository (ICSD).
     /// </summary>
-    [DataMember]
     public required SafekeepingPlaceFormatChoice_ SafekeepingPlace { get; init; } 
     /// <summary>
     /// Price of the financial instrument in one or more currencies.
     /// </summary>
-    [DataMember]
-    public ValueList<PriceInformation1> PriceDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public PriceInformation1? PriceDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _VLvDG9p-Ed-ak6NoX_4Aeg_1210403344
     /// <summary>
     /// Currency exchange related to a securities order.
     /// </summary>
-    [DataMember]
     public ForeignExchangeTerms3? ForeignExchangeDetails { get; init; } 
     /// <summary>
     /// Net position of a segregated holding of a single security within the overall position held in a securities account, eg, sub-balance per status.
     /// </summary>
-    [DataMember]
-    public ValueList<SubBalanceInformation1> BalanceBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public SubBalanceInformation1? BalanceBreakdownDetails { get; init; } 
     /// <summary>
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalBalanceInformation> AdditionalBalanceBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalBalanceInformation? AdditionalBalanceBreakdownDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AggtBal", xmlNamespace );
+        AggregateBalance.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DaysAccrued is IsoNumber DaysAccruedValue)
+        {
+            writer.WriteStartElement(null, "DaysAcrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(DaysAccruedValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize HoldingValue, multiplicity Unknown
+        if (AccruedInterestAmount is IsoActiveOrHistoricCurrencyAndAmount AccruedInterestAmountValue)
+        {
+            writer.WriteStartElement(null, "AcrdIntrstAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(AccruedInterestAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (BookValue is IsoActiveOrHistoricCurrencyAndAmount BookValueValue)
+        {
+            writer.WriteStartElement(null, "BookVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(BookValueValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
+        SafekeepingPlace.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize PriceDetails, multiplicity Unknown
+        if (ForeignExchangeDetails is ForeignExchangeTerms3 ForeignExchangeDetailsValue)
+        {
+            writer.WriteStartElement(null, "FrgnXchgDtls", xmlNamespace );
+            ForeignExchangeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BalanceBreakdownDetails is SubBalanceInformation1 BalanceBreakdownDetailsValue)
+        {
+            writer.WriteStartElement(null, "BalBrkdwnDtls", xmlNamespace );
+            BalanceBreakdownDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalBalanceBreakdownDetails is AdditionalBalanceInformation AdditionalBalanceBreakdownDetailsValue)
+        {
+            writer.WriteStartElement(null, "AddtlBalBrkdwnDtls", xmlNamespace );
+            AdditionalBalanceBreakdownDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AggregateBalancePerSafekeepingPlace2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

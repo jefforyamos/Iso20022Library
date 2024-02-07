@@ -7,503 +7,1006 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Compares information related to both sides of a transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionMatchingCriteria6
+     : IIsoXmlSerilizable<TransactionMatchingCriteria6>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the information on the reporting tracking numbers are matching or not.
     /// </summary>
-    [DataMember]
     public CompareText2? ReportTrackingNumber { get; init; } 
     /// <summary>
     /// Specifies whether the information on the Unique Transaction Identifiers are matching or not.
     /// </summary>
-    [DataMember]
     public CompareUniqueTransactionIdentifier2? UniqueTransactionIdentifier { get; init; } 
     /// <summary>
     /// Specifies whether the information on the Prior Unique Transaction Identifiers are matching or not.
     /// </summary>
-    [DataMember]
     public CompareUniqueTransactionIdentifier2? PriorUniqueTransactionIdentifier { get; init; } 
     /// <summary>
     /// Specifies whether the information on the Subsequent Position Unique Transaction Identifiers are matching or not.
     /// </summary>
-    [DataMember]
     public CompareUniqueTransactionIdentifier2? SubsequentPositionUniqueTransactionIdentifier { get; init; } 
     /// <summary>
     /// Specifies whether the information on the delta are matching or not.
     /// </summary>
-    [DataMember]
     public CompareLongFraction19DecimalNumber1? Delta { get; init; } 
     /// <summary>
     /// Specifies whether the information on the trade confirmations are matching or not.
     /// </summary>
-    [DataMember]
     public CompareTradeConfirmation2? TradeConfirmation { get; init; } 
     /// <summary>
     /// Specifies whether the information on the trade clearing obligations are matching or not.
     /// </summary>
-    [DataMember]
     public CompareTradeClearingObligation1? TradeClearingObligation { get; init; } 
     /// <summary>
     /// Specifies whether the information on the trade clearing statuses are matching or not.
     /// </summary>
-    [DataMember]
     public CompareTradeClearingStatus3? TradeClearingStatus { get; init; } 
     /// <summary>
     /// Specifies whether the information on the master agreement types are matching or not.
     /// </summary>
-    [DataMember]
     public CompareMasterAgreementType1? MasterAgreementType { get; init; } 
     /// <summary>
     /// Specifies whether the information on the master agreement versions are matching or not.
     /// </summary>
-    [DataMember]
     public CompareMax50Text1? MasterAgreementVersion { get; init; } 
     /// <summary>
     /// Specifies whether the information on the intra groups are matching or not.
     /// </summary>
-    [DataMember]
     public CompareTrueFalseIndicator3? IntraGroup { get; init; } 
     /// <summary>
     /// Specifies whether the information on the post trade risk reductions are matching or not.
     /// </summary>
-    [DataMember]
     public ComparePostTradeRiskReduction2? PostTradeRiskReduction { get; init; } 
     /// <summary>
     /// Specifies whether the information on the derivative event are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDerivativeEvent1? DerivativeEvent { get; init; } 
     /// <summary>
     /// Specifies whether the information on the platform identifiers are matching or not.
     /// </summary>
-    [DataMember]
     public CompareMICIdentifier3? PlatformIdentifier { get; init; } 
     /// <summary>
     /// Specifies whether the information on the execution time stamps are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDateTime3? ExecutionTimeStamp { get; init; } 
     /// <summary>
     /// Specifies whether the information on the effective dates are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDate3? EffectiveDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the expiration dates are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDate3? ExpirationDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the early termination dates are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDate3? EarlyTerminationDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the settlement dates are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareDate3> SettlementDate { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareDate3? SettlementDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the delivery types are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDeliveryType1? DeliveryType { get; init; } 
     /// <summary>
     /// Specifies whether the the transaction prices are matching or not.
     /// </summary>
-    [DataMember]
     public CompareUnitPrice5? TransactionPrice { get; init; } 
     /// <summary>
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareDate3> PriceScheduleUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareDate3? PriceScheduleUnadjustedEffectiveDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareDate3> PriceScheduleUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareDate3? PriceScheduleUnadjustedEndDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the transaction price in effect between the unadjusted effective and end date are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareUnitPrice5> TransactionSchedulePrice { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareUnitPrice5? TransactionSchedulePrice { get; init; } 
     /// <summary>
     /// Specifies whether the information on the package prices are matching or not.
     /// </summary>
-    [DataMember]
     public CompareUnitPrice5? PackagePrice { get; init; } 
     /// <summary>
     /// Specifies whether the information on the notional amount first legs are matching or not.
     /// </summary>
-    [DataMember]
     public CompareAmountAndDirection3? NotionalAmountFirstLeg { get; init; } 
     /// <summary>
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareDate3> NotionalAmountFirstLegUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareDate3? NotionalAmountFirstLegUnadjustedEffectiveDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareDate3> NotionalAmountFirstLegUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareDate3? NotionalAmountFirstLegUnadjustedEndDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the notional amount in effect on associated effective date of first legs are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareAmountAndDirection3> NotionalAmountFirstLegScheduleAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareAmountAndDirection3? NotionalAmountFirstLegScheduleAmount { get; init; } 
     /// <summary>
     /// Specifies whether the information on the notional quantity first legs are matching or not.
     /// </summary>
-    [DataMember]
     public CompareLongFraction19DecimalNumber1? NotionalQuantityFirstLeg { get; init; } 
     /// <summary>
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareDate3> NotionalQuantityFirstLegUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareDate3? NotionalQuantityFirstLegUnadjustedEffectiveDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareDate3> NotionalQuantityFirstLegUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareDate3? NotionalQuantityFirstLegUnadjustedEndDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the notional quantity in effect on associated effective date of first legs are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareLongFraction19DecimalNumber1> NotionalQuantityFirstLegScheduleQuantity { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareLongFraction19DecimalNumber1? NotionalQuantityFirstLegScheduleQuantity { get; init; } 
     /// <summary>
     /// Specifies whether the information on the notional amount second legs are matching or not.
     /// </summary>
-    [DataMember]
     public CompareNotionalAmount1? NotionalAmountSecondLeg { get; init; } 
     /// <summary>
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareDate3> NotionalAmountSecondLegUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareDate3? NotionalAmountSecondLegUnadjustedEffectiveDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareDate3> NotionalAmountSecondLegUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareDate3? NotionalAmountSecondLegUnadjustedEndDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the notional amount in effect on associated effective date of second legs are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareAmountAndDirection3> NotionalAmountSecondLegScheduleAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareAmountAndDirection3? NotionalAmountSecondLegScheduleAmount { get; init; } 
     /// <summary>
     /// Specifies whether the information on the notional quantity second legs are matching or not.
     /// </summary>
-    [DataMember]
     public CompareLongFraction19DecimalNumber1? NotionalQuantitySecondLeg { get; init; } 
     /// <summary>
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareDate3> NotionalQuantitySecondLegUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareDate3? NotionalQuantitySecondLegUnadjustedEffectiveDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareDate3> NotionalQuantitySecondLegUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareDate3? NotionalQuantitySecondLegUnadjustedEndDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the notional quantity in effect on associated effective date of second legs are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareLongFraction19DecimalNumber1> NotionalQuantitySecondLegScheduleQuantity { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareLongFraction19DecimalNumber1? NotionalQuantitySecondLegScheduleQuantity { get; init; } 
     /// <summary>
     /// Payment related to elements not reported in dedicated fields.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareOtherPayment1> OtherPayment { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareOtherPayment1? OtherPayment { get; init; } 
     /// <summary>
     /// Specifies whether the information on the interest fixed rate legs are matching or not.
     /// </summary>
-    [DataMember]
     public CompareUnitPrice7? InterestFixedRateFirstLeg { get; init; } 
     /// <summary>
     /// Specifies whether the information on the day counts are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDayCount1? InterestFixedRateFirstLegDayCount { get; init; } 
     /// <summary>
     /// Specifies whether the information on the payment frequency units are matching or not.
     /// </summary>
-    [DataMember]
     public CompareFrequencyUnit1? InterestFixedRateFirstLegPaymentFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the information on the payment frequency values are matching or not.
     /// </summary>
-    [DataMember]
     public CompareNumber5? InterestFixedRateFirstLegPaymentFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the information on the interest floating rate identifiers are matching or not.
     /// </summary>
-    [DataMember]
     public CompareISINIdentifier4? InterestFloatingRateFirstLegIdentification { get; init; } 
     /// <summary>
     /// Specifies whether the information on the interest floating rate codes are matching or not.
     /// </summary>
-    [DataMember]
     public CompareBenchmarkCode1? InterestFloatingRateFirstLegCode { get; init; } 
     /// <summary>
     /// Specifies whether the information on the interest floating rate names are matching or not.
     /// </summary>
-    [DataMember]
     public CompareMax350Text1? InterestFloatingRateFirstLegName { get; init; } 
     /// <summary>
     /// Specifies whether the information on the day counts are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDayCount1? InterestFloatingRateFirstLegDayCount { get; init; } 
     /// <summary>
     /// Specifies whether the information on the payment frequency units are matching or not.
     /// </summary>
-    [DataMember]
     public CompareFrequencyUnit1? InterestFloatingRateFirstLegPaymentFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the information on the payment frequency values are matching or not.
     /// </summary>
-    [DataMember]
     public CompareNumber5? InterestFloatingRateFirstLegPaymentFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the information on the reference period units are matching or not.
     /// </summary>
-    [DataMember]
     public CompareFrequencyUnit1? InterestFloatingRateFirstLegReferencePeriodUnit { get; init; } 
     /// <summary>
     /// Specifies whether the information on the reference period values are matching or not.
     /// </summary>
-    [DataMember]
     public CompareNumber5? InterestFloatingRateFirstLegReferencePeriodValue { get; init; } 
     /// <summary>
     /// Specifies whether the information on the reset frequency units are matching or not.
     /// </summary>
-    [DataMember]
     public CompareFrequencyUnit1? InterestFloatingRateFirstLegResetFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the information on the reset frequency values are matching or not.
     /// </summary>
-    [DataMember]
     public CompareNumber5? InterestFloatingRateFirstLegResetFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the information on the spreads are matching or not.
     /// </summary>
-    [DataMember]
     public CompareUnitPrice8? InterestFloatingRateFirstLegSpread { get; init; } 
     /// <summary>
     /// Specifies whether the information on the interest fixed rate legs are matching or not.
     /// </summary>
-    [DataMember]
     public CompareUnitPrice7? InterestRateFixedSecondLeg { get; init; } 
     /// <summary>
     /// Specifies whether the information on the day counts are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDayCount1? InterestFixedRateSecondLegDayCount { get; init; } 
     /// <summary>
     /// Specifies whether the information on the payment frequency units are matching or not.
     /// </summary>
-    [DataMember]
     public CompareFrequencyUnit1? InterestFixedRateSecondLegPaymentFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the information on the payment frequency values are matching or not.
     /// </summary>
-    [DataMember]
     public CompareNumber5? InterestFixedRateSecondLegPaymentFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the information on the interest floating rate identifiers are matching or not.
     /// </summary>
-    [DataMember]
     public CompareISINIdentifier4? InterestFloatingRateSecondLegIdentification { get; init; } 
     /// <summary>
     /// Specifies whether the information on the interest floating rate codes are matching or not.
     /// </summary>
-    [DataMember]
     public CompareBenchmarkCode1? InterestFloatingRateSecondLegCode { get; init; } 
     /// <summary>
     /// Specifies whether the information on the interest floating rate names are matching or not.
     /// </summary>
-    [DataMember]
     public CompareMax350Text1? InterestFloatingRateSecondLegName { get; init; } 
     /// <summary>
     /// Specifies whether the information on the day counts are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDayCount1? InterestFloatingRateSecondLegDayCount { get; init; } 
     /// <summary>
     /// Specifies whether the information on the payment frequency units are matching or not.
     /// </summary>
-    [DataMember]
     public CompareFrequencyUnit1? InterestFloatingRateSecondLegPaymentFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the information on the payment frequency values are matching or not.
     /// </summary>
-    [DataMember]
     public CompareNumber5? InterestFloatingRateSecondLegPaymentFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the information on the reference period units are matching or not.
     /// </summary>
-    [DataMember]
     public CompareFrequencyUnit1? InterestFloatingRateSecondLegReferencePeriodUnit { get; init; } 
     /// <summary>
     /// Specifies whether the information on the reference period values are matching or not.
     /// </summary>
-    [DataMember]
     public CompareNumber5? InterestFloatingRateSecondLegReferencePeriodValue { get; init; } 
     /// <summary>
     /// Specifies whether the information on the reset frequency units are matching or not.
     /// </summary>
-    [DataMember]
     public CompareFrequencyUnit1? InterestFloatingRateSecondLegResetFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the information on the reset frequency values are matching or not.
     /// </summary>
-    [DataMember]
     public CompareNumber5? InterestFloatingRateSecondLegResetFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the information on the spreads are matching or not.
     /// </summary>
-    [DataMember]
     public CompareUnitPrice8? InterestFloatingRateSecondLegSpread { get; init; } 
     /// <summary>
     /// Specifies whether the information on the package spreads are matching or not.
     /// </summary>
-    [DataMember]
     public CompareUnitPrice8? PackageSpread { get; init; } 
     /// <summary>
     /// Specifies whether the information on the currency exchange rates are matching or not.
     /// </summary>
-    [DataMember]
     public CompareExchangeRate1? CurrencyExchangeRate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the forward currency exchange rates are matching or not.
     /// </summary>
-    [DataMember]
     public CompareExchangeRate1? CurrencyForwardExchangeRate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the currency exchange rate basis are matching or not.
     /// </summary>
-    [DataMember]
     public CompareExchangeRateBasis1? CurrencyExchangeRateBasis { get; init; } 
     /// <summary>
     /// Specifies whether the information on the commodities are matching or not.
     /// </summary>
-    [DataMember]
     public CompareCommodityAssetClass4? Commodity { get; init; } 
     /// <summary>
     /// Specifies whether the information on the delivery points or zones are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareDeliveryInterconnectionPoint1> EnergyDeliveryPointOrZone { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareDeliveryInterconnectionPoint1? EnergyDeliveryPointOrZone { get; init; } 
     /// <summary>
     /// Specifies whether the information on the interconnection points are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDeliveryInterconnectionPoint1? EnergyInterConnectionPoint { get; init; } 
     /// <summary>
     /// Specifies whether the information on the load types are matching or not.
     /// </summary>
-    [DataMember]
     public CompareEnergyLoadType1? EnergyLoadType { get; init; } 
     /// <summary>
     /// Attributes related to delivery of derivative contracts.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareEnergyDeliveryAttribute1> DeliveryAttribute { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareEnergyDeliveryAttribute1? DeliveryAttribute { get; init; } 
     /// <summary>
     /// Specifies whether the information on the option types are matching or not.
     /// </summary>
-    [DataMember]
     public CompareOptionType1? OptionType { get; init; } 
     /// <summary>
     /// Specifies whether the information on the exercise styles are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareOptionStyle1> OptionExerciseStyle { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareOptionStyle1? OptionExerciseStyle { get; init; } 
     /// <summary>
     /// Specifies whether the information on the strike prices are matching or not.
     /// </summary>
-    [DataMember]
     public CompareUnitPrice4? OptionStrikePrice { get; init; } 
     /// <summary>
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareDate3> OptionStrikePriceScheduleUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareDate3? OptionStrikePriceScheduleUnadjustedEffectiveDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareDate3> OptionStrikePriceScheduleUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareDate3? OptionStrikePriceScheduleUnadjustedEndDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the strike price in effect on associated effective dates are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareUnitPrice4> OptionStrikePriceScheduleAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareUnitPrice4? OptionStrikePriceScheduleAmount { get; init; } 
     /// <summary>
     /// Specifies whether the information on the premium amounts are matching or not.
     /// </summary>
-    [DataMember]
     public CompareActiveOrHistoricCurrencyAndAmount4? OptionPremiumAmount { get; init; } 
     /// <summary>
     /// Specifies whether the information on the premium payment dates are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDate3? OptionPremiumPaymentDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the maturity date of the underlying are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDate3? OptionMaturityDateOfUnderlying { get; init; } 
     /// <summary>
     /// Specifies whether the information on the credity seniority are matching or not.
     /// </summary>
-    [DataMember]
     public CompareSeniorityType1? CreditSeniority { get; init; } 
     /// <summary>
     /// Specifies whether the information on the credit reference parties are matching or not.
     /// </summary>
-    [DataMember]
     public CompareReferenceParty1? CreditReferenceParty { get; init; } 
     /// <summary>
     /// Specifies whether the information on the credit series are matching or not.
     /// </summary>
-    [DataMember]
     public CompareNumber7? CreditSeries { get; init; } 
     /// <summary>
     /// Specifies whether the information on the credit versions are matching or not.
     /// </summary>
-    [DataMember]
     public CompareNumber7? CreditVersion { get; init; } 
     /// <summary>
     /// Specifies whether the information on the index factors are matching or not.
     /// </summary>
-    [DataMember]
     public ComparePercentageRate3? CreditIndexFactor { get; init; } 
     /// <summary>
     /// Specifies whether the information on the credit tranches are matching or not.
     /// </summary>
-    [DataMember]
     public CompareTrancheIndicator1? CreditTranche { get; init; } 
     /// <summary>
     /// Specifies whether the information on the levels are matching or not.
     /// </summary>
-    [DataMember]
     public CompareReportingLevelType2? Level { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReportTrackingNumber is CompareText2 ReportTrackingNumberValue)
+        {
+            writer.WriteStartElement(null, "RptTrckgNb", xmlNamespace );
+            ReportTrackingNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UniqueTransactionIdentifier is CompareUniqueTransactionIdentifier2 UniqueTransactionIdentifierValue)
+        {
+            writer.WriteStartElement(null, "UnqTxIdr", xmlNamespace );
+            UniqueTransactionIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PriorUniqueTransactionIdentifier is CompareUniqueTransactionIdentifier2 PriorUniqueTransactionIdentifierValue)
+        {
+            writer.WriteStartElement(null, "PrrUnqTxIdr", xmlNamespace );
+            PriorUniqueTransactionIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SubsequentPositionUniqueTransactionIdentifier is CompareUniqueTransactionIdentifier2 SubsequentPositionUniqueTransactionIdentifierValue)
+        {
+            writer.WriteStartElement(null, "SbsqntPosUnqTxIdr", xmlNamespace );
+            SubsequentPositionUniqueTransactionIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Delta is CompareLongFraction19DecimalNumber1 DeltaValue)
+        {
+            writer.WriteStartElement(null, "Dlta", xmlNamespace );
+            DeltaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeConfirmation is CompareTradeConfirmation2 TradeConfirmationValue)
+        {
+            writer.WriteStartElement(null, "TradConf", xmlNamespace );
+            TradeConfirmationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeClearingObligation is CompareTradeClearingObligation1 TradeClearingObligationValue)
+        {
+            writer.WriteStartElement(null, "TradClrOblgtn", xmlNamespace );
+            TradeClearingObligationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeClearingStatus is CompareTradeClearingStatus3 TradeClearingStatusValue)
+        {
+            writer.WriteStartElement(null, "TradClrSts", xmlNamespace );
+            TradeClearingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MasterAgreementType is CompareMasterAgreementType1 MasterAgreementTypeValue)
+        {
+            writer.WriteStartElement(null, "MstrAgrmtTp", xmlNamespace );
+            MasterAgreementTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MasterAgreementVersion is CompareMax50Text1 MasterAgreementVersionValue)
+        {
+            writer.WriteStartElement(null, "MstrAgrmtVrsn", xmlNamespace );
+            MasterAgreementVersionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntraGroup is CompareTrueFalseIndicator3 IntraGroupValue)
+        {
+            writer.WriteStartElement(null, "IntraGrp", xmlNamespace );
+            IntraGroupValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PostTradeRiskReduction is ComparePostTradeRiskReduction2 PostTradeRiskReductionValue)
+        {
+            writer.WriteStartElement(null, "PstTradRskRdctn", xmlNamespace );
+            PostTradeRiskReductionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DerivativeEvent is CompareDerivativeEvent1 DerivativeEventValue)
+        {
+            writer.WriteStartElement(null, "DerivEvt", xmlNamespace );
+            DerivativeEventValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PlatformIdentifier is CompareMICIdentifier3 PlatformIdentifierValue)
+        {
+            writer.WriteStartElement(null, "PltfmIdr", xmlNamespace );
+            PlatformIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExecutionTimeStamp is CompareDateTime3 ExecutionTimeStampValue)
+        {
+            writer.WriteStartElement(null, "ExctnTmStmp", xmlNamespace );
+            ExecutionTimeStampValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EffectiveDate is CompareDate3 EffectiveDateValue)
+        {
+            writer.WriteStartElement(null, "FctvDt", xmlNamespace );
+            EffectiveDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExpirationDate is CompareDate3 ExpirationDateValue)
+        {
+            writer.WriteStartElement(null, "XprtnDt", xmlNamespace );
+            ExpirationDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EarlyTerminationDate is CompareDate3 EarlyTerminationDateValue)
+        {
+            writer.WriteStartElement(null, "EarlyTermntnDt", xmlNamespace );
+            EarlyTerminationDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementDate is CompareDate3 SettlementDateValue)
+        {
+            writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
+            SettlementDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveryType is CompareDeliveryType1 DeliveryTypeValue)
+        {
+            writer.WriteStartElement(null, "DlvryTp", xmlNamespace );
+            DeliveryTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionPrice is CompareUnitPrice5 TransactionPriceValue)
+        {
+            writer.WriteStartElement(null, "TxPric", xmlNamespace );
+            TransactionPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PriceScheduleUnadjustedEffectiveDate is CompareDate3 PriceScheduleUnadjustedEffectiveDateValue)
+        {
+            writer.WriteStartElement(null, "PricSchdlUadjstdFctvDt", xmlNamespace );
+            PriceScheduleUnadjustedEffectiveDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PriceScheduleUnadjustedEndDate is CompareDate3 PriceScheduleUnadjustedEndDateValue)
+        {
+            writer.WriteStartElement(null, "PricSchdlUadjstdEndDt", xmlNamespace );
+            PriceScheduleUnadjustedEndDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionSchedulePrice is CompareUnitPrice5 TransactionSchedulePriceValue)
+        {
+            writer.WriteStartElement(null, "TxSchdlPric", xmlNamespace );
+            TransactionSchedulePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PackagePrice is CompareUnitPrice5 PackagePriceValue)
+        {
+            writer.WriteStartElement(null, "PackgPric", xmlNamespace );
+            PackagePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotionalAmountFirstLeg is CompareAmountAndDirection3 NotionalAmountFirstLegValue)
+        {
+            writer.WriteStartElement(null, "NtnlAmtFrstLeg", xmlNamespace );
+            NotionalAmountFirstLegValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotionalAmountFirstLegUnadjustedEffectiveDate is CompareDate3 NotionalAmountFirstLegUnadjustedEffectiveDateValue)
+        {
+            writer.WriteStartElement(null, "NtnlAmtFrstLegUadjstdFctvDt", xmlNamespace );
+            NotionalAmountFirstLegUnadjustedEffectiveDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotionalAmountFirstLegUnadjustedEndDate is CompareDate3 NotionalAmountFirstLegUnadjustedEndDateValue)
+        {
+            writer.WriteStartElement(null, "NtnlAmtFrstLegUadjstdEndDt", xmlNamespace );
+            NotionalAmountFirstLegUnadjustedEndDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotionalAmountFirstLegScheduleAmount is CompareAmountAndDirection3 NotionalAmountFirstLegScheduleAmountValue)
+        {
+            writer.WriteStartElement(null, "NtnlAmtFrstLegSchdlAmt", xmlNamespace );
+            NotionalAmountFirstLegScheduleAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotionalQuantityFirstLeg is CompareLongFraction19DecimalNumber1 NotionalQuantityFirstLegValue)
+        {
+            writer.WriteStartElement(null, "NtnlQtyFrstLeg", xmlNamespace );
+            NotionalQuantityFirstLegValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotionalQuantityFirstLegUnadjustedEffectiveDate is CompareDate3 NotionalQuantityFirstLegUnadjustedEffectiveDateValue)
+        {
+            writer.WriteStartElement(null, "NtnlQtyFrstLegUadjstdFctvDt", xmlNamespace );
+            NotionalQuantityFirstLegUnadjustedEffectiveDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotionalQuantityFirstLegUnadjustedEndDate is CompareDate3 NotionalQuantityFirstLegUnadjustedEndDateValue)
+        {
+            writer.WriteStartElement(null, "NtnlQtyFrstLegUadjstdEndDt", xmlNamespace );
+            NotionalQuantityFirstLegUnadjustedEndDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotionalQuantityFirstLegScheduleQuantity is CompareLongFraction19DecimalNumber1 NotionalQuantityFirstLegScheduleQuantityValue)
+        {
+            writer.WriteStartElement(null, "NtnlQtyFrstLegSchdlQty", xmlNamespace );
+            NotionalQuantityFirstLegScheduleQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotionalAmountSecondLeg is CompareNotionalAmount1 NotionalAmountSecondLegValue)
+        {
+            writer.WriteStartElement(null, "NtnlAmtScndLeg", xmlNamespace );
+            NotionalAmountSecondLegValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotionalAmountSecondLegUnadjustedEffectiveDate is CompareDate3 NotionalAmountSecondLegUnadjustedEffectiveDateValue)
+        {
+            writer.WriteStartElement(null, "NtnlAmtScndLegUadjstdFctvDt", xmlNamespace );
+            NotionalAmountSecondLegUnadjustedEffectiveDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotionalAmountSecondLegUnadjustedEndDate is CompareDate3 NotionalAmountSecondLegUnadjustedEndDateValue)
+        {
+            writer.WriteStartElement(null, "NtnlAmtScndLegUadjstdEndDt", xmlNamespace );
+            NotionalAmountSecondLegUnadjustedEndDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotionalAmountSecondLegScheduleAmount is CompareAmountAndDirection3 NotionalAmountSecondLegScheduleAmountValue)
+        {
+            writer.WriteStartElement(null, "NtnlAmtScndLegSchdlAmt", xmlNamespace );
+            NotionalAmountSecondLegScheduleAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotionalQuantitySecondLeg is CompareLongFraction19DecimalNumber1 NotionalQuantitySecondLegValue)
+        {
+            writer.WriteStartElement(null, "NtnlQtyScndLeg", xmlNamespace );
+            NotionalQuantitySecondLegValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotionalQuantitySecondLegUnadjustedEffectiveDate is CompareDate3 NotionalQuantitySecondLegUnadjustedEffectiveDateValue)
+        {
+            writer.WriteStartElement(null, "NtnlQtyScndLegUadjstdFctvDt", xmlNamespace );
+            NotionalQuantitySecondLegUnadjustedEffectiveDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotionalQuantitySecondLegUnadjustedEndDate is CompareDate3 NotionalQuantitySecondLegUnadjustedEndDateValue)
+        {
+            writer.WriteStartElement(null, "NtnlQtyScndLegUadjstdEndDt", xmlNamespace );
+            NotionalQuantitySecondLegUnadjustedEndDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotionalQuantitySecondLegScheduleQuantity is CompareLongFraction19DecimalNumber1 NotionalQuantitySecondLegScheduleQuantityValue)
+        {
+            writer.WriteStartElement(null, "NtnlQtyScndLegSchdlQty", xmlNamespace );
+            NotionalQuantitySecondLegScheduleQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherPayment is CompareOtherPayment1 OtherPaymentValue)
+        {
+            writer.WriteStartElement(null, "OthrPmt", xmlNamespace );
+            OtherPaymentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFixedRateFirstLeg is CompareUnitPrice7 InterestFixedRateFirstLegValue)
+        {
+            writer.WriteStartElement(null, "IntrstFxdRateFrstLeg", xmlNamespace );
+            InterestFixedRateFirstLegValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFixedRateFirstLegDayCount is CompareDayCount1 InterestFixedRateFirstLegDayCountValue)
+        {
+            writer.WriteStartElement(null, "IntrstFxdRateFrstLegDayCnt", xmlNamespace );
+            InterestFixedRateFirstLegDayCountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFixedRateFirstLegPaymentFrequencyUnit is CompareFrequencyUnit1 InterestFixedRateFirstLegPaymentFrequencyUnitValue)
+        {
+            writer.WriteStartElement(null, "IntrstFxdRateFrstLegPmtFrqcyUnit", xmlNamespace );
+            InterestFixedRateFirstLegPaymentFrequencyUnitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFixedRateFirstLegPaymentFrequencyValue is CompareNumber5 InterestFixedRateFirstLegPaymentFrequencyValueValue)
+        {
+            writer.WriteStartElement(null, "IntrstFxdRateFrstLegPmtFrqcyVal", xmlNamespace );
+            InterestFixedRateFirstLegPaymentFrequencyValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFloatingRateFirstLegIdentification is CompareISINIdentifier4 InterestFloatingRateFirstLegIdentificationValue)
+        {
+            writer.WriteStartElement(null, "IntrstFltgRateFrstLegId", xmlNamespace );
+            InterestFloatingRateFirstLegIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFloatingRateFirstLegCode is CompareBenchmarkCode1 InterestFloatingRateFirstLegCodeValue)
+        {
+            writer.WriteStartElement(null, "IntrstFltgRateFrstLegCd", xmlNamespace );
+            InterestFloatingRateFirstLegCodeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFloatingRateFirstLegName is CompareMax350Text1 InterestFloatingRateFirstLegNameValue)
+        {
+            writer.WriteStartElement(null, "IntrstFltgRateFrstLegNm", xmlNamespace );
+            InterestFloatingRateFirstLegNameValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFloatingRateFirstLegDayCount is CompareDayCount1 InterestFloatingRateFirstLegDayCountValue)
+        {
+            writer.WriteStartElement(null, "IntrstFltgRateFrstLegDayCnt", xmlNamespace );
+            InterestFloatingRateFirstLegDayCountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFloatingRateFirstLegPaymentFrequencyUnit is CompareFrequencyUnit1 InterestFloatingRateFirstLegPaymentFrequencyUnitValue)
+        {
+            writer.WriteStartElement(null, "IntrstFltgRateFrstLegPmtFrqcyUnit", xmlNamespace );
+            InterestFloatingRateFirstLegPaymentFrequencyUnitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFloatingRateFirstLegPaymentFrequencyValue is CompareNumber5 InterestFloatingRateFirstLegPaymentFrequencyValueValue)
+        {
+            writer.WriteStartElement(null, "IntrstFltgRateFrstLegPmtFrqcyVal", xmlNamespace );
+            InterestFloatingRateFirstLegPaymentFrequencyValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFloatingRateFirstLegReferencePeriodUnit is CompareFrequencyUnit1 InterestFloatingRateFirstLegReferencePeriodUnitValue)
+        {
+            writer.WriteStartElement(null, "IntrstFltgRateFrstLegRefPrdUnit", xmlNamespace );
+            InterestFloatingRateFirstLegReferencePeriodUnitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFloatingRateFirstLegReferencePeriodValue is CompareNumber5 InterestFloatingRateFirstLegReferencePeriodValueValue)
+        {
+            writer.WriteStartElement(null, "IntrstFltgRateFrstLegRefPrdVal", xmlNamespace );
+            InterestFloatingRateFirstLegReferencePeriodValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFloatingRateFirstLegResetFrequencyUnit is CompareFrequencyUnit1 InterestFloatingRateFirstLegResetFrequencyUnitValue)
+        {
+            writer.WriteStartElement(null, "IntrstFltgRateFrstLegRstFrqcyUnit", xmlNamespace );
+            InterestFloatingRateFirstLegResetFrequencyUnitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFloatingRateFirstLegResetFrequencyValue is CompareNumber5 InterestFloatingRateFirstLegResetFrequencyValueValue)
+        {
+            writer.WriteStartElement(null, "IntrstFltgRateFrstLegRstFrqcyVal", xmlNamespace );
+            InterestFloatingRateFirstLegResetFrequencyValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFloatingRateFirstLegSpread is CompareUnitPrice8 InterestFloatingRateFirstLegSpreadValue)
+        {
+            writer.WriteStartElement(null, "IntrstFltgRateFrstLegSprd", xmlNamespace );
+            InterestFloatingRateFirstLegSpreadValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestRateFixedSecondLeg is CompareUnitPrice7 InterestRateFixedSecondLegValue)
+        {
+            writer.WriteStartElement(null, "IntrstRateFxdScndLeg", xmlNamespace );
+            InterestRateFixedSecondLegValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFixedRateSecondLegDayCount is CompareDayCount1 InterestFixedRateSecondLegDayCountValue)
+        {
+            writer.WriteStartElement(null, "IntrstFxdRateScndLegDayCnt", xmlNamespace );
+            InterestFixedRateSecondLegDayCountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFixedRateSecondLegPaymentFrequencyUnit is CompareFrequencyUnit1 InterestFixedRateSecondLegPaymentFrequencyUnitValue)
+        {
+            writer.WriteStartElement(null, "IntrstFxdRateScndLegPmtFrqcyUnit", xmlNamespace );
+            InterestFixedRateSecondLegPaymentFrequencyUnitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFixedRateSecondLegPaymentFrequencyValue is CompareNumber5 InterestFixedRateSecondLegPaymentFrequencyValueValue)
+        {
+            writer.WriteStartElement(null, "IntrstFxdRateScndLegPmtFrqcyVal", xmlNamespace );
+            InterestFixedRateSecondLegPaymentFrequencyValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFloatingRateSecondLegIdentification is CompareISINIdentifier4 InterestFloatingRateSecondLegIdentificationValue)
+        {
+            writer.WriteStartElement(null, "IntrstFltgRateScndLegId", xmlNamespace );
+            InterestFloatingRateSecondLegIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFloatingRateSecondLegCode is CompareBenchmarkCode1 InterestFloatingRateSecondLegCodeValue)
+        {
+            writer.WriteStartElement(null, "IntrstFltgRateScndLegCd", xmlNamespace );
+            InterestFloatingRateSecondLegCodeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFloatingRateSecondLegName is CompareMax350Text1 InterestFloatingRateSecondLegNameValue)
+        {
+            writer.WriteStartElement(null, "IntrstFltgRateScndLegNm", xmlNamespace );
+            InterestFloatingRateSecondLegNameValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFloatingRateSecondLegDayCount is CompareDayCount1 InterestFloatingRateSecondLegDayCountValue)
+        {
+            writer.WriteStartElement(null, "IntrstFltgRateScndLegDayCnt", xmlNamespace );
+            InterestFloatingRateSecondLegDayCountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFloatingRateSecondLegPaymentFrequencyUnit is CompareFrequencyUnit1 InterestFloatingRateSecondLegPaymentFrequencyUnitValue)
+        {
+            writer.WriteStartElement(null, "IntrstFltgRateScndLegPmtFrqcyUnit", xmlNamespace );
+            InterestFloatingRateSecondLegPaymentFrequencyUnitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFloatingRateSecondLegPaymentFrequencyValue is CompareNumber5 InterestFloatingRateSecondLegPaymentFrequencyValueValue)
+        {
+            writer.WriteStartElement(null, "IntrstFltgRateScndLegPmtFrqcyVal", xmlNamespace );
+            InterestFloatingRateSecondLegPaymentFrequencyValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFloatingRateSecondLegReferencePeriodUnit is CompareFrequencyUnit1 InterestFloatingRateSecondLegReferencePeriodUnitValue)
+        {
+            writer.WriteStartElement(null, "IntrstFltgRateScndLegRefPrdUnit", xmlNamespace );
+            InterestFloatingRateSecondLegReferencePeriodUnitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFloatingRateSecondLegReferencePeriodValue is CompareNumber5 InterestFloatingRateSecondLegReferencePeriodValueValue)
+        {
+            writer.WriteStartElement(null, "IntrstFltgRateScndLegRefPrdVal", xmlNamespace );
+            InterestFloatingRateSecondLegReferencePeriodValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFloatingRateSecondLegResetFrequencyUnit is CompareFrequencyUnit1 InterestFloatingRateSecondLegResetFrequencyUnitValue)
+        {
+            writer.WriteStartElement(null, "IntrstFltgRateScndLegRstFrqcyUnit", xmlNamespace );
+            InterestFloatingRateSecondLegResetFrequencyUnitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFloatingRateSecondLegResetFrequencyValue is CompareNumber5 InterestFloatingRateSecondLegResetFrequencyValueValue)
+        {
+            writer.WriteStartElement(null, "IntrstFltgRateScndLegRstFrqcyVal", xmlNamespace );
+            InterestFloatingRateSecondLegResetFrequencyValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestFloatingRateSecondLegSpread is CompareUnitPrice8 InterestFloatingRateSecondLegSpreadValue)
+        {
+            writer.WriteStartElement(null, "IntrstFltgRateScndLegSprd", xmlNamespace );
+            InterestFloatingRateSecondLegSpreadValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PackageSpread is CompareUnitPrice8 PackageSpreadValue)
+        {
+            writer.WriteStartElement(null, "PackgSprd", xmlNamespace );
+            PackageSpreadValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CurrencyExchangeRate is CompareExchangeRate1 CurrencyExchangeRateValue)
+        {
+            writer.WriteStartElement(null, "CcyXchgRate", xmlNamespace );
+            CurrencyExchangeRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CurrencyForwardExchangeRate is CompareExchangeRate1 CurrencyForwardExchangeRateValue)
+        {
+            writer.WriteStartElement(null, "CcyFwdXchgRate", xmlNamespace );
+            CurrencyForwardExchangeRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CurrencyExchangeRateBasis is CompareExchangeRateBasis1 CurrencyExchangeRateBasisValue)
+        {
+            writer.WriteStartElement(null, "CcyXchgRateBsis", xmlNamespace );
+            CurrencyExchangeRateBasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Commodity is CompareCommodityAssetClass4 CommodityValue)
+        {
+            writer.WriteStartElement(null, "Cmmdty", xmlNamespace );
+            CommodityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EnergyDeliveryPointOrZone is CompareDeliveryInterconnectionPoint1 EnergyDeliveryPointOrZoneValue)
+        {
+            writer.WriteStartElement(null, "NrgyDlvryPtOrZone", xmlNamespace );
+            EnergyDeliveryPointOrZoneValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EnergyInterConnectionPoint is CompareDeliveryInterconnectionPoint1 EnergyInterConnectionPointValue)
+        {
+            writer.WriteStartElement(null, "NrgyIntrCnnctnPt", xmlNamespace );
+            EnergyInterConnectionPointValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EnergyLoadType is CompareEnergyLoadType1 EnergyLoadTypeValue)
+        {
+            writer.WriteStartElement(null, "NrgyLdTp", xmlNamespace );
+            EnergyLoadTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveryAttribute is CompareEnergyDeliveryAttribute1 DeliveryAttributeValue)
+        {
+            writer.WriteStartElement(null, "DlvryAttr", xmlNamespace );
+            DeliveryAttributeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionType is CompareOptionType1 OptionTypeValue)
+        {
+            writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+            OptionTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionExerciseStyle is CompareOptionStyle1 OptionExerciseStyleValue)
+        {
+            writer.WriteStartElement(null, "OptnExrcStyle", xmlNamespace );
+            OptionExerciseStyleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionStrikePrice is CompareUnitPrice4 OptionStrikePriceValue)
+        {
+            writer.WriteStartElement(null, "OptnStrkPric", xmlNamespace );
+            OptionStrikePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionStrikePriceScheduleUnadjustedEffectiveDate is CompareDate3 OptionStrikePriceScheduleUnadjustedEffectiveDateValue)
+        {
+            writer.WriteStartElement(null, "OptnStrkPricSchdlUadjstdFctvDt", xmlNamespace );
+            OptionStrikePriceScheduleUnadjustedEffectiveDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionStrikePriceScheduleUnadjustedEndDate is CompareDate3 OptionStrikePriceScheduleUnadjustedEndDateValue)
+        {
+            writer.WriteStartElement(null, "OptnStrkPricSchdlUadjstdEndDt", xmlNamespace );
+            OptionStrikePriceScheduleUnadjustedEndDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionStrikePriceScheduleAmount is CompareUnitPrice4 OptionStrikePriceScheduleAmountValue)
+        {
+            writer.WriteStartElement(null, "OptnStrkPricSchdlAmt", xmlNamespace );
+            OptionStrikePriceScheduleAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionPremiumAmount is CompareActiveOrHistoricCurrencyAndAmount4 OptionPremiumAmountValue)
+        {
+            writer.WriteStartElement(null, "OptnPrmAmt", xmlNamespace );
+            OptionPremiumAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionPremiumPaymentDate is CompareDate3 OptionPremiumPaymentDateValue)
+        {
+            writer.WriteStartElement(null, "OptnPrmPmtDt", xmlNamespace );
+            OptionPremiumPaymentDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionMaturityDateOfUnderlying is CompareDate3 OptionMaturityDateOfUnderlyingValue)
+        {
+            writer.WriteStartElement(null, "OptnMtrtyDtOfUndrlyg", xmlNamespace );
+            OptionMaturityDateOfUnderlyingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditSeniority is CompareSeniorityType1 CreditSeniorityValue)
+        {
+            writer.WriteStartElement(null, "CdtSnrty", xmlNamespace );
+            CreditSeniorityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditReferenceParty is CompareReferenceParty1 CreditReferencePartyValue)
+        {
+            writer.WriteStartElement(null, "CdtRefPty", xmlNamespace );
+            CreditReferencePartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditSeries is CompareNumber7 CreditSeriesValue)
+        {
+            writer.WriteStartElement(null, "CdtSrs", xmlNamespace );
+            CreditSeriesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditVersion is CompareNumber7 CreditVersionValue)
+        {
+            writer.WriteStartElement(null, "CdtVrsn", xmlNamespace );
+            CreditVersionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditIndexFactor is ComparePercentageRate3 CreditIndexFactorValue)
+        {
+            writer.WriteStartElement(null, "CdtIndxFctr", xmlNamespace );
+            CreditIndexFactorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditTranche is CompareTrancheIndicator1 CreditTrancheValue)
+        {
+            writer.WriteStartElement(null, "CdtTrch", xmlNamespace );
+            CreditTrancheValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Level is CompareReportingLevelType2 LevelValue)
+        {
+            writer.WriteStartElement(null, "Lvl", xmlNamespace );
+            LevelValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionMatchingCriteria6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

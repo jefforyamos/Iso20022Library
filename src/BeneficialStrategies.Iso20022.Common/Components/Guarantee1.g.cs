@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Form of protection where a third party guarantees the performance of a financial obligation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Guarantee1
+     : IIsoXmlSerilizable<Guarantee1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of guarantee provider.
     /// </summary>
-    [DataMember]
     public required PartyIdentification118Choice_ Provider { get; init; } 
     /// <summary>
     /// Value of the collateral guarantee.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Prvdr", xmlNamespace );
+        Provider.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static Guarantee1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

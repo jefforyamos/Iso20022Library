@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information needed due to regulatory and statutory requirements.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StructuredRegulatoryReporting3
+     : IIsoXmlSerilizable<StructuredRegulatoryReporting3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of the information supplied in the regulatory reporting details.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Date related to the specified type of regulatory reporting details.
     /// </summary>
-    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// Country related to the specified type of regulatory reporting details.
     /// </summary>
-    [DataMember]
     public CountryCode? Country { get; init; } 
     /// <summary>
     /// Specifies the nature, purpose, and reason for the transaction to be reported for regulatory and statutory requirements in a coded form.
     /// </summary>
-    [DataMember]
     public IsoMax10Text? Code { get; init; } 
     /// <summary>
     /// Amount of money to be reported for regulatory and statutory requirements.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Additional details that cater for specific domestic regulatory requirements.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> Information { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? Information { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is IsoMax35Text TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Date is IsoISODate DateValue)
+        {
+            writer.WriteStartElement(null, "Dt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Country is CountryCode CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(CountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Code is IsoMax10Text CodeValue)
+        {
+            writer.WriteStartElement(null, "Cd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10Text(CodeValue)); // data type Max10Text System.String
+            writer.WriteEndElement();
+        }
+        if (Amount is IsoActiveOrHistoricCurrencyAndAmount AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(AmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Information is IsoMax35Text InformationValue)
+        {
+            writer.WriteStartElement(null, "Inf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(InformationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static StructuredRegulatoryReporting3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

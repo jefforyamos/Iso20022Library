@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.head.BusinessApplicationHeaderV02>;
 
 namespace BeneficialStrategies.Iso20022.head;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.head;
 /// Specific usage of this BusinessMessageHeader may be defined by the relevant SEG.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The Business Layer deals with Business Messages. The behaviour of the Business Messages is fully described by the Business Transaction and the structure of the Business Messages is fully described by the Message Definitions and related Message Rules, Rules and Market Practices. All of which are registered in the ISO 20022 Repository.|A single new Business Message (with its accompagnying business application header) is created - by the sending MessagingEndpoint - for each business event; that is each interaction in a Business Transaction. A Business Message adheres to the following principles:|"" A Business Message (and its business application header) must not contain information about the Message Transport System or the mechanics or mechanism of message sending, transportation, or receipt. |"" A Business Message must be comprehensible outside of the context of the Transport Message. That is the Business Message must not require knowledge of the Transport Message to be understood.|"" A Business Message may contain headers, footers, and envelopes that are meaningful for the business. When present, they are treated as any other message content, which means that they are considered part of the Message Definition of the Business Message and as such will be part of the ISO 20022 Repository.|"" A Business Message refers to Business Actors by their Name. Each instance of a Business Actor has one Name. The Business Actor must not be referred to in the Transport Layer.|Specific usage of this BusinessMessageHeader may be defined by the relevant SEG.")]
-public partial record BusinessApplicationHeaderV02 : IOuterRecord
+public partial record BusinessApplicationHeaderV02 : IOuterRecord<BusinessApplicationHeaderV02,BusinessApplicationHeaderV02Document>
+    ,IIsoXmlSerilizable<BusinessApplicationHeaderV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record BusinessApplicationHeaderV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AppHdr";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => BusinessApplicationHeaderV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -197,6 +204,92 @@ public partial record BusinessApplicationHeaderV02 : IOuterRecord
     {
         return new BusinessApplicationHeaderV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AppHdr");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CharacterSet is UnicodeChartsCode CharacterSetValue)
+        {
+            writer.WriteStartElement(null, "CharSet", xmlNamespace );
+            writer.WriteValue(CharacterSetValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Fr", xmlNamespace );
+        From.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "To", xmlNamespace );
+        To.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BizMsgIdr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(BusinessMessageIdentifier)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MsgDefIdr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageDefinitionIdentifier)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (BusinessService is IsoMax35Text BusinessServiceValue)
+        {
+            writer.WriteStartElement(null, "BizSvc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(BusinessServiceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MarketPractice is ImplementationSpecification1 MarketPracticeValue)
+        {
+            writer.WriteStartElement(null, "MktPrctc", xmlNamespace );
+            MarketPracticeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CreDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDate)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (BusinessProcessingDate is IsoISODateTime BusinessProcessingDateValue)
+        {
+            writer.WriteStartElement(null, "BizPrcgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(BusinessProcessingDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (CopyDuplicate is CopyDuplicate1Code CopyDuplicateValue)
+        {
+            writer.WriteStartElement(null, "CpyDplct", xmlNamespace );
+            writer.WriteValue(CopyDuplicateValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PossibleDuplicate is IsoYesNoIndicator PossibleDuplicateValue)
+        {
+            writer.WriteStartElement(null, "PssblDplct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PossibleDuplicateValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Priority is BusinessMessagePriorityCode PriorityValue)
+        {
+            writer.WriteStartElement(null, "Prty", xmlNamespace );
+            writer.WriteValue(PriorityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Signature is SignatureEnvelope SignatureValue)
+        {
+            writer.WriteStartElement(null, "Sgntr", xmlNamespace );
+            SignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Related is BusinessApplicationHeader5 RelatedValue)
+        {
+            writer.WriteStartElement(null, "Rltd", xmlNamespace );
+            RelatedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BusinessApplicationHeaderV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -204,9 +297,7 @@ public partial record BusinessApplicationHeaderV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BusinessApplicationHeaderV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record BusinessApplicationHeaderV02Document : IOuterDocument<BusinessApplicationHeaderV02>
+public partial record BusinessApplicationHeaderV02Document : IOuterDocument<BusinessApplicationHeaderV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -222,5 +313,22 @@ public partial record BusinessApplicationHeaderV02Document : IOuterDocument<Busi
     /// <summary>
     /// The instance of <seealso cref="BusinessApplicationHeaderV02"/> is required.
     /// </summary>
+    [DataMember(Name=BusinessApplicationHeaderV02.XmlTag)]
     public required BusinessApplicationHeaderV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(BusinessApplicationHeaderV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

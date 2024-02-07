@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides reason for rejection and/or additional information if required.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RejectionReason4
+     : IIsoXmlSerilizable<RejectionReason4>
 {
     #nullable enable
     
     /// <summary>
     /// Detailed description of the rejection reason.
     /// </summary>
-    [DataMember]
     public required RejectionReason3Code ReasonCode { get; init; } 
     /// <summary>
     /// Additional information related to the rejection and meant to allow for the precise identification of the rejection reason.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RsnCd", xmlNamespace );
+        writer.WriteValue(ReasonCode.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static RejectionReason4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

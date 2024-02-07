@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the entity issuing the command.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMCommandIdentification1
+     : IIsoXmlSerilizable<ATMCommandIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the entity issuing the command.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Origin { get; init; } 
     /// <summary>
     /// Unique identification of the command for the issuer of the command.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Reference { get; init; } 
     /// <summary>
     /// Identification or address of the host performing the command.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Processor { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Origin is IsoMax35Text OriginValue)
+        {
+            writer.WriteStartElement(null, "Orgn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Reference is IsoMax35Text ReferenceValue)
+        {
+            writer.WriteStartElement(null, "Ref", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Processor is IsoMax140Text ProcessorValue)
+        {
+            writer.WriteStartElement(null, "Prcr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(ProcessorValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMCommandIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

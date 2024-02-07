@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parties used for acting parties that apply either to the whole message or to individual sides.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ConfirmationParties3
+     : IIsoXmlSerilizable<ConfirmationParties3>
 {
     #nullable enable
     
     /// <summary>
     /// Party (buyer or seller) that positively affirms the details of a previously agreed security trade confirmation.
     /// </summary>
-    [DataMember]
     public required ConfirmationPartyDetails4 AffirmingParty { get; init; } 
     /// <summary>
     /// Party that buys goods or services, or a financial instrument.
     /// </summary>
-    [DataMember]
     public ConfirmationPartyDetails2? Buyer { get; init; } 
     /// <summary>
     /// Party that has applied, met specific requirements, and received a monetary or securities loan from a lender. The party initiating the request signs a promissory note agreeing to pay the lien holder back during a specified timeframe for the entire loan amount plus any additional fees. The borrower is legally responsible for repayment of the loan and is subject to any penalties for not repaying the loan back based on the lending terms agreed upon.
     /// </summary>
-    [DataMember]
     public ConfirmationPartyDetails2? Borrower { get; init; } 
     /// <summary>
     /// Party that sells goods or services, or a financial instrument.
     /// </summary>
-    [DataMember]
     public ConfirmationPartyDetails2? Seller { get; init; } 
     /// <summary>
     /// A private, public or institutional entity which makes funds available to others to borrow.
     /// </summary>
-    [DataMember]
     public ConfirmationPartyDetails2? Lender { get; init; } 
     /// <summary>
     /// Party involved in a legal proceeding, agreement, or other transaction.
     /// </summary>
-    [DataMember]
     public ConfirmationPartyDetails3? TradeBeneficiaryParty { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AffrmgPty", xmlNamespace );
+        AffirmingParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Buyer is ConfirmationPartyDetails2 BuyerValue)
+        {
+            writer.WriteStartElement(null, "Buyr", xmlNamespace );
+            BuyerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Borrower is ConfirmationPartyDetails2 BorrowerValue)
+        {
+            writer.WriteStartElement(null, "Brrwr", xmlNamespace );
+            BorrowerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Seller is ConfirmationPartyDetails2 SellerValue)
+        {
+            writer.WriteStartElement(null, "Sellr", xmlNamespace );
+            SellerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Lender is ConfirmationPartyDetails2 LenderValue)
+        {
+            writer.WriteStartElement(null, "Lndr", xmlNamespace );
+            LenderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeBeneficiaryParty is ConfirmationPartyDetails3 TradeBeneficiaryPartyValue)
+        {
+            writer.WriteStartElement(null, "TradBnfcryPty", xmlNamespace );
+            TradeBeneficiaryPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ConfirmationParties3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

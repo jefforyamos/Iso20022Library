@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Proxy1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Proxy1Choice;
 /// Specifies the elements required to assign a proxy.
 /// </summary>
 public partial record Proxy : Proxy1Choice_
+     , IIsoXmlSerilizable<Proxy>
 {
     #nullable enable
+    
     /// <summary>
     /// Indicates how to register a proxy.
     /// </summary>
@@ -34,6 +38,51 @@ public partial record Proxy : Proxy1Choice_
     /// <summary>
     /// Specifies the proxy persons which are authorised by the issuer.
     /// </summary>
-    public IReadOnlyCollection<Proxy3> AuthorisedProxy { get; init; } = [];
+    public ValueList<Proxy3> AuthorisedProxy { get; init; } = [];
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (RegistrationMethod is IsoMax350Text RegistrationMethodValue)
+        {
+            writer.WriteStartElement(null, "RegnMtd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(RegistrationMethodValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (Deadline is DateFormat2Choice_ DeadlineValue)
+        {
+            writer.WriteStartElement(null, "Ddln", xmlNamespace );
+            DeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (STPDeadline is DateFormat2Choice_ STPDeadlineValue)
+        {
+            writer.WriteStartElement(null, "STPDdln", xmlNamespace );
+            STPDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarketDeadline is DateFormat2Choice_ MarketDeadlineValue)
+        {
+            writer.WriteStartElement(null, "MktDdln", xmlNamespace );
+            MarketDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AuthrsdPrxy", xmlNamespace );
+        AuthorisedProxy.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new Proxy Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

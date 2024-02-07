@@ -7,33 +7,62 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Double volume cap report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record VolumeCapReport1
+     : IIsoXmlSerilizable<VolumeCapReport1>
 {
     #nullable enable
     
     /// <summary>
     /// Date or date range the report relates to.
     /// </summary>
-    [DataMember]
     public Period4Choice_? ReportingPeriod { get; init; } 
     /// <summary>
     /// The venue this report is in relation to specified as {MIC} (segment MIC, where available, otherwise operational MIC).
     /// </summary>
-    [DataMember]
     public IsoMICIdentifier? TradingVenue { get; init; } 
     /// <summary>
     /// Volume cap data specific to a reporting period.
     /// </summary>
-    [DataMember]
-    public ValueList<VolumeCapReport2> InstrumentReport { get; init; } = []; // Warning: Don't know multiplicity.
+    public VolumeCapReport2? InstrumentReport { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _Jl8K8OJCEeWWKb0jFHxViQ
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReportingPeriod is Period4Choice_ ReportingPeriodValue)
+        {
+            writer.WriteStartElement(null, "RptgPrd", xmlNamespace );
+            ReportingPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradingVenue is IsoMICIdentifier TradingVenueValue)
+        {
+            writer.WriteStartElement(null, "TradgVn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(TradingVenueValue)); // data type MICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize InstrumentReport, multiplicity Unknown
+    }
+    public static VolumeCapReport1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

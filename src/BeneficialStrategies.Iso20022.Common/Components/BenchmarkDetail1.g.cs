@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies further details of the benchmark.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BenchmarkDetail1
+     : IIsoXmlSerilizable<BenchmarkDetail1>
 {
     #nullable enable
     
     /// <summary>
     /// Full name of the benchmark.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text FullName { get; init; } 
     /// <summary>
     /// Index name of the benchmark.
     /// </summary>
-    [DataMember]
     public BenchmarkCurveName2Code? Index { get; init; } 
     /// <summary>
     /// Any other additional information about the benchmark.
     /// </summary>
-    [DataMember]
     public IsoMax20000Text? Comment { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FullNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(FullName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (Index is BenchmarkCurveName2Code IndexValue)
+        {
+            writer.WriteStartElement(null, "Indx", xmlNamespace );
+            writer.WriteValue(IndexValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Comment is IsoMax20000Text CommentValue)
+        {
+            writer.WriteStartElement(null, "Cmnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax20000Text(CommentValue)); // data type Max20000Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static BenchmarkDetail1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

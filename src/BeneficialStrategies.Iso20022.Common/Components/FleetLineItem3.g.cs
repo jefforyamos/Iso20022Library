@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Supplies additional transaction information for fleet transactions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FleetLineItem3
+     : IIsoXmlSerilizable<FleetLineItem3>
 {
     #nullable enable
     
@@ -24,48 +25,107 @@ public partial record FleetLineItem3
     /// True = Allowed
     /// False = Not allowed
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? AllowedItemIndicator { get; init; } 
     /// <summary>
     /// Indicates whether or not the line item represents a fuel or non-fuel product or service.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator FuelIndicator { get; init; } 
     /// <summary>
     /// Type of service received at the acceptor location. 
     /// </summary>
-    [DataMember]
     public FleetServiceType1Code? ServiceType { get; init; } 
     /// <summary>
     /// Contains a code that identifies a category of fleet products or services. 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? FleetProductCategory { get; init; } 
     /// <summary>
     /// Code that identifies the type of fuel or non-fuel product or service being purchased. 
     /// </summary>
-    [DataMember]
     public IsoMax15Text? FleetProductCode { get; init; } 
     /// <summary>
     /// Unit of measure of the item purchased.
     /// </summary>
-    [DataMember]
     public UnitOfMeasure1Code? UnitOfMeasure { get; init; } 
     /// <summary>
     /// Quantity of product or item.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? ProductQuantity { get; init; } 
     /// <summary>
     /// Total amount excluding tax.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalAmountExcludingTax { get; init; } 
     /// <summary>
     /// Total amount including tax.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalAmountIncludingTax { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AllowedItemIndicator is IsoTrueFalseIndicator AllowedItemIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AllwdItmInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AllowedItemIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FuelInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(FuelIndicator)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        if (ServiceType is FleetServiceType1Code ServiceTypeValue)
+        {
+            writer.WriteStartElement(null, "SvcTp", xmlNamespace );
+            writer.WriteValue(ServiceTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (FleetProductCategory is IsoMax35Text FleetProductCategoryValue)
+        {
+            writer.WriteStartElement(null, "FleetPdctCtgy", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(FleetProductCategoryValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (FleetProductCode is IsoMax15Text FleetProductCodeValue)
+        {
+            writer.WriteStartElement(null, "FleetPdctCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15Text(FleetProductCodeValue)); // data type Max15Text System.String
+            writer.WriteEndElement();
+        }
+        if (UnitOfMeasure is UnitOfMeasure1Code UnitOfMeasureValue)
+        {
+            writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
+            writer.WriteValue(UnitOfMeasureValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ProductQuantity is IsoDecimalNumber ProductQuantityValue)
+        {
+            writer.WriteStartElement(null, "PdctQty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(ProductQuantityValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (TotalAmountExcludingTax is IsoImpliedCurrencyAndAmount TotalAmountExcludingTaxValue)
+        {
+            writer.WriteStartElement(null, "TtlAmtExclgTax", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(TotalAmountExcludingTaxValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TotalAmountIncludingTax is IsoImpliedCurrencyAndAmount TotalAmountIncludingTaxValue)
+        {
+            writer.WriteStartElement(null, "TtlAmtInclgTax", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(TotalAmountIncludingTaxValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static FleetLineItem3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

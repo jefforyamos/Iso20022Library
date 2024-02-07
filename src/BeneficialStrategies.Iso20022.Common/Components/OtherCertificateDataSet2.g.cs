@@ -7,48 +7,81 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Formal document used to record a fact and used as proof of the fact, in the context of a commercial trade transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OtherCertificateDataSet2
+     : IIsoXmlSerilizable<OtherCertificateDataSet2>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the certificate data set.
     /// </summary>
-    [DataMember]
     public required DocumentIdentification1 DataSetIdentification { get; init; } 
     /// <summary>
     /// Unique identifier of the document.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text CertificateIdentification { get; init; } 
     /// <summary>
     /// Specifies the type of the certificate.
     /// </summary>
-    [DataMember]
     public required IsoExact4AlphaNumericText CertificateType { get; init; } 
     /// <summary>
     /// Issue date of the document.
     /// </summary>
-    [DataMember]
     public required IsoISODate IssueDate { get; init; } 
     /// <summary>
     /// Issuer of the certificate, typically the inspection company or its agent.
     /// </summary>
-    [DataMember]
     public required PartyIdentification26 Issuer { get; init; } 
     /// <summary>
     /// Additional and important information that could not be captured by structured fields.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax350Text> CertificateInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax350Text? CertificateInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DataSetId", xmlNamespace );
+        DataSetIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CertId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(CertificateIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CertTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(CertificateType)); // data type Exact4AlphaNumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IsseDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(IssueDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Issr", xmlNamespace );
+        Issuer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CertificateInformation is IsoMax350Text CertificateInformationValue)
+        {
+            writer.WriteStartElement(null, "CertInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(CertificateInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static OtherCertificateDataSet2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

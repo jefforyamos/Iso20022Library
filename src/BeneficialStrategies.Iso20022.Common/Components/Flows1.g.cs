@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payments to and from a concentration bank account of a central counterparty.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Flows1
+     : IIsoXmlSerilizable<Flows1>
 {
     #nullable enable
     
     /// <summary>
     /// Gross value of flows between the concentration bank account and accounts held at payment banks.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection102 PaymentBankFlows { get; init; } 
     /// <summary>
     /// Gross value of flows between the concentration bank account and investment counterparties in respect of maturing investments and any other flows in / out of the concentration account.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection102 InvestmentFlows { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PmtBkFlows", xmlNamespace );
+        PaymentBankFlows.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InvstmtFlows", xmlNamespace );
+        InvestmentFlows.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static Flows1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

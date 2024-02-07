@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.TransferOutCancellationInstruction>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// This message must contain the reference of the message to be cancelled. The message may also contain all the details of the message to be cancelled, but this is not recommended.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The TransferOutCancellationInstruction message is sent by an instructing party or an instructing party's designated agent to the executing party.|This message is used to request the cancellation of a TransferOutInstruction that was previously sent by the instructing party.|Usage|The TransferOutCancellationInstruction message is sent by an instructing party to request cancellation of a previously sent TransferOutInstruction.|This message must contain the reference of the message to be cancelled. The message may also contain all the details of the message to be cancelled, but this is not recommended.")]
-public partial record TransferOutCancellationInstruction : IOuterRecord
+public partial record TransferOutCancellationInstruction : IOuterRecord<TransferOutCancellationInstruction,TransferOutCancellationInstructionDocument>
+    ,IIsoXmlSerilizable<TransferOutCancellationInstruction>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record TransferOutCancellationInstruction : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "sese.002.001.01";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => TransferOutCancellationInstructionDocument.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -88,6 +95,44 @@ public partial record TransferOutCancellationInstruction : IOuterRecord
     {
         return new TransferOutCancellationInstructionDocument { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("sese.002.001.01");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+        PreviousReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PoolReference is AdditionalReference2 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference2 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransferOutToBeCancelled is TransferOut2 TransferOutToBeCancelledValue)
+        {
+            writer.WriteStartElement(null, "TrfOutToBeCanc", xmlNamespace );
+            TransferOutToBeCancelledValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransferOutCancellationInstruction Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -95,9 +140,7 @@ public partial record TransferOutCancellationInstruction : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransferOutCancellationInstruction"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record TransferOutCancellationInstructionDocument : IOuterDocument<TransferOutCancellationInstruction>
+public partial record TransferOutCancellationInstructionDocument : IOuterDocument<TransferOutCancellationInstruction>, IXmlSerializable
 {
     
     /// <summary>
@@ -113,5 +156,22 @@ public partial record TransferOutCancellationInstructionDocument : IOuterDocumen
     /// <summary>
     /// The instance of <seealso cref="TransferOutCancellationInstruction"/> is required.
     /// </summary>
+    [DataMember(Name=TransferOutCancellationInstruction.XmlTag)]
     public required TransferOutCancellationInstruction Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(TransferOutCancellationInstruction.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

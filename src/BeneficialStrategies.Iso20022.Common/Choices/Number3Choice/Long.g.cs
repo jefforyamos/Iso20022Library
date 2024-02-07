@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Number3Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.Number3Choice;
 /// Number of maximum 5 numeric text. Is only to be used in a delta statement.
 /// </summary>
 public partial record Long : Number3Choice_
+     , IIsoXmlSerilizable<Long>
 {
-    public required IsoExact5NumericText Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a numeric string with an exact length of 5 digits.
+    /// </summary>
+    public required IsoExact5NumericText Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Lng", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact5NumericText(Value)); // data type Exact5NumericText System.String
+        writer.WriteEndElement();
+    }
+    public static new Long Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

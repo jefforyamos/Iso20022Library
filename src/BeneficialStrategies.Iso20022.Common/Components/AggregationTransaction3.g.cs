@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment transaction with an aggregated amount.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AggregationTransaction3
+     : IIsoXmlSerilizable<AggregationTransaction3>
 {
     #nullable enable
     
     /// <summary>
     /// Date and time of the first payment.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? FirstPaymentDateTime { get; init; } 
     /// <summary>
     /// Date and time of the last payment.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? LastPaymentDateTime { get; init; } 
     /// <summary>
     /// Total number of payments that has been aggregated.
     /// </summary>
-    [DataMember]
     public IsoNumber? NumberOfPayments { get; init; } 
     /// <summary>
     /// Individual payment that has been aggregated.
     /// </summary>
-    [DataMember]
-    public ValueList<DetailedAmount21> IndividualPayment { get; init; } = []; // Warning: Don't know multiplicity.
+    public DetailedAmount21? IndividualPayment { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FirstPaymentDateTime is IsoISODateTime FirstPaymentDateTimeValue)
+        {
+            writer.WriteStartElement(null, "FrstPmtDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(FirstPaymentDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (LastPaymentDateTime is IsoISODateTime LastPaymentDateTimeValue)
+        {
+            writer.WriteStartElement(null, "LastPmtDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(LastPaymentDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (NumberOfPayments is IsoNumber NumberOfPaymentsValue)
+        {
+            writer.WriteStartElement(null, "NbOfPmts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfPaymentsValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (IndividualPayment is DetailedAmount21 IndividualPaymentValue)
+        {
+            writer.WriteStartElement(null, "IndvPmt", xmlNamespace );
+            IndividualPaymentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AggregationTransaction3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

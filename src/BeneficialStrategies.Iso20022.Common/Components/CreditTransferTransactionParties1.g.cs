@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies all the parties involved in a cover payment transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CreditTransferTransactionParties1
+     : IIsoXmlSerilizable<CreditTransferTransactionParties1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the financial institution that owes an amount of money to the (ultimate) financial institutional creditor.
     /// </summary>
-    [DataMember]
     public IsoAnyBICIdentifier? Debtor { get; init; } 
     /// <summary>
     /// Identifies the financial institution servicing an account for the debtor.
     /// </summary>
-    [DataMember]
     public IsoAnyBICIdentifier? DebtorAgent { get; init; } 
     /// <summary>
     /// Identifies the agent between the debtor's agent and the creditor's agent.
     /// </summary>
-    [DataMember]
     public IsoAnyBICIdentifier? IntermediaryAgent1 { get; init; } 
     /// <summary>
     /// Identifies the financial institution servicing an account for the creditor.
     /// </summary>
-    [DataMember]
     public IsoAnyBICIdentifier? CreditorAgent { get; init; } 
     /// <summary>
     /// Identifies the financial institution that receives an amount of money from the financial institutional debtor.
     /// </summary>
-    [DataMember]
     public IsoAnyBICIdentifier? Creditor { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Debtor is IsoAnyBICIdentifier DebtorValue)
+        {
+            writer.WriteStartElement(null, "Dbtr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(DebtorValue)); // data type AnyBICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (DebtorAgent is IsoAnyBICIdentifier DebtorAgentValue)
+        {
+            writer.WriteStartElement(null, "DbtrAgt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(DebtorAgentValue)); // data type AnyBICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (IntermediaryAgent1 is IsoAnyBICIdentifier IntermediaryAgent1Value)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt1", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(IntermediaryAgent1Value)); // data type AnyBICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (CreditorAgent is IsoAnyBICIdentifier CreditorAgentValue)
+        {
+            writer.WriteStartElement(null, "CdtrAgt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(CreditorAgentValue)); // data type AnyBICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (Creditor is IsoAnyBICIdentifier CreditorValue)
+        {
+            writer.WriteStartElement(null, "Cdtr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(CreditorValue)); // data type AnyBICIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CreditTransferTransactionParties1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains amount details for a specific type of charge.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Amount20
+     : IIsoXmlSerilizable<Amount20>
 {
     #nullable enable
     
     /// <summary>
     /// Type of telephone charge.
     /// </summary>
-    [DataMember]
     public TypeOfAmount19Code? TypeOfCharge { get; init; } 
     /// <summary>
     /// Description of other type of charge.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherTypeOfCharge { get; init; } 
     /// <summary>
     /// Contains the amount.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// A code to indicate the tax amount is credit or debit
     /// </summary>
-    [DataMember]
     public CreditDebit3Code? CreditDebit { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TypeOfCharge is TypeOfAmount19Code TypeOfChargeValue)
+        {
+            writer.WriteStartElement(null, "TpOfChrg", xmlNamespace );
+            writer.WriteValue(TypeOfChargeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherTypeOfCharge is IsoMax35Text OtherTypeOfChargeValue)
+        {
+            writer.WriteStartElement(null, "OthrTpOfChrg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeOfChargeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(Amount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (CreditDebit is CreditDebit3Code CreditDebitValue)
+        {
+            writer.WriteStartElement(null, "CdtDbt", xmlNamespace );
+            writer.WriteValue(CreditDebitValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static Amount20 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

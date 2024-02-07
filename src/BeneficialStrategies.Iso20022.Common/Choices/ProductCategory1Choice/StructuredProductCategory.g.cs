@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ProductCategory1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.ProductCategory1Choice;
 /// Specifies the type of product category.
 /// </summary>
 public partial record StructuredProductCategory : ProductCategory1Choice_
+     , IIsoXmlSerilizable<StructuredProductCategory>
 {
     #nullable enable
+    
     /// <summary>
     /// Specifies the type of product category by means of a code.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record StructuredProductCategory : ProductCategory1Choice_
     /// Specifies the category of a product.
     /// </summary>
     public required IsoMax35Text Category { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Ctgy", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Category)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static new StructuredProductCategory Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

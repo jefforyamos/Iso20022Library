@@ -7,63 +7,117 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters applied to the settlement of a security transfer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Transfer22
+     : IIsoXmlSerilizable<Transfer22>
 {
     #nullable enable
     
     /// <summary>
     /// Date at which the instructing party places the transfer instruction.
     /// </summary>
-    [DataMember]
     public DateFormat1Choice_? TransferDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be exchanged at the International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// </summary>
-    [DataMember]
     public IsoISODate? RequestedSettlementDate { get; init; } 
     /// <summary>
     /// Identifies whether or not saving plan or withdrawal or switch plan are included in the holdings.
     /// </summary>
-    [DataMember]
-    public ValueList<HoldingsPlanType1Code> HoldingsPlanType { get; init; } = [];
+    public SimpleValueList<HoldingsPlanType1Code> HoldingsPlanType { get; init; } = [];
     /// <summary>
     /// Information related to the financial instrument to be received.
     /// </summary>
-    [DataMember]
     public required FinancialInstrument13 FinancialInstrumentDetails { get; init; } 
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1 TotalUnitsNumber { get; init; } 
     /// <summary>
     /// Indicates whether the transfer results in a change of beneficial owner.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? OwnAccountTransferIndicator { get; init; } 
     /// <summary>
     /// Additional specific settlement information for non-regulated traded funds.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? NonStandardSettlementInformation { get; init; } 
     /// <summary>
     /// Party that receives securities from the delivering agent via the place of settlement, for example, securities central depository.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount93? ReceivingAgentDetails { get; init; } 
     /// <summary>
     /// Party that delivers securities to the receiving agent at the place of settlement, for example, a central securities depository.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount93? DeliveringAgentDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TransferDate is DateFormat1Choice_ TransferDateValue)
+        {
+            writer.WriteStartElement(null, "TrfDt", xmlNamespace );
+            TransferDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequestedSettlementDate is IsoISODate RequestedSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "ReqdSttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(RequestedSettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "HldgsPlanTp", xmlNamespace );
+        writer.WriteValue(HoldingsPlanType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FinInstrmDtls", xmlNamespace );
+        FinancialInstrumentDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlUnitsNb", xmlNamespace );
+        TotalUnitsNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OwnAccountTransferIndicator is IsoYesNoIndicator OwnAccountTransferIndicatorValue)
+        {
+            writer.WriteStartElement(null, "OwnAcctTrfInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OwnAccountTransferIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (NonStandardSettlementInformation is IsoMax350Text NonStandardSettlementInformationValue)
+        {
+            writer.WriteStartElement(null, "NonStdSttlmInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(NonStandardSettlementInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (ReceivingAgentDetails is PartyIdentificationAndAccount93 ReceivingAgentDetailsValue)
+        {
+            writer.WriteStartElement(null, "RcvgAgtDtls", xmlNamespace );
+            ReceivingAgentDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveringAgentDetails is PartyIdentificationAndAccount93 DeliveringAgentDetailsValue)
+        {
+            writer.WriteStartElement(null, "DlvrgAgtDtls", xmlNamespace );
+            DeliveringAgentDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Transfer22 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

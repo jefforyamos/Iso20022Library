@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.ReversalOfTransferInConfirmation>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// This message must contain the reference of the message to be reversed. The message may also contain all the details of the reversed message, but this is not recommended.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The ReversalOfTransferInConfirmation message is sent by an executing party to the instructing party or the instructing party's designated agent.|This message is used to reverse a TransferInConfirmation that was previously sent by the instructing party.|Usage|The ReversalOfTransferInConfirmation message is sent by an executing party to reverse a previously sent TransferInConfirmation.|This message must contain the reference of the message to be reversed. The message may also contain all the details of the reversed message, but this is not recommended.")]
-public partial record ReversalOfTransferInConfirmation : IOuterRecord
+public partial record ReversalOfTransferInConfirmation : IOuterRecord<ReversalOfTransferInConfirmation,ReversalOfTransferInConfirmationDocument>
+    ,IIsoXmlSerilizable<ReversalOfTransferInConfirmation>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record ReversalOfTransferInConfirmation : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "sese.008.001.01";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ReversalOfTransferInConfirmationDocument.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -89,6 +96,44 @@ public partial record ReversalOfTransferInConfirmation : IOuterRecord
     {
         return new ReversalOfTransferInConfirmationDocument { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("sese.008.001.01");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+        PreviousReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PoolReference is AdditionalReference2 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference2 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransferInConfirmationToBeReversed is TransferIn1 TransferInConfirmationToBeReversedValue)
+        {
+            writer.WriteStartElement(null, "TrfInConfToBeRvsd", xmlNamespace );
+            TransferInConfirmationToBeReversedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ReversalOfTransferInConfirmation Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -96,9 +141,7 @@ public partial record ReversalOfTransferInConfirmation : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReversalOfTransferInConfirmation"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ReversalOfTransferInConfirmationDocument : IOuterDocument<ReversalOfTransferInConfirmation>
+public partial record ReversalOfTransferInConfirmationDocument : IOuterDocument<ReversalOfTransferInConfirmation>, IXmlSerializable
 {
     
     /// <summary>
@@ -114,5 +157,22 @@ public partial record ReversalOfTransferInConfirmationDocument : IOuterDocument<
     /// <summary>
     /// The instance of <seealso cref="ReversalOfTransferInConfirmation"/> is required.
     /// </summary>
+    [DataMember(Name=ReversalOfTransferInConfirmation.XmlTag)]
     public required ReversalOfTransferInConfirmation Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ReversalOfTransferInConfirmation.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

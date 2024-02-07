@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData17Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData17Choice;
 /// Details of the margin lending transaction.
 /// </summary>
 public partial record MarginLending : TransactionLoanData17Choice_
+     , IIsoXmlSerilizable<MarginLending>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique trade Identifier (UTI) as agreed with the other counterparty.
     /// </summary>
@@ -46,10 +50,73 @@ public partial record MarginLending : TransactionLoanData17Choice_
     /// <summary>
     /// Data on amount and interest rates of the transaction.
     /// </summary>
-    public InterestRate3? MarginLoanAttribute { get; init;  } // Warning: Don't know multiplicity.
+    public InterestRate3? MarginLoanAttribute { get; init; } 
     /// <summary>
     /// Termination date in the case of a full early termination of the SFT.
     /// </summary>
     public IsoISODate? TerminationDate { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UnqTradIdr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax52Text(UniqueTradeIdentifier)); // data type Max52Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EvtDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(EventDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ExctnDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(ExecutionDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (TradingVenue is IsoMICIdentifier TradingVenueValue)
+        {
+            writer.WriteStartElement(null, "TradgVn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(TradingVenueValue)); // data type MICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (CollateralDeliveryMethod is CollateralDeliveryMethod1Code CollateralDeliveryMethodValue)
+        {
+            writer.WriteStartElement(null, "CollDlvryMtd", xmlNamespace );
+            writer.WriteValue(CollateralDeliveryMethodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OutstandingMarginLoanAmount is IsoActiveOrHistoricCurrencyAndAmount OutstandingMarginLoanAmountValue)
+        {
+            writer.WriteStartElement(null, "OutsdngMrgnLnAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(OutstandingMarginLoanAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ShortMarketValueAmount is IsoActiveOrHistoricCurrencyAndAmount ShortMarketValueAmountValue)
+        {
+            writer.WriteStartElement(null, "ShrtMktValAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ShortMarketValueAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MarginLoanAttribute is InterestRate3 MarginLoanAttributeValue)
+        {
+            writer.WriteStartElement(null, "MrgnLnAttr", xmlNamespace );
+            MarginLoanAttributeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TerminationDate is IsoISODate TerminationDateValue)
+        {
+            writer.WriteStartElement(null, "TermntnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(TerminationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static new MarginLending Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

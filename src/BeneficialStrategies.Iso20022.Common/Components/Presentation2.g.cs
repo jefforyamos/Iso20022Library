@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information for the presentation of documents.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Presentation2
+     : IIsoXmlSerilizable<Presentation2>
 {
     #nullable enable
     
     /// <summary>
     /// Party, other than beneficiary, forwarding the documents.
     /// </summary>
-    [DataMember]
     public PartyIdentification43? Presenter { get; init; } 
     /// <summary>
     /// Date on which the beneficiary presented the demand.
     /// </summary>
-    [DataMember]
     public IsoISODate? BeneficiaryPresentationDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Presenter is PartyIdentification43 PresenterValue)
+        {
+            writer.WriteStartElement(null, "Presntr", xmlNamespace );
+            PresenterValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BeneficiaryPresentationDate is IsoISODate BeneficiaryPresentationDateValue)
+        {
+            writer.WriteStartElement(null, "BnfcryPresntnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(BeneficiaryPresentationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static Presentation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

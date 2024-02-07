@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the transfer transaction amounts.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DetailedAmount17
+     : IIsoXmlSerilizable<DetailedAmount17>
 {
     #nullable enable
     
     /// <summary>
     /// Amount to be transferred from the source account to the destination account.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount AmountToTransfer { get; init; } 
     /// <summary>
     /// Currency of the amount to be transferred.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Transfer fees, accepted by the customer.
     /// </summary>
-    [DataMember]
-    public ValueList<DetailedAmount18> Fees { get; init; } = []; // Warning: Don't know multiplicity.
+    public DetailedAmount18? Fees { get; init; } 
     /// <summary>
     /// Amount of the donation.
     /// </summary>
-    [DataMember]
-    public ValueList<DetailedAmount18> Donation { get; init; } = []; // Warning: Don't know multiplicity.
+    public DetailedAmount18? Donation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AmtToTrf", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(AmountToTransfer)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Fees is DetailedAmount18 FeesValue)
+        {
+            writer.WriteStartElement(null, "Fees", xmlNamespace );
+            FeesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Donation is DetailedAmount18 DonationValue)
+        {
+            writer.WriteStartElement(null, "Dontn", xmlNamespace );
+            DonationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DetailedAmount17 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

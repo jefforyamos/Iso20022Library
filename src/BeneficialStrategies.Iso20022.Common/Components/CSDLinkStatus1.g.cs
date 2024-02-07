@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Business status of the party for processing in the system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CSDLinkStatus1
+     : IIsoXmlSerilizable<CSDLinkStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Status of the party maintenance instruction.
     /// </summary>
-    [DataMember]
     public required Status6Code Status { get; init; } 
     /// <summary>
     /// Underlying reason related to the creation of a transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<StatusReasonInformation10> StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public StatusReasonInformation10? StatusReason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (StatusReason is StatusReasonInformation10 StatusReasonValue)
+        {
+            writer.WriteStartElement(null, "StsRsn", xmlNamespace );
+            StatusReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CSDLinkStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

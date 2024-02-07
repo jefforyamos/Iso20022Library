@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.UnableToApplyJustificationChoice;
 
@@ -13,15 +15,41 @@ namespace BeneficialStrategies.Iso20022.Choices.UnableToApplyJustificationChoice
 /// Missing or incorrect information.
 /// </summary>
 public partial record MissingOrIncorrectInformation : UnableToApplyJustificationChoice_
+     , IIsoXmlSerilizable<MissingOrIncorrectInformation>
 {
     #nullable enable
+    
     /// <summary>
     /// Indicates the missing information.
     /// </summary>
-    public IReadOnlyCollection<UnableToApplyMissingInfo1Code> MissingInformation { get; init; } = [];
+    public SimpleValueList<UnableToApplyMissingInfo1Code> MissingInformation { get; init; } = [];
     /// <summary>
     /// Indicates the incorrect information.
     /// </summary>
-    public IReadOnlyCollection<UnableToApplyIncorrectInfo1Code> IncorrectInformation { get; init; } = [];
+    public SimpleValueList<UnableToApplyIncorrectInfo1Code> IncorrectInformation { get; init; } = [];
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MssngInf", xmlNamespace );
+        writer.WriteValue(MissingInformation.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IncrrctInf", xmlNamespace );
+        writer.WriteValue(IncorrectInformation.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new MissingOrIncorrectInformation Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

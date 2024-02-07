@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates whether the collateral is proprietarily owned or client owned.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralOwnership1
+     : IIsoXmlSerilizable<CollateralOwnership1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates that the collateral is owned by the clearing member or not.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Proprietary { get; init; } 
     /// <summary>
     /// Indicates that the client owns the collateral.
     /// </summary>
-    [DataMember]
     public PartyIdentification33Choice_? ClientName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Prtry", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Proprietary)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (ClientName is PartyIdentification33Choice_ ClientNameValue)
+        {
+            writer.WriteStartElement(null, "ClntNm", xmlNamespace );
+            ClientNameValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralOwnership1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

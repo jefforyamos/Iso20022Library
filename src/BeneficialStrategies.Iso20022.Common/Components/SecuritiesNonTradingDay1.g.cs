@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details the date and reason for a non working day.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesNonTradingDay1
+     : IIsoXmlSerilizable<SecuritiesNonTradingDay1>
 {
     #nullable enable
     
@@ -24,18 +25,47 @@ public partial record SecuritiesNonTradingDay1
     /// Usage:
     /// This identification will be used in the status advice report sent back.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Non-working date.
     /// </summary>
-    [DataMember]
     public required IsoISODate Date { get; init; } 
     /// <summary>
     /// Reason code for the non-working day.
     /// </summary>
-    [DataMember]
     public NonTradingDayReason1Code? Reason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TechnicalRecordIdentification is IsoMax35Text TechnicalRecordIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TechnicalRecordIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Dt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(Date)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (Reason is NonTradingDayReason1Code ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            writer.WriteValue(ReasonValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesNonTradingDay1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Modification on the value of goods and / or services. For example: rebate, discount, surcharge.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Adjustment6
+     : IIsoXmlSerilizable<Adjustment6>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of adjustment.
     /// </summary>
-    [DataMember]
     public required AdjustmentType1Choice_ Type { get; init; } 
     /// <summary>
     /// Specifies whether the adjustment must be subtracted or added to the total amount.
     /// </summary>
-    [DataMember]
     public required AdjustmentDirection1Code Direction { get; init; } 
     /// <summary>
     /// Specifies the monetary amount of the adjustment.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Drctn", xmlNamespace );
+        writer.WriteValue(Direction.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(Amount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static Adjustment6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

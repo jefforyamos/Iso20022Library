@@ -7,83 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action date details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionDateSD10
+     : IIsoXmlSerilizable<CorporateActionDateSD10>
 {
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Last day on which DTC (The Depository Trust Corporation) will accept instructions for CD early redemptions. This is specific to CDs when the registered holder is deceased.
     /// </summary>
-    [DataMember]
     public IsoISODate? DTCLastDayForEarlyRedemption { get; init; } 
     /// <summary>
     /// Date when positions are captured and entitlements are calculated in the system at DTC (The Depository Trust Corporation).
     /// </summary>
-    [DataMember]
     public IsoISODate? DTCPositionCaptureDate { get; init; } 
     /// <summary>
     /// Last day to deposit securities at DTC and receive the entitlement for an event approaching record date. Issues that have a New York cut-off date have an out-of-town agent on DTC's records.
     /// </summary>
-    [DataMember]
     public IsoISODate? NewYorkCutOffDate { get; init; } 
     /// <summary>
     /// Cut Off date for DTC (The Depository Trust Corporation) deposit and withdrawal activity. Certain events require an earlier cut off date. This is typically used on event securities requiring the submission of bearer coupons. Those events usually stop deposit and withdrawal activity one month prior to the declared record date.
     /// </summary>
-    [DataMember]
     public IsoISODate? DTCExtendedCutOffDate { get; init; } 
     /// <summary>
     /// Effective date as declared by the primary exchange that generally coincides with cessation of trading in the old security and commencement of trading in the new security.
     /// </summary>
-    [DataMember]
     public IsoISODate? EffectiveDateByExchange { get; init; } 
     /// <summary>
     /// Date that DTC received formal notification from the agent/issuer stating that the securities are null and void.
     /// </summary>
-    [DataMember]
     public IsoISODate? DateDeclaredWorthless { get; init; } 
     /// <summary>
     /// Date when DTC participant positions will be deleted. Typically used for expired rights and warrants.
     /// </summary>
-    [DataMember]
     public IsoISODate? DeleteWorthlessSecurityDate { get; init; } 
     /// <summary>
     /// Date on which securities will be exited to DTC participants from DTC (The Depository Trust Corporation).
     /// </summary>
-    [DataMember]
     public IsoISODate? DTCExitDate { get; init; } 
     /// <summary>
     /// Date on which a holder can begin to subscribe for new/additional shares.
     /// </summary>
-    [DataMember]
     public IsoISODate? SubscriptionBeginDate { get; init; } 
     /// <summary>
     /// Date used for determining client position for allocating rights.
     /// </summary>
-    [DataMember]
     public IsoISODate? RightsDistributionAsOfDate { get; init; } 
     /// <summary>
     /// Date at which the rights allocation occurred.
     /// </summary>
-    [DataMember]
     public IsoISODate? RightsDistributionDate { get; init; } 
     /// <summary>
     /// Date which defines the timing of the Dividend Equivalent payment as per IRS regulation 871m.
     /// </summary>
-    [DataMember]
     public IsoISODate? TimingDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (DTCLastDayForEarlyRedemption is IsoISODate DTCLastDayForEarlyRedemptionValue)
+        {
+            writer.WriteStartElement(null, "DTCLastDayForEarlyRed", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DTCLastDayForEarlyRedemptionValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (DTCPositionCaptureDate is IsoISODate DTCPositionCaptureDateValue)
+        {
+            writer.WriteStartElement(null, "DTCPosCaptrDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DTCPositionCaptureDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (NewYorkCutOffDate is IsoISODate NewYorkCutOffDateValue)
+        {
+            writer.WriteStartElement(null, "NewYorkCutOffDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(NewYorkCutOffDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (DTCExtendedCutOffDate is IsoISODate DTCExtendedCutOffDateValue)
+        {
+            writer.WriteStartElement(null, "DTCXtndedCutOffDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DTCExtendedCutOffDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (EffectiveDateByExchange is IsoISODate EffectiveDateByExchangeValue)
+        {
+            writer.WriteStartElement(null, "FctvDtByXchg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(EffectiveDateByExchangeValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (DateDeclaredWorthless is IsoISODate DateDeclaredWorthlessValue)
+        {
+            writer.WriteStartElement(null, "DtDclrdWrthls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateDeclaredWorthlessValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (DeleteWorthlessSecurityDate is IsoISODate DeleteWorthlessSecurityDateValue)
+        {
+            writer.WriteStartElement(null, "DelWrthlsSctyDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DeleteWorthlessSecurityDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (DTCExitDate is IsoISODate DTCExitDateValue)
+        {
+            writer.WriteStartElement(null, "DTCExitDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DTCExitDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SubscriptionBeginDate is IsoISODate SubscriptionBeginDateValue)
+        {
+            writer.WriteStartElement(null, "SbcptBegnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(SubscriptionBeginDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (RightsDistributionAsOfDate is IsoISODate RightsDistributionAsOfDateValue)
+        {
+            writer.WriteStartElement(null, "RghtsDstrbtnAsOfDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(RightsDistributionAsOfDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (RightsDistributionDate is IsoISODate RightsDistributionDateValue)
+        {
+            writer.WriteStartElement(null, "RghtsDstrbtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(RightsDistributionDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (TimingDate is IsoISODate TimingDateValue)
+        {
+            writer.WriteStartElement(null, "TmgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(TimingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionDateSD10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

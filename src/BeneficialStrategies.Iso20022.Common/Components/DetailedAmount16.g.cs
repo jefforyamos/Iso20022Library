@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amounts of the deposit transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DetailedAmount16
+     : IIsoXmlSerilizable<DetailedAmount16>
 {
     #nullable enable
     
     /// <summary>
     /// Link to the account for multi-account deposit.
     /// </summary>
-    [DataMember]
     public IsoNumber? AccountSequenceNumber { get; init; } 
     /// <summary>
     /// Amount of the deposit to be made on the ATM after the approval of the deposit transaction.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? AmountToDeposit { get; init; } 
     /// <summary>
     /// Currency of the amount to deposit when different from the base currency of the ATM.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Cashback amount value.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? CashBackAmount { get; init; } 
     /// <summary>
     /// Deposit fees, accepted by the customer.
     /// </summary>
-    [DataMember]
-    public ValueList<DetailedAmount13> Fees { get; init; } = []; // Warning: Don't know multiplicity.
+    public DetailedAmount13? Fees { get; init; } 
     /// <summary>
     /// Amount of the donation.
     /// </summary>
-    [DataMember]
-    public ValueList<DetailedAmount13> Donation { get; init; } = []; // Warning: Don't know multiplicity.
+    public DetailedAmount13? Donation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountSequenceNumber is IsoNumber AccountSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "AcctSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(AccountSequenceNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (AmountToDeposit is IsoImpliedCurrencyAndAmount AmountToDepositValue)
+        {
+            writer.WriteStartElement(null, "AmtToDpst", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(AmountToDepositValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CashBackAmount is IsoImpliedCurrencyAndAmount CashBackAmountValue)
+        {
+            writer.WriteStartElement(null, "CshBckAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(CashBackAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Fees is DetailedAmount13 FeesValue)
+        {
+            writer.WriteStartElement(null, "Fees", xmlNamespace );
+            FeesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Donation is DetailedAmount13 DonationValue)
+        {
+            writer.WriteStartElement(null, "Dontn", xmlNamespace );
+            DonationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DetailedAmount16 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

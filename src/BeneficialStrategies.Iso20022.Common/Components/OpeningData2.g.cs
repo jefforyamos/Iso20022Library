@@ -7,58 +7,101 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// List of elements which specify the opening of a non deliverable trade.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OpeningData2
+     : IIsoXmlSerilizable<OpeningData2>
 {
     #nullable enable
     
     /// <summary>
     /// Date at which the trading parties execute a treasury trade.
     /// </summary>
-    [DataMember]
     public required IsoISODate TradeDate { get; init; } 
     /// <summary>
     /// Refers to the identification of a notification assigned by the trading side.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text NotificationIdentification { get; init; } 
     /// <summary>
     /// Reference common to the parties of a trade.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CommonReference { get; init; } 
     /// <summary>
     /// Refers to the identification of a previous event in the life of a non deliverable forward trade.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RelatedReference { get; init; } 
     /// <summary>
     /// Describes the reason for the cancellation or the amendment.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AmendOrCancelReason { get; init; } 
     /// <summary>
     /// Specifies the amounts of the non deliverable trade which is reported.
     /// </summary>
-    [DataMember]
     public required AmountsAndValueDate1 TradeAmounts { get; init; } 
     /// <summary>
     /// Exchange rate between two currencies. The rate is agreed by the trading parties during the negotiation process.
     /// </summary>
-    [DataMember]
     public required AgreedRate1 AgreedRate { get; init; } 
     /// <summary>
     /// Set of parameters used to calculate the valuation rate to be applied to a non-deliverable agreement.
     /// </summary>
-    [DataMember]
     public required NonDeliverableForwardValuationConditions2 ValuationConditions { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TradDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(TradeDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NtfctnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(NotificationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (CommonReference is IsoMax35Text CommonReferenceValue)
+        {
+            writer.WriteStartElement(null, "CmonRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CommonReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is IsoMax35Text RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RelatedReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AmendOrCancelReason is IsoMax35Text AmendOrCancelReasonValue)
+        {
+            writer.WriteStartElement(null, "AmdOrCclRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AmendOrCancelReasonValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TradAmts", xmlNamespace );
+        TradeAmounts.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AgrdRate", xmlNamespace );
+        AgreedRate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ValtnConds", xmlNamespace );
+        ValuationConditions.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static OpeningData2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

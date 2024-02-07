@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.auth.InformationRequestOpeningV01>;
 
 namespace BeneficialStrategies.Iso20022.auth;
 
@@ -23,10 +26,9 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// Requests are underpinned by specific legal texts.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"This message is sent by the authorities (police, customs, tax authorities, enforcement authorities) to a financial institution to request account and other banking and financial information. Requested information can relate to accounts, their signatories and beneficiaries and co-owners as well as movements plus positions on these accounts.||Requests are underpinned by specific legal texts.")]
-public partial record InformationRequestOpeningV01 : IOuterRecord
+public partial record InformationRequestOpeningV01 : IOuterRecord<InformationRequestOpeningV01,InformationRequestOpeningV01Document>
+    ,IIsoXmlSerilizable<InformationRequestOpeningV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -38,6 +40,11 @@ public partial record InformationRequestOpeningV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "InfReqOpng";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => InformationRequestOpeningV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -117,6 +124,50 @@ public partial record InformationRequestOpeningV01 : IOuterRecord
     {
         return new InformationRequestOpeningV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("InfReqOpng");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "InvstgtnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(InvestigationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "LglMndtBsis", xmlNamespace );
+        LegalMandateBasis.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CnfdtltySts", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ConfidentialityStatus)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (DueDate is DueDate1 DueDateValue)
+        {
+            writer.WriteStartElement(null, "DueDt", xmlNamespace );
+            DueDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InvstgtnPrd", xmlNamespace );
+        InvestigationPeriod.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SchCrit", xmlNamespace );
+        SearchCriteria.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InformationRequestOpeningV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -124,9 +175,7 @@ public partial record InformationRequestOpeningV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InformationRequestOpeningV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record InformationRequestOpeningV01Document : IOuterDocument<InformationRequestOpeningV01>
+public partial record InformationRequestOpeningV01Document : IOuterDocument<InformationRequestOpeningV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -142,5 +191,22 @@ public partial record InformationRequestOpeningV01Document : IOuterDocument<Info
     /// <summary>
     /// The instance of <seealso cref="InformationRequestOpeningV01"/> is required.
     /// </summary>
+    [DataMember(Name=InformationRequestOpeningV01.XmlTag)]
     public required InformationRequestOpeningV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(InformationRequestOpeningV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

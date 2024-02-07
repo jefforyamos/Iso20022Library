@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed amounts associated with the total amount of transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DetailedAmount14
+     : IIsoXmlSerilizable<DetailedAmount14>
 {
     #nullable enable
     
     /// <summary>
     /// Amount value.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Date and time of the payment.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime DateTime { get; init; } 
     /// <summary>
     /// Card data entry mode for the related payment.
     /// </summary>
-    [DataMember]
     public CardDataReading5Code? CardDataEntryMode { get; init; } 
     /// <summary>
     /// Data of an integrated circuit card application for the related payment.
     /// </summary>
-    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     /// <summary>
     /// Short description of the amount to display or print.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Label { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(Amount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(DateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (CardDataEntryMode is CardDataReading5Code CardDataEntryModeValue)
+        {
+            writer.WriteStartElement(null, "CardDataNtryMd", xmlNamespace );
+            writer.WriteValue(CardDataEntryModeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ICCRelatedData is IsoMax10000Binary ICCRelatedDataValue)
+        {
+            writer.WriteStartElement(null, "ICCRltdData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(ICCRelatedDataValue)); // data type Max10000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (Label is IsoMax140Text LabelValue)
+        {
+            writer.WriteStartElement(null, "Labl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(LabelValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static DetailedAmount14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

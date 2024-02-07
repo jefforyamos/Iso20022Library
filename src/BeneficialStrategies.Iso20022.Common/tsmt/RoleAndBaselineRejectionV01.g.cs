@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsmt.RoleAndBaselineRejectionV01>;
 
 namespace BeneficialStrategies.Iso20022.tsmt;
 
@@ -24,10 +27,9 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// The RoleAndBaselineRejection message is sent in response to a message that is a direct request to join a transaction.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The RoleAndBaselineRejection message is sent by a secondary bank to the matching application if it rejects to join the transaction based on the baseline and the role that it is expected to play.|Usage|The RoleAndBaselineRejection message is sent in response to a message that is a direct request to join a transaction.")]
-public partial record RoleAndBaselineRejectionV01 : IOuterRecord
+public partial record RoleAndBaselineRejectionV01 : IOuterRecord<RoleAndBaselineRejectionV01,RoleAndBaselineRejectionV01Document>
+    ,IIsoXmlSerilizable<RoleAndBaselineRejectionV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -39,6 +41,11 @@ public partial record RoleAndBaselineRejectionV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "RoleAndBaselnRjctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => RoleAndBaselineRejectionV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -89,6 +96,38 @@ public partial record RoleAndBaselineRejectionV01 : IOuterRecord
     {
         return new RoleAndBaselineRejectionV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("RoleAndBaselnRjctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RjctnId", xmlNamespace );
+        RejectionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RltdMsgRef", xmlNamespace );
+        RelatedMessageReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RejectionReason is Reason2 RejectionReasonValue)
+        {
+            writer.WriteStartElement(null, "RjctnRsn", xmlNamespace );
+            RejectionReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RoleAndBaselineRejectionV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -96,9 +135,7 @@ public partial record RoleAndBaselineRejectionV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RoleAndBaselineRejectionV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record RoleAndBaselineRejectionV01Document : IOuterDocument<RoleAndBaselineRejectionV01>
+public partial record RoleAndBaselineRejectionV01Document : IOuterDocument<RoleAndBaselineRejectionV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -114,5 +151,22 @@ public partial record RoleAndBaselineRejectionV01Document : IOuterDocument<RoleA
     /// <summary>
     /// The instance of <seealso cref="RoleAndBaselineRejectionV01"/> is required.
     /// </summary>
+    [DataMember(Name=RoleAndBaselineRejectionV01.XmlTag)]
     public required RoleAndBaselineRejectionV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(RoleAndBaselineRejectionV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

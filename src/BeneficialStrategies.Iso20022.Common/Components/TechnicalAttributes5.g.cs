@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies technical attributes of the message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TechnicalAttributes5
+     : IIsoXmlSerilizable<TechnicalAttributes5>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// List of possible values for TRs reconciliation purposes.
     /// </summary>
-    [DataMember]
     public Reconciliation3Code? ReconciliationFlag { get; init; } 
     /// <summary>
     /// Indicates the date and time of the receipt of the submission of the report to the trade repository as recorded by the trade repository. This item should only be present in a message from the trade repository to an authority and/or other recipients of the message.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ReportReceiptTimeStamp { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TechnicalRecordIdentification is IsoMax140Text TechnicalRecordIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(TechnicalRecordIdentificationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (ReconciliationFlag is Reconciliation3Code ReconciliationFlagValue)
+        {
+            writer.WriteStartElement(null, "RcncltnFlg", xmlNamespace );
+            writer.WriteValue(ReconciliationFlagValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ReportReceiptTimeStamp is IsoISODateTime ReportReceiptTimeStampValue)
+        {
+            writer.WriteStartElement(null, "RptRctTmStmp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ReportReceiptTimeStampValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static TechnicalAttributes5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

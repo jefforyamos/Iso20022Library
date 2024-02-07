@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the identification of the reported party through the location and the name or the sector.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReportedPartyIdentification1
+     : IIsoXmlSerilizable<ReportedPartyIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Name or sector of the counterparty of the reporting agent used by the reporting agent.
     /// </summary>
-    [DataMember]
     public required NameOrSector1Choice_ NameOrSector { get; init; } 
     /// <summary>
     /// Location of the country in which the counterparty is incorporated.
     /// </summary>
-    [DataMember]
     public required CountryCode Location { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NmOrSctr", xmlNamespace );
+        NameOrSector.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Lctn", xmlNamespace );
+        writer.WriteValue(Location.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static ReportedPartyIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

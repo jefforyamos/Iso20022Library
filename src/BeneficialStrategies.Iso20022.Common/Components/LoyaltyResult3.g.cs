@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to the result of a processed loyalty transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LoyaltyResult3
+     : IIsoXmlSerilizable<LoyaltyResult3>
 {
     #nullable enable
     
     /// <summary>
     /// Account managing the Loyalty.
     /// </summary>
-    [DataMember]
     public required LoyaltyAccount3 Account { get; init; } 
     /// <summary>
     /// Amount.
     /// </summary>
-    [DataMember]
     public LoyaltyAmount1? Amount { get; init; } 
     /// <summary>
     /// Data sent by the Loyalty server.
     /// </summary>
-    [DataMember]
     public LoyaltyServerData1? ServerData { get; init; } 
     /// <summary>
     /// Rebate information.
     /// </summary>
-    [DataMember]
     public LoyaltyRebates1? Rebates { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Acct", xmlNamespace );
+        Account.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Amount is LoyaltyAmount1 AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            AmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ServerData is LoyaltyServerData1 ServerDataValue)
+        {
+            writer.WriteStartElement(null, "SvrData", xmlNamespace );
+            ServerDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Rebates is LoyaltyRebates1 RebatesValue)
+        {
+            writer.WriteStartElement(null, "Rbts", xmlNamespace );
+            RebatesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LoyaltyResult3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

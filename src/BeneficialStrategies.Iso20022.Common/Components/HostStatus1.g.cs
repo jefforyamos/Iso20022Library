@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// State of a Host.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record HostStatus1
+     : IIsoXmlSerilizable<HostStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the Acquirer.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text AcquirerIdentification { get; init; } 
     /// <summary>
     /// Indicate if a Host is reachable.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? Reachable { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AcqrrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(AcquirerIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Reachable is IsoTrueFalseIndicator ReachableValue)
+        {
+            writer.WriteStartElement(null, "Rchbl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ReachableValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static HostStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

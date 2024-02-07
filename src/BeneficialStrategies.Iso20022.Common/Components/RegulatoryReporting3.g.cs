@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information needed due to regulatory and/or statutory requirements.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RegulatoryReporting3
+     : IIsoXmlSerilizable<RegulatoryReporting3>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies whether the regulatory reporting information applies to the debit side, to the credit side or to both debit and credit sides of the transaction.
     /// </summary>
-    [DataMember]
     public RegulatoryReportingType1Code? DebitCreditReportingIndicator { get; init; } 
     /// <summary>
     /// Entity requiring the regulatory reporting information.
     /// </summary>
-    [DataMember]
     public RegulatoryAuthority2? Authority { get; init; } 
     /// <summary>
     /// Set of elements used to provide details on the regulatory reporting information.
     /// </summary>
-    [DataMember]
-    public ValueList<StructuredRegulatoryReporting3> Details { get; init; } = []; // Warning: Don't know multiplicity.
+    public StructuredRegulatoryReporting3? Details { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DebitCreditReportingIndicator is RegulatoryReportingType1Code DebitCreditReportingIndicatorValue)
+        {
+            writer.WriteStartElement(null, "DbtCdtRptgInd", xmlNamespace );
+            writer.WriteValue(DebitCreditReportingIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Authority is RegulatoryAuthority2 AuthorityValue)
+        {
+            writer.WriteStartElement(null, "Authrty", xmlNamespace );
+            AuthorityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Details is StructuredRegulatoryReporting3 DetailsValue)
+        {
+            writer.WriteStartElement(null, "Dtls", xmlNamespace );
+            DetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RegulatoryReporting3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

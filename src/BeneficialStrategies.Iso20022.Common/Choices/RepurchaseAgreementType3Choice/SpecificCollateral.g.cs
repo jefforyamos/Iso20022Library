@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.RepurchaseAgreementType3Choice;
 
@@ -13,11 +15,34 @@ namespace BeneficialStrategies.Iso20022.Choices.RepurchaseAgreementType3Choice;
 /// Indicates that the repurchase agreement is where a single, pre defined, financial instrument is sold and repurchased.
 /// </summary>
 public partial record SpecificCollateral : RepurchaseAgreementType3Choice_
+     , IIsoXmlSerilizable<SpecificCollateral>
 {
     #nullable enable
+    
     /// <summary>
     /// Identification of collateral placed as security for repo.
     /// </summary>
     public required FinancialInstrument59 FinancialInstrumentIdentification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new SpecificCollateral Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

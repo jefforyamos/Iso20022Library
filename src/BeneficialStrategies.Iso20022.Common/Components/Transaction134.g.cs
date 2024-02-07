@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Network management transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Transaction134
+     : IIsoXmlSerilizable<Transaction134>
 {
     #nullable enable
     
@@ -24,54 +25,118 @@ public partial record Transaction134
     /// ISO 8583:87/93 bit 24
     /// ISO 8583:2003 bit 70
     /// </summary>
-    [DataMember]
     public NetworkManagementType1Code? NetworkManagementType { get; init; } 
     /// <summary>
     /// Other type of network management in free text.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherNetworkManagementType { get; init; } 
     /// <summary>
     /// Reason or purpose to send the message.
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    [DataMember]
-    public ValueList<ISO8583MessageReasonCode> MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public ISO8583MessageReasonCode? MessageReason { get; init; } 
     /// <summary>
     /// Supports message reason codes that are not defined in external code list. 
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax256Text> AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax256Text? AlternateMessageReason { get; init; } 
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
-    [DataMember]
     public required TransactionIdentification12 TransactionIdentification { get; init; } 
     /// <summary>
     /// Number of messages in the store and forward queue.
     /// </summary>
-    [DataMember]
     public IsoNumber? NumberOfMessages { get; init; } 
     /// <summary>
     /// Maximum number of messages in the store and forward queue.
     /// </summary>
-    [DataMember]
     public IsoNumber? MaximumNumberOfMessages { get; init; } 
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalFee2> AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalFee2? AdditionalFee { get; init; } 
     /// <summary>
     /// Additional information pertaining to the network management type or function being performed.
     /// </summary>
-    [DataMember]
     public IsoMax1000Text? TransactionDescription { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NetworkManagementType is NetworkManagementType1Code NetworkManagementTypeValue)
+        {
+            writer.WriteStartElement(null, "NtwkMgmtTp", xmlNamespace );
+            writer.WriteValue(NetworkManagementTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherNetworkManagementType is IsoMax35Text OtherNetworkManagementTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrNtwkMgmtTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherNetworkManagementTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MessageReason is ISO8583MessageReasonCode MessageReasonValue)
+        {
+            writer.WriteStartElement(null, "MsgRsn", xmlNamespace );
+            writer.WriteValue(MessageReasonValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AlternateMessageReason is IsoMax256Text AlternateMessageReasonValue)
+        {
+            writer.WriteStartElement(null, "AltrnMsgRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(AlternateMessageReasonValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (NumberOfMessages is IsoNumber NumberOfMessagesValue)
+        {
+            writer.WriteStartElement(null, "NbOfMsgs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfMessagesValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (MaximumNumberOfMessages is IsoNumber MaximumNumberOfMessagesValue)
+        {
+            writer.WriteStartElement(null, "MaxNbOfMsgs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumNumberOfMessagesValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (AdditionalFee is AdditionalFee2 AdditionalFeeValue)
+        {
+            writer.WriteStartElement(null, "AddtlFee", xmlNamespace );
+            AdditionalFeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionDescription is IsoMax1000Text TransactionDescriptionValue)
+        {
+            writer.WriteStartElement(null, "TxDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1000Text(TransactionDescriptionValue)); // data type Max1000Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Transaction134 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

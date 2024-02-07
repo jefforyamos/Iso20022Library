@@ -7,49 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Totals of the reconciliation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionTotals11
+     : IIsoXmlSerilizable<TransactionTotals11>
 {
     #nullable enable
     
     /// <summary>
     /// Date and identification of reconciliation.
     /// </summary>
-    [DataMember]
     public Reconciliation3? Reconciliation { get; init; } 
     /// <summary>
     /// Total of credit transactions.
     /// </summary>
-    [DataMember]
-    public ValueList<FinancialReconcillation1> FinancialReconciliation { get; init; } = []; // Warning: Don't know multiplicity.
+    public FinancialReconcillation1? FinancialReconciliation { get; init; } 
     /// <summary>
     /// Contains total message count.
     /// </summary>
-    [DataMember]
-    public ValueList<MessageReconcillation1> MessageReconciliation { get; init; } = []; // Warning: Don't know multiplicity.
+    public MessageReconcillation1? MessageReconciliation { get; init; } 
     /// <summary>
     /// Contains additional fee reconciliation data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalFeeReconciliation1> AdditionalFeeReconciliation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalFeeReconciliation1? AdditionalFeeReconciliation { get; init; } 
     /// <summary>
     /// Currency of the transaction.
     /// </summary>
-    [DataMember]
     public required IsoMin2Max3NumericText Currency { get; init; } 
     /// <summary>
     /// Net amount of reconciliation.
     /// ISO 8583:87/93 bit 97
     /// </summary>
-    [DataMember]
     public Amount5? NetAmountReconciliation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Reconciliation is Reconciliation3 ReconciliationValue)
+        {
+            writer.WriteStartElement(null, "Rcncltn", xmlNamespace );
+            ReconciliationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialReconciliation is FinancialReconcillation1 FinancialReconciliationValue)
+        {
+            writer.WriteStartElement(null, "FinRcncltn", xmlNamespace );
+            FinancialReconciliationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageReconciliation is MessageReconcillation1 MessageReconciliationValue)
+        {
+            writer.WriteStartElement(null, "MsgRcncltn", xmlNamespace );
+            MessageReconciliationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalFeeReconciliation is AdditionalFeeReconciliation1 AdditionalFeeReconciliationValue)
+        {
+            writer.WriteStartElement(null, "AddtlFeeRcncltn", xmlNamespace );
+            AdditionalFeeReconciliationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Ccy", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMin2Max3NumericText(Currency)); // data type Min2Max3NumericText System.String
+        writer.WriteEndElement();
+        if (NetAmountReconciliation is Amount5 NetAmountReconciliationValue)
+        {
+            writer.WriteStartElement(null, "NetAmtRcncltn", xmlNamespace );
+            NetAmountReconciliationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionTotals11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

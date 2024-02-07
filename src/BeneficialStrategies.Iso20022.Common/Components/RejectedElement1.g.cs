@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information on the rejection reason of an individual element.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RejectedElement1
+     : IIsoXmlSerilizable<RejectedElement1>
 {
     #nullable enable
     
     /// <summary>
     /// Sequence number that allows to easily identify the element that is rejected.
     /// </summary>
-    [DataMember]
     public required IsoNumber ElementSequenceNumber { get; init; } 
     /// <summary>
     /// Reason for rejecting an individual element.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text IndividualRejectionReason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ElmtSeqNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(ElementSequenceNumber)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IndvRjctnRsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(IndividualRejectionReason)); // data type Max140Text System.String
+        writer.WriteEndElement();
+    }
+    public static RejectedElement1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,78 +7,141 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information which describes the organisation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Organisation7
+     : IIsoXmlSerilizable<Organisation7>
 {
     #nullable enable
     
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text FullLegalName { get; init; } 
     /// <summary>
     /// Name used by a business for commercial purposes, although its registered legal name, used for contracts and other formal situations, may be another.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? TradingName { get; init; } 
     /// <summary>
     /// Country in which the organisation has its business activity.
     /// </summary>
-    [DataMember]
     public required CountryCode CountryOfOperation { get; init; } 
     /// <summary>
     /// Date and time at which a given organisation was officially registered.
     /// </summary>
-    [DataMember]
     public required IsoISODate RegistrationDate { get; init; } 
     /// <summary>
     /// Is an operational address, for example, of a shared services center.
     /// </summary>
-    [DataMember]
     public PostalAddress6? OperationalAddress { get; init; } 
     /// <summary>
     /// Is the address where the business activity is taking place.
     /// </summary>
-    [DataMember]
     public PostalAddress6? BusinessAddress { get; init; } 
     /// <summary>
     /// Is the address where the entity resides and is registered. More generically, it is the home address (Residential address).
     /// </summary>
-    [DataMember]
     public required PostalAddress6 LegalAddress { get; init; } 
     /// <summary>
     /// Unique and unambiguous way of identifying an organisation.
     /// </summary>
-    [DataMember]
     public required OrganisationIdentification6 OrganisationIdentification { get; init; } 
     /// <summary>
     /// Person in the customer's organisation who can be contacted by the account servicer.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyIdentification40> RepresentativeOfficer { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyIdentification40? RepresentativeOfficer { get; init; } 
     /// <summary>
     /// Identification of the person responsible of the treasury department within an organisation.
     /// </summary>
-    [DataMember]
     public PartyIdentification40? TreasuryManager { get; init; } 
     /// <summary>
     /// Is the main mandate holder that will delegate some authority to other individuals (mandate holders) to perform some specific bank operations on the account.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyIdentification40> MainMandateHolder { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyIdentification40? MainMandateHolder { get; init; } 
     /// <summary>
     /// Potential sender of a message related to the life cyle of an account.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyIdentification40> Sender { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyIdentification40? Sender { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FullLglNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(FullLegalName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (TradingName is IsoMax350Text TradingNameValue)
+        {
+            writer.WriteStartElement(null, "TradgNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(TradingNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CtryOfOpr", xmlNamespace );
+        writer.WriteValue(CountryOfOperation.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RegnDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(RegistrationDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (OperationalAddress is PostalAddress6 OperationalAddressValue)
+        {
+            writer.WriteStartElement(null, "OprlAdr", xmlNamespace );
+            OperationalAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BusinessAddress is PostalAddress6 BusinessAddressValue)
+        {
+            writer.WriteStartElement(null, "BizAdr", xmlNamespace );
+            BusinessAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "LglAdr", xmlNamespace );
+        LegalAddress.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgId", xmlNamespace );
+        OrganisationIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RepresentativeOfficer is PartyIdentification40 RepresentativeOfficerValue)
+        {
+            writer.WriteStartElement(null, "RprtvOffcr", xmlNamespace );
+            RepresentativeOfficerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TreasuryManager is PartyIdentification40 TreasuryManagerValue)
+        {
+            writer.WriteStartElement(null, "TrsrMgr", xmlNamespace );
+            TreasuryManagerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MainMandateHolder is PartyIdentification40 MainMandateHolderValue)
+        {
+            writer.WriteStartElement(null, "MainMndtHldr", xmlNamespace );
+            MainMandateHolderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Sender is PartyIdentification40 SenderValue)
+        {
+            writer.WriteStartElement(null, "Sndr", xmlNamespace );
+            SenderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Organisation7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

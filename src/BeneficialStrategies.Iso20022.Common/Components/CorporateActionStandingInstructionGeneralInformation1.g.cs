@@ -7,48 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the standing instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionStandingInstructionGeneralInformation1
+     : IIsoXmlSerilizable<CorporateActionStandingInstructionGeneralInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of standing instruction.
     /// </summary>
-    [DataMember]
     public required StandingInstructionType1Code StandingInstructionType { get; init; } 
     /// <summary>
     /// Type of coporpate action event.
     /// </summary>
-    [DataMember]
-    public ValueList<CorporateActionEventType2FormatChoice_> EventType { get; init; } = []; // Warning: Don't know multiplicity.
+    public CorporateActionEventType2FormatChoice_? EventType { get; init; } 
     /// <summary>
     /// Identification of the instructing party, ie, the CSD client.
     /// </summary>
-    [DataMember]
     public required PartyIdentification2Choice_ InstructingPartyIdentification { get; init; } 
     /// <summary>
     /// Reference of the standing instruction assigned by the client.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ClientStandingInstructionIdentification { get; init; } 
     /// <summary>
     /// Provides information about the account to which the standing instruction can apply.
     /// </summary>
-    [DataMember]
-    public ValueList<IncludedAccount1> AccountDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public IncludedAccount1? AccountDetails { get; init; } 
     /// <summary>
     /// Identification of the underlying financial instrument, ie, the financial instrument affected by the corporate action event.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentDescription3? UnderlyingSecurity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "StgInstrTp", xmlNamespace );
+        writer.WriteValue(StandingInstructionType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (EventType is CorporateActionEventType2FormatChoice_ EventTypeValue)
+        {
+            writer.WriteStartElement(null, "EvtTp", xmlNamespace );
+            EventTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InstgPtyId", xmlNamespace );
+        InstructingPartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClntStgInstrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientStandingInstructionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (AccountDetails is IncludedAccount1 AccountDetailsValue)
+        {
+            writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
+            AccountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnderlyingSecurity is FinancialInstrumentDescription3 UnderlyingSecurityValue)
+        {
+            writer.WriteStartElement(null, "UndrlygScty", xmlNamespace );
+            UnderlyingSecurityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionStandingInstructionGeneralInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecurityClassificationType3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityClassificationType3Choic
 /// Other type of classification of the financial instrument.
 /// </summary>
 public partial record AlternateClassification : SecurityClassificationType3Choice_
+     , IIsoXmlSerilizable<AlternateClassification>
 {
     #nullable enable
+    
     /// <summary>
     /// Proprietary information issued by the data source scheme issuer.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record AlternateClassification : SecurityClassificationType3Choic
     /// Entity that assigns the identification.
     /// </summary>
     public IsoRestrictedFINMax8Text? Issuer { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINMax30Text(Identification)); // data type RestrictedFINMax30Text System.String
+        writer.WriteEndElement();
+        if (Issuer is IsoRestrictedFINMax8Text IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINMax8Text(IssuerValue)); // data type RestrictedFINMax8Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new AlternateClassification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

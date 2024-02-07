@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information on the collateral account of the party delivering/receiving the collateral.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralAccount4
+     : IIsoXmlSerilizable<CollateralAccount4>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the collateral account.
     /// </summary>
-    [DataMember]
     public required GenericIdentification165 Identification { get; init; } 
     /// <summary>
     /// Specifies the financial instruments placed as collateral.
     /// </summary>
-    [DataMember]
-    public ValueList<AssetHolding1> AssetHolding { get; init; } = []; // Warning: Don't know multiplicity.
+    public AssetHolding1? AssetHolding { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _BBT9la_9EeaE9YROwd69hA
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize AssetHolding, multiplicity Unknown
+    }
+    public static CollateralAccount4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

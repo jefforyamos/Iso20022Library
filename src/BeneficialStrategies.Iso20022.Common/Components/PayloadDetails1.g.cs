@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// This component identifies the instance of the document exchanged.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PayloadDetails1
+     : IIsoXmlSerilizable<PayloadDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// String of characters that uniquely identifies the file, which was delivered by the sender.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text PayloadIdentifier { get; init; } 
     /// <summary>
     /// Date and time when the file was created by the sender.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime CreationDateAndTime { get; init; } 
     /// <summary>
     /// Flag indicating if the file exchanged between the two business applications is possibly a duplicate. If this indicator is not present within the message, please note that the default value would be "False".
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? PossibleDuplicateFlag { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PyldIdr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(PayloadIdentifier)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CreDtAndTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateAndTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (PossibleDuplicateFlag is IsoTrueFalseIndicator PossibleDuplicateFlagValue)
+        {
+            writer.WriteStartElement(null, "PssblDplctFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(PossibleDuplicateFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PayloadDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

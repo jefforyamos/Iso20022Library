@@ -7,53 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Ability of a financial instrument to be easily traded and converted to cash, at conditions that do not affect its price.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LiquidityAndStatistics1
+     : IIsoXmlSerilizable<LiquidityAndStatistics1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether an amount is a gross amount (including all charges, commissions and tax), or a net amount.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator GrossIndicator { get; init; } 
     /// <summary>
     /// Type of liquidity measure, of a financial instrument, on a market.
     /// </summary>
-    [DataMember]
     public required LiquidityIndicatorType1Code IndicatorType { get; init; } 
     /// <summary>
     /// Indicates the overall weighted average liquidity expressed as a percentage of average daily volume.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate WeightedAverageLiquidity { get; init; } 
     /// <summary>
     /// Accepted value of stocks composing an index located outside its country of origin.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount OutMainCountryIndex { get; init; } 
     /// <summary>
     /// Percentage of program that crosses in Currency.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? CrossPercent { get; init; } 
     /// <summary>
     /// SideValue1 is used to show the monetary total value in either direction (buy or sell) of the transaction without revealing whether it is the buy-side institutions intention to buy or sell.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? SideValue1 { get; init; } 
     /// <summary>
     /// SideValue2 is used to show the monetary total value in either direction (buy or sell) of the transaction without revealing whether it is the buy-side institutions intention to buy or sell.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? SideValue2 { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrssInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(GrossIndicator)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IndTp", xmlNamespace );
+        writer.WriteValue(IndicatorType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "WghtdAvrgLqdty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(WeightedAverageLiquidity)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OutMainCtryIndx", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(OutMainCountryIndex)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (CrossPercent is IsoPercentageRate CrossPercentValue)
+        {
+            writer.WriteStartElement(null, "CrossPct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(CrossPercentValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (SideValue1 is IsoActiveCurrencyAndAmount SideValue1Value)
+        {
+            writer.WriteStartElement(null, "SdVal1", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(SideValue1Value)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (SideValue2 is IsoActiveCurrencyAndAmount SideValue2Value)
+        {
+            writer.WriteStartElement(null, "SdVal2", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(SideValue2Value)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static LiquidityAndStatistics1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

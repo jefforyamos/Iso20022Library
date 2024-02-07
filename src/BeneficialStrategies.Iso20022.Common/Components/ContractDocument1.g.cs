@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Document that contains the information of the contract agreed between both parties.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ContractDocument1
+     : IIsoXmlSerilizable<ContractDocument1>
 {
     #nullable enable
     
     /// <summary>
     /// Account contract established between the organisation or the group to which the organisation belongs, and the account servicer. This contract has to be applied for the new account to be opened and maintained.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Reference { get; init; } 
     /// <summary>
     /// Signoff date of the document.
     /// </summary>
-    [DataMember]
     public IsoISODate? SignOffDate { get; init; } 
     /// <summary>
     /// Identification of the version of the contract.
     /// </summary>
-    [DataMember]
     public IsoMax6Text? Version { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ref", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Reference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (SignOffDate is IsoISODate SignOffDateValue)
+        {
+            writer.WriteStartElement(null, "SgnOffDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(SignOffDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Version is IsoMax6Text VersionValue)
+        {
+            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax6Text(VersionValue)); // data type Max6Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ContractDocument1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

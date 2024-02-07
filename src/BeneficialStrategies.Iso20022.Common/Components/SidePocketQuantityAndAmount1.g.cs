@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Quantity of a security.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SidePocketQuantityAndAmount1
+     : IIsoXmlSerilizable<SidePocketQuantityAndAmount1>
 {
     #nullable enable
     
     /// <summary>
     /// Total of quantity of units subscribed or redeemed in the lot or side pocket.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1? UnitsNumber { get; init; } 
     /// <summary>
     /// Amount of money invested or redeemed into the lot or side pocket.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? OrderedAmount { get; init; } 
     /// <summary>
     /// Percentage of the financial instrument quantity invested or redeemed in the lot or side pocket.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? HoldingsRate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (UnitsNumber is FinancialInstrumentQuantity1 UnitsNumberValue)
+        {
+            writer.WriteStartElement(null, "UnitsNb", xmlNamespace );
+            UnitsNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OrderedAmount is IsoActiveCurrencyAndAmount OrderedAmountValue)
+        {
+            writer.WriteStartElement(null, "OrdrdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(OrderedAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (HoldingsRate is IsoPercentageRate HoldingsRateValue)
+        {
+            writer.WriteStartElement(null, "HldgsRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(HoldingsRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static SidePocketQuantityAndAmount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

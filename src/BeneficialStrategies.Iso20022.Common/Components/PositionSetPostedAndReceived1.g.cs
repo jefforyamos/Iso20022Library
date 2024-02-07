@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Variables used to quantify the different calculations for position sets and currency position sets reports.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PositionSetPostedAndReceived1
+     : IIsoXmlSerilizable<PositionSetPostedAndReceived1>
 {
     #nullable enable
     
@@ -23,14 +24,41 @@ public partial record PositionSetPostedAndReceived1
     /// Value posted by the reporting counterparty. 
     /// Usage: This field should include the overall value posted for the portfolio.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd20Amount? Posted { get; init; } 
     /// <summary>
     /// Value received by the reporting counterparty. 
     /// Usage: This field should include the overall value received for the portfolio.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd20Amount? Received { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Posted is IsoActiveOrHistoricCurrencyAnd20Amount PostedValue)
+        {
+            writer.WriteStartElement(null, "Pstd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd20Amount(PostedValue)); // data type ActiveOrHistoricCurrencyAnd20Amount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Received is IsoActiveOrHistoricCurrencyAnd20Amount ReceivedValue)
+        {
+            writer.WriteStartElement(null, "Rcvd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd20Amount(ReceivedValue)); // data type ActiveOrHistoricCurrencyAnd20Amount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static PositionSetPostedAndReceived1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

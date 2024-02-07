@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Settlement transaction numbering information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TotalNumber1
+     : IIsoXmlSerilizable<TotalNumber1>
 {
     #nullable enable
     
     /// <summary>
     /// Sequential number of the instruction in a range of linked settlement instructions.
     /// </summary>
-    [DataMember]
     public required IsoExact3NumericText CurrentInstructionNumber { get; init; } 
     /// <summary>
     /// Total number of settlement instructions that are linked together.
     /// </summary>
-    [DataMember]
     public required IsoExact3NumericText TotalOfLinkedInstructions { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CurInstrNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact3NumericText(CurrentInstructionNumber)); // data type Exact3NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlOfLkdInstrs", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact3NumericText(TotalOfLinkedInstructions)); // data type Exact3NumericText System.String
+        writer.WriteEndElement();
+    }
+    public static TotalNumber1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contents of the related UndertakingIssuance message or of the related issuance document.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UndertakingIssuanceMessage
+     : IIsoXmlSerilizable<UndertakingIssuanceMessage>
 {
     #nullable enable
     
     /// <summary>
     /// Independent undertaking, such as a demand guarantee or standby letter of credit, that provides financial assurance, to be collected on the presentation of documents that comply with its terms and conditions.
     /// </summary>
-    [DataMember]
     public required Undertaking3 UndertakingDetails { get; init; } 
     /// <summary>
     /// Digital signature of the issued undertaking.
     /// </summary>
-    [DataMember]
     public PartyAndSignature2? DigitalSignature { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UdrtkgDtls", xmlNamespace );
+        UndertakingDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DigitalSignature is PartyAndSignature2 DigitalSignatureValue)
+        {
+            writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
+            DigitalSignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static UndertakingIssuanceMessage Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

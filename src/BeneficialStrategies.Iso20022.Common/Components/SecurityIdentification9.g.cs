@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique and unambiguous identifier of a security, assigned under a formal or proprietary identification scheme.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityIdentification9
+     : IIsoXmlSerilizable<SecurityIdentification9>
 {
     #nullable enable
     
     /// <summary>
     /// Security identifier.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification10Choice_ SecurityIdentification { get; init; } 
     /// <summary>
     /// Textual description of a security instrument.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SctyId", xmlNamespace );
+        SecurityIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Description is IsoMax140Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(DescriptionValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SecurityIdentification9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

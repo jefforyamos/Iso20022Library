@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains verification information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record VerificationInformation1
+     : IIsoXmlSerilizable<VerificationInformation1>
 {
     #nullable enable
     
@@ -23,33 +24,80 @@ public partial record VerificationInformation1
     /// Type of the verification or authentication.
     /// ISO 8583:2003 bit 34
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Value of the data to be verified or authenticated.
     /// </summary>
-    [DataMember]
     public VerificationValue1Choice_? Value { get; init; } 
     /// <summary>
     /// Reason to perform the verification.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> Reason { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? Reason { get; init; } 
     /// <summary>
     /// Date and time when the verification was performed.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? DateTime { get; init; } 
     /// <summary>
     /// Contains end date of the verification that has been performed. 
     /// </summary>
-    [DataMember]
     public IsoISODate? ValidityEndDate { get; init; } 
     /// <summary>
     /// Contains end time of the verification that has been performed. 
     /// </summary>
-    [DataMember]
     public IsoISOTime? ValidityEndTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is IsoMax35Text TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Value is VerificationValue1Choice_ ValueValue)
+        {
+            writer.WriteStartElement(null, "Val", xmlNamespace );
+            ValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Reason is IsoMax35Text ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReasonValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DateTime is IsoISODateTime DateTimeValue)
+        {
+            writer.WriteStartElement(null, "DtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(DateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ValidityEndDate is IsoISODate ValidityEndDateValue)
+        {
+            writer.WriteStartElement(null, "VldtyEndDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ValidityEndDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ValidityEndTime is IsoISOTime ValidityEndTimeValue)
+        {
+            writer.WriteStartElement(null, "VldtyEndTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(ValidityEndTimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static VerificationInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

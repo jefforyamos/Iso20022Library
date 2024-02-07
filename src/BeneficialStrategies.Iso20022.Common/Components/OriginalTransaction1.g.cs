@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to an original transaction
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OriginalTransaction1
+     : IIsoXmlSerilizable<OriginalTransaction1>
 {
     #nullable enable
     
     /// <summary>
     /// Details of the original message for which a retrieval is being requested.
     /// </summary>
-    [DataMember]
     public Environment6? Environment { get; init; } 
     /// <summary>
     /// Details of the original message for which a retrieval is being requested.
     /// </summary>
-    [DataMember]
     public Context3? Context { get; init; } 
     /// <summary>
     /// Contains the original transaction details.
     /// </summary>
-    [DataMember]
     public Transaction85? Transaction { get; init; } 
     /// <summary>
     /// Contains the processing results of the transaction to be retrieved.
     /// </summary>
-    [DataMember]
     public ProcessingResult2? ProcessingResult { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Environment is Environment6 EnvironmentValue)
+        {
+            writer.WriteStartElement(null, "Envt", xmlNamespace );
+            EnvironmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Context is Context3 ContextValue)
+        {
+            writer.WriteStartElement(null, "Cntxt", xmlNamespace );
+            ContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Transaction is Transaction85 TransactionValue)
+        {
+            writer.WriteStartElement(null, "Tx", xmlNamespace );
+            TransactionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProcessingResult is ProcessingResult2 ProcessingResultValue)
+        {
+            writer.WriteStartElement(null, "PrcgRslt", xmlNamespace );
+            ProcessingResultValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OriginalTransaction1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

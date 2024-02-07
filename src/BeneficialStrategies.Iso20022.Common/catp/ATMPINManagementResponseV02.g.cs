@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.catp.ATMPINManagementResponseV02>;
 
 namespace BeneficialStrategies.Iso20022.catp;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.catp;
 /// The ATMPINManagementResponse message is sent by an ATM manager or its agent to the ATM to provide the information and the outcome of the cardholder PIN operation requested in the ATMPINManagementRequest.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The ATMPINManagementResponse message is sent by an ATM manager or its agent to the ATM to provide the information and the outcome of the cardholder PIN operation requested in the ATMPINManagementRequest.")]
-public partial record ATMPINManagementResponseV02 : IOuterRecord
+public partial record ATMPINManagementResponseV02 : IOuterRecord<ATMPINManagementResponseV02,ATMPINManagementResponseV02Document>
+    ,IIsoXmlSerilizable<ATMPINManagementResponseV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record ATMPINManagementResponseV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "ATMPINMgmtRspn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ATMPINManagementResponseV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -84,6 +91,44 @@ public partial record ATMPINManagementResponseV02 : IOuterRecord
     {
         return new ATMPINManagementResponseV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("ATMPINMgmtRspn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ProtectedATMPINManagementResponse is ContentInformationType10 ProtectedATMPINManagementResponseValue)
+        {
+            writer.WriteStartElement(null, "PrtctdATMPINMgmtRspn", xmlNamespace );
+            ProtectedATMPINManagementResponseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ATMPINManagementResponse is ATMPINManagementResponse2 ATMPINManagementResponseValue)
+        {
+            writer.WriteStartElement(null, "ATMPINMgmtRspn", xmlNamespace );
+            ATMPINManagementResponseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecurityTrailer is ContentInformationType15 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMPINManagementResponseV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -91,9 +136,7 @@ public partial record ATMPINManagementResponseV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMPINManagementResponseV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ATMPINManagementResponseV02Document : IOuterDocument<ATMPINManagementResponseV02>
+public partial record ATMPINManagementResponseV02Document : IOuterDocument<ATMPINManagementResponseV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -109,5 +152,22 @@ public partial record ATMPINManagementResponseV02Document : IOuterDocument<ATMPI
     /// <summary>
     /// The instance of <seealso cref="ATMPINManagementResponseV02"/> is required.
     /// </summary>
+    [DataMember(Name=ATMPINManagementResponseV02.XmlTag)]
     public required ATMPINManagementResponseV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ATMPINManagementResponseV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

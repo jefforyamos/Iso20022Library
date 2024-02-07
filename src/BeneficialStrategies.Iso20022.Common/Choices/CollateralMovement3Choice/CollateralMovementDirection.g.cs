@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CollateralMovement3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralMovement3Choice;
 /// Provides the collateral movement direction that is a delivery and optionaly a return.
 /// </summary>
 public partial record CollateralMovementDirection : CollateralMovement3Choice_
+     , IIsoXmlSerilizable<CollateralMovementDirection>
 {
     #nullable enable
+    
     /// <summary>
     /// Provides the collateral movement direction that is a delivery only.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record CollateralMovementDirection : CollateralMovement3Choice_
     /// Provides the collateral movement direction that is a return only.
     /// </summary>
     public Collateral7? Return { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Dlvr", xmlNamespace );
+        Deliver.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Return is Collateral7 ReturnValue)
+        {
+            writer.WriteStartElement(null, "Rtr", xmlNamespace );
+            ReturnValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new CollateralMovementDirection Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

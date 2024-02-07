@@ -7,54 +7,107 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of check as payment instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Check1
+     : IIsoXmlSerilizable<Check1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the institution (bank) issuing the check.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? BankIdentification { get; init; } 
     /// <summary>
     /// Identification of the account linked to the check.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountNumber { get; init; } 
     /// <summary>
     /// Identification of the check.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CheckNumber { get; init; } 
     /// <summary>
     /// Check guarantee card number.
     /// The human readable number from the Check Guarantee Card that is presented during the check tendering process.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CheckCardNumber { get; init; } 
     /// <summary>
     /// Track Data of the check to digitally identify the data.
     /// </summary>
-    [DataMember]
     public TrackData2? CheckTrackData2 { get; init; } 
     /// <summary>
     /// Type of the check (personal or professional).
     /// </summary>
-    [DataMember]
     public CheckType1Code? CheckType { get; init; } 
     /// <summary>
     /// Country of the check.
     /// </summary>
-    [DataMember]
     public IsoMax3Text? Country { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (BankIdentification is IsoMax35Text BankIdentificationValue)
+        {
+            writer.WriteStartElement(null, "BkId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(BankIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountNumber is IsoMax35Text AccountNumberValue)
+        {
+            writer.WriteStartElement(null, "AcctNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CheckNumber is IsoMax35Text CheckNumberValue)
+        {
+            writer.WriteStartElement(null, "ChckNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CheckNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CheckCardNumber is IsoMax35Text CheckCardNumberValue)
+        {
+            writer.WriteStartElement(null, "ChckCardNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CheckCardNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CheckTrackData2 is TrackData2 CheckTrackData2Value)
+        {
+            writer.WriteStartElement(null, "ChckTrckData2", xmlNamespace );
+            CheckTrackData2Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CheckType is CheckType1Code CheckTypeValue)
+        {
+            writer.WriteStartElement(null, "ChckTp", xmlNamespace );
+            writer.WriteValue(CheckTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Country is IsoMax3Text CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3Text(CountryValue)); // data type Max3Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Check1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

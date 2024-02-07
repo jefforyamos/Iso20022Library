@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Attributes of energy related derivatives.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record EnergySpecificAttribute5
+     : IIsoXmlSerilizable<EnergySpecificAttribute5>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the delivery point(s) of market area(s) for energy derivative contracts.
     /// </summary>
-    [DataMember]
-    public ValueList<DeliveryInterconnectionPoint1Choice_> DeliveryPointOrZone { get; init; } = []; // Warning: Don't know multiplicity.
+    public DeliveryInterconnectionPoint1Choice_? DeliveryPointOrZone { get; init; } 
     /// <summary>
     /// Identification of the border(s) or border point(s) of a transportation contract.
     /// </summary>
-    [DataMember]
     public DeliveryInterconnectionPoint1Choice_? InterConnectionPoint { get; init; } 
     /// <summary>
     /// Identification of the delivery profile.
     /// </summary>
-    [DataMember]
     public EnergyLoadType1Code? LoadType { get; init; } 
     /// <summary>
     /// Attributes related to delivery of derivative contracts.
     /// </summary>
-    [DataMember]
-    public ValueList<EnergyDeliveryAttribute4> DeliveryAttribute { get; init; } = []; // Warning: Don't know multiplicity.
+    public EnergyDeliveryAttribute4? DeliveryAttribute { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DeliveryPointOrZone is DeliveryInterconnectionPoint1Choice_ DeliveryPointOrZoneValue)
+        {
+            writer.WriteStartElement(null, "DlvryPtOrZone", xmlNamespace );
+            DeliveryPointOrZoneValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterConnectionPoint is DeliveryInterconnectionPoint1Choice_ InterConnectionPointValue)
+        {
+            writer.WriteStartElement(null, "IntrCnnctnPt", xmlNamespace );
+            InterConnectionPointValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LoadType is EnergyLoadType1Code LoadTypeValue)
+        {
+            writer.WriteStartElement(null, "LdTp", xmlNamespace );
+            writer.WriteValue(LoadTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DeliveryAttribute is EnergyDeliveryAttribute4 DeliveryAttributeValue)
+        {
+            writer.WriteStartElement(null, "DlvryAttr", xmlNamespace );
+            DeliveryAttributeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static EnergySpecificAttribute5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData30Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData30Choice;
 /// Details of the repurchase trade transaction.
 /// </summary>
 public partial record RepurchaseTrade : TransactionLoanData30Choice_
+     , IIsoXmlSerilizable<RepurchaseTrade>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique Trade Identifier (UTI) as agreed with the other counterparty.
     /// </summary>
@@ -66,7 +70,7 @@ public partial record RepurchaseTrade : TransactionLoanData30Choice_
     /// <summary>
     /// Period before or at the end of which the loan should be repaid or renegotiated for another term. 
     /// </summary>
-    public ContractTerm7Choice_? Term { get; init;  } // Warning: Don't know multiplicity.
+    public ContractTerm7Choice_? Term { get; init; } 
     /// <summary>
     /// Interest rate of the loan.
     /// </summary>
@@ -79,5 +83,110 @@ public partial record RepurchaseTrade : TransactionLoanData30Choice_
     /// Termination date in the case of a full early termination of the Securities Financing Transaction (SFT).
     /// </summary>
     public IsoISODate? TerminationDate { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UnqTradIdr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax52Text(UniqueTradeIdentifier)); // data type Max52Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EvtDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(EventDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ExctnDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(ExecutionDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (ClearingStatus is Cleared16Choice_ ClearingStatusValue)
+        {
+            writer.WriteStartElement(null, "ClrSts", xmlNamespace );
+            ClearingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradingVenue is IsoMICIdentifier TradingVenueValue)
+        {
+            writer.WriteStartElement(null, "TradgVn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(TradingVenueValue)); // data type MICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (MasterAgreement is MasterAgreement7 MasterAgreementValue)
+        {
+            writer.WriteStartElement(null, "MstrAgrmt", xmlNamespace );
+            MasterAgreementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValueDate is IsoISODate ValueDateValue)
+        {
+            writer.WriteStartElement(null, "ValDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ValueDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (MinimumNoticePeriod is IsoMax20PositiveNumber MinimumNoticePeriodValue)
+        {
+            writer.WriteStartElement(null, "MinNtcePrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax20PositiveNumber(MinimumNoticePeriodValue)); // data type Max20PositiveNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (EarliestCallBackDate is IsoISODate EarliestCallBackDateValue)
+        {
+            writer.WriteStartElement(null, "EarlstCallBckDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(EarliestCallBackDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (GeneralCollateral is SpecialCollateral1Code GeneralCollateralValue)
+        {
+            writer.WriteStartElement(null, "GnlColl", xmlNamespace );
+            writer.WriteValue(GeneralCollateralValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DeliveryByValue is IsoTrueFalseIndicator DeliveryByValueValue)
+        {
+            writer.WriteStartElement(null, "DlvryByVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DeliveryByValueValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CollateralDeliveryMethod is CollateralDeliveryMethod1Code CollateralDeliveryMethodValue)
+        {
+            writer.WriteStartElement(null, "CollDlvryMtd", xmlNamespace );
+            writer.WriteValue(CollateralDeliveryMethodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Term is ContractTerm7Choice_ TermValue)
+        {
+            writer.WriteStartElement(null, "Term", xmlNamespace );
+            TermValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestRate is InterestRate27Choice_ InterestRateValue)
+        {
+            writer.WriteStartElement(null, "IntrstRate", xmlNamespace );
+            InterestRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PrincipalAmount is PrincipalAmount3 PrincipalAmountValue)
+        {
+            writer.WriteStartElement(null, "PrncplAmt", xmlNamespace );
+            PrincipalAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TerminationDate is IsoISODate TerminationDateValue)
+        {
+            writer.WriteStartElement(null, "TermntnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(TerminationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static new RepurchaseTrade Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

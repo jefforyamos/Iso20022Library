@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the expected collateral type and direction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ExpectedCollateralMovement2
+     : IIsoXmlSerilizable<ExpectedCollateralMovement2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of collateral that will be delivered and date by which the collateral movement is expected.
     /// </summary>
-    [DataMember]
-    public ValueList<CollateralMovement9> Delivery { get; init; } = []; // Warning: Don't know multiplicity.
+    public CollateralMovement9? Delivery { get; init; } 
     /// <summary>
     /// Type of collateral that will be returned and date by which the collateral movement is expected.
     /// </summary>
-    [DataMember]
-    public ValueList<CollateralMovement9> Return { get; init; } = []; // Warning: Don't know multiplicity.
+    public CollateralMovement9? Return { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Delivery is CollateralMovement9 DeliveryValue)
+        {
+            writer.WriteStartElement(null, "Dlvry", xmlNamespace );
+            DeliveryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Return is CollateralMovement9 ReturnValue)
+        {
+            writer.WriteStartElement(null, "Rtr", xmlNamespace );
+            ReturnValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ExpectedCollateralMovement2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

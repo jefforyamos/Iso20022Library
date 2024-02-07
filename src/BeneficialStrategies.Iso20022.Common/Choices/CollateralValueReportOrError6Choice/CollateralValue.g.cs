@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError6Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError6Cho
 /// Requested information on the value of the position for collateral purposes.
 /// </summary>
 public partial record CollateralValue : CollateralValueReportOrError6Choice_
+     , IIsoXmlSerilizable<CollateralValue>
 {
     #nullable enable
+    
     /// <summary>
     /// Date and time when the data was last accessed.
     /// </summary>
@@ -30,6 +34,45 @@ public partial record CollateralValue : CollateralValueReportOrError6Choice_
     /// <summary>
     /// Unique identification, as known by the account owner, to unambiguously identify the securities on which the collateral value position is requested.
     /// </summary>
-    public SecurityCharacteristics3? Securities { get; init;  } // Warning: Don't know multiplicity.
+    public SecurityCharacteristics3? Securities { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DataAccsTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(DataAccessTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (TotalCollateralValuation is IsoActiveCurrencyAndAmount TotalCollateralValuationValue)
+        {
+            writer.WriteStartElement(null, "TtlCollValtn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalCollateralValuationValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (SecuritiesAccount is SecuritiesAccount19 SecuritiesAccountValue)
+        {
+            writer.WriteStartElement(null, "SctiesAcct", xmlNamespace );
+            SecuritiesAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Securities is SecurityCharacteristics3 SecuritiesValue)
+        {
+            writer.WriteStartElement(null, "Scties", xmlNamespace );
+            SecuritiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new CollateralValue Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

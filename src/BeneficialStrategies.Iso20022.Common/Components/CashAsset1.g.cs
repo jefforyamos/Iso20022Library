@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a cash asset.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashAsset1
+     : IIsoXmlSerilizable<CashAsset1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of cash asset.
     /// </summary>
-    [DataMember]
     public required CashAssetType1Choice_ CashAssetType { get; init; } 
     /// <summary>
     /// Additional information about the cash asset.
     /// </summary>
-    [DataMember]
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CshAsstTp", xmlNamespace );
+        CashAssetType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CashAsset1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

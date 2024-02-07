@@ -7,83 +7,151 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the characteristics of the cash account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashAccountCharacteristics2
+     : IIsoXmlSerilizable<CashAccountCharacteristics2>
 {
     #nullable enable
     
     /// <summary>
     /// Defines the account level within an account hierarchy.
     /// </summary>
-    [DataMember]
     public required AccountLevel2Code AccountLevel { get; init; } 
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    [DataMember]
     public required CashAccount24 CashAccount { get; init; } 
     /// <summary>
     /// Usage: the account servicer is the domicile agent servicing the local account.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? AccountServicer { get; init; } 
     /// <summary>
     /// Defines a parent account to which the cash account is related to.
     /// </summary>
-    [DataMember]
     public ParentCashAccount2? ParentAccount { get; init; } 
     /// <summary>
     /// Defines if and how charges and taxes due are paid to the financial institution.
     /// </summary>
-    [DataMember]
     public required CompensationMethod1Code CompensationMethod { get; init; } 
     /// <summary>
     /// Defines the account debited for charges and taxes due on the cash account, if different from the cash account.
     /// </summary>
-    [DataMember]
     public AccountIdentification4Choice_? DebitAccount { get; init; } 
     /// <summary>
     /// Future date on which the account will be automatically debited for charges and taxes due.
     /// </summary>
-    [DataMember]
     public IsoISODate? DelayedDebitDate { get; init; } 
     /// <summary>
     /// Free form message advising the customer about the settlement of charges and taxes due.
     /// </summary>
-    [DataMember]
     public IsoMax105Text? SettlementAdvice { get; init; } 
     /// <summary>
     /// Currency used to specify the account's balance currency.
     /// </summary>
-    [DataMember]
     public required ActiveOrHistoricCurrencyCode AccountBalanceCurrencyCode { get; init; } 
     /// <summary>
     /// Currency used to specify the account's settlement currency.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? SettlementCurrencyCode { get; init; } 
     /// <summary>
     /// Currency used to specify the account's taxing host currency.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? HostCurrencyCode { get; init; } 
     /// <summary>
     /// Describes account taxing parameters.
     /// </summary>
-    [DataMember]
     public AccountTax1? Tax { get; init; } 
     /// <summary>
     /// Individual to contact at the financial institution's location regarding problems of a business nature.
     /// </summary>
-    [DataMember]
     public required ContactDetails3 AccountServicerContact { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AcctLvl", xmlNamespace );
+        writer.WriteValue(AccountLevel.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CshAcct", xmlNamespace );
+        CashAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountServicer is BranchAndFinancialInstitutionIdentification5 AccountServicerValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+            AccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ParentAccount is ParentCashAccount2 ParentAccountValue)
+        {
+            writer.WriteStartElement(null, "PrntAcct", xmlNamespace );
+            ParentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CompstnMtd", xmlNamespace );
+        writer.WriteValue(CompensationMethod.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (DebitAccount is AccountIdentification4Choice_ DebitAccountValue)
+        {
+            writer.WriteStartElement(null, "DbtAcct", xmlNamespace );
+            DebitAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DelayedDebitDate is IsoISODate DelayedDebitDateValue)
+        {
+            writer.WriteStartElement(null, "DelydDbtDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DelayedDebitDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SettlementAdvice is IsoMax105Text SettlementAdviceValue)
+        {
+            writer.WriteStartElement(null, "SttlmAdvc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax105Text(SettlementAdviceValue)); // data type Max105Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AcctBalCcyCd", xmlNamespace );
+        writer.WriteValue(AccountBalanceCurrencyCode.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SettlementCurrencyCode is ActiveOrHistoricCurrencyCode SettlementCurrencyCodeValue)
+        {
+            writer.WriteStartElement(null, "SttlmCcyCd", xmlNamespace );
+            writer.WriteValue(SettlementCurrencyCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (HostCurrencyCode is ActiveOrHistoricCurrencyCode HostCurrencyCodeValue)
+        {
+            writer.WriteStartElement(null, "HstCcyCd", xmlNamespace );
+            writer.WriteValue(HostCurrencyCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Tax is AccountTax1 TaxValue)
+        {
+            writer.WriteStartElement(null, "Tax", xmlNamespace );
+            TaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AcctSvcrCtct", xmlNamespace );
+        AccountServicerContact.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CashAccountCharacteristics2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

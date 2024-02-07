@@ -7,53 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the chargeback initiation transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ChargeBackInitiation1
+     : IIsoXmlSerilizable<ChargeBackInitiation1>
 {
     #nullable enable
     
     /// <summary>
     /// Environment of the chargeback.
     /// </summary>
-    [DataMember]
     public required Environment13 Environment { get; init; } 
     /// <summary>
     /// Context of the chargeback transaction.
     /// </summary>
-    [DataMember]
     public Context7? Context { get; init; } 
     /// <summary>
     /// Chargeback transaction details.
     /// </summary>
-    [DataMember]
     public required Transaction97 Transaction { get; init; } 
     /// <summary>
     /// Contains details of the transaction to be retrieved.
     /// </summary>
-    [DataMember]
     public required OriginalTransaction1 OriginalTransaction { get; init; } 
     /// <summary>
     /// Result of the chargeback verification provided in the chargeback status.
     /// </summary>
-    [DataMember]
     public ProcessingResult8? ProcessingResult { get; init; } 
     /// <summary>
     /// EContains protected data and the attributes used to protect the data.
     /// </summary>
-    [DataMember]
-    public ValueList<ProtectedData1> ProtectedData { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProtectedData1? ProtectedData { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Envt", xmlNamespace );
+        Environment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Context is Context7 ContextValue)
+        {
+            writer.WriteStartElement(null, "Cntxt", xmlNamespace );
+            ContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Tx", xmlNamespace );
+        Transaction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgnlTx", xmlNamespace );
+        OriginalTransaction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ProcessingResult is ProcessingResult8 ProcessingResultValue)
+        {
+            writer.WriteStartElement(null, "PrcgRslt", xmlNamespace );
+            ProcessingResultValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProtectedData is ProtectedData1 ProtectedDataValue)
+        {
+            writer.WriteStartElement(null, "PrtctdData", xmlNamespace );
+            ProtectedDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ChargeBackInitiation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

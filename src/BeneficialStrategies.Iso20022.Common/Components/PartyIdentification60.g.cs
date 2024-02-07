@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a party by fund name, name and address or an LEI.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentification60
+     : IIsoXmlSerilizable<PartyIdentification60>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a fund.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text FundIdentification { get; init; } 
     /// <summary>
     /// Identification of the party expressed as name and an optional address and an optional alternative identifier.
     /// </summary>
-    [DataMember]
     public NameAndAddress8? NameAndAddress { get; init; } 
     /// <summary>
     /// Identification of the Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>
-    [DataMember]
     public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FndId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(FundIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (NameAndAddress is NameAndAddress8 NameAndAddressValue)
+        {
+            writer.WriteStartElement(null, "NmAndAdr", xmlNamespace );
+            NameAndAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LegalEntityIdentifier is IsoLEIIdentifier LegalEntityIdentifierValue)
+        {
+            writer.WriteStartElement(null, "LglNttyIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LegalEntityIdentifierValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyIdentification60 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

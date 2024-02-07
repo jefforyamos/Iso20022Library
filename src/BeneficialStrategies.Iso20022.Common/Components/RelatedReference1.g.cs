@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reference of the message previously received and for which the delivery status is notified.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RelatedReference1
+     : IIsoXmlSerilizable<RelatedReference1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique transaction identifier assigned by the local application.
     /// </summary>
-    [DataMember]
     public IsoMax105Text? TransactionUniqueIdentifier { get; init; } 
     /// <summary>
     /// Message reference assigned by the original message sender.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MessageReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TransactionUniqueIdentifier is IsoMax105Text TransactionUniqueIdentifierValue)
+        {
+            writer.WriteStartElement(null, "TxUnqIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax105Text(TransactionUniqueIdentifierValue)); // data type Max105Text System.String
+            writer.WriteEndElement();
+        }
+        if (MessageReference is IsoMax35Text MessageReferenceValue)
+        {
+            writer.WriteStartElement(null, "MsgRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static RelatedReference1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

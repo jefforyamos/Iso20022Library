@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Variables used to quantify the different calculations for position sets and currency position sets reports.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PositionSetBuyerAndSeller1
+     : IIsoXmlSerilizable<PositionSetBuyerAndSeller1>
 {
     #nullable enable
     
     /// <summary>
     /// Refers to the aggregated data for the buyer counterparty.
     /// </summary>
-    [DataMember]
     public PositionSetTotal1? Buyer { get; init; } 
     /// <summary>
     /// Refers to the aggregated data for the seller counterparty.
     /// </summary>
-    [DataMember]
     public PositionSetTotal1? Seller { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Buyer is PositionSetTotal1 BuyerValue)
+        {
+            writer.WriteStartElement(null, "Buyr", xmlNamespace );
+            BuyerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Seller is PositionSetTotal1 SellerValue)
+        {
+            writer.WriteStartElement(null, "Sellr", xmlNamespace );
+            SellerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PositionSetBuyerAndSeller1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

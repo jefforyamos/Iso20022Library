@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.OrganisationIdentification7Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.OrganisationIdentification7Choic
 /// Unique identification of a counterparty, using a client code or a business identification code.
 /// </summary>
 public partial record Other : OrganisationIdentification7Choice_
+     , IIsoXmlSerilizable<Other>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique and unambiguous identification of the organisation.
     /// </summary>
@@ -27,5 +31,38 @@ public partial record Other : OrganisationIdentification7Choice_
     /// Indicates the domicile of counterparty.
     /// </summary>
     public IsoMax500Text? Domicile { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Name is IsoMax105Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax105Text(NameValue)); // data type Max105Text System.String
+            writer.WriteEndElement();
+        }
+        if (Domicile is IsoMax500Text DomicileValue)
+        {
+            writer.WriteStartElement(null, "Dmcl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Text(DomicileValue)); // data type Max500Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new Other Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.MarketClaimCreationV01>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -23,10 +26,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// This message definition is intended for use with the Business Application Header (BAH).
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope and Usage|The MarketClaimCreation message is sent by an account servicer to an account holder to advise of the creation of a market claim transaction on a securities account, for example by a CSD that has automatically generated market claims on a mandatory distribution type of corporate action event. The MarketClaimCreation message may also be sent by an account holder to its account holder, to instruct settlement of a bilaterally agreed (as opposed to centrally generated) market claim for a corporate action event.|This message definition is intended for use with the Business Application Header (BAH).")]
-public partial record MarketClaimCreationV01 : IOuterRecord
+public partial record MarketClaimCreationV01 : IOuterRecord<MarketClaimCreationV01,MarketClaimCreationV01Document>
+    ,IIsoXmlSerilizable<MarketClaimCreationV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -38,6 +40,11 @@ public partial record MarketClaimCreationV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MktClmCre";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => MarketClaimCreationV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -145,6 +152,65 @@ public partial record MarketClaimCreationV01 : IOuterRecord
     {
         return new MarketClaimCreationV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MktClmCre");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxRef", xmlNamespace );
+        TransactionReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+        CorporateActionGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RltdSttlmInstrDtls", xmlNamespace );
+        RelatedSettlementInstructionDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
+        AccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CorporateActionDetails is CorporateAction59 CorporateActionDetailsValue)
+        {
+            writer.WriteStartElement(null, "CorpActnDtls", xmlNamespace );
+            CorporateActionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MktClmTp", xmlNamespace );
+        writer.WriteValue(MarketClaimType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MktClmDtls", xmlNamespace );
+        MarketClaimDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DeliveringSettlementParties is SettlementParties75 DeliveringSettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "DlvrgSttlmPties", xmlNamespace );
+            DeliveringSettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReceivingSettlementParties is SettlementParties75 ReceivingSettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "RcvgSttlmPties", xmlNamespace );
+            ReceivingSettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MarketClaimCreationV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -152,9 +218,7 @@ public partial record MarketClaimCreationV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MarketClaimCreationV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record MarketClaimCreationV01Document : IOuterDocument<MarketClaimCreationV01>
+public partial record MarketClaimCreationV01Document : IOuterDocument<MarketClaimCreationV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -170,5 +234,22 @@ public partial record MarketClaimCreationV01Document : IOuterDocument<MarketClai
     /// <summary>
     /// The instance of <seealso cref="MarketClaimCreationV01"/> is required.
     /// </summary>
+    [DataMember(Name=MarketClaimCreationV01.XmlTag)]
     public required MarketClaimCreationV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(MarketClaimCreationV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

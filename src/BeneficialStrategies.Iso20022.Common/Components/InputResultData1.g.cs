@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to an Input request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InputResultData1
+     : IIsoXmlSerilizable<InputResultData1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of processed input.
     /// </summary>
-    [DataMember]
     public required InputCommand1Code InputCommand { get; init; } 
     /// <summary>
     /// Flag of notification of card to be entered in the POI card reader.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ConfirmedFlag { get; init; } 
     /// <summary>
     /// The number of the function key which is typed by the Customer on the POI system or the Cashier on the Sale System.
     /// </summary>
-    [DataMember]
     public IsoNumber? FunctionKey { get; init; } 
     /// <summary>
     /// The input text and data given by the POI or the Sale System.
     /// </summary>
-    [DataMember]
     public IsoMax20000Text? InputMessage { get; init; } 
     /// <summary>
     /// An enciphered password typed by the Customer on the POI system or the Cashier on the Sale system.
     /// </summary>
-    [DataMember]
     public ContentInformationType19? Password { get; init; } 
     /// <summary>
     /// Numeric value of a handwritten signature.
     /// </summary>
-    [DataMember]
     public CapturedSignature1? ImageCapturedSignature { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "InptCmd", xmlNamespace );
+        writer.WriteValue(InputCommand.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ConfirmedFlag is IsoTrueFalseIndicator ConfirmedFlagValue)
+        {
+            writer.WriteStartElement(null, "ConfdFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ConfirmedFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (FunctionKey is IsoNumber FunctionKeyValue)
+        {
+            writer.WriteStartElement(null, "FctnKey", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(FunctionKeyValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (InputMessage is IsoMax20000Text InputMessageValue)
+        {
+            writer.WriteStartElement(null, "InptMsg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax20000Text(InputMessageValue)); // data type Max20000Text System.String
+            writer.WriteEndElement();
+        }
+        if (Password is ContentInformationType19 PasswordValue)
+        {
+            writer.WriteStartElement(null, "Pwd", xmlNamespace );
+            PasswordValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ImageCapturedSignature is CapturedSignature1 ImageCapturedSignatureValue)
+        {
+            writer.WriteStartElement(null, "ImgCaptrdSgntr", xmlNamespace );
+            ImageCapturedSignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InputResultData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

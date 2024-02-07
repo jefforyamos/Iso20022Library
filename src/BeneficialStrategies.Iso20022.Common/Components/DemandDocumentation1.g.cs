@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Document presented for examination.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DemandDocumentation1
+     : IIsoXmlSerilizable<DemandDocumentation1>
 {
     #nullable enable
     
     /// <summary>
     /// Indication as to whether the presentation is complete.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator CompleteIndicator { get; init; } 
     /// <summary>
     /// Information related to an incomplete presentation.
     /// </summary>
-    [DataMember]
     public IsoMax2000Text? CompletionInformation { get; init; } 
     /// <summary>
     /// Document or template enclosed in the demand.
     /// </summary>
-    [DataMember]
-    public ValueList<Document9> EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
+    public Document9? EnclosedFile { get; init; } 
     /// <summary>
     /// Narrative text constituting the demand.
     /// </summary>
-    [DataMember]
     public IsoMax20000Text? DemandNarrative { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CmpltInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CompleteIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (CompletionInformation is IsoMax2000Text CompletionInformationValue)
+        {
+            writer.WriteStartElement(null, "CmpltnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2000Text(CompletionInformationValue)); // data type Max2000Text System.String
+            writer.WriteEndElement();
+        }
+        if (EnclosedFile is Document9 EnclosedFileValue)
+        {
+            writer.WriteStartElement(null, "NclsdFile", xmlNamespace );
+            EnclosedFileValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DemandNarrative is IsoMax20000Text DemandNarrativeValue)
+        {
+            writer.WriteStartElement(null, "DmndNrrtv", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax20000Text(DemandNarrativeValue)); // data type Max20000Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static DemandDocumentation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,63 +7,117 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Summary of a collateral valuation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Summary3
+     : IIsoXmlSerilizable<Summary3>
 {
     #nullable enable
     
     /// <summary>
     /// Sum of the exposures of all transactions which are in the favour of party A. That is, all transactions which would have an amount payable by party B to party A if they were being terminated.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? ExposedAmountPartyA { get; init; } 
     /// <summary>
     /// Sum of the exposures of all transactions which are in the favour of party B. That is, all transactions which would have an amount payable by party A to party B if they were being terminated.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? ExposedAmountPartyB { get; init; } 
     /// <summary>
     /// Underlying business area/type of trade that triggered the posting of collateral.
     /// </summary>
-    [DataMember]
     public required ExposureType13Code ExposureType { get; init; } 
     /// <summary>
     /// Total value of the collateral (post-haircut) held by the exposed party.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalValueOfCollateral { get; init; } 
     /// <summary>
     /// Amount of collateral in excess or deficit compared to the exposure.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? NetExcessDeficit { get; init; } 
     /// <summary>
     /// Indicates whether the collateral actually posted is a long or a short position.
     /// </summary>
-    [DataMember]
     public ShortLong1Code? NetExcessDeficitIndicator { get; init; } 
     /// <summary>
     /// Date/time at which the collateral was valued.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime ValuationDateTime { get; init; } 
     /// <summary>
     /// Date on which the instructing party requests settlement of the collateral to take place.
     /// </summary>
-    [DataMember]
     public IsoISODate? RequestedSettlementDate { get; init; } 
     /// <summary>
     /// Additional details on the valuation of the collateral that is posted.
     /// </summary>
-    [DataMember]
     public SummaryAmounts2? SummaryDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ExposedAmountPartyA is IsoActiveCurrencyAndAmount ExposedAmountPartyAValue)
+        {
+            writer.WriteStartElement(null, "XpsdAmtPtyA", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ExposedAmountPartyAValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExposedAmountPartyB is IsoActiveCurrencyAndAmount ExposedAmountPartyBValue)
+        {
+            writer.WriteStartElement(null, "XpsdAmtPtyB", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ExposedAmountPartyBValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "XpsrTp", xmlNamespace );
+        writer.WriteValue(ExposureType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlValOfColl", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalValueOfCollateral)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (NetExcessDeficit is IsoActiveCurrencyAndAmount NetExcessDeficitValue)
+        {
+            writer.WriteStartElement(null, "NetXcssDfcit", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(NetExcessDeficitValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (NetExcessDeficitIndicator is ShortLong1Code NetExcessDeficitIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NetXcssDfcitInd", xmlNamespace );
+            writer.WriteValue(NetExcessDeficitIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ValtnDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(ValuationDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (RequestedSettlementDate is IsoISODate RequestedSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "ReqdSttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(RequestedSettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SummaryDetails is SummaryAmounts2 SummaryDetailsValue)
+        {
+            writer.WriteStartElement(null, "SummryDtls", xmlNamespace );
+            SummaryDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Summary3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

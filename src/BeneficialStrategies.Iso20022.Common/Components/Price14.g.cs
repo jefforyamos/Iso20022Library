@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the value and optionaly the type of price.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Price14
+     : IIsoXmlSerilizable<Price14>
 {
     #nullable enable
     
     /// <summary>
     /// Value of the price.
     /// </summary>
-    [DataMember]
     public required PriceRateOrAmount3Choice_ Value { get; init; } 
     /// <summary>
     /// Specification of the price type.
     /// </summary>
-    [DataMember]
     public PriceValueType7Code? Type { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        Value.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Type is PriceValueType7Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static Price14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

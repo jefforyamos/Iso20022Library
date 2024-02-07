@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the corporate action option.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionOption24
+     : IIsoXmlSerilizable<CorporateActionOption24>
 {
     #nullable enable
     
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    [DataMember]
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    [DataMember]
     public required CorporateActionOption3Choice_ OptionType { get; init; } 
     /// <summary>
     /// Provides information about the securities movement linked to the corporate action option.
     /// </summary>
-    [DataMember]
-    public ValueList<SecuritiesOption19> SecuritiesMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecuritiesOption19? SecuritiesMovementDetails { get; init; } 
     /// <summary>
     /// Provides information about the cash movement related to a corporate action option.
     /// </summary>
-    [DataMember]
-    public ValueList<CashOption5> CashMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashOption5? CashMovementDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OptnNb", xmlNamespace );
+        OptionNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+        OptionType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecuritiesMovementDetails is SecuritiesOption19 SecuritiesMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "SctiesMvmntDtls", xmlNamespace );
+            SecuritiesMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashMovementDetails is CashOption5 CashMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "CshMvmntDtls", xmlNamespace );
+            CashMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionOption24 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

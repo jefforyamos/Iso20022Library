@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Characteristics of the report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Statement58
+     : IIsoXmlSerilizable<Statement58>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the SecuritiesStatementQuery message sent to request this statement.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? QueryReference { get; init; } 
     /// <summary>
     /// Reference common to all pages of a report.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReportIdentification { get; init; } 
     /// <summary>
     /// Specifies whether the data is either historical (true) or current (false).
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator HistoricData { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the statement reports holdings at subsafekeeping account level.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator SubAccountIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (QueryReference is IsoMax35Text QueryReferenceValue)
+        {
+            writer.WriteStartElement(null, "QryRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(QueryReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ReportIdentification is IsoMax35Text ReportIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RptId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReportIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "HstrcData", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(HistoricData)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ActvtyInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ActivityIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SubAcctInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SubAccountIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static Statement58 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

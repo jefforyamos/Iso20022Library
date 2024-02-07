@@ -7,98 +7,172 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status report of the individual orders of a bulk or multiple order that was previously received.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SwitchOrderStatusAndReason1
+     : IIsoXmlSerilizable<SwitchOrderStatusAndReason1>
 {
     #nullable enable
     
     /// <summary>
     /// Reference assigned to a set of orders or trades in order to link them together.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OrderReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of an order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order execution, as assigned by a confirming party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DealReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order cancellation, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// Status of the switch order is accepted or already executed or sent to next party or received. There is no reason attached.
     /// </summary>
-    [DataMember]
     public required OrderStatus4Code Status { get; init; } 
     /// <summary>
     /// Status of the switch order is cancelled. This status is used for an order that has been accepted or that has been entered in an order book but that can not be executed.
     /// </summary>
-    [DataMember]
     public required CancelledStatus2 Cancelled { get; init; } 
     /// <summary>
     /// Status of the switch order is conditionally accepted.
     /// </summary>
-    [DataMember]
     public required ConditionallyAcceptedStatus2 ConditionallyAccepted { get; init; } 
     /// <summary>
     /// Status of the switch order is rejected.
     /// </summary>
-    [DataMember]
     public ValueList<RejectedStatus6> Rejected { get; init; } = [];
     /// <summary>
     /// Status of the switch order is suspended.
     /// </summary>
-    [DataMember]
     public required SuspendedStatus2 Suspended { get; init; } 
     /// <summary>
     /// Status of the switch order is in repair.
     /// </summary>
-    [DataMember]
     public required InRepairStatus2 InRepair { get; init; } 
     /// <summary>
     /// Status of the switch order is partially settled.
     /// </summary>
-    [DataMember]
     public required PartiallySettledStatus1 PartiallySettled { get; init; } 
     /// <summary>
     /// Information about a switch leg that is rejected or repaired.
     /// </summary>
-    [DataMember]
-    public ValueList<SwitchLegReferences1> LegInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public SwitchLegReferences1? LegInformation { get; init; } 
     /// <summary>
     /// Party that initiates the status of the order.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? StatusInitiator { get; init; } 
     /// <summary>
     /// Order data.
     /// </summary>
-    [DataMember]
     public FundOrderData2? OrderData { get; init; } 
     /// <summary>
     /// Information that has been added to the original order.
     /// </summary>
-    [DataMember]
     public ExpectedExecutionDetails2? NewDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OrdrRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OrderReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ClientReference is IsoMax35Text ClientReferenceValue)
+        {
+            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DealReference is IsoMax35Text DealReferenceValue)
+        {
+            writer.WriteStartElement(null, "DealRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DealReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CancellationReference is IsoMax35Text CancellationReferenceValue)
+        {
+            writer.WriteStartElement(null, "CxlRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CancellationReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Canc", xmlNamespace );
+        Cancelled.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CondlyAccptd", xmlNamespace );
+        ConditionallyAccepted.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rjctd", xmlNamespace );
+        Rejected.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sspd", xmlNamespace );
+        Suspended.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InRpr", xmlNamespace );
+        InRepair.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PrtlySttld", xmlNamespace );
+        PartiallySettled.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LegInformation is SwitchLegReferences1 LegInformationValue)
+        {
+            writer.WriteStartElement(null, "LegInf", xmlNamespace );
+            LegInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StatusInitiator is PartyIdentification2Choice_ StatusInitiatorValue)
+        {
+            writer.WriteStartElement(null, "StsInitr", xmlNamespace );
+            StatusInitiatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OrderData is FundOrderData2 OrderDataValue)
+        {
+            writer.WriteStartElement(null, "OrdrData", xmlNamespace );
+            OrderDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewDetails is ExpectedExecutionDetails2 NewDetailsValue)
+        {
+            writer.WriteStartElement(null, "NewDtls", xmlNamespace );
+            NewDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SwitchOrderStatusAndReason1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

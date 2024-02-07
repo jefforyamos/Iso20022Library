@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AmountAndDirection6
+     : IIsoXmlSerilizable<AmountAndDirection6>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of money in the cash entry.
     /// </summary>
-    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates that the amount value is positive or negative.
     /// </summary>
-    [DataMember]
     public required IsoPlusOrMinusIndicator Sign { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(Amount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sgn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPlusOrMinusIndicator(Sign)); // data type PlusOrMinusIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static AmountAndDirection6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

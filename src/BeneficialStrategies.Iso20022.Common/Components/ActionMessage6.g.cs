@@ -7,58 +7,110 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information to display, print or store.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ActionMessage6
+     : IIsoXmlSerilizable<ActionMessage6>
 {
     #nullable enable
     
     /// <summary>
     /// Destination of the message.
     /// </summary>
-    [DataMember]
     public required UserInterface4Code MessageDestination { get; init; } 
     /// <summary>
     /// Qualification of the information to sent to an output logical device.
     /// </summary>
-    [DataMember]
     public InformationQualify1Code? InformationQualifier { get; init; } 
     /// <summary>
     /// Message format.
     /// </summary>
-    [DataMember]
     public OutputFormat3Code? Format { get; init; } 
     /// <summary>
     /// Content or reference of the message.
     /// </summary>
-    [DataMember]
     public required IsoMax20000Text MessageContent { get; init; } 
     /// <summary>
     /// Digital signature of the message.
     /// </summary>
-    [DataMember]
     public ContentInformationType18? MessageContentSignature { get; init; } 
     /// <summary>
     /// Content of message displayed or printed as Barcode.
     /// </summary>
-    [DataMember]
     public OutputBarcode1? OutputBarcode { get; init; } 
     /// <summary>
     /// Flag to request a message response.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ResponseRequiredFlag { get; init; } 
     /// <summary>
     /// Number of seconds the message has to be displayed.
     /// </summary>
-    [DataMember]
     public IsoNumber? MinimumDisplayTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgDstn", xmlNamespace );
+        writer.WriteValue(MessageDestination.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (InformationQualifier is InformationQualify1Code InformationQualifierValue)
+        {
+            writer.WriteStartElement(null, "InfQlfr", xmlNamespace );
+            writer.WriteValue(InformationQualifierValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Format is OutputFormat3Code FormatValue)
+        {
+            writer.WriteStartElement(null, "Frmt", xmlNamespace );
+            writer.WriteValue(FormatValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MsgCntt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20000Text(MessageContent)); // data type Max20000Text System.String
+        writer.WriteEndElement();
+        if (MessageContentSignature is ContentInformationType18 MessageContentSignatureValue)
+        {
+            writer.WriteStartElement(null, "MsgCnttSgntr", xmlNamespace );
+            MessageContentSignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OutputBarcode is OutputBarcode1 OutputBarcodeValue)
+        {
+            writer.WriteStartElement(null, "OutptBrcd", xmlNamespace );
+            OutputBarcodeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ResponseRequiredFlag is IsoTrueFalseIndicator ResponseRequiredFlagValue)
+        {
+            writer.WriteStartElement(null, "RspnReqrdFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ResponseRequiredFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (MinimumDisplayTime is IsoNumber MinimumDisplayTimeValue)
+        {
+            writer.WriteStartElement(null, "MinDispTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MinimumDisplayTimeValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static ActionMessage6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

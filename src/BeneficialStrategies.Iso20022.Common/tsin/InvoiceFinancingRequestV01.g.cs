@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsin.InvoiceFinancingRequestV01>;
 
 namespace BeneficialStrategies.Iso20022.tsin;
 
@@ -35,10 +38,9 @@ namespace BeneficialStrategies.Iso20022.tsin;
 /// - In a relay scenario, the message is sent to an Intermediary Agent. The Intermediary Agent acts as an access point that will forward the InvoiceFinancingRequest message to the First Agent.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The InvoiceFinancingRequest message is sent by Financing Requestor to the Intermediary Agent or First agent. It is used to request financing of a set of invoices, referenced in the request message itself. If the whole financing request (or a selection of single invoice requests included) is accepted, the amount financed by the First Agent will be credited either to the account specified in the financing request or to another account held by Financing Requestor to First Agent.|Usage|The InvoiceFinancingRequest message is issued by the Financing Requestor and represents a bulk financing request since it can contain one or more single financing requests, each request related to an invoice.|For every invoice it is always possible to identify a supplier and a buyer.|The subject playing the role of supplier can be different from the Financing Requestor; in this case the Financing Requestor is allowed to send the request message on behalf of the supplier itself.|This caters for example in the scenario of a collection agency initiating all requests on behalf of a large corporate.|In instances where an invoice is going to be paid by means of instalments, the Financing Requestor can request financing for one or more instalments related to the invoice payment. In this case, together with the general information related to the invoice, references about instalments to be financed are specified into the request message. The request message must contain information only about the instalments that the Financing Requestor wants to be financed.|The InvoiceFinancingRequest message is used to exchange:|- One instance of general information related to the invoice financing request;|- One instance of information for each single invoice financing request;|- Optionally, one instance of information for each single instalment to be financed.|The message can be used in a direct or a relay scenario:|- In a direct scenario, the message is sent directly to the First Agent. The First Agent is the account servicer of the Financing Requestor;|- In a relay scenario, the message is sent to an Intermediary Agent. The Intermediary Agent acts as an access point that will forward the InvoiceFinancingRequest message to the First Agent.")]
-public partial record InvoiceFinancingRequestV01 : IOuterRecord
+public partial record InvoiceFinancingRequestV01 : IOuterRecord<InvoiceFinancingRequestV01,InvoiceFinancingRequestV01Document>
+    ,IIsoXmlSerilizable<InvoiceFinancingRequestV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -50,6 +52,11 @@ public partial record InvoiceFinancingRequestV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "InvcFincgReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => InvoiceFinancingRequestV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -81,6 +88,29 @@ public partial record InvoiceFinancingRequestV01 : IOuterRecord
     {
         return new InvoiceFinancingRequestV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("InvcFincgReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ReqGrpInf", xmlNamespace );
+        RequestGroupInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InvcReqInf", xmlNamespace );
+        InvoiceRequestInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static InvoiceFinancingRequestV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -88,9 +118,7 @@ public partial record InvoiceFinancingRequestV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvoiceFinancingRequestV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record InvoiceFinancingRequestV01Document : IOuterDocument<InvoiceFinancingRequestV01>
+public partial record InvoiceFinancingRequestV01Document : IOuterDocument<InvoiceFinancingRequestV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -106,5 +134,22 @@ public partial record InvoiceFinancingRequestV01Document : IOuterDocument<Invoic
     /// <summary>
     /// The instance of <seealso cref="InvoiceFinancingRequestV01"/> is required.
     /// </summary>
+    [DataMember(Name=InvoiceFinancingRequestV01.XmlTag)]
     public required InvoiceFinancingRequestV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(InvoiceFinancingRequestV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

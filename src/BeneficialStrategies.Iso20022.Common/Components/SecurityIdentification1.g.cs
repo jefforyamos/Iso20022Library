@@ -7,53 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, eg, dividend option or valuation currency.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityIdentification1
+     : IIsoXmlSerilizable<SecurityIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a security by an ISIN.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification7 Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text Name { get; init; } 
     /// <summary>
     /// Features of units offered by a fund. For example, a unit may have a specific load structure, eg, front end or back end, an income policy, eg, pay out or accumulate, or a trailer policy, eg, with or without. Fund classes are typically denoted by a single character, eg, 'Class A', 'Class 2'.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClassType { get; init; } 
     /// <summary>
     /// Name of the umbrella fund in which financial instrument is contained.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? UmbrellaName { get; init; } 
     /// <summary>
     /// Currency of the investment fund class.
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode BaseCurrency { get; init; } 
     /// <summary>
     /// Country where the fund has legal domicile as reflected in the ISIN classification.
     /// </summary>
-    [DataMember]
     public required CountryCode CountryOfDomicile { get; init; } 
     /// <summary>
     /// Countries where the fund is registered for distribution.
     /// </summary>
-    [DataMember]
-    public ValueList<CountryCode> RegisteredDistributionCountry { get; init; } = []; // Warning: Don't know multiplicity.
+    public CountryCode? RegisteredDistributionCountry { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _Scf1p9p-Ed-ak6NoX_4Aeg_159174373
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(Name)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (ClassType is IsoMax35Text ClassTypeValue)
+        {
+            writer.WriteStartElement(null, "ClssTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClassTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (UmbrellaName is IsoMax35Text UmbrellaNameValue)
+        {
+            writer.WriteStartElement(null, "UmbrllNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(UmbrellaNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "BaseCcy", xmlNamespace );
+        writer.WriteValue(BaseCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CtryOfDmcl", xmlNamespace );
+        writer.WriteValue(CountryOfDomicile.ToString()); // Enum value
+        writer.WriteEndElement();
+        // Not sure how to serialize RegisteredDistributionCountry, multiplicity Unknown
+    }
+    public static SecurityIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Authorisation status about the fraudulent transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AuthorisationStatus1
+     : IIsoXmlSerilizable<AuthorisationStatus1>
 {
     #nullable enable
     
@@ -24,18 +25,50 @@ public partial record AuthorisationStatus1
     /// False: transaction was not authorised
     /// True: transaction was authorised
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? AuthorisationIndicator { get; init; } 
     /// <summary>
     /// Indicates the entity which authorised the transaction (if relevant).
     /// </summary>
-    [DataMember]
     public PartyType26Code? AuthorisationEntity { get; init; } 
     /// <summary>
     /// Other type of authorisation entity.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherAuthorisationEntity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AuthorisationIndicator is IsoTrueFalseIndicator AuthorisationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AuthstnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AuthorisationIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AuthorisationEntity is PartyType26Code AuthorisationEntityValue)
+        {
+            writer.WriteStartElement(null, "AuthstnNtty", xmlNamespace );
+            writer.WriteValue(AuthorisationEntityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherAuthorisationEntity is IsoMax35Text OtherAuthorisationEntityValue)
+        {
+            writer.WriteStartElement(null, "OthrAuthstnNtty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherAuthorisationEntityValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AuthorisationStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

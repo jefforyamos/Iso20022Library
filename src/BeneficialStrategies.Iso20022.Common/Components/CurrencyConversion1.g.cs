@@ -7,118 +7,209 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Conversion between the currency of a card acceptor and the currency of a card issuer, provided by a dedicated service provider. The currency conversion has to be accepted by the cardholder.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CurrencyConversion1
+     : IIsoXmlSerilizable<CurrencyConversion1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the currency conversion operation for the service provider.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CurrencyConversionIdentification { get; init; } 
     /// <summary>
     /// Result of a requested currency conversion.
     /// </summary>
-    [DataMember]
     public required CurrencyConversionResponse1Code Result { get; init; } 
     /// <summary>
     /// Plain text explaining the result of the currency conversion request.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ResponseReason { get; init; } 
     /// <summary>
     /// Currency into which the amount is converted (ISO 4217, 3 alphanumeric characters).
     /// </summary>
-    [DataMember]
     public required CurrencyCode TargetCurrency { get; init; } 
     /// <summary>
     /// Currency into which the amount is converted (ISO 4217, 3 numeric characters).
     /// </summary>
-    [DataMember]
     public required IsoExact3NumericText TargetCurrencyNumeric { get; init; } 
     /// <summary>
     /// Maximal number of digits after the decimal separator for target currency.
     /// </summary>
-    [DataMember]
     public required IsoNumber TargetCurrencyDecimal { get; init; } 
     /// <summary>
     /// Full name of the target currency.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TargetCurrencyName { get; init; } 
     /// <summary>
     /// Amount converted in the target currency, including additional charges.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount ResultingAmount { get; init; } 
     /// <summary>
     /// Exchange rate, expressed as a percentage, applied to convert the original amount into the resulting amount.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate ExchangeRate { get; init; } 
     /// <summary>
     /// Exchange rate, expressed as a percentage, applied to convert the resulting amount into the original amount.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? InvertedExchangeRate { get; init; } 
     /// <summary>
     /// Date and time at which the exchange rate has been quoted.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? QuotationDate { get; init; } 
     /// <summary>
     /// Validity limit of the exchange rate.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ValidUntil { get; init; } 
     /// <summary>
     /// Currency from which the amount is converted (ISO 4217, 3 alphanumeric characters).
     /// </summary>
-    [DataMember]
     public required CurrencyCode SourceCurrency { get; init; } 
     /// <summary>
     /// Currency from which the amount is converted (ISO 4217, 3 numeric characters).
     /// </summary>
-    [DataMember]
     public CurrencyCode? SourceCurrencyNumeric { get; init; } 
     /// <summary>
     /// Maximal number of digits after the decimal separator for source currency.
     /// </summary>
-    [DataMember]
     public required IsoNumber SourceCurrencyDecimal { get; init; } 
     /// <summary>
     /// Full name of the source currency.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SourceCurrencyName { get; init; } 
     /// <summary>
     /// Original amount in the source currency.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount OriginalAmount { get; init; } 
     /// <summary>
     /// Commission or additional charges made as part of a currency conversion.
     /// </summary>
-    [DataMember]
-    public ValueList<Commission19> CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Commission19? CommissionDetails { get; init; } 
     /// <summary>
     /// Markup made as part of a currency conversion.
     /// </summary>
-    [DataMember]
-    public ValueList<Commission18> MarkUpDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Commission18? MarkUpDetails { get; init; } 
     /// <summary>
     /// Card scheme declaration (disclaimer) to present to the cardholder.
     /// </summary>
-    [DataMember]
     public IsoMax2048Text? DeclarationDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CurrencyConversionIdentification is IsoMax35Text CurrencyConversionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CcyConvsId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CurrencyConversionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Rslt", xmlNamespace );
+        writer.WriteValue(Result.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ResponseReason is IsoMax35Text ResponseReasonValue)
+        {
+            writer.WriteStartElement(null, "RspnRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ResponseReasonValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TrgtCcy", xmlNamespace );
+        writer.WriteValue(TargetCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TrgtCcyNmrc", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact3NumericText(TargetCurrencyNumeric)); // data type Exact3NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TrgtCcyDcml", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(TargetCurrencyDecimal)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        if (TargetCurrencyName is IsoMax35Text TargetCurrencyNameValue)
+        {
+            writer.WriteStartElement(null, "TrgtCcyNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TargetCurrencyNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RsltgAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ResultingAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XchgRate", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(ExchangeRate)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+        if (InvertedExchangeRate is IsoPercentageRate InvertedExchangeRateValue)
+        {
+            writer.WriteStartElement(null, "NvrtdXchgRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(InvertedExchangeRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (QuotationDate is IsoISODateTime QuotationDateValue)
+        {
+            writer.WriteStartElement(null, "QtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(QuotationDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ValidUntil is IsoISODateTime ValidUntilValue)
+        {
+            writer.WriteStartElement(null, "VldUntil", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ValidUntilValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SrcCcy", xmlNamespace );
+        writer.WriteValue(SourceCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SourceCurrencyNumeric is CurrencyCode SourceCurrencyNumericValue)
+        {
+            writer.WriteStartElement(null, "SrcCcyNmrc", xmlNamespace );
+            writer.WriteValue(SourceCurrencyNumericValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SrcCcyDcml", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(SourceCurrencyDecimal)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        if (SourceCurrencyName is IsoMax35Text SourceCurrencyNameValue)
+        {
+            writer.WriteStartElement(null, "SrcCcyNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SourceCurrencyNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OrgnlAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(OriginalAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (CommissionDetails is Commission19 CommissionDetailsValue)
+        {
+            writer.WriteStartElement(null, "ComssnDtls", xmlNamespace );
+            CommissionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarkUpDetails is Commission18 MarkUpDetailsValue)
+        {
+            writer.WriteStartElement(null, "MrkUpDtls", xmlNamespace );
+            MarkUpDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeclarationDetails is IsoMax2048Text DeclarationDetailsValue)
+        {
+            writer.WriteStartElement(null, "DclrtnDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2048Text(DeclarationDetailsValue)); // data type Max2048Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CurrencyConversion1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

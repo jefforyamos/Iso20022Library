@@ -7,68 +7,132 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Resources of a legal entity or other financial construct that are available to meet cash obligations.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LiquidResources1
+     : IIsoXmlSerilizable<LiquidResources1>
 {
     #nullable enable
     
     /// <summary>
     /// Cash expected to be available to the CCP on each day in order to meet liquid requirements.
     /// </summary>
-    [DataMember]
-    public ValueList<LiquidResourceInformation1> CashDue { get; init; } = []; // Warning: Don't know multiplicity.
+    public LiquidResourceInformation1? CashDue { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _yq6uYESsEemM8-DVOYzdVQ
     /// <summary>
     /// Lines of credit with credit institutions that are contractually committed with the liquidity provider.
     /// </summary>
-    [DataMember]
-    public ValueList<LiquidResourceInformation1> FacilitiesCommittedLinesOfCredit { get; init; } = []; // Warning: Don't know multiplicity.
+    public LiquidResourceInformation1? FacilitiesCommittedLinesOfCredit { get; init; } 
     /// <summary>
     /// Repurchase agreement that are contractually committed with the liquidity provider.
     /// </summary>
-    [DataMember]
-    public ValueList<LiquidResourceInformation1> FacilitiesCommittedRepurchaseAgreements { get; init; } = []; // Warning: Don't know multiplicity.
+    public LiquidResourceInformation1? FacilitiesCommittedRepurchaseAgreements { get; init; } 
     /// <summary>
     /// FX swaps that are contractually committed with the liquidity provider.
     /// </summary>
-    [DataMember]
-    public ValueList<LiquidResourceInformation1> FacilitiesCommittedFXSwaps { get; init; } = []; // Warning: Don't know multiplicity.
+    public LiquidResourceInformation1? FacilitiesCommittedFXSwaps { get; init; } 
     /// <summary>
     /// Other liquidity facilities that are contractually committed with the liquidity provider.
     /// </summary>
-    [DataMember]
-    public ValueList<LiquidResourceInformation1> FacilitiesOtherCommitted { get; init; } = []; // Warning: Don't know multiplicity.
+    public LiquidResourceInformation1? FacilitiesOtherCommitted { get; init; } 
     /// <summary>
     /// Liquidity facilities that are not contractually committed.
     /// </summary>
-    [DataMember]
-    public ValueList<LiquidResourceInformation1> FacilitiesUncommitted { get; init; } = []; // Warning: Don't know multiplicity.
+    public LiquidResourceInformation1? FacilitiesUncommitted { get; init; } 
     /// <summary>
     /// CCPs own non cash resources.
     /// </summary>
-    [DataMember]
-    public ValueList<LiquidResourceInformation1> FinancialInstrumentsCCP { get; init; } = []; // Warning: Don't know multiplicity.
+    public LiquidResourceInformation1? FinancialInstrumentsCCP { get; init; } 
     /// <summary>
     /// Financial instruments from CCP treasury investments of clearing members cash collateral with any of the CCPs own cash invested included.
     /// </summary>
-    [DataMember]
-    public ValueList<LiquidResourceInformation1> FinancialInstrumentsTreasuryInvestments { get; init; } = []; // Warning: Don't know multiplicity.
+    public LiquidResourceInformation1? FinancialInstrumentsTreasuryInvestments { get; init; } 
     /// <summary>
     /// Financial instruments due to be delivered to the defaulting member that post-default can be used to meet liquidity needs in the event of their default.
     /// </summary>
-    [DataMember]
-    public ValueList<LiquidResourceInformation1> FinancialInstrumentsDefaultersSettlementCollateral { get; init; } = []; // Warning: Don't know multiplicity.
+    public LiquidResourceInformation1? FinancialInstrumentsDefaultersSettlementCollateral { get; init; } 
     /// <summary>
     /// Non-cash collateral e.g. margin provided by the defaulting counterparty that can be used to meet liquidity needs in the event of their default.
     /// </summary>
-    [DataMember]
-    public ValueList<LiquidResourceInformation1> FinancialInstrumentsDefaultersNonCashCollateral { get; init; } = []; // Warning: Don't know multiplicity.
+    public LiquidResourceInformation1? FinancialInstrumentsDefaultersNonCashCollateral { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize CashDue, multiplicity Unknown
+        if (FacilitiesCommittedLinesOfCredit is LiquidResourceInformation1 FacilitiesCommittedLinesOfCreditValue)
+        {
+            writer.WriteStartElement(null, "FcltiesCmmtdLinesOfCdt", xmlNamespace );
+            FacilitiesCommittedLinesOfCreditValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FacilitiesCommittedRepurchaseAgreements is LiquidResourceInformation1 FacilitiesCommittedRepurchaseAgreementsValue)
+        {
+            writer.WriteStartElement(null, "FcltiesCmmtdRpAgrmts", xmlNamespace );
+            FacilitiesCommittedRepurchaseAgreementsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FacilitiesCommittedFXSwaps is LiquidResourceInformation1 FacilitiesCommittedFXSwapsValue)
+        {
+            writer.WriteStartElement(null, "FcltiesCmmtdFxSwps", xmlNamespace );
+            FacilitiesCommittedFXSwapsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FacilitiesOtherCommitted is LiquidResourceInformation1 FacilitiesOtherCommittedValue)
+        {
+            writer.WriteStartElement(null, "FcltiesOthrCmmtd", xmlNamespace );
+            FacilitiesOtherCommittedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FacilitiesUncommitted is LiquidResourceInformation1 FacilitiesUncommittedValue)
+        {
+            writer.WriteStartElement(null, "FcltiesUcmmtd", xmlNamespace );
+            FacilitiesUncommittedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentsCCP is LiquidResourceInformation1 FinancialInstrumentsCCPValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmsCCP", xmlNamespace );
+            FinancialInstrumentsCCPValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentsTreasuryInvestments is LiquidResourceInformation1 FinancialInstrumentsTreasuryInvestmentsValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmsTrsrInvstmts", xmlNamespace );
+            FinancialInstrumentsTreasuryInvestmentsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentsDefaultersSettlementCollateral is LiquidResourceInformation1 FinancialInstrumentsDefaultersSettlementCollateralValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmsDfltrsSttlmColl", xmlNamespace );
+            FinancialInstrumentsDefaultersSettlementCollateralValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentsDefaultersNonCashCollateral is LiquidResourceInformation1 FinancialInstrumentsDefaultersNonCashCollateralValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmsDfltrsNonCshColl", xmlNamespace );
+            FinancialInstrumentsDefaultersNonCashCollateralValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LiquidResources1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

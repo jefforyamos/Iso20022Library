@@ -7,33 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Low level communication of the hardware or software component toward another component or an external entity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CommunicationCharacteristics2
+     : IIsoXmlSerilizable<CommunicationCharacteristics2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of low level communication.
     /// </summary>
-    [DataMember]
     public required POICommunicationType1Code CommunicationType { get; init; } 
     /// <summary>
     /// Entity that communicate with the current component, using this communication device.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyType7Code> RemoteParty { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyType7Code? RemoteParty { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _g_4G0y9MEeOlZIh7PImd0A
     /// <summary>
     /// Communication hardware is activated.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator Active { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ComTp", xmlNamespace );
+        writer.WriteValue(CommunicationType.ToString()); // Enum value
+        writer.WriteEndElement();
+        // Not sure how to serialize RemoteParty, multiplicity Unknown
+        writer.WriteStartElement(null, "Actv", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(Active)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static CommunicationCharacteristics2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,48 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Balance breakdown information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PortfolioBalance1
+     : IIsoXmlSerilizable<PortfolioBalance1>
 {
     #nullable enable
     
     /// <summary>
     /// Summary balance information.
     /// </summary>
-    [DataMember]
-    public ValueList<BalanceDetails5> SummaryBalance { get; init; } = []; // Warning: Don't know multiplicity.
+    public BalanceDetails5? SummaryBalance { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _m9_jwfNBEeCuA5Tr22BnwA_1134139495
     /// <summary>
     /// Detailed balance information.
     /// </summary>
-    [DataMember]
-    public ValueList<BalanceDetails6> DetailedBalance { get; init; } = []; // Warning: Don't know multiplicity.
+    public BalanceDetails6? DetailedBalance { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _m9_jwvNBEeCuA5Tr22BnwA_432347507
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize SummaryBalance, multiplicity Unknown
+        // Not sure how to serialize DetailedBalance, multiplicity Unknown
+    }
+    public static PortfolioBalance1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

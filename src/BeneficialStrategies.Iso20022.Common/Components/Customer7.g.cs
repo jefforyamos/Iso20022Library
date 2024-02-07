@@ -7,73 +7,146 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the customer in a transfer of money.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Customer7
+     : IIsoXmlSerilizable<Customer7>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the customer assigned by a party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CustomerIdentification { get; init; } 
     /// <summary>
     /// Identifies the specific customer when multiple customers are associated with the same account.
     /// </summary>
-    [DataMember]
     public IsoMax2NumericText? CustomerDesignation { get; init; } 
     /// <summary>
     /// Name of the financial customer.
     /// </summary>
-    [DataMember]
     public CardholderName3? Name { get; init; } 
     /// <summary>
     /// Address of the financial customer.
     /// </summary>
-    [DataMember]
     public Address2? Address { get; init; } 
     /// <summary>
     /// Detail contact information of the customer.
     /// </summary>
-    [DataMember]
     public Contact6? ContactInformation { get; init; } 
     /// <summary>
     /// Credentials of the financial customer.
     /// </summary>
-    [DataMember]
-    public ValueList<Credentials2> Credentials { get; init; } = []; // Warning: Don't know multiplicity.
+    public Credentials2? Credentials { get; init; } 
     /// <summary>
     /// Nationality information (ISO 3166-1 alpha-2 or alpha-3)
     /// </summary>
-    [DataMember]
     public ISOMax3ACountryCode? Nationality { get; init; } 
     /// <summary>
     /// Country of Birth information (ISO 3166-1 alpha-2 or alpha-3)
     /// </summary>
-    [DataMember]
     public ISOMax3ACountryCode? CountryOfBirth { get; init; } 
     /// <summary>
     /// Date of birth of the party.
     /// </summary>
-    [DataMember]
     public IsoISODate? DateOfBirth { get; init; } 
     /// <summary>
     /// Contains text fields in the local language.
     /// </summary>
-    [DataMember]
     public LocalData3? LocalData { get; init; } 
     /// <summary>
     /// Additional information related to the customer.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CustomerIdentification is IsoMax35Text CustomerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CstmrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CustomerIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CustomerDesignation is IsoMax2NumericText CustomerDesignationValue)
+        {
+            writer.WriteStartElement(null, "CstmrDsgnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2NumericText(CustomerDesignationValue)); // data type Max2NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (Name is CardholderName3 NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            NameValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Address is Address2 AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContactInformation is Contact6 ContactInformationValue)
+        {
+            writer.WriteStartElement(null, "CtctInf", xmlNamespace );
+            ContactInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Credentials is Credentials2 CredentialsValue)
+        {
+            writer.WriteStartElement(null, "Crdntls", xmlNamespace );
+            CredentialsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Nationality is ISOMax3ACountryCode NationalityValue)
+        {
+            writer.WriteStartElement(null, "Ntlty", xmlNamespace );
+            writer.WriteValue(NationalityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CountryOfBirth is ISOMax3ACountryCode CountryOfBirthValue)
+        {
+            writer.WriteStartElement(null, "CtryOfBirth", xmlNamespace );
+            writer.WriteValue(CountryOfBirthValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DateOfBirth is IsoISODate DateOfBirthValue)
+        {
+            writer.WriteStartElement(null, "DtOfBirth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateOfBirthValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (LocalData is LocalData3 LocalDataValue)
+        {
+            writer.WriteStartElement(null, "LclData", xmlNamespace );
+            LocalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Customer7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

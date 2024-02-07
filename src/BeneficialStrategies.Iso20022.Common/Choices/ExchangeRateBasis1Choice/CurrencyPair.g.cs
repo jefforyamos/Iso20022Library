@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ExchangeRateBasis1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.ExchangeRateBasis1Choice;
 /// Exchange rate basis expressed as a currency pair.
 /// </summary>
 public partial record CurrencyPair : ExchangeRateBasis1Choice_
+     , IIsoXmlSerilizable<CurrencyPair>
 {
     #nullable enable
+    
     /// <summary>
     /// Currency in which the rate of exchange is expressed in a currency exchange.
     /// Usage: In the example one GBP equals xxxUSD, the unit currency is GBP.
@@ -24,5 +28,29 @@ public partial record CurrencyPair : ExchangeRateBasis1Choice_
     /// Currency into which the base currency is converted, in a currency exchange.
     /// </summary>
     public required ActiveCurrencyCode QuotedCurrency { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BaseCcy", xmlNamespace );
+        writer.WriteValue(BaseCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "QtdCcy", xmlNamespace );
+        writer.WriteValue(QuotedCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new CurrencyPair Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

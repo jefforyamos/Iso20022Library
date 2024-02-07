@@ -7,74 +7,147 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unencrypted sensitive data of a token.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Token2
+     : IIsoXmlSerilizable<Token2>
 {
     #nullable enable
     
     /// <summary>
     /// Surrogate value of the PAN.
     /// </summary>
-    [DataMember]
     public IsoMax19NumericText? PaymentToken { get; init; } 
     /// <summary>
     /// Expiry date of the payment token.
     /// ISO 8583 bit 14.
     /// </summary>
-    [DataMember]
     public IsoISOYearMonth? TokenExpiryDate { get; init; } 
     /// <summary>
     /// Identification of a party requesting a token.
     /// </summary>
-    [DataMember]
     public IsoMax11NumericText? TokenRequestorIdentification { get; init; } 
     /// <summary>
     /// Supporting information for the Token Assurance Method.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? TokenAssuranceData { get; init; } 
     /// <summary>
     /// Value that allows a Token Service Provider to indicate the identification and verification performed representing the binding of the payment token to the underlying PAN and cardholder.
     /// </summary>
-    [DataMember]
     public IsoMax2NumericText? TokenAssuranceMethod { get; init; } 
     /// <summary>
     /// Original transaction was initiated by Token.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? TokenInitiatedIndicator { get; init; } 
     /// <summary>
     /// Storage location of the token.
     /// </summary>
-    [DataMember]
     public StorageLocation1Code? StorageLocation { get; init; } 
     /// <summary>
     /// Other private or national storage location code.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherStorageLocation { get; init; } 
     /// <summary>
     /// Method used to protect the token.
     /// </summary>
-    [DataMember]
     public ProtectionMethod1Code? ProtectionMethod { get; init; } 
     /// <summary>
     /// Other national or private protection method code.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherProtectionMethod { get; init; } 
     /// <summary>
     /// Additional token data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PaymentToken is IsoMax19NumericText PaymentTokenValue)
+        {
+            writer.WriteStartElement(null, "PmtTkn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax19NumericText(PaymentTokenValue)); // data type Max19NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (TokenExpiryDate is IsoISOYearMonth TokenExpiryDateValue)
+        {
+            writer.WriteStartElement(null, "TknXpryDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOYearMonth(TokenExpiryDateValue)); // data type ISOYearMonth System.UInt16
+            writer.WriteEndElement();
+        }
+        if (TokenRequestorIdentification is IsoMax11NumericText TokenRequestorIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TknRqstrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax11NumericText(TokenRequestorIdentificationValue)); // data type Max11NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (TokenAssuranceData is IsoMax140Text TokenAssuranceDataValue)
+        {
+            writer.WriteStartElement(null, "TknAssrncData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(TokenAssuranceDataValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (TokenAssuranceMethod is IsoMax2NumericText TokenAssuranceMethodValue)
+        {
+            writer.WriteStartElement(null, "TknAssrncMtd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2NumericText(TokenAssuranceMethodValue)); // data type Max2NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (TokenInitiatedIndicator is IsoTrueFalseIndicator TokenInitiatedIndicatorValue)
+        {
+            writer.WriteStartElement(null, "TknInittdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TokenInitiatedIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (StorageLocation is StorageLocation1Code StorageLocationValue)
+        {
+            writer.WriteStartElement(null, "StorgLctn", xmlNamespace );
+            writer.WriteValue(StorageLocationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherStorageLocation is IsoMax35Text OtherStorageLocationValue)
+        {
+            writer.WriteStartElement(null, "OthrStorgLctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherStorageLocationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProtectionMethod is ProtectionMethod1Code ProtectionMethodValue)
+        {
+            writer.WriteStartElement(null, "PrtcnMtd", xmlNamespace );
+            writer.WriteValue(ProtectionMethodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherProtectionMethod is IsoMax35Text OtherProtectionMethodValue)
+        {
+            writer.WriteStartElement(null, "OthrPrtcnMtd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherProtectionMethodValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Token2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

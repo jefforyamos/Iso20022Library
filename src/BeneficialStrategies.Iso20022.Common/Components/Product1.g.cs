@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Product purchased to be paid.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Product1
+     : IIsoXmlSerilizable<Product1>
 {
     #nullable enable
     
     /// <summary>
     /// Product code of the item purchased.
     /// </summary>
-    [DataMember]
     public required IsoMax70Text ProductCode { get; init; } 
     /// <summary>
     /// Unit of measure of the item purchased.
     /// </summary>
-    [DataMember]
     public UnitOfMeasure1Code? UnitOfMeasure { get; init; } 
     /// <summary>
     /// Product quantity.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? ProductQuantity { get; init; } 
     /// <summary>
     /// Price per unit of product.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? UnitPrice { get; init; } 
     /// <summary>
     /// Monetary value of purchased product.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount ProductAmount { get; init; } 
     /// <summary>
     /// Information on tax paid on the product.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TaxType { get; init; } 
     /// <summary>
     /// Additional information related to the product.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AdditionalProductInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PdctCd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(ProductCode)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        if (UnitOfMeasure is UnitOfMeasure1Code UnitOfMeasureValue)
+        {
+            writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
+            writer.WriteValue(UnitOfMeasureValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ProductQuantity is IsoDecimalNumber ProductQuantityValue)
+        {
+            writer.WriteStartElement(null, "PdctQty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(ProductQuantityValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (UnitPrice is IsoImpliedCurrencyAndAmount UnitPriceValue)
+        {
+            writer.WriteStartElement(null, "UnitPric", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(UnitPriceValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PdctAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ProductAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (TaxType is IsoMax35Text TaxTypeValue)
+        {
+            writer.WriteStartElement(null, "TaxTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TaxTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalProductInformation is IsoMax35Text AdditionalProductInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlPdctInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdditionalProductInformationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Product1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

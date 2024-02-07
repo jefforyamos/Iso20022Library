@@ -7,93 +7,159 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the foreign exchange trade including Spot\Forward\NDF that is captured.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Trade3
+     : IIsoXmlSerilizable<Trade3>
 {
     #nullable enable
     
     /// <summary>
     /// Price of the execution of the trade.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAnd13DecimalAmount ExecutionPrice { get; init; } 
     /// <summary>
     /// Amount of trade in trading currency.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount LastQuantity { get; init; } 
     /// <summary>
     /// Specifies the settlment period of the foreign exchange trade.
     /// </summary>
-    [DataMember]
     public required SettlementDateCode SettlementType { get; init; } 
     /// <summary>
     /// Specifies the date on which the trade will be settled.
     /// </summary>
-    [DataMember]
     public required IsoISODate SettlementDate { get; init; } 
     /// <summary>
     /// Specifies the valuation rate used for the trade.
     /// </summary>
-    [DataMember]
     public required AgreedRate3 ValuationRate { get; init; } 
     /// <summary>
     /// Specifies the forward points of the trade if needed.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? ForwardPoints { get; init; } 
     /// <summary>
     /// Amount of trade in corresponding currency.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount CalculatedCounterpartyCurrencyLastQuantity { get; init; } 
     /// <summary>
     /// Specifies the value date of spot transaction.
     /// </summary>
-    [DataMember]
     public required IsoISODate ValueDate { get; init; } 
     /// <summary>
     /// Measurement of the amount of the trade values converted in the US dollars.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount RiskAmount { get; init; } 
     /// <summary>
     /// Security identification of the trade.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification18 SecurityIdentification { get; init; } 
     /// <summary>
     /// Specifies the ISO code of the fixing currency.
     /// </summary>
-    [DataMember]
     public CurrencyCode? FixingCurrency { get; init; } 
     /// <summary>
     /// Date at which the rate determination is made in the NDF trade.
     /// </summary>
-    [DataMember]
     public IsoISODate? FixingDate { get; init; } 
     /// <summary>
     /// Indicates whether the spot trade is produced by the option.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? OptionIndicator { get; init; } 
     /// <summary>
     /// Indicate the trade whether it's exchange delta.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? DeltaIndicator { get; init; } 
     /// <summary>
     /// Some associated trade reference needs to be specified.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax70Text> AssociatedTradeReference { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax70Text? AssociatedTradeReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ExctnPric", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(ExecutionPrice)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "LastQty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(LastQuantity)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmTp", xmlNamespace );
+        writer.WriteValue(SettlementType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(SettlementDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ValtnRate", xmlNamespace );
+        ValuationRate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ForwardPoints is IsoDecimalNumber ForwardPointsValue)
+        {
+            writer.WriteStartElement(null, "FwdPts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(ForwardPointsValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ClctdCtrPtyCcyLastQty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(CalculatedCounterpartyCurrencyLastQuantity)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ValDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ValueDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RskAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(RiskAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctyId", xmlNamespace );
+        SecurityIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FixingCurrency is CurrencyCode FixingCurrencyValue)
+        {
+            writer.WriteStartElement(null, "FxgCcy", xmlNamespace );
+            writer.WriteValue(FixingCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (FixingDate is IsoISODate FixingDateValue)
+        {
+            writer.WriteStartElement(null, "FxgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(FixingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (OptionIndicator is IsoYesNoIndicator OptionIndicatorValue)
+        {
+            writer.WriteStartElement(null, "OptnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OptionIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (DeltaIndicator is IsoYesNoIndicator DeltaIndicatorValue)
+        {
+            writer.WriteStartElement(null, "DltaInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DeltaIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AssociatedTradeReference is IsoMax70Text AssociatedTradeReferenceValue)
+        {
+            writer.WriteStartElement(null, "AssoctdTradRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AssociatedTradeReferenceValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Trade3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

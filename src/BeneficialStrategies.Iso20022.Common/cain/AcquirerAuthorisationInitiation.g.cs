@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.cain.AcquirerAuthorisationInitiation>;
 
 namespace BeneficialStrategies.Iso20022.cain;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// The AcquirerAuthorisationInitiation message is sent by an acquirer or an agent to an issuer or an agent, to request, advice or notify the approval of a card transaction.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The AcquirerAuthorisationInitiation message is sent by an acquirer or an agent to an issuer or an agent, to request, advice or notify the approval of a card transaction.")]
-public partial record AcquirerAuthorisationInitiation : IOuterRecord
+public partial record AcquirerAuthorisationInitiation : IOuterRecord<AcquirerAuthorisationInitiation,AcquirerAuthorisationInitiationDocument>
+    ,IIsoXmlSerilizable<AcquirerAuthorisationInitiation>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record AcquirerAuthorisationInitiation : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AcqrrAuthstnInitn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AcquirerAuthorisationInitiationDocument.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -77,6 +84,35 @@ public partial record AcquirerAuthorisationInitiation : IOuterRecord
     {
         return new AcquirerAuthorisationInitiationDocument { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AcqrrAuthstnInitn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AuthstnInitn", xmlNamespace );
+        AuthorisationInitiation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecurityTrailer is ContentInformationType15 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AcquirerAuthorisationInitiation Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -84,9 +120,7 @@ public partial record AcquirerAuthorisationInitiation : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcquirerAuthorisationInitiation"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AcquirerAuthorisationInitiationDocument : IOuterDocument<AcquirerAuthorisationInitiation>
+public partial record AcquirerAuthorisationInitiationDocument : IOuterDocument<AcquirerAuthorisationInitiation>, IXmlSerializable
 {
     
     /// <summary>
@@ -102,5 +136,22 @@ public partial record AcquirerAuthorisationInitiationDocument : IOuterDocument<A
     /// <summary>
     /// The instance of <seealso cref="AcquirerAuthorisationInitiation"/> is required.
     /// </summary>
+    [DataMember(Name=AcquirerAuthorisationInitiation.XmlTag)]
     public required AcquirerAuthorisationInitiation Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AcquirerAuthorisationInitiation.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

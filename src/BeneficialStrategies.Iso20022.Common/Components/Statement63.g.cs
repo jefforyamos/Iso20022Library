@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Characteristics of the statement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Statement63
+     : IIsoXmlSerilizable<Statement63>
 {
     #nullable enable
     
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
-    [DataMember]
     public Number3Choice_? ReportNumber { get; init; } 
     /// <summary>
     /// Identification of the SecuritiesStatementQuery message sent to request this statement.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? QueryReference { get; init; } 
     /// <summary>
     /// Reference common to all pages of a statement.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? StatementIdentification { get; init; } 
     /// <summary>
     /// Date and time of the statement.
     /// </summary>
-    [DataMember]
     public required DateAndDateTime2Choice_ StatementDateTime { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
-    [DataMember]
     public Frequency25Choice_? Frequency { get; init; } 
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>
-    [DataMember]
     public UpdateType15Choice_? UpdateType { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReportNumber is Number3Choice_ ReportNumberValue)
+        {
+            writer.WriteStartElement(null, "RptNb", xmlNamespace );
+            ReportNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (QueryReference is IsoMax35Text QueryReferenceValue)
+        {
+            writer.WriteStartElement(null, "QryRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(QueryReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (StatementIdentification is IsoMax35Text StatementIdentificationValue)
+        {
+            writer.WriteStartElement(null, "StmtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(StatementIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "StmtDtTm", xmlNamespace );
+        StatementDateTime.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Frequency is Frequency25Choice_ FrequencyValue)
+        {
+            writer.WriteStartElement(null, "Frqcy", xmlNamespace );
+            FrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UpdateType is UpdateType15Choice_ UpdateTypeValue)
+        {
+            writer.WriteStartElement(null, "UpdTp", xmlNamespace );
+            UpdateTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ActvtyInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ActivityIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static Statement63 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to the management plan of a point of interaction (POI).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TerminalManagementDataSet32
+     : IIsoXmlSerilizable<TerminalManagementDataSet32>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the data set containing the management plan.
     /// </summary>
-    [DataMember]
     public required DataSetIdentification10 Identification { get; init; } 
     /// <summary>
     /// Counter to identify a single data set within the whole transfer.
     /// </summary>
-    [DataMember]
     public IsoMax9NumericText? SequenceCounter { get; init; } 
     /// <summary>
     /// Indication of the last sequence in case of split messages.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? LastSequence { get; init; } 
     /// <summary>
     /// Content of the management plan.
     /// </summary>
-    [DataMember]
     public ManagementPlanContent11? Content { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SequenceCounter is IsoMax9NumericText SequenceCounterValue)
+        {
+            writer.WriteStartElement(null, "SeqCntr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax9NumericText(SequenceCounterValue)); // data type Max9NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (LastSequence is IsoTrueFalseIndicator LastSequenceValue)
+        {
+            writer.WriteStartElement(null, "LastSeq", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(LastSequenceValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Content is ManagementPlanContent11 ContentValue)
+        {
+            writer.WriteStartElement(null, "Cntt", xmlNamespace );
+            ContentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TerminalManagementDataSet32 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

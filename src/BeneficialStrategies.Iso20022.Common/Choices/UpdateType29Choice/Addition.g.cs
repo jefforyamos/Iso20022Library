@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.UpdateType29Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType29Choice;
 /// Addition of information to the securities transaction.
 /// </summary>
 public partial record Addition : UpdateType29Choice_
+     , IIsoXmlSerilizable<Addition>
 {
     #nullable enable
+    
     /// <summary>
     /// Provides settlement type and identification information.
     /// </summary>
@@ -22,7 +26,7 @@ public partial record Addition : UpdateType29Choice_
     /// <summary>
     /// Link to another transaction that must be processed after, before or at the same time.
     /// </summary>
-    public Linkages38? Linkages { get; init;  } // Warning: Don't know multiplicity.
+    public Linkages38? Linkages { get; init; } 
     /// <summary>
     /// Details of the trade.
     /// </summary>
@@ -74,6 +78,114 @@ public partial record Addition : UpdateType29Choice_
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SettlementTypeAndAdditionalParameters is SettlementTypeAndAdditionalParameters13 SettlementTypeAndAdditionalParametersValue)
+        {
+            writer.WriteStartElement(null, "SttlmTpAndAddtlParams", xmlNamespace );
+            SettlementTypeAndAdditionalParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Linkages is Linkages38 LinkagesValue)
+        {
+            writer.WriteStartElement(null, "Lnkgs", xmlNamespace );
+            LinkagesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeDetails is SecuritiesTradeDetails91 TradeDetailsValue)
+        {
+            writer.WriteStartElement(null, "TradDtls", xmlNamespace );
+            TradeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentAttributes is FinancialInstrumentAttributes91 FinancialInstrumentAttributesValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmAttrbts", xmlNamespace );
+            FinancialInstrumentAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (QuantityAndAccountDetails is QuantityAndAccount81 QuantityAndAccountDetailsValue)
+        {
+            writer.WriteStartElement(null, "QtyAndAcctDtls", xmlNamespace );
+            QuantityAndAccountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementParameters is SettlementDetails165 SettlementParametersValue)
+        {
+            writer.WriteStartElement(null, "SttlmParams", xmlNamespace );
+            SettlementParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StandingSettlementInstructionDetails is StandingSettlementInstruction16 StandingSettlementInstructionDetailsValue)
+        {
+            writer.WriteStartElement(null, "StgSttlmInstrDtls", xmlNamespace );
+            StandingSettlementInstructionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveringSettlementParties is SettlementParties79 DeliveringSettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "DlvrgSttlmPties", xmlNamespace );
+            DeliveringSettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReceivingSettlementParties is SettlementParties79 ReceivingSettlementPartiesValue)
+        {
+            writer.WriteStartElement(null, "RcvgSttlmPties", xmlNamespace );
+            ReceivingSettlementPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashParties is CashParties36 CashPartiesValue)
+        {
+            writer.WriteStartElement(null, "CshPties", xmlNamespace );
+            CashPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementAmount is AmountAndDirection95 SettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
+            SettlementAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherAmounts is OtherAmounts39 OtherAmountsValue)
+        {
+            writer.WriteStartElement(null, "OthrAmts", xmlNamespace );
+            OtherAmountsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherBusinessParties is OtherParties33 OtherBusinessPartiesValue)
+        {
+            writer.WriteStartElement(null, "OthrBizPties", xmlNamespace );
+            OtherBusinessPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalPhysicalOrRegistrationDetails is RegistrationParameters6 AdditionalPhysicalOrRegistrationDetailsValue)
+        {
+            writer.WriteStartElement(null, "AddtlPhysOrRegnDtls", xmlNamespace );
+            AdditionalPhysicalOrRegistrationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Addition Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

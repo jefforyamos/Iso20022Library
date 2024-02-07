@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.reda.PriceReportCancellationV03>;
 
 namespace BeneficialStrategies.Iso20022.reda;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// This message must contain the reference of the message to be cancelled.This message may also contain details of the message to be cancelled, but this is not recommended.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|A report provider, eg, a transfer agent, fund accountant or market data provider, sends the PriceReportCancellation message to the report recipient, eg, a fund management company, transfer agent, market data provider, regulator or any other interested party to cancel a previously sent PriceReport message.|Usage|The PriceReportCancellation is used to cancel an entire PriceReport message that was previously sent.|If only a part of the information needs to be cancelled and replaced, the PriceReportCorrection message must be used.|This message must contain the reference of the message to be cancelled.This message may also contain details of the message to be cancelled, but this is not recommended.")]
-public partial record PriceReportCancellationV03 : IOuterRecord
+public partial record PriceReportCancellationV03 : IOuterRecord<PriceReportCancellationV03,PriceReportCancellationV03Document>
+    ,IIsoXmlSerilizable<PriceReportCancellationV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record PriceReportCancellationV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "PricRptCxlV03";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => PriceReportCancellationV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -100,6 +107,44 @@ public partial record PriceReportCancellationV03 : IOuterRecord
     {
         return new PriceReportCancellationV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("PricRptCxlV03");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PoolReference is AdditionalReference3 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+        PreviousReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MsgPgntn", xmlNamespace );
+        MessagePagination.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PriceReportToBeCancelled is PriceReport2 PriceReportToBeCancelledValue)
+        {
+            writer.WriteStartElement(null, "PricRptToBeCanc", xmlNamespace );
+            PriceReportToBeCancelledValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PriceReportCancellationV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -107,9 +152,7 @@ public partial record PriceReportCancellationV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PriceReportCancellationV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record PriceReportCancellationV03Document : IOuterDocument<PriceReportCancellationV03>
+public partial record PriceReportCancellationV03Document : IOuterDocument<PriceReportCancellationV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -125,5 +168,22 @@ public partial record PriceReportCancellationV03Document : IOuterDocument<PriceR
     /// <summary>
     /// The instance of <seealso cref="PriceReportCancellationV03"/> is required.
     /// </summary>
+    [DataMember(Name=PriceReportCancellationV03.XmlTag)]
     public required PriceReportCancellationV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(PriceReportCancellationV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

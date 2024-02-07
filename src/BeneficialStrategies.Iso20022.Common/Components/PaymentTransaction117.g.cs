@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment transaction invoiced to customer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentTransaction117
+     : IIsoXmlSerilizable<PaymentTransaction117>
 {
     #nullable enable
     
     /// <summary>
     /// List of codes representing type of fleet purchases.
     /// </summary>
-    [DataMember]
     public FleetPurchaseType1Code? PurchaseType { get; init; } 
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     /// <summary>
     /// Discount applied to the transaction.
     /// </summary>
-    [DataMember]
     public FleetDiscountTotals1? DiscountTotal { get; init; } 
     /// <summary>
     /// Total taxes related to the products or services. 
     /// </summary>
-    [DataMember]
-    public ValueList<Tax33> TaxTotal { get; init; } = []; // Warning: Don't know multiplicity.
+    public Tax33? TaxTotal { get; init; } 
     /// <summary>
     /// Total amount of the transaction, inclusive of all applicable taxes and fees. 
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PurchaseType is FleetPurchaseType1Code PurchaseTypeValue)
+        {
+            writer.WriteStartElement(null, "PurchsTp", xmlNamespace );
+            writer.WriteValue(PurchaseTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SummaryCommodityIdentification is IsoMax35Text SummaryCommodityIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SummryCmmdtyId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SummaryCommodityIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DiscountTotal is FleetDiscountTotals1 DiscountTotalValue)
+        {
+            writer.WriteStartElement(null, "DscntTtl", xmlNamespace );
+            DiscountTotalValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxTotal is Tax33 TaxTotalValue)
+        {
+            writer.WriteStartElement(null, "TaxTtl", xmlNamespace );
+            TaxTotalValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalAmount is IsoImpliedCurrencyAndAmount TotalAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(TotalAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentTransaction117 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

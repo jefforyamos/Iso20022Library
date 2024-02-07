@@ -7,23 +7,42 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a price report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PriceReport3
+     : IIsoXmlSerilizable<PriceReport3>
 {
     #nullable enable
     
     /// <summary>
     /// Information related to the price valuation of a financial instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<PriceValuation4> PriceValuationDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public PriceValuation4? PriceValuationDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _cAvKhRmCEeKxsrht2duUcg
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize PriceValuationDetails, multiplicity Unknown
+    }
+    public static PriceReport3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

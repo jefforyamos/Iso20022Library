@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information to display, print or log.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ActionMessage4
+     : IIsoXmlSerilizable<ActionMessage4>
 {
     #nullable enable
     
     /// <summary>
     /// Information format.
     /// </summary>
-    [DataMember]
     public OutputFormat2Code? Format { get; init; } 
     /// <summary>
     /// Content of the message.
     /// </summary>
-    [DataMember]
     public IsoMax20000Text? Message { get; init; } 
     /// <summary>
     /// Message content if this is a message reference or screen reference.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Reference { get; init; } 
     /// <summary>
     /// Device to be used.
     /// </summary>
-    [DataMember]
     public ATMDevice1Code? Device { get; init; } 
     /// <summary>
     /// Electronic signature of the message to display or print.
     /// </summary>
-    [DataMember]
     public IsoMax35Binary? MessageContentSignature { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Format is OutputFormat2Code FormatValue)
+        {
+            writer.WriteStartElement(null, "Frmt", xmlNamespace );
+            writer.WriteValue(FormatValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Message is IsoMax20000Text MessageValue)
+        {
+            writer.WriteStartElement(null, "Msg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax20000Text(MessageValue)); // data type Max20000Text System.String
+            writer.WriteEndElement();
+        }
+        if (Reference is IsoMax35Text ReferenceValue)
+        {
+            writer.WriteStartElement(null, "Ref", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Device is ATMDevice1Code DeviceValue)
+        {
+            writer.WriteStartElement(null, "Dvc", xmlNamespace );
+            writer.WriteValue(DeviceValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MessageContentSignature is IsoMax35Binary MessageContentSignatureValue)
+        {
+            writer.WriteStartElement(null, "MsgCnttSgntr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Binary(MessageContentSignatureValue)); // data type Max35Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static ActionMessage4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

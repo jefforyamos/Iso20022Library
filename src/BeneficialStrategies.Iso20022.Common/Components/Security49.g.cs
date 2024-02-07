@@ -7,68 +7,136 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data specific to securities being subject to the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Security49
+     : IIsoXmlSerilizable<Security49>
 {
     #nullable enable
     
     /// <summary>
     /// Identifier of the security subject of the transaction.
     /// </summary>
-    [DataMember]
     public IsoISINOct2015Identifier? Identification { get; init; } 
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, that is common share with voting rights, fully paid, or registered.
     /// </summary>
-    [DataMember]
     public IsoCFIOct2015Identifier? ClassificationType { get; init; } 
     /// <summary>
     /// Quantity or nominal amount of the security or commodity subject of the transaction.
     /// </summary>
-    [DataMember]
     public QuantityNominalValue2Choice_? QuantityOrNominalValue { get; init; } 
     /// <summary>
     /// Price of unit of collateral component, including accrued interest for interest-bearing securities, used to value the security.
     /// </summary>
-    [DataMember]
     public SecuritiesTransactionPrice19Choice_? UnitPrice { get; init; } 
     /// <summary>
     /// Market value of asset or collateral component.
     /// </summary>
-    [DataMember]
     public AmountAndDirection53? MarketValue { get; init; } 
     /// <summary>
     /// Code that classifies the risk of the security.
     /// </summary>
-    [DataMember]
     public CollateralQualityType1Code? Quality { get; init; } 
     /// <summary>
     /// Maturity date of the security.
     /// </summary>
-    [DataMember]
     public IsoISODate? Maturity { get; init; } 
     /// <summary>
     /// Data on the securities issuer.
     /// </summary>
-    [DataMember]
     public SecurityIssuer4? Issuer { get; init; } 
     /// <summary>
     /// Classification of the type of the security.
     /// </summary>
-    [DataMember]
-    public ValueList<SecuritiesLendingType3Choice_> Type { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecuritiesLendingType3Choice_? Type { get; init; } 
     /// <summary>
     /// Indication whether the borrower has exclusive access to borrow from the lender's securities portfolio.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ExclusiveArrangement { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is IsoISINOct2015Identifier IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(IdentificationValue)); // data type ISINOct2015Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (ClassificationType is IsoCFIOct2015Identifier ClassificationTypeValue)
+        {
+            writer.WriteStartElement(null, "ClssfctnTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCFIOct2015Identifier(ClassificationTypeValue)); // data type CFIOct2015Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (QuantityOrNominalValue is QuantityNominalValue2Choice_ QuantityOrNominalValueValue)
+        {
+            writer.WriteStartElement(null, "QtyOrNmnlVal", xmlNamespace );
+            QuantityOrNominalValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnitPrice is SecuritiesTransactionPrice19Choice_ UnitPriceValue)
+        {
+            writer.WriteStartElement(null, "UnitPric", xmlNamespace );
+            UnitPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarketValue is AmountAndDirection53 MarketValueValue)
+        {
+            writer.WriteStartElement(null, "MktVal", xmlNamespace );
+            MarketValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Quality is CollateralQualityType1Code QualityValue)
+        {
+            writer.WriteStartElement(null, "Qlty", xmlNamespace );
+            writer.WriteValue(QualityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Maturity is IsoISODate MaturityValue)
+        {
+            writer.WriteStartElement(null, "Mtrty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(MaturityValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Issuer is SecurityIssuer4 IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            IssuerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Type is SecuritiesLendingType3Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExclusiveArrangement is IsoTrueFalseIndicator ExclusiveArrangementValue)
+        {
+            writer.WriteStartElement(null, "ExclsvArrgmnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ExclusiveArrangementValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Security49 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

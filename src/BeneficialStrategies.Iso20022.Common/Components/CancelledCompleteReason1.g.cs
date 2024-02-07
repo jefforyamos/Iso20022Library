@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reason for a cancelled completed status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CancelledCompleteReason1
+     : IIsoXmlSerilizable<CancelledCompleteReason1>
 {
     #nullable enable
     
     /// <summary>
     /// Reason for the cancelled complete status.
     /// </summary>
-    [DataMember]
     public required CancellationCompleteReason1Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the cancelled complete status reason.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Rsn", xmlNamespace );
+        Reason.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalReasonInformation is IsoMax350Text AdditionalReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlRsnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalReasonInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CancelledCompleteReason1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

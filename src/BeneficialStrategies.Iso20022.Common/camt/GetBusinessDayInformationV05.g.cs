@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.GetBusinessDayInformationV05>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -34,10 +37,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// This message will be replied to by a ReturnBusinessDayInformation message. Additional information on the generic design of the Get/Return messages can be found in the section How to Use the Cash Management Messages.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The GetBusinessDayInformation message is sent by a member to the transaction administrator.|It is used to request information on different types of administrative data linked to the system.|Usage|The transaction administrator is in charge of providing the members with business information. The term business day information covers all information related to the management of the system, not related to the transactions created in the system. The type of business day information available can vary depending on the system.|At any time during the operating hours of the system, the member can query the transaction administrator to get information about the static data of the system.|The member can request information based on the following elements:|- identification of the system|- currency within the system concerned|- status of the system|- period of availability of a given currency linked to the system concerned (in case the system handles more than one currency)|- closure information (dates when the system will be inactive and reasons for this inactivity)|- event indicator (types of event and precise timing of their occurrence within the system concerned)|This message will be replied to by a ReturnBusinessDayInformation message. Additional information on the generic design of the Get/Return messages can be found in the section How to Use the Cash Management Messages.")]
-public partial record GetBusinessDayInformationV05 : IOuterRecord
+public partial record GetBusinessDayInformationV05 : IOuterRecord<GetBusinessDayInformationV05,GetBusinessDayInformationV05Document>
+    ,IIsoXmlSerilizable<GetBusinessDayInformationV05>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -49,6 +51,11 @@ public partial record GetBusinessDayInformationV05 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "GetBizDayInf";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => GetBusinessDayInformationV05Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -88,6 +95,38 @@ public partial record GetBusinessDayInformationV05 : IOuterRecord
     {
         return new GetBusinessDayInformationV05Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("GetBizDayInf");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+        MessageHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BusinessDayInformationQueryDefinition is BusinessDayQuery2 BusinessDayInformationQueryDefinitionValue)
+        {
+            writer.WriteStartElement(null, "BizDayInfQryDef", xmlNamespace );
+            BusinessDayInformationQueryDefinitionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static GetBusinessDayInformationV05 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -95,9 +134,7 @@ public partial record GetBusinessDayInformationV05 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="GetBusinessDayInformationV05"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record GetBusinessDayInformationV05Document : IOuterDocument<GetBusinessDayInformationV05>
+public partial record GetBusinessDayInformationV05Document : IOuterDocument<GetBusinessDayInformationV05>, IXmlSerializable
 {
     
     /// <summary>
@@ -113,5 +150,22 @@ public partial record GetBusinessDayInformationV05Document : IOuterDocument<GetB
     /// <summary>
     /// The instance of <seealso cref="GetBusinessDayInformationV05"/> is required.
     /// </summary>
+    [DataMember(Name=GetBusinessDayInformationV05.XmlTag)]
     public required GetBusinessDayInformationV05 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(GetBusinessDayInformationV05.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

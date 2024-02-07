@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Chain of parties involved in the settlement of a transaction, including receipts and deliveries, book transfers, treasury deals, or other activities, resulting in the movement of a security or amount of money from one account to another.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementParties81
+     : IIsoXmlSerilizable<SettlementParties81>
 {
     #nullable enable
     
     /// <summary>
     /// First party in the settlement chain. In a plain vanilla settlement, it is the Central Securities Depository where the counterparty requests to receive the financial instrument or from where the counterparty delivers the financial instruments.
     /// </summary>
-    [DataMember]
     public PartyIdentification162? Depository { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain interacts with the depository.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount176? Party1 { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain interacts with the party 1.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount176? Party2 { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain interacts with the party 2.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount176? Party3 { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain interacts with the party 3.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount176? Party4 { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain interacts with the party 4.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount176? Party5 { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Depository is PartyIdentification162 DepositoryValue)
+        {
+            writer.WriteStartElement(null, "Dpstry", xmlNamespace );
+            DepositoryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Party1 is PartyIdentificationAndAccount176 Party1Value)
+        {
+            writer.WriteStartElement(null, "Pty1", xmlNamespace );
+            Party1Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Party2 is PartyIdentificationAndAccount176 Party2Value)
+        {
+            writer.WriteStartElement(null, "Pty2", xmlNamespace );
+            Party2Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Party3 is PartyIdentificationAndAccount176 Party3Value)
+        {
+            writer.WriteStartElement(null, "Pty3", xmlNamespace );
+            Party3Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Party4 is PartyIdentificationAndAccount176 Party4Value)
+        {
+            writer.WriteStartElement(null, "Pty4", xmlNamespace );
+            Party4Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Party5 is PartyIdentificationAndAccount176 Party5Value)
+        {
+            writer.WriteStartElement(null, "Pty5", xmlNamespace );
+            Party5Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementParties81 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

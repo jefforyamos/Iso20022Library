@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status is rejected.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RejectedStatus7
+     : IIsoXmlSerilizable<RejectedStatus7>
 {
     #nullable enable
     
     /// <summary>
     /// Reason for the rejected status.
     /// </summary>
-    [DataMember]
     public required RejectedStatusReason8Code Reason { get; init; } 
     /// <summary>
     /// Reason for the rejected status.
     /// </summary>
-    [DataMember]
     public required IsoExtended350Code ExtendedReason { get; init; } 
     /// <summary>
     /// Proprietary identification of the reason for the rejcted status.
     /// </summary>
-    [DataMember]
     public required GenericIdentification1 DataSourceScheme { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Rsn", xmlNamespace );
+        writer.WriteValue(Reason.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtndedRsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedReason)); // data type Extended350Code System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DataSrcSchme", xmlNamespace );
+        DataSourceScheme.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static RejectedStatus7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

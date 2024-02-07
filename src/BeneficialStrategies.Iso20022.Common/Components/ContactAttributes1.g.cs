@@ -7,53 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Communication device number or electronic address used for communication.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ContactAttributes1
+     : IIsoXmlSerilizable<ContactAttributes1>
 {
     #nullable enable
     
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text Name { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
-    [DataMember]
     public required PostalAddress1 PostalAddress { get; init; } 
     /// <summary>
     /// Collection of information that identifies a phone number, as defined by telecom services.
     /// </summary>
-    [DataMember]
     public required IsoPhoneNumber PhoneNumber { get; init; } 
     /// <summary>
     /// Collection of information that identifies a FAX number, as defined by telecom services.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? FaxNumber { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
-    [DataMember]
     public IsoMax256Text? EmailAddress { get; init; } 
     /// <summary>
     /// Address for the Universal Resource Locator (URL), eg, used over the www (HTTP) service.
     /// </summary>
-    [DataMember]
     public IsoMax2048Text? URLAddress { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of a financial institution, as assigned under a globally recognised or proprietary identification scheme.
     /// </summary>
-    [DataMember]
     public IsoBICIdentifier? Identification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(Name)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PstlAdr", xmlNamespace );
+        PostalAddress.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PhneNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPhoneNumber(PhoneNumber)); // data type PhoneNumber System.String
+        writer.WriteEndElement();
+        if (FaxNumber is IsoPhoneNumber FaxNumberValue)
+        {
+            writer.WriteStartElement(null, "FaxNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(FaxNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (EmailAddress is IsoMax256Text EmailAddressValue)
+        {
+            writer.WriteStartElement(null, "EmailAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(EmailAddressValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (URLAddress is IsoMax2048Text URLAddressValue)
+        {
+            writer.WriteStartElement(null, "URLAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2048Text(URLAddressValue)); // data type Max2048Text System.String
+            writer.WriteEndElement();
+        }
+        if (Identification is IsoBICIdentifier IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBICIdentifier(IdentificationValue)); // data type BICIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ContactAttributes1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

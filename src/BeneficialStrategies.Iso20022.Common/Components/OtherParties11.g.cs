@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Other parties information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OtherParties11
+     : IIsoXmlSerilizable<OtherParties11>
 {
     #nullable enable
     
     /// <summary>
     /// Party, either an individual or organisation, whose assets are being invested.
     /// </summary>
-    [DataMember]
     public PartyIdentification37Choice_? Investor { get; init; } 
     /// <summary>
     /// Foreign Financial Institution which has been authorised by local authorities to act as account management institution in the country.
     /// </summary>
-    [DataMember]
     public PartyIdentification43Choice_? QualifiedForeignIntermediary { get; init; } 
     /// <summary>
     /// Identification of the stock exchange to which transaction reporting will be done.
     /// </summary>
-    [DataMember]
     public PartyIdentification43Choice_? StockExchange { get; init; } 
     /// <summary>
     /// Institution to which a trade must be reported.
     /// </summary>
-    [DataMember]
     public PartyIdentification43Choice_? TradeRegulator { get; init; } 
     /// <summary>
     /// Party responsible for the administration of a tri-party collateral transaction including collateral allocation, marking to market and substitution of collateral.
     /// </summary>
-    [DataMember]
     public PartyIdentification43Choice_? TripartyAgent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Investor is PartyIdentification37Choice_ InvestorValue)
+        {
+            writer.WriteStartElement(null, "Invstr", xmlNamespace );
+            InvestorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (QualifiedForeignIntermediary is PartyIdentification43Choice_ QualifiedForeignIntermediaryValue)
+        {
+            writer.WriteStartElement(null, "QlfdFrgnIntrmy", xmlNamespace );
+            QualifiedForeignIntermediaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StockExchange is PartyIdentification43Choice_ StockExchangeValue)
+        {
+            writer.WriteStartElement(null, "StockXchg", xmlNamespace );
+            StockExchangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeRegulator is PartyIdentification43Choice_ TradeRegulatorValue)
+        {
+            writer.WriteStartElement(null, "TradRgltr", xmlNamespace );
+            TradeRegulatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TripartyAgent is PartyIdentification43Choice_ TripartyAgentValue)
+        {
+            writer.WriteStartElement(null, "TrptyAgt", xmlNamespace );
+            TripartyAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OtherParties11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

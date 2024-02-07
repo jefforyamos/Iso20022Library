@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acknowledgement of the exception advice.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMTransaction28
+     : IIsoXmlSerilizable<ATMTransaction28>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
-    [DataMember]
     public TransactionIdentifier1? TransactionIdentification { get; init; } 
     /// <summary>
     /// Response to the advice.
     /// </summary>
-    [DataMember]
     public required Response2Code Response { get; init; } 
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMCommand7> Command { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMCommand7? Command { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TransactionIdentification is TransactionIdentifier1 TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            TransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Rspn", xmlNamespace );
+        writer.WriteValue(Response.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Command is ATMCommand7 CommandValue)
+        {
+            writer.WriteStartElement(null, "Cmd", xmlNamespace );
+            CommandValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMTransaction28 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

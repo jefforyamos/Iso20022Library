@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.GetCurrencyExchangeRateV04>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -31,10 +34,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// This message will be replied to by a ReturnCurrencyExchangeRate message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The GetCurrencyExchangeRate message is sent by a member to the transaction administrator.|It is used to request information on static data maintained by the transaction administrator and related to currency exchange details as maintained for the system operations by the transaction administrator.|Usage|The transaction administrator is in charge of providing the members with business information. The term business information covers all information related to the management of the system, i.e., not related to the transactions created into the system. The type of business information available can vary depending on the system.|When a system manages a pool of accounts in various currencies for a member, there is a need to maintain currency exchange details in between the various currencies and the reporting or base currency. The reporting or base currency is used to calculate the actual position of the members in terms of aggregate limits and balances and allow the system to contain risk within the defined and agreed boundaries. The currency exchange details can be fixed for the entire operational day, or regularly updated according to near real time market feeds.|At any point in time during operating hours of the system, the member can query the transaction administrator to get information about the static data related to a currency exchange details.|The member can request information based on the following elements:|- the currency to be converted (source currency)|- the currency into which the amount is converted (target currency)|This message will be replied to by a ReturnCurrencyExchangeRate message.")]
-public partial record GetCurrencyExchangeRateV04 : IOuterRecord
+public partial record GetCurrencyExchangeRateV04 : IOuterRecord<GetCurrencyExchangeRateV04,GetCurrencyExchangeRateV04Document>
+    ,IIsoXmlSerilizable<GetCurrencyExchangeRateV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -46,6 +48,11 @@ public partial record GetCurrencyExchangeRateV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "GetCcyXchgRate";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => GetCurrencyExchangeRateV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -85,6 +92,38 @@ public partial record GetCurrencyExchangeRateV04 : IOuterRecord
     {
         return new GetCurrencyExchangeRateV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("GetCcyXchgRate");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+        MessageHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CurrencyQueryDefinition is CurrencyQueryDefinition3 CurrencyQueryDefinitionValue)
+        {
+            writer.WriteStartElement(null, "CcyQryDef", xmlNamespace );
+            CurrencyQueryDefinitionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static GetCurrencyExchangeRateV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -92,9 +131,7 @@ public partial record GetCurrencyExchangeRateV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="GetCurrencyExchangeRateV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record GetCurrencyExchangeRateV04Document : IOuterDocument<GetCurrencyExchangeRateV04>
+public partial record GetCurrencyExchangeRateV04Document : IOuterDocument<GetCurrencyExchangeRateV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -110,5 +147,22 @@ public partial record GetCurrencyExchangeRateV04Document : IOuterDocument<GetCur
     /// <summary>
     /// The instance of <seealso cref="GetCurrencyExchangeRateV04"/> is required.
     /// </summary>
+    [DataMember(Name=GetCurrencyExchangeRateV04.XmlTag)]
     public required GetCurrencyExchangeRateV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(GetCurrencyExchangeRateV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

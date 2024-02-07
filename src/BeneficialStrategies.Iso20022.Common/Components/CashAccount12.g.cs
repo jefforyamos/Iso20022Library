@@ -7,48 +7,84 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account to or from which a cash entry is made.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashAccount12
+     : IIsoXmlSerilizable<CashAccount12>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public required CashAccountIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Name { get; init; } 
     /// <summary>
     /// Specifies the nature, or use, of the cash account.
     /// </summary>
-    [DataMember]
     public CashAccountType1Code? Type { get; init; } 
     /// <summary>
     /// Specifies the nature, or use, of the cash account.
     /// </summary>
-    [DataMember]
     public IsoExtended350Code? ExtendedType { get; init; } 
     /// <summary>
     /// Medium of exchange of value.
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Specifies the current state of an account, eg, enabled or deleted.
     /// </summary>
-    [DataMember]
     public required AccountStatus1Code Status { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Name)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Type is CashAccountType1Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExtendedType is IsoExtended350Code ExtendedTypeValue)
+        {
+            writer.WriteStartElement(null, "XtndedTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedTypeValue)); // data type Extended350Code System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Ccy", xmlNamespace );
+        writer.WriteValue(Currency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static CashAccount12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

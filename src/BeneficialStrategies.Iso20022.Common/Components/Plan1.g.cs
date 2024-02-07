@@ -7,94 +7,187 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Attributes of the instalment plan.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Plan1
+     : IIsoXmlSerilizable<Plan1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the instalment plan.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PlanIdentification { get; init; } 
     /// <summary>
     /// List of plan owners.
     /// </summary>
-    [DataMember]
     public PlanOwner1Code? PlanOwner { get; init; } 
     /// <summary>
     /// Other plan owner, used when PlanOwner is OtherNational or OtherPrivate.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherPlanOwner { get; init; } 
     /// <summary>
     /// Instalment payment type.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? InstalmentPaymentType { get; init; } 
     /// <summary>
     /// Period unit between consecutive payments.
     /// </summary>
-    [DataMember]
     public Frequency12Code? PeriodUnit { get; init; } 
     /// <summary>
     /// Number of period units between consecutive payments.
     /// </summary>
-    [DataMember]
     public IsoNumber? NumberOfPeriods { get; init; } 
     /// <summary>
     /// Details of the interest rate.
     /// </summary>
-    [DataMember]
-    public ValueList<InterestRateDetails1> InterestRate { get; init; } = []; // Warning: Don't know multiplicity.
+    public InterestRateDetails1? InterestRate { get; init; } 
     /// <summary>
     /// Date of the first payment.
     /// </summary>
-    [DataMember]
     public IsoISODate? FirstPaymentDate { get; init; } 
     /// <summary>
     /// Amount of the first payment when different from the subsequent payments.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? FirstAmount { get; init; } 
     /// <summary>
     /// Amount of subsequent payments.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? SubsequentAmount { get; init; } 
     /// <summary>
     /// Total number of instalment payments.
     /// ISO 8583 bit 59
     /// </summary>
-    [DataMember]
     public IsoNumber? TotalNumberOfPayments { get; init; } 
     /// <summary>
     /// Currency code associated with the instalment amount.  ISO 4217 "Codes for the representation of currencies and funds".
     /// </summary>
-    [DataMember]
     public ISO3NumericCurrencyCode? InstalmentCurrency { get; init; } 
     /// <summary>
     /// Contains grace period details.
     /// </summary>
-    [DataMember]
     public GracePeriod1? GracePeriod { get; init; } 
     /// <summary>
     /// Contains the amount details of an instalment plan.
     /// </summary>
-    [DataMember]
-    public ValueList<InstalmentAmountDetails1> AmountDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public InstalmentAmountDetails1? AmountDetails { get; init; } 
     /// <summary>
     /// Total amount of the instalment including charges, insurance and taxes in addition to the funded amount.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? GrandTotalAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlanIdentification is IsoMax35Text PlanIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PlanId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PlanIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PlanOwner is PlanOwner1Code PlanOwnerValue)
+        {
+            writer.WriteStartElement(null, "PlanOwnr", xmlNamespace );
+            writer.WriteValue(PlanOwnerValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherPlanOwner is IsoMax35Text OtherPlanOwnerValue)
+        {
+            writer.WriteStartElement(null, "OthrPlanOwnr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherPlanOwnerValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (InstalmentPaymentType is IsoMax35Text InstalmentPaymentTypeValue)
+        {
+            writer.WriteStartElement(null, "InstlmtPmtTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(InstalmentPaymentTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PeriodUnit is Frequency12Code PeriodUnitValue)
+        {
+            writer.WriteStartElement(null, "PrdUnit", xmlNamespace );
+            writer.WriteValue(PeriodUnitValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (NumberOfPeriods is IsoNumber NumberOfPeriodsValue)
+        {
+            writer.WriteStartElement(null, "NbOfPrds", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfPeriodsValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (InterestRate is InterestRateDetails1 InterestRateValue)
+        {
+            writer.WriteStartElement(null, "IntrstRate", xmlNamespace );
+            InterestRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FirstPaymentDate is IsoISODate FirstPaymentDateValue)
+        {
+            writer.WriteStartElement(null, "FrstPmtDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(FirstPaymentDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (FirstAmount is IsoImpliedCurrencyAndAmount FirstAmountValue)
+        {
+            writer.WriteStartElement(null, "FrstAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(FirstAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (SubsequentAmount is IsoImpliedCurrencyAndAmount SubsequentAmountValue)
+        {
+            writer.WriteStartElement(null, "SbsqntAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(SubsequentAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TotalNumberOfPayments is IsoNumber TotalNumberOfPaymentsValue)
+        {
+            writer.WriteStartElement(null, "TtlNbOfPmts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberOfPaymentsValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (InstalmentCurrency is ISO3NumericCurrencyCode InstalmentCurrencyValue)
+        {
+            writer.WriteStartElement(null, "InstlmtCcy", xmlNamespace );
+            writer.WriteValue(InstalmentCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (GracePeriod is GracePeriod1 GracePeriodValue)
+        {
+            writer.WriteStartElement(null, "GracePrd", xmlNamespace );
+            GracePeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AmountDetails is InstalmentAmountDetails1 AmountDetailsValue)
+        {
+            writer.WriteStartElement(null, "AmtDtls", xmlNamespace );
+            AmountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GrandTotalAmount is IsoImpliedCurrencyAndAmount GrandTotalAmountValue)
+        {
+            writer.WriteStartElement(null, "GrdTtlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(GrandTotalAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static Plan1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

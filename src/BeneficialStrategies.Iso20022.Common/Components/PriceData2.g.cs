@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates the details of the price applicable to the derivative transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PriceData2
+     : IIsoXmlSerilizable<PriceData2>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the price per derivative excluding, where applicable: fees, taxes or commissions.
     /// </summary>
-    [DataMember]
     public SecuritiesTransactionPrice17Choice_? Price { get; init; } 
     /// <summary>
     /// Specifies the effective date and end date of the schedule for derivative transactions with prices varying throughout the life of the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<Schedule1> SchedulePeriod { get; init; } = []; // Warning: Don't know multiplicity.
+    public Schedule1? SchedulePeriod { get; init; } 
     /// <summary>
     /// Specifies the unit of measure in which the price is expressed.
     /// </summary>
-    [DataMember]
     public UnitOfMeasure8Choice_? UnitOfMeasure { get; init; } 
     /// <summary>
     /// Number of units of the underlying instrument represented by a single derivative contract.
     /// </summary>
-    [DataMember]
     public IsoLongFraction19DecimalNumber? PriceMultiplier { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Price is SecuritiesTransactionPrice17Choice_ PriceValue)
+        {
+            writer.WriteStartElement(null, "Pric", xmlNamespace );
+            PriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SchedulePeriod is Schedule1 SchedulePeriodValue)
+        {
+            writer.WriteStartElement(null, "SchdlPrd", xmlNamespace );
+            SchedulePeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnitOfMeasure is UnitOfMeasure8Choice_ UnitOfMeasureValue)
+        {
+            writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
+            UnitOfMeasureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PriceMultiplier is IsoLongFraction19DecimalNumber PriceMultiplierValue)
+        {
+            writer.WriteStartElement(null, "PricMltplr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLongFraction19DecimalNumber(PriceMultiplierValue)); // data type LongFraction19DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static PriceData2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

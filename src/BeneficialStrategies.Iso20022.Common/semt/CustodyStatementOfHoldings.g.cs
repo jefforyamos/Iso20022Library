@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.semt.CustodyStatementOfHoldings>;
 
 namespace BeneficialStrategies.Iso20022.semt;
 
@@ -36,10 +39,9 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// Since a SWIFT message as sent is restricted to the maximum input message length, several messages may be needed to accommodate all the information.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The CustodyStatementOfHoldings message is sent by an account servicer to the account owner or the account owner's designated agent. The account servicer may be a local agent acting on behalf of its global custodian customer, a custodian acting on behalf of an investment management institution or a broker/dealer, a fund administrator or fund intermediary, trustee or registrar, etc.|This message reports, at a specified moment in time, the quantity and identification of financial instruments that an account servicer holds for the account owner.|This message is used to reconcile the books of the account owner and the account servicer for the specified account or sub-account.|This message can also report availability and/or the location of security holdings to facilitate trading and minimise settlement issues. The reporting is per financial instrument, ie, when a financial instrument is held at multiple places of safekeeping, the total holding for all locations can be provided.|Usage|The CustodyStatementOfHoldings message can be sent:|- At a frequency agreed bi-laterally between the Sender and the Receiver|- As a response to a request for statement sent by the account owner.|This message can reflect all outstanding holding information or may only contain changes since the previously sent statement.|The CustodyStatementOfHoldings message can only be used to list the holdings of a single (master) account. However, it is possible to break down these holdings into one or several sub-accounts. Therefore, this message can be used to either specify holdings at|- the main account level, or|- the sub-account level.|This message can be also be used to report where the securities are safe-kept, physically or notionally. If a security is held in more than one safekeeping place, this can also be indicated.|This message must not be used to report audited positions. Audited positions are reported using the AccountingStatementOfHoldings message.|Since a SWIFT message as sent is restricted to the maximum input message length, several messages may be needed to accommodate all the information.")]
-public partial record CustodyStatementOfHoldings : IOuterRecord
+public partial record CustodyStatementOfHoldings : IOuterRecord<CustodyStatementOfHoldings,CustodyStatementOfHoldingsDocument>
+    ,IIsoXmlSerilizable<CustodyStatementOfHoldings>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -51,6 +53,11 @@ public partial record CustodyStatementOfHoldings : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "semt.002.001.01";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CustodyStatementOfHoldingsDocument.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -146,6 +153,68 @@ public partial record CustodyStatementOfHoldings : IOuterRecord
     {
         return new CustodyStatementOfHoldingsDocument { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("semt.002.001.01");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PreviousReference is AdditionalReference2 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference2 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MsgPgntn", xmlNamespace );
+        MessagePagination.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StmtGnlDtls", xmlNamespace );
+        StatementGeneralDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
+        AccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BalanceForAccount is AggregateBalanceInformation1 BalanceForAccountValue)
+        {
+            writer.WriteStartElement(null, "BalForAcct", xmlNamespace );
+            BalanceForAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SubAccountDetails is SubAccountIdentification1 SubAccountDetailsValue)
+        {
+            writer.WriteStartElement(null, "SubAcctDtls", xmlNamespace );
+            SubAccountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalValues is TotalValueInPageAndStatement TotalValuesValue)
+        {
+            writer.WriteStartElement(null, "TtlVals", xmlNamespace );
+            TotalValuesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CustodyStatementOfHoldings Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -153,9 +222,7 @@ public partial record CustodyStatementOfHoldings : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CustodyStatementOfHoldings"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CustodyStatementOfHoldingsDocument : IOuterDocument<CustodyStatementOfHoldings>
+public partial record CustodyStatementOfHoldingsDocument : IOuterDocument<CustodyStatementOfHoldings>, IXmlSerializable
 {
     
     /// <summary>
@@ -171,5 +238,22 @@ public partial record CustodyStatementOfHoldingsDocument : IOuterDocument<Custod
     /// <summary>
     /// The instance of <seealso cref="CustodyStatementOfHoldings"/> is required.
     /// </summary>
+    [DataMember(Name=CustodyStatementOfHoldings.XmlTag)]
     public required CustodyStatementOfHoldings Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CustodyStatementOfHoldings.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

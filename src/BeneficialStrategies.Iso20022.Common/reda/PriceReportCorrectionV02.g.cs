@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.reda.PriceReportCorrectionV02>;
 
 namespace BeneficialStrategies.Iso20022.reda;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// The PriceReportCorrection message is used to correct information in a PriceReport message that was previously sent by the fund accountant. If an entire PriceReport message must be corrected, eg, due to an incorrect trade date, it is recommended that a PriceReportCancellation message is used to cancel the entire PriceReport message and a new PriceReport message is sent.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The PriceReportCorrection message is sent by a report provider, eg, a fund accountant, transfer agent, market data provider, or any other interested party, to a report user, eg, a fund management company, a transfer agent, market data provider, regulator or any other interested party.|The message is used to correct at least one of the prices, of a financial instrument, that was quoted in a previously sent PriceReport message.|Usage|The PriceReportCorrection message is used to correct information in a PriceReport message that was previously sent by the fund accountant. If an entire PriceReport message must be corrected, eg, due to an incorrect trade date, it is recommended that a PriceReportCancellation message is used to cancel the entire PriceReport message and a new PriceReport message is sent.")]
-public partial record PriceReportCorrectionV02 : IOuterRecord
+public partial record PriceReportCorrectionV02 : IOuterRecord<PriceReportCorrectionV02,PriceReportCorrectionV02Document>
+    ,IIsoXmlSerilizable<PriceReportCorrectionV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record PriceReportCorrectionV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "reda.003.001.02";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => PriceReportCorrectionV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -80,6 +87,35 @@ public partial record PriceReportCorrectionV02 : IOuterRecord
     {
         return new PriceReportCorrectionV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("reda.003.001.02");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PoolReference is AdditionalReference3 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+        PreviousReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PricCrrctnDtls", xmlNamespace );
+        PriceCorrectionDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static PriceReportCorrectionV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -87,9 +123,7 @@ public partial record PriceReportCorrectionV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PriceReportCorrectionV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record PriceReportCorrectionV02Document : IOuterDocument<PriceReportCorrectionV02>
+public partial record PriceReportCorrectionV02Document : IOuterDocument<PriceReportCorrectionV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -105,5 +139,22 @@ public partial record PriceReportCorrectionV02Document : IOuterDocument<PriceRep
     /// <summary>
     /// The instance of <seealso cref="PriceReportCorrectionV02"/> is required.
     /// </summary>
+    [DataMember(Name=PriceReportCorrectionV02.XmlTag)]
     public required PriceReportCorrectionV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(PriceReportCorrectionV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

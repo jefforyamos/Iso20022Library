@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Description of the elements that violated a rule.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ElementIdentification3
+     : IIsoXmlSerilizable<ElementIdentification3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies from the root of the message the complete path of the element that violated a rule.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text ElementPath { get; init; } 
     /// <summary>
     /// Name of the element.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ElementName { get; init; } 
     /// <summary>
     /// Contents of the element.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? ElementValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ElmtPth", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(ElementPath)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ElmtNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ElementName)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ElementValue is IsoMax140Text ElementValueValue)
+        {
+            writer.WriteStartElement(null, "ElmtVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(ElementValueValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ElementIdentification3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

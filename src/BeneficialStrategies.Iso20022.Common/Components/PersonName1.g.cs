@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies a person via its first name and surname.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PersonName1
+     : IIsoXmlSerilizable<PersonName1>
 {
     #nullable enable
     
     /// <summary>
     /// First name(s) by which a natural person is known.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text FirstName { get; init; } 
     /// <summary>
     /// Name (s) by which a natural person is known and which is usually used to identify that party.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text Surname { get; init; } 
     /// <summary>
     /// Postal address of the party.
     /// </summary>
-    [DataMember]
     public PostalAddress26? Address { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FrstNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(FirstName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Srnm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(Surname)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (Address is PostalAddress26 AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PersonName1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.RequestForDuplicateV03>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -29,10 +32,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// - must be used exclusively between the case assignee and its case creator/case assigner.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The Request For Duplicate message is sent by the case assignee to the case creator or case assigner.|This message is used to request a copy of the original payment instruction considered in the case.|Usage|The Request For Duplicate message:|- must be answered with a Duplicate message|- must be used when a case assignee requests a copy of the original payment instruction. This occurs, for example, when the case assignee cannot trace the payment instruction based on the elements mentioned in the case assignment message|- covers one and only one instruction at a time. If several payment instruction copies are needed by the case assignee, then multiple Request For Duplicate messages must be sent|- must be used exclusively between the case assignee and its case creator/case assigner.")]
-public partial record RequestForDuplicateV03 : IOuterRecord
+public partial record RequestForDuplicateV03 : IOuterRecord<RequestForDuplicateV03,RequestForDuplicateV03Document>
+    ,IIsoXmlSerilizable<RequestForDuplicateV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -44,6 +46,11 @@ public partial record RequestForDuplicateV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "ReqForDplct";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => RequestForDuplicateV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -75,6 +82,29 @@ public partial record RequestForDuplicateV03 : IOuterRecord
     {
         return new RequestForDuplicateV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("ReqForDplct");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Assgnmt", xmlNamespace );
+        Assignment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Case", xmlNamespace );
+        Case.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static RequestForDuplicateV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -82,9 +112,7 @@ public partial record RequestForDuplicateV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestForDuplicateV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record RequestForDuplicateV03Document : IOuterDocument<RequestForDuplicateV03>
+public partial record RequestForDuplicateV03Document : IOuterDocument<RequestForDuplicateV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -100,5 +128,22 @@ public partial record RequestForDuplicateV03Document : IOuterDocument<RequestFor
     /// <summary>
     /// The instance of <seealso cref="RequestForDuplicateV03"/> is required.
     /// </summary>
+    [DataMember(Name=RequestForDuplicateV03.XmlTag)]
     public required RequestForDuplicateV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(RequestForDuplicateV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

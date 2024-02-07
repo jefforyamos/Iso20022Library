@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Sequence of terminal management actions to be performed by a point of interaction (POI).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ManagementPlan7
+     : IIsoXmlSerilizable<ManagementPlan7>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the point of interaction (POI) for terminal management.
     /// </summary>
-    [DataMember]
     public GenericIdentification71? POIIdentification { get; init; } 
     /// <summary>
     /// Identification of the terminal management system (TMS) sending the management plan.
     /// </summary>
-    [DataMember]
     public required GenericIdentification71 TerminalManagerIdentification { get; init; } 
     /// <summary>
     /// Data set related to the sequence of actions to be performed by a point of interaction (POI).
     /// </summary>
-    [DataMember]
     public required TerminalManagementDataSet24 DataSet { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (POIIdentification is GenericIdentification71 POIIdentificationValue)
+        {
+            writer.WriteStartElement(null, "POIId", xmlNamespace );
+            POIIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TermnlMgrId", xmlNamespace );
+        TerminalManagerIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DataSet", xmlNamespace );
+        DataSet.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ManagementPlan7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Variables used to quantify the different calculations for position sets.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PositionSetMetrics13
+     : IIsoXmlSerilizable<PositionSetMetrics13>
 {
     #nullable enable
     
     /// <summary>
     /// Numeric variables calculated on the number of transactions or on market exposures.
     /// </summary>
-    [DataMember]
     public required VolumeMetrics5 VolumeMetrics { get; init; } 
     /// <summary>
     /// Numeric variables consisting in interest rates, lending fees or haircuts, calculated as weighted averages.
     /// </summary>
-    [DataMember]
     public PriceMetrics3? PriceMetrics { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "VolMtrcs", xmlNamespace );
+        VolumeMetrics.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PriceMetrics is PriceMetrics3 PriceMetricsValue)
+        {
+            writer.WriteStartElement(null, "PricMtrcs", xmlNamespace );
+            PriceMetricsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PositionSetMetrics13 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

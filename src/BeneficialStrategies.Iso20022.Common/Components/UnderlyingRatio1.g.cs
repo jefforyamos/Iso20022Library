@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Related financial instrument into which the security can be converted.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UnderlyingRatio1
+     : IIsoXmlSerilizable<UnderlyingRatio1>
 {
     #nullable enable
     
     /// <summary>
     /// Number of held securities for the exercise.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ UnderlyingQuantityDenominator { get; init; } 
     /// <summary>
     /// Number of related securities for the exercise.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ UnderlyingQuantityNumerator { get; init; } 
     /// <summary>
     /// Related security into which the security can be converted.
     /// </summary>
-    [DataMember]
-    public ValueList<SecurityIdentification14> RelatedFinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecurityIdentification14? RelatedFinancialInstrumentIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UndrlygQtyDnmtr", xmlNamespace );
+        UnderlyingQuantityDenominator.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UndrlygQtyNmrtr", xmlNamespace );
+        UnderlyingQuantityNumerator.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RelatedFinancialInstrumentIdentification is SecurityIdentification14 RelatedFinancialInstrumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RltdFinInstrmId", xmlNamespace );
+            RelatedFinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static UnderlyingRatio1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

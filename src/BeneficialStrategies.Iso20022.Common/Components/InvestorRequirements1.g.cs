@@ -7,76 +7,149 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Investor’s investment requirements.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestorRequirements1
+     : IIsoXmlSerilizable<InvestorRequirements1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the product is compatible with a client who is looking for the preservation of capital. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05010. In EMT v2, this is known as Return Profile Client Looking for Preservation.
     /// </summary>
-    [DataMember]
     public TargetMarket1Code? ReturnProfilePreservation { get; init; } 
     /// <summary>
     /// Specifies whether the product is compatible with a client looking for capitalisation growth.
     /// When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05020. In EMT v2, this is known as Return Profile Client Looking for Capitalized Growth.
     /// </summary>
-    [DataMember]
     public TargetMarket1Code? ReturnProfileGrowth { get; init; } 
     /// <summary>
     /// Specifies whether the product is compatible with a client who is looking for income. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05030. In EMT v2, this is known as Return Profile Client Looking for Income.
     /// </summary>
-    [DataMember]
     public TargetMarket1Code? ReturnProfileIncome { get; init; } 
     /// <summary>
     /// Level of compatibility of the investor risk profile with the hedging profile of a structured security product.
     /// In EMT v2, this element is not supported for funds. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05040. In EMT v2, this element is not supported for funds.
     /// </summary>
-    [DataMember]
     public TargetMarket1Code? ReturnProfileHedging { get; init; } 
     /// <summary>
     /// Level of compatibility of the investor risk profile with the option or leveraged return profile of a structured security product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05050. In EMT v2, this element is not supported for funds.
     /// </summary>
-    [DataMember]
     public TargetMarket1Code? OptionOrLeveragedReturnProfile { get; init; } 
     /// <summary>
     /// Level of compatibility of the investor risk profile with ‘another return’ profile of the product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05060.
     /// </summary>
-    [DataMember]
     public TargetMarket2Code? ReturnProfileOther { get; init; } 
     /// <summary>
     /// Level of compatibility of the investor risk profile with the Return Profile Pension Scheme Germany profile of the product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05070.
     /// </summary>
-    [DataMember]
     public TargetMarket1Code? ReturnProfilePensionSchemeGermany { get; init; } 
     /// <summary>
     /// Minimum recommended holding period (RHP).
     /// When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05080. In EMT v1, this is known as Time Horizon.
     /// </summary>
-    [DataMember]
     public TimeHorizon1Choice_? MinimumHoldingPeriod { get; init; } 
     /// <summary>
     /// Specifies whether the product may be terminated early. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05100.
     /// </summary>
-    [DataMember]
     public TargetMarket1Code? MayBeTerminatedEarly { get; init; } 
     /// <summary>
     /// Specifies specific indicative investment needs. Should be discussed and agreed between the asset manager and bank. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05110.
     /// </summary>
-    [DataMember]
     public InvestmentNeed1Choice_? SpecificInvestmentNeed { get; init; } 
     /// <summary>
     /// Other investment need. 
     /// </summary>
-    [DataMember]
-    public ValueList<OtherInvestmentNeed1> Other { get; init; } = []; // Warning: Don't know multiplicity.
+    public OtherInvestmentNeed1? Other { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReturnProfilePreservation is TargetMarket1Code ReturnProfilePreservationValue)
+        {
+            writer.WriteStartElement(null, "RtrPrflPrsrvtn", xmlNamespace );
+            writer.WriteValue(ReturnProfilePreservationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ReturnProfileGrowth is TargetMarket1Code ReturnProfileGrowthValue)
+        {
+            writer.WriteStartElement(null, "RtrPrflGrwth", xmlNamespace );
+            writer.WriteValue(ReturnProfileGrowthValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ReturnProfileIncome is TargetMarket1Code ReturnProfileIncomeValue)
+        {
+            writer.WriteStartElement(null, "RtrPrflIncm", xmlNamespace );
+            writer.WriteValue(ReturnProfileIncomeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ReturnProfileHedging is TargetMarket1Code ReturnProfileHedgingValue)
+        {
+            writer.WriteStartElement(null, "RtrPrflHdgg", xmlNamespace );
+            writer.WriteValue(ReturnProfileHedgingValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OptionOrLeveragedReturnProfile is TargetMarket1Code OptionOrLeveragedReturnProfileValue)
+        {
+            writer.WriteStartElement(null, "OptnOrLvrgdRtrPrfl", xmlNamespace );
+            writer.WriteValue(OptionOrLeveragedReturnProfileValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ReturnProfileOther is TargetMarket2Code ReturnProfileOtherValue)
+        {
+            writer.WriteStartElement(null, "RtrPrflOthr", xmlNamespace );
+            writer.WriteValue(ReturnProfileOtherValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ReturnProfilePensionSchemeGermany is TargetMarket1Code ReturnProfilePensionSchemeGermanyValue)
+        {
+            writer.WriteStartElement(null, "RtrPrflPnsnSchmeDE", xmlNamespace );
+            writer.WriteValue(ReturnProfilePensionSchemeGermanyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MinimumHoldingPeriod is TimeHorizon1Choice_ MinimumHoldingPeriodValue)
+        {
+            writer.WriteStartElement(null, "MinHldgPrd", xmlNamespace );
+            MinimumHoldingPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MayBeTerminatedEarly is TargetMarket1Code MayBeTerminatedEarlyValue)
+        {
+            writer.WriteStartElement(null, "MayBeTermntdEarly", xmlNamespace );
+            writer.WriteValue(MayBeTerminatedEarlyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SpecificInvestmentNeed is InvestmentNeed1Choice_ SpecificInvestmentNeedValue)
+        {
+            writer.WriteStartElement(null, "SpcfcInvstmtNeed", xmlNamespace );
+            SpecificInvestmentNeedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Other is OtherInvestmentNeed1 OtherValue)
+        {
+            writer.WriteStartElement(null, "Othr", xmlNamespace );
+            OtherValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InvestorRequirements1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,67 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Statement information of an account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountStatementDetails1
+     : IIsoXmlSerilizable<AccountStatementDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Date of the transaction.
     /// </summary>
-    [DataMember]
     public required IsoISODate TransactionDate { get; init; } 
     /// <summary>
     /// True indicates transaction is pending. 
     /// False indicates transaction has already posted.
     /// No default value.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? PendingIndicator { get; init; } 
     /// <summary>
     /// Posting date of the transaction.
     /// </summary>
-    [DataMember]
     public IsoISODate? TransactionPostingDate { get; init; } 
     /// <summary>
     /// Amount of the transaction.
     /// </summary>
-    [DataMember]
     public Amount7? TransactionAmount { get; init; } 
     /// <summary>
     /// Cardholder billing amount of the transaction.
     /// </summary>
-    [DataMember]
     public Amount7? CardholderBillingAmount { get; init; } 
     /// <summary>
     /// Indicates whether the transaction is a credit or debit.
     /// True indicates the transaction is a credit.
     /// False indicates the transaction is a debit.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CreditIndicator { get; init; } 
     /// <summary>
     /// Currency of the amount.
     /// </summary>
-    [DataMember]
     public IsoMax99Text? AcceptorNameAndLocation { get; init; } 
     /// <summary>
     /// Short transaction description to print or display.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? ShortTransactionDescription { get; init; } 
     /// <summary>
     /// Long transaction description to print or display.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? LongTransactionDescription { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(TransactionDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (PendingIndicator is IsoTrueFalseIndicator PendingIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PdgInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(PendingIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionPostingDate is IsoISODate TransactionPostingDateValue)
+        {
+            writer.WriteStartElement(null, "TxPstngDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(TransactionPostingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (TransactionAmount is Amount7 TransactionAmountValue)
+        {
+            writer.WriteStartElement(null, "TxAmt", xmlNamespace );
+            TransactionAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CardholderBillingAmount is Amount7 CardholderBillingAmountValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrBllgAmt", xmlNamespace );
+            CardholderBillingAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditIndicator is IsoTrueFalseIndicator CreditIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CdtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CreditIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AcceptorNameAndLocation is IsoMax99Text AcceptorNameAndLocationValue)
+        {
+            writer.WriteStartElement(null, "AccptrNmAndLctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax99Text(AcceptorNameAndLocationValue)); // data type Max99Text System.String
+            writer.WriteEndElement();
+        }
+        if (ShortTransactionDescription is IsoMax70Text ShortTransactionDescriptionValue)
+        {
+            writer.WriteStartElement(null, "ShrtTxDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(ShortTransactionDescriptionValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (LongTransactionDescription is IsoMax256Text LongTransactionDescriptionValue)
+        {
+            writer.WriteStartElement(null, "LngTxDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(LongTransactionDescriptionValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountStatementDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

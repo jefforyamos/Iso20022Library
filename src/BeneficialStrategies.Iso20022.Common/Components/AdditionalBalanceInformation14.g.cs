@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Sub-balances providing additional information on a specific position but that is not to be accounted for in the building of the aggregate balance, for example, registered.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalBalanceInformation14
+     : IIsoXmlSerilizable<AdditionalBalanceInformation14>
 {
     #nullable enable
     
     /// <summary>
     /// Reason for the sub-balance.
     /// </summary>
-    [DataMember]
     public required SubBalanceType12Choice_ SubBalanceType { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    [DataMember]
     public required SubBalanceQuantity6Choice_ Quantity { get; init; } 
     /// <summary>
     /// Provides additional subbalance information.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? SubBalanceAdditionalDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SubBalTp", xmlNamespace );
+        SubBalanceType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        Quantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SubBalanceAdditionalDetails is IsoMax140Text SubBalanceAdditionalDetailsValue)
+        {
+            writer.WriteStartElement(null, "SubBalAddtlDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(SubBalanceAdditionalDetailsValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AdditionalBalanceInformation14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

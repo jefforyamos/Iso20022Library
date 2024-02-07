@@ -7,38 +7,64 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed information on statistics per combination of counterparties.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DetailedStatisticsPerCounterparty17
+     : IIsoXmlSerilizable<DetailedStatisticsPerCounterparty17>
 {
     #nullable enable
     
     /// <summary>
     /// Reference date for statistics collection.
     /// </summary>
-    [DataMember]
     public required IsoISODate ReferenceDate { get; init; } 
     /// <summary>
     /// Detailed information of outstanding derivatives for which the valuation was not reported or the valuation reported is more than fourteen calendar days earlier than the date for which the report was generated shall be included in the report of missing valuations at the end of the day.
     /// </summary>
-    [DataMember]
     public required DetailedMissingValuationsStatistics4Choice_ MissingValuation { get; init; } 
     /// <summary>
     /// Detailed information of the outstanding derivatives for which no margin information has been reported, or the margin information that was reported is dated more than fourteen calendar days earlier than the day.
     /// </summary>
-    [DataMember]
     public required DetailedMissingMarginInformationStatistics4Choice_ MissingMarginInformation { get; init; } 
     /// <summary>
     /// Detailed information of the derivatives that were received on the day of generation of the report with action type ‘New’, ‘Position component’, ‘Modification’ or ‘Correction’ whose notional amount is greater than a threshold for that class of derivatives.
     /// </summary>
-    [DataMember]
     public required DetailedAbnormalValuesStatistics4Choice_ AbnormalValues { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RefDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ReferenceDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MssngValtn", xmlNamespace );
+        MissingValuation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MssngMrgnInf", xmlNamespace );
+        MissingMarginInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AbnrmlVals", xmlNamespace );
+        AbnormalValues.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static DetailedStatisticsPerCounterparty17 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

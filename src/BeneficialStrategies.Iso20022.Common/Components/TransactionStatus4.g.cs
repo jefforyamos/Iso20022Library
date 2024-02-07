@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the status of the transaction by means of a code.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionStatus4
+     : IIsoXmlSerilizable<TransactionStatus4>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
-    [DataMember]
     public required BaselineStatus3Code Status { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static TransactionStatus4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

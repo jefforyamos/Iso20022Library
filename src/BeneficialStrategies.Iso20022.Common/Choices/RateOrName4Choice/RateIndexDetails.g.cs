@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.RateOrName4Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.RateOrName4Choice;
 /// Pricing expressed as a rate index type or a rate name. Lookback and crystallization days.
 /// </summary>
 public partial record RateIndexDetails : RateOrName4Choice_
+     , IIsoXmlSerilizable<RateIndexDetails>
 {
     #nullable enable
+    
     /// <summary>
     /// Specifies the rate type as an index type or by its name.
     /// </summary>
@@ -35,5 +39,50 @@ public partial record RateIndexDetails : RateOrName4Choice_
     /// Rate Index currency.
     /// </summary>
     public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LookBackDays is IsoMax3NumericText LookBackDaysValue)
+        {
+            writer.WriteStartElement(null, "LookBckDays", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(LookBackDaysValue)); // data type Max3NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (CrystallisationDate is CrystallisationDay1 CrystallisationDateValue)
+        {
+            writer.WriteStartElement(null, "CrstllstnDt", xmlNamespace );
+            CrystallisationDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Tenor is InterestRateIndexTenor2Code TenorValue)
+        {
+            writer.WriteStartElement(null, "Tnr", xmlNamespace );
+            writer.WriteValue(TenorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveOrHistoricCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static new RateIndexDetails Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CollateralProposal5Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralProposal5Choice;
 /// Provides details about the proposal for the segregated independent amount.
 /// </summary>
 public partial record SegregatedIndependentAmount : CollateralProposal5Choice_
+     , IIsoXmlSerilizable<SegregatedIndependentAmount>
 {
     #nullable enable
+    
     /// <summary>
     /// Provides the call amount that is agreed and that will result in a collateral movement.
     /// </summary>
@@ -22,6 +26,33 @@ public partial record SegregatedIndependentAmount : CollateralProposal5Choice_
     /// <summary>
     /// Provides the collateral movement direction that is a delivery and optionally a return, or a return only.
     /// </summary>
-    public CollateralMovement5Choice_? MovementDirection { get; init;  } // Warning: Don't know multiplicity.
+    public CollateralMovement5Choice_? MovementDirection { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AgrdAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AgreedAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (MovementDirection is CollateralMovement5Choice_ MovementDirectionValue)
+        {
+            writer.WriteStartElement(null, "MvmntDrctn", xmlNamespace );
+            MovementDirectionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new SegregatedIndependentAmount Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

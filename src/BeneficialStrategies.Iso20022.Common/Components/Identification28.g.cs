@@ -7,88 +7,173 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique identifier of a document, message or transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Identification28
+     : IIsoXmlSerilizable<Identification28>
 {
     #nullable enable
     
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account owner (or the instructing party managing the account).
     /// </summary>
-    [DataMember]
     public required IsoMax35Text AccountOwnerTransactionIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account servicer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountServicerTransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MarketInfrastructureTransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of a counterparty transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CounterpartyMarketInfrastructureTransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the transaction assigned by the processor of the instruction other than the account owner, the account servicer and the market infrastructure.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ProcessorTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique reference agreed upon by the two trade counterparties to identify the trade.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CommonIdentification { get; init; } 
     /// <summary>
     /// Reference assigned to the trade by the investor or the trading party. This reference will be used throughout the trade life cycle to access/update the trade details.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax52Text> TradeIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax52Text? TradeIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MasterIdentification { get; init; } 
     /// <summary>
     /// Identification of a basket trade.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? BasketIdentification { get; init; } 
     /// <summary>
     /// Reference identifying an index trade.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? IndexIdentification { get; init; } 
     /// <summary>
     /// Unique identifier for a list, as assigned by the trading party. The identifier must be unique within a single trading day.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ListIdentification { get; init; } 
     /// <summary>
     /// Program reference which identifies a program trade.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ProgramIdentification { get; init; } 
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PoolIdentification { get; init; } 
     /// <summary>
     /// Identification assigned by the account servicer to unambiguously identify a corporate action event.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CorporateActionEventIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AcctOwnrTxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountOwnerTransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (AccountServicerTransactionIdentification is IsoMax35Text AccountServicerTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcrTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountServicerTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MarketInfrastructureTransactionIdentification is IsoMax35Text MarketInfrastructureTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MktInfrstrctrTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MarketInfrastructureTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CounterpartyMarketInfrastructureTransactionIdentification is IsoMax35Text CounterpartyMarketInfrastructureTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyMktInfrstrctrTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CounterpartyMarketInfrastructureTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProcessorTransactionIdentification is IsoMax35Text ProcessorTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrcrTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProcessorTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CommonIdentification is IsoMax35Text CommonIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CmonId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CommonIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TradeIdentification is IsoMax52Text TradeIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TradId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(TradeIdentificationValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+        if (MasterIdentification is IsoMax35Text MasterIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MstrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (BasketIdentification is IsoMax35Text BasketIdentificationValue)
+        {
+            writer.WriteStartElement(null, "BsktId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(BasketIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (IndexIdentification is IsoMax35Text IndexIdentificationValue)
+        {
+            writer.WriteStartElement(null, "IndxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IndexIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ListIdentification is IsoMax35Text ListIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ListId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ListIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProgramIdentification is IsoMax35Text ProgramIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrgmId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProgramIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PoolIdentification is IsoMax35Text PoolIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PoolId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PoolIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CorporateActionEventIdentification is IsoMax35Text CorporateActionEventIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CorpActnEvtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CorporateActionEventIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Identification28 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

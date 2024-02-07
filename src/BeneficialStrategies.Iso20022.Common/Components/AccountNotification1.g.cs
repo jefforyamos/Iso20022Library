@@ -7,73 +7,137 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements providing further details on the account notification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountNotification1
+     : IIsoXmlSerilizable<AccountNotification1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the account report, assigned by the account servicer.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Sequential number of the report, assigned by the account servicer. It is increased incrementally for each report sent electronically.
     /// </summary>
-    [DataMember]
     public IsoNumber? ElectronicSequenceNumber { get; init; } 
     /// <summary>
     /// Legal sequential number of the report, assigned by the account servicer. It is increased incrementally for each report sent.||Usage: in those scenarios where eg a paper statement is a legal requirement, the paper statement may have a different numbering than the electronic sequential number. Paper statements can for instance only be sent if movement on the account has taken place, whereas electronic statements can be sent eg each day, regardless of whether movements have taken place or not.
     /// </summary>
-    [DataMember]
     public IsoNumber? LegalSequenceNumber { get; init; } 
     /// <summary>
     /// Date and time at which the report was created.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Range of time between the start date and the end date for which the account notification is issued.
     /// </summary>
-    [DataMember]
     public DateTimePeriodDetails? FromToDate { get; init; } 
     /// <summary>
     /// Specifies if this document is a copy, a duplicate, or a duplicate of a copy.
     /// </summary>
-    [DataMember]
     public CopyDuplicate1Code? CopyDuplicateIndicator { get; init; } 
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>
-    [DataMember]
     public required CashAccount13 Account { get; init; } 
     /// <summary>
     /// Identifies the parent account of the reported account.
     /// </summary>
-    [DataMember]
     public CashAccount7? RelatedAccount { get; init; } 
     /// <summary>
     /// Set of element providing summary information on entries.
     /// </summary>
-    [DataMember]
     public TotalTransactions1? TransactionsSummary { get; init; } 
     /// <summary>
     /// Specifies the elements of an entry in the report.||Usage: At least one reference must be provided to identify the entry and its underlying transaction(s).
     /// </summary>
-    [DataMember]
-    public ValueList<NotificationEntry1> Entry { get; init; } = []; // Warning: Don't know multiplicity.
+    public NotificationEntry1? Entry { get; init; } 
     /// <summary>
     /// Further details on the account notification.
     /// </summary>
-    [DataMember]
     public IsoMax500Text? AdditionalNotificationInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ElectronicSequenceNumber is IsoNumber ElectronicSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "ElctrncSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(ElectronicSequenceNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (LegalSequenceNumber is IsoNumber LegalSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "LglSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(LegalSequenceNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (FromToDate is DateTimePeriodDetails FromToDateValue)
+        {
+            writer.WriteStartElement(null, "FrToDt", xmlNamespace );
+            FromToDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CopyDuplicateIndicator is CopyDuplicate1Code CopyDuplicateIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CpyDplctInd", xmlNamespace );
+            writer.WriteValue(CopyDuplicateIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Acct", xmlNamespace );
+        Account.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RelatedAccount is CashAccount7 RelatedAccountValue)
+        {
+            writer.WriteStartElement(null, "RltdAcct", xmlNamespace );
+            RelatedAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionsSummary is TotalTransactions1 TransactionsSummaryValue)
+        {
+            writer.WriteStartElement(null, "TxsSummry", xmlNamespace );
+            TransactionsSummaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Entry is NotificationEntry1 EntryValue)
+        {
+            writer.WriteStartElement(null, "Ntry", xmlNamespace );
+            EntryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalNotificationInformation is IsoMax500Text AdditionalNotificationInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlNtfctnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Text(AdditionalNotificationInformationValue)); // data type Max500Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountNotification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

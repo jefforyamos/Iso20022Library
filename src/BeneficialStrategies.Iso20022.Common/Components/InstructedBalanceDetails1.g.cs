@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about total instructed balance.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InstructedBalanceDetails1
+     : IIsoXmlSerilizable<InstructedBalanceDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides information about the total instructed balance.
     /// </summary>
-    [DataMember]
     public required BalanceFormat1Choice_ TotalInstructedBalance { get; init; } 
     /// <summary>
     /// Provide instructed balance breakdown information per option.
     /// </summary>
-    [DataMember]
-    public ValueList<InstructedCorporateActionOption1> OptionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public InstructedCorporateActionOption1? OptionDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TtlInstdBal", xmlNamespace );
+        TotalInstructedBalance.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OptionDetails is InstructedCorporateActionOption1 OptionDetailsValue)
+        {
+            writer.WriteStartElement(null, "OptnDtls", xmlNamespace );
+            OptionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InstructedBalanceDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

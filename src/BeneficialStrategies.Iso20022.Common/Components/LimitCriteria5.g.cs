@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria to extract the limit information and the expected limit report. A name may be given to the new query.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LimitCriteria5
+     : IIsoXmlSerilizable<LimitCriteria5>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the query defined by the search criteria and return criteria.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? NewQueryName { get; init; } 
     /// <summary>
     /// Defines the criteria to extract the limit information.
     /// </summary>
-    [DataMember]
-    public ValueList<LimitSearchCriteria5> SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
+    public LimitSearchCriteria5? SearchCriteria { get; init; } 
     /// <summary>
     /// Defines the expected limit report.
     /// </summary>
-    [DataMember]
     public LimitReturnCriteria2? ReturnCriteria { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NewQueryName is IsoMax35Text NewQueryNameValue)
+        {
+            writer.WriteStartElement(null, "NewQryNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NewQueryNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SearchCriteria is LimitSearchCriteria5 SearchCriteriaValue)
+        {
+            writer.WriteStartElement(null, "SchCrit", xmlNamespace );
+            SearchCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReturnCriteria is LimitReturnCriteria2 ReturnCriteriaValue)
+        {
+            writer.WriteStartElement(null, "RtrCrit", xmlNamespace );
+            ReturnCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LimitCriteria5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

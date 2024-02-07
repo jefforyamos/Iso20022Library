@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ReferenceValue1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.ReferenceValue1Choice;
 /// Universally Unique IDentifier (UUID) version 4.
 /// </summary>
 public partial record UUID : ReferenceValue1Choice_
+     , IIsoXmlSerilizable<UUID>
 {
-    public required IsoUUIDv4Identifier Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Universally Unique IDentifier (UUID) version 4, as described in IETC RFC 4122 "Universally Unique IDentifier (UUID) URN Namespace".
+    /// </summary>
+    public required IsoUUIDv4Identifier Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UUID", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoUUIDv4Identifier(Value)); // data type UUIDv4Identifier System.String
+        writer.WriteEndElement();
+    }
+    public static new UUID Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

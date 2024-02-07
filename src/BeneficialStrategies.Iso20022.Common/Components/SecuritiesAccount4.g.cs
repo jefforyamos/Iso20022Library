@@ -7,48 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account to or from which a securities entry is made.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesAccount4
+     : IIsoXmlSerilizable<SecuritiesAccount4>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public required AccountIdentification1 Identification { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Name { get; init; } 
     /// <summary>
     /// Additional information about a financial instrument to help identify the instrument.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? FinancialInstrumentSupplementaryIdentification { get; init; } 
     /// <summary>
     /// Identification of a security, as assigned under a formal or proprietary identification scheme.
     /// </summary>
-    [DataMember]
     public SecurityIdentification3Choice_? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? FinancialInstrumentName { get; init; } 
     /// <summary>
     /// Specifies the current state of an account, eg, enabled or deleted.
     /// </summary>
-    [DataMember]
     public required AccountStatus1Code Status { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Name)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (FinancialInstrumentSupplementaryIdentification is IsoMax35Text FinancialInstrumentSupplementaryIdentificationValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmSplmtryId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(FinancialInstrumentSupplementaryIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentIdentification is SecurityIdentification3Choice_ FinancialInstrumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+            FinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentName is IsoMax350Text FinancialInstrumentNameValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(FinancialInstrumentNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static SecuritiesAccount4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

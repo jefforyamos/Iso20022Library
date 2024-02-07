@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification22Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification22Choice;
 /// Proprietary identification of a security assigned by an institution or organisation.
 /// </summary>
 public partial record AlternateIdentification : SecurityIdentification22Choice_
+     , IIsoXmlSerilizable<AlternateIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique and unambiguous identifier of a security.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record AlternateIdentification : SecurityIdentification22Choice_
     /// Source of the security identification.
     /// </summary>
     public required IdentificationSource1Choice_ IdentificationSource { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IdSrc", xmlNamespace );
+        IdentificationSource.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new AlternateIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

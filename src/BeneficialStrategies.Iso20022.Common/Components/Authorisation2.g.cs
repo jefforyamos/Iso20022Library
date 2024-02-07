@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Autorisation of the mandate holder.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Authorisation2
+     : IIsoXmlSerilizable<Authorisation2>
 {
     #nullable enable
     
     /// <summary>
     /// Maximum amount allowed by the mandate for each transaction.
     /// </summary>
-    [DataMember]
     public FixedAmountOrUnlimited1Choice_? MaximumAmountByTransaction { get; init; } 
     /// <summary>
     /// Maximum amount allowed over a specific period of time.
     /// </summary>
-    [DataMember]
-    public ValueList<MaximumAmountByPeriod1> MaximumAmountByPeriod { get; init; } = []; // Warning: Don't know multiplicity.
+    public MaximumAmountByPeriod1? MaximumAmountByPeriod { get; init; } 
     /// <summary>
     /// Specifies the maximum amount for each bulk submission.
     /// </summary>
-    [DataMember]
     public FixedAmountOrUnlimited1Choice_? MaximumAmountByBulkSubmission { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MaximumAmountByTransaction is FixedAmountOrUnlimited1Choice_ MaximumAmountByTransactionValue)
+        {
+            writer.WriteStartElement(null, "MaxAmtByTx", xmlNamespace );
+            MaximumAmountByTransactionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MaximumAmountByPeriod is MaximumAmountByPeriod1 MaximumAmountByPeriodValue)
+        {
+            writer.WriteStartElement(null, "MaxAmtByPrd", xmlNamespace );
+            MaximumAmountByPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MaximumAmountByBulkSubmission is FixedAmountOrUnlimited1Choice_ MaximumAmountByBulkSubmissionValue)
+        {
+            writer.WriteStartElement(null, "MaxAmtByBlkSubmissn", xmlNamespace );
+            MaximumAmountByBulkSubmissionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Authorisation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

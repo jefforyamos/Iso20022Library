@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.caad.CustomReportV01>;
 
 namespace BeneficialStrategies.Iso20022.caad;
 
@@ -23,10 +26,9 @@ namespace BeneficialStrategies.Iso20022.caad;
 /// This message provides the capability to convey customized reports that are defined by bi-lateral agreement.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The Custom Report message can be initiated by any party and received by any party (acquirer, agent, issuer or other party) connected to a network.||This message provides the capability to convey customized reports that are defined by bi-lateral agreement.")]
-public partial record CustomReportV01 : IOuterRecord
+public partial record CustomReportV01 : IOuterRecord<CustomReportV01,CustomReportV01Document>
+    ,IIsoXmlSerilizable<CustomReportV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -38,6 +40,11 @@ public partial record CustomReportV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "CstmRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CustomReportV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -78,6 +85,35 @@ public partial record CustomReportV01 : IOuterRecord
     {
         return new CustomReportV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("CstmRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Body", xmlNamespace );
+        Body.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecurityTrailer is ContentInformationType20 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CustomReportV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -85,9 +121,7 @@ public partial record CustomReportV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CustomReportV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CustomReportV01Document : IOuterDocument<CustomReportV01>
+public partial record CustomReportV01Document : IOuterDocument<CustomReportV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -103,5 +137,22 @@ public partial record CustomReportV01Document : IOuterDocument<CustomReportV01>
     /// <summary>
     /// The instance of <seealso cref="CustomReportV01"/> is required.
     /// </summary>
+    [DataMember(Name=CustomReportV01.XmlTag)]
     public required CustomReportV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CustomReportV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.IntraBalanceMovementQueryV01>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// 
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The IntraBalanceMovementQuery message is sent from an account owner/requestor to a settlement infrastructure to query intra-balance movement instructions, along with their current status, based on a set of search criteria.|The message may also be used to: |- re-send a message sent by the account owner to the account servicer (the sub-function of the message is ""Duplicate"") |- provide a third party with a copy of a message being sent by the account owner for information (the sub-function of the message is ""Copy"") |- re-send to a third party a copy of a message being sent by the account owner for information (the sub-function of the message is ""Copy Duplicate"").|")]
-public partial record IntraBalanceMovementQueryV01 : IOuterRecord
+public partial record IntraBalanceMovementQueryV01 : IOuterRecord<IntraBalanceMovementQueryV01,IntraBalanceMovementQueryV01Document>
+    ,IIsoXmlSerilizable<IntraBalanceMovementQueryV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record IntraBalanceMovementQueryV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "IntraBalMvmntQry";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => IntraBalanceMovementQueryV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -80,6 +87,38 @@ public partial record IntraBalanceMovementQueryV01 : IOuterRecord
     {
         return new IntraBalanceMovementQueryV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("IntraBalMvmntQry");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is DocumentIdentification51 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "QryDef", xmlNamespace );
+        QueryDefinition.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IntraBalanceMovementQueryV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -87,9 +126,7 @@ public partial record IntraBalanceMovementQueryV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IntraBalanceMovementQueryV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record IntraBalanceMovementQueryV01Document : IOuterDocument<IntraBalanceMovementQueryV01>
+public partial record IntraBalanceMovementQueryV01Document : IOuterDocument<IntraBalanceMovementQueryV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -105,5 +142,22 @@ public partial record IntraBalanceMovementQueryV01Document : IOuterDocument<Intr
     /// <summary>
     /// The instance of <seealso cref="IntraBalanceMovementQueryV01"/> is required.
     /// </summary>
+    [DataMember(Name=IntraBalanceMovementQueryV01.XmlTag)]
     public required IntraBalanceMovementQueryV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(IntraBalanceMovementQueryV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

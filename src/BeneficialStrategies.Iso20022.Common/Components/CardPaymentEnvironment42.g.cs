@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment of the diagnostic exchange.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardPaymentEnvironment42
+     : IIsoXmlSerilizable<CardPaymentEnvironment42>
 {
     #nullable enable
     
     /// <summary>
     /// Acquirer involved in the card payment transaction.
     /// </summary>
-    [DataMember]
     public required Acquirer4 Acquirer { get; init; } 
     /// <summary>
     /// The availability of the acquirer to process transaction must be provided.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? AcquirerAvailabilityRequested { get; init; } 
     /// <summary>
     /// Identification of the merchant requesting the diagnostic.
     /// </summary>
-    [DataMember]
     public GenericIdentification53? MerchantIdentification { get; init; } 
     /// <summary>
     /// Identification of the POI (Point Of Interaction) requesting the diagnostic.
     /// </summary>
-    [DataMember]
     public GenericIdentification32? POIIdentification { get; init; } 
     /// <summary>
     /// Data related to the components of the POI (Point Of Interaction) performing the payment transactions.
     /// </summary>
-    [DataMember]
-    public ValueList<PointOfInteractionComponent5> POIComponent { get; init; } = []; // Warning: Don't know multiplicity.
+    public PointOfInteractionComponent5? POIComponent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Acqrr", xmlNamespace );
+        Acquirer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AcquirerAvailabilityRequested is IsoTrueFalseIndicator AcquirerAvailabilityRequestedValue)
+        {
+            writer.WriteStartElement(null, "AcqrrAvlbtyReqd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AcquirerAvailabilityRequestedValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (MerchantIdentification is GenericIdentification53 MerchantIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MrchntId", xmlNamespace );
+            MerchantIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (POIIdentification is GenericIdentification32 POIIdentificationValue)
+        {
+            writer.WriteStartElement(null, "POIId", xmlNamespace );
+            POIIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (POIComponent is PointOfInteractionComponent5 POIComponentValue)
+        {
+            writer.WriteStartElement(null, "POICmpnt", xmlNamespace );
+            POIComponentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardPaymentEnvironment42 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

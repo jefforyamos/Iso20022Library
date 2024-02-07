@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature7Choice;
 
@@ -13,15 +15,43 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature7Choice;
 /// Indicates that reporting counterparty is a non financial institution.
 /// </summary>
 public partial record NonFinancialInstitution : CounterpartyTradeNature7Choice_
+     , IIsoXmlSerilizable<NonFinancialInstitution>
 {
     #nullable enable
+    
     /// <summary>
     /// Classification of the business activities of the reporting counterparty.
     /// </summary>
     public IsoNACEDomainIdentifier? Classification { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _0uXHsbHXEemRPNDOvJwndA
     /// <summary>
     /// Nature business activities of the reporting counterparty as an investment fund.
     /// </summary>
     public FundType2Code? InvestmentFundClassification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize Classification, multiplicity Unknown
+        if (InvestmentFundClassification is FundType2Code InvestmentFundClassificationValue)
+        {
+            writer.WriteStartElement(null, "InvstmtFndClssfctn", xmlNamespace );
+            writer.WriteValue(InvestmentFundClassificationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static new NonFinancialInstitution Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

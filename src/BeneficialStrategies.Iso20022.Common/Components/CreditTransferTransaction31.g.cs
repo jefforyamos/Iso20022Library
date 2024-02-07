@@ -7,198 +7,384 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provide further details specific to the individual transaction(s) included in the message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CreditTransferTransaction31
+     : IIsoXmlSerilizable<CreditTransferTransaction31>
 {
     #nullable enable
     
     /// <summary>
     /// Set of elements used to reference a payment instruction.
     /// </summary>
-    [DataMember]
     public required PaymentIdentification3 PaymentIdentification { get; init; } 
     /// <summary>
     /// Set of elements used to further specify the type of transaction.
     /// </summary>
-    [DataMember]
     public PaymentTypeInformation21? PaymentTypeInformation { get; init; } 
     /// <summary>
     /// Amount of money moved between the instructing agent and the instructed agent.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount InterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
-    [DataMember]
     public IsoISODate? InterbankSettlementDate { get; init; } 
     /// <summary>
     /// Indicator of the urgency or order of importance that the instructing party would like the instructed party to apply to the processing of the settlement instruction.
     /// </summary>
-    [DataMember]
     public Priority3Code? SettlementPriority { get; init; } 
     /// <summary>
     /// Provides information on the occurred settlement time(s) of the payment transaction.
     /// </summary>
-    [DataMember]
     public SettlementDateTimeIndication1? SettlementTimeIndication { get; init; } 
     /// <summary>
     /// Provides information on the requested settlement time(s) of the payment instruction.
     /// </summary>
-    [DataMember]
     public SettlementTimeRequest2? SettlementTimeRequest { get; init; } 
     /// <summary>
     /// Agent immediately prior to the instructing agent.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? PreviousInstructingAgent1 { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the previous instructing agent at its servicing agent in the payment chain.
     /// </summary>
-    [DataMember]
     public CashAccount24? PreviousInstructingAgent1Account { get; init; } 
     /// <summary>
     /// Agent immediately prior to the instructing agent.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? PreviousInstructingAgent2 { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the previous instructing agent at its servicing agent in the payment chain.
     /// </summary>
-    [DataMember]
     public CashAccount24? PreviousInstructingAgent2Account { get; init; } 
     /// <summary>
     /// Agent immediately prior to the instructing agent.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? PreviousInstructingAgent3 { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the previous instructing agent at its servicing agent in the payment chain.
     /// </summary>
-    [DataMember]
     public CashAccount24? PreviousInstructingAgent3Account { get; init; } 
     /// <summary>
     /// Agent that instructs the next party in the chain to carry out the (set of) instruction(s).
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? InstructingAgent { get; init; } 
     /// <summary>
     /// Agent that is instructed by the previous party in the chain to carry out the (set of) instruction(s).
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? InstructedAgent { get; init; } 
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.||Usage: If more than one intermediary agent is present, then IntermediaryAgent1 identifies the agent between the DebtorAgent and the IntermediaryAgent2.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? IntermediaryAgent1 { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the intermediary agent 1 at its servicing agent in the payment chain.
     /// </summary>
-    [DataMember]
     public CashAccount24? IntermediaryAgent1Account { get; init; } 
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.||Usage: If more than two intermediary agents are present, then IntermediaryAgent2 identifies the agent between the IntermediaryAgent1 and the IntermediaryAgent3.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? IntermediaryAgent2 { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the intermediary agent 2 at its servicing agent in the payment chain.
     /// </summary>
-    [DataMember]
     public CashAccount24? IntermediaryAgent2Account { get; init; } 
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.||Usage: If IntermediaryAgent3 is present, then it identifies the agent between the IntermediaryAgent 2 and the CreditorAgent.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? IntermediaryAgent3 { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the intermediary agent 3 at its servicing agent in the payment chain.
     /// </summary>
-    [DataMember]
     public CashAccount24? IntermediaryAgent3Account { get; init; } 
     /// <summary>
     /// Ultimate financial institution that owes an amount of money to the (ultimate) institutional creditor.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? UltimateDebtor { get; init; } 
     /// <summary>
     /// Financial institution that owes an amount of money to the (ultimate) financial institutional creditor.
     /// </summary>
-    [DataMember]
     public required BranchAndFinancialInstitutionIdentification5 Debtor { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the debtor to which a debit entry will be made as a result of the transaction.
     /// </summary>
-    [DataMember]
     public CashAccount24? DebtorAccount { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? DebtorAgent { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the debtor agent at its servicing agent in the payment chain.
     /// </summary>
-    [DataMember]
     public CashAccount24? DebtorAgentAccount { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? CreditorAgent { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the creditor agent at its servicing agent to which a credit entry will be made as a result of the payment transaction.
     /// </summary>
-    [DataMember]
     public CashAccount24? CreditorAgentAccount { get; init; } 
     /// <summary>
     /// Financial institution that receives an amount of money from the financial institutional debtor.
     /// </summary>
-    [DataMember]
     public required BranchAndFinancialInstitutionIdentification5 Creditor { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the creditor to which a credit entry will be posted as a result of the payment transaction.
     /// </summary>
-    [DataMember]
     public CashAccount24? CreditorAccount { get; init; } 
     /// <summary>
     /// Ultimate financial institution to which an amount of money is due.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? UltimateCreditor { get; init; } 
     /// <summary>
     /// Further information related to the processing of the payment instruction, provided by the initiating party, and intended for the creditor agent.
     /// </summary>
-    [DataMember]
-    public ValueList<InstructionForCreditorAgent2> InstructionForCreditorAgent { get; init; } = []; // Warning: Don't know multiplicity.
+    public InstructionForCreditorAgent2? InstructionForCreditorAgent { get; init; } 
     /// <summary>
     /// Further information related to the processing of the payment instruction that may need to be acted upon by the next agent. ||Usage: The next agent may not be the creditor agent.|The instruction can relate to a level of service, can be an instruction that has to be executed by the agent, or can be information required by the next agent.
     /// </summary>
-    [DataMember]
-    public ValueList<InstructionForNextAgent1> InstructionForNextAgent { get; init; } = []; // Warning: Don't know multiplicity.
+    public InstructionForNextAgent1? InstructionForNextAgent { get; init; } 
     /// <summary>
     /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts' receivable system.
     /// </summary>
-    [DataMember]
     public RemittanceInformation2? RemittanceInformation { get; init; } 
     /// <summary>
     /// Provides information on the underlying customer credit transfer for which cover is provided.
     /// </summary>
-    [DataMember]
     public CreditTransferTransaction32? UnderlyingCustomerCreditTransfer { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PmtId", xmlNamespace );
+        PaymentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PaymentTypeInformation is PaymentTypeInformation21 PaymentTypeInformationValue)
+        {
+            writer.WriteStartElement(null, "PmtTpInf", xmlNamespace );
+            PaymentTypeInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "IntrBkSttlmAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(InterbankSettlementAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (InterbankSettlementDate is IsoISODate InterbankSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "IntrBkSttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(InterbankSettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SettlementPriority is Priority3Code SettlementPriorityValue)
+        {
+            writer.WriteStartElement(null, "SttlmPrty", xmlNamespace );
+            writer.WriteValue(SettlementPriorityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SettlementTimeIndication is SettlementDateTimeIndication1 SettlementTimeIndicationValue)
+        {
+            writer.WriteStartElement(null, "SttlmTmIndctn", xmlNamespace );
+            SettlementTimeIndicationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementTimeRequest is SettlementTimeRequest2 SettlementTimeRequestValue)
+        {
+            writer.WriteStartElement(null, "SttlmTmReq", xmlNamespace );
+            SettlementTimeRequestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousInstructingAgent1 is BranchAndFinancialInstitutionIdentification5 PreviousInstructingAgent1Value)
+        {
+            writer.WriteStartElement(null, "PrvsInstgAgt1", xmlNamespace );
+            PreviousInstructingAgent1Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousInstructingAgent1Account is CashAccount24 PreviousInstructingAgent1AccountValue)
+        {
+            writer.WriteStartElement(null, "PrvsInstgAgt1Acct", xmlNamespace );
+            PreviousInstructingAgent1AccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousInstructingAgent2 is BranchAndFinancialInstitutionIdentification5 PreviousInstructingAgent2Value)
+        {
+            writer.WriteStartElement(null, "PrvsInstgAgt2", xmlNamespace );
+            PreviousInstructingAgent2Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousInstructingAgent2Account is CashAccount24 PreviousInstructingAgent2AccountValue)
+        {
+            writer.WriteStartElement(null, "PrvsInstgAgt2Acct", xmlNamespace );
+            PreviousInstructingAgent2AccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousInstructingAgent3 is BranchAndFinancialInstitutionIdentification5 PreviousInstructingAgent3Value)
+        {
+            writer.WriteStartElement(null, "PrvsInstgAgt3", xmlNamespace );
+            PreviousInstructingAgent3Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousInstructingAgent3Account is CashAccount24 PreviousInstructingAgent3AccountValue)
+        {
+            writer.WriteStartElement(null, "PrvsInstgAgt3Acct", xmlNamespace );
+            PreviousInstructingAgent3AccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructingAgent is BranchAndFinancialInstitutionIdentification5 InstructingAgentValue)
+        {
+            writer.WriteStartElement(null, "InstgAgt", xmlNamespace );
+            InstructingAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructedAgent is BranchAndFinancialInstitutionIdentification5 InstructedAgentValue)
+        {
+            writer.WriteStartElement(null, "InstdAgt", xmlNamespace );
+            InstructedAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryAgent1 is BranchAndFinancialInstitutionIdentification5 IntermediaryAgent1Value)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt1", xmlNamespace );
+            IntermediaryAgent1Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryAgent1Account is CashAccount24 IntermediaryAgent1AccountValue)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt1Acct", xmlNamespace );
+            IntermediaryAgent1AccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryAgent2 is BranchAndFinancialInstitutionIdentification5 IntermediaryAgent2Value)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt2", xmlNamespace );
+            IntermediaryAgent2Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryAgent2Account is CashAccount24 IntermediaryAgent2AccountValue)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt2Acct", xmlNamespace );
+            IntermediaryAgent2AccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryAgent3 is BranchAndFinancialInstitutionIdentification5 IntermediaryAgent3Value)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt3", xmlNamespace );
+            IntermediaryAgent3Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryAgent3Account is CashAccount24 IntermediaryAgent3AccountValue)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt3Acct", xmlNamespace );
+            IntermediaryAgent3AccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UltimateDebtor is BranchAndFinancialInstitutionIdentification5 UltimateDebtorValue)
+        {
+            writer.WriteStartElement(null, "UltmtDbtr", xmlNamespace );
+            UltimateDebtorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Dbtr", xmlNamespace );
+        Debtor.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DebtorAccount is CashAccount24 DebtorAccountValue)
+        {
+            writer.WriteStartElement(null, "DbtrAcct", xmlNamespace );
+            DebtorAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DebtorAgent is BranchAndFinancialInstitutionIdentification5 DebtorAgentValue)
+        {
+            writer.WriteStartElement(null, "DbtrAgt", xmlNamespace );
+            DebtorAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DebtorAgentAccount is CashAccount24 DebtorAgentAccountValue)
+        {
+            writer.WriteStartElement(null, "DbtrAgtAcct", xmlNamespace );
+            DebtorAgentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditorAgent is BranchAndFinancialInstitutionIdentification5 CreditorAgentValue)
+        {
+            writer.WriteStartElement(null, "CdtrAgt", xmlNamespace );
+            CreditorAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditorAgentAccount is CashAccount24 CreditorAgentAccountValue)
+        {
+            writer.WriteStartElement(null, "CdtrAgtAcct", xmlNamespace );
+            CreditorAgentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Cdtr", xmlNamespace );
+        Creditor.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CreditorAccount is CashAccount24 CreditorAccountValue)
+        {
+            writer.WriteStartElement(null, "CdtrAcct", xmlNamespace );
+            CreditorAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UltimateCreditor is BranchAndFinancialInstitutionIdentification5 UltimateCreditorValue)
+        {
+            writer.WriteStartElement(null, "UltmtCdtr", xmlNamespace );
+            UltimateCreditorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructionForCreditorAgent is InstructionForCreditorAgent2 InstructionForCreditorAgentValue)
+        {
+            writer.WriteStartElement(null, "InstrForCdtrAgt", xmlNamespace );
+            InstructionForCreditorAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructionForNextAgent is InstructionForNextAgent1 InstructionForNextAgentValue)
+        {
+            writer.WriteStartElement(null, "InstrForNxtAgt", xmlNamespace );
+            InstructionForNextAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RemittanceInformation is RemittanceInformation2 RemittanceInformationValue)
+        {
+            writer.WriteStartElement(null, "RmtInf", xmlNamespace );
+            RemittanceInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnderlyingCustomerCreditTransfer is CreditTransferTransaction32 UnderlyingCustomerCreditTransferValue)
+        {
+            writer.WriteStartElement(null, "UndrlygCstmrCdtTrf", xmlNamespace );
+            UnderlyingCustomerCreditTransferValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CreditTransferTransaction31 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

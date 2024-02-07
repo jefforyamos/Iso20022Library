@@ -7,48 +7,84 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains the meta data for netting cut off update request: message identification, request servicer and a request type.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RequestData2
+     : IIsoXmlSerilizable<RequestData2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification of the message.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Description of the type of request.
     /// </summary>
-    [DataMember]
     public required IsoMax4Text RequestType { get; init; } 
     /// <summary>
     /// Specifies the business date on which the new netting cut off(s) is (are) to be activated.
     /// </summary>
-    [DataMember]
     public required IsoISODate RequestedActivationDate { get; init; } 
     /// <summary>
     /// Describes the central system servicing the request.
     /// </summary>
-    [DataMember]
     public PartyIdentification242Choice_? RequestServicer { get; init; } 
     /// <summary>
     /// Describes the participant issuing the request.
     /// </summary>
-    [DataMember]
     public required PartyIdentification242Choice_ NetServiceParticipantIdentification { get; init; } 
     /// <summary>
     /// Describes the type of netting service supporting the net report.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? NetServiceType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ReqTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4Text(RequestType)); // data type Max4Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ReqdActvtnDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(RequestedActivationDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (RequestServicer is PartyIdentification242Choice_ RequestServicerValue)
+        {
+            writer.WriteStartElement(null, "ReqSvcr", xmlNamespace );
+            RequestServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "NetSvcPtcptId", xmlNamespace );
+        NetServiceParticipantIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (NetServiceType is IsoMax35Text NetServiceTypeValue)
+        {
+            writer.WriteStartElement(null, "NetSvcTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NetServiceTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static RequestData2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.UnderlyingContract3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingContract3Choice;
 /// Underlying registered contract is a loan.
 /// </summary>
 public partial record Loan : UnderlyingContract3Choice_
+     , IIsoXmlSerilizable<Loan>
 {
     #nullable enable
+    
     /// <summary>
     /// Contract document referenced from this loan agreement.
     /// </summary>
@@ -27,10 +31,12 @@ public partial record Loan : UnderlyingContract3Choice_
     /// Party that is specified as the buyer for this loan agreement.
     /// </summary>
     public TradeParty5? Buyer { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _2o1kI7GIEeuSTr8k0UEM8A
     /// <summary>
     /// Party that is specified as the seller for this loan agreement.
     /// </summary>
     public TradeParty5? Seller { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _2o1kJbGIEeuSTr8k0UEM8A
     /// <summary>
     /// Loan amount as defined in the contract.
     /// </summary>
@@ -67,15 +73,15 @@ public partial record Loan : UnderlyingContract3Choice_
     /// <summary>
     /// One part or division of the loan, used to define the repayment.
     /// </summary>
-    public LoanContractTranche1? Tranche { get; init;  } // Warning: Don't know multiplicity.
+    public LoanContractTranche1? Tranche { get; init; } 
     /// <summary>
     /// Schedule of the payments defined for the loan contract.
     /// </summary>
-    public PaymentSchedule1? PaymentSchedule { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentSchedule1? PaymentSchedule { get; init; } 
     /// <summary>
     /// Schedule of the interest payments defined for the loan contract.
     /// </summary>
-    public InterestPaymentSchedule1? InterestSchedule { get; init;  } // Warning: Don't know multiplicity.
+    public InterestPaymentSchedule1? InterestSchedule { get; init; } 
     /// <summary>
     /// Loan is an intra company loan.
     /// </summary>
@@ -87,10 +93,126 @@ public partial record Loan : UnderlyingContract3Choice_
     /// <summary>
     /// Loan offered by a group of lenders (called a syndicate) who work together to provide funds for a single borrower.
     /// </summary>
-    public SyndicatedLoan2? SyndicatedLoan { get; init;  } // Warning: Don't know multiplicity.
+    public SyndicatedLoan2? SyndicatedLoan { get; init; } 
     /// <summary>
     /// Documents provided as attachments to the loan contract.
     /// </summary>
-    public DocumentGeneralInformation5? Attachment { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentGeneralInformation5? Attachment { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CtrctDocId", xmlNamespace );
+        ContractDocumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LoanTypeIdentification is IsoMax35Text LoanTypeIdentificationValue)
+        {
+            writer.WriteStartElement(null, "LnTpId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(LoanTypeIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize Buyer, multiplicity Unknown
+        // Not sure how to serialize Seller, multiplicity Unknown
+        if (Amount is IsoActiveCurrencyAndAmount AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MaturityDate is IsoISODate MaturityDateValue)
+        {
+            writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(MaturityDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ProlongationFlag is IsoTrueFalseIndicator ProlongationFlagValue)
+        {
+            writer.WriteStartElement(null, "PrlngtnFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ProlongationFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (StartDate is IsoISODate StartDateValue)
+        {
+            writer.WriteStartElement(null, "StartDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(StartDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SettlementCurrency is ActiveCurrencyCode SettlementCurrencyValue)
+        {
+            writer.WriteStartElement(null, "SttlmCcy", xmlNamespace );
+            writer.WriteValue(SettlementCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SpecialConditions is SpecialCondition1 SpecialConditionsValue)
+        {
+            writer.WriteStartElement(null, "SpclConds", xmlNamespace );
+            SpecialConditionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DurationCode is IsoExact1NumericText DurationCodeValue)
+        {
+            writer.WriteStartElement(null, "DrtnCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact1NumericText(DurationCodeValue)); // data type Exact1NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (InterestRate is InterestRate2Choice_ InterestRateValue)
+        {
+            writer.WriteStartElement(null, "IntrstRate", xmlNamespace );
+            InterestRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Tranche is LoanContractTranche1 TrancheValue)
+        {
+            writer.WriteStartElement(null, "Trch", xmlNamespace );
+            TrancheValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentSchedule is PaymentSchedule1 PaymentScheduleValue)
+        {
+            writer.WriteStartElement(null, "PmtSchdl", xmlNamespace );
+            PaymentScheduleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestSchedule is InterestPaymentSchedule1 InterestScheduleValue)
+        {
+            writer.WriteStartElement(null, "IntrstSchdl", xmlNamespace );
+            InterestScheduleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "IntraCpnyLn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(IntraCompanyLoan)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        if (Collateral is ContractCollateral1 CollateralValue)
+        {
+            writer.WriteStartElement(null, "Coll", xmlNamespace );
+            CollateralValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SyndicatedLoan is SyndicatedLoan2 SyndicatedLoanValue)
+        {
+            writer.WriteStartElement(null, "SndctdLn", xmlNamespace );
+            SyndicatedLoanValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Attachment is DocumentGeneralInformation5 AttachmentValue)
+        {
+            writer.WriteStartElement(null, "Attchmnt", xmlNamespace );
+            AttachmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Loan Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

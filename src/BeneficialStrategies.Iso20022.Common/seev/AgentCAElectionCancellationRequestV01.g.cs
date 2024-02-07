@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.AgentCAElectionCancellationRequestV01>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// This message must contain the identification of the Agent Corporate Action Election Advice to be cancelled, the agent identification and the corporate action references. This message may also contain details of the election advice to be cancelled, but this is not recommended.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|This message is sent by a CSD to the issuer (or its agent) to request the cancellation of a previously sent Agent Corporate Action Election Advice message.|Usage|This message may only be used to cancel an entire Agent Corporate Action Election Advice message that was previously sent by the CSD. No partial cancellation is allowed.|This message must contain the identification of the Agent Corporate Action Election Advice to be cancelled, the agent identification and the corporate action references. This message may also contain details of the election advice to be cancelled, but this is not recommended.")]
-public partial record AgentCAElectionCancellationRequestV01 : IOuterRecord
+public partial record AgentCAElectionCancellationRequestV01 : IOuterRecord<AgentCAElectionCancellationRequestV01,AgentCAElectionCancellationRequestV01Document>
+    ,IIsoXmlSerilizable<AgentCAElectionCancellationRequestV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record AgentCAElectionCancellationRequestV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AgtCAElctnCxlReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AgentCAElectionCancellationRequestV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -90,6 +97,38 @@ public partial record AgentCAElectionCancellationRequestV01 : IOuterRecord
     {
         return new AgentCAElectionCancellationRequestV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AgtCAElctnCxlReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AgtCAElctnAdvcId", xmlNamespace );
+        AgentCAElectionAdviceIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+        CorporateActionGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ElectionDetails is CorporateActionElection3 ElectionDetailsValue)
+        {
+            writer.WriteStartElement(null, "ElctnDtls", xmlNamespace );
+            ElectionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AgentCAElectionCancellationRequestV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -97,9 +136,7 @@ public partial record AgentCAElectionCancellationRequestV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAElectionCancellationRequestV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AgentCAElectionCancellationRequestV01Document : IOuterDocument<AgentCAElectionCancellationRequestV01>
+public partial record AgentCAElectionCancellationRequestV01Document : IOuterDocument<AgentCAElectionCancellationRequestV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -115,5 +152,22 @@ public partial record AgentCAElectionCancellationRequestV01Document : IOuterDocu
     /// <summary>
     /// The instance of <seealso cref="AgentCAElectionCancellationRequestV01"/> is required.
     /// </summary>
+    [DataMember(Name=AgentCAElectionCancellationRequestV01.XmlTag)]
     public required AgentCAElectionCancellationRequestV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AgentCAElectionCancellationRequestV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

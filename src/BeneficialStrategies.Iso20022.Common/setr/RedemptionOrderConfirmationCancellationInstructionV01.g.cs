@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.setr.RedemptionOrderConfirmationCancellationInstructionV01>;
 
 namespace BeneficialStrategies.Iso20022.setr;
 
@@ -38,10 +41,9 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// The rejection or acceptance of a RedemptionOrderConfirmationCancellationInstruction is made using an OrderConfirmationStatusReport message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An executing party, for example, a transfer agent, sends the RedemptionOrderConfirmationCancellationInstruction message to the instructing party, for example, an investment manager or its authorised representative to cancel a previously sent RedemptionOrderConfirmation message.|Usage|The RedemptionOrderConfirmationCancellationInstruction message is used to cancel one or more previously sent redemption order confirmations. The amendment indicator element is used to specify whether the redemption order confirmation cancellation is to be followed by a RedemptionOrderConfirmationAmendment.|The RedemptionOrderConfirmationCancellationInstruction message is used to either:|- cancel an entire RedemptionOrderConfirmation messae, that is, all the individual order confirmations that it contained, or,|- request the cancellation of one or more individual confirmations.|There are two ways to use the message.|(1) When the RedemptionOrderConfirmationCancellationInstruction message is used to cancel an entire message, this can be done by either:|- quoting the business references, for example, OrderReference, Deal Reference, of all the individual order confirmations listed in the RedemptionOrderConfirmation message, or,|- quoting the details of all the individual order confirmations (this includes the OrderReference and DealReference) listed in RedemptionOrderConfirmation message but this is not recommended.|The message identification of the RedemptionOrderConfirmation message may also be quoted in PreviousReference.|It is also possible to instruct the cancellation of an entire confirmation message by quoting its message identification in PreviousReference, but this is not recommended.|(2) When the RedemptionOrderConfirmationCancellationInstruction message is used to cancel one or more individual order confirmations, this can be done by either:|- quoting the business references, for example, OrderReference, Deal Reference, of each individual order confirmation listed in the RedemptionOrderConfirmation message, or,|- quoting the details of each individual order execution (this includes the OrderReference and DealReference) listed in RedemptionOrderConfirmation message but this is not recommended.|The message identification of the RedemptionOrderConfirmation message in which the individual order confirmation was conveyed may also be quoted in PreviousReference.|The rejection or acceptance of a RedemptionOrderConfirmationCancellationInstruction is made using an OrderConfirmationStatusReport message.")]
-public partial record RedemptionOrderConfirmationCancellationInstructionV01 : IOuterRecord
+public partial record RedemptionOrderConfirmationCancellationInstructionV01 : IOuterRecord<RedemptionOrderConfirmationCancellationInstructionV01,RedemptionOrderConfirmationCancellationInstructionV01Document>
+    ,IIsoXmlSerilizable<RedemptionOrderConfirmationCancellationInstructionV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -53,6 +55,11 @@ public partial record RedemptionOrderConfirmationCancellationInstructionV01 : IO
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "RedOrdrConfCxlInstrV01";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => RedemptionOrderConfirmationCancellationInstructionV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -128,6 +135,62 @@ public partial record RedemptionOrderConfirmationCancellationInstructionV01 : IO
     {
         return new RedemptionOrderConfirmationCancellationInstructionV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("RedOrdrConfCxlInstrV01");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PoolReference is AdditionalReference3 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousReference is AdditionalReference3 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference3 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CancellationByReference is InvestmentFundOrderExecution1 CancellationByReferenceValue)
+        {
+            writer.WriteStartElement(null, "CxlByRef", xmlNamespace );
+            CancellationByReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CancellationByOrderConfirmationDetails is RedemptionOrderConfirmation1 CancellationByOrderConfirmationDetailsValue)
+        {
+            writer.WriteStartElement(null, "CxlByOrdrConfDtls", xmlNamespace );
+            CancellationByOrderConfirmationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CopyDetails is CopyInformation2 CopyDetailsValue)
+        {
+            writer.WriteStartElement(null, "CpyDtls", xmlNamespace );
+            CopyDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RedemptionOrderConfirmationCancellationInstructionV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -135,9 +198,7 @@ public partial record RedemptionOrderConfirmationCancellationInstructionV01 : IO
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RedemptionOrderConfirmationCancellationInstructionV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record RedemptionOrderConfirmationCancellationInstructionV01Document : IOuterDocument<RedemptionOrderConfirmationCancellationInstructionV01>
+public partial record RedemptionOrderConfirmationCancellationInstructionV01Document : IOuterDocument<RedemptionOrderConfirmationCancellationInstructionV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -153,5 +214,22 @@ public partial record RedemptionOrderConfirmationCancellationInstructionV01Docum
     /// <summary>
     /// The instance of <seealso cref="RedemptionOrderConfirmationCancellationInstructionV01"/> is required.
     /// </summary>
+    [DataMember(Name=RedemptionOrderConfirmationCancellationInstructionV01.XmlTag)]
     public required RedemptionOrderConfirmationCancellationInstructionV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(RedemptionOrderConfirmationCancellationInstructionV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

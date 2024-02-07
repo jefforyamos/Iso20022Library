@@ -7,63 +7,123 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides detailed information on the investigation request status from the tracker.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TrackerInvestigationRequestStatus1
+     : IIsoXmlSerilizable<TrackerInvestigationRequestStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Status of request.
     /// </summary>
-    [DataMember]
     public required InvestigationRequestStatus1Choice_ Status { get; init; } 
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
-    [DataMember]
-    public ValueList<InvestigationRequestStatusReason1Choice_> StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public InvestigationRequestStatusReason1Choice_? StatusReason { get; init; } 
     /// <summary>
     /// Date for the status.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? Date { get; init; } 
     /// <summary>
     /// Further details on the status reason.||Usage: Additional information can be used for several purposes such as the reporting of repaired information.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax105Text> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax105Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Party that provides information on the status and related details of the request.
     /// </summary>
-    [DataMember]
     public TrackerPartyIdentification2? TrackerInformingParty { get; init; } 
     /// <summary>
     /// Party that is updated on the status and related details of the request.
     /// </summary>
-    [DataMember]
     public TrackerPartyIdentification2? TrackerInformedParty { get; init; } 
     /// <summary>
     /// Provides information on the original request message.
     /// </summary>
-    [DataMember]
     public OriginalBusinessInstruction4? TrackedMessageIdentification { get; init; } 
     /// <summary>
     /// Includes the entity to which the entity reporting the status has forwarded the case.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? InstructedAgent { get; init; } 
     /// <summary>
     /// Identifies the entity to which the tracking facility has assigned the request.
     /// </summary>
-    [DataMember]
     public Party40Choice_? InvestigationResponder { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        Status.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (StatusReason is InvestigationRequestStatusReason1Choice_ StatusReasonValue)
+        {
+            writer.WriteStartElement(null, "StsRsn", xmlNamespace );
+            StatusReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Date is DateAndDateTime2Choice_ DateValue)
+        {
+            writer.WriteStartElement(null, "Dt", xmlNamespace );
+            DateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax105Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax105Text(AdditionalInformationValue)); // data type Max105Text System.String
+            writer.WriteEndElement();
+        }
+        if (TrackerInformingParty is TrackerPartyIdentification2 TrackerInformingPartyValue)
+        {
+            writer.WriteStartElement(null, "TrckrInfrmgPty", xmlNamespace );
+            TrackerInformingPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TrackerInformedParty is TrackerPartyIdentification2 TrackerInformedPartyValue)
+        {
+            writer.WriteStartElement(null, "TrckrInfrmdPty", xmlNamespace );
+            TrackerInformedPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TrackedMessageIdentification is OriginalBusinessInstruction4 TrackedMessageIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TrckdMsgId", xmlNamespace );
+            TrackedMessageIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructedAgent is BranchAndFinancialInstitutionIdentification6 InstructedAgentValue)
+        {
+            writer.WriteStartElement(null, "InstdAgt", xmlNamespace );
+            InstructedAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestigationResponder is Party40Choice_ InvestigationResponderValue)
+        {
+            writer.WriteStartElement(null, "InvstgtnRspndr", xmlNamespace );
+            InvestigationResponderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TrackerInvestigationRequestStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

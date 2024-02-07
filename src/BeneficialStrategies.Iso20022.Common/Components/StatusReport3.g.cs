@@ -7,33 +7,59 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status of the acceptor system containing the identification of the POI (Point Of Interaction), its components and their installed versions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StatusReport3
+     : IIsoXmlSerilizable<StatusReport3>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the point of interaction for terminal management.
     /// </summary>
-    [DataMember]
     public required GenericIdentification35 POIIdentification { get; init; } 
     /// <summary>
     /// Identification of the terminal management system (TMS) to contact for the maintenance.
     /// </summary>
-    [DataMember]
     public GenericIdentification35? TerminalManagerIdentification { get; init; } 
     /// <summary>
     /// Data related to a status report of a point of interaction (POI).
     /// </summary>
-    [DataMember]
-    public ValueList<TerminalManagementDataSet9> DataSet { get; init; } = []; // Warning: Don't know multiplicity.
+    public TerminalManagementDataSet9? DataSet { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _KIhrZTV9EeODSIIQsYYKhw
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "POIId", xmlNamespace );
+        POIIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TerminalManagerIdentification is GenericIdentification35 TerminalManagerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TermnlMgrId", xmlNamespace );
+            TerminalManagerIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize DataSet, multiplicity Unknown
+    }
+    public static StatusReport3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

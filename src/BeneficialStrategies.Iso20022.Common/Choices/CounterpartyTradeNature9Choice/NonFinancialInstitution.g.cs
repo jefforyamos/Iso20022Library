@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature9Choice;
 
@@ -13,15 +15,41 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature9Choice;
 /// Indicates that reporting counterparty is a non financial institution.
 /// </summary>
 public partial record NonFinancialInstitution : CounterpartyTradeNature9Choice_
+     , IIsoXmlSerilizable<NonFinancialInstitution>
 {
     #nullable enable
-    /// <summary>
-    /// Indicates that reporting party is a central counterparty.
-    /// </summary>
-    public required NoReasonCode NonFinancialInstitutionValue { get; init; } 
+    
+    public required NoReasonCode Value { get; init; } 
     /// <summary>
     /// Identifies the non-financial institution.
     /// </summary>
     public NonFinancialInstitutionSector2? NonFinancialInstitutionIdentifier { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NFI", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (NonFinancialInstitutionIdentifier is NonFinancialInstitutionSector2 NonFinancialInstitutionIdentifierValue)
+        {
+            writer.WriteStartElement(null, "NFIIdr", xmlNamespace );
+            NonFinancialInstitutionIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new NonFinancialInstitution Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

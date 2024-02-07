@@ -7,43 +7,74 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the corporate action security option.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesOption97
+     : IIsoXmlSerilizable<SecuritiesOption97>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the financial instrument.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification20 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Specifies whether the value is a debit or credit.
     /// </summary>
-    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Quantity of securities that have been posted (credit or debit) to the safekeeping account.
     /// </summary>
-    [DataMember]
     public required Quantity54Choice_ PostingQuantity { get; init; } 
     /// <summary>
     /// Date of the posting (credit or debit) to the account.
     /// </summary>
-    [DataMember]
     public required IsoISODate PostingDate { get; init; } 
     /// <summary>
     /// Date/Time of the posting (credit or debit) to the account that was initially communicated in the confirmation.
     /// </summary>
-    [DataMember]
     public IsoISODate? OriginalPostingDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PstngQty", xmlNamespace );
+        PostingQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PstngDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(PostingDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (OriginalPostingDate is IsoISODate OriginalPostingDateValue)
+        {
+            writer.WriteStartElement(null, "OrgnlPstngDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(OriginalPostingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesOption97 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

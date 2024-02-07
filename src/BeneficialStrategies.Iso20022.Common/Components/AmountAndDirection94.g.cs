@@ -7,63 +7,120 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AmountAndDirection94
+     : IIsoXmlSerilizable<AmountAndDirection94>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the net proceeds include interest accrued on the financial instrument.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? AccruedInterestIndicator { get; init; } 
     /// <summary>
     /// Whether the net proceeds include stamp duty amount.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? StampDutyIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the net proceeds include brokerage fees for the transaction. If absent, element is not required.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? BrokerageAmountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the net proceeds include research fees for the transaction.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ResearchFeeIndicator { get; init; } 
     /// <summary>
     /// Amount of money in the cash entry.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether an entry is a credit or a debit.
     /// </summary>
-    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Posting/settlement amount in its original currency when conversion from/into another currency has occurred.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? OriginalCurrencyAndOrderedAmount { get; init; } 
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
     /// </summary>
-    [DataMember]
     public ForeignExchangeTerms23? ForeignExchangeDetails { get; init; } 
     /// <summary>
     /// Date and time at which the cash is at the disposal of the credit account owner, or ceases to be at the disposal of the debit account owner.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? ValueDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccruedInterestIndicator is IsoYesNoIndicator AccruedInterestIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AcrdIntrstInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AccruedInterestIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (StampDutyIndicator is IsoYesNoIndicator StampDutyIndicatorValue)
+        {
+            writer.WriteStartElement(null, "StmpDtyInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(StampDutyIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (BrokerageAmountIndicator is IsoYesNoIndicator BrokerageAmountIndicatorValue)
+        {
+            writer.WriteStartElement(null, "BrkrgAmtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(BrokerageAmountIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ResearchFeeIndicator is IsoYesNoIndicator ResearchFeeIndicatorValue)
+        {
+            writer.WriteStartElement(null, "RsrchFeeInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ResearchFeeIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OriginalCurrencyAndOrderedAmount is IsoActiveOrHistoricCurrencyAndAmount OriginalCurrencyAndOrderedAmountValue)
+        {
+            writer.WriteStartElement(null, "OrgnlCcyAndOrdrdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(OriginalCurrencyAndOrderedAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ForeignExchangeDetails is ForeignExchangeTerms23 ForeignExchangeDetailsValue)
+        {
+            writer.WriteStartElement(null, "FXDtls", xmlNamespace );
+            ForeignExchangeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValueDate is DateAndDateTime2Choice_ ValueDateValue)
+        {
+            writer.WriteStartElement(null, "ValDt", xmlNamespace );
+            ValueDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AmountAndDirection94 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

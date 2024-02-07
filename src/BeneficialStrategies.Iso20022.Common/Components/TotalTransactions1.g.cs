@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of element providing summary information on entries.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TotalTransactions1
+     : IIsoXmlSerilizable<TotalTransactions1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the total number and sum of debit and credit entries.
     /// </summary>
-    [DataMember]
     public NumberAndSumOfTransactions2? TotalEntries { get; init; } 
     /// <summary>
     /// Indicates the total number and sum of credit entries.
     /// </summary>
-    [DataMember]
     public NumberAndSumOfTransactions1? TotalCreditEntries { get; init; } 
     /// <summary>
     /// Indicates the total number and sum of debit entries.
     /// </summary>
-    [DataMember]
     public NumberAndSumOfTransactions1? TotalDebitEntries { get; init; } 
     /// <summary>
     /// Indicates the total number and sum of entries per bank transaction code.
     /// </summary>
-    [DataMember]
-    public ValueList<NumberAndSumOfTransactionsPerBankTransactionCode1> TotalEntriesPerBankTransactionCode { get; init; } = []; // Warning: Don't know multiplicity.
+    public NumberAndSumOfTransactionsPerBankTransactionCode1? TotalEntriesPerBankTransactionCode { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TotalEntries is NumberAndSumOfTransactions2 TotalEntriesValue)
+        {
+            writer.WriteStartElement(null, "TtlNtries", xmlNamespace );
+            TotalEntriesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalCreditEntries is NumberAndSumOfTransactions1 TotalCreditEntriesValue)
+        {
+            writer.WriteStartElement(null, "TtlCdtNtries", xmlNamespace );
+            TotalCreditEntriesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalDebitEntries is NumberAndSumOfTransactions1 TotalDebitEntriesValue)
+        {
+            writer.WriteStartElement(null, "TtlDbtNtries", xmlNamespace );
+            TotalDebitEntriesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalEntriesPerBankTransactionCode is NumberAndSumOfTransactionsPerBankTransactionCode1 TotalEntriesPerBankTransactionCodeValue)
+        {
+            writer.WriteStartElement(null, "TtlNtriesPerBkTxCd", xmlNamespace );
+            TotalEntriesPerBankTransactionCodeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TotalTransactions1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

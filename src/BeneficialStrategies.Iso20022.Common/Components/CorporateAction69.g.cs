@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the corporate action event.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateAction69
+     : IIsoXmlSerilizable<CorporateAction69>
 {
     #nullable enable
     
     /// <summary>
     /// Provides information about the dates related to a corporate action event.
     /// </summary>
-    [DataMember]
     public CorporateActionDate85? DateDetails { get; init; } 
     /// <summary>
     /// Provides information about securities quantity linked to a corporate action.
     /// </summary>
-    [DataMember]
     public CorporateActionQuantity12? SecuritiesQuantity { get; init; } 
     /// <summary>
     /// Stage in the corporate action event life cycle.
     /// </summary>
-    [DataMember]
     public CorporateActionEventStageFormat14Choice_? EventStage { get; init; } 
     /// <summary>
     /// Indicates whether the message is related to a claim on the associated corporate action event.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalBusinessProcessFormat18Choice_> AdditionalBusinessProcessIndicator { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalBusinessProcessFormat18Choice_? AdditionalBusinessProcessIndicator { get; init; } 
     /// <summary>
     /// Specifies the type of intermediates securities distribution.
     /// </summary>
-    [DataMember]
     public IntermediateSecuritiesDistributionTypeFormat15Choice_? IntermediateSecuritiesDistributionType { get; init; } 
     /// <summary>
     /// Specifies the type of lottery announced.
     /// </summary>
-    [DataMember]
     public LotteryTypeFormat4Choice_? LotteryType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DateDetails is CorporateActionDate85 DateDetailsValue)
+        {
+            writer.WriteStartElement(null, "DtDtls", xmlNamespace );
+            DateDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesQuantity is CorporateActionQuantity12 SecuritiesQuantityValue)
+        {
+            writer.WriteStartElement(null, "SctiesQty", xmlNamespace );
+            SecuritiesQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EventStage is CorporateActionEventStageFormat14Choice_ EventStageValue)
+        {
+            writer.WriteStartElement(null, "EvtStag", xmlNamespace );
+            EventStageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalBusinessProcessIndicator is AdditionalBusinessProcessFormat18Choice_ AdditionalBusinessProcessIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AddtlBizPrcInd", xmlNamespace );
+            AdditionalBusinessProcessIndicatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediateSecuritiesDistributionType is IntermediateSecuritiesDistributionTypeFormat15Choice_ IntermediateSecuritiesDistributionTypeValue)
+        {
+            writer.WriteStartElement(null, "IntrmdtSctiesDstrbtnTp", xmlNamespace );
+            IntermediateSecuritiesDistributionTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LotteryType is LotteryTypeFormat4Choice_ LotteryTypeValue)
+        {
+            writer.WriteStartElement(null, "LtryTp", xmlNamespace );
+            LotteryTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateAction69 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

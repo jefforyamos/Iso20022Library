@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.GeographicLocation1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.GeographicLocation1Choice;
 /// Location on the earth specified by two numbers representing vertical and horizontal position.
 /// </summary>
 public partial record GeographicCoordinates : GeographicLocation1Choice_
+     , IIsoXmlSerilizable<GeographicCoordinates>
 {
     #nullable enable
+    
     /// <summary>
     /// Latitude measured in degrees, minutes and seconds, following by 'N' for the north and 'S' for the south of the equator (for example 48°51'29" N for the Eiffel Tower latitude).
     /// </summary>
@@ -24,5 +28,29 @@ public partial record GeographicCoordinates : GeographicLocation1Choice_
     /// The longitude is measured in degrees, minutes and seconds, following by 'E' for the east and 'W' for the west (for example 2°17'40" E for the Eiffel Tower longitude).
     /// </summary>
     public required IsoMax16Text Longitude { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Lat", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax16Text(Latitude)); // data type Max16Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Long", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax16Text(Longitude)); // data type Max16Text System.String
+        writer.WriteEndElement();
+    }
+    public static new GeographicCoordinates Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

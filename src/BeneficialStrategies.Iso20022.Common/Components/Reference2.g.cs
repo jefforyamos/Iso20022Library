@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional references linked to the quote request reject.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Reference2
+     : IIsoXmlSerilizable<Reference2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identifier for quote request.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text QuoteRequestIdentification { get; init; } 
     /// <summary>
     /// Identifier used to identify a request for quote request.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RequestForQuoteRequestIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "QtReqId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(QuoteRequestIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (RequestForQuoteRequestIdentification is IsoMax35Text RequestForQuoteRequestIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ReqForQtReqId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RequestForQuoteRequestIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Reference2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

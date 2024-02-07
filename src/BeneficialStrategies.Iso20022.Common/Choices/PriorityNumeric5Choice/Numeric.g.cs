@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PriorityNumeric5Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.PriorityNumeric5Choice;
 /// Specifies the execution priority of the instruction with a number between 0001 and 9999.
 /// </summary>
 public partial record Numeric : PriorityNumeric5Choice_
+     , IIsoXmlSerilizable<Numeric>
 {
-    public required IsoExact4NumericText Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a numeric string with an exact length of 4 digits.
+    /// </summary>
+    public required IsoExact4NumericText Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nmrc", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact4NumericText(Value)); // data type Exact4NumericText System.String
+        writer.WriteEndElement();
+    }
+    public static new Numeric Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

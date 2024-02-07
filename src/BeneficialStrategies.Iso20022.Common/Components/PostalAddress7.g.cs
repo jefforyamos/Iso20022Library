@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information that locates and identifies a specific address, as defined by postal services.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PostalAddress7
+     : IIsoXmlSerilizable<PostalAddress7>
 {
     #nullable enable
     
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services, that is presented in free format text.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoRestrictedFINMax35Text> AddressLine { get; init; } = [];
+    public SimpleValueList<IsoRestrictedFINMax35Text> AddressLine { get; init; } = [];
     /// <summary>
     /// Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINMax8Text? PostCode { get; init; } 
     /// <summary>
     /// Name of a built-up area, with defined boundaries, and a local government.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINMax23Text? TownName { get; init; } 
     /// <summary>
     /// Nation with its own government.
     /// </summary>
-    [DataMember]
     public required CountryCode Country { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AdrLine", xmlNamespace );
+        AddressLine.Serialize(writer, xmlNamespace, "RestrictedFINMax35Text", SerializationFormatter.IsoRestrictedFINMax35Text );
+        writer.WriteEndElement();
+        if (PostCode is IsoRestrictedFINMax8Text PostCodeValue)
+        {
+            writer.WriteStartElement(null, "PstCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINMax8Text(PostCodeValue)); // data type RestrictedFINMax8Text System.String
+            writer.WriteEndElement();
+        }
+        if (TownName is IsoRestrictedFINMax23Text TownNameValue)
+        {
+            writer.WriteStartElement(null, "TwnNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINMax23Text(TownNameValue)); // data type RestrictedFINMax23Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Ctry", xmlNamespace );
+        writer.WriteValue(Country.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static PostalAddress7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the number of occurrences of a particular event and the maximum number of times this event may occur.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Limit1
+     : IIsoXmlSerilizable<Limit1>
 {
     #nullable enable
     
     /// <summary>
     /// Number of occurrences of a particular event.
     /// </summary>
-    [DataMember]
     public required IsoMax3NumericText Current { get; init; } 
     /// <summary>
     /// Specifies the maximum number of times an event may occur.
     /// </summary>
-    [DataMember]
     public required IsoMax3NumericText Limit { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cur", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax3NumericText(Current)); // data type Max3NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Lmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax3NumericText(Limit)); // data type Max3NumericText System.String
+        writer.WriteEndElement();
+    }
+    public static Limit1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

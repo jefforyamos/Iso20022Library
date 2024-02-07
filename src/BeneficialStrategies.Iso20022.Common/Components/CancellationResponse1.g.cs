@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains detailed information from the cancellation response (for example an MT 196 or an MT 199).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CancellationResponse1
+     : IIsoXmlSerilizable<CancellationResponse1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the status of the execution of an investigation.
     /// </summary>
-    [DataMember]
     public required InvestigationExecutionConfirmation5Code InvestigationExecutionStatus { get; init; } 
     /// <summary>
     /// Provides the reason for a given status on the execution of an investigation.
     /// </summary>
-    [DataMember]
     public InvestigationExecutionStatusReason1? InvestigationExecutionStatusReason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "InvstgtnExctnSts", xmlNamespace );
+        writer.WriteValue(InvestigationExecutionStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (InvestigationExecutionStatusReason is InvestigationExecutionStatusReason1 InvestigationExecutionStatusReasonValue)
+        {
+            writer.WriteStartElement(null, "InvstgtnExctnStsRsn", xmlNamespace );
+            InvestigationExecutionStatusReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CancellationResponse1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

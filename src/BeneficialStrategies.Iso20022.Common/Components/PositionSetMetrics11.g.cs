@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Variables used to quantify the different calculations for position sets.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PositionSetMetrics11
+     : IIsoXmlSerilizable<PositionSetMetrics11>
 {
     #nullable enable
     
     /// <summary>
     /// Numeric variables calculated on the number of transactions or on market exposures.
     /// </summary>
-    [DataMember]
     public VolumeMetrics4? VolumeMetrics { get; init; } 
     /// <summary>
     /// Average interest rate received on cash collateral reinvestment by the lender for reinvestment of cash collateral.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? CashReinvestmentRate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (VolumeMetrics is VolumeMetrics4 VolumeMetricsValue)
+        {
+            writer.WriteStartElement(null, "VolMtrcs", xmlNamespace );
+            VolumeMetricsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashReinvestmentRate is IsoPercentageRate CashReinvestmentRateValue)
+        {
+            writer.WriteStartElement(null, "CshRinvstmtRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(CashReinvestmentRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static PositionSetMetrics11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

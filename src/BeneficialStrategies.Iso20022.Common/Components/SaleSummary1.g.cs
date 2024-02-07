@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Summary information about the sale
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SaleSummary1
+     : IIsoXmlSerilizable<SaleSummary1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     /// <summary>
     /// Contains loyalty programme information. 
     /// </summary>
-    [DataMember]
     public LoyaltyProgramme2? LoyaltyProgramme { get; init; } 
     /// <summary>
     /// Contains adjustment details of the transaction (for example, percentage, adjustment amount, etc.).
     /// </summary>
-    [DataMember]
-    public ValueList<Adjustment9> Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
+    public Adjustment9? Adjustment { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SummaryCommodityIdentification is IsoMax35Text SummaryCommodityIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SummryCmmdtyId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SummaryCommodityIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (LoyaltyProgramme is LoyaltyProgramme2 LoyaltyProgrammeValue)
+        {
+            writer.WriteStartElement(null, "LltyPrgrmm", xmlNamespace );
+            LoyaltyProgrammeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Adjustment is Adjustment9 AdjustmentValue)
+        {
+            writer.WriteStartElement(null, "Adjstmnt", xmlNamespace );
+            AdjustmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SaleSummary1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

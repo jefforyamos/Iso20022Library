@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Transparency calculation specific details on a contract for difference, spread betting derivatives.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ContractForDifference2
+     : IIsoXmlSerilizable<ContractForDifference2>
 {
     #nullable enable
     
     /// <summary>
     /// Underlying type of the contract for difference.
     /// </summary>
-    [DataMember]
     public required UnderlyingContractForDifferenceType3Code UnderlyingType { get; init; } 
     /// <summary>
     /// Currency 1 of the underlying currency pair.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? NotionalCurrency1 { get; init; } 
     /// <summary>
     /// Currency 2 of the underlying currency pair.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? NotionalCurrency2 { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UndrlygTp", xmlNamespace );
+        writer.WriteValue(UnderlyingType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (NotionalCurrency1 is ActiveOrHistoricCurrencyCode NotionalCurrency1Value)
+        {
+            writer.WriteStartElement(null, "NtnlCcy1", xmlNamespace );
+            writer.WriteValue(NotionalCurrency1Value.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (NotionalCurrency2 is ActiveOrHistoricCurrencyCode NotionalCurrency2Value)
+        {
+            writer.WriteStartElement(null, "NtnlCcy2", xmlNamespace );
+            writer.WriteValue(NotionalCurrency2Value.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static ContractForDifference2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

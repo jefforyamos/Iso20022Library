@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Financial instrument that gives the holder the right to purchase shares or bonds at a given price within a specified time.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Warrant4
+     : IIsoXmlSerilizable<Warrant4>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the ratio or multiply factor used to convert from contracts to shares.
     /// </summary>
-    [DataMember]
     public IsoBaseOneRate? Multiplier { get; init; } 
     /// <summary>
     /// Pre-determined price at which the holder of a warrant is entitled to buy the underlying instrument.
     /// </summary>
-    [DataMember]
     public Price8? SubscriptionPrice { get; init; } 
     /// <summary>
     /// Indicates when a warrant can be exercised.
     /// </summary>
-    [DataMember]
     public WarrantStyle3Choice_? Type { get; init; } 
     /// <summary>
     /// Entity appointed by the issuer to process the exercising of warrants, sometimes responsible for the issuance of the warrants into the market.
     /// </summary>
-    [DataMember]
-    public ValueList<Organisation38> WarrantAgent { get; init; } = []; // Warning: Don't know multiplicity.
+    public Organisation38? WarrantAgent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Multiplier is IsoBaseOneRate MultiplierValue)
+        {
+            writer.WriteStartElement(null, "Mltplr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(MultiplierValue)); // data type BaseOneRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (SubscriptionPrice is Price8 SubscriptionPriceValue)
+        {
+            writer.WriteStartElement(null, "SbcptPric", xmlNamespace );
+            SubscriptionPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Type is WarrantStyle3Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (WarrantAgent is Organisation38 WarrantAgentValue)
+        {
+            writer.WriteStartElement(null, "WarrtAgt", xmlNamespace );
+            WarrantAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Warrant4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

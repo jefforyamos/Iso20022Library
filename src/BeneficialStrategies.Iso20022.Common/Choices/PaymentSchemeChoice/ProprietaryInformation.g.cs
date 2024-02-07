@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PaymentSchemeChoice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentSchemeChoice;
 /// Channel that is specific to a user community and is required for use within that user community.||Usage: if the channel is included in the list of codes provided for the payment scheme, the code element should be used instead of the proprietary element.
 /// </summary>
 public partial record ProprietaryInformation : PaymentSchemeChoice_
+     , IIsoXmlSerilizable<ProprietaryInformation>
 {
-    public required IsoMax35Text Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a character string with a maximum length of 35 characters.
+    /// </summary>
+    public required IsoMax35Text Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrtryInf", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Value)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static new ProprietaryInformation Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

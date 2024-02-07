@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Cryptographic key involved in the security command.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record KEKIdentifier4
+     : IIsoXmlSerilizable<KEKIdentifier4>
 {
     #nullable enable
     
     /// <summary>
     /// Name or label of the key.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Name { get; init; } 
     /// <summary>
     /// Identification of the cryptographic key.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? KeyIdentification { get; init; } 
     /// <summary>
     /// Version of the cryptographic key.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? KeyVersion { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax140Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(NameValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (KeyIdentification is IsoMax140Text KeyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "KeyId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(KeyIdentificationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (KeyVersion is IsoMax140Text KeyVersionValue)
+        {
+            writer.WriteStartElement(null, "KeyVrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(KeyVersionValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static KEKIdentifier4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

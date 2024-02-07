@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the payment transactions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionReport5
+     : IIsoXmlSerilizable<TransactionReport5>
 {
     #nullable enable
     
     /// <summary>
     /// Reference to the instruction related to the payment for which information is requested.
     /// </summary>
-    [DataMember]
     public required PaymentIdentification6Choice_ PaymentIdentification { get; init; } 
     /// <summary>
     /// Requested information on the payment transaction when information has not been found.
     /// </summary>
-    [DataMember]
     public required TransactionOrError4Choice_ TransactionOrError { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PmtId", xmlNamespace );
+        PaymentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxOrErr", xmlNamespace );
+        TransactionOrError.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static TransactionReport5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

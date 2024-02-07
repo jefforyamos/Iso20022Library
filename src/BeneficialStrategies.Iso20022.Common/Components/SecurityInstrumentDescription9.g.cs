@@ -7,48 +7,81 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the security instrument by its name and typical characteristics.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityInstrumentDescription9
+     : IIsoXmlSerilizable<SecurityInstrumentDescription9>
 {
     #nullable enable
     
     /// <summary>
     /// Code used to identify the financial instrument.
     /// </summary>
-    [DataMember]
     public required IsoISINOct2015Identifier Identification { get; init; } 
     /// <summary>
     /// Full name of the financial instrument.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text FullName { get; init; } 
     /// <summary>
     /// Short name of financial instrument in accordance with ISO 18774.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification.
     /// </summary>
-    [DataMember]
     public required IsoCFIOct2015Identifier ClassificationType { get; init; } 
     /// <summary>
     /// Currency in which the notional is denominated.
     /// </summary>
-    [DataMember]
     public required ActiveOrHistoricCurrencyCode NotionalCurrency { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument falls within the definition of commodities derivative under the local regulation.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator CommodityDerivativeIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(Identification)); // data type ISINOct2015Identifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FullNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(FullName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (ShortName is IsoMax35Text ShortNameValue)
+        {
+            writer.WriteStartElement(null, "ShrtNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ShortNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ClssfctnTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCFIOct2015Identifier(ClassificationType)); // data type CFIOct2015Identifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NtnlCcy", xmlNamespace );
+        writer.WriteValue(NotionalCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CmmdtyDerivInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CommodityDerivativeIndicator)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static SecurityInstrumentDescription9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

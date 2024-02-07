@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// An event determined by a corporation's board of directors, that changes the existing corporate capital structure or financial condition.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateAction1
+     : IIsoXmlSerilizable<CorporateAction1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the code of corporate action event, in free-text format.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Code { get; init; } 
     /// <summary>
     /// Reference assigned by the account servicer to unambiguously identify a corporate action event.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Number { get; init; } 
     /// <summary>
     /// Proprietary corporate action event information.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Proprietary { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Code is IsoMax35Text CodeValue)
+        {
+            writer.WriteStartElement(null, "Cd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CodeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Number is IsoMax35Text NumberValue)
+        {
+            writer.WriteStartElement(null, "Nb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Proprietary is IsoMax35Text ProprietaryValue)
+        {
+            writer.WriteStartElement(null, "Prtry", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProprietaryValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateAction1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

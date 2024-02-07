@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indication of the type of assets subject of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityCommodityCash1
+     : IIsoXmlSerilizable<SecurityCommodityCash1>
 {
     #nullable enable
     
     /// <summary>
     /// Data specific to securities being subject to the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<Security17> Security { get; init; } = []; // Warning: Don't know multiplicity.
+    public Security17? Security { get; init; } 
     /// <summary>
     /// Data specific to commodities being subject to the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<Commodity21> Commodity { get; init; } = []; // Warning: Don't know multiplicity.
+    public Commodity21? Commodity { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CashCompare1> Cash { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashCompare1? Cash { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Security is Security17 SecurityValue)
+        {
+            writer.WriteStartElement(null, "Scty", xmlNamespace );
+            SecurityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Commodity is Commodity21 CommodityValue)
+        {
+            writer.WriteStartElement(null, "Cmmdty", xmlNamespace );
+            CommodityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Cash is CashCompare1 CashValue)
+        {
+            writer.WriteStartElement(null, "Csh", xmlNamespace );
+            CashValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecurityCommodityCash1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

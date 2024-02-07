@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed information on statistics per combination of counterparties.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DetailedStatisticsPerCounterparty6
+     : IIsoXmlSerilizable<DetailedStatisticsPerCounterparty6>
 {
     #nullable enable
     
     /// <summary>
     /// Reference period for statistics collection.
     /// </summary>
-    [DataMember]
     public required Period2 ReportingPeriod { get; init; } 
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
-    [DataMember]
     public required CounterpartyData36 CounterpartyIdentification { get; init; } 
     /// <summary>
     /// Detailed information on rejections for derivatives submitted to trade repositories and failed to pass validations.
     /// </summary>
-    [DataMember]
     public required RejectionStatistics3 RejectionStatistics { get; init; } 
     /// <summary>
     /// Identification of the competent authority which supervises the reporting counterparty.
     /// </summary>
-    [DataMember]
-    public ValueList<CompetentAuthority1> CompetentAuthority { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompetentAuthority1? CompetentAuthority { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptgPrd", xmlNamespace );
+        ReportingPeriod.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
+        CounterpartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RjctnSttstcs", xmlNamespace );
+        RejectionStatistics.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CompetentAuthority is CompetentAuthority1 CompetentAuthorityValue)
+        {
+            writer.WriteStartElement(null, "CmptntAuthrty", xmlNamespace );
+            CompetentAuthorityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DetailedStatisticsPerCounterparty6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

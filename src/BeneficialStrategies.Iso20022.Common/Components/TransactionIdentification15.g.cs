@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides transaction identification information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionIdentification15
+     : IIsoXmlSerilizable<TransactionIdentification15>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MarketInfrastructureTransactionIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MktInfrstrctrTxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MarketInfrastructureTransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static TransactionIdentification15 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

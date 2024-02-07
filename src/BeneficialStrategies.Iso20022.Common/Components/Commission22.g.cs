@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money due to a party as compensation for a service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Commission22
+     : IIsoXmlSerilizable<Commission22>
 {
     #nullable enable
     
     /// <summary>
     /// Service for which the commission is asked or paid.
     /// </summary>
-    [DataMember]
     public required CommissionType3Choice_ Type { get; init; } 
     /// <summary>
     /// Basis upon which a commission is charged, for example, flat fee.
     /// </summary>
-    [DataMember]
     public CommissionBasis1Choice_? Basis { get; init; } 
     /// <summary>
     /// Commission expressed as an amount of money.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
     /// <summary>
     /// Party entitled to the amount of money resulting from a commission.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? RecipientIdentification { get; init; } 
     /// <summary>
     /// Reference to the agreement established between the fund and another party. This element, amongst others, defines the conditions of the commissions.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CommercialAgreementReference { get; init; } 
     /// <summary>
     /// Voluntary non-enforcement of the right to part of a commission.
     /// </summary>
-    [DataMember]
     public CommissionWaiver4? WaivingDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Basis is CommissionBasis1Choice_ BasisValue)
+        {
+            writer.WriteStartElement(null, "Bsis", xmlNamespace );
+            BasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(Amount)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+        writer.WriteEndElement();
+        if (RecipientIdentification is PartyIdentification2Choice_ RecipientIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcptId", xmlNamespace );
+            RecipientIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CommercialAgreementReference is IsoMax35Text CommercialAgreementReferenceValue)
+        {
+            writer.WriteStartElement(null, "ComrclAgrmtRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CommercialAgreementReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (WaivingDetails is CommissionWaiver4 WaivingDetailsValue)
+        {
+            writer.WriteStartElement(null, "WvgDtls", xmlNamespace );
+            WaivingDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Commission22 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

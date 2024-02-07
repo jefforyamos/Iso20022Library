@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of transportation carrier.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CarrierIdentification1
+     : IIsoXmlSerilizable<CarrierIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the transportation carrier.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Identifies the operator (company providing service).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Code { get; init; } 
     /// <summary>
     /// Contains the International Air Transport Association (IATA) code identifying the company that purchased the ticket. 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? IATACode { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax70Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Code is IsoMax35Text CodeValue)
+        {
+            writer.WriteStartElement(null, "Cd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CodeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (IATACode is IsoMax35Text IATACodeValue)
+        {
+            writer.WriteStartElement(null, "IATACd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IATACodeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CarrierIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,83 +7,163 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the transaction in the authorisation request in a batch.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardPaymentTransactionDetails24
+     : IIsoXmlSerilizable<CardPaymentTransactionDetails24>
 {
     #nullable enable
     
     /// <summary>
     /// Currency associated with the transaction.
     /// </summary>
-    [DataMember]
     public CurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Total amount of the transaction.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount TotalAmount { get; init; } 
     /// <summary>
     /// Qualifies the amount associated with the transaction.
     /// </summary>
-    [DataMember]
     public TypeOfAmount1Code? AmountQualifier { get; init; } 
     /// <summary>
     /// Detailed amounts associated with the total amount of transaction.
     /// </summary>
-    [DataMember]
     public DetailedAmount7? DetailedAmount { get; init; } 
     /// <summary>
     /// Transaction authorisation deadline to complete the related payment.
     /// </summary>
-    [DataMember]
     public IsoISODate? ValidityDate { get; init; } 
     /// <summary>
     /// Reason to process an online authorisation.
     /// </summary>
-    [DataMember]
     public OnLineReason1Code? OnLineReason { get; init; } 
     /// <summary>
     /// Transaction category level on an unattended POI (Point Of Interaction).
     /// </summary>
-    [DataMember]
     public IsoMax35NumericText? UnattendedLevelCategory { get; init; } 
     /// <summary>
     /// Type of cardholder account used for the transaction.
     /// </summary>
-    [DataMember]
     public CardAccountType2Code? AccountType { get; init; } 
     /// <summary>
     /// Data related to a financial loan (instalment) or to a recurring transaction.
     /// </summary>
-    [DataMember]
     public RecurringTransaction2? Instalment { get; init; } 
     /// <summary>
     /// Payment transaction with an aggregated amount.
     /// </summary>
-    [DataMember]
     public AggregationTransaction1? AggregationTransaction { get; init; } 
     /// <summary>
     /// Product purchased with the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<Product1> Product { get; init; } = []; // Warning: Don't know multiplicity.
+    public Product1? Product { get; init; } 
     /// <summary>
     /// Detailed invoice data.
     /// </summary>
-    [DataMember]
     public CardPaymentInvoice1? CardPaymentInvoice { get; init; } 
     /// <summary>
     /// Data related to an integrated circuit card application.
     /// </summary>
-    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Currency is CurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(TotalAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (AmountQualifier is TypeOfAmount1Code AmountQualifierValue)
+        {
+            writer.WriteStartElement(null, "AmtQlfr", xmlNamespace );
+            writer.WriteValue(AmountQualifierValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DetailedAmount is DetailedAmount7 DetailedAmountValue)
+        {
+            writer.WriteStartElement(null, "DtldAmt", xmlNamespace );
+            DetailedAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValidityDate is IsoISODate ValidityDateValue)
+        {
+            writer.WriteStartElement(null, "VldtyDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ValidityDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (OnLineReason is OnLineReason1Code OnLineReasonValue)
+        {
+            writer.WriteStartElement(null, "OnLineRsn", xmlNamespace );
+            writer.WriteValue(OnLineReasonValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (UnattendedLevelCategory is IsoMax35NumericText UnattendedLevelCategoryValue)
+        {
+            writer.WriteStartElement(null, "UattnddLvlCtgy", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35NumericText(UnattendedLevelCategoryValue)); // data type Max35NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (AccountType is CardAccountType2Code AccountTypeValue)
+        {
+            writer.WriteStartElement(null, "AcctTp", xmlNamespace );
+            writer.WriteValue(AccountTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Instalment is RecurringTransaction2 InstalmentValue)
+        {
+            writer.WriteStartElement(null, "Instlmt", xmlNamespace );
+            InstalmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AggregationTransaction is AggregationTransaction1 AggregationTransactionValue)
+        {
+            writer.WriteStartElement(null, "AggtnTx", xmlNamespace );
+            AggregationTransactionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Product is Product1 ProductValue)
+        {
+            writer.WriteStartElement(null, "Pdct", xmlNamespace );
+            ProductValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CardPaymentInvoice is CardPaymentInvoice1 CardPaymentInvoiceValue)
+        {
+            writer.WriteStartElement(null, "CardPmtInvc", xmlNamespace );
+            CardPaymentInvoiceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ICCRelatedData is IsoMax10000Binary ICCRelatedDataValue)
+        {
+            writer.WriteStartElement(null, "ICCRltdData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(ICCRelatedDataValue)); // data type Max10000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static CardPaymentTransactionDetails24 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a point of interaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PointOfInteraction6
+     : IIsoXmlSerilizable<PointOfInteraction6>
 {
     #nullable enable
     
     /// <summary>
     /// Identifier of the terminal manufacturer.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ManufacturerIdentifier { get; init; } 
     /// <summary>
     /// Identifier of the terminal model.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Model { get; init; } 
     /// <summary>
     /// Serial number of the terminal manufacturer.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text SerialNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ManfctrIdr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ManufacturerIdentifier)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Mdl", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Model)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SrlNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(SerialNumber)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static PointOfInteraction6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

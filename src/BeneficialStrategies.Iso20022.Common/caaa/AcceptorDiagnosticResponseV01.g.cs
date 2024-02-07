@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.caaa.AcceptorDiagnosticResponseV01>;
 
 namespace BeneficialStrategies.Iso20022.caaa;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// - validate the version of the configuration parameters.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The AcceptorDiagnosticResponse message is sent by the acquirer to the card acceptor to confirm the availability of the acquirer. An agent never forwards the message.|Usage|The AcceptorDiagnosticResponse message is used to:|- confirm the availability of the acquirer;|- validate the security of the exchanges with the acquirer;|- validate the version of the configuration parameters.")]
-public partial record AcceptorDiagnosticResponseV01 : IOuterRecord
+public partial record AcceptorDiagnosticResponseV01 : IOuterRecord<AcceptorDiagnosticResponseV01,AcceptorDiagnosticResponseV01Document>
+    ,IIsoXmlSerilizable<AcceptorDiagnosticResponseV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record AcceptorDiagnosticResponseV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AccptrDgnstcRspn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AcceptorDiagnosticResponseV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -83,6 +90,32 @@ public partial record AcceptorDiagnosticResponseV01 : IOuterRecord
     {
         return new AcceptorDiagnosticResponseV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AccptrDgnstcRspn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DgnstcRspn", xmlNamespace );
+        DiagnosticResponse.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+        SecurityTrailer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static AcceptorDiagnosticResponseV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -90,9 +123,7 @@ public partial record AcceptorDiagnosticResponseV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorDiagnosticResponseV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AcceptorDiagnosticResponseV01Document : IOuterDocument<AcceptorDiagnosticResponseV01>
+public partial record AcceptorDiagnosticResponseV01Document : IOuterDocument<AcceptorDiagnosticResponseV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -108,5 +139,22 @@ public partial record AcceptorDiagnosticResponseV01Document : IOuterDocument<Acc
     /// <summary>
     /// The instance of <seealso cref="AcceptorDiagnosticResponseV01"/> is required.
     /// </summary>
+    [DataMember(Name=AcceptorDiagnosticResponseV01.XmlTag)]
     public required AcceptorDiagnosticResponseV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AcceptorDiagnosticResponseV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

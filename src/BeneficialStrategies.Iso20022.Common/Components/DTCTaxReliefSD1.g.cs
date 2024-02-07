@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about tax relief categories.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DTCTaxReliefSD1
+     : IIsoXmlSerilizable<DTCTaxReliefSD1>
 {
     #nullable enable
     
     /// <summary>
     /// DTC System assigned identification for tax relief category.
     /// </summary>
-    [DataMember]
     public required IsoExact3NumericText CategoryIdentification { get; init; } 
     /// <summary>
     /// Describes tax relief category.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text CategoryDescription { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CtgyId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact3NumericText(CategoryIdentification)); // data type Exact3NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CtgyDesc", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(CategoryDescription)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static DTCTaxReliefSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

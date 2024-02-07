@@ -7,141 +7,279 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Item purchased with the transaction
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvoiceLineItem1
+     : IIsoXmlSerilizable<InvoiceLineItem1>
 {
     #nullable enable
     
     /// <summary>
     /// Invoice date.
     /// </summary>
-    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// Invoice order date.
     /// </summary>
-    [DataMember]
     public IsoISODate? OrderDate { get; init; } 
     /// <summary>
     /// Contains the corporate contract number.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? ContractNumber { get; init; } 
     /// <summary>
     /// Shipping date of the product or the date services rendered. 
     /// </summary>
-    [DataMember]
     public IsoISODate? ShippingDate { get; init; } 
     /// <summary>
     /// Rebilling indicator. 
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? RebillingIndicator { get; init; } 
     /// <summary>
     /// Indicates whether or not the invoice line item represents a medical service.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? MedicalServicesIndicator { get; init; } 
     /// <summary>
     /// Contains the health industry number to which the medical services are being shipped (for example, Medical Services ship to Health Industry Number).
     /// </summary>
-    [DataMember]
     public IsoMax50Text? ShipToIndustryCode { get; init; } 
     /// <summary>
     /// Product code of the item.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? ProductCode { get; init; } 
     /// <summary>
     /// Contains a code that identifies the product number qualifier of the product (for example, medical services).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ProductQualifier { get; init; } 
     /// <summary>
     /// May contain further clarifying data, such as event name, etc.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? Description { get; init; } 
     /// <summary>
     /// Indicates whether the purchase is categorized
     /// as goods or services.
     /// </summary>
-    [DataMember]
     public IsoMax10Text? TypeOfSupply { get; init; } 
     /// <summary>
     /// Unit of measure of the item purchased.
     /// </summary>
-    [DataMember]
     public UnitOfMeasure1Code? UnitOfMeasure { get; init; } 
     /// <summary>
     /// Other unit of measure.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherUnitOfMeasure { get; init; } 
     /// <summary>
     /// Contains the price for one unit of the product or service.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? UnitPrice { get; init; } 
     /// <summary>
     /// Quantity of product or item.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? ProductQuantity { get; init; } 
     /// <summary>
     /// Total line item amount, inclusive of adjustments and exclusive of taxes.
     /// </summary>
-    [DataMember]
     public Adjustment11? Adjustment { get; init; } 
     /// <summary>
     /// Indicates whether or not insurance was purchased. 
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? InsuranceIndicator { get; init; } 
     /// <summary>
     /// Cost of the insurance purchased.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? InsuranceAmount { get; init; } 
     /// <summary>
     /// Taxes related to the products or services. 
     /// </summary>
-    [DataMember]
-    public ValueList<Tax33> Tax { get; init; } = []; // Warning: Don't know multiplicity.
+    public Tax33? Tax { get; init; } 
     /// <summary>
     /// Identifies the value-added tax (VAT) invoice or tax receipt.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? UniqueVATInvoiceReference { get; init; } 
     /// <summary>
     /// Total amount of line item, inclusive of any applicable adjustments and taxes.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalAmount { get; init; } 
     /// <summary>
     /// Indicates whether or not the line item is a credit amount.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CreditIndicator { get; init; } 
     /// <summary>
     /// Indicates whether or not the line item carries a cost. 
     /// True : Line item does not have any cost associated to the customer.
     /// False : Line item has cost associated to the customer.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ZeroCostToCustomerIndicator { get; init; } 
     /// <summary>
     /// Additional data.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Date is IsoISODate DateValue)
+        {
+            writer.WriteStartElement(null, "Dt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (OrderDate is IsoISODate OrderDateValue)
+        {
+            writer.WriteStartElement(null, "OrdrDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(OrderDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ContractNumber is IsoMax70Text ContractNumberValue)
+        {
+            writer.WriteStartElement(null, "CtrctNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(ContractNumberValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (ShippingDate is IsoISODate ShippingDateValue)
+        {
+            writer.WriteStartElement(null, "ShppgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ShippingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (RebillingIndicator is IsoTrueFalseIndicator RebillingIndicatorValue)
+        {
+            writer.WriteStartElement(null, "RbllgInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(RebillingIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (MedicalServicesIndicator is IsoTrueFalseIndicator MedicalServicesIndicatorValue)
+        {
+            writer.WriteStartElement(null, "MdclSvcsInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(MedicalServicesIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ShipToIndustryCode is IsoMax50Text ShipToIndustryCodeValue)
+        {
+            writer.WriteStartElement(null, "ShipToIndstryCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax50Text(ShipToIndustryCodeValue)); // data type Max50Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProductCode is IsoMax70Text ProductCodeValue)
+        {
+            writer.WriteStartElement(null, "PdctCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(ProductCodeValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProductQualifier is IsoMax35Text ProductQualifierValue)
+        {
+            writer.WriteStartElement(null, "PdctQlfr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProductQualifierValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Description is IsoMax256Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(DescriptionValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (TypeOfSupply is IsoMax10Text TypeOfSupplyValue)
+        {
+            writer.WriteStartElement(null, "TpOfSpply", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10Text(TypeOfSupplyValue)); // data type Max10Text System.String
+            writer.WriteEndElement();
+        }
+        if (UnitOfMeasure is UnitOfMeasure1Code UnitOfMeasureValue)
+        {
+            writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
+            writer.WriteValue(UnitOfMeasureValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherUnitOfMeasure is IsoMax35Text OtherUnitOfMeasureValue)
+        {
+            writer.WriteStartElement(null, "OthrUnitOfMeasr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherUnitOfMeasureValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (UnitPrice is IsoImpliedCurrencyAndAmount UnitPriceValue)
+        {
+            writer.WriteStartElement(null, "UnitPric", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(UnitPriceValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ProductQuantity is IsoDecimalNumber ProductQuantityValue)
+        {
+            writer.WriteStartElement(null, "PdctQty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(ProductQuantityValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Adjustment is Adjustment11 AdjustmentValue)
+        {
+            writer.WriteStartElement(null, "Adjstmnt", xmlNamespace );
+            AdjustmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InsuranceIndicator is IsoTrueFalseIndicator InsuranceIndicatorValue)
+        {
+            writer.WriteStartElement(null, "InsrncInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(InsuranceIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (InsuranceAmount is IsoImpliedCurrencyAndAmount InsuranceAmountValue)
+        {
+            writer.WriteStartElement(null, "InsrncAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(InsuranceAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Tax is Tax33 TaxValue)
+        {
+            writer.WriteStartElement(null, "Tax", xmlNamespace );
+            TaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UniqueVATInvoiceReference is IsoMax35Text UniqueVATInvoiceReferenceValue)
+        {
+            writer.WriteStartElement(null, "UnqVATInvcRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(UniqueVATInvoiceReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TotalAmount is IsoImpliedCurrencyAndAmount TotalAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(TotalAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CreditIndicator is IsoTrueFalseIndicator CreditIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CdtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CreditIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ZeroCostToCustomerIndicator is IsoTrueFalseIndicator ZeroCostToCustomerIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ZeroCostToCstmrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ZeroCostToCustomerIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is IsoMax350Text AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalDataValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static InvoiceLineItem1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

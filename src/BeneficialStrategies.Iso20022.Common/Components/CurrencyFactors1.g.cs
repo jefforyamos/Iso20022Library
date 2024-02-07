@@ -7,43 +7,74 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Currency specific Factors.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CurrencyFactors1
+     : IIsoXmlSerilizable<CurrencyFactors1>
 {
     #nullable enable
     
     /// <summary>
     /// Currency of the underlying currency specific amounts and ratios used in the pay-in schedule calculation.
     /// </summary>
-    [DataMember]
     public required CurrencyCode Currency { get; init; } 
     /// <summary>
     /// Maximum allowed short position in the currency during settlement.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount ShortPositionLimit { get; init; } 
     /// <summary>
     /// Minimum amount paid in one payment unless the short position is less than the minimum.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount MinimumPayInAmount { get; init; } 
     /// <summary>
     /// Margin used to decrease long positions and increase short positions during the risk calculation.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate VolatilityMargin { get; init; } 
     /// <summary>
     /// Exchange rate used in the calculation of the pay-in schedule.
     /// </summary>
-    [DataMember]
     public AgreedRate2? Rate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ccy", xmlNamespace );
+        writer.WriteValue(Currency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ShrtPosLmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ShortPositionLimit)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MinPayInAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MinimumPayInAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "VoltlyMrgn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(VolatilityMargin)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+        if (Rate is AgreedRate2 RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            RateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CurrencyFactors1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

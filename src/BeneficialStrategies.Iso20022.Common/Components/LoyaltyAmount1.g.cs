@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Loyalty amount to apply to an Loyalty account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LoyaltyAmount1
+     : IIsoXmlSerilizable<LoyaltyAmount1>
 {
     #nullable enable
     
     /// <summary>
     /// Unit type for the amount.
     /// </summary>
-    [DataMember]
     public AmountUnit1Code? Unit { get; init; } 
     /// <summary>
     /// Currency of the amount is Unit is Monetary.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Amount value.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Unit is AmountUnit1Code UnitValue)
+        {
+            writer.WriteStartElement(null, "Unit", xmlNamespace );
+            writer.WriteValue(UnitValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(Amount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static LoyaltyAmount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

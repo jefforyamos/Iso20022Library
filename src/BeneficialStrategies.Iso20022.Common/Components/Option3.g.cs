@@ -7,63 +7,105 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// List of elements which provide the parameters of an option trade.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Option3
+     : IIsoXmlSerilizable<Option3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the call and the put amount of the underlying foreign exchange trade.
     /// </summary>
-    [DataMember]
     public required AmountsAndValueDate2 OptionAmounts { get; init; } 
     /// <summary>
     /// Specifies the rate of exchange at which the foreign exchange option has been struck.
     /// </summary>
-    [DataMember]
     public required AgreedRate1 StrikePrice { get; init; } 
     /// <summary>
     /// Defines how an option can be exercised.
     /// </summary>
-    [DataMember]
     public required OptionStyle2Code ExerciseStyle { get; init; } 
     /// <summary>
     /// First date on which an american option can be exercised.
     /// </summary>
-    [DataMember]
     public IsoISODate? EarliestExerciseDate { get; init; } 
     /// <summary>
     /// Date on which a privilege (eg, option, right, warrant.) expires. If it is an European option, the option holder can only exercise the right or let it lapse on expiry date. If it is an American option, the option holder can exercise the right up to the expiry date.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime ExpiryDateAndTime { get; init; } 
     /// <summary>
     /// Financial center where option expires.
     /// </summary>
-    [DataMember]
     public required IsoMax4AlphaNumericText ExpiryLocation { get; init; } 
     /// <summary>
     /// Indicates whether the trade is to be settled as principal or netted off against another trade.
     /// </summary>
-    [DataMember]
     public required SettlementType1Code SettlementType { get; init; } 
     /// <summary>
     /// Free format text that may contain information on the option.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? AdditionalOptionInformation { get; init; } 
     /// <summary>
     /// Specifies the amount of the premium of a foreign exchange option trade and its settlement place.
     /// </summary>
-    [DataMember]
     public required PremiumAmount2 Premium { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OptnAmts", xmlNamespace );
+        OptionAmounts.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StrkPric", xmlNamespace );
+        StrikePrice.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ExrcStyle", xmlNamespace );
+        writer.WriteValue(ExerciseStyle.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (EarliestExerciseDate is IsoISODate EarliestExerciseDateValue)
+        {
+            writer.WriteStartElement(null, "EarlstExrcDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(EarliestExerciseDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "XpryDtAndTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(ExpiryDateAndTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XpryLctn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(ExpiryLocation)); // data type Max4AlphaNumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmTp", xmlNamespace );
+        writer.WriteValue(SettlementType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AdditionalOptionInformation is IsoMax140Text AdditionalOptionInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlOptnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalOptionInformationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Prm", xmlNamespace );
+        Premium.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static Option3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

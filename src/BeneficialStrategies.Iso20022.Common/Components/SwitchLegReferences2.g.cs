@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a switch leg that is rejected or repaired.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SwitchLegReferences2
+     : IIsoXmlSerilizable<SwitchLegReferences2>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a switch leg.
     /// </summary>
-    [DataMember]
     public required LegIdentification1Choice_ LegIdentification { get; init; } 
     /// <summary>
     /// Additional information about the reason for the rejection of the leg.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? LegRejectionReason { get; init; } 
     /// <summary>
     /// Elements from the original individual order that have been repaired so that the order can be accepted.
     /// </summary>
-    [DataMember]
     public ValueList<Fee3> RepairedFee { get; init; } = [];
     /// <summary>
     /// Account identification of the switch leg that is rejected or repaired.
     /// </summary>
-    [DataMember]
     public InvestmentAccount58? InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Financial instrument identification of the switch leg that is rejected or repaired.
     /// </summary>
-    [DataMember]
     public FinancialInstrument57? FinancialInstrumentDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "LegId", xmlNamespace );
+        LegIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LegRejectionReason is IsoMax350Text LegRejectionReasonValue)
+        {
+            writer.WriteStartElement(null, "LegRjctnRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(LegRejectionReasonValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RprdFee", xmlNamespace );
+        RepairedFee.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (InvestmentAccountDetails is InvestmentAccount58 InvestmentAccountDetailsValue)
+        {
+            writer.WriteStartElement(null, "InvstmtAcctDtls", xmlNamespace );
+            InvestmentAccountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentDetails is FinancialInstrument57 FinancialInstrumentDetailsValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmDtls", xmlNamespace );
+            FinancialInstrumentDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SwitchLegReferences2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the reason for the settlement fails as defined in the relevant regulation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementFailureReason2
+     : IIsoXmlSerilizable<SettlementFailureReason2>
 {
     #nullable enable
     
     /// <summary>
     /// Main reasons for settlement fails during the reporting period.
     /// </summary>
-    [DataMember]
     public required IsoMax2048Text MainReasons { get; init; } 
     /// <summary>
     /// Measures to improve settlement efficiency.
     /// </summary>
-    [DataMember]
     public required IsoMax2048Text EfficiencyImprovement { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MainRsns", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax2048Text(MainReasons)); // data type Max2048Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EffcncyImprvmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax2048Text(EfficiencyImprovement)); // data type Max2048Text System.String
+        writer.WriteEndElement();
+    }
+    public static SettlementFailureReason2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

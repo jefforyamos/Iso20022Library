@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains the details related to an individual trip. 
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TripInformation1
+     : IIsoXmlSerilizable<TripInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification number of the trip.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TripNumber { get; init; } 
     /// <summary>
     /// Contains an indicator identifying the job or task identifier of the individual. 
     /// </summary>
-    [DataMember]
     public IsoMax10Text? JobNumber { get; init; } 
     /// <summary>
     /// Contains the work order or purchase order number. 
     /// </summary>
-    [DataMember]
     public IsoMax70Text? WorkOrder { get; init; } 
     /// <summary>
     /// Contains the invoice number. 
     /// </summary>
-    [DataMember]
     public IsoMax70Text? InvoiceNumber { get; init; } 
     /// <summary>
     /// Contains the billing identification number. 
     /// </summary>
-    [DataMember]
     public IsoMax70Text? BillingIdentification { get; init; } 
     /// <summary>
     /// Identification number assigned by an agent. 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ControlNumber { get; init; } 
     /// <summary>
     /// Delivery Ticket Number for the trip information.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DeliveryTicketNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TripNumber is IsoMax35Text TripNumberValue)
+        {
+            writer.WriteStartElement(null, "TripNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TripNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (JobNumber is IsoMax10Text JobNumberValue)
+        {
+            writer.WriteStartElement(null, "JobNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10Text(JobNumberValue)); // data type Max10Text System.String
+            writer.WriteEndElement();
+        }
+        if (WorkOrder is IsoMax70Text WorkOrderValue)
+        {
+            writer.WriteStartElement(null, "WorkOrdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(WorkOrderValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (InvoiceNumber is IsoMax70Text InvoiceNumberValue)
+        {
+            writer.WriteStartElement(null, "InvcNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(InvoiceNumberValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (BillingIdentification is IsoMax70Text BillingIdentificationValue)
+        {
+            writer.WriteStartElement(null, "BllgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(BillingIdentificationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (ControlNumber is IsoMax35Text ControlNumberValue)
+        {
+            writer.WriteStartElement(null, "CtrlNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ControlNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DeliveryTicketNumber is IsoMax35Text DeliveryTicketNumberValue)
+        {
+            writer.WriteStartElement(null, "DlvryTcktNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DeliveryTicketNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TripInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

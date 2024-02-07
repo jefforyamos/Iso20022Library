@@ -7,22 +7,22 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the account within a system to or from which a securities entry is made. It holds information generic or market specific attributes such as opening or closing date, and defines the default setting for the  holding of settlement instructions involving positions related to the account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SystemSecuritiesAccount5
+     : IIsoXmlSerilizable<SystemSecuritiesAccount5>
 {
     #nullable enable
     
     /// <summary>
     /// Legal closing date of the securities account.
     /// </summary>
-    [DataMember]
     public IsoISODate? ClosingDate { get; init; } 
     /// <summary>
     /// Indicates whether the securities account is on hold or not.
@@ -30,23 +30,66 @@ public partial record SystemSecuritiesAccount5
     /// - Meaning when true: account is in hold status.
     /// - Meaning when false: account is in release status.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? HoldIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the securities account can hold a negative position in a security or not.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? NegativePosition { get; init; } 
     /// <summary>
     /// Specifies information to identify securities accounts where allocation instructions are posted.
     /// </summary>
-    [DataMember]
     public IsoExact4AlphaNumericText? EndInvestorFlag { get; init; } 
     /// <summary>
     /// Defines how the price is applied to the securities account.
     /// </summary>
-    [DataMember]
     public IsoExact4AlphaNumericText? PricingScheme { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ClosingDate is IsoISODate ClosingDateValue)
+        {
+            writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ClosingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (HoldIndicator is IsoTrueFalseIndicator HoldIndicatorValue)
+        {
+            writer.WriteStartElement(null, "HldInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(HoldIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (NegativePosition is IsoTrueFalseIndicator NegativePositionValue)
+        {
+            writer.WriteStartElement(null, "NegPos", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(NegativePositionValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (EndInvestorFlag is IsoExact4AlphaNumericText EndInvestorFlagValue)
+        {
+            writer.WriteStartElement(null, "EndInvstrFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(EndInvestorFlagValue)); // data type Exact4AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+        if (PricingScheme is IsoExact4AlphaNumericText PricingSchemeValue)
+        {
+            writer.WriteStartElement(null, "PricgSchme", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(PricingSchemeValue)); // data type Exact4AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SystemSecuritiesAccount5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

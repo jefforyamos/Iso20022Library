@@ -7,73 +7,146 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of the first leg in a two leg transaction process.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TwoLegTransactionDetails5
+     : IIsoXmlSerilizable<TwoLegTransactionDetails5>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    [DataMember]
     public TradeDate8Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Unambiguous identification of the reference assigned in the first leg of the transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OpeningLegIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the second leg of the transaction as known by the account owner (or the instructing party acting on its behalf).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClosingLegIdentification { get; init; } 
     /// <summary>
     /// Principal amount of a trade (price multiplied by quantity).
     /// </summary>
-    [DataMember]
     public AmountAndDirection29? GrossTradeAmount { get; init; } 
     /// <summary>
     /// Identifies other amounts pertaining to the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<OtherAmounts16> OtherAmounts { get; init; } = []; // Warning: Don't know multiplicity.
+    public OtherAmounts16? OtherAmounts { get; init; } 
     /// <summary>
     /// Provides additional information about the second leg in narrative form.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? SecondLegNarrative { get; init; } 
     /// <summary>
     /// Negotiated fixed price of the security to buy it back.
     /// </summary>
-    [DataMember]
     public Price14? EndPrice { get; init; } 
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
-    [DataMember]
     public ClosingDate4Choice_? ClosingDate { get; init; } 
     /// <summary>
     /// Total amount of money to be paid or received in exchange for the securities. The amount includes the principal with any commissions and fees or accrued interest.
     /// </summary>
-    [DataMember]
     public AmountAndDirection5? ClosingSettlementAmount { get; init; } 
     /// <summary>
     /// Processing date of the trading session.
     /// </summary>
-    [DataMember]
     public TradeDate7Choice_? ProcessingDate { get; init; } 
     /// <summary>
     /// Specifies the type of the second leg transaction.
     /// </summary>
-    [DataMember]
     public TwoLegTransactionType4Choice_? TwoLegTransactionType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TradeDate is TradeDate8Choice_ TradeDateValue)
+        {
+            writer.WriteStartElement(null, "TradDt", xmlNamespace );
+            TradeDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OpeningLegIdentification is IsoMax35Text OpeningLegIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OpngLegId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OpeningLegIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClosingLegIdentification is IsoMax35Text ClosingLegIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClsgLegId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClosingLegIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (GrossTradeAmount is AmountAndDirection29 GrossTradeAmountValue)
+        {
+            writer.WriteStartElement(null, "GrssTradAmt", xmlNamespace );
+            GrossTradeAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherAmounts is OtherAmounts16 OtherAmountsValue)
+        {
+            writer.WriteStartElement(null, "OthrAmts", xmlNamespace );
+            OtherAmountsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecondLegNarrative is IsoMax140Text SecondLegNarrativeValue)
+        {
+            writer.WriteStartElement(null, "ScndLegNrrtv", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(SecondLegNarrativeValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (EndPrice is Price14 EndPriceValue)
+        {
+            writer.WriteStartElement(null, "EndPric", xmlNamespace );
+            EndPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClosingDate is ClosingDate4Choice_ ClosingDateValue)
+        {
+            writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
+            ClosingDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClosingSettlementAmount is AmountAndDirection5 ClosingSettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "ClsgSttlmAmt", xmlNamespace );
+            ClosingSettlementAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProcessingDate is TradeDate7Choice_ ProcessingDateValue)
+        {
+            writer.WriteStartElement(null, "PrcgDt", xmlNamespace );
+            ProcessingDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TwoLegTransactionType is TwoLegTransactionType4Choice_ TwoLegTransactionTypeValue)
+        {
+            writer.WriteStartElement(null, "TwoLegTxTp", xmlNamespace );
+            TwoLegTransactionTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TwoLegTransactionDetails5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action option details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionOptionSD6
+     : IIsoXmlSerilizable<CorporateActionOptionSD6>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Used for options that have particular proprietary feature that cannot be represented in standard ISO message.
     /// </summary>
-    [DataMember]
     public ExtendedOptionFeature1Code? ExtendedOptionFeatures { get; init; } 
     /// <summary>
     /// Identifies whether the option is declared as default by the issuer / offeror, and will be treated as default by the issuer / offeror if no elections is made.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator DefaultOptionFlag { get; init; } 
     /// <summary>
     /// Indicates whether optional dividend supplementary data are required in the ISO 20022 CAIN instructions for this event.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? OptionalDividendSupplementaryDataRequiredFlag { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (ExtendedOptionFeatures is ExtendedOptionFeature1Code ExtendedOptionFeaturesValue)
+        {
+            writer.WriteStartElement(null, "XtndedOptnFeatrs", xmlNamespace );
+            writer.WriteValue(ExtendedOptionFeaturesValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DfltOptnFlg", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DefaultOptionFlag)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (OptionalDividendSupplementaryDataRequiredFlag is IsoYesNoIndicator OptionalDividendSupplementaryDataRequiredFlagValue)
+        {
+            writer.WriteStartElement(null, "OptnlDvddSplmtryDataReqrdFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OptionalDividendSupplementaryDataRequiredFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionOptionSD6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

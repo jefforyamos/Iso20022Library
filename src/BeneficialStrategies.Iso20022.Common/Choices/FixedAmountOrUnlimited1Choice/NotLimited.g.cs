@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.FixedAmountOrUnlimited1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.FixedAmountOrUnlimited1Choice;
 /// Unlimited amount.
 /// </summary>
 public partial record NotLimited : FixedAmountOrUnlimited1Choice_
+     , IIsoXmlSerilizable<NotLimited>
 {
-    public required IsoUnlimited9Text Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// String of characters equal to UNLIMITED.
+    /// </summary>
+    public required IsoUnlimited9Text Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NotLtd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoUnlimited9Text(Value)); // data type Unlimited9Text System.String
+        writer.WriteEndElement();
+    }
+    public static new NotLimited Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

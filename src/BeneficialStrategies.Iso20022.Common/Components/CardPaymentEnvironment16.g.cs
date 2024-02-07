@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment of the transaction given in a response to a request in a batch.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardPaymentEnvironment16
+     : IIsoXmlSerilizable<CardPaymentEnvironment16>
 {
     #nullable enable
     
     /// <summary>
     /// Acquirer involved in the card payment.
     /// </summary>
-    [DataMember]
     public GenericIdentification32? AcquirerIdentification { get; init; } 
     /// <summary>
     /// Identification of the merchant.
     /// </summary>
-    [DataMember]
     public GenericIdentification32? MerchantIdentification { get; init; } 
     /// <summary>
     /// Identification of the POI performing the transaction.
     /// </summary>
-    [DataMember]
     public GenericIdentification32? POIIdentification { get; init; } 
     /// <summary>
     /// Sensitive data of the card (PlainCardData1 including the envelope), encrypted with a cryptographic key.
     /// </summary>
-    [DataMember]
     public ContentInformationType5? ProtectedCardData { get; init; } 
     /// <summary>
     /// Payment card performing the transaction.
     /// </summary>
-    [DataMember]
     public PlainCardData3? PlainCardData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AcquirerIdentification is GenericIdentification32 AcquirerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "Acqrr", xmlNamespace );
+            AcquirerIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MerchantIdentification is GenericIdentification32 MerchantIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MrchntId", xmlNamespace );
+            MerchantIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (POIIdentification is GenericIdentification32 POIIdentificationValue)
+        {
+            writer.WriteStartElement(null, "POIId", xmlNamespace );
+            POIIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProtectedCardData is ContentInformationType5 ProtectedCardDataValue)
+        {
+            writer.WriteStartElement(null, "PrtctdCardData", xmlNamespace );
+            ProtectedCardDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PlainCardData is PlainCardData3 PlainCardDataValue)
+        {
+            writer.WriteStartElement(null, "PlainCardData", xmlNamespace );
+            PlainCardDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardPaymentEnvironment16 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

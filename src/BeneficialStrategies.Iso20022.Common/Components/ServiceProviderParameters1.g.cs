@@ -7,48 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Service provider parameters of the point of interaction (POI).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ServiceProviderParameters1
+     : IIsoXmlSerilizable<ServiceProviderParameters1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of action for the configuration parameters.
     /// </summary>
-    [DataMember]
     public required TerminalManagementAction3Code ActionType { get; init; } 
     /// <summary>
     /// Identification of the service provider.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericIdentification176> ServiceProviderIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericIdentification176? ServiceProviderIdentification { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _DUcdcTALEeugIJ3Gvoevmg
     /// <summary>
     /// Version of the service provider parameters.
     /// </summary>
-    [DataMember]
     public required IsoMax256Text Version { get; init; } 
     /// <summary>
     /// Identification of payment application relevant for this service provider.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> ApplicationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? ApplicationIdentification { get; init; } 
     /// <summary>
     /// Service provider host configuration.
     /// </summary>
-    [DataMember]
-    public ValueList<AcquirerHostConfiguration8> Host { get; init; } = []; // Warning: Don't know multiplicity.
+    public AcquirerHostConfiguration8? Host { get; init; } 
     /// <summary>
     /// Identification of non financial action supported by the Service Provider.
     /// </summary>
-    [DataMember]
-    public ValueList<NonFinancialRequestType1Code> NonFinancialActionSupported { get; init; } = []; // Warning: Don't know multiplicity.
+    public NonFinancialRequestType1Code? NonFinancialActionSupported { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ActnTp", xmlNamespace );
+        writer.WriteValue(ActionType.ToString()); // Enum value
+        writer.WriteEndElement();
+        // Not sure how to serialize ServiceProviderIdentification, multiplicity Unknown
+        writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax256Text(Version)); // data type Max256Text System.String
+        writer.WriteEndElement();
+        if (ApplicationIdentification is IsoMax35Text ApplicationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ApplId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ApplicationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Host is AcquirerHostConfiguration8 HostValue)
+        {
+            writer.WriteStartElement(null, "Hst", xmlNamespace );
+            HostValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NonFinancialActionSupported is NonFinancialRequestType1Code NonFinancialActionSupportedValue)
+        {
+            writer.WriteStartElement(null, "NonFinActnSpprtd", xmlNamespace );
+            writer.WriteValue(NonFinancialActionSupportedValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static ServiceProviderParameters1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

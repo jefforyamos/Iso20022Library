@@ -7,43 +7,71 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Modification on the value of goods and / or services. For example: rebate, discount, surcharge.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Adjustment3
+     : IIsoXmlSerilizable<Adjustment3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of adjustment applied to the amount of goods/services by means of a code.
     /// </summary>
-    [DataMember]
     public required AdjustmentType2Code Type { get; init; } 
     /// <summary>
     /// Specifies a type of adjustment not present in the code list.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OtherAdjustmentType { get; init; } 
     /// <summary>
     /// Specifies the monetary amount of the adjustment.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Specifies the percentage rate of the adjustment.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate Rate { get; init; } 
     /// <summary>
     /// Specifies whether the adjustment must be subtracted or added to the total amount.
     /// </summary>
-    [DataMember]
     public required AdjustmentDirection1Code Direction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrAdjstmntTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherAdjustmentType)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(Amount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rate", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(Rate)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Drctn", xmlNamespace );
+        writer.WriteValue(Direction.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static Adjustment3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

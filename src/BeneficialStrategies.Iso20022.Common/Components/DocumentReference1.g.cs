@@ -7,6 +7,8 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -14,22 +16,48 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains Document Reference Values provided for this transaction and used for various document processing at the
 /// customer site.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DocumentReference1
+     : IIsoXmlSerilizable<DocumentReference1>
 {
     #nullable enable
     
     /// <summary>
     /// Describes the type of document.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Reference is a free-form text field containing customer reference information (for example, a document number).
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Reference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is IsoMax35Text TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Reference is IsoMax70Text ReferenceValue)
+        {
+            writer.WriteStartElement(null, "Ref", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(ReferenceValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static DocumentReference1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

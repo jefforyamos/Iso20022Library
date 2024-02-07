@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the future status of the transaction by means of a code and a period.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionStatus5
+     : IIsoXmlSerilizable<TransactionStatus5>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
-    [DataMember]
     public required BaselineStatus3Code Status { get; init; } 
     /// <summary>
     /// Date and time at which the current status will change.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime ChangeDateTime { get; init; } 
     /// <summary>
     /// Additional information on the reason for the time-out.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ChngDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(ChangeDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (Description is IsoMax140Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(DescriptionValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionStatus5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

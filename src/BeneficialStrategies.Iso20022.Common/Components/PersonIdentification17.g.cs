@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique and unambiguous way to identify a person.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PersonIdentification17
+     : IIsoXmlSerilizable<PersonIdentification17>
 {
     #nullable enable
     
     /// <summary>
     /// Date and place of birth of a person.
     /// </summary>
-    [DataMember]
     public DateAndPlaceOfBirth1? DateAndPlaceOfBirth { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
-    [DataMember]
     public IsoMax256Text? EmailAddress { get; init; } 
     /// <summary>
     /// Unique identification of a person, as assigned by an institution, using an identification scheme.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericPersonIdentification1> Other { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericPersonIdentification1? Other { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DateAndPlaceOfBirth is DateAndPlaceOfBirth1 DateAndPlaceOfBirthValue)
+        {
+            writer.WriteStartElement(null, "DtAndPlcOfBirth", xmlNamespace );
+            DateAndPlaceOfBirthValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EmailAddress is IsoMax256Text EmailAddressValue)
+        {
+            writer.WriteStartElement(null, "EmailAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(EmailAddressValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (Other is GenericPersonIdentification1 OtherValue)
+        {
+            writer.WriteStartElement(null, "Othr", xmlNamespace );
+            OtherValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PersonIdentification17 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the references of the underlying trade leg(s) and/or the reference to the related NetPosition report message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Reference19
+     : IIsoXmlSerilizable<Reference19>
 {
     #nullable enable
     
     /// <summary>
     /// Reference allocated by the central counterparty - central counterpatry trade leg reference identification that uniquely identifies the trade.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> TradeLegNotificationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? TradeLegNotificationIdentification { get; init; } 
     /// <summary>
     /// After netting, reference that is common to a net transaction to settle and all its underlying trades.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? NetPositionIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TradeLegNotificationIdentification is IsoMax35Text TradeLegNotificationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TradLegNtfctnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TradeLegNotificationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (NetPositionIdentification is IsoMax35Text NetPositionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "NetPosId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NetPositionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Reference19 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

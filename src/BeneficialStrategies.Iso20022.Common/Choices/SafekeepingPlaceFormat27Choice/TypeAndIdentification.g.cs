@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SafekeepingPlaceFormat27Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SafekeepingPlaceFormat27Choice;
 /// Place of safekeeping expressed with a type and identification.
 /// </summary>
 public partial record TypeAndIdentification : SafekeepingPlaceFormat27Choice_
+     , IIsoXmlSerilizable<TypeAndIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Place of safekeeping as a code.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record TypeAndIdentification : SafekeepingPlaceFormat27Choice_
     /// Place of safekeeping.
     /// </summary>
     public required IsoAnyBICIdentifier Identification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SfkpgPlcTp", xmlNamespace );
+        writer.WriteValue(SafekeepingPlaceType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(Identification)); // data type AnyBICIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static new TypeAndIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

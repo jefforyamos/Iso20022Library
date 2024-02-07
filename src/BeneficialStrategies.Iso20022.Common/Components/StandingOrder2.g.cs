@@ -7,108 +7,210 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the detailed attributes of a standing order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StandingOrder2
+     : IIsoXmlSerilizable<StandingOrder2>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of money and currency to be transferred when a payment instruction is created as a result of a standing order.
     /// </summary>
-    [DataMember]
     public required Amount2Choice_ Amount { get; init; } 
     /// <summary>
     /// Specifies if the account is debited or credited by the standing order.
     /// </summary>
-    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for a standing order, as assigned by the account servicer or the account owner.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Type of the standing order.
     /// </summary>
-    [DataMember]
     public StandingOrderType1Choice_? Type { get; init; } 
     /// <summary>
     /// Liquidity transfer origin or destination account within the pool of accounts under management of the requestor.
     /// </summary>
-    [DataMember]
     public AccountIdentification4Choice_? AssociatedPoolAccount { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for a standing order, as assigned by the account servicer or the account owner.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Reference { get; init; } 
     /// <summary>
     /// Regularity with which payment instructions are to be created and processed as a result of the standing order, such as daily, weekly, or monthly.
     /// </summary>
-    [DataMember]
     public Frequency2Code? Frequency { get; init; } 
     /// <summary>
     /// Dates during which the standing order is in effect.
     /// </summary>
-    [DataMember]
     public DatePeriodDetails1? ValidityPeriod { get; init; } 
     /// <summary>
     /// Specifies if the account is debited or credited by the standing order.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? SystemMember { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? ResponsibleParty { get; init; } 
     /// <summary>
     /// Unique identification to unambiguously identify the link set in which the standing order is defined. The link set is a collection of standing order defined in a specific sequence.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? LinkSetIdentification { get; init; } 
     /// <summary>
     /// Unique identification to unambiguously identify liquidity transfer standing order within the link set.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? LinkSetOrderIdentification { get; init; } 
     /// <summary>
     /// Specifies the sequence in which the system will execute the liquidity transfers standing order within the link set when additional liquidity is required.
     /// </summary>
-    [DataMember]
     public IsoNumber? LinkSetOrderSequence { get; init; } 
     /// <summary>
     /// Defines whether the standing order is executed through a time-based or an event-based trigger.
     /// </summary>
-    [DataMember]
     public ExecutionType1Choice_? ExecutionType { get; init; } 
     /// <summary>
     /// Cash account credited from a standing order mechanism.
     /// </summary>
-    [DataMember]
     public CashAccount24? CreditorAccount { get; init; } 
     /// <summary>
     /// Cash account debited from a standing order mechanism.
     /// </summary>
-    [DataMember]
     public CashAccount24? DebtorAccount { get; init; } 
     /// <summary>
     /// Overall amount of "not yet executed" predefined liquidity transfer orders or "defined" by a system participant in its sphere of responsibility within the system.
     /// </summary>
-    [DataMember]
     public StandingOrderTotalAmount1? TotalsPerStandingOrder { get; init; } 
     /// <summary>
     /// Indicates whether the liquidity transfer standing order is defined as a zero sweeping order. When true, the liquidity transfer standing order will transfer all amount of money out of the account so the resulting balance is zero.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ZeroSweepIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        Amount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Type is StandingOrderType1Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AssociatedPoolAccount is AccountIdentification4Choice_ AssociatedPoolAccountValue)
+        {
+            writer.WriteStartElement(null, "AssoctdPoolAcct", xmlNamespace );
+            AssociatedPoolAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Reference is IsoMax35Text ReferenceValue)
+        {
+            writer.WriteStartElement(null, "Ref", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Frequency is Frequency2Code FrequencyValue)
+        {
+            writer.WriteStartElement(null, "Frqcy", xmlNamespace );
+            writer.WriteValue(FrequencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ValidityPeriod is DatePeriodDetails1 ValidityPeriodValue)
+        {
+            writer.WriteStartElement(null, "VldtyPrd", xmlNamespace );
+            ValidityPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SystemMember is BranchAndFinancialInstitutionIdentification5 SystemMemberValue)
+        {
+            writer.WriteStartElement(null, "SysMmb", xmlNamespace );
+            SystemMemberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ResponsibleParty is BranchAndFinancialInstitutionIdentification5 ResponsiblePartyValue)
+        {
+            writer.WriteStartElement(null, "RspnsblPty", xmlNamespace );
+            ResponsiblePartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LinkSetIdentification is IsoMax35Text LinkSetIdentificationValue)
+        {
+            writer.WriteStartElement(null, "LkSetId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(LinkSetIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (LinkSetOrderIdentification is IsoMax35Text LinkSetOrderIdentificationValue)
+        {
+            writer.WriteStartElement(null, "LkSetOrdrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(LinkSetOrderIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (LinkSetOrderSequence is IsoNumber LinkSetOrderSequenceValue)
+        {
+            writer.WriteStartElement(null, "LkSetOrdrSeq", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(LinkSetOrderSequenceValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (ExecutionType is ExecutionType1Choice_ ExecutionTypeValue)
+        {
+            writer.WriteStartElement(null, "ExctnTp", xmlNamespace );
+            ExecutionTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditorAccount is CashAccount24 CreditorAccountValue)
+        {
+            writer.WriteStartElement(null, "CdtrAcct", xmlNamespace );
+            CreditorAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DebtorAccount is CashAccount24 DebtorAccountValue)
+        {
+            writer.WriteStartElement(null, "DbtrAcct", xmlNamespace );
+            DebtorAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalsPerStandingOrder is StandingOrderTotalAmount1 TotalsPerStandingOrderValue)
+        {
+            writer.WriteStartElement(null, "TtlsPerStgOrdr", xmlNamespace );
+            TotalsPerStandingOrderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ZeroSweepIndicator is IsoTrueFalseIndicator ZeroSweepIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ZeroSweepInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ZeroSweepIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static StandingOrder2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

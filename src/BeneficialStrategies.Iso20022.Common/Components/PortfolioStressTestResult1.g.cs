@@ -7,43 +7,74 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Outcome of the application of a hypothetical scenario on the valuation of a portfolio of financial instruments.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PortfolioStressTestResult1
+     : IIsoXmlSerilizable<PortfolioStressTestResult1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the portfolio.
     /// </summary>
-    [DataMember]
     public required GenericIdentification165 PortfolioIdentification { get; init; } 
     /// <summary>
     /// Calculated stress loss over the initial margin requirement, as used in the calculation of stress testing losses to size the default fund. Indicates whether the portfolio experienced a stress loss greater than initial margin.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection102 StressLoss { get; init; } 
     /// <summary>
     /// Calculated raw stress loss, as used in the calculation of stress testing losses to size the default fund. Indicates whether the portfolio experienced a stress loss.
     /// </summary>
-    [DataMember]
     public AmountAndDirection102? RawStressLoss { get; init; } 
     /// <summary>
     /// Indicates whether the stress loss over initial margin under this scenario for the clearing member of which the corresponding account is an account, is the largest stress over initial margin used to size the default fund.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator Cover1Flag { get; init; } 
     /// <summary>
     /// Indicates whether the stress loss over initial margin under this scenario for the clearing member of which the corresponding account is an account, is the second largest stress over initial margin used to size the default fund.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator Cover2Flag { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrtflId", xmlNamespace );
+        PortfolioIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StrssLoss", xmlNamespace );
+        StressLoss.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RawStressLoss is AmountAndDirection102 RawStressLossValue)
+        {
+            writer.WriteStartElement(null, "RawStrssLoss", xmlNamespace );
+            RawStressLossValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Cover1Flg", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(Cover1Flag)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Cover2Flg", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(Cover2Flag)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static PortfolioStressTestResult1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.colr.TripartyCollateralAllegementNotificationCancellationAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.colr;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// The previously sent message is a TripartyCollateralAllegementNotification
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope:|Triparty agent sends a TripartyCollateralAllegementNotificationCancellationAdvice to the collateral giver or the collateral taker to inform of the cancellation of an allegement notification message previously sent by the triparty agent. ||The collateral giver and the collateral taker are participants of the triparty agents. In the frame of ECMS the collateral taker will be a central bank.||The previously sent message is a TripartyCollateralAllegementNotification")]
-public partial record TripartyCollateralAllegementNotificationCancellationAdviceV01 : IOuterRecord
+public partial record TripartyCollateralAllegementNotificationCancellationAdviceV01 : IOuterRecord<TripartyCollateralAllegementNotificationCancellationAdviceV01,TripartyCollateralAllegementNotificationCancellationAdviceV01Document>
+    ,IIsoXmlSerilizable<TripartyCollateralAllegementNotificationCancellationAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "TrptyCollAllgmtNtfctnCxlAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => TripartyCollateralAllegementNotificationCancellationAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -138,6 +145,62 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     {
         return new TripartyCollateralAllegementNotificationCancellationAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("TrptyCollAllgmtNtfctnCxlAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxInstrId", xmlNamespace );
+        TransactionInstructionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CollTxTp", xmlNamespace );
+        CollateralTransactionType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XpsrTp", xmlNamespace );
+        ExposureType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CollSd", xmlNamespace );
+        writer.WriteValue(CollateralSide.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (EligibilitySetProfile is GenericIdentification1 EligibilitySetProfileValue)
+        {
+            writer.WriteStartElement(null, "ElgbltySetPrfl", xmlNamespace );
+            EligibilitySetProfileValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CollPties", xmlNamespace );
+        CollateralParties.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionAmount is AmountAndDirection49 TransactionAmountValue)
+        {
+            writer.WriteStartElement(null, "TxAmt", xmlNamespace );
+            TransactionAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequestedExecutionDate is DateAndDateTime2Choice_ RequestedExecutionDateValue)
+        {
+            writer.WriteStartElement(null, "ReqdExctnDt", xmlNamespace );
+            RequestedExecutionDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TripartyCollateralAllegementNotificationCancellationAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -145,9 +208,7 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TripartyCollateralAllegementNotificationCancellationAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record TripartyCollateralAllegementNotificationCancellationAdviceV01Document : IOuterDocument<TripartyCollateralAllegementNotificationCancellationAdviceV01>
+public partial record TripartyCollateralAllegementNotificationCancellationAdviceV01Document : IOuterDocument<TripartyCollateralAllegementNotificationCancellationAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -163,5 +224,22 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     /// <summary>
     /// The instance of <seealso cref="TripartyCollateralAllegementNotificationCancellationAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=TripartyCollateralAllegementNotificationCancellationAdviceV01.XmlTag)]
     public required TripartyCollateralAllegementNotificationCancellationAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(TripartyCollateralAllegementNotificationCancellationAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

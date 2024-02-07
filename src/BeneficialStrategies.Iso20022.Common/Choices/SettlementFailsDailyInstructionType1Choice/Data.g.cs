@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SettlementFailsDailyInstructionType1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementFailsDailyInstructionT
 /// Aggregated data of settlement instructions.
 /// </summary>
 public partial record Data : SettlementFailsDailyInstructionType1Choice_
+     , IIsoXmlSerilizable<Data>
 {
     #nullable enable
+    
     /// <summary>
     /// Fails due to delivery versus payment (DVP) settlement transactions, covers both delivery versus payment and receive versus payment transactions. 
     /// </summary>
@@ -31,5 +35,35 @@ public partial record Data : SettlementFailsDailyInstructionType1Choice_
     /// Fails due to free of payment (FoP) settlement transactions, covers both deliver free of payment (DFoP) and receive free of payment (RFoP) transactions.
     /// </summary>
     public required SettlementDailyFailureReason1Choice_ FreeOfPayment { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DlvryVrssPmt", xmlNamespace );
+        DeliveryVersusPayment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DlvryWthPmt", xmlNamespace );
+        DeliveryWithPayment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PmtFreeOfDlvry", xmlNamespace );
+        PaymentFreeOfDelivery.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FreeOfPmt", xmlNamespace );
+        FreeOfPayment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new Data Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

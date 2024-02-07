@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Type providing further information on balance restrictions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BalanceRestrictionType1
+     : IIsoXmlSerilizable<BalanceRestrictionType1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of the restriction, for example, selling restriction, buying restriction, placing restriction.
     /// </summary>
-    [DataMember]
     public required GenericIdentification1 Type { get; init; } 
     /// <summary>
     /// Description of the restriction.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     /// <summary>
     /// Classification of the type of processing restriction that the system should apply for the restriction.
     /// </summary>
-    [DataMember]
     public ProcessingType1Choice_? ProcessingType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Description is IsoMax140Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(DescriptionValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProcessingType is ProcessingType1Choice_ ProcessingTypeValue)
+        {
+            writer.WriteStartElement(null, "PrcgTp", xmlNamespace );
+            ProcessingTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BalanceRestrictionType1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

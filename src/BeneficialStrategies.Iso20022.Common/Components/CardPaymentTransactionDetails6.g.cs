@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the transaction in the cancellation response.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardPaymentTransactionDetails6
+     : IIsoXmlSerilizable<CardPaymentTransactionDetails6>
 {
     #nullable enable
     
     /// <summary>
     /// Currency associated with the transaction.
     /// </summary>
-    [DataMember]
     public required CurrencyCode Currency { get; init; } 
     /// <summary>
     /// Total amount of the transaction.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount TotalAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ccy", xmlNamespace );
+        writer.WriteValue(Currency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(TotalAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static CardPaymentTransactionDetails6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

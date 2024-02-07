@@ -7,58 +7,104 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the balance adjustments for a specific service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BalanceAdjustment1
+     : IIsoXmlSerilizable<BalanceAdjustment1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the type of adjustment.
     /// </summary>
-    [DataMember]
     public required BalanceAdjustmentType1Code Type { get; init; } 
     /// <summary>
     /// Free-form description and clarification of the adjustment.
     /// </summary>
-    [DataMember]
     public required IsoMax105Text Description { get; init; } 
     /// <summary>
     /// Amount of the adjustment. If the amount would reduce the underlying balance then the amount should be negatively signed. Expressed in the Account currency.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection34 BalanceAmount { get; init; } 
     /// <summary>
     /// Day-weighted net amount of the adjustment to the average collected balance over the statement period.
     /// </summary>
-    [DataMember]
     public AmountAndDirection34? AverageAmount { get; init; } 
     /// <summary>
     /// Date on which the error occurred in the underlying cash account.
     /// </summary>
-    [DataMember]
     public IsoISODate? ErrorDate { get; init; } 
     /// <summary>
     /// Date on which the error was corrected in the cash account. If the date is not know then use the last day of the month in which the error was corrected.
     /// </summary>
-    [DataMember]
     public required IsoISODate PostingDate { get; init; } 
     /// <summary>
     /// Number of days within the period to which the adjustment applies.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? Days { get; init; } 
     /// <summary>
     /// Earnings credit adjustment, debit or credit, resulting from this adjustment’s effect on the average collected balance. If the amount would reduce the credit due then the amount should be negatively signed.
     /// </summary>
-    [DataMember]
     public AmountAndDirection34? EarningsAdjustmentAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Desc", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax105Text(Description)); // data type Max105Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BalAmt", xmlNamespace );
+        BalanceAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AverageAmount is AmountAndDirection34 AverageAmountValue)
+        {
+            writer.WriteStartElement(null, "AvrgAmt", xmlNamespace );
+            AverageAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ErrorDate is IsoISODate ErrorDateValue)
+        {
+            writer.WriteStartElement(null, "ErrDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ErrorDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PstngDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(PostingDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (Days is IsoDecimalNumber DaysValue)
+        {
+            writer.WriteStartElement(null, "Days", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(DaysValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (EarningsAdjustmentAmount is AmountAndDirection34 EarningsAdjustmentAmountValue)
+        {
+            writer.WriteStartElement(null, "EarngsAdjstmntAmt", xmlNamespace );
+            EarningsAdjustmentAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BalanceAdjustment1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

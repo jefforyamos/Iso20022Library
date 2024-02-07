@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatusChoice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatusChoice;
 /// Explains the reason for rejecting a payment cancellation request.
 /// </summary>
 public partial record RejectedCancellation : InvestigationStatusChoice_
+     , IIsoXmlSerilizable<RejectedCancellation>
 {
     #nullable enable
+    
     /// <summary>
     /// Justification for the rejection of the cancellation.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record RejectedCancellation : InvestigationStatusChoice_
     /// Free text justification for rejecting a cancellation.
     /// </summary>
     public IsoMax140Text? Reason { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RsnCd", xmlNamespace );
+        writer.WriteValue(ReasonCode.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Reason is IsoMax140Text ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(ReasonValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new RejectedCancellation Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

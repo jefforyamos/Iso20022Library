@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Loyalty programme information
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LoyaltyProgramme2
+     : IIsoXmlSerilizable<LoyaltyProgramme2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of loyalty programme (for example, airline, lodging, vehicle and rail etc.).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ProgrammeType { get; init; } 
     /// <summary>
     /// Loyalty programme identification value.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? ProgramIdentification { get; init; } 
     /// <summary>
     /// Loyalty programme participant identification value.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? ParticipantIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ProgrammeType is IsoMax35Text ProgrammeTypeValue)
+        {
+            writer.WriteStartElement(null, "PrgrmmTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProgrammeTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProgramIdentification is IsoMax70Text ProgramIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrgmId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(ProgramIdentificationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (ParticipantIdentification is IsoMax70Text ParticipantIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PtcptId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(ParticipantIdentificationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static LoyaltyProgramme2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

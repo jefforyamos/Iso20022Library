@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Outcome of the application of a hypothetical scenario on the valuation of a set of portfolios of financial instruments.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ScenarioStressTestResult1
+     : IIsoXmlSerilizable<ScenarioStressTestResult1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the stressed account.
     /// </summary>
-    [DataMember]
     public required GenericIdentification168 Identification { get; init; } 
     /// <summary>
     /// Result from the application of a stress test scenario to the positions in a cleared portfolio.
     /// </summary>
-    [DataMember]
-    public ValueList<PortfolioStressTestResult1> PortfolioStressTestResult { get; init; } = []; // Warning: Don't know multiplicity.
+    public PortfolioStressTestResult1? PortfolioStressTestResult { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _ZLzBQKs_Eeayv9XxdmMwKQ
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize PortfolioStressTestResult, multiplicity Unknown
+    }
+    public static ScenarioStressTestResult1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

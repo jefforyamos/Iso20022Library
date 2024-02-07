@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique and unambiguous identification of a financial institution.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstitutionIdentification12
+     : IIsoXmlSerilizable<FinancialInstitutionIdentification12>
 {
     #nullable enable
     
     /// <summary>
     /// Code allocated to a financial institution by the ISO 9362 Registration Authority, as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
     /// </summary>
-    [DataMember]
     public required IsoBICFIIdentifier BICFI { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification.
     /// </summary>
-    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BICFI", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBICFIIdentifier(BICFI)); // data type BICFIIdentifier System.String
+        writer.WriteEndElement();
+        if (LEI is IsoLEIIdentifier LEIValue)
+        {
+            writer.WriteStartElement(null, "LEI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEIValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstitutionIdentification12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

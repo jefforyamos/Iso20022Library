@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Asset class specific details of a derivative.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AssetClassAttributes1
+     : IIsoXmlSerilizable<AssetClassAttributes1>
 {
     #nullable enable
     
     /// <summary>
     /// Asset class is a non-financial instrument of type interest rate.
     /// </summary>
-    [DataMember]
     public required DerivativeInterest2 Interest { get; init; } 
     /// <summary>
     /// Asset class is a non-financial instrument of type foreign exchange.
     /// </summary>
-    [DataMember]
     public required DerivativeForeignExchange2 ForeignExchange { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Intrst", xmlNamespace );
+        Interest.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FX", xmlNamespace );
+        ForeignExchange.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static AssetClassAttributes1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

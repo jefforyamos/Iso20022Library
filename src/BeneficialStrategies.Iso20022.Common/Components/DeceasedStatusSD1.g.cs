@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Deceased beneficial owner information details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DeceasedStatusSD1
+     : IIsoXmlSerilizable<DeceasedStatusSD1>
 {
     #nullable enable
     
     /// <summary>
     /// Name by which the beneficial owner is known.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text BeneficialOwnerName { get; init; } 
     /// <summary>
     /// Date of death of the beneficial owner.
     /// </summary>
-    [DataMember]
     public IsoISODate? DeathDate { get; init; } 
     /// <summary>
     /// Death certificate number of the beneficial owner.
     /// </summary>
-    [DataMember]
     public IsoMax30Text? DeathCertificateSerialNumber { get; init; } 
     /// <summary>
     /// Jurisdiction by which the certificate of deposit was issued.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? IssuingJurisdiction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BnfclOwnrNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(BeneficialOwnerName)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (DeathDate is IsoISODate DeathDateValue)
+        {
+            writer.WriteStartElement(null, "DthDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DeathDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (DeathCertificateSerialNumber is IsoMax30Text DeathCertificateSerialNumberValue)
+        {
+            writer.WriteStartElement(null, "DthCertSrlNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax30Text(DeathCertificateSerialNumberValue)); // data type Max30Text System.String
+            writer.WriteEndElement();
+        }
+        if (IssuingJurisdiction is IsoMax35Text IssuingJurisdictionValue)
+        {
+            writer.WriteStartElement(null, "IssgJursdctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuingJurisdictionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static DeceasedStatusSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

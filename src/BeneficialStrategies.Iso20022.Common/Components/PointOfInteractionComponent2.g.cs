@@ -7,49 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to a component of the POI.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PointOfInteractionComponent2
+     : IIsoXmlSerilizable<PointOfInteractionComponent2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of component belonging to a POI Terminal.
     /// </summary>
-    [DataMember]
     public required POIComponentType2Code POIComponentType { get; init; } 
     /// <summary>
     /// Identification of the software, hardware or system provider of the POI component.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ManufacturerIdentification { get; init; } 
     /// <summary>
     /// Identification of a model of POI component for a given manufacturer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Model { get; init; } 
     /// <summary>
     /// Version of component belonging to a given model.
     /// </summary>
-    [DataMember]
     public IsoMax16Text? VersionNumber { get; init; } 
     /// <summary>
     /// Serial number of a component.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SerialNumber { get; init; } 
     /// <summary>
     /// Unique approval number for a component, delivered by a certification body.
     /// Usage: More than one approval number could be present, when assigned by different bodies. The certification body identification must be provided within the approval number (for example at the beginning of the value).
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax70Text> ApprovalNumber { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax70Text? ApprovalNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "POICmpntTp", xmlNamespace );
+        writer.WriteValue(POIComponentType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ManufacturerIdentification is IsoMax35Text ManufacturerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ManfctrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ManufacturerIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Model is IsoMax35Text ModelValue)
+        {
+            writer.WriteStartElement(null, "Mdl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ModelValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (VersionNumber is IsoMax16Text VersionNumberValue)
+        {
+            writer.WriteStartElement(null, "VrsnNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax16Text(VersionNumberValue)); // data type Max16Text System.String
+            writer.WriteEndElement();
+        }
+        if (SerialNumber is IsoMax35Text SerialNumberValue)
+        {
+            writer.WriteStartElement(null, "SrlNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SerialNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ApprovalNumber is IsoMax70Text ApprovalNumberValue)
+        {
+            writer.WriteStartElement(null, "ApprvlNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(ApprovalNumberValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PointOfInteractionComponent2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Derivative2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative2Choice;
 /// Details specific for Interest rate.
 /// </summary>
 public partial record InterestRate : Derivative2Choice_
+     , IIsoXmlSerilizable<InterestRate>
 {
     #nullable enable
+    
     /// <summary>
     /// Specific details on the underlying type of the interest rate derivative.
     /// </summary>
@@ -39,5 +43,53 @@ public partial record InterestRate : Derivative2Choice_
     /// Provides the interest rate against a reference rate and term in number of days, weeks, months or years.
     /// </summary>
     public required FloatingInterestRate8 InterestRateReference { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UndrlygTp", xmlNamespace );
+        UnderlyingType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (UnderlyingBond is BondDerivative2 UnderlyingBondValue)
+        {
+            writer.WriteStartElement(null, "UndrlygBd", xmlNamespace );
+            UnderlyingBondValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SwaptionNotionalCurrency is ActiveCurrencyCode SwaptionNotionalCurrencyValue)
+        {
+            writer.WriteStartElement(null, "SwptnNtnlCcy", xmlNamespace );
+            writer.WriteValue(SwaptionNotionalCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (UnderlyingSwapMaturityDate is IsoISODate UnderlyingSwapMaturityDateValue)
+        {
+            writer.WriteStartElement(null, "UndrlygSwpMtrtyDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(UnderlyingSwapMaturityDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (InflationIndex is InflationIndex1Choice_ InflationIndexValue)
+        {
+            writer.WriteStartElement(null, "InfltnIndx", xmlNamespace );
+            InflationIndexValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "IntrstRateRef", xmlNamespace );
+        InterestRateReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new InterestRate Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

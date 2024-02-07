@@ -7,58 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Statistics for a financial instrument generated as part of transparency calculations.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StatisticsTransparency3
+     : IIsoXmlSerilizable<StatisticsTransparency3>
 {
     #nullable enable
     
     /// <summary>
     /// Average Daily Turnover for the instrument in Euros.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? AverageDailyTurnover { get; init; } 
     /// <summary>
     /// Average value of the transactions for the instrument in Euro.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? AverageTransactionValue { get; init; } 
     /// <summary>
     /// Large in scale order in respect of a share, depositary receipt, certificate or other similar financial instrument shall be considered large in scale compared with normal market size if, on the basis of the average daily turnover for that financial instrument, the order is equal to or larger than the minimum size of orders set out in the local regulation.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? LargeInScale { get; init; } 
     /// <summary>
     /// Standard market size for shares, depositary receipts, ETFs, certificates and other similar financial instruments for which there is a liquid market shall be determined on the basis of the average value of transactions for each financial instrument and in accordance with the local regulation.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? StandardMarketSize { get; init; } 
     /// <summary>
     /// Average daily number of transactions that have been performed on this market.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? AverageDailyNumberOfTransactions { get; init; } 
     /// <summary>
     /// Total number of transactions that have been performed on this market.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? TotalNumberOfTransactionsExecuted { get; init; } 
     /// <summary>
     /// Total volume of transactions that have been performed on this market.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? TotalVolumeOfTransactionsExecuted { get; init; } 
     /// <summary>
     /// The total number of trading days for which the data is provided.
     /// </summary>
-    [DataMember]
     public IsoNumber? TotalNumberOfTradingDays { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AverageDailyTurnover is IsoActiveCurrencyAndAmount AverageDailyTurnoverValue)
+        {
+            writer.WriteStartElement(null, "AvrgDalyTrnvr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AverageDailyTurnoverValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (AverageTransactionValue is IsoActiveCurrencyAndAmount AverageTransactionValueValue)
+        {
+            writer.WriteStartElement(null, "AvrgTxVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AverageTransactionValueValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (LargeInScale is IsoDecimalNumber LargeInScaleValue)
+        {
+            writer.WriteStartElement(null, "LrgInScale", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(LargeInScaleValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (StandardMarketSize is IsoDecimalNumber StandardMarketSizeValue)
+        {
+            writer.WriteStartElement(null, "StdMktSz", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(StandardMarketSizeValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (AverageDailyNumberOfTransactions is IsoDecimalNumber AverageDailyNumberOfTransactionsValue)
+        {
+            writer.WriteStartElement(null, "AvrgDalyNbOfTxs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(AverageDailyNumberOfTransactionsValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (TotalNumberOfTransactionsExecuted is IsoDecimalNumber TotalNumberOfTransactionsExecutedValue)
+        {
+            writer.WriteStartElement(null, "TtlNbOfTxsExctd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(TotalNumberOfTransactionsExecutedValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (TotalVolumeOfTransactionsExecuted is IsoDecimalNumber TotalVolumeOfTransactionsExecutedValue)
+        {
+            writer.WriteStartElement(null, "TtlVolOfTxsExctd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(TotalVolumeOfTransactionsExecutedValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (TotalNumberOfTradingDays is IsoNumber TotalNumberOfTradingDaysValue)
+        {
+            writer.WriteStartElement(null, "TtlNbOfTradgDays", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberOfTradingDaysValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static StatisticsTransparency3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,64 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Capabilities of the POI (Point Of Interaction) performing the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PointOfInteractionCapabilities3
+     : IIsoXmlSerilizable<PointOfInteractionCapabilities3>
 {
     #nullable enable
     
     /// <summary>
     /// Card reading capabilities of the POI (Point Of Interaction) performing the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<CardDataReading1Code> CardReadingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardDataReading1Code? CardReadingCapabilities { get; init; } 
     /// <summary>
     /// Cardholder verification capabilities of the POI (Point Of Interaction) performing the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<CardholderVerificationCapability1Code> CardholderVerificationCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardholderVerificationCapability1Code? CardholderVerificationCapabilities { get; init; } 
     /// <summary>
     /// Maximum number of digits the POI is able to accept when the cardholder enters its PIN.
     /// </summary>
-    [DataMember]
     public IsoNumber? PINLengthCapabilities { get; init; } 
     /// <summary>
     /// Maximum number of characters of the approval code the POI is able to manage.
     /// </summary>
-    [DataMember]
     public IsoNumber? ApprovalCodeLength { get; init; } 
     /// <summary>
     /// True if the POI is able to capture card.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CardCaptureCapable { get; init; } 
     /// <summary>
     /// On-line and off-line capabilities of the POI (Point Of Interaction).
     /// </summary>
-    [DataMember]
     public OnLineCapability1Code? OnLineCapabilities { get; init; } 
     /// <summary>
     /// Capabilities of the display components performing the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<DisplayCapabilities2> DisplayCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    public DisplayCapabilities2? DisplayCapabilities { get; init; } 
     /// <summary>
     /// Number of columns of the printer component.
     /// </summary>
-    [DataMember]
     public IsoNumber? PrintLineWidth { get; init; } 
     /// <summary>
     /// Available language in the display and printer interface.
     /// Reference ISO 639-1 (alpha-2) et ISO 639-2 (alpha-3).
     /// </summary>
-    [DataMember]
-    public ValueList<LanguageCode> AvailableLanguage { get; init; } = []; // Warning: Don't know multiplicity.
+    public LanguageCode? AvailableLanguage { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CardReadingCapabilities is CardDataReading1Code CardReadingCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "CardRdngCpblties", xmlNamespace );
+            writer.WriteValue(CardReadingCapabilitiesValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CardholderVerificationCapabilities is CardholderVerificationCapability1Code CardholderVerificationCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrVrfctnCpblties", xmlNamespace );
+            writer.WriteValue(CardholderVerificationCapabilitiesValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PINLengthCapabilities is IsoNumber PINLengthCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "PINLngthCpblties", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(PINLengthCapabilitiesValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (ApprovalCodeLength is IsoNumber ApprovalCodeLengthValue)
+        {
+            writer.WriteStartElement(null, "ApprvlCdLngth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(ApprovalCodeLengthValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (CardCaptureCapable is IsoTrueFalseIndicator CardCaptureCapableValue)
+        {
+            writer.WriteStartElement(null, "CardCaptrCpbl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CardCaptureCapableValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (OnLineCapabilities is OnLineCapability1Code OnLineCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "OnLineCpblties", xmlNamespace );
+            writer.WriteValue(OnLineCapabilitiesValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DisplayCapabilities is DisplayCapabilities2 DisplayCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "DispCpblties", xmlNamespace );
+            DisplayCapabilitiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PrintLineWidth is IsoNumber PrintLineWidthValue)
+        {
+            writer.WriteStartElement(null, "PrtLineWidth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(PrintLineWidthValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (AvailableLanguage is LanguageCode AvailableLanguageValue)
+        {
+            writer.WriteStartElement(null, "AvlblLang", xmlNamespace );
+            writer.WriteValue(AvailableLanguageValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static PointOfInteractionCapabilities3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

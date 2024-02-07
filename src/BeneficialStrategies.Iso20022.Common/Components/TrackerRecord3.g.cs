@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the agent specific tracking system information of a payment transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TrackerRecord3
+     : IIsoXmlSerilizable<TrackerRecord3>
 {
     #nullable enable
     
     /// <summary>
     /// Transaction charges to be paid by the charge bearer.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINActiveCurrencyAndAmount? ChargesAmount { get; init; } 
     /// <summary>
     /// Provides details of the rate and the currencies used in the foreign exchange.
     /// </summary>
-    [DataMember]
     public CurrencyExchange16? ExchangeRateData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ChargesAmount is IsoRestrictedFINActiveCurrencyAndAmount ChargesAmountValue)
+        {
+            writer.WriteStartElement(null, "ChrgsAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAndAmount(ChargesAmountValue)); // data type RestrictedFINActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExchangeRateData is CurrencyExchange16 ExchangeRateDataValue)
+        {
+            writer.WriteStartElement(null, "XchgRateData", xmlNamespace );
+            ExchangeRateDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TrackerRecord3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

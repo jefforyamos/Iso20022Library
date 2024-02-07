@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty17Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty17Choic
 /// Detailed statistics per counterparty.
 /// </summary>
 public partial record Report : StatisticsPerCounterparty17Choice_
+     , IIsoXmlSerilizable<Report>
 {
     #nullable enable
+    
     /// <summary>
     /// Reference date for statistics collection.
     /// </summary>
@@ -51,5 +55,52 @@ public partial record Report : StatisticsPerCounterparty17Choice_
     /// Detailed information on rejections for derivatives submitted to trade repositories and failed to pass validations.
     /// </summary>
     public RejectionStatistics8? RejectionStatistics { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _x9xMwVyGEe24CqbZJK5XxA
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RefDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ReferenceDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlNbOfRpts", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(TotalNumberOfReports)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlNbOfRptsAccptd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(TotalNumberOfReportsAccepted)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlNbOfRptsRjctd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(TotalNumberOfReportsRejected)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlNbOfTxs", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(TotalNumberOfTransactions)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlNbOfTxsAccptd", xmlNamespace );
+        TotalNumberOfTransactionsAccepted.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlNbOfTxsRjctd", xmlNamespace );
+        TotalNumberOfTransactionsRejected.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TotalCorrectedRejections is StatisticsPerActionType1 TotalCorrectedRejectionsValue)
+        {
+            writer.WriteStartElement(null, "TtlCrrctdRjctns", xmlNamespace );
+            TotalCorrectedRejectionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize RejectionStatistics, multiplicity Unknown
+    }
+    public static new Report Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

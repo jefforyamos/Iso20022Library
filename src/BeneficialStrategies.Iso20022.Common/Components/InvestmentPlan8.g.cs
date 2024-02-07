@@ -7,98 +7,184 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Plan that allows investors to schedule periodical investments or divestments, according to pre-defined criteria.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestmentPlan8
+     : IIsoXmlSerilizable<InvestmentPlan8>
 {
     #nullable enable
     
     /// <summary>
     /// Frequency of the investment or divestment.
     /// </summary>
-    [DataMember]
     public required Frequency20Choice_ Frequency { get; init; } 
     /// <summary>
     /// Date the investment plan starts.
     /// </summary>
-    [DataMember]
     public IsoISODate? StartDate { get; init; } 
     /// <summary>
     /// Date the investment plan stops.
     /// </summary>
-    [DataMember]
     public IsoISODate? EndDate { get; init; } 
     /// <summary>
     /// Amount of the periodical payments.
     /// </summary>
-    [DataMember]
     public required UnitsOrAmount1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Indicates whether an ordered amount is a gross amount (including all charges, commissions, tax). If it is not a gross amount, the ordered amount is a net amount (amount to be invested or redeemed from the fund to which other elements will be added).
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? GrossAmountIndicator { get; init; } 
     /// <summary>
     /// Dividend option chosen by the account owner based on the options offered in the prospectus.
     /// </summary>
-    [DataMember]
     public IncomePreference1Code? IncomePreference { get; init; } 
     /// <summary>
     /// Number of pre-paid instalment periods at the time the investment plan is created.
     /// </summary>
-    [DataMember]
     public IsoNumber? InitialNumberOfInstalments { get; init; } 
     /// <summary>
     /// Total number of times the amount must be invested at the predefined frequency as of the start date of the investment plan.
     /// </summary>
-    [DataMember]
     public IsoNumber? TotalNumberOfInstalments { get; init; } 
     /// <summary>
     /// Indicates the rounding direction when an amount is to be spread over several funds.
     /// </summary>
-    [DataMember]
     public RoundingDirection1Code? RoundingDirection { get; init; } 
     /// <summary>
     /// Security that an investment plan invests in, or from which the investment plan divests.
     /// </summary>
-    [DataMember]
     public ValueList<Repartition2> SecurityDetails { get; init; } = [];
     /// <summary>
     /// Cash settlement standing instruction associated to the investment plan and to be either inserted or deleted.
     /// </summary>
-    [DataMember]
     public ValueList<InvestmentFundCashSettlementInformation8> ModifiedCashSettlement { get; init; } = [];
     /// <summary>
     /// Reference of the underlying investment contract. In some markets, such as Italy, this might be required to segregate holdings between the same investment account.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ContractReference { get; init; } 
     /// <summary>
     /// Reference of the previous contract to which this savings or withdrawal plan is related.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RelatedContractReference { get; init; } 
     /// <summary>
     /// Identification of the product as designated by the fund manager. In some markets, such as Italy, the financial product or service related to a savings plan or withdrawal plan are identified by a product identification or number.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ProductIdentification { get; init; } 
     /// <summary>
     /// Reference of the underlying service level agreement (SLA) governing charges and commission.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SLAChargeAndCommissionReference { get; init; } 
     /// <summary>
     /// Specifies the type of insurance contract to which the savings investment plan is linked.
     /// </summary>
-    [DataMember]
     public InsuranceType1Choice_? InsuranceCover { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Frqcy", xmlNamespace );
+        Frequency.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (StartDate is IsoISODate StartDateValue)
+        {
+            writer.WriteStartElement(null, "StartDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(StartDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (EndDate is IsoISODate EndDateValue)
+        {
+            writer.WriteStartElement(null, "EndDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(EndDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        Quantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (GrossAmountIndicator is IsoYesNoIndicator GrossAmountIndicatorValue)
+        {
+            writer.WriteStartElement(null, "GrssAmtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(GrossAmountIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (IncomePreference is IncomePreference1Code IncomePreferenceValue)
+        {
+            writer.WriteStartElement(null, "IncmPref", xmlNamespace );
+            writer.WriteValue(IncomePreferenceValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (InitialNumberOfInstalments is IsoNumber InitialNumberOfInstalmentsValue)
+        {
+            writer.WriteStartElement(null, "InitlNbOfInstlmts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(InitialNumberOfInstalmentsValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (TotalNumberOfInstalments is IsoNumber TotalNumberOfInstalmentsValue)
+        {
+            writer.WriteStartElement(null, "TtlNbOfInstlmts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberOfInstalmentsValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (RoundingDirection is RoundingDirection1Code RoundingDirectionValue)
+        {
+            writer.WriteStartElement(null, "RndgDrctn", xmlNamespace );
+            writer.WriteValue(RoundingDirectionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SctyDtls", xmlNamespace );
+        SecurityDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ModfdCshSttlm", xmlNamespace );
+        ModifiedCashSettlement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ContractReference is IsoMax35Text ContractReferenceValue)
+        {
+            writer.WriteStartElement(null, "CtrctRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ContractReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RelatedContractReference is IsoMax35Text RelatedContractReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdCtrctRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RelatedContractReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProductIdentification is IsoMax35Text ProductIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PdctId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProductIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SLAChargeAndCommissionReference is IsoMax35Text SLAChargeAndCommissionReferenceValue)
+        {
+            writer.WriteStartElement(null, "SLAChrgAndComssnRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SLAChargeAndCommissionReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (InsuranceCover is InsuranceType1Choice_ InsuranceCoverValue)
+        {
+            writer.WriteStartElement(null, "InsrncCover", xmlNamespace );
+            InsuranceCoverValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InvestmentPlan8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

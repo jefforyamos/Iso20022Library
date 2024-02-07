@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstitutionIdentification5
+     : IIsoXmlSerilizable<FinancialInstitutionIdentification5>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier, as assigned to a financial institution using a proprietary identification scheme.
     /// </summary>
-    [DataMember]
     public required RestrictedIdentification1 ProprietaryIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrtryId", xmlNamespace );
+        ProprietaryIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static FinancialInstitutionIdentification5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

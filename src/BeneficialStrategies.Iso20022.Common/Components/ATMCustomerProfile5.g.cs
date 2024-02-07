@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Profile of the customer with the allowed services and restrictions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMCustomerProfile5
+     : IIsoXmlSerilizable<ATMCustomerProfile5>
 {
     #nullable enable
     
     /// <summary>
     /// Reference of the customer profile.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ProfileReference { get; init; } 
     /// <summary>
     /// Identification of the customer for the bank.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CustomerIdentification { get; init; } 
     /// <summary>
     /// Description of the customer's profile in plaintext.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? ProfileDescription { get; init; } 
     /// <summary>
     /// Services allowed for the customer's profile.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMService17> AllowedServices { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMService17? AllowedServices { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ProfileReference is IsoMax35Text ProfileReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrflRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProfileReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CustomerIdentification is IsoMax35Text CustomerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CstmrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CustomerIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProfileDescription is IsoMax70Text ProfileDescriptionValue)
+        {
+            writer.WriteStartElement(null, "PrflDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(ProfileDescriptionValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (AllowedServices is ATMService17 AllowedServicesValue)
+        {
+            writer.WriteStartElement(null, "AllwdSvcs", xmlNamespace );
+            AllowedServicesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMCustomerProfile5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

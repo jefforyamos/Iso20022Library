@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indication of the type of assets subject of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityCommodity9
+     : IIsoXmlSerilizable<SecurityCommodity9>
 {
     #nullable enable
     
     /// <summary>
     /// Data specific to securities being subject to the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<Security51> Security { get; init; } = []; // Warning: Don't know multiplicity.
+    public Security51? Security { get; init; } 
     /// <summary>
     /// Data specific to commodities being subject to the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<Commodity43> Commodity { get; init; } = []; // Warning: Don't know multiplicity.
+    public Commodity43? Commodity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Security is Security51 SecurityValue)
+        {
+            writer.WriteStartElement(null, "Scty", xmlNamespace );
+            SecurityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Commodity is Commodity43 CommodityValue)
+        {
+            writer.WriteStartElement(null, "Cmmdty", xmlNamespace );
+            CommodityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecurityCommodity9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

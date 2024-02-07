@@ -7,23 +7,46 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional information required for distribution in the French market.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalProductInformation2
+     : IIsoXmlSerilizable<AdditionalProductInformation2>
 {
     #nullable enable
     
     /// <summary>
     /// Approach of the Autorite des Marches Financiers (AMF) recommendation 2020-03 to which the fund complies. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT V3.1) reference 01020.
     /// </summary>
-    [DataMember]
     public AMFDoctrine1Code? AMFDoctrine { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AMFDoctrine is AMFDoctrine1Code AMFDoctrineValue)
+        {
+            writer.WriteStartElement(null, "AMFDctrn", xmlNamespace );
+            writer.WriteValue(AMFDoctrineValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static AdditionalProductInformation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,83 +7,163 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the settlement condition modification request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RequestDetails29
+     : IIsoXmlSerilizable<RequestDetails29>
 {
     #nullable enable
     
     /// <summary>
     /// References of the transaction for which the securities settlement condition modification is requested.
     /// </summary>
-    [DataMember]
     public required References28 Reference { get; init; } 
     /// <summary>
     /// Restriction references applied on the transaction for which the securities settlement condition modification is requested.
     /// </summary>
-    [DataMember]
-    public ValueList<RestrictionIdentification2> RestrictionReference { get; init; } = []; // Warning: Don't know multiplicity.
+    public RestrictionIdentification2? RestrictionReference { get; init; } 
     /// <summary>
     /// Condition for automatic borrowing.
     /// </summary>
-    [DataMember]
     public AutomaticBorrowing11Choice_? AutomaticBorrowing { get; init; } 
     /// <summary>
     /// Indicates whether the instruction due to expire is confirmed for settlement.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? RetainIndicator { get; init; } 
     /// <summary>
     /// Specifies the type of linkage requested.
     /// </summary>
-    [DataMember]
     public LinkageType4Choice_? Linkage { get; init; } 
     /// <summary>
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
-    [DataMember]
     public PriorityNumeric5Choice_? Priority { get; init; } 
     /// <summary>
     /// Specifies another type of processing change request.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericIdentification47> OtherProcessing { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericIdentification47? OtherProcessing { get; init; } 
     /// <summary>
     /// Specifies whether partial settlement is allowed.
     /// </summary>
-    [DataMember]
     public SettlementTransactionCondition5Code? PartialSettlementIndicator { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction is to be settled through an RTGS or a non RTGS system.
     /// </summary>
-    [DataMember]
     public SecuritiesRTGS5Choice_? SecuritiesRTGS { get; init; } 
     /// <summary>
     /// Specifies whether the transaction is on hold/blocked/frozen.
     /// </summary>
-    [DataMember]
     public HoldIndicator7? HoldIndicator { get; init; } 
     /// <summary>
     /// Specifies the matching processing change requested.
     /// </summary>
-    [DataMember]
     public MatchingDenied4Choice_? MatchingDenial { get; init; } 
     /// <summary>
     /// Specifies that the transaction is requested to be unilaterally split.
     /// </summary>
-    [DataMember]
     public UnilateralSplit4Choice_? UnilateralSplit { get; init; } 
     /// <summary>
     /// Information regarding the linkage requested.
     /// </summary>
-    [DataMember]
-    public ValueList<Linkages66> Linkages { get; init; } = []; // Warning: Don't know multiplicity.
+    public Linkages66? Linkages { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ref", xmlNamespace );
+        Reference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RestrictionReference is RestrictionIdentification2 RestrictionReferenceValue)
+        {
+            writer.WriteStartElement(null, "RstrctnRef", xmlNamespace );
+            RestrictionReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AutomaticBorrowing is AutomaticBorrowing11Choice_ AutomaticBorrowingValue)
+        {
+            writer.WriteStartElement(null, "AutomtcBrrwg", xmlNamespace );
+            AutomaticBorrowingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RetainIndicator is IsoYesNoIndicator RetainIndicatorValue)
+        {
+            writer.WriteStartElement(null, "RtnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RetainIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Linkage is LinkageType4Choice_ LinkageValue)
+        {
+            writer.WriteStartElement(null, "Lkg", xmlNamespace );
+            LinkageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Priority is PriorityNumeric5Choice_ PriorityValue)
+        {
+            writer.WriteStartElement(null, "Prty", xmlNamespace );
+            PriorityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherProcessing is GenericIdentification47 OtherProcessingValue)
+        {
+            writer.WriteStartElement(null, "OthrPrcg", xmlNamespace );
+            OtherProcessingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PartialSettlementIndicator is SettlementTransactionCondition5Code PartialSettlementIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PrtlSttlmInd", xmlNamespace );
+            writer.WriteValue(PartialSettlementIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SecuritiesRTGS is SecuritiesRTGS5Choice_ SecuritiesRTGSValue)
+        {
+            writer.WriteStartElement(null, "SctiesRTGS", xmlNamespace );
+            SecuritiesRTGSValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (HoldIndicator is HoldIndicator7 HoldIndicatorValue)
+        {
+            writer.WriteStartElement(null, "HldInd", xmlNamespace );
+            HoldIndicatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MatchingDenial is MatchingDenied4Choice_ MatchingDenialValue)
+        {
+            writer.WriteStartElement(null, "MtchgDnl", xmlNamespace );
+            MatchingDenialValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnilateralSplit is UnilateralSplit4Choice_ UnilateralSplitValue)
+        {
+            writer.WriteStartElement(null, "UnltrlSplt", xmlNamespace );
+            UnilateralSplitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Linkages is Linkages66 LinkagesValue)
+        {
+            writer.WriteStartElement(null, "Lnkgs", xmlNamespace );
+            LinkagesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RequestDetails29 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

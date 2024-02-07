@@ -7,43 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Low level communication of the hardware or software component toward another component or an external entity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CommunicationCharacteristics4
+     : IIsoXmlSerilizable<CommunicationCharacteristics4>
 {
     #nullable enable
     
     /// <summary>
     /// Type of low level communication.
     /// </summary>
-    [DataMember]
     public required POICommunicationType2Code CommunicationType { get; init; } 
     /// <summary>
     /// Entity that communicate with the current component, using this communication device.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyType7Code> RemoteParty { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyType7Code? RemoteParty { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _niOrQ-zfEeiojesOXOKoug
     /// <summary>
     /// Communication hardware is activated.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator Active { get; init; } 
     /// <summary>
     /// Network parameters of the communication link.
     /// </summary>
-    [DataMember]
     public NetworkParameters5? Parameters { get; init; } 
     /// <summary>
     /// Physical Interface used by the communication link.
     /// </summary>
-    [DataMember]
     public PhysicalInterfaceParameter1? PhysicalInterface { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ComTp", xmlNamespace );
+        writer.WriteValue(CommunicationType.ToString()); // Enum value
+        writer.WriteEndElement();
+        // Not sure how to serialize RemoteParty, multiplicity Unknown
+        writer.WriteStartElement(null, "Actv", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(Active)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        if (Parameters is NetworkParameters5 ParametersValue)
+        {
+            writer.WriteStartElement(null, "Params", xmlNamespace );
+            ParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PhysicalInterface is PhysicalInterfaceParameter1 PhysicalInterfaceValue)
+        {
+            writer.WriteStartElement(null, "PhysIntrfc", xmlNamespace );
+            PhysicalInterfaceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CommunicationCharacteristics4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

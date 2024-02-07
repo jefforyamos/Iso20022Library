@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.auth.InformationRequestResponseV01>;
 
 namespace BeneficialStrategies.Iso20022.auth;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// •	only referred to in the response message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"This message is sent by the financial institution to the authorities (police, customs, tax authorities, enforcement authorities) to provide a part or all of the requested information.|The financial institution previously received a request for financial information in the scope of a financial investigation.||Depending on whether the response can be provided STP within the authorities financial investigations messages, the requested information may be |•	provided in part or in full within the response message itself, or |•	only referred to in the response message.")]
-public partial record InformationRequestResponseV01 : IOuterRecord
+public partial record InformationRequestResponseV01 : IOuterRecord<InformationRequestResponseV01,InformationRequestResponseV01Document>
+    ,IIsoXmlSerilizable<InformationRequestResponseV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record InformationRequestResponseV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "InfReqRspn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => InformationRequestResponseV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -111,6 +118,44 @@ public partial record InformationRequestResponseV01 : IOuterRecord
     {
         return new InformationRequestResponseV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("InfReqRspn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RspnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ResponseIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InvstgtnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(InvestigationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RspnSts", xmlNamespace );
+        writer.WriteValue(ResponseStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SchCrit", xmlNamespace );
+        SearchCriteria.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RtrInd", xmlNamespace );
+        ReturnIndicator.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InformationRequestResponseV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -118,9 +163,7 @@ public partial record InformationRequestResponseV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InformationRequestResponseV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record InformationRequestResponseV01Document : IOuterDocument<InformationRequestResponseV01>
+public partial record InformationRequestResponseV01Document : IOuterDocument<InformationRequestResponseV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -136,5 +179,22 @@ public partial record InformationRequestResponseV01Document : IOuterDocument<Inf
     /// <summary>
     /// The instance of <seealso cref="InformationRequestResponseV01"/> is required.
     /// </summary>
+    [DataMember(Name=InformationRequestResponseV01.XmlTag)]
     public required InformationRequestResponseV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(InformationRequestResponseV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about discounts or waivers to charges and commissions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ChargeOrCommissionDiscount1
+     : IIsoXmlSerilizable<ChargeOrCommissionDiscount1>
 {
     #nullable enable
     
@@ -26,7 +27,6 @@ public partial record ChargeOrCommissionDiscount1
     /// Discount is EUR 30
     /// Applied charge is EUR 70.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Difference between the standard fee (charge/commission) rate and the applied rate of the fee (charge/commission).
@@ -35,13 +35,46 @@ public partial record ChargeOrCommissionDiscount1
     /// Discount rate is 3%
     /// Applied rate is 2%.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     /// <summary>
     /// Form of the discount or rebate, for example, cash.
     /// </summary>
-    [DataMember]
     public WaivingInstruction2Choice_? Basis { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Amount is IsoActiveCurrencyAndAmount AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Rate is IsoPercentageRate RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Basis is WaivingInstruction2Choice_ BasisValue)
+        {
+            writer.WriteStartElement(null, "Bsis", xmlNamespace );
+            BasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ChargeOrCommissionDiscount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

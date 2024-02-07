@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters of the asymmetric encryption algorithm.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Parameter13
+     : IIsoXmlSerilizable<Parameter13>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the digest algorithm.
     /// </summary>
-    [DataMember]
     public Algorithm20Code? DigestAlgorithm { get; init; } 
     /// <summary>
     /// Mask generator function cryptographic algorithm and parameters.
     /// </summary>
-    [DataMember]
     public AlgorithmIdentification26? MaskGeneratorAlgorithm { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DigestAlgorithm is Algorithm20Code DigestAlgorithmValue)
+        {
+            writer.WriteStartElement(null, "DgstAlgo", xmlNamespace );
+            writer.WriteValue(DigestAlgorithmValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MaskGeneratorAlgorithm is AlgorithmIdentification26 MaskGeneratorAlgorithmValue)
+        {
+            writer.WriteStartElement(null, "MskGnrtrAlgo", xmlNamespace );
+            MaskGeneratorAlgorithmValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Parameter13 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

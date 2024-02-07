@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to search for an account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralValueSearchCriteria1
+     : IIsoXmlSerilizable<CollateralValueSearchCriteria1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public AccountIdentification4Choice_? AccountIdentification { get; init; } 
     /// <summary>
     /// Medium of exchange of value.
     /// </summary>
-    [DataMember]
-    public ValueList<ActiveOrHistoricCurrencyCode> Currency { get; init; } = []; // Warning: Don't know multiplicity.
+    public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Party that legally owns the account being queried.
     /// </summary>
-    [DataMember]
     public PartyIdentification71Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, which is being queried.
     /// </summary>
-    [DataMember]
     public PartyIdentification71Choice_? AccountServicer { get; init; } 
     /// <summary>
     /// ISIN identification of the related financial instrument into which this security can be converted.
     /// </summary>
-    [DataMember]
-    public ValueList<SecurityIdentification14> FinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecurityIdentification14? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the securities account owner.
     /// </summary>
-    [DataMember]
     public PartyIdentification71Choice_? SecuritiesAccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the securities account on behalf of the account owner.
     /// </summary>
-    [DataMember]
     public PartyIdentification71Choice_? SecuritiesAccountServicer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountIdentification is AccountIdentification4Choice_ AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            AccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveOrHistoricCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AccountOwner is PartyIdentification71Choice_ AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountServicer is PartyIdentification71Choice_ AccountServicerValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+            AccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentIdentification is SecurityIdentification14 FinancialInstrumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+            FinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesAccountOwner is PartyIdentification71Choice_ SecuritiesAccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "SctiesAcctOwnr", xmlNamespace );
+            SecuritiesAccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesAccountServicer is PartyIdentification71Choice_ SecuritiesAccountServicerValue)
+        {
+            writer.WriteStartElement(null, "SctiesAcctSvcr", xmlNamespace );
+            SecuritiesAccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralValueSearchCriteria1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

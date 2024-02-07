@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional amount that may be displayed to the customer, for instance the daily limit or the daily balance for the service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMTransactionAmounts7
+     : IIsoXmlSerilizable<ATMTransactionAmounts7>
 {
     #nullable enable
     
     /// <summary>
     /// Type of amount.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Amount value.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Currency of the amount.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Description of the amount that may be provided to the customer.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Label { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Type)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(Amount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Label is IsoMax70Text LabelValue)
+        {
+            writer.WriteStartElement(null, "Labl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(LabelValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMTransactionAmounts7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

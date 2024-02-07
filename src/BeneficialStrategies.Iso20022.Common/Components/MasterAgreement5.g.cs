@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to a master agreement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MasterAgreement5
+     : IIsoXmlSerilizable<MasterAgreement5>
 {
     #nullable enable
     
     /// <summary>
     /// Reference to any master agreement, if existent (such as ISDA Master Agreement; Master Power Purchase and Sale Agreement; International ForEx Master Agreement; European Master Agreement or any local Master Agreements).
     /// </summary>
-    [DataMember]
     public IsoMax50Text? Type { get; init; } 
     /// <summary>
     /// Reference to the year of the master agreement version used for the reported trade, if applicable (such as 1992, 2002, etc).
     /// </summary>
-    [DataMember]
     public IsoMax50Text? Version { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is IsoMax50Text TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax50Text(TypeValue)); // data type Max50Text System.String
+            writer.WriteEndElement();
+        }
+        if (Version is IsoMax50Text VersionValue)
+        {
+            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax50Text(VersionValue)); // data type Max50Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static MasterAgreement5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

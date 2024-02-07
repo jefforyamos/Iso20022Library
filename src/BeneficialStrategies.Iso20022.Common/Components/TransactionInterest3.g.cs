@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provide further details on transaction specific interest information that applies to the underlying transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionInterest3
+     : IIsoXmlSerilizable<TransactionInterest3>
 {
     #nullable enable
     
     /// <summary>
     /// Total amount of interests and taxes included in the entry amount.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalInterestAndTaxAmount { get; init; } 
     /// <summary>
     /// Individual interest record.
     /// </summary>
-    [DataMember]
-    public ValueList<InterestRecord1> Record { get; init; } = []; // Warning: Don't know multiplicity.
+    public InterestRecord1? Record { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TotalInterestAndTaxAmount is IsoActiveOrHistoricCurrencyAndAmount TotalInterestAndTaxAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlIntrstAndTaxAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalInterestAndTaxAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Record is InterestRecord1 RecordValue)
+        {
+            writer.WriteStartElement(null, "Rcrd", xmlNamespace );
+            RecordValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionInterest3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

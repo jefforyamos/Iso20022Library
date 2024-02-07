@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Deposit limits for the account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMTransactionAmounts5
+     : IIsoXmlSerilizable<ATMTransactionAmounts5>
 {
     #nullable enable
     
     /// <summary>
     /// True if limits may be displayed on the ATM to the customer.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? DisplayFlag { get; init; } 
     /// <summary>
     /// Maximum amount allowed for deposit on the account.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? MaximumAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DisplayFlag is IsoTrueFalseIndicator DisplayFlagValue)
+        {
+            writer.WriteStartElement(null, "DispFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DisplayFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (MaximumAmount is IsoImpliedCurrencyAndAmount MaximumAmountValue)
+        {
+            writer.WriteStartElement(null, "MaxAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MaximumAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMTransactionAmounts5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

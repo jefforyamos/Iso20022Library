@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies two values to compare related to payment data attributes not reported in dedicated fields.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CompareOtherPayment1
+     : IIsoXmlSerilizable<CompareOtherPayment1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the information on the other payment types are matching or not.
     /// </summary>
-    [DataMember]
     public CompareOtherPaymentType1? OtherPaymentType { get; init; } 
     /// <summary>
     /// Specifies whether the information on the other payment amounts are matching or not.
     /// </summary>
-    [DataMember]
     public CompareAmountAndDirection3? OtherPaymentAmount { get; init; } 
     /// <summary>
     /// Specifies whether the information on the other payment dates are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDate3? OtherPaymentDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the other payment payers are matching or not.
     /// </summary>
-    [DataMember]
     public CompareOrganisationIdentification7? OtherPaymentPayer { get; init; } 
     /// <summary>
     /// Specifies whether the information on the other payment receivers are matching or not.
     /// </summary>
-    [DataMember]
     public CompareOrganisationIdentification7? OtherPaymentReceiver { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OtherPaymentType is CompareOtherPaymentType1 OtherPaymentTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrPmtTp", xmlNamespace );
+            OtherPaymentTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherPaymentAmount is CompareAmountAndDirection3 OtherPaymentAmountValue)
+        {
+            writer.WriteStartElement(null, "OthrPmtAmt", xmlNamespace );
+            OtherPaymentAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherPaymentDate is CompareDate3 OtherPaymentDateValue)
+        {
+            writer.WriteStartElement(null, "OthrPmtDt", xmlNamespace );
+            OtherPaymentDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherPaymentPayer is CompareOrganisationIdentification7 OtherPaymentPayerValue)
+        {
+            writer.WriteStartElement(null, "OthrPmtPyer", xmlNamespace );
+            OtherPaymentPayerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherPaymentReceiver is CompareOrganisationIdentification7 OtherPaymentReceiverValue)
+        {
+            writer.WriteStartElement(null, "OthrPmtRcvr", xmlNamespace );
+            OtherPaymentReceiverValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CompareOtherPayment1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

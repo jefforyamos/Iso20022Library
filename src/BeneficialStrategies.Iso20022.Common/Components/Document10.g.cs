@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a document.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Document10
+     : IIsoXmlSerilizable<Document10>
 {
     #nullable enable
     
     /// <summary>
     /// Type of document.
     /// </summary>
-    [DataMember]
     public required UndertakingDocumentType2Choice_ DocumentType { get; init; } 
     /// <summary>
     /// Channel through which the document should be presented.
     /// </summary>
-    [DataMember]
     public Channel1Choice_? PresentationChannel { get; init; } 
     /// <summary>
     /// Format of the document.
     /// </summary>
-    [DataMember]
     public DocumentFormat1Choice_? DocumentFormat { get; init; } 
     /// <summary>
     /// Indication whether the document may be a copy of the original document.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? CopyIndicator { get; init; } 
     /// <summary>
     /// Indication whether the document must be signed.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? SignedIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DocTp", xmlNamespace );
+        DocumentType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PresentationChannel is Channel1Choice_ PresentationChannelValue)
+        {
+            writer.WriteStartElement(null, "PresntnChanl", xmlNamespace );
+            PresentationChannelValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DocumentFormat is DocumentFormat1Choice_ DocumentFormatValue)
+        {
+            writer.WriteStartElement(null, "DocFrmt", xmlNamespace );
+            DocumentFormatValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CopyIndicator is IsoYesNoIndicator CopyIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CpyInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CopyIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SignedIndicator is IsoYesNoIndicator SignedIndicatorValue)
+        {
+            writer.WriteStartElement(null, "SgndInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SignedIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Document10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

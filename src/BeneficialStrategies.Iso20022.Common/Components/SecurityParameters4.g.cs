@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Security parameters of the ATM for the initiated key download.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityParameters4
+     : IIsoXmlSerilizable<SecurityParameters4>
 {
     #nullable enable
     
     /// <summary>
     /// Cryptographic key used to protect the key download.
     /// </summary>
-    [DataMember]
     public CryptographicKey8? Key { get; init; } 
     /// <summary>
     /// Digital signature of implicit data depending on the security scheme download procedure.
     /// </summary>
-    [DataMember]
     public ContentInformationType14? DigitalSignature { get; init; } 
     /// <summary>
     /// Ordered certificate chain of the asymmetric key encryption key, starting with the ATM certificate.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax5000Binary> Certificate { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax5000Binary? Certificate { get; init; } 
     /// <summary>
     /// Random value from the ATM to avoid message replay.
     /// </summary>
-    [DataMember]
     public IsoMax140Binary? ATMChallenge { get; init; } 
     /// <summary>
     /// Requested key for downloading, depending on the key hierarchy used by the host.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RequestedKey { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Key is CryptographicKey8 KeyValue)
+        {
+            writer.WriteStartElement(null, "Key", xmlNamespace );
+            KeyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DigitalSignature is ContentInformationType14 DigitalSignatureValue)
+        {
+            writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
+            DigitalSignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Certificate is IsoMax5000Binary CertificateValue)
+        {
+            writer.WriteStartElement(null, "Cert", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax5000Binary(CertificateValue)); // data type Max5000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (ATMChallenge is IsoMax140Binary ATMChallengeValue)
+        {
+            writer.WriteStartElement(null, "ATMChllng", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Binary(ATMChallengeValue)); // data type Max140Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (RequestedKey is IsoMax35Text RequestedKeyValue)
+        {
+            writer.WriteStartElement(null, "ReqdKey", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RequestedKeyValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SecurityParameters4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

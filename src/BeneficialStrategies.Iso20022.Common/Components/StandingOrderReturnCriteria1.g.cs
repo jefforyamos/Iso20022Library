@@ -7,103 +7,206 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to report on standing orders.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StandingOrderReturnCriteria1
+     : IIsoXmlSerilizable<StandingOrderReturnCriteria1>
 {
     #nullable enable
     
     /// <summary>
     /// Defines the criteria used to report on a multilateral balance.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? StandingOrderIdentificationIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the standing order type is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? TypeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the system member identification is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? SystemMemberIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the responsible party identification is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? ResponsiblePartyIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account currency is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? CurrencyIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account type is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? DebtorAccountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the multilateral limit is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? CreditorAccountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the associated pool account is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? AssociatedPoolAccount { get; init; } 
     /// <summary>
     /// Indicates whether the frequency is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? FrequencyIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the execution type is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? ExecutionTypeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account standing order is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? ValidityFromIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account owner information is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? ValidToIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the link set identification is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? LinkSetIdentificationIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the identification of a standing order within a link set is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? LinkSetOrderIdentificationIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the sequence of a standing order within a link set is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? LinkSetOrderSequenceIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the total amount per standing order type is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? TotalAmountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the zero sweeping indicator is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? ZeroSweepIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (StandingOrderIdentificationIndicator is IsoRequestedIndicator StandingOrderIdentificationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "StgOrdrIdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(StandingOrderIdentificationIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TypeIndicator is IsoRequestedIndicator TypeIndicatorValue)
+        {
+            writer.WriteStartElement(null, "TpInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(TypeIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SystemMemberIndicator is IsoRequestedIndicator SystemMemberIndicatorValue)
+        {
+            writer.WriteStartElement(null, "SysMmbInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SystemMemberIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ResponsiblePartyIndicator is IsoRequestedIndicator ResponsiblePartyIndicatorValue)
+        {
+            writer.WriteStartElement(null, "RspnsblPtyInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(ResponsiblePartyIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CurrencyIndicator is IsoRequestedIndicator CurrencyIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CcyInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(CurrencyIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (DebtorAccountIndicator is IsoRequestedIndicator DebtorAccountIndicatorValue)
+        {
+            writer.WriteStartElement(null, "DbtrAcctInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(DebtorAccountIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CreditorAccountIndicator is IsoRequestedIndicator CreditorAccountIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CdtrAcctInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(CreditorAccountIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AssociatedPoolAccount is IsoRequestedIndicator AssociatedPoolAccountValue)
+        {
+            writer.WriteStartElement(null, "AssoctdPoolAcct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(AssociatedPoolAccountValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (FrequencyIndicator is IsoRequestedIndicator FrequencyIndicatorValue)
+        {
+            writer.WriteStartElement(null, "FrqcyInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(FrequencyIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ExecutionTypeIndicator is IsoRequestedIndicator ExecutionTypeIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ExctnTpInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(ExecutionTypeIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ValidityFromIndicator is IsoRequestedIndicator ValidityFromIndicatorValue)
+        {
+            writer.WriteStartElement(null, "VldtyFrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(ValidityFromIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ValidToIndicator is IsoRequestedIndicator ValidToIndicatorValue)
+        {
+            writer.WriteStartElement(null, "VldToInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(ValidToIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (LinkSetIdentificationIndicator is IsoRequestedIndicator LinkSetIdentificationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "LkSetIdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(LinkSetIdentificationIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (LinkSetOrderIdentificationIndicator is IsoRequestedIndicator LinkSetOrderIdentificationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "LkSetOrdrIdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(LinkSetOrderIdentificationIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (LinkSetOrderSequenceIndicator is IsoRequestedIndicator LinkSetOrderSequenceIndicatorValue)
+        {
+            writer.WriteStartElement(null, "LkSetOrdrSeqInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(LinkSetOrderSequenceIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TotalAmountIndicator is IsoRequestedIndicator TotalAmountIndicatorValue)
+        {
+            writer.WriteStartElement(null, "TtlAmtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(TotalAmountIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ZeroSweepIndicator is IsoRequestedIndicator ZeroSweepIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ZeroSweepInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(ZeroSweepIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static StandingOrderReturnCriteria1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

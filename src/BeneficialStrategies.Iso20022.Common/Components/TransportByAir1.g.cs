@@ -7,28 +7,52 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the transportation of goods by air.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransportByAir1
+     : IIsoXmlSerilizable<TransportByAir1>
 {
     #nullable enable
     
     /// <summary>
     /// Place from where the goods must leave.
     /// </summary>
-    [DataMember]
-    public ValueList<AirportName1Choice_> DepartureAirport { get; init; } = []; // Warning: Don't know multiplicity.
+    public AirportName1Choice_? DepartureAirport { get; init; } 
     /// <summary>
     /// Place where the goods must arrive.
     /// </summary>
-    [DataMember]
-    public ValueList<AirportName1Choice_> DestinationAirport { get; init; } = []; // Warning: Don't know multiplicity.
+    public AirportName1Choice_? DestinationAirport { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _U78Tmtp-Ed-ak6NoX_4Aeg_878799220
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DepartureAirport is AirportName1Choice_ DepartureAirportValue)
+        {
+            writer.WriteStartElement(null, "DprtureAirprt", xmlNamespace );
+            DepartureAirportValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize DestinationAirport, multiplicity Unknown
+    }
+    public static TransportByAir1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

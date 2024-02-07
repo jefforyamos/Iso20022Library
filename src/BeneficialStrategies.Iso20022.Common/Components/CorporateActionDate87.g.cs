@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies corporate action dates.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionDate87
+     : IIsoXmlSerilizable<CorporateActionDate87>
 {
     #nullable enable
     
     /// <summary>
     /// Date/time of the posting (credit or debit) to the account.
     /// </summary>
-    [DataMember]
     public required IsoISODate PostingDate { get; init; } 
     /// <summary>
     /// Date/time when calculating economic benefit for a cash amount.
     /// </summary>
-    [DataMember]
     public IsoISODate? ValueDate { get; init; } 
     /// <summary>
     /// Date/time at which a foreign exchange rate will be determined.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? ForeignExchangeRateFixingDate { get; init; } 
     /// <summary>
     /// Date/time on which a payment can be made, for example, if the payment date is a non-business day or to indicate the first payment date of an offer.
     /// </summary>
-    [DataMember]
     public IsoISODate? EarliestPaymentDate { get; init; } 
     /// <summary>
     /// Date on which the distribution is due to take place (cash and/or securities).
     /// </summary>
-    [DataMember]
     public IsoISODate? PaymentDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PstngDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(PostingDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (ValueDate is IsoISODate ValueDateValue)
+        {
+            writer.WriteStartElement(null, "ValDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ValueDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ForeignExchangeRateFixingDate is DateAndDateTime2Choice_ ForeignExchangeRateFixingDateValue)
+        {
+            writer.WriteStartElement(null, "FXRateFxgDt", xmlNamespace );
+            ForeignExchangeRateFixingDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EarliestPaymentDate is IsoISODate EarliestPaymentDateValue)
+        {
+            writer.WriteStartElement(null, "EarlstPmtDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(EarliestPaymentDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (PaymentDate is IsoISODate PaymentDateValue)
+        {
+            writer.WriteStartElement(null, "PmtDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(PaymentDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionDate87 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

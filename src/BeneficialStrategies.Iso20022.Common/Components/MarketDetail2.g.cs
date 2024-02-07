@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details specific to a market including which market identification and average number of transactions on the venue.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MarketDetail2
+     : IIsoXmlSerilizable<MarketDetail2>
 {
     #nullable enable
     
     /// <summary>
     /// Most relevant market in terms of liquidity as defined in the local regulation.
     /// </summary>
-    [DataMember]
     public required IsoMICIdentifier Identification { get; init; } 
     /// <summary>
     /// Average daily number of transactions that have been performed on the most relevant market in terms of liquidity.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? AverageDailyNumberOfTransactions { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMICIdentifier(Identification)); // data type MICIdentifier System.String
+        writer.WriteEndElement();
+        if (AverageDailyNumberOfTransactions is IsoDecimalNumber AverageDailyNumberOfTransactionsValue)
+        {
+            writer.WriteStartElement(null, "AvrgDalyNbOfTxs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(AverageDailyNumberOfTransactionsValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static MarketDetail2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

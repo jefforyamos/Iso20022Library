@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains text fields in the local language.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LocalData9
+     : IIsoXmlSerilizable<LocalData9>
 {
     #nullable enable
     
     /// <summary>
     /// The language code conforming to ISO 639-1 that identifies the language in which the fields are expressed in this component.
     /// </summary>
-    [DataMember]
     public required ISOMax3ALanguageCode Language { get; init; } 
     /// <summary>
     /// Contains generic text message in local language.
     /// </summary>
-    [DataMember]
     public required IsoMax40KText TextMessage { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Lang", xmlNamespace );
+        writer.WriteValue(Language.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxtMsg", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax40KText(TextMessage)); // data type Max40KText System.String
+        writer.WriteEndElement();
+    }
+    public static LocalData9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

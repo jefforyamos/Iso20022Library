@@ -7,68 +7,132 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the account notification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OriginalNotificationReference10
+     : IIsoXmlSerilizable<OriginalNotificationReference10>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the account to be credited with the incoming amount of money.
     /// </summary>
-    [DataMember]
     public CashAccount38? Account { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    [DataMember]
     public Party40Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? AccountServicer { get; init; } 
     /// <summary>
     /// Identifies the parent account of the account to be credited with the incoming amount of money.
     /// </summary>
-    [DataMember]
     public CashAccount38? RelatedAccount { get; init; } 
     /// <summary>
     /// Sum of the amounts in all the Item entries.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalAmount { get; init; } 
     /// <summary>
     /// Date on which the first agent expects the cash to be available to the final agent.
     /// </summary>
-    [DataMember]
     public IsoISODate? ExpectedValueDate { get; init; } 
     /// <summary>
     /// Party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
-    [DataMember]
     public Party40Choice_? Debtor { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? DebtorAgent { get; init; } 
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? IntermediaryAgent { get; init; } 
     /// <summary>
     /// Provides details of the expected amount on the account serviced by the account servicer.
     /// </summary>
-    [DataMember]
-    public ValueList<OriginalItem6> OriginalItem { get; init; } = []; // Warning: Don't know multiplicity.
+    public OriginalItem6? OriginalItem { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _VJfgT249EeiU9cctagi5ow
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Account is CashAccount38 AccountValue)
+        {
+            writer.WriteStartElement(null, "Acct", xmlNamespace );
+            AccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountOwner is Party40Choice_ AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountServicer is BranchAndFinancialInstitutionIdentification6 AccountServicerValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+            AccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedAccount is CashAccount38 RelatedAccountValue)
+        {
+            writer.WriteStartElement(null, "RltdAcct", xmlNamespace );
+            RelatedAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalAmount is IsoActiveOrHistoricCurrencyAndAmount TotalAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExpectedValueDate is IsoISODate ExpectedValueDateValue)
+        {
+            writer.WriteStartElement(null, "XpctdValDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExpectedValueDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Debtor is Party40Choice_ DebtorValue)
+        {
+            writer.WriteStartElement(null, "Dbtr", xmlNamespace );
+            DebtorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DebtorAgent is BranchAndFinancialInstitutionIdentification6 DebtorAgentValue)
+        {
+            writer.WriteStartElement(null, "DbtrAgt", xmlNamespace );
+            DebtorAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryAgent is BranchAndFinancialInstitutionIdentification6 IntermediaryAgentValue)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt", xmlNamespace );
+            IntermediaryAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize OriginalItem, multiplicity Unknown
+    }
+    public static OriginalNotificationReference10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

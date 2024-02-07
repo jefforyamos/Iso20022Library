@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Choice of format for the classification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ClassificationType2
+     : IIsoXmlSerilizable<ClassificationType2>
 {
     #nullable enable
     
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, for example, common share with voting rights, fully paid, or registered.
     /// </summary>
-    [DataMember]
     public IsoCFIOct2015Identifier? ClassificationFinancialInstrument { get; init; } 
     /// <summary>
     /// Name of the identification scheme, in a coded form as published in an external list.
     /// </summary>
-    [DataMember]
     public ExternalFinancialInstrumentProductType1Code? FinancialInstrumentProductTypeCode { get; init; } 
     /// <summary>
     /// Proprietary classification of financial instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericIdentification36> AlternateClassification { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericIdentification36? AlternateClassification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ClassificationFinancialInstrument is IsoCFIOct2015Identifier ClassificationFinancialInstrumentValue)
+        {
+            writer.WriteStartElement(null, "ClssfctnFinInstrm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCFIOct2015Identifier(ClassificationFinancialInstrumentValue)); // data type CFIOct2015Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentProductTypeCode is ExternalFinancialInstrumentProductType1Code FinancialInstrumentProductTypeCodeValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmPdctTpCd", xmlNamespace );
+            writer.WriteValue(FinancialInstrumentProductTypeCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AlternateClassification is GenericIdentification36 AlternateClassificationValue)
+        {
+            writer.WriteStartElement(null, "AltrnClssfctn", xmlNamespace );
+            AlternateClassificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ClassificationType2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

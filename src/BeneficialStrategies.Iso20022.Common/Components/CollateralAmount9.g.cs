@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Securities collateral position valuation amounts.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralAmount9
+     : IIsoXmlSerilizable<CollateralAmount9>
 {
     #nullable enable
     
     /// <summary>
     /// Actual market value post haircut expressed in the collateral currency. 
     /// </summary>
-    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount ActualMarketValuePostHaircut { get; init; } 
     /// <summary>
     /// Actual market value before haircut expressed in the collateral currency.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ActualMarketValueBeforeHaircut { get; init; } 
     /// <summary>
     /// Amount of the exposure/collateral in the exposure/collateral currency.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ExposureCollateralInTransactionCurrency { get; init; } 
     /// <summary>
     /// Amount of the exposure/collateral in the reporting currency.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ExposureCollateralInReportingCurrency { get; init; } 
     /// <summary>
     /// Actual market value post haircut expressed in the transaction currency.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? MarketValueAmountPostHaircut { get; init; } 
     /// <summary>
     /// Actual market value before haircut expressed in the transaction currency. 
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? MarketValueAmountBeforeHaircut { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ActlMktValPstHrcut", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ActualMarketValuePostHaircut)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (ActualMarketValueBeforeHaircut is IsoActiveOrHistoricCurrencyAndAmount ActualMarketValueBeforeHaircutValue)
+        {
+            writer.WriteStartElement(null, "ActlMktValBfrHrcut", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ActualMarketValueBeforeHaircutValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExposureCollateralInTransactionCurrency is IsoActiveOrHistoricCurrencyAndAmount ExposureCollateralInTransactionCurrencyValue)
+        {
+            writer.WriteStartElement(null, "XpsrCollInTxCcy", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ExposureCollateralInTransactionCurrencyValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExposureCollateralInReportingCurrency is IsoActiveOrHistoricCurrencyAndAmount ExposureCollateralInReportingCurrencyValue)
+        {
+            writer.WriteStartElement(null, "XpsrCollInRptgCcy", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ExposureCollateralInReportingCurrencyValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MarketValueAmountPostHaircut is IsoActiveOrHistoricCurrencyAndAmount MarketValueAmountPostHaircutValue)
+        {
+            writer.WriteStartElement(null, "MktValAmtPstHrcut", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(MarketValueAmountPostHaircutValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MarketValueAmountBeforeHaircut is IsoActiveOrHistoricCurrencyAndAmount MarketValueAmountBeforeHaircutValue)
+        {
+            writer.WriteStartElement(null, "MktValAmtBfrHrcut", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(MarketValueAmountBeforeHaircutValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralAmount9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

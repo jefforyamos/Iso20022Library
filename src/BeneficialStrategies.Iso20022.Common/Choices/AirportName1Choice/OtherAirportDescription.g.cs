@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AirportName1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AirportName1Choice;
 /// Identifies an airport by its location and by its name.
 /// </summary>
 public partial record OtherAirportDescription : AirportName1Choice_
+     , IIsoXmlSerilizable<OtherAirportDescription>
 {
     #nullable enable
+    
     /// <summary>
     /// Identifies the town where the airport is located. For example: London.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record OtherAirportDescription : AirportName1Choice_
     /// Identifies the airport by its name. For example: Heathrow.
     /// </summary>
     public IsoMax35Text? AirportName { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Twn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Town)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (AirportName is IsoMax35Text AirportNameValue)
+        {
+            writer.WriteStartElement(null, "AirprtNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AirportNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new OtherAirportDescription Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

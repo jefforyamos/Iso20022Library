@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AgreedAmount1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AgreedAmount1Choice;
 /// Provides details about the agreed amount for the segregated independent amount.
 /// </summary>
 public partial record SegregatedIndependentAmount : AgreedAmount1Choice_
+     , IIsoXmlSerilizable<SegregatedIndependentAmount>
 {
     #nullable enable
+    
     /// <summary>
     /// Undisputed amount of the margin call request.
     /// </summary>
@@ -27,5 +31,35 @@ public partial record SegregatedIndependentAmount : AgreedAmount1Choice_
     /// Provides additional information related to the margin call amount that has been agreed.
     /// </summary>
     public IsoMax210Text? AdditionalInformation { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AgrdAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AgreedAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MrgnCallReqId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MarginCallRequestIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax210Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax210Text(AdditionalInformationValue)); // data type Max210Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new SegregatedIndependentAmount Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

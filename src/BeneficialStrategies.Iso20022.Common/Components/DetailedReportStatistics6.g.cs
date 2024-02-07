@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed statistics on reports.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DetailedReportStatistics6
+     : IIsoXmlSerilizable<DetailedReportStatistics6>
 {
     #nullable enable
     
     /// <summary>
     /// Total number of reports sent or received.
     /// </summary>
-    [DataMember]
     public required IsoMax15NumericText TotalNumberOfReports { get; init; } 
     /// <summary>
     /// Total number of reports accepted.
     /// </summary>
-    [DataMember]
     public required IsoMax15NumericText TotalNumberOfReportsAccepted { get; init; } 
     /// <summary>
     /// Total number of reports rejected.
     /// </summary>
-    [DataMember]
     public required IsoMax15NumericText TotalNumberOfReportsRejected { get; init; } 
     /// <summary>
     /// Number of reports rejected per error code.
     /// </summary>
-    [DataMember]
-    public ValueList<NumberOfTransactionsPerValidationRule6> NumberOfReportsRejectedPerError { get; init; } = []; // Warning: Don't know multiplicity.
+    public NumberOfTransactionsPerValidationRule6? NumberOfReportsRejectedPerError { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TtlNbOfRpts", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(TotalNumberOfReports)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlNbOfRptsAccptd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(TotalNumberOfReportsAccepted)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlNbOfRptsRjctd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(TotalNumberOfReportsRejected)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+        if (NumberOfReportsRejectedPerError is NumberOfTransactionsPerValidationRule6 NumberOfReportsRejectedPerErrorValue)
+        {
+            writer.WriteStartElement(null, "NbOfRptsRjctdPerErr", xmlNamespace );
+            NumberOfReportsRejectedPerErrorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DetailedReportStatistics6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

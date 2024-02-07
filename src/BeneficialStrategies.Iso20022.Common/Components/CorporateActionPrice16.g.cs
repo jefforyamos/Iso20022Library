@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies prices related to a corporate action option.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionPrice16
+     : IIsoXmlSerilizable<CorporateActionPrice16>
 {
     #nullable enable
     
     /// <summary>
     /// Cash disbursement in lieu of equities; usually in lieu of fractional quantity.
     /// </summary>
-    [DataMember]
     public PriceFormat19Choice_? CashInLieuOfSharePrice { get; init; } 
     /// <summary>
     /// Generic cash price received per product by the underlying security holder either as a percentage or an amount, for example, redemption price.
     /// </summary>
-    [DataMember]
-    public ValueList<PriceFormat20Choice_> GenericCashPriceReceivedPerProduct { get; init; } = []; // Warning: Don't know multiplicity.
+    public PriceFormat20Choice_? GenericCashPriceReceivedPerProduct { get; init; } 
     /// <summary>
     /// Amount of money required per over-subscribed equity as defined by the issuer.
     /// </summary>
-    [DataMember]
     public PriceFormat19Choice_? OverSubscriptionDepositPrice { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CashInLieuOfSharePrice is PriceFormat19Choice_ CashInLieuOfSharePriceValue)
+        {
+            writer.WriteStartElement(null, "CshInLieuOfShrPric", xmlNamespace );
+            CashInLieuOfSharePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GenericCashPriceReceivedPerProduct is PriceFormat20Choice_ GenericCashPriceReceivedPerProductValue)
+        {
+            writer.WriteStartElement(null, "GncCshPricRcvdPerPdct", xmlNamespace );
+            GenericCashPriceReceivedPerProductValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OverSubscriptionDepositPrice is PriceFormat19Choice_ OverSubscriptionDepositPriceValue)
+        {
+            writer.WriteStartElement(null, "OverSbcptDpstPric", xmlNamespace );
+            OverSubscriptionDepositPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionPrice16 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

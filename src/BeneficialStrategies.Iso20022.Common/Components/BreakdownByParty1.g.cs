@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the cash-in and cash-out flows by party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BreakdownByParty1
+     : IIsoXmlSerilizable<BreakdownByParty1>
 {
     #nullable enable
     
     /// <summary>
     /// Party, eg, fund management company, for which the cash flow is being reported.
     /// </summary>
-    [DataMember]
     public required PartyIdentification2Choice_ Party { get; init; } 
     /// <summary>
     /// Additional parameter/s applied to the cash flow by party.
     /// </summary>
-    [DataMember]
     public AdditionalParameters1? AdditionalParameters { get; init; } 
     /// <summary>
     /// Cash movement into the fund as a result of investment funds transactions, eg, subscriptions or switch-in.
     /// </summary>
-    [DataMember]
-    public ValueList<CashInForecast3> CashInForecast { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashInForecast3? CashInForecast { get; init; } 
     /// <summary>
     /// Cash movement out of the fund as a result of investment funds transactions, eg, redemptions or switch-out.
     /// </summary>
-    [DataMember]
-    public ValueList<CashOutForecast3> CashOutForecast { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashOutForecast3? CashOutForecast { get; init; } 
     /// <summary>
     /// Net cash as a result of the cash-in and cash-out flows specified for the party.
     /// </summary>
-    [DataMember]
-    public ValueList<NetCashForecast2> NetCashForecast { get; init; } = []; // Warning: Don't know multiplicity.
+    public NetCashForecast2? NetCashForecast { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Pty", xmlNamespace );
+        Party.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalParameters is AdditionalParameters1 AdditionalParametersValue)
+        {
+            writer.WriteStartElement(null, "AddtlParams", xmlNamespace );
+            AdditionalParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashInForecast is CashInForecast3 CashInForecastValue)
+        {
+            writer.WriteStartElement(null, "CshInFcst", xmlNamespace );
+            CashInForecastValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashOutForecast is CashOutForecast3 CashOutForecastValue)
+        {
+            writer.WriteStartElement(null, "CshOutFcst", xmlNamespace );
+            CashOutForecastValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NetCashForecast is NetCashForecast2 NetCashForecastValue)
+        {
+            writer.WriteStartElement(null, "NetCshFcst", xmlNamespace );
+            NetCashForecastValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BreakdownByParty1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

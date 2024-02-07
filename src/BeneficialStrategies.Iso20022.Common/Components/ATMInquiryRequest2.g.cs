@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the request of an inquiry from an ATM.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMInquiryRequest2
+     : IIsoXmlSerilizable<ATMInquiryRequest2>
 {
     #nullable enable
     
     /// <summary>
     /// Environment in which the inquiry is performed.
     /// </summary>
-    [DataMember]
     public required ATMEnvironment14 Environment { get; init; } 
     /// <summary>
     /// Context in which the inquiry is performed.
     /// </summary>
-    [DataMember]
     public required ATMContext14 Context { get; init; } 
     /// <summary>
     /// Inquiry information for the transaction.
     /// </summary>
-    [DataMember]
     public required ATMTransaction29 Transaction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Envt", xmlNamespace );
+        Environment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Cntxt", xmlNamespace );
+        Context.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tx", xmlNamespace );
+        Transaction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ATMInquiryRequest2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

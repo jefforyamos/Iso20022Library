@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reason why the service is taxed.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxReason1
+     : IIsoXmlSerilizable<TaxReason1>
 {
     #nullable enable
     
     /// <summary>
     /// Reason why the service is taxed, in a coded form.
     /// </summary>
-    [DataMember]
     public required IsoMax10Text Code { get; init; } 
     /// <summary>
     /// Reason why the service is taxed, in a free-text form.
     /// </summary>
-    [DataMember]
     public required IsoMax105Text Explanation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax10Text(Code)); // data type Max10Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Expltn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax105Text(Explanation)); // data type Max105Text System.String
+        writer.WriteEndElement();
+    }
+    public static TaxReason1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

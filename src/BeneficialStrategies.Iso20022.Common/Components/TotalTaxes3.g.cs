@@ -7,58 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information regarding the total amount of taxes.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TotalTaxes3
+     : IIsoXmlSerilizable<TotalTaxes3>
 {
     #nullable enable
     
     /// <summary>
     /// Total value of the taxes for a specific order.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? TotalAmountOfTaxes { get; init; } 
     /// <summary>
     /// Amount included in the dividend that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? TaxableIncomePerDividend { get; init; } 
     /// <summary>
     /// Specifies whether capital gain is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
-    [DataMember]
     public EUCapitalGain2Code? EUCapitalGain { get; init; } 
     /// <summary>
     /// Specifies whether capital gain is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
-    [DataMember]
     public IsoExtended350Code? ExtendedEUCapitalGain { get; init; } 
     /// <summary>
     /// Specifies whether dividend is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
-    [DataMember]
     public EUDividendStatus1Code? EUDividendStatus { get; init; } 
     /// <summary>
     /// Specifies whether dividend is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
-    [DataMember]
     public IsoExtended350Code? ExtendedEUDividendStatus { get; init; } 
     /// <summary>
     /// Percentage of the underlying assets of the funds that represents a debt and is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June).
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? PercentageOfDebtClaim { get; init; } 
     /// <summary>
     /// Information related to a specific tax.
     /// </summary>
-    [DataMember]
-    public ValueList<Tax14> TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Tax14? TaxDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TotalAmountOfTaxes is IsoActiveCurrencyAnd13DecimalAmount TotalAmountOfTaxesValue)
+        {
+            writer.WriteStartElement(null, "TtlAmtOfTaxs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(TotalAmountOfTaxesValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TaxableIncomePerDividend is IsoActiveCurrencyAndAmount TaxableIncomePerDividendValue)
+        {
+            writer.WriteStartElement(null, "TaxblIncmPerDvdd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TaxableIncomePerDividendValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (EUCapitalGain is EUCapitalGain2Code EUCapitalGainValue)
+        {
+            writer.WriteStartElement(null, "EUCptlGn", xmlNamespace );
+            writer.WriteValue(EUCapitalGainValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExtendedEUCapitalGain is IsoExtended350Code ExtendedEUCapitalGainValue)
+        {
+            writer.WriteStartElement(null, "XtndedEUCptlGn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedEUCapitalGainValue)); // data type Extended350Code System.String
+            writer.WriteEndElement();
+        }
+        if (EUDividendStatus is EUDividendStatus1Code EUDividendStatusValue)
+        {
+            writer.WriteStartElement(null, "EUDvddSts", xmlNamespace );
+            writer.WriteValue(EUDividendStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExtendedEUDividendStatus is IsoExtended350Code ExtendedEUDividendStatusValue)
+        {
+            writer.WriteStartElement(null, "XtndedEUDvddSts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedEUDividendStatusValue)); // data type Extended350Code System.String
+            writer.WriteEndElement();
+        }
+        if (PercentageOfDebtClaim is IsoPercentageRate PercentageOfDebtClaimValue)
+        {
+            writer.WriteStartElement(null, "PctgOfDebtClm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PercentageOfDebtClaimValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TaxDetails is Tax14 TaxDetailsValue)
+        {
+            writer.WriteStartElement(null, "TaxDtls", xmlNamespace );
+            TaxDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TotalTaxes3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

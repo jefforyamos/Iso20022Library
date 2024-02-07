@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the mandate to be amended and gives details of the new mandate.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MandateAmendment1
+     : IIsoXmlSerilizable<MandateAmendment1>
 {
     #nullable enable
     
     /// <summary>
     /// Set of elements used to provide information on the original messsage.
     /// </summary>
-    [DataMember]
     public OriginalMessageInformation1? OriginalMessageInformation { get; init; } 
     /// <summary>
     /// Set of elements used to provide detailed information on the amendment reason.
     /// </summary>
-    [DataMember]
     public required AmendmentReasonInformation1 AmendmentReason { get; init; } 
     /// <summary>
     /// Set of elements used to provide the amended mandate data.
     /// </summary>
-    [DataMember]
     public required MandateInformation3 Mandate { get; init; } 
     /// <summary>
     /// Set of elements used to provide the original mandate data.
     /// </summary>
-    [DataMember]
     public required OriginalMandate1Choice_ OriginalMandate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OriginalMessageInformation is OriginalMessageInformation1 OriginalMessageInformationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlMsgInf", xmlNamespace );
+            OriginalMessageInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AmdmntRsn", xmlNamespace );
+        AmendmentReason.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Mndt", xmlNamespace );
+        Mandate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgnlMndt", xmlNamespace );
+        OriginalMandate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static MandateAmendment1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details about the collateral held by party A and/or B.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralBalance1
+     : IIsoXmlSerilizable<CollateralBalance1>
 {
     #nullable enable
     
     /// <summary>
     /// Collateral currently held by party A.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount HeldByPartyA { get; init; } 
     /// <summary>
     /// Collateral currently held by party B.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount HeldByPartyB { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "HeldByPtyA", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(HeldByPartyA)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "HeldByPtyB", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(HeldByPartyB)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static CollateralBalance1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

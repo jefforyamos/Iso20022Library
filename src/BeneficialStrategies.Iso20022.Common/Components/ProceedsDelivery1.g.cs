@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProceedsDelivery1
+     : IIsoXmlSerilizable<ProceedsDelivery1>
 {
     #nullable enable
     
     /// <summary>
     /// identification of the securities account to which the securities have to be delivered.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text SecuritiesAccountIdentification { get; init; } 
     /// <summary>
     /// Identification of the cash account to which the cash has to be delivered.
     /// </summary>
-    [DataMember]
     public required CashAccountIdentification1Choice_ CashAccountIdentification { get; init; } 
     /// <summary>
     /// Identification of the party that owns the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Identification of the institution servicing the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? AccountServicerIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SctiesAcctId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(SecuritiesAccountIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CshAcctId", xmlNamespace );
+        CashAccountIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountOwnerIdentification is PartyIdentification2Choice_ AccountOwnerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnrId", xmlNamespace );
+            AccountOwnerIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountServicerIdentification is PartyIdentification2Choice_ AccountServicerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcrId", xmlNamespace );
+            AccountServicerIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ProceedsDelivery1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

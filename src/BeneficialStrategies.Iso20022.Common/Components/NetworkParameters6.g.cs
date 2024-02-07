@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters to communicate with a host.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NetworkParameters6
+     : IIsoXmlSerilizable<NetworkParameters6>
 {
     #nullable enable
     
     /// <summary>
     /// Type of proxy.
     /// </summary>
-    [DataMember]
     public required NetworkType2Code Type { get; init; } 
     /// <summary>
     /// Access information to the proxy.
     /// </summary>
-    [DataMember]
     public required NetworkParameters5 Access { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Accs", xmlNamespace );
+        Access.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static NetworkParameters6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

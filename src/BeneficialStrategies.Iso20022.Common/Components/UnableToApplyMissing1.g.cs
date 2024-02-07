@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of missing information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UnableToApplyMissing1
+     : IIsoXmlSerilizable<UnableToApplyMissing1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the missing information in a coded form.
     /// </summary>
-    [DataMember]
     public required UnableToApplyMissingInformation3Code Code { get; init; } 
     /// <summary>
     /// Further details about the missing information.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? AdditionalMissingInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AdditionalMissingInformation is IsoMax140Text AdditionalMissingInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlMssngInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalMissingInformationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static UnableToApplyMissing1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

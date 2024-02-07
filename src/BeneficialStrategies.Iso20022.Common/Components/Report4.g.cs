@@ -7,83 +7,154 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// General characteristics of the report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Report4
+     : IIsoXmlSerilizable<Report4>
 {
     #nullable enable
     
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
-    [DataMember]
     public IsoMax5NumericText? ReportNumber { get; init; } 
     /// <summary>
     /// Identification of the SecuritiesStatementQuery message sent to request this statement.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? QueryReference { get; init; } 
     /// <summary>
     /// Unique identification of the report.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReportIdentification { get; init; } 
     /// <summary>
     /// Date and time of the report.
     /// </summary>
-    [DataMember]
     public required DateAndDateTimeChoice_ ReportDateTime { get; init; } 
     /// <summary>
     /// Preparation date and time of the report.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeChoice_? CreationDateTime { get; init; } 
     /// <summary>
     /// Previous report date and time.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeChoice_? PreviousReportDateTime { get; init; } 
     /// <summary>
     /// Specifies the frequency of the report.
     /// </summary>
-    [DataMember]
     public required Frequency8Choice_ Frequency { get; init; } 
     /// <summary>
     /// Specifies whether the report is complete or contains changes only.
     /// </summary>
-    [DataMember]
     public required UpdateType4Choice_ UpdateType { get; init; } 
     /// <summary>
     /// Specifies the type of balance on which the report is prepared.
     /// </summary>
-    [DataMember]
     public required StatementBasis6Choice_ ReportBasis { get; init; } 
     /// <summary>
     /// Period for which the report is given.
     /// </summary>
-    [DataMember]
     public DatePeriodDetails? ReportPeriod { get; init; } 
     /// <summary>
     /// Specifies the source of the report.
     /// </summary>
-    [DataMember]
     public StatementSource1Choice_? ReportSource { get; init; } 
     /// <summary>
     /// Indicates whether the report is audited or not.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? AuditedIndicator { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or an information update reported in the report.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ActivityIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReportNumber is IsoMax5NumericText ReportNumberValue)
+        {
+            writer.WriteStartElement(null, "RptNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax5NumericText(ReportNumberValue)); // data type Max5NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (QueryReference is IsoMax35Text QueryReferenceValue)
+        {
+            writer.WriteStartElement(null, "QryRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(QueryReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ReportIdentification is IsoMax35Text ReportIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RptId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReportIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RptDtTm", xmlNamespace );
+        ReportDateTime.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CreationDateTime is DateAndDateTimeChoice_ CreationDateTimeValue)
+        {
+            writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+            CreationDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousReportDateTime is DateAndDateTimeChoice_ PreviousReportDateTimeValue)
+        {
+            writer.WriteStartElement(null, "PrvsRptDtTm", xmlNamespace );
+            PreviousReportDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Frqcy", xmlNamespace );
+        Frequency.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UpdTp", xmlNamespace );
+        UpdateType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptBsis", xmlNamespace );
+        ReportBasis.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ReportPeriod is DatePeriodDetails ReportPeriodValue)
+        {
+            writer.WriteStartElement(null, "RptPrd", xmlNamespace );
+            ReportPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReportSource is StatementSource1Choice_ ReportSourceValue)
+        {
+            writer.WriteStartElement(null, "RptSrc", xmlNamespace );
+            ReportSourceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AuditedIndicator is IsoYesNoIndicator AuditedIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AudtdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AuditedIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ActivityIndicator is IsoYesNoIndicator ActivityIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ActvtyInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ActivityIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Report4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

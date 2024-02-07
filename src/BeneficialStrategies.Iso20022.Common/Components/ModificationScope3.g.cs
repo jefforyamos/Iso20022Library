@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Scope of the modification to be applied on an identified set of information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ModificationScope3
+     : IIsoXmlSerilizable<ModificationScope3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of modification to be applied on a set of information.
     /// </summary>
-    [DataMember]
     public required DataModification2Code ModificationScopeIndication { get; init; } 
     /// <summary>
     /// Information about the nationality and the legal status (minor or major) of a person.
     /// </summary>
-    [DataMember]
     public required CitizenshipInformation Citizenship { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ModScpIndctn", xmlNamespace );
+        writer.WriteValue(ModificationScopeIndication.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Ctznsh", xmlNamespace );
+        Citizenship.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ModificationScope3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

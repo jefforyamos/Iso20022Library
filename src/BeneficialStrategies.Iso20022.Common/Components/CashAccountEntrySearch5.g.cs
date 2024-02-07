@@ -7,58 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to search for a cash entry.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashAccountEntrySearch5
+     : IIsoXmlSerilizable<CashAccountEntrySearch5>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
-    public ValueList<AccountIdentificationSearchCriteria2Choice_> AccountIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public AccountIdentificationSearchCriteria2Choice_? AccountIdentification { get; init; } 
     /// <summary>
     /// Specifies the entry amount(s) on which the query is performed.
     /// </summary>
-    [DataMember]
-    public ValueList<ActiveOrHistoricAmountRange2Choice_> EntryAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public ActiveOrHistoricAmountRange2Choice_? EntryAmount { get; init; } 
     /// <summary>
     /// Currency of the entry amount.
     /// </summary>
-    [DataMember]
-    public ValueList<ActiveOrHistoricCurrencyCode> EntryAmountCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    public ActiveOrHistoricCurrencyCode? EntryAmountCurrency { get; init; } 
     /// <summary>
     /// Indicates whether an entry is a credit or a debit.
     /// </summary>
-    [DataMember]
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Status of an entry on the books of the account servicer.
     /// </summary>
-    [DataMember]
-    public ValueList<EntryStatus1Code> EntryStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    public EntryStatus1Code? EntryStatus { get; init; } 
     /// <summary>
     /// Date and time at which an entry is posted to an account on the account servicer's books.
     /// </summary>
-    [DataMember]
-    public ValueList<DateAndDateTimeSearch3Choice_> EntryDate { get; init; } = []; // Warning: Don't know multiplicity.
+    public DateAndDateTimeSearch3Choice_? EntryDate { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification125? AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.|.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? AccountServicer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountIdentification is AccountIdentificationSearchCriteria2Choice_ AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            AccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EntryAmount is ActiveOrHistoricAmountRange2Choice_ EntryAmountValue)
+        {
+            writer.WriteStartElement(null, "NtryAmt", xmlNamespace );
+            EntryAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EntryAmountCurrency is ActiveOrHistoricCurrencyCode EntryAmountCurrencyValue)
+        {
+            writer.WriteStartElement(null, "NtryAmtCcy", xmlNamespace );
+            writer.WriteValue(EntryAmountCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CreditDebitIndicator is CreditDebitCode CreditDebitIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+            writer.WriteValue(CreditDebitIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (EntryStatus is EntryStatus1Code EntryStatusValue)
+        {
+            writer.WriteStartElement(null, "NtrySts", xmlNamespace );
+            writer.WriteValue(EntryStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (EntryDate is DateAndDateTimeSearch3Choice_ EntryDateValue)
+        {
+            writer.WriteStartElement(null, "NtryDt", xmlNamespace );
+            EntryDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountOwner is PartyIdentification125 AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountServicer is BranchAndFinancialInstitutionIdentification5 AccountServicerValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+            AccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CashAccountEntrySearch5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains the reservation details
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReservationDetails3
+     : IIsoXmlSerilizable<ReservationDetails3>
 {
     #nullable enable
     
     /// <summary>
     /// Computerised reservation system used to make the reservation and purchase the ticket.
     /// </summary>
-    [DataMember]
     public IsoMax4Text? System { get; init; } 
     /// <summary>
     /// Value that uniquely identifies the reservation. 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReservationNumber { get; init; } 
     /// <summary>
     /// System code that identifies the original reservation system used to make the reservation and purchase the ticket. 
     /// </summary>
-    [DataMember]
     public IsoMax4Text? OriginalSystem { get; init; } 
     /// <summary>
     /// Value that identifies the original reservation generated during the original reservation and purchase of the ticket. 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalReservationNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (System is IsoMax4Text SystemValue)
+        {
+            writer.WriteStartElement(null, "Sys", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4Text(SystemValue)); // data type Max4Text System.String
+            writer.WriteEndElement();
+        }
+        if (ReservationNumber is IsoMax35Text ReservationNumberValue)
+        {
+            writer.WriteStartElement(null, "RsvatnNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReservationNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalSystem is IsoMax4Text OriginalSystemValue)
+        {
+            writer.WriteStartElement(null, "OrgnlSys", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4Text(OriginalSystemValue)); // data type Max4Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalReservationNumber is IsoMax35Text OriginalReservationNumberValue)
+        {
+            writer.WriteStartElement(null, "OrgnlRsvatnNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalReservationNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ReservationDetails3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

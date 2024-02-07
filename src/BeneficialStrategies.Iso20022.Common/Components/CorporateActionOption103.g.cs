@@ -7,88 +7,167 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the corporate action option.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionOption103
+     : IIsoXmlSerilizable<CorporateActionOption103>
 {
     #nullable enable
     
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    [DataMember]
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    [DataMember]
     public required CorporateActionOption12Choice_ OptionType { get; init; } 
     /// <summary>
     /// Specifies how fractional amount/quantities are treated.
     /// </summary>
-    [DataMember]
     public FractionDispositionType17Choice_? FractionDisposition { get; init; } 
     /// <summary>
     /// Type of changes affecting the security form.
     /// </summary>
-    [DataMember]
-    public ValueList<CorporateActionChangeTypeFormat2Choice_> ChangeType { get; init; } = []; // Warning: Don't know multiplicity.
+    public CorporateActionChangeTypeFormat2Choice_? ChangeType { get; init; } 
     /// <summary>
     /// Specifies that the corporate action instruction is to be processed using the Available-for-Collateral pool.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? EligibleForCollateralIndicator { get; init; } 
     /// <summary>
     /// Account servicer is instructed to buy the indicated currency after the receipt of cash proceeds.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? CurrencyToBuy { get; init; } 
     /// <summary>
     /// Account servicer is instructed to sell the indicated currency in order to obtain the necessary currency to fund the transaction within this instruction message.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? CurrencyToSell { get; init; } 
     /// <summary>
     /// Currency in which the cash disbursed from an interest or dividend payment is offered.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? CurrencyOption { get; init; } 
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
-    [DataMember]
     public SecurityIdentification14? SecurityIdentification { get; init; } 
     /// <summary>
     /// Provides information about securities quantity linked to a corporate action option.
     /// </summary>
-    [DataMember]
     public required SecuritiesOption2 SecuritiesQuantity { get; init; } 
     /// <summary>
     /// Date/time at which the instructing party requests the instruction to be executed.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeChoice_? ExecutionRequestedDateTime { get; init; } 
     /// <summary>
     /// Provides information about rates and amounts related to a corporate action option.
     /// </summary>
-    [DataMember]
     public CorporateActionRate47? RateAndAmountDetails { get; init; } 
     /// <summary>
     /// Provides information about the prices related to a corporate action option.
     /// </summary>
-    [DataMember]
     public CorporateActionPrice44? PriceDetails { get; init; } 
     /// <summary>
     /// Provides additional information.
     /// </summary>
-    [DataMember]
     public CorporateActionNarrative8? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OptnNb", xmlNamespace );
+        OptionNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+        OptionType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FractionDisposition is FractionDispositionType17Choice_ FractionDispositionValue)
+        {
+            writer.WriteStartElement(null, "FrctnDspstn", xmlNamespace );
+            FractionDispositionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ChangeType is CorporateActionChangeTypeFormat2Choice_ ChangeTypeValue)
+        {
+            writer.WriteStartElement(null, "ChngTp", xmlNamespace );
+            ChangeTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EligibleForCollateralIndicator is IsoYesNoIndicator EligibleForCollateralIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ElgblForCollInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(EligibleForCollateralIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CurrencyToBuy is ActiveCurrencyCode CurrencyToBuyValue)
+        {
+            writer.WriteStartElement(null, "CcyToBuy", xmlNamespace );
+            writer.WriteValue(CurrencyToBuyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CurrencyToSell is ActiveCurrencyCode CurrencyToSellValue)
+        {
+            writer.WriteStartElement(null, "CcyToSell", xmlNamespace );
+            writer.WriteValue(CurrencyToSellValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CurrencyOption is ActiveCurrencyCode CurrencyOptionValue)
+        {
+            writer.WriteStartElement(null, "CcyOptn", xmlNamespace );
+            writer.WriteValue(CurrencyOptionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SecurityIdentification is SecurityIdentification14 SecurityIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SctyId", xmlNamespace );
+            SecurityIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SctiesQty", xmlNamespace );
+        SecuritiesQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ExecutionRequestedDateTime is DateAndDateTimeChoice_ ExecutionRequestedDateTimeValue)
+        {
+            writer.WriteStartElement(null, "ExctnReqdDtTm", xmlNamespace );
+            ExecutionRequestedDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RateAndAmountDetails is CorporateActionRate47 RateAndAmountDetailsValue)
+        {
+            writer.WriteStartElement(null, "RateAndAmtDtls", xmlNamespace );
+            RateAndAmountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PriceDetails is CorporateActionPrice44 PriceDetailsValue)
+        {
+            writer.WriteStartElement(null, "PricDtls", xmlNamespace );
+            PriceDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is CorporateActionNarrative8 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionOption103 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

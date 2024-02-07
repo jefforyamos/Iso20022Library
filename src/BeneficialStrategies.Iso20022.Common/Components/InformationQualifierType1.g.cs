@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Further qualifies the information provided in terms of its importance and its format.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InformationQualifierType1
+     : IIsoXmlSerilizable<InformationQualifierType1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the information is formatted.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? IsFormatted { get; init; } 
     /// <summary>
     /// Priority of the information.
     /// </summary>
-    [DataMember]
     public Priority1Code? Priority { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (IsFormatted is IsoYesNoIndicator IsFormattedValue)
+        {
+            writer.WriteStartElement(null, "IsFrmtd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(IsFormattedValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Priority is Priority1Code PriorityValue)
+        {
+            writer.WriteStartElement(null, "Prty", xmlNamespace );
+            writer.WriteValue(PriorityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static InformationQualifierType1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

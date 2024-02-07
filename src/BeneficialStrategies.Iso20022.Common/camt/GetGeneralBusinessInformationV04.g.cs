@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.GetGeneralBusinessInformationV04>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -36,10 +39,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// Additional information on the generic design of the Get/Return messages can be found in the section How to Use the Cash Management Messages.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The GetGeneralBusinessInformation message is sent by a member to the transaction administrator.|It is used to request information on a broadcast-type message previously sent by the transaction administrator to all or some of the members, giving information related to the processing business.|Usage|The transaction administrator can send general business information messages to the members, which may request further action from them. General business information can contain either static data announcing foreseen events affecting the system operations, or dynamic data warning or notifying about unexpected events.|This type of information can be transmitted in either of the two following ways:|- non-solicited reports are pushed by the transaction administrator to the (selected) members together with a reference, a qualifier and a subject line|- upon request from the members (pull mode), the transaction administrator delivers the full text/content of the message back to the user|The Get General Business Information message is used in this second context. At any time during the operating hours of the system, the member can query the transaction administrator to get information about a report of general business information previously sent.|The member can request information based on the following elements:|- reference of the report previously delivered|- subject of the report previously delivered, detailing the purpose and content of the message|- priority of the report previously sent, and indication of its format. (Note that if the format is indicated, the subject refers to a set of pre-agreed texts. This enumeration has to be agreed upon by the transaction administrator and the members of the system.)|- details of the previously sent message|This message will be replied to by a ReturnGeneralBusinessInformation message.|Additional information on the generic design of the Get/Return messages can be found in the section How to Use the Cash Management Messages.")]
-public partial record GetGeneralBusinessInformationV04 : IOuterRecord
+public partial record GetGeneralBusinessInformationV04 : IOuterRecord<GetGeneralBusinessInformationV04,GetGeneralBusinessInformationV04Document>
+    ,IIsoXmlSerilizable<GetGeneralBusinessInformationV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -51,6 +53,11 @@ public partial record GetGeneralBusinessInformationV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "GetGnlBizInf";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => GetGeneralBusinessInformationV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -90,6 +97,38 @@ public partial record GetGeneralBusinessInformationV04 : IOuterRecord
     {
         return new GetGeneralBusinessInformationV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("GetGnlBizInf");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+        MessageHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (GeneralBusinessInformationQueryDefinition is BusinessInformationQueryDefinition3 GeneralBusinessInformationQueryDefinitionValue)
+        {
+            writer.WriteStartElement(null, "GnlBizInfQryDef", xmlNamespace );
+            GeneralBusinessInformationQueryDefinitionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static GetGeneralBusinessInformationV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -97,9 +136,7 @@ public partial record GetGeneralBusinessInformationV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="GetGeneralBusinessInformationV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record GetGeneralBusinessInformationV04Document : IOuterDocument<GetGeneralBusinessInformationV04>
+public partial record GetGeneralBusinessInformationV04Document : IOuterDocument<GetGeneralBusinessInformationV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -115,5 +152,22 @@ public partial record GetGeneralBusinessInformationV04Document : IOuterDocument<
     /// <summary>
     /// The instance of <seealso cref="GetGeneralBusinessInformationV04"/> is required.
     /// </summary>
+    [DataMember(Name=GetGeneralBusinessInformationV04.XmlTag)]
     public required GetGeneralBusinessInformationV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(GetGeneralBusinessInformationV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

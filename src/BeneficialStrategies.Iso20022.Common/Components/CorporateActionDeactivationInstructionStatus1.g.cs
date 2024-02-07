@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides status of the deactivation instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionDeactivationInstructionStatus1
+     : IIsoXmlSerilizable<CorporateActionDeactivationInstructionStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    [DataMember]
     public CorporateActionOption1FormatChoice_? OptionType { get; init; } 
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    [DataMember]
     public IsoExact3NumericText? OptionNumber { get; init; } 
     /// <summary>
     /// Provides information about the processing status of the instruction.
     /// </summary>
-    [DataMember]
     public required CorporateActionDeactivationInstructionProcessingStatus1 ProcessedStatus { get; init; } 
     /// <summary>
     /// Provides information about the rejection status.
     /// </summary>
-    [DataMember]
     public required CorporateActionDeactivationInstructionRejectionStatus1 RejectedStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OptionType is CorporateActionOption1FormatChoice_ OptionTypeValue)
+        {
+            writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+            OptionTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionNumber is IsoExact3NumericText OptionNumberValue)
+        {
+            writer.WriteStartElement(null, "OptnNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact3NumericText(OptionNumberValue)); // data type Exact3NumericText System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PrcdSts", xmlNamespace );
+        ProcessedStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RjctdSts", xmlNamespace );
+        RejectedStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CorporateActionDeactivationInstructionStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

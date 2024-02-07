@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PriceInformation3
+     : IIsoXmlSerilizable<PriceInformation3>
 {
     #nullable enable
     
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
-    [DataMember]
     public required PriceRateOrAmountOrUnknownChoice_ Value { get; init; } 
     /// <summary>
     /// Amount of money for which goods or services are offered, sold, or bought.
     /// </summary>
-    [DataMember]
     public required UnitPriceType1Choice_ PriceType { get; init; } 
     /// <summary>
     /// Place from which the price was obtained.
     /// </summary>
-    [DataMember]
     public PriceSourceFormatChoice_? SourceOfPrice { get; init; } 
     /// <summary>
     /// Date on which the price is obtained. With an investment fund, this is as stated in the prospectus.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeChoice_? QuotationDate { get; init; } 
     /// <summary>
     /// Indicates whether the price is expressed as a yield. The absence of Yielded means it is not applicable.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? YieldedIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        Value.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PricTp", xmlNamespace );
+        PriceType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SourceOfPrice is PriceSourceFormatChoice_ SourceOfPriceValue)
+        {
+            writer.WriteStartElement(null, "SrcOfPric", xmlNamespace );
+            SourceOfPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (QuotationDate is DateAndDateTimeChoice_ QuotationDateValue)
+        {
+            writer.WriteStartElement(null, "QtnDt", xmlNamespace );
+            QuotationDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (YieldedIndicator is IsoYesNoIndicator YieldedIndicatorValue)
+        {
+            writer.WriteStartElement(null, "YlddInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(YieldedIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PriceInformation3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

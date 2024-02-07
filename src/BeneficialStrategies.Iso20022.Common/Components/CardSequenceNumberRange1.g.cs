@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Range of sequence numbers related to card transactions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardSequenceNumberRange1
+     : IIsoXmlSerilizable<CardSequenceNumberRange1>
 {
     #nullable enable
     
     /// <summary>
     /// CardSequenceNumberRange1: FirstTransactionSequenceNumberMessage element to be finalised once feedback from Card SEG has been received.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? FirstTransaction { get; init; } 
     /// <summary>
     /// CardSequenceNumberRange1: LastTransactionSequenceNumberMessage element to be finalised once feedback from Card SEG has been received.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? LastTransaction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FirstTransaction is IsoMax35Text FirstTransactionValue)
+        {
+            writer.WriteStartElement(null, "FrstTx", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(FirstTransactionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (LastTransaction is IsoMax35Text LastTransactionValue)
+        {
+            writer.WriteStartElement(null, "LastTx", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(LastTransactionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CardSequenceNumberRange1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

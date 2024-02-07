@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information such as the taxation conditions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionNarrative50
+     : IIsoXmlSerilizable<CorporateActionNarrative50>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the entity making the offer and is different from the issuing company.
     /// </summary>
-    [DataMember]
-    public ValueList<UpdatedAdditionalInformation3> Offeror { get; init; } = []; // Warning: Don't know multiplicity.
+    public UpdatedAdditionalInformation3? Offeror { get; init; } 
     /// <summary>
     /// Provides the new name of a company following a name change.
     /// </summary>
-    [DataMember]
     public UpdatedAdditionalInformation3? NewCompanyName { get; init; } 
     /// <summary>
     /// Provides the web address published for the event, that is, the address for the Universal Resource Locator (URL), for example, used over the www (HTTP) service.
     /// </summary>
-    [DataMember]
-    public ValueList<UpdatedURLlnformation4> URLAddress { get; init; } = []; // Warning: Don't know multiplicity.
+    public UpdatedURLlnformation4? URLAddress { get; init; } 
     /// <summary>
     /// Provides web address of an account servicer (or of a service provider) that contains information solely intended for the immediate account holder to enable or facilitate event processing between parties.
     /// </summary>
-    [DataMember]
     public IsoMax2048Text? EventProcessingWebSiteAddress { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Offeror is UpdatedAdditionalInformation3 OfferorValue)
+        {
+            writer.WriteStartElement(null, "Offerr", xmlNamespace );
+            OfferorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewCompanyName is UpdatedAdditionalInformation3 NewCompanyNameValue)
+        {
+            writer.WriteStartElement(null, "NewCpnyNm", xmlNamespace );
+            NewCompanyNameValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (URLAddress is UpdatedURLlnformation4 URLAddressValue)
+        {
+            writer.WriteStartElement(null, "URLAdr", xmlNamespace );
+            URLAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EventProcessingWebSiteAddress is IsoMax2048Text EventProcessingWebSiteAddressValue)
+        {
+            writer.WriteStartElement(null, "EvtPrcgWebSiteAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2048Text(EventProcessingWebSiteAddressValue)); // data type Max2048Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionNarrative50 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

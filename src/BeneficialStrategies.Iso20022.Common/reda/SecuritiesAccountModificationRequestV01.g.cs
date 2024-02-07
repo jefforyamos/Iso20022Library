@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.reda.SecuritiesAccountModificationRequestV01>;
 
 namespace BeneficialStrategies.Iso20022.reda;
 
@@ -24,10 +27,9 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// Processing and confirmation of the securities account creation request message are provided via a SecuritiesAccountStatusAdvice message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The SecuritiesAccountModificationRequest message is sent by an instructing party to the executing party to instruct the update of an existing securities account by amending its existing attributes or by providing additional attibutes details.||Usage:|Processing and confirmation of the securities account creation request message are provided via a SecuritiesAccountStatusAdvice message.")]
-public partial record SecuritiesAccountModificationRequestV01 : IOuterRecord
+public partial record SecuritiesAccountModificationRequestV01 : IOuterRecord<SecuritiesAccountModificationRequestV01,SecuritiesAccountModificationRequestV01Document>
+    ,IIsoXmlSerilizable<SecuritiesAccountModificationRequestV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -39,6 +41,11 @@ public partial record SecuritiesAccountModificationRequestV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesAcctModReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesAccountModificationRequestV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -88,6 +95,41 @@ public partial record SecuritiesAccountModificationRequestV01 : IOuterRecord
     {
         return new SecuritiesAccountModificationRequestV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesAcctModReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MessageHeader is MessageHeader1 MessageHeaderValue)
+        {
+            writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+            MessageHeaderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AcctId", xmlNamespace );
+        AccountIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Mod", xmlNamespace );
+        Modification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesAccountModificationRequestV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -95,9 +137,7 @@ public partial record SecuritiesAccountModificationRequestV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesAccountModificationRequestV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesAccountModificationRequestV01Document : IOuterDocument<SecuritiesAccountModificationRequestV01>
+public partial record SecuritiesAccountModificationRequestV01Document : IOuterDocument<SecuritiesAccountModificationRequestV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -113,5 +153,22 @@ public partial record SecuritiesAccountModificationRequestV01Document : IOuterDo
     /// <summary>
     /// The instance of <seealso cref="SecuritiesAccountModificationRequestV01"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesAccountModificationRequestV01.XmlTag)]
     public required SecuritiesAccountModificationRequestV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesAccountModificationRequestV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

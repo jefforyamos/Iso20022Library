@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.InterestRate33Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate33Choice;
 /// Attributes related specifically to floating rate of an interest rate contract.
 /// </summary>
 public partial record Floating : InterestRate33Choice_
+     , IIsoXmlSerilizable<Floating>
 {
     #nullable enable
+    
     /// <summary>
     /// Identifier of the security subject of the transaction
     /// </summary>
@@ -55,5 +59,83 @@ public partial record Floating : InterestRate33Choice_
     /// Most recent date and value at which the floating reference rate was reset.
     /// </summary>
     public ResetDateAndValue1? LastFloatingReset { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is IsoISINOct2015Identifier IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(IdentificationValue)); // data type ISINOct2015Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (Name is IsoMax350Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(NameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (Rate is FloatingRateIdentification8Choice_ RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            RateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReferencePeriod is InterestRateContractTerm4 ReferencePeriodValue)
+        {
+            writer.WriteStartElement(null, "RefPrd", xmlNamespace );
+            ReferencePeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Spread is SecuritiesTransactionPrice20Choice_ SpreadValue)
+        {
+            writer.WriteStartElement(null, "Sprd", xmlNamespace );
+            SpreadValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DayCount is InterestComputationMethodFormat7 DayCountValue)
+        {
+            writer.WriteStartElement(null, "DayCnt", xmlNamespace );
+            DayCountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentFrequency is InterestRateFrequency3Choice_ PaymentFrequencyValue)
+        {
+            writer.WriteStartElement(null, "PmtFrqcy", xmlNamespace );
+            PaymentFrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ResetFrequency is InterestRateFrequency3Choice_ ResetFrequencyValue)
+        {
+            writer.WriteStartElement(null, "RstFrqcy", xmlNamespace );
+            ResetFrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NextFloatingReset is ResetDateAndValue1 NextFloatingResetValue)
+        {
+            writer.WriteStartElement(null, "NxtFltgRst", xmlNamespace );
+            NextFloatingResetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LastFloatingReset is ResetDateAndValue1 LastFloatingResetValue)
+        {
+            writer.WriteStartElement(null, "LastFltgRst", xmlNamespace );
+            LastFloatingResetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Floating Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Basic valuation details of a collateral position.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BasicCollateralValuation1Details
+     : IIsoXmlSerilizable<BasicCollateralValuation1Details>
 {
     #nullable enable
     
     /// <summary>
     /// Haircut percentage applied to the market value of underlying assets used as collateral as a risk control measure. The institution valuating the collateral calculates the value of underlying assets based on its market value less a certain percentage (the haircut).
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate ValuationHaircut { get; init; } 
     /// <summary>
     /// Place where the valuation haircut was calculated.
     /// </summary>
-    [DataMember]
     public PartyIdentification15? HaircutSource { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ValtnHrcut", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(ValuationHaircut)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+        if (HaircutSource is PartyIdentification15 HaircutSourceValue)
+        {
+            writer.WriteStartElement(null, "HrcutSrc", xmlNamespace );
+            HaircutSourceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BasicCollateralValuation1Details Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Result of an individual terminal management action by the point of interaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TMSActionIdentification9
+     : IIsoXmlSerilizable<TMSActionIdentification9>
 {
     #nullable enable
     
     /// <summary>
     /// Types of terminal management action performed by a point of interaction.
     /// </summary>
-    [DataMember]
     public required TerminalManagementAction5Code ActionType { get; init; } 
     /// <summary>
     /// Data set on which the action has been performed.
     /// </summary>
-    [DataMember]
     public DataSetIdentification10? DataSetIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ActnTp", xmlNamespace );
+        writer.WriteValue(ActionType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (DataSetIdentification is DataSetIdentification10 DataSetIdentificationValue)
+        {
+            writer.WriteStartElement(null, "DataSetId", xmlNamespace );
+            DataSetIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TMSActionIdentification9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

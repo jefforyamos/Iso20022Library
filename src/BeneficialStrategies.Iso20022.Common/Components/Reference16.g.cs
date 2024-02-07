@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the identification of the collateral message cancellation request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Reference16
+     : IIsoXmlSerilizable<Reference16>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the collateral message cancellation request.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text CollateralMessageCancellationRequestIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CollMsgCxlReqId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(CollateralMessageCancellationRequestIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static Reference16 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

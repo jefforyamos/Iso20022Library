@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
 /// Information that locates and identifies a specific address.
 /// </summary>
 public partial record Address : UpdateLogPartyRecord1Choice_
+     , IIsoXmlSerilizable<Address>
 {
     #nullable enable
+    
     /// <summary>
     /// Old value before change
     /// </summary>
@@ -23,5 +27,29 @@ public partial record Address : UpdateLogPartyRecord1Choice_
     /// New value after change
     /// </summary>
     public required PostalAddress25 New { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Od", xmlNamespace );
+        Old.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "New", xmlNamespace );
+        New.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new Address Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

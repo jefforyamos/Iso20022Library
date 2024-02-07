@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the future status of the transaction by means of a code
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionStatus6
+     : IIsoXmlSerilizable<TransactionStatus6>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the status after comparing the exposure and the collateral required for the transaction.
     /// </summary>
-    [DataMember]
     public CollateralStatus1Code? CoverageStatus { get; init; } 
     /// <summary>
     /// Indicates whether the transaction is pending initiation or has been initiated.
     /// </summary>
-    [DataMember]
     public CollateralStatus2Choice_? ExecutionStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CoverageStatus is CollateralStatus1Code CoverageStatusValue)
+        {
+            writer.WriteStartElement(null, "CvrgSts", xmlNamespace );
+            writer.WriteValue(CoverageStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExecutionStatus is CollateralStatus2Choice_ ExecutionStatusValue)
+        {
+            writer.WriteStartElement(null, "ExctnSts", xmlNamespace );
+            ExecutionStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionStatus6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

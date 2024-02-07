@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Party and related authorisation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyAndAuthorisation4
+     : IIsoXmlSerilizable<PartyAndAuthorisation4>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies a party or a group of parties.
     /// </summary>
-    [DataMember]
     public required PartyOrGroup2Choice_ PartyOrGroup { get; init; } 
     /// <summary>
     /// Order in which the mandate holder has to sign.
     /// </summary>
-    [DataMember]
     public IsoMax15PlusSignedNumericText? SignatureOrder { get; init; } 
     /// <summary>
     /// Authorisation granted to a mandate holder.
     /// </summary>
-    [DataMember]
     public required Authorisation2 Authorisation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PtyOrGrp", xmlNamespace );
+        PartyOrGroup.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SignatureOrder is IsoMax15PlusSignedNumericText SignatureOrderValue)
+        {
+            writer.WriteStartElement(null, "SgntrOrdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15PlusSignedNumericText(SignatureOrderValue)); // data type Max15PlusSignedNumericText System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Authstn", xmlNamespace );
+        Authorisation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static PartyAndAuthorisation4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

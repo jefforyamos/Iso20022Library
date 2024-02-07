@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the reason for an action.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Reason2
+     : IIsoXmlSerilizable<Reason2>
 {
     #nullable enable
     
     /// <summary>
     /// Detailed description of the rejection.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text Description { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Desc", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(Description)); // data type Max140Text System.String
+        writer.WriteEndElement();
+    }
+    public static Reason2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

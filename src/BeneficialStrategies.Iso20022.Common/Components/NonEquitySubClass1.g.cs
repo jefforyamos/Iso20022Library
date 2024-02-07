@@ -7,28 +7,52 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Sub-class of non-equity instruments sharing common characteristics according to criteria defined as per local regulation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NonEquitySubClass1
+     : IIsoXmlSerilizable<NonEquitySubClass1>
 {
     #nullable enable
     
     /// <summary>
     /// Description of the derivative sub-class.
     /// </summary>
-    [DataMember]
     public IsoMax1000Text? Description { get; init; } 
     /// <summary>
     /// Criteria used to segment classes of derivative instruments into sub classes as per local regulation.
     /// </summary>
-    [DataMember]
-    public ValueList<NonEquitySubClassSegmentationCriterion1> SegmentationCriteria { get; init; } = []; // Warning: Don't know multiplicity.
+    public NonEquitySubClassSegmentationCriterion1? SegmentationCriteria { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _POi7NKaTEeqZmriXpMtonA
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Description is IsoMax1000Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1000Text(DescriptionValue)); // data type Max1000Text System.String
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize SegmentationCriteria, multiplicity Unknown
+    }
+    public static NonEquitySubClass1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

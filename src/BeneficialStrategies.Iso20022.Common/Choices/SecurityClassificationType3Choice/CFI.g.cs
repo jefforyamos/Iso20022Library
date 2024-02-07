@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecurityClassificationType3Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityClassificationType3Choic
 /// Classification type of the financial instrument, as per the ISO 10962 Classification of Financial Instrument (CFI) codification.
 /// </summary>
 public partial record CFI : SecurityClassificationType3Choice_
+     , IIsoXmlSerilizable<CFI>
 {
-    public required IsoCFIOct2015Identifier Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Classification type of the financial instrument, as per the ISO 10962 Classification of Financial Instrument (CFI) codification, for example, common share with voting rights, fully paid, or registered.
+    /// </summary>
+    public required IsoCFIOct2015Identifier Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CFI", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCFIOct2015Identifier(Value)); // data type CFIOct2015Identifier System.String
+        writer.WriteEndElement();
+    }
+    public static new CFI Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

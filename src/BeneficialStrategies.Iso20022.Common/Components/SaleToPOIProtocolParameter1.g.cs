@@ -7,48 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Configuration parameters to communicate with a sale system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SaleToPOIProtocolParameter1
+     : IIsoXmlSerilizable<SaleToPOIProtocolParameter1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of action for the configuration parameters.
     /// </summary>
-    [DataMember]
     public required TerminalManagementAction3Code ActionType { get; init; } 
     /// <summary>
     /// Identification of the merchant.
     /// </summary>
-    [DataMember]
     public Organisation26? MerchantIdentification { get; init; } 
     /// <summary>
     /// Version of the parameters.
     /// </summary>
-    [DataMember]
     public required IsoMax256Text Version { get; init; } 
     /// <summary>
     /// Identification used to retrieve HostCommunicationParameters.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text HostIdentification { get; init; } 
     /// <summary>
     /// Identification of the POI during communication with sale system.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MerchantPOIIdentification { get; init; } 
     /// <summary>
     /// Identification of the SaleSystem connected to the POI.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SaleIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ActnTp", xmlNamespace );
+        writer.WriteValue(ActionType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (MerchantIdentification is Organisation26 MerchantIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MrchntId", xmlNamespace );
+            MerchantIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax256Text(Version)); // data type Max256Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "HstId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(HostIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (MerchantPOIIdentification is IsoMax35Text MerchantPOIIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MrchntPOIId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MerchantPOIIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SaleIdentification is IsoMax35Text SaleIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SaleToPOIProtocolParameter1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

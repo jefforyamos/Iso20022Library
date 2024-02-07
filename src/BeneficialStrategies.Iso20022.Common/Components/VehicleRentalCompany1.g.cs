@@ -7,54 +7,107 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Company in charge of a vehicle rental service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record VehicleRentalCompany1
+     : IIsoXmlSerilizable<VehicleRentalCompany1>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the vehicle rental company.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Identification of the vehicle rental company.
     /// </summary>
-    [DataMember]
     public PartyIdentification197? Identification { get; init; } 
     /// <summary>
     /// Address of the vehicle rental company.
     /// </summary>
-    [DataMember]
     public Address1? Address { get; init; } 
     /// <summary>
     /// Contact details at vehicle rental company location.
     /// </summary>
-    [DataMember]
     public Contact3? Contact { get; init; } 
     /// <summary>
     /// Country of the vehicle rental company.
     /// ISO 3166
     /// </summary>
-    [DataMember]
     public IsoMin2Max3AlphaText? Country { get; init; } 
     /// <summary>
     /// Type of vehicle rental activity.
     /// </summary>
-    [DataMember]
     public CarRentalActivity1Code? Type { get; init; } 
     /// <summary>
     /// Other type of vehicle rental activity. 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax70Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Identification is PartyIdentification197 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Address is Address1 AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Contact is Contact3 ContactValue)
+        {
+            writer.WriteStartElement(null, "Ctct", xmlNamespace );
+            ContactValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Country is IsoMin2Max3AlphaText CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMin2Max3AlphaText(CountryValue)); // data type Min2Max3AlphaText System.String
+            writer.WriteEndElement();
+        }
+        if (Type is CarRentalActivity1Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherType is IsoMax35Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static VehicleRentalCompany1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

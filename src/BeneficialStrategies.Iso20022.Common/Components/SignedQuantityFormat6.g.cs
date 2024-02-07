@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Signed quantity of security formats.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SignedQuantityFormat6
+     : IIsoXmlSerilizable<SignedQuantityFormat6>
 {
     #nullable enable
     
     /// <summary>
     /// Sign of the quantity of security.
     /// </summary>
-    [DataMember]
     public required ShortLong1Code ShortLongPosition { get; init; } 
     /// <summary>
     /// Quantity of security.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ShrtLngPos", xmlNamespace );
+        writer.WriteValue(ShortLongPosition.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        Quantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SignedQuantityFormat6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

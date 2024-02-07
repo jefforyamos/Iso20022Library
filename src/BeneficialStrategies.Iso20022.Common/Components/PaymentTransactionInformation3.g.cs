@@ -7,73 +7,146 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reference and status information concerning the original transactions, included in the original instruction, to which the cancellation request message applies.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentTransactionInformation3
+     : IIsoXmlSerilizable<PaymentTransactionInformation3>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier of a cancellation request, assigned by an instructing party.||Usage: the cancellation request identification can be used for reconciliation or to link tasks relating to the cancellation request transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CancellationIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of the original payment information block as assigned by the original sending party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalPaymentInformationIdentification { get; init; } 
     /// <summary>
     /// Original unique instruction identification as assigned by an instructing party for an instructed party to unambiguously identify the original instruction.||Usage: the original instruction identification is the original point to point reference used between the instructing party and the instructed party to refer to the original instruction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalInstructionIdentification { get; init; } 
     /// <summary>
     /// Original unique identification assigned by the initiating party to unambiguously identify the original transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalEndToEndIdentification { get; init; } 
     /// <summary>
     /// Original identification of a transaction, as assigned by the first instructing agent and passed on, unchanged, throughout the entire interbank chain.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalTransactionIdentification { get; init; } 
     /// <summary>
     /// Amount of money transferred between the instructing agent and the instructed agent in the original transaction.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? OriginalInterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Amount of money to be moved between the debtor and the creditor, before deduction of charges, expressed in the currency as ordered by the initiating party in the original transaction.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? OriginalInstructedAmount { get; init; } 
     /// <summary>
     /// Agent that instructs the next party in the chain to carry out the (set of) instruction(s).
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? InstructingAgent { get; init; } 
     /// <summary>
     /// Agent that is instructed by the previous party in the chain to carry out the (set of) instruction(s).
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? InstructedAgent { get; init; } 
     /// <summary>
     /// Detailed information on the cancellation reason.
     /// </summary>
-    [DataMember]
-    public ValueList<CancellationReasonInformation1> CancellationReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public CancellationReasonInformation1? CancellationReasonInformation { get; init; } 
     /// <summary>
     /// Set of key elements of the original transaction being referred to.
     /// </summary>
-    [DataMember]
     public OriginalTransactionReference1? OriginalTransactionReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CancellationIdentification is IsoMax35Text CancellationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CxlId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CancellationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalPaymentInformationIdentification is IsoMax35Text OriginalPaymentInformationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlPmtInfId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalPaymentInformationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalInstructionIdentification is IsoMax35Text OriginalInstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlInstrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalInstructionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalEndToEndIdentification is IsoMax35Text OriginalEndToEndIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlEndToEndId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalEndToEndIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalTransactionIdentification is IsoMax35Text OriginalTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalInterbankSettlementAmount is IsoCurrencyAndAmount OriginalInterbankSettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "OrgnlIntrBkSttlmAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(OriginalInterbankSettlementAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (OriginalInstructedAmount is IsoCurrencyAndAmount OriginalInstructedAmountValue)
+        {
+            writer.WriteStartElement(null, "OrgnlInstdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(OriginalInstructedAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (InstructingAgent is BranchAndFinancialInstitutionIdentification3 InstructingAgentValue)
+        {
+            writer.WriteStartElement(null, "InstgAgt", xmlNamespace );
+            InstructingAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructedAgent is BranchAndFinancialInstitutionIdentification3 InstructedAgentValue)
+        {
+            writer.WriteStartElement(null, "InstdAgt", xmlNamespace );
+            InstructedAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CancellationReasonInformation is CancellationReasonInformation1 CancellationReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "CxlRsnInf", xmlNamespace );
+            CancellationReasonInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalTransactionReference is OriginalTransactionReference1 OriginalTransactionReferenceValue)
+        {
+            writer.WriteStartElement(null, "OrgnlTxRef", xmlNamespace );
+            OriginalTransactionReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentTransactionInformation3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

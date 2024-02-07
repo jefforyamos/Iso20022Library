@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Alternate identification for a party using an identification type, a country code and a text field.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AlternatePartyIdentification4
+     : IIsoXmlSerilizable<AlternatePartyIdentification4>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of alternate identification of the party identified.
     /// </summary>
-    [DataMember]
     public required IdentificationType6Choice_ IdentificationType { get; init; } 
     /// <summary>
     /// Country in which a person resides (the place of a person's home). In the case of a company, it is the country from which the affairs of that company are directed.
     /// </summary>
-    [DataMember]
     public required CountryCode Country { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text AlternateIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IdTp", xmlNamespace );
+        IdentificationType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Ctry", xmlNamespace );
+        writer.WriteValue(Country.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AltrnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(AlternateIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static AlternatePartyIdentification4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

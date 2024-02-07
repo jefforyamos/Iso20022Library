@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Aggregated values and volumes of settlements instructions for a specific type of financial instruments, type of transaction, type of clients, and cash transfers.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementDataVolume2
+     : IIsoXmlSerilizable<SettlementDataVolume2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the aggregated volume of settlement instructions, in terms of failed, settled transactions and total transactions.
     /// </summary>
-    [DataMember]
     public required IsoMax20PositiveNumber Volume { get; init; } 
     /// <summary>
     /// Specifies the aggregated value of settlement instructions, in terms of failed, settled transactions and total transactions.
     /// </summary>
-    [DataMember]
     public required IsoMax20PositiveDecimalNumber Value { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Vol", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20PositiveNumber(Volume)); // data type Max20PositiveNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20PositiveDecimalNumber(Value)); // data type Max20PositiveDecimalNumber System.UInt64
+        writer.WriteEndElement();
+    }
+    public static SettlementDataVolume2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

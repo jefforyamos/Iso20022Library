@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action option securities quantity details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesOptionSD1
+     : IIsoXmlSerilizable<SecuritiesOptionSD1>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Maximum oversubscription amount for the option.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? MaximumOversubscriptionQuantity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (MaximumOversubscriptionQuantity is IsoDecimalNumber MaximumOversubscriptionQuantityValue)
+        {
+            writer.WriteStartElement(null, "MaxOvrsbcptQty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(MaximumOversubscriptionQuantityValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesOptionSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

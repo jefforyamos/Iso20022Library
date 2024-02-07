@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.caaa.AcceptorCurrencyConversionAdviceV03>;
 
 namespace BeneficialStrategies.Iso20022.caaa;
 
@@ -22,10 +25,9 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// 
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The AcceptorCurrencyConversionAdvice message is sent by the card acceptor to inform the currency conversion service provider of the outcome of the card currency conversion.|")]
-public partial record AcceptorCurrencyConversionAdviceV03 : IOuterRecord
+public partial record AcceptorCurrencyConversionAdviceV03 : IOuterRecord<AcceptorCurrencyConversionAdviceV03,AcceptorCurrencyConversionAdviceV03Document>
+    ,IIsoXmlSerilizable<AcceptorCurrencyConversionAdviceV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -37,6 +39,11 @@ public partial record AcceptorCurrencyConversionAdviceV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AccptrCcyConvsAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AcceptorCurrencyConversionAdviceV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -77,6 +84,35 @@ public partial record AcceptorCurrencyConversionAdviceV03 : IOuterRecord
     {
         return new AcceptorCurrencyConversionAdviceV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AccptrCcyConvsAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AccptrCcyConvsAdvc", xmlNamespace );
+        AcceptorCurrencyConversionAdvice.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecurityTrailer is ContentInformationType16 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AcceptorCurrencyConversionAdviceV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -84,9 +120,7 @@ public partial record AcceptorCurrencyConversionAdviceV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorCurrencyConversionAdviceV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AcceptorCurrencyConversionAdviceV03Document : IOuterDocument<AcceptorCurrencyConversionAdviceV03>
+public partial record AcceptorCurrencyConversionAdviceV03Document : IOuterDocument<AcceptorCurrencyConversionAdviceV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -102,5 +136,22 @@ public partial record AcceptorCurrencyConversionAdviceV03Document : IOuterDocume
     /// <summary>
     /// The instance of <seealso cref="AcceptorCurrencyConversionAdviceV03"/> is required.
     /// </summary>
+    [DataMember(Name=AcceptorCurrencyConversionAdviceV03.XmlTag)]
     public required AcceptorCurrencyConversionAdviceV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AcceptorCurrencyConversionAdviceV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

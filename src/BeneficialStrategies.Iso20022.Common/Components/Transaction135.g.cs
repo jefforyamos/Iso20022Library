@@ -7,69 +7,131 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reconciliation transaction
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Transaction135
+     : IIsoXmlSerilizable<Transaction135>
 {
     #nullable enable
     
     /// <summary>
     /// Type of reconciliation.
     /// </summary>
-    [DataMember]
     public required ReconciliationFunction1Code ReconciliationFunction { get; init; } 
     /// <summary>
     /// A code to indicate the activity type to be reconciled.
     /// </summary>
-    [DataMember]
     public ReconciliationActivityType1Code? ReconciliationActivityType { get; init; } 
     /// <summary>
     /// Other reconciliation activity type defined at private or national level
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherReconciliationActivityType { get; init; } 
     /// <summary>
     /// Type of reconciliation.
     /// </summary>
-    [DataMember]
     public required CardServiceType4Code ReconciliationType { get; init; } 
     /// <summary>
     /// Other type of reconciliation.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherReconciliationType { get; init; } 
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
-    [DataMember]
     public TransactionIdentification12? TransactionIdentification { get; init; } 
     /// <summary>
     /// Requested currency by the acceptor.
     /// ISO 4217
     /// </summary>
-    [DataMember]
-    public ValueList<IsoExact3NumericText> RequestedCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoExact3NumericText? RequestedCurrency { get; init; } 
     /// <summary>
     /// Totals of the reconciliation.
     /// </summary>
-    [DataMember]
-    public ValueList<TransactionTotals13> ReconciliationTotals { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransactionTotals13? ReconciliationTotals { get; init; } 
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalFee2> AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalFee2? AdditionalFee { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RcncltnFctn", xmlNamespace );
+        writer.WriteValue(ReconciliationFunction.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ReconciliationActivityType is ReconciliationActivityType1Code ReconciliationActivityTypeValue)
+        {
+            writer.WriteStartElement(null, "RcncltnActvtyTp", xmlNamespace );
+            writer.WriteValue(ReconciliationActivityTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherReconciliationActivityType is IsoMax35Text OtherReconciliationActivityTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrRcncltnActvtyTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherReconciliationActivityTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RcncltnTp", xmlNamespace );
+        writer.WriteValue(ReconciliationType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherReconciliationType is IsoMax35Text OtherReconciliationTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrRcncltnTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherReconciliationTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionIdentification is TransactionIdentification12 TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            TransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequestedCurrency is IsoExact3NumericText RequestedCurrencyValue)
+        {
+            writer.WriteStartElement(null, "ReqdCcy", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact3NumericText(RequestedCurrencyValue)); // data type Exact3NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (ReconciliationTotals is TransactionTotals13 ReconciliationTotalsValue)
+        {
+            writer.WriteStartElement(null, "RcncltnTtls", xmlNamespace );
+            ReconciliationTotalsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalFee is AdditionalFee2 AdditionalFeeValue)
+        {
+            writer.WriteStartElement(null, "AddtlFee", xmlNamespace );
+            AdditionalFeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Transaction135 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

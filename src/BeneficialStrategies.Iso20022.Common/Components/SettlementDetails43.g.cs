@@ -7,168 +7,333 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementDetails43
+     : IIsoXmlSerilizable<SettlementDetails43>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the trade is to be settled as principal or netted off against another trade.
     /// </summary>
-    [DataMember]
     public required SettlementTransactionType1Choice_ SettlementTransactionType { get; init; } 
     /// <summary>
     /// Specifies whether the transaction is on hold/blocked/frozen.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? HoldIndicator { get; init; } 
     /// <summary>
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
-    [DataMember]
     public PriorityNumeric3Choice_? Priority { get; init; } 
     /// <summary>
     /// Specifies if the Electronic Trade Confirmation (ETC) service provider is to generate or not a settlement instruction.
     /// </summary>
-    [DataMember]
     public SettlementInstructionGeneration1Choice_? SettlementInstructionGeneration { get; init; } 
     /// <summary>
     /// Conditions under which the order/trade is to be settled.
     /// </summary>
-    [DataMember]
-    public ValueList<SettlementTransactionCondition11Choice_> SettlementTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
+    public SettlementTransactionCondition11Choice_? SettlementTransactionCondition { get; init; } 
     /// <summary>
     /// Specifies whether partial settlement is allowed.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? PartialSettlementIndicator { get; init; } 
     /// <summary>
     /// Specifies whether there is change of beneficial ownership.
     /// </summary>
-    [DataMember]
     public BeneficialOwnership3Choice_? BeneficialOwnership { get; init; } 
     /// <summary>
     /// Specifies whether the settlement instruction is a block parent or child.
     /// </summary>
-    [DataMember]
     public BlockTrade3Choice_? BlockTrade { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction is CCP (Central Counterparty) eligible.
     /// </summary>
-    [DataMember]
     public CentralCounterPartyEligibility3Choice_? CCPEligibility { get; init; } 
     /// <summary>
     /// Specifies the category of cash clearing system, eg, cheque clearing.
     /// </summary>
-    [DataMember]
     public CashSettlementSystem3Choice_? CashClearingSystem { get; init; } 
     /// <summary>
     /// Specifies the underlying business area/type of trade causing the collateral movement.
     /// </summary>
-    [DataMember]
     public ExposureType9Choice_? ExposureType { get; init; } 
     /// <summary>
     /// Specifies whether the forex standing instruction in place should apply.
     /// </summary>
-    [DataMember]
     public FXStandingInstruction3Choice_? FXStandingInstruction { get; init; } 
     /// <summary>
     /// Account servicer is instructed to buy the indicated currency after the receipt of cash proceeds or to sell the indicated currency in order to obtain the necessary currency to fund the transaction.
     /// </summary>
-    [DataMember]
     public CurrencyToBuyOrSell1Choice_? CurrencyToBuyOrSell { get; init; } 
     /// <summary>
     /// Specifies if an instruction is for a market side or a client side transaction.
     /// </summary>
-    [DataMember]
     public MarketClientSide3Choice_? MarketClientSide { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction is eligible for netting.
     /// </summary>
-    [DataMember]
     public NettingEligibility3Choice_? NettingEligibility { get; init; } 
     /// <summary>
     /// Specifies whether registration should occur upon receipt.
     /// </summary>
-    [DataMember]
     public Registration6Choice_? Registration { get; init; } 
     /// <summary>
     /// Specifies whether the rate is fixed, variable or a forfeit.
     /// </summary>
-    [DataMember]
     public RepurchaseType11Choice_? RepurchaseType { get; init; } 
     /// <summary>
     /// Regulatory restrictions applicable to a security.
     /// </summary>
-    [DataMember]
     public Restriction3Choice_? LegalRestrictions { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction is to be settled through an RTGS or a non RTGS system.
     /// </summary>
-    [DataMember]
     public SecuritiesRTGS3Choice_? SecuritiesRTGS { get; init; } 
     /// <summary>
     /// Role of a party in the settlement of the transaction.
     /// </summary>
-    [DataMember]
     public SettlingCapacity3Choice_? SettlingCapacity { get; init; } 
     /// <summary>
     /// Specifies whether the settlement instruction is to be settled through the default or the alternate settlement system.
     /// </summary>
-    [DataMember]
     public SettlementSystemMethod3Choice_? SettlementSystemMethod { get; init; } 
     /// <summary>
     /// Tax role capacity of the instructing party.
     /// </summary>
-    [DataMember]
     public TaxCapacityParty3Choice_? TaxCapacity { get; init; } 
     /// <summary>
     /// Indicates whether the settlement amount includes the stamp duty amount.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? StampDutyIndicator { get; init; } 
     /// <summary>
     /// Specifies the stamp duty type or exemption reason applicable to the settlement transaction.
     /// </summary>
-    [DataMember]
     public GenericIdentification38? StampDutyTaxBasis { get; init; } 
     /// <summary>
     /// Specifies whether the loan and/or collateral is tracked.
     /// </summary>
-    [DataMember]
     public Tracking3Choice_? Tracking { get; init; } 
     /// <summary>
     /// Condition for automatic borrowing.
     /// </summary>
-    [DataMember]
     public AutomaticBorrowing5Choice_? AutomaticBorrowing { get; init; } 
     /// <summary>
     /// Specifies whether physical settlement may be executed using a letter of guarantee or if the physical certificates should be used.
     /// </summary>
-    [DataMember]
     public LetterOfGuarantee3Choice_? LetterOfGuarantee { get; init; } 
     /// <summary>
     /// Specifies whether, for a securities lending/borrowing settlement transaction, the lender will instruct the return leg as agreed with the borrower.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ReturnLeg { get; init; } 
     /// <summary>
     /// Specifies whether a third party is allowed to modify or cancel the transaction.
     /// </summary>
-    [DataMember]
     public ModificationCancellationAllowed3Choice_? ModificationCancellationAllowed { get; init; } 
     /// <summary>
     /// Specifies whether securities should be included in the pool of securities eligible for collateral purposes.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? EligibleForCollateral { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttlmTxTp", xmlNamespace );
+        SettlementTransactionType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (HoldIndicator is IsoYesNoIndicator HoldIndicatorValue)
+        {
+            writer.WriteStartElement(null, "HldInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(HoldIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Priority is PriorityNumeric3Choice_ PriorityValue)
+        {
+            writer.WriteStartElement(null, "Prty", xmlNamespace );
+            PriorityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementInstructionGeneration is SettlementInstructionGeneration1Choice_ SettlementInstructionGenerationValue)
+        {
+            writer.WriteStartElement(null, "SttlmInstrGnrtn", xmlNamespace );
+            SettlementInstructionGenerationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementTransactionCondition is SettlementTransactionCondition11Choice_ SettlementTransactionConditionValue)
+        {
+            writer.WriteStartElement(null, "SttlmTxCond", xmlNamespace );
+            SettlementTransactionConditionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PartialSettlementIndicator is IsoYesNoIndicator PartialSettlementIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PrtlSttlmInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PartialSettlementIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (BeneficialOwnership is BeneficialOwnership3Choice_ BeneficialOwnershipValue)
+        {
+            writer.WriteStartElement(null, "BnfclOwnrsh", xmlNamespace );
+            BeneficialOwnershipValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BlockTrade is BlockTrade3Choice_ BlockTradeValue)
+        {
+            writer.WriteStartElement(null, "BlckTrad", xmlNamespace );
+            BlockTradeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CCPEligibility is CentralCounterPartyEligibility3Choice_ CCPEligibilityValue)
+        {
+            writer.WriteStartElement(null, "CCPElgblty", xmlNamespace );
+            CCPEligibilityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashClearingSystem is CashSettlementSystem3Choice_ CashClearingSystemValue)
+        {
+            writer.WriteStartElement(null, "CshClrSys", xmlNamespace );
+            CashClearingSystemValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExposureType is ExposureType9Choice_ ExposureTypeValue)
+        {
+            writer.WriteStartElement(null, "XpsrTp", xmlNamespace );
+            ExposureTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FXStandingInstruction is FXStandingInstruction3Choice_ FXStandingInstructionValue)
+        {
+            writer.WriteStartElement(null, "FxStgInstr", xmlNamespace );
+            FXStandingInstructionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CurrencyToBuyOrSell is CurrencyToBuyOrSell1Choice_ CurrencyToBuyOrSellValue)
+        {
+            writer.WriteStartElement(null, "CcyToBuyOrSell", xmlNamespace );
+            CurrencyToBuyOrSellValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarketClientSide is MarketClientSide3Choice_ MarketClientSideValue)
+        {
+            writer.WriteStartElement(null, "MktClntSd", xmlNamespace );
+            MarketClientSideValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NettingEligibility is NettingEligibility3Choice_ NettingEligibilityValue)
+        {
+            writer.WriteStartElement(null, "NetgElgblty", xmlNamespace );
+            NettingEligibilityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Registration is Registration6Choice_ RegistrationValue)
+        {
+            writer.WriteStartElement(null, "Regn", xmlNamespace );
+            RegistrationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RepurchaseType is RepurchaseType11Choice_ RepurchaseTypeValue)
+        {
+            writer.WriteStartElement(null, "RpTp", xmlNamespace );
+            RepurchaseTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LegalRestrictions is Restriction3Choice_ LegalRestrictionsValue)
+        {
+            writer.WriteStartElement(null, "LglRstrctns", xmlNamespace );
+            LegalRestrictionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesRTGS is SecuritiesRTGS3Choice_ SecuritiesRTGSValue)
+        {
+            writer.WriteStartElement(null, "SctiesRTGS", xmlNamespace );
+            SecuritiesRTGSValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlingCapacity is SettlingCapacity3Choice_ SettlingCapacityValue)
+        {
+            writer.WriteStartElement(null, "SttlgCpcty", xmlNamespace );
+            SettlingCapacityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementSystemMethod is SettlementSystemMethod3Choice_ SettlementSystemMethodValue)
+        {
+            writer.WriteStartElement(null, "SttlmSysMtd", xmlNamespace );
+            SettlementSystemMethodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxCapacity is TaxCapacityParty3Choice_ TaxCapacityValue)
+        {
+            writer.WriteStartElement(null, "TaxCpcty", xmlNamespace );
+            TaxCapacityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StampDutyIndicator is IsoYesNoIndicator StampDutyIndicatorValue)
+        {
+            writer.WriteStartElement(null, "StmpDtyInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(StampDutyIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (StampDutyTaxBasis is GenericIdentification38 StampDutyTaxBasisValue)
+        {
+            writer.WriteStartElement(null, "StmpDtyTaxBsis", xmlNamespace );
+            StampDutyTaxBasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Tracking is Tracking3Choice_ TrackingValue)
+        {
+            writer.WriteStartElement(null, "Trckg", xmlNamespace );
+            TrackingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AutomaticBorrowing is AutomaticBorrowing5Choice_ AutomaticBorrowingValue)
+        {
+            writer.WriteStartElement(null, "AutomtcBrrwg", xmlNamespace );
+            AutomaticBorrowingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LetterOfGuarantee is LetterOfGuarantee3Choice_ LetterOfGuaranteeValue)
+        {
+            writer.WriteStartElement(null, "LttrOfGrnt", xmlNamespace );
+            LetterOfGuaranteeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReturnLeg is IsoYesNoIndicator ReturnLegValue)
+        {
+            writer.WriteStartElement(null, "RtrLeg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ReturnLegValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ModificationCancellationAllowed is ModificationCancellationAllowed3Choice_ ModificationCancellationAllowedValue)
+        {
+            writer.WriteStartElement(null, "ModCxlAllwd", xmlNamespace );
+            ModificationCancellationAllowedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EligibleForCollateral is IsoYesNoIndicator EligibleForCollateralValue)
+        {
+            writer.WriteStartElement(null, "ElgblForColl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(EligibleForCollateralValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementDetails43 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

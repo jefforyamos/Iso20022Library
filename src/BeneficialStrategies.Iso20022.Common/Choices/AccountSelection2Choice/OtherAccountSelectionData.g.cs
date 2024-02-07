@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AccountSelection2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountSelection2Choice;
 /// Various investment account information used to select a specific account.
 /// </summary>
 public partial record OtherAccountSelectionData : AccountSelection2Choice_
+     , IIsoXmlSerilizable<OtherAccountSelectionData>
 {
     #nullable enable
+    
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
@@ -42,10 +46,73 @@ public partial record OtherAccountSelectionData : AccountSelection2Choice_
     /// <summary>
     /// Intermediary or other party related to the management of the account.
     /// </summary>
-    public IReadOnlyCollection<Intermediary33> Intermediary { get; init; } = [];
+    public ValueList<Intermediary33> Intermediary { get; init; } = [];
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
     public PartyIdentification70Choice_? AccountServicer { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax35Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Designation is IsoMax35Text DesignationValue)
+        {
+            writer.WriteStartElement(null, "Dsgnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DesignationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (FundType is IsoMax35Text FundTypeValue)
+        {
+            writer.WriteStartElement(null, "FndTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(FundTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (FundFamilyName is IsoMax350Text FundFamilyNameValue)
+        {
+            writer.WriteStartElement(null, "FndFmlyNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(FundFamilyNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (SecurityDetails is FinancialInstrument55 SecurityDetailsValue)
+        {
+            writer.WriteStartElement(null, "SctyDtls", xmlNamespace );
+            SecurityDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountOwner is AccountOwner2Choice_ AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Intrmy", xmlNamespace );
+        Intermediary.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountServicer is PartyIdentification70Choice_ AccountServicerValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+            AccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new OtherAccountSelectionData Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

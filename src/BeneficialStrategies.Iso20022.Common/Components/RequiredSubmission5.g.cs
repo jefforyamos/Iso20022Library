@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details relative to the submission of the certificate data set.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RequiredSubmission5
+     : IIsoXmlSerilizable<RequiredSubmission5>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies with party(ies) is authorised to submit the data set as part of the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<BICIdentification1> Submitter { get; init; } = []; // Warning: Don't know multiplicity.
+    public BICIdentification1? Submitter { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _TnwH2Np-Ed-ak6NoX_4Aeg_1225129107
     /// <summary>
     /// Specifies the type of the certificate.
     /// </summary>
-    [DataMember]
     public required TradeCertificateType2Code CertificateType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize Submitter, multiplicity Unknown
+        writer.WriteStartElement(null, "CertTp", xmlNamespace );
+        writer.WriteValue(CertificateType.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static RequiredSubmission5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

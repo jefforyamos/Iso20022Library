@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Transport key or key encryption key (KEK) identification for the recipient.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CertificateIdentifier1
+     : IIsoXmlSerilizable<CertificateIdentifier1>
 {
     #nullable enable
     
     /// <summary>
     /// Certificate issuer name and serial number (see X.509).
     /// </summary>
-    [DataMember]
     public required IssuerAndSerialNumber1 IssuerAndSerialNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IssrAndSrlNb", xmlNamespace );
+        IssuerAndSerialNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CertificateIdentifier1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

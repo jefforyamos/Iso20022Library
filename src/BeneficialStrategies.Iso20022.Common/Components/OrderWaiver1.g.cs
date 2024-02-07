@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about how an order is to be processed.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OrderWaiver1
+     : IIsoXmlSerilizable<OrderWaiver1>
 {
     #nullable enable
     
     /// <summary>
     /// Reason why the order has to be handled differently, probably in a manual fashion, because, for example, the investment manager has agreed a waiver to the terms.
     /// </summary>
-    [DataMember]
-    public ValueList<OrderWaiverReason3Choice_> OrderWaiverReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public OrderWaiverReason3Choice_? OrderWaiverReason { get; init; } 
     /// <summary>
     /// Additional information about the order waiver.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? InformationValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OrderWaiverReason is OrderWaiverReason3Choice_ OrderWaiverReasonValue)
+        {
+            writer.WriteStartElement(null, "OrdrWvrRsn", xmlNamespace );
+            OrderWaiverReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InformationValue is IsoMax350Text InformationValueValue)
+        {
+            writer.WriteStartElement(null, "InfVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(InformationValueValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static OrderWaiver1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

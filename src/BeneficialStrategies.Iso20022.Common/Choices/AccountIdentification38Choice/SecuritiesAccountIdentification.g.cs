@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification38Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification38Choice;
 /// Unique identification of the securities account as assigned by the account servicer.
 /// </summary>
 public partial record SecuritiesAccountIdentification : AccountIdentification38Choice_
+     , IIsoXmlSerilizable<SecuritiesAccountIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
@@ -27,5 +31,38 @@ public partial record SecuritiesAccountIdentification : AccountIdentification38C
     /// Description of the account.
     /// </summary>
     public IsoMax70Text? Name { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Type is GenericIdentification30 TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Name is IsoMax70Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new SecuritiesAccountIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

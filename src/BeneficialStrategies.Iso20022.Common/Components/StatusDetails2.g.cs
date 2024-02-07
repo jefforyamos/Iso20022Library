@@ -7,55 +7,99 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies details on the status of a payment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StatusDetails2
+     : IIsoXmlSerilizable<StatusDetails2>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the party that issues the status.
     /// </summary>
-    [DataMember]
     public required IsoAnyBICIdentifier Originator { get; init; } 
     /// <summary>
     /// Date and time at which the funds are available,  as reported in the ACSC status update.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? FundsAvailable { get; init; } 
     /// <summary>
     /// Specifies the status of the transaction.
     /// </summary>
-    [DataMember]
     public required PaymentStatus5 TransactionStatus { get; init; } 
     /// <summary>
     /// Identifies the entity to which the entity reporting the status has forwarded the payment transaction.
     /// Usage:
     /// This element can only be used in case the status is ACSP and the reason is G000 or G001.
     /// </summary>
-    [DataMember]
     public IsoAnyBICIdentifier? ForwardedToAgent { get; init; } 
     /// <summary>
     /// Specifies the amount confirmed by the Originator. Depending on the Transaction Status, this amount can be the credited amount, pending amount, rejected amount or transferred amount.
     /// </summary>
-    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount ConfirmedAmount { get; init; } 
     /// <summary>
     /// Specifies the exchange rate details between two currencies.
     /// </summary>
-    [DataMember]
     public CurrencyExchange12? ForeignExchangeDetails { get; init; } 
     /// <summary>
     /// Amount of money asked or paid for the charge.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoActiveOrHistoricCurrencyAndAmount> ChargeAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoActiveOrHistoricCurrencyAndAmount? ChargeAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Orgtr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(Originator)); // data type AnyBICIdentifier System.String
+        writer.WriteEndElement();
+        if (FundsAvailable is IsoISODateTime FundsAvailableValue)
+        {
+            writer.WriteStartElement(null, "FndsAvlbl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(FundsAvailableValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxSts", xmlNamespace );
+        TransactionStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ForwardedToAgent is IsoAnyBICIdentifier ForwardedToAgentValue)
+        {
+            writer.WriteStartElement(null, "FwddToAgt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(ForwardedToAgentValue)); // data type AnyBICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ConfdAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ConfirmedAmount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (ForeignExchangeDetails is CurrencyExchange12 ForeignExchangeDetailsValue)
+        {
+            writer.WriteStartElement(null, "FXDtls", xmlNamespace );
+            ForeignExchangeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ChargeAmount is IsoActiveOrHistoricCurrencyAndAmount ChargeAmountValue)
+        {
+            writer.WriteStartElement(null, "ChrgAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ChargeAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static StatusDetails2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

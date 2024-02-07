@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details on the margin calculation per financial instrument or per currency.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MarginCalculation2
+     : IIsoXmlSerilizable<MarginCalculation2>
 {
     #nullable enable
     
     /// <summary>
     /// Provides details about the security identification.
     /// </summary>
-    [DataMember]
     public SecurityIdentification14? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Net total of the transaction exposure of all outstanding deals.
     /// </summary>
-    [DataMember]
     public Amount2? ExposureAmount { get; init; } 
     /// <summary>
     /// Provides the total margin amount.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection20 TotalMarginAmount { get; init; } 
     /// <summary>
     /// Provides details on the valuation of the collateral on deposit.
     /// </summary>
-    [DataMember]
-    public ValueList<Collateral6> CollateralOnDeposit { get; init; } = []; // Warning: Don't know multiplicity.
+    public Collateral6? CollateralOnDeposit { get; init; } 
     /// <summary>
     /// Minimum requirement (expressed in the reporting currency) for a participant if their requirement falls below a specific amount set by the central counterparty.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? MinimumRequirementDeposit { get; init; } 
     /// <summary>
     /// Provide details on the margin result taking into consideration the total margin amount and the minimum requirements deposit.
     /// </summary>
-    [DataMember]
     public MarginResult1Choice_? MarginResult { get; init; } 
     /// <summary>
     /// Provides margin calculation details such as the initial margin amount, the variation margin amount or other margin type amounts.
     /// </summary>
-    [DataMember]
     public Margin3? MarginTypeAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FinancialInstrumentIdentification is SecurityIdentification14 FinancialInstrumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+            FinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExposureAmount is Amount2 ExposureAmountValue)
+        {
+            writer.WriteStartElement(null, "XpsrAmt", xmlNamespace );
+            ExposureAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TtlMrgnAmt", xmlNamespace );
+        TotalMarginAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CollateralOnDeposit is Collateral6 CollateralOnDepositValue)
+        {
+            writer.WriteStartElement(null, "CollOnDpst", xmlNamespace );
+            CollateralOnDepositValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MinimumRequirementDeposit is IsoActiveCurrencyAndAmount MinimumRequirementDepositValue)
+        {
+            writer.WriteStartElement(null, "MinRqrmntDpst", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MinimumRequirementDepositValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MarginResult is MarginResult1Choice_ MarginResultValue)
+        {
+            writer.WriteStartElement(null, "MrgnRslt", xmlNamespace );
+            MarginResultValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarginTypeAmount is Margin3 MarginTypeAmountValue)
+        {
+            writer.WriteStartElement(null, "MrgnTpAmt", xmlNamespace );
+            MarginTypeAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MarginCalculation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

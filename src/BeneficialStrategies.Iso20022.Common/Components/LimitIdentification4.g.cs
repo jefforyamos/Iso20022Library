@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Cash management feature limiting the maximum risk a party accepts to take with respect to a counterparty or a set of counterparties. A risk management limit is either bilateral, ie, for a counterparty, or multilateral, ie, for a set of counterparties or all other members in a system.The limit may also apply to sponsored members, ie, indirect members. In principle, a risk management limit is calculated on the net position between two members and is expressed as a credit or debit limit, from the point of view of the party setting the limit.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LimitIdentification4
+     : IIsoXmlSerilizable<LimitIdentification4>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification as assigned by the account servicer to unambiguously identify the account.
     /// </summary>
-    [DataMember]
     public required AccountIdentification4Choice_ AccountIdentification { get; init; } 
     /// <summary>
     /// Nature of the risk management limit.
     /// </summary>
-    [DataMember]
     public required LimitType4Code Type { get; init; } 
     /// <summary>
     /// Currency unit used to specify the limit amount.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? LimitCurrency { get; init; } 
     /// <summary>
     /// Owner of the account which is being queried.
     /// </summary>
-    [DataMember]
     public required IsoBICFIIdentifier AccountOwner { get; init; } 
     /// <summary>
     /// Identification of the system member for which the limit is established.
     /// </summary>
-    [DataMember]
     public SystemPartyIdentification4? BilateralLimitCounterpartyIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AcctId", xmlNamespace );
+        AccountIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (LimitCurrency is ActiveCurrencyCode LimitCurrencyValue)
+        {
+            writer.WriteStartElement(null, "LmtCcy", xmlNamespace );
+            writer.WriteValue(LimitCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBICFIIdentifier(AccountOwner)); // data type BICFIIdentifier System.String
+        writer.WriteEndElement();
+        if (BilateralLimitCounterpartyIdentification is SystemPartyIdentification4 BilateralLimitCounterpartyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "BilLmtCtrPtyId", xmlNamespace );
+            BilateralLimitCounterpartyIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LimitIdentification4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

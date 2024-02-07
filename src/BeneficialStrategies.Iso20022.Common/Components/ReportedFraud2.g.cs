@@ -7,58 +7,107 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Fraud reporting type information
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReportedFraud2
+     : IIsoXmlSerilizable<ReportedFraud2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of fraud for which a report is established.
     /// </summary>
-    [DataMember]
     public required FraudType1Code FraudType { get; init; } 
     /// <summary>
     /// Other type of fraud.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherFraudType { get; init; } 
     /// <summary>
     /// Identifies the type of reported fraudulent transaction.
     /// </summary>
-    [DataMember]
     public required FraudReportingAction1Code FraudReportingAction { get; init; } 
     /// <summary>
     /// Other fraud reporting action.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherFraudReportingAction { get; init; } 
     /// <summary>
     /// Type of fraud reporting entity.
     /// </summary>
-    [DataMember]
     public required PartyType25Code ReportingEntity { get; init; } 
     /// <summary>
     /// Other type of fraud reporting entity.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherReportingEntity { get; init; } 
     /// <summary>
     /// Reference to the case as provided by the submitter.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SubmitterCaseReference { get; init; } 
     /// <summary>
     /// Reference to fraudulent case.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CaseReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FrdTp", xmlNamespace );
+        writer.WriteValue(FraudType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherFraudType is IsoMax35Text OtherFraudTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrFrdTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherFraudTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FrdRptgActn", xmlNamespace );
+        writer.WriteValue(FraudReportingAction.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherFraudReportingAction is IsoMax35Text OtherFraudReportingActionValue)
+        {
+            writer.WriteStartElement(null, "OthrFrdRptgActn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherFraudReportingActionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RptgNtty", xmlNamespace );
+        writer.WriteValue(ReportingEntity.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherReportingEntity is IsoMax35Text OtherReportingEntityValue)
+        {
+            writer.WriteStartElement(null, "OthrRptgNtty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherReportingEntityValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SubmitterCaseReference is IsoMax35Text SubmitterCaseReferenceValue)
+        {
+            writer.WriteStartElement(null, "SubmitrCaseRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SubmitterCaseReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CaseReference is IsoMax35Text CaseReferenceValue)
+        {
+            writer.WriteStartElement(null, "CaseRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CaseReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ReportedFraud2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

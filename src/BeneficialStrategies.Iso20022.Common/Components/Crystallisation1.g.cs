@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Number of crystallised units.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Crystallisation1
+     : IIsoXmlSerilizable<Crystallisation1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the tranche.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TrancheIdentification { get; init; } 
     /// <summary>
     /// Number of units crystallised.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? CrystallisedUnitsNumber { get; init; } 
     /// <summary>
     /// Number of units uncrystallised.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? UncrystallisedUnitsNumber { get; init; } 
     /// <summary>
     /// Additional information about the crystallisation.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TrchId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TrancheIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (CrystallisedUnitsNumber is IsoDecimalNumber CrystallisedUnitsNumberValue)
+        {
+            writer.WriteStartElement(null, "CrstllsdUnitsNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(CrystallisedUnitsNumberValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (UncrystallisedUnitsNumber is IsoDecimalNumber UncrystallisedUnitsNumberValue)
+        {
+            writer.WriteStartElement(null, "UcrstllsdUnitsNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(UncrystallisedUnitsNumberValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Crystallisation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,58 +7,113 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Communication device number or address used for communication.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ContactAttributes5
+     : IIsoXmlSerilizable<ContactAttributes5>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the party.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text Name { get; init; } 
     /// <summary>
     /// Address of the party.
     /// </summary>
-    [DataMember]
     public PostalAddress1? PostalAddress { get; init; } 
     /// <summary>
     /// Phone number of the party.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? PhoneNumber { get; init; } 
     /// <summary>
     /// Fax number of the party.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? FaxNumber { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail) for the party.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? EmailAddress { get; init; } 
     /// <summary>
     /// Address for the Universal Resource Locator (URL), for example, used over the www (HTTP) service.
     /// </summary>
-    [DataMember]
     public IsoMax2048Text? URLAddress { get; init; } 
     /// <summary>
     /// Identification of the party expressed as a BIC.
     /// </summary>
-    [DataMember]
     public IsoAnyBICDec2014Identifier? AnyBIC { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for the party.
     /// </summary>
-    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(Name)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (PostalAddress is PostalAddress1 PostalAddressValue)
+        {
+            writer.WriteStartElement(null, "PstlAdr", xmlNamespace );
+            PostalAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PhoneNumber is IsoPhoneNumber PhoneNumberValue)
+        {
+            writer.WriteStartElement(null, "PhneNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(PhoneNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (FaxNumber is IsoPhoneNumber FaxNumberValue)
+        {
+            writer.WriteStartElement(null, "FaxNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(FaxNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (EmailAddress is IsoMax256Text EmailAddressValue)
+        {
+            writer.WriteStartElement(null, "EmailAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(EmailAddressValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (URLAddress is IsoMax2048Text URLAddressValue)
+        {
+            writer.WriteStartElement(null, "URLAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2048Text(URLAddressValue)); // data type Max2048Text System.String
+            writer.WriteEndElement();
+        }
+        if (AnyBIC is IsoAnyBICDec2014Identifier AnyBICValue)
+        {
+            writer.WriteStartElement(null, "AnyBIC", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICDec2014Identifier(AnyBICValue)); // data type AnyBICDec2014Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (LEI is IsoLEIIdentifier LEIValue)
+        {
+            writer.WriteStartElement(null, "LEI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEIValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ContactAttributes5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

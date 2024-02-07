@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentification255
+     : IIsoXmlSerilizable<PartyIdentification255>
 {
     #nullable enable
     
@@ -23,105 +24,211 @@ public partial record PartyIdentification255
     /// Identification of the acceptor.
     /// ISO 8583 bit 42
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Identification of the entity assigning an identification to the acceptor.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Assigner { get; init; } 
     /// <summary>
     /// Country code of the acceptor.
     /// ISO 8583:87/93 bit 43 & 8583:2003 bit 43-71 (when used for Acceptor Country Code)
     /// </summary>
-    [DataMember]
     public ISO3NumericCountryCode? Country { get; init; } 
     /// <summary>
     /// Short name of the acceptor.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     /// <summary>
     /// Legal Corporate Name of the party.
     /// </summary>
-    [DataMember]
     public IsoMax99Text? LegalCorporateName { get; init; } 
     /// <summary>
     /// Additional identification assigned by an agent to an acceptor.
     /// </summary>
-    [DataMember]
     public AdditionalData1? AdditionalIdentification { get; init; } 
     /// <summary>
     /// Name and location of acceptor.  May only contain name when the location is specified elsewhere.
     /// </summary>
-    [DataMember]
     public required IsoMax99Text NameAndLocation { get; init; } 
     /// <summary>
     /// Address of the entity.
     /// ISO 8583:93 bit 43 & 8583:2003 bit 43-71 (when used for acceptor address)
     /// </summary>
-    [DataMember]
     public Address2? Address { get; init; } 
     /// <summary>
     /// Additional information used when card acceptor street address is insufficient.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? AdditionalAddressInformation { get; init; } 
     /// <summary>
     /// Location of the acceptor in latitude/longitude decimal degrees.
     /// </summary>
-    [DataMember]
     public IsoGeographicPointInDecimalDegrees? GeographicLocation { get; init; } 
     /// <summary>
     /// Electronic mail address.
     /// ISO 8583:2003 bit 43-71 (when used for Acceptor email address)
     /// </summary>
-    [DataMember]
     public IsoMax256Text? Email { get; init; } 
     /// <summary>
     /// Universal Resource Locator (URL) address.
     /// ISO 8583:2003 bit 43-71 (when used for Acceptor URL)
     /// </summary>
-    [DataMember]
     public IsoMax256Text? URLAddress { get; init; } 
     /// <summary>
     /// Collection of information that identifies  a phone number as defined by telecom services.
     /// ISO 8583:2003 bit 43-71 (when used for Acceptor phone number)
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PhoneNumber { get; init; } 
     /// <summary>
     /// Phone number of the customer service.
     /// ISO 8583:2003 bit 43-71 (when used for Acceptor customer service phone number)
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CustomerService { get; init; } 
     /// <summary>
     /// Additional information used to facilitate contact with the card acceptor, for instance sales agent name, dispute manager name.
     /// ISO 8583:2003 bit 43-71 (when used for Acceptor additional contact information)
     /// </summary>
-    [DataMember]
     public IsoMax256Text? AdditionalContactInformation { get; init; } 
     /// <summary>
     /// Identification of a party by its tax registration number.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TaxRegistrationIdentification { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     /// <summary>
     /// Contains local language equivalent(s) of data in the current component.
     /// </summary>
-    [DataMember]
     public LocalData4? LocalData { get; init; } 
     /// <summary>
     /// Sponsored merchant is a merchant that uses the payment services of another entity that acts as the card acceptor.
     /// </summary>
-    [DataMember]
-    public ValueList<SponsoredMerchant2> SponsoredMerchant { get; init; } = []; // Warning: Don't know multiplicity.
+    public SponsoredMerchant2? SponsoredMerchant { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Assigner is IsoMax35Text AssignerValue)
+        {
+            writer.WriteStartElement(null, "Assgnr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AssignerValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Country is ISO3NumericCountryCode CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(CountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ShortName is IsoMax35Text ShortNameValue)
+        {
+            writer.WriteStartElement(null, "ShrtNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ShortNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (LegalCorporateName is IsoMax99Text LegalCorporateNameValue)
+        {
+            writer.WriteStartElement(null, "LglCorpNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax99Text(LegalCorporateNameValue)); // data type Max99Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalIdentification is AdditionalData1 AdditionalIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AddtlId", xmlNamespace );
+            AdditionalIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "NmAndLctn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax99Text(NameAndLocation)); // data type Max99Text System.String
+        writer.WriteEndElement();
+        if (Address is Address2 AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalAddressInformation is IsoMax256Text AdditionalAddressInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlAdrInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(AdditionalAddressInformationValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (GeographicLocation is IsoGeographicPointInDecimalDegrees GeographicLocationValue)
+        {
+            writer.WriteStartElement(null, "GeogcLctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoGeographicPointInDecimalDegrees(GeographicLocationValue)); // data type GeographicPointInDecimalDegrees System.String
+            writer.WriteEndElement();
+        }
+        if (Email is IsoMax256Text EmailValue)
+        {
+            writer.WriteStartElement(null, "Email", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(EmailValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (URLAddress is IsoMax256Text URLAddressValue)
+        {
+            writer.WriteStartElement(null, "URLAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(URLAddressValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (PhoneNumber is IsoMax35Text PhoneNumberValue)
+        {
+            writer.WriteStartElement(null, "PhneNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PhoneNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CustomerService is IsoMax35Text CustomerServiceValue)
+        {
+            writer.WriteStartElement(null, "CstmrSvc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CustomerServiceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalContactInformation is IsoMax256Text AdditionalContactInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlCtctInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(AdditionalContactInformationValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (TaxRegistrationIdentification is IsoMax35Text TaxRegistrationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TaxRegnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TaxRegistrationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LocalData is LocalData4 LocalDataValue)
+        {
+            writer.WriteStartElement(null, "LclData", xmlNamespace );
+            LocalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SponsoredMerchant is SponsoredMerchant2 SponsoredMerchantValue)
+        {
+            writer.WriteStartElement(null, "SpnsrdMrchnt", xmlNamespace );
+            SponsoredMerchantValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyIdentification255 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

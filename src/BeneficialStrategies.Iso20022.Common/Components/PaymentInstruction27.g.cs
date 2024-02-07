@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the payment instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentInstruction27
+     : IIsoXmlSerilizable<PaymentInstruction27>
 {
     #nullable enable
     
     /// <summary>
     /// Further information related to the processing of the payment instruction. The instruction can relate to a level of service between the bank and the customer, or give instructions to and for specific parties in the payment chain.|.
     /// </summary>
-    [DataMember]
     public Instruction1Code? Instruction { get; init; } 
     /// <summary>
     /// Type, or nature, of the payment, for example an express payment.
     /// </summary>
-    [DataMember]
     public PaymentType4Choice_? Type { get; init; } 
     /// <summary>
     /// Urgency or order of importance that the originator would like the recipient of the payment instruction to apply to the processing of the payment instruction.|.
     /// </summary>
-    [DataMember]
     public PriorityCode3Choice_? Priority { get; init; } 
     /// <summary>
     /// Date and time range within which the payment instruction must be processed.|.
     /// </summary>
-    [DataMember]
     public DateTimePeriod1Choice_? ProcessingValidityTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Instruction is Instruction1Code InstructionValue)
+        {
+            writer.WriteStartElement(null, "Instr", xmlNamespace );
+            writer.WriteValue(InstructionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Type is PaymentType4Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Priority is PriorityCode3Choice_ PriorityValue)
+        {
+            writer.WriteStartElement(null, "Prty", xmlNamespace );
+            PriorityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProcessingValidityTime is DateTimePeriod1Choice_ ProcessingValidityTimeValue)
+        {
+            writer.WriteStartElement(null, "PrcgVldtyTm", xmlNamespace );
+            ProcessingValidityTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentInstruction27 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

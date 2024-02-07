@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsmt.ActivityReportRequestV03>;
 
 namespace BeneficialStrategies.Iso20022.tsmt;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// - on demand. The message requests a report on all transactions that the requester is involved in and for which an activity has taken place within a time span specified by the requester.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The ActivityReportRequest message is sent by any party involved in a transaction to the matching application.|This message is used to request a report on all transactions for which an activity has taken place within a given time span.|Usage|The ActivityReportRequest message can be sent|- at a pre-determined time. The message requests a report on all transactions that the requester is involved in and for which an activity has taken place within the last 24 hours.|- on demand. The message requests a report on all transactions that the requester is involved in and for which an activity has taken place within a time span specified by the requester.")]
-public partial record ActivityReportRequestV03 : IOuterRecord
+public partial record ActivityReportRequestV03 : IOuterRecord<ActivityReportRequestV03,ActivityReportRequestV03Document>
+    ,IIsoXmlSerilizable<ActivityReportRequestV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record ActivityReportRequestV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "ActvtyReqRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ActivityReportRequestV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -82,6 +89,35 @@ public partial record ActivityReportRequestV03 : IOuterRecord
     {
         return new ActivityReportRequestV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("ActvtyReqRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ReqId", xmlNamespace );
+        RequestIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (EntitiesToBeReported is BICIdentification1 EntitiesToBeReportedValue)
+        {
+            writer.WriteStartElement(null, "NttiesToBeRptd", xmlNamespace );
+            EntitiesToBeReportedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RptPrd", xmlNamespace );
+        ReportPeriod.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ActivityReportRequestV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -89,9 +125,7 @@ public partial record ActivityReportRequestV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ActivityReportRequestV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ActivityReportRequestV03Document : IOuterDocument<ActivityReportRequestV03>
+public partial record ActivityReportRequestV03Document : IOuterDocument<ActivityReportRequestV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -107,5 +141,22 @@ public partial record ActivityReportRequestV03Document : IOuterDocument<Activity
     /// <summary>
     /// The instance of <seealso cref="ActivityReportRequestV03"/> is required.
     /// </summary>
+    [DataMember(Name=ActivityReportRequestV03.XmlTag)]
     public required ActivityReportRequestV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ActivityReportRequestV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

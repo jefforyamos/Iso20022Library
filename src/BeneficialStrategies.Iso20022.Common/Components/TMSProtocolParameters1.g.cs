@@ -7,63 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Configuration parameters of the TMS protocol between a POI and a terminal manager.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TMSProtocolParameters1
+     : IIsoXmlSerilizable<TMSProtocolParameters1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the master terminal manager or the terminal manager.
     /// </summary>
-    [DataMember]
     public required GenericIdentification71 TerminalManagerIdentification { get; init; } 
     /// <summary>
     /// Maintenance services provided by the terminal manager.
     /// </summary>
-    [DataMember]
-    public ValueList<DataSetCategory5Code> MaintenanceService { get; init; } = []; // Warning: Don't know multiplicity.
+    public DataSetCategory5Code? MaintenanceService { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _CoSFMGpcEeS4r8z7dKyh1g
     /// <summary>
     /// Version of the TMS protocol parameters.
     /// </summary>
-    [DataMember]
     public required IsoMax256Text Version { get; init; } 
     /// <summary>
     /// Identification of applications which may be managed by the TM, partially or globally.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> ApplicationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? ApplicationIdentification { get; init; } 
     /// <summary>
     /// Addresses of the terminal manager host.
     /// </summary>
-    [DataMember]
     public NetworkParameters3? HostAddress { get; init; } 
     /// <summary>
     /// Cryptographic key used to communicate with the terminal manager host.
     /// </summary>
-    [DataMember]
-    public ValueList<KEKIdentifier2> HostKey { get; init; } = []; // Warning: Don't know multiplicity.
+    public KEKIdentifier2? HostKey { get; init; } 
     /// <summary>
     /// New identification of the POI for the terminal manager.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? POIIdentification { get; init; } 
     /// <summary>
     /// New identification of the initiating party to set in TMS messages with this terminal manager.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? InitiatingPartyIdentification { get; init; } 
     /// <summary>
     /// New identification of the recipient party to set in TMS messages with this terminal manager.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RecipientPartyIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TermnlMgrId", xmlNamespace );
+        TerminalManagerIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize MaintenanceService, multiplicity Unknown
+        writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax256Text(Version)); // data type Max256Text System.String
+        writer.WriteEndElement();
+        if (ApplicationIdentification is IsoMax35Text ApplicationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ApplId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ApplicationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (HostAddress is NetworkParameters3 HostAddressValue)
+        {
+            writer.WriteStartElement(null, "HstAdr", xmlNamespace );
+            HostAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (HostKey is KEKIdentifier2 HostKeyValue)
+        {
+            writer.WriteStartElement(null, "HstKey", xmlNamespace );
+            HostKeyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (POIIdentification is IsoMax35Text POIIdentificationValue)
+        {
+            writer.WriteStartElement(null, "POIId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(POIIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (InitiatingPartyIdentification is IsoMax35Text InitiatingPartyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "InitgPtyId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(InitiatingPartyIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RecipientPartyIdentification is IsoMax35Text RecipientPartyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcptPtyId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RecipientPartyIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TMSProtocolParameters1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

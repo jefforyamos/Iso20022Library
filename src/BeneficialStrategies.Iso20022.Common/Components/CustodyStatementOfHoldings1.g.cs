@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a custody statement of holdings.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CustodyStatementOfHoldings1
+     : IIsoXmlSerilizable<CustodyStatementOfHoldings1>
 {
     #nullable enable
     
     /// <summary>
     /// Pagination of the message.
     /// </summary>
-    [DataMember]
     public required Pagination MessagePagination { get; init; } 
     /// <summary>
     /// General information related to the custody statement of holdings that is being cancelled.
     /// </summary>
-    [DataMember]
     public Statement3? StatementGeneralDetails { get; init; } 
     /// <summary>
     /// Safekeeping or investment account of the statement that is being cancelled.
     /// </summary>
-    [DataMember]
     public SafekeepingAccount1? AccountDetails { get; init; } 
     /// <summary>
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
     /// </summary>
-    [DataMember]
-    public ValueList<AggregateBalanceInformation1> BalanceForAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    public AggregateBalanceInformation1? BalanceForAccount { get; init; } 
     /// <summary>
     /// Sub-account of the safekeeping or investment account.
     /// </summary>
-    [DataMember]
-    public ValueList<SubAccountIdentification1> SubAccountDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public SubAccountIdentification1? SubAccountDetails { get; init; } 
     /// <summary>
     /// Value of total holdings reported.
     /// </summary>
-    [DataMember]
     public TotalValueInPageAndStatement? TotalValues { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<Extension1> Extension { get; init; } = []; // Warning: Don't know multiplicity.
+    public Extension1? Extension { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgPgntn", xmlNamespace );
+        MessagePagination.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (StatementGeneralDetails is Statement3 StatementGeneralDetailsValue)
+        {
+            writer.WriteStartElement(null, "StmtGnlDtls", xmlNamespace );
+            StatementGeneralDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountDetails is SafekeepingAccount1 AccountDetailsValue)
+        {
+            writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
+            AccountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BalanceForAccount is AggregateBalanceInformation1 BalanceForAccountValue)
+        {
+            writer.WriteStartElement(null, "BalForAcct", xmlNamespace );
+            BalanceForAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SubAccountDetails is SubAccountIdentification1 SubAccountDetailsValue)
+        {
+            writer.WriteStartElement(null, "SubAcctDtls", xmlNamespace );
+            SubAccountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalValues is TotalValueInPageAndStatement TotalValuesValue)
+        {
+            writer.WriteStartElement(null, "TtlVals", xmlNamespace );
+            TotalValuesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CustodyStatementOfHoldings1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies totals related to the invoice.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ServiceCategoryTotals2
+     : IIsoXmlSerilizable<ServiceCategoryTotals2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification of an securities account or cash account belonging to billed customer.
     /// </summary>
-    [DataMember]
     public AccountIdentification38Choice_? AccountIdentification { get; init; } 
     /// <summary>
     /// BIC of the party which is invoiced by the CSD/NCB.
     /// </summary>
-    [DataMember]
     public IsoBICFIIdentifier? BilledCustomerIdentification { get; init; } 
     /// <summary>
     /// Total amount subject to tax.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalTaxableAmount { get; init; } 
     /// <summary>
     /// Sum of all tax amounts related to the invoice.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalTaxAmount { get; init; } 
     /// <summary>
     /// Total amount of the invoice, being the sum of total invoice lines amounts, total invoice adjustment amount (discounts, allowances and charges) and total tax amounts.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalInvoiceAmount { get; init; } 
     /// <summary>
     /// Agreement under which or rules under which the transaction should be processed.
     /// </summary>
-    [DataMember]
     public required IsoMax4AlphaNumericText ServiceCategory { get; init; } 
     /// <summary>
     /// Specifies totals related to the invoice.
     /// </summary>
-    [DataMember]
-    public ValueList<ServiceItemTotals1> ServiceItemTotals { get; init; } = []; // Warning: Don't know multiplicity.
+    public ServiceItemTotals1? ServiceItemTotals { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountIdentification is AccountIdentification38Choice_ AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            AccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BilledCustomerIdentification is IsoBICFIIdentifier BilledCustomerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "BlldCstmrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBICFIIdentifier(BilledCustomerIdentificationValue)); // data type BICFIIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (TotalTaxableAmount is IsoActiveCurrencyAndAmount TotalTaxableAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlTaxblAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalTaxableAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TotalTaxAmount is IsoActiveCurrencyAndAmount TotalTaxAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlTaxAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalTaxAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TtlInvcAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalInvoiceAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SvcCtgy", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(ServiceCategory)); // data type Max4AlphaNumericText System.String
+        writer.WriteEndElement();
+        if (ServiceItemTotals is ServiceItemTotals1 ServiceItemTotalsValue)
+        {
+            writer.WriteStartElement(null, "SvcItmTtls", xmlNamespace );
+            ServiceItemTotalsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ServiceCategoryTotals2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

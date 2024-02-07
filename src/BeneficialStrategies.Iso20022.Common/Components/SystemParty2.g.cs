@@ -7,6 +7,8 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -15,22 +17,48 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// A party shall denote any legal or organisational entity required in the system. 
 /// This entity shall store the parties from the first three levels: the system operator, the central securities depositaries, the participants of the central securities depositaries, the national central banks and payment banks.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SystemParty2
+     : IIsoXmlSerilizable<SystemParty2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the opening date of the party.
     /// </summary>
-    [DataMember]
     public IsoISODate? OpeningDate { get; init; } 
     /// <summary>
     /// Specifies the closing date of the party.
     /// </summary>
-    [DataMember]
     public IsoISODate? ClosingDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OpeningDate is IsoISODate OpeningDateValue)
+        {
+            writer.WriteStartElement(null, "OpngDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(OpeningDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ClosingDate is IsoISODate ClosingDateValue)
+        {
+            writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ClosingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static SystemParty2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

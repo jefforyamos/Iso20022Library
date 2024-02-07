@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the entity to which the financial instruments are pledged expressed as a code and a BIC.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PledgeeTypeAndAnyBICIdentifier1
+     : IIsoXmlSerilizable<PledgeeTypeAndAnyBICIdentifier1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the entity to which the financial instruments are pledged, expressed as a BIC.
     /// </summary>
-    [DataMember]
     public required IsoAnyBICIdentifier Identification { get; init; } 
     /// <summary>
     /// Entity to which the financial instruments are pledged expressed as a code.
     /// </summary>
-    [DataMember]
     public required PledgeeType1Code PledgeeType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(Identification)); // data type AnyBICIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PldgeeTp", xmlNamespace );
+        writer.WriteValue(PledgeeType.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static PledgeeTypeAndAnyBICIdentifier1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

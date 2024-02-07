@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CardTransaction2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.CardTransaction2Choice;
 /// Card transaction details, based on card transaction aggregated data performed by the card acquirer.
 /// </summary>
 public partial record Aggregated : CardTransaction2Choice_
+     , IIsoXmlSerilizable<Aggregated>
 {
     #nullable enable
+    
     /// <summary>
     /// Service in addition to the main service.
     /// </summary>
@@ -35,5 +39,53 @@ public partial record Aggregated : CardTransaction2Choice_
     /// Date range on which the globalisation applies.
     /// </summary>
     public DateOrDateTimePeriodChoice_? TransactionDateRange { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AdditionalService is CardPaymentServiceType2Code AdditionalServiceValue)
+        {
+            writer.WriteStartElement(null, "AddtlSvc", xmlNamespace );
+            writer.WriteValue(AdditionalServiceValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TransactionCategory is ExternalCardTransactionCategory1Code TransactionCategoryValue)
+        {
+            writer.WriteStartElement(null, "TxCtgy", xmlNamespace );
+            writer.WriteValue(TransactionCategoryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SaleReconciliationIdentification is IsoMax35Text SaleReconciliationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleRcncltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReconciliationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SequenceNumberRange is CardSequenceNumberRange1 SequenceNumberRangeValue)
+        {
+            writer.WriteStartElement(null, "SeqNbRg", xmlNamespace );
+            SequenceNumberRangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionDateRange is DateOrDateTimePeriodChoice_ TransactionDateRangeValue)
+        {
+            writer.WriteStartElement(null, "TxDtRg", xmlNamespace );
+            TransactionDateRangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Aggregated Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

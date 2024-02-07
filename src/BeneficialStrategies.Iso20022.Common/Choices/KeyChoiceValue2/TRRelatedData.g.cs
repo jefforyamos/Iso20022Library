@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.KeyChoiceValue2;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.KeyChoiceValue2;
 /// Data block for a TR31 or TR34 block, where the block does not contain a key (for example the TR34 unbind which contains the signed authorization data).
 /// </summary>
 public partial record TRRelatedData : KeyChoiceValue2_
+     , IIsoXmlSerilizable<TRRelatedData>
 {
     #nullable enable
+    
     /// <summary>
     /// Specific TR34 command where the TRBlock is a TR34 block.
     /// </summary>
@@ -23,5 +27,35 @@ public partial record TRRelatedData : KeyChoiceValue2_
     /// TR31 or TR34 data block.
     /// </summary>
     public IsoMax100KBinary? TRBlock { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TR34Command is TR34Command1Code TR34CommandValue)
+        {
+            writer.WriteStartElement(null, "TR34Cmd", xmlNamespace );
+            writer.WriteValue(TR34CommandValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TRBlock is IsoMax100KBinary TRBlockValue)
+        {
+            writer.WriteStartElement(null, "TRBlck", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax100KBinary(TRBlockValue)); // data type Max100KBinary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static new TRRelatedData Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

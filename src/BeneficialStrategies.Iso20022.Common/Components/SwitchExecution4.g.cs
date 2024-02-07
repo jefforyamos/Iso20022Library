@@ -7,133 +7,249 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Execution of a switch order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SwitchExecution4
+     : IIsoXmlSerilizable<SwitchExecution4>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual orders, as assigned by the instructing party. This identifier links the individual orders together.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Date and time at which the order was placed by the investor.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? OrderDateTime { get; init; } 
     /// <summary>
     /// Account between an investor(s) and a fund manager or a fund. The account can contain holdings in any investment fund or investment fund class managed (or distributed) by the fund manager, within the same fund family.
     /// </summary>
-    [DataMember]
     public InvestmentAccount21? InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order execution, as assigned by a confirming party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text DealReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OrderReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of an order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Amount of money used to determine the quantity of investment fund units to be redeemed.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalRedemptionAmount { get; init; } 
     /// <summary>
     /// Amount of money used to determine the quantity of investment fund units to be subscribed.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalSubscriptionAmount { get; init; } 
     /// <summary>
     /// Confirmation of the information about parties related to the transaction.
     /// </summary>
-    [DataMember]
     public ValueList<Intermediary9> RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Future date at which the investor requests the order to be executed.|The specification of a requested future trade date is not allowed in some markets. The date must be a date in the future.
     /// </summary>
-    [DataMember]
     public IsoISODate? RequestedFutureTradeDate { get; init; } 
     /// <summary>
     /// Additional amount of money paid by the investor in addition to the switch redemption amount.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? AdditionalCashIn { get; init; } 
     /// <summary>
     /// Amount of money that results from a switch-out, that is not reinvested in another investment fund, and is repaid to the investor.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? ResultingCashOut { get; init; } 
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the individual order.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     /// <summary>
     /// Date on which cash is available.
     /// </summary>
-    [DataMember]
     public IsoISODate? CashSettlementDate { get; init; } 
     /// <summary>
     /// Method by which the transaction is settled.
     /// </summary>
-    [DataMember]
     public DeliveryReceiptType2Code? SettlementMethod { get; init; } 
     /// <summary>
     /// Specifies that the execution was subject to best execution rules as defined by MiFID.
     /// </summary>
-    [DataMember]
     public BestExecution1Code? BestExecution { get; init; } 
     /// <summary>
     /// Redemption leg of a switch order execution.
     /// </summary>
-    [DataMember]
-    public ValueList<SwitchRedemptionLegExecution3> RedemptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public SwitchRedemptionLegExecution3? RedemptionLegDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _SMGpMdp-Ed-ak6NoX_4Aeg_1493112217
     /// <summary>
     /// Subscription leg of a switch order execution.
     /// </summary>
-    [DataMember]
-    public ValueList<SwitchSubscriptionLegExecution3> SubscriptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public SwitchSubscriptionLegExecution3? SubscriptionLegDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _SMGpMtp-Ed-ak6NoX_4Aeg_1493111880
     /// <summary>
     /// Payment transaction resulting from the investment fund order execution.
     /// </summary>
-    [DataMember]
     public PaymentTransaction26? CashSettlementDetails { get; init; } 
     /// <summary>
     /// Currency exchange related to the execution of an investment fund order.
     /// </summary>
-    [DataMember]
-    public ValueList<ForeignExchangeTerms7> ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public ForeignExchangeTerms7? ForeignExchangeDetails { get; init; } 
     /// <summary>
     /// Specifies if advice has been received from an independent financial advisor.
     /// </summary>
-    [DataMember]
     public FinancialAdvice1Code? FinancialAdvice { get; init; } 
     /// <summary>
     /// Specifies whether the trade is negotiated.
     /// </summary>
-    [DataMember]
     public NegotiatedTrade1Code? NegotiatedTrade { get; init; } 
     /// <summary>
     /// Specifies whether the order execution confirmation is late.
     /// </summary>
-    [DataMember]
     public LateReport1Code? LateReport { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OrderDateTime is IsoISODateTime OrderDateTimeValue)
+        {
+            writer.WriteStartElement(null, "OrdrDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(OrderDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (InvestmentAccountDetails is InvestmentAccount21 InvestmentAccountDetailsValue)
+        {
+            writer.WriteStartElement(null, "InvstmtAcctDtls", xmlNamespace );
+            InvestmentAccountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DealRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(DealReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrdrRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OrderReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ClientReference is IsoMax35Text ClientReferenceValue)
+        {
+            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TotalRedemptionAmount is IsoActiveCurrencyAndAmount TotalRedemptionAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlRedAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalRedemptionAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TotalSubscriptionAmount is IsoActiveCurrencyAndAmount TotalSubscriptionAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlSbcptAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalSubscriptionAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RltdPtyDtls", xmlNamespace );
+        RelatedPartyDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RequestedFutureTradeDate is IsoISODate RequestedFutureTradeDateValue)
+        {
+            writer.WriteStartElement(null, "ReqdFutrTradDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(RequestedFutureTradeDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (AdditionalCashIn is IsoActiveCurrencyAndAmount AdditionalCashInValue)
+        {
+            writer.WriteStartElement(null, "AddtlCshIn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AdditionalCashInValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ResultingCashOut is IsoActiveCurrencyAndAmount ResultingCashOutValue)
+        {
+            writer.WriteStartElement(null, "RsltgCshOut", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ResultingCashOutValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (SettlementAmount is IsoActiveCurrencyAndAmount SettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(SettlementAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CashSettlementDate is IsoISODate CashSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "CshSttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(CashSettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SettlementMethod is DeliveryReceiptType2Code SettlementMethodValue)
+        {
+            writer.WriteStartElement(null, "SttlmMtd", xmlNamespace );
+            writer.WriteValue(SettlementMethodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (BestExecution is BestExecution1Code BestExecutionValue)
+        {
+            writer.WriteStartElement(null, "BestExctn", xmlNamespace );
+            writer.WriteValue(BestExecutionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize RedemptionLegDetails, multiplicity Unknown
+        // Not sure how to serialize SubscriptionLegDetails, multiplicity Unknown
+        if (CashSettlementDetails is PaymentTransaction26 CashSettlementDetailsValue)
+        {
+            writer.WriteStartElement(null, "CshSttlmDtls", xmlNamespace );
+            CashSettlementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ForeignExchangeDetails is ForeignExchangeTerms7 ForeignExchangeDetailsValue)
+        {
+            writer.WriteStartElement(null, "FXDtls", xmlNamespace );
+            ForeignExchangeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialAdvice is FinancialAdvice1Code FinancialAdviceValue)
+        {
+            writer.WriteStartElement(null, "FinAdvc", xmlNamespace );
+            writer.WriteValue(FinancialAdviceValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (NegotiatedTrade is NegotiatedTrade1Code NegotiatedTradeValue)
+        {
+            writer.WriteStartElement(null, "NgtdTrad", xmlNamespace );
+            writer.WriteValue(NegotiatedTradeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (LateReport is LateReport1Code LateReportValue)
+        {
+            writer.WriteStartElement(null, "LateRpt", xmlNamespace );
+            writer.WriteValue(LateReportValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static SwitchExecution4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

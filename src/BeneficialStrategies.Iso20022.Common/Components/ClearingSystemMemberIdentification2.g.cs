@@ -9,15 +9,12 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
 using System.Xml;
 using System.Xml.Linq;
-using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Components.ClearingSystemMemberIdentification2>;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique identification, as assigned by a clearing system, to unambiguously identify a member of the clearing system.
 /// </summary>
-[DataContract(Namespace = "")]
-[XmlType]
 public partial record ClearingSystemMemberIdentification2
      : IIsoXmlSerilizable<ClearingSystemMemberIdentification2>
 {
@@ -26,16 +23,23 @@ public partial record ClearingSystemMemberIdentification2
     /// <summary>
     /// Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
     /// </summary>
-    [DataMember]
     public ClearingSystemIdentification2Choice_? ClearingSystemIdentification { get; init; } 
     /// <summary>
     /// Identification of a member of a clearing system.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MemberIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
     public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
     public void Serialize(XmlWriter writer, string xmlNamespace)
     {
         if (ClearingSystemIdentification is ClearingSystemIdentification2Choice_ ClearingSystemIdentificationValue)

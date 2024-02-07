@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.UniqueTransactionIdentifier1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.UniqueTransactionIdentifier1Choi
 /// Unique trade identifier (UTI) as agreed with the counterparty.
 /// </summary>
 public partial record UniqueTransactionIdentifier : UniqueTransactionIdentifier1Choice_
+     , IIsoXmlSerilizable<UniqueTransactionIdentifier>
 {
-    public required IsoUTIIdentifier Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Unique Transaction Identifier (UTI). Unique number allocated to a financial transaction as agreed among the parties and/or within the regulatory system under which it is formed. The UTI is described in the latest edition of the international standard ISO 23897:2020.
+    /// </summary>
+    public required IsoUTIIdentifier Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UnqTxIdr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoUTIIdentifier(Value)); // data type UTIIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static new UniqueTransactionIdentifier Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

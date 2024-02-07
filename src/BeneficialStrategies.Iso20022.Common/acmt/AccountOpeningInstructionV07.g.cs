@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.acmt.AccountOpeningInstructionV07>;
 
 namespace BeneficialStrategies.Iso20022.acmt;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// Execution of the AccountOpeningInstruction is confirmed via an AccountDetailsConfirmation message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The AccountOpeningInstruction message is sent by an account owner, for example, an investor or its designated agent to the account servicer, for example, a registrar, transfer agent, custodian or securities depository, to instruct the opening of an account or the opening of an account and the establishment of an investment plan.|Usage|The AccountOpeningInstruction is used to open an account directly or indirectly with the account servicer or an intermediary.|In some markets, for example, Australia, and for some products in the United Kingdom, a first order (also known as a deposit instruction) is placed at the same time as the account opening. To cater for this scenario, an order message can be linked (via references in the message) to the AccountOpeningInstruction message when needed.|Execution of the AccountOpeningInstruction is confirmed via an AccountDetailsConfirmation message.")]
-public partial record AccountOpeningInstructionV07 : IOuterRecord
+public partial record AccountOpeningInstructionV07 : IOuterRecord<AccountOpeningInstructionV07,AccountOpeningInstructionV07Document>
+    ,IIsoXmlSerilizable<AccountOpeningInstructionV07>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record AccountOpeningInstructionV07 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AcctOpngInstr";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AccountOpeningInstructionV07Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -108,7 +115,7 @@ public partial record AccountOpeningInstructionV07 : IOuterRecord
     [Description(@"Intermediary or other party related to the management of the account.")]
     [DataMember(Name="Intrmies")]
     [XmlElement(ElementName="Intrmies")]
-    public required IReadOnlyCollection<Intermediary36> Intermediaries { get; init; } = []; // Min=0, Max=10
+    public required ValueList<Intermediary36> Intermediaries { get; init; } = []; // Min=0, Max=10
     
     /// <summary>
     /// Referral information.
@@ -135,7 +142,7 @@ public partial record AccountOpeningInstructionV07 : IOuterRecord
     [Description(@"Plan that allows individuals to set aside a fixed amount of money at specified intervals, usually for a special purpose, for example, retirement.")]
     [DataMember(Name="SvgsInvstmtPlan")]
     [XmlElement(ElementName="SvgsInvstmtPlan")]
-    public required IReadOnlyCollection<InvestmentPlan14> SavingsInvestmentPlan { get; init; } = []; // Min=0, Max=50
+    public required ValueList<InvestmentPlan14> SavingsInvestmentPlan { get; init; } = []; // Min=0, Max=50
     
     /// <summary>
     /// Plan through which holdings are depleted through regular withdrawals at specified intervals.
@@ -144,7 +151,7 @@ public partial record AccountOpeningInstructionV07 : IOuterRecord
     [Description(@"Plan through which holdings are depleted through regular withdrawals at specified intervals.")]
     [DataMember(Name="WdrwlInvstmtPlan")]
     [XmlElement(ElementName="WdrwlInvstmtPlan")]
-    public required IReadOnlyCollection<InvestmentPlan14> WithdrawalInvestmentPlan { get; init; } = []; // Min=0, Max=10
+    public required ValueList<InvestmentPlan14> WithdrawalInvestmentPlan { get; init; } = []; // Min=0, Max=10
     
     /// <summary>
     /// Cash settlement standing instruction associated to transactions on the account.
@@ -153,7 +160,7 @@ public partial record AccountOpeningInstructionV07 : IOuterRecord
     [Description(@"Cash settlement standing instruction associated to transactions on the account.")]
     [DataMember(Name="CshSttlm")]
     [XmlElement(ElementName="CshSttlm")]
-    public required IReadOnlyCollection<CashSettlement1> CashSettlement { get; init; } = []; // Min=0, Max=8
+    public required ValueList<CashSettlement1> CashSettlement { get; init; } = []; // Min=0, Max=8
     
     /// <summary>
     /// Identifies documents to be provided for the account opening.
@@ -162,7 +169,7 @@ public partial record AccountOpeningInstructionV07 : IOuterRecord
     [Description(@"Identifies documents to be provided for the account opening.")]
     [DataMember(Name="SvcLvlAgrmt")]
     [XmlElement(ElementName="SvcLvlAgrmt")]
-    public required IReadOnlyCollection<DocumentToSend3> ServiceLevelAgreement { get; init; } = []; // Min=0, Max=30
+    public required ValueList<DocumentToSend3> ServiceLevelAgreement { get; init; } = []; // Min=0, Max=30
     
     /// <summary>
     /// Additional information such as remarks or notes that must be conveyed about the account management activity and or any limitations and restrictions.
@@ -200,6 +207,92 @@ public partial record AccountOpeningInstructionV07 : IOuterRecord
     {
         return new AccountOpeningInstructionV07Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AcctOpngInstr");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OrderReference is InvestmentFundOrder4 OrderReferenceValue)
+        {
+            writer.WriteStartElement(null, "OrdrRef", xmlNamespace );
+            OrderReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousReference is AdditionalReference6 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InstrDtls", xmlNamespace );
+        InstructionDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InvstmtAcct", xmlNamespace );
+        InvestmentAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctPties", xmlNamespace );
+        AccountParties.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Intrmies", xmlNamespace );
+        Intermediaries.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Placement is ReferredAgent2 PlacementValue)
+        {
+            writer.WriteStartElement(null, "Plcmnt", xmlNamespace );
+            PlacementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewIssueAllocation is NewIssueAllocation2 NewIssueAllocationValue)
+        {
+            writer.WriteStartElement(null, "NewIsseAllcn", xmlNamespace );
+            NewIssueAllocationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SvgsInvstmtPlan", xmlNamespace );
+        SavingsInvestmentPlan.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "WdrwlInvstmtPlan", xmlNamespace );
+        WithdrawalInvestmentPlan.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CshSttlm", xmlNamespace );
+        CashSettlement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SvcLvlAgrmt", xmlNamespace );
+        ServiceLevelAgreement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalInformation is AdditiononalInformation12 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarketPracticeVersion is MarketPracticeVersion1 MarketPracticeVersionValue)
+        {
+            writer.WriteStartElement(null, "MktPrctcVrsn", xmlNamespace );
+            MarketPracticeVersionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountOpeningInstructionV07 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -207,9 +300,7 @@ public partial record AccountOpeningInstructionV07 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountOpeningInstructionV07"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AccountOpeningInstructionV07Document : IOuterDocument<AccountOpeningInstructionV07>
+public partial record AccountOpeningInstructionV07Document : IOuterDocument<AccountOpeningInstructionV07>, IXmlSerializable
 {
     
     /// <summary>
@@ -225,5 +316,22 @@ public partial record AccountOpeningInstructionV07Document : IOuterDocument<Acco
     /// <summary>
     /// The instance of <seealso cref="AccountOpeningInstructionV07"/> is required.
     /// </summary>
+    [DataMember(Name=AccountOpeningInstructionV07.XmlTag)]
     public required AccountOpeningInstructionV07 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AccountOpeningInstructionV07.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

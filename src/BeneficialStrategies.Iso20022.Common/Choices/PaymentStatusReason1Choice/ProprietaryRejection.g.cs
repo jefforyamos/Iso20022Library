@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusReason1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusReason1Choice;
 /// Defines the reason that has been used by the system to reject the transaction.
 /// </summary>
 public partial record ProprietaryRejection : PaymentStatusReason1Choice_
+     , IIsoXmlSerilizable<ProprietaryRejection>
 {
     #nullable enable
+    
     /// <summary>
     /// Defines the reason why the system has rejected the transaction.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record ProprietaryRejection : PaymentStatusReason1Choice_
     /// Provides detailed information about the reason why the  system has rejected the transaction.
     /// </summary>
     public required IsoMax256Text Reason { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrtryStsRsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(ProprietaryStatusReason)); // data type Max4AlphaNumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax256Text(Reason)); // data type Max256Text System.String
+        writer.WriteEndElement();
+    }
+    public static new ProprietaryRejection Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

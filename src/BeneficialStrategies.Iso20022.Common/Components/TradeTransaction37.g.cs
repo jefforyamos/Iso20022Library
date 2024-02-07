@@ -7,22 +7,22 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details of the trade transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeTransaction37
+     : IIsoXmlSerilizable<TradeTransaction37>
 {
     #nullable enable
     
     /// <summary>
     /// Choice between a Unique Transaction Identifier (UTI) or a proprietary identifier as agreed with the counterparty.
     /// </summary>
-    [DataMember]
     public required UniqueTransactionIdentifier1Choice_ UniqueTransactionIdentifier { get; init; } 
     /// <summary>
     /// Identifies the UTI assigned to the predecessor transaction that has given rise to the reported transaction due to a lifecycle event.
@@ -30,64 +30,52 @@ public partial record TradeTransaction37
     /// Usage: This data element is not applicable when reporting many-to-one and many-to-many relations between transactions (for example, in the case of a compression).
     /// This data element may be applicable when reporting one-to-one and one-to-many relations between transactions (for example, in the case of a clearing).|
     /// </summary>
-    [DataMember]
     public UniqueTransactionIdentifier1Choice_? PriorUniqueTransactionIdentifier { get; init; } 
     /// <summary>
     /// Unique number to indicate a group of reports which relate to the same execution.
     /// </summary>
-    [DataMember]
     public IsoMax52Text? ReportTrackingNumber { get; init; } 
     /// <summary>
     /// Identifies the trading platform on which the derivative transaction was executed (e.g. exchange, multilateral trading facility, swap execution facility). ||
     /// Usage: |For transactions where no trading facility was involved, specific predefined codes have to be used.
     /// </summary>
-    [DataMember]
     public IsoMICIdentifier? PlatformIdentifier { get; init; } 
     /// <summary>
     /// Identifies whether the contract results from a compression operation or not.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? Compression { get; init; } 
     /// <summary>
     /// Indicates the price per derivative excluding, where applicable, commission and accrued interest.
     /// </summary>
-    [DataMember]
     public PriceData1? TransactionPrice { get; init; } 
     /// <summary>
     /// Indicates monetary or converted amount for the derivatives transaction.
     /// Usage: In case of partial terminations, and amortisations and in case of contracts where the notional, due to the characteristics of the contract, varies over time, it shall reflect the remaining notional after the change took place.
     /// </summary>
-    [DataMember]
     public ValueList<NotionalAmount1> NotionalAmount { get; init; } = [];
     /// <summary>
     /// Indicates for each leg of the transaction the total notional quantity of the underlying asset for the term of the transaction.|
     /// </summary>
-    [DataMember]
     public ValueList<NotionalQuantity1> NotionalQuantity { get; init; } = [];
     /// <summary>
     /// Specifies the ratio of the absolute change in price of a derivative transaction to the change in price of the underlier, at the time a new transaction is reported or when a change in the notional amount is reported.
     /// </summary>
-    [DataMember]
     public IsoLongFraction19DecimalNumber? Delta { get; init; } 
     /// <summary>
     /// Number of units of the financial instrument, that is, the nominal value.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity32Choice_? Quantity { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is settled physically or in cash or decided at expiration time by counterparty.
     /// </summary>
-    [DataMember]
     public PhysicalTransferType4Code? DeliveryType { get; init; } 
     /// <summary>
     /// Indicates the date and time of the execution of the derivative transaction.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ExecutionTimeStamp { get; init; } 
     /// <summary>
     /// Indicates the date when obligations under the contract come into effect.
     /// </summary>
-    [DataMember]
     public IsoISODate? EffectiveDate { get; init; } 
     /// <summary>
     /// Indicates the unadjusted date at which obligations under the derivative transaction stop being effective, as included in the confirmation.|
@@ -95,74 +83,230 @@ public partial record TradeTransaction37
     /// For American style options, the holder can exercise the right up to the expiry date.||
     /// Usage: |An early termination shall not be reported in this field.
     /// </summary>
-    [DataMember]
     public IsoISODate? ExpirationDate { get; init; } 
     /// <summary>
     /// Indicates the effective date of the early termination of the reported derivative transaction.
     /// </summary>
-    [DataMember]
     public IsoISODate? EarlyTerminationDate { get; init; } 
     /// <summary>
     /// Indicates the unadjusted date, as per the contract, by which all transfer of cash or assets should take place and the counterparties should no longer have any outstanding obligations to each other.||
     /// For products that may not have a final contractual settlement date (eg American options), this data element reflects the date by which the transfer of cash or asset would take place if termination were to occur on the expiration date.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoISODate> SettlementDate { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoISODate? SettlementDate { get; init; } 
     /// <summary>
     /// Details related to the master agreement.
     /// </summary>
-    [DataMember]
     public MasterAgreement7? MasterAgreement { get; init; } 
     /// <summary>
     /// Specifies whether the contract was electronically confirmed, non-electronically confirmed or remains unconfirmed.
     /// </summary>
-    [DataMember]
     public TradeConfirmation1Choice_? TradeConfirmation { get; init; } 
     /// <summary>
     /// Information related to clearing of the reported contract.
     /// </summary>
-    [DataMember]
     public TradeClearing5? TradeClearing { get; init; } 
     /// <summary>
     /// Information related to interest rate asset class type.
     /// </summary>
-    [DataMember]
     public InterestRateLegs9? InterestRate { get; init; } 
     /// <summary>
     /// Information related to currency asset class type.
     /// </summary>
-    [DataMember]
     public CurrencyExchange17? Currency { get; init; } 
     /// <summary>
     /// Information related to commodity asset class type.
     /// </summary>
-    [DataMember]
     public AssetClassCommodity2Choice_? Commodity { get; init; } 
     /// <summary>
     /// Attributes specific for derivative contracts related to natural gas and electricity delivered in the European Union.
     /// </summary>
-    [DataMember]
     public EnergySpecificAttribute6? EnergySpecificAttributes { get; init; } 
     /// <summary>
     /// Information related to credit derivative asset class type.
     /// </summary>
-    [DataMember]
     public OptionOrSwaption7? Option { get; init; } 
     /// <summary>
     /// Information related to credit derivative asset class type.
     /// </summary>
-    [DataMember]
     public CreditDerivative4? Credit { get; init; } 
     /// <summary>
     /// Payment related to elements not reported in dedicated fields.
     /// </summary>
-    [DataMember]
-    public ValueList<OtherPayment3> OtherPayment { get; init; } = []; // Warning: Don't know multiplicity.
+    public OtherPayment3? OtherPayment { get; init; } 
     /// <summary>
     /// A combination of two or more transactions that are reported separately but that are negotiated together as the product of a single economic agreement.
     /// </summary>
-    [DataMember]
     public Package1? Package { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UnqTxIdr", xmlNamespace );
+        UniqueTransactionIdentifier.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PriorUniqueTransactionIdentifier is UniqueTransactionIdentifier1Choice_ PriorUniqueTransactionIdentifierValue)
+        {
+            writer.WriteStartElement(null, "PrrUnqTxIdr", xmlNamespace );
+            PriorUniqueTransactionIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReportTrackingNumber is IsoMax52Text ReportTrackingNumberValue)
+        {
+            writer.WriteStartElement(null, "RptTrckgNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(ReportTrackingNumberValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+        if (PlatformIdentifier is IsoMICIdentifier PlatformIdentifierValue)
+        {
+            writer.WriteStartElement(null, "PltfmIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(PlatformIdentifierValue)); // data type MICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (Compression is IsoTrueFalseIndicator CompressionValue)
+        {
+            writer.WriteStartElement(null, "Cmprssn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CompressionValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionPrice is PriceData1 TransactionPriceValue)
+        {
+            writer.WriteStartElement(null, "TxPric", xmlNamespace );
+            TransactionPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "NtnlAmt", xmlNamespace );
+        NotionalAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NtnlQty", xmlNamespace );
+        NotionalQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Delta is IsoLongFraction19DecimalNumber DeltaValue)
+        {
+            writer.WriteStartElement(null, "Dlta", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLongFraction19DecimalNumber(DeltaValue)); // data type LongFraction19DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Quantity is FinancialInstrumentQuantity32Choice_ QuantityValue)
+        {
+            writer.WriteStartElement(null, "Qty", xmlNamespace );
+            QuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveryType is PhysicalTransferType4Code DeliveryTypeValue)
+        {
+            writer.WriteStartElement(null, "DlvryTp", xmlNamespace );
+            writer.WriteValue(DeliveryTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExecutionTimeStamp is IsoISODateTime ExecutionTimeStampValue)
+        {
+            writer.WriteStartElement(null, "ExctnTmStmp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ExecutionTimeStampValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (EffectiveDate is IsoISODate EffectiveDateValue)
+        {
+            writer.WriteStartElement(null, "FctvDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(EffectiveDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ExpirationDate is IsoISODate ExpirationDateValue)
+        {
+            writer.WriteStartElement(null, "XprtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExpirationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (EarlyTerminationDate is IsoISODate EarlyTerminationDateValue)
+        {
+            writer.WriteStartElement(null, "EarlyTermntnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(EarlyTerminationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SettlementDate is IsoISODate SettlementDateValue)
+        {
+            writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(SettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (MasterAgreement is MasterAgreement7 MasterAgreementValue)
+        {
+            writer.WriteStartElement(null, "MstrAgrmt", xmlNamespace );
+            MasterAgreementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeConfirmation is TradeConfirmation1Choice_ TradeConfirmationValue)
+        {
+            writer.WriteStartElement(null, "TradConf", xmlNamespace );
+            TradeConfirmationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeClearing is TradeClearing5 TradeClearingValue)
+        {
+            writer.WriteStartElement(null, "TradClr", xmlNamespace );
+            TradeClearingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestRate is InterestRateLegs9 InterestRateValue)
+        {
+            writer.WriteStartElement(null, "IntrstRate", xmlNamespace );
+            InterestRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Currency is CurrencyExchange17 CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            CurrencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Commodity is AssetClassCommodity2Choice_ CommodityValue)
+        {
+            writer.WriteStartElement(null, "Cmmdty", xmlNamespace );
+            CommodityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EnergySpecificAttributes is EnergySpecificAttribute6 EnergySpecificAttributesValue)
+        {
+            writer.WriteStartElement(null, "NrgySpcfcAttrbts", xmlNamespace );
+            EnergySpecificAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Option is OptionOrSwaption7 OptionValue)
+        {
+            writer.WriteStartElement(null, "Optn", xmlNamespace );
+            OptionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Credit is CreditDerivative4 CreditValue)
+        {
+            writer.WriteStartElement(null, "Cdt", xmlNamespace );
+            CreditValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherPayment is OtherPayment3 OtherPaymentValue)
+        {
+            writer.WriteStartElement(null, "OthrPmt", xmlNamespace );
+            OtherPaymentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Package is Package1 PackageValue)
+        {
+            writer.WriteStartElement(null, "Packg", xmlNamespace );
+            PackageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeTransaction37 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

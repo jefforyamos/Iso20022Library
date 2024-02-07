@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of characteristics related to the reject of a transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Header16
+     : IIsoXmlSerilizable<Header16>
 {
     #nullable enable
     
     /// <summary>
     /// Version of the terminal management protocol specifications.
     /// </summary>
-    [DataMember]
     public required IsoMax6Text ProtocolVersion { get; init; } 
     /// <summary>
     /// Unique identification of an exchange occurrence.
     /// </summary>
-    [DataMember]
     public IsoMax3NumericText? ExchangeIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the file or message was created.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Unique identification of the partner that has initiated the exchange.
     /// </summary>
-    [DataMember]
     public required GenericIdentification72 InitiatingParty { get; init; } 
     /// <summary>
     /// Unique identification of the partner that is the recipient of the exchange.
     /// </summary>
-    [DataMember]
     public GenericIdentification72? RecipientParty { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrtcolVrsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax6Text(ProtocolVersion)); // data type Max6Text System.String
+        writer.WriteEndElement();
+        if (ExchangeIdentification is IsoMax3NumericText ExchangeIdentificationValue)
+        {
+            writer.WriteStartElement(null, "XchgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(ExchangeIdentificationValue)); // data type Max3NumericText System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InitgPty", xmlNamespace );
+        InitiatingParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RecipientParty is GenericIdentification72 RecipientPartyValue)
+        {
+            writer.WriteStartElement(null, "RcptPty", xmlNamespace );
+            RecipientPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Header16 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

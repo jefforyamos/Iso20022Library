@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BalanceAmounts5
+     : IIsoXmlSerilizable<BalanceAmounts5>
 {
     #nullable enable
     
     /// <summary>
     /// Value of an individual financial instrument holding within a safekeeping account.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection14 HoldingValue { get; init; } 
     /// <summary>
     /// Previous value of an individual financial instrument holding within a safekeeping account.
     /// </summary>
-    [DataMember]
     public AmountAndDirection14? PreviousHoldingValue { get; init; } 
     /// <summary>
     /// Value of a financial instrument, as booked/acquired in an account. It may be used to establish capital gain tax liability.
     /// </summary>
-    [DataMember]
     public AmountAndDirection14? BookValue { get; init; } 
     /// <summary>
     /// Difference between holding value and the book value.
     /// </summary>
-    [DataMember]
     public AmountAndDirection14? UnrealisedGainLoss { get; init; } 
     /// <summary>
     /// Interest amount that has accrued in between coupon payment periods.
     /// </summary>
-    [DataMember]
     public AmountAndDirection14? AccruedInterestAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "HldgVal", xmlNamespace );
+        HoldingValue.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PreviousHoldingValue is AmountAndDirection14 PreviousHoldingValueValue)
+        {
+            writer.WriteStartElement(null, "PrvsHldgVal", xmlNamespace );
+            PreviousHoldingValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BookValue is AmountAndDirection14 BookValueValue)
+        {
+            writer.WriteStartElement(null, "BookVal", xmlNamespace );
+            BookValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnrealisedGainLoss is AmountAndDirection14 UnrealisedGainLossValue)
+        {
+            writer.WriteStartElement(null, "UrlsdGnLoss", xmlNamespace );
+            UnrealisedGainLossValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccruedInterestAmount is AmountAndDirection14 AccruedInterestAmountValue)
+        {
+            writer.WriteStartElement(null, "AcrdIntrstAmt", xmlNamespace );
+            AccruedInterestAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BalanceAmounts5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

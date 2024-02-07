@@ -7,33 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed statistics on derivatives submitted for reconciliation per counterparty pair.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReconciliationCounterpartyPairStatistics6
+     : IIsoXmlSerilizable<ReconciliationCounterpartyPairStatistics6>
 {
     #nullable enable
     
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
-    [DataMember]
     public required CounterpartyData91 CounterpartyIdentification { get; init; } 
     /// <summary>
     /// Number of all reports per status on derivatives submitted for reconciliation per counterparty pair.
     /// </summary>
-    [DataMember]
     public required IsoNumber TotalNumberOfTransactions { get; init; } 
     /// <summary>
     /// Data on transaction requiring reconciliation or pairing. 
     /// </summary>
-    [DataMember]
-    public ValueList<ReconciliationReport14> ReconciliationReport { get; init; } = []; // Warning: Don't know multiplicity.
+    public ReconciliationReport14? ReconciliationReport { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _cIzsxVovEe23K4GXSpBSeg
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
+        CounterpartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlNbOfTxs", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberOfTransactions)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        // Not sure how to serialize ReconciliationReport, multiplicity Unknown
+    }
+    public static ReconciliationCounterpartyPairStatistics6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

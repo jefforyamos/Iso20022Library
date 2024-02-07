@@ -7,33 +7,59 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reference of an order, deal reference, client reference and master reference.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestmentFundOrderExecution1
+     : IIsoXmlSerilizable<InvestmentFundOrderExecution1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual orders, as assigned by the instructing party. This identifier links the individual orders together.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Indicates whether a confirmation amendment message will follow the confirmation cancellation instruction or not.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator AmendmentIndicator { get; init; } 
     /// <summary>
     /// Reference of an order, client or deal reference.
     /// </summary>
-    [DataMember]
-    public ValueList<InvestmentFundOrderExecution2> OrderReferences { get; init; } = []; // Warning: Don't know multiplicity.
+    public InvestmentFundOrderExecution2? OrderReferences { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _R60r_Np-Ed-ak6NoX_4Aeg_-424772693
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AmdmntInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AmendmentIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        // Not sure how to serialize OrderReferences, multiplicity Unknown
+    }
+    public static InvestmentFundOrderExecution1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

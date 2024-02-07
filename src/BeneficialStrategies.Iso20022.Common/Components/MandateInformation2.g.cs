@@ -7,98 +7,184 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information that serves as a basis to debit an account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MandateInformation2
+     : IIsoXmlSerilizable<MandateInformation2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by the creditor, to unambiguously identify the mandate.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MandateIdentification { get; init; } 
     /// <summary>
     /// Identification for the mandate request, as assigned by the initiating party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MandateRequestIdentification { get; init; } 
     /// <summary>
     /// Specifies the type of mandate, such as paper, electronic or scheme.
     /// </summary>
-    [DataMember]
     public MandateTypeInformation1? Type { get; init; } 
     /// <summary>
     /// Set of elements used to provide details of the duration of the mandate and occurrence of the underlying transactions.
     /// </summary>
-    [DataMember]
     public MandateOccurrences1? Occurrences { get; init; } 
     /// <summary>
     /// Fixed amount to be collected from the debtor's account.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? CollectionAmount { get; init; } 
     /// <summary>
     /// Maximum amount that may be collected from the debtor's account, per instruction.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? MaximumAmount { get; init; } 
     /// <summary>
     /// Credit party that signs the mandate.
     /// </summary>
-    [DataMember]
     public PartyIdentification32? CreditorSchemeIdentification { get; init; } 
     /// <summary>
     /// Party that signs the mandate and to whom an amount of money is due.
     /// </summary>
-    [DataMember]
     public required PartyIdentification32 Creditor { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the creditor to which a credit entry will be posted as a result of the payment transaction.
     /// </summary>
-    [DataMember]
     public CashAccount16? CreditorAccount { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? CreditorAgent { get; init; } 
     /// <summary>
     /// Ultimate party to which an amount of money is due.
     /// </summary>
-    [DataMember]
     public PartyIdentification32? UltimateCreditor { get; init; } 
     /// <summary>
     /// Party that signs the mandate and owes an amount of money to the (ultimate) creditor.
     /// </summary>
-    [DataMember]
     public required PartyIdentification32 Debtor { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the debtor, to which a debit entry will be made as a result of the transaction.
     /// </summary>
-    [DataMember]
     public CashAccount16? DebtorAccount { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
-    [DataMember]
     public required BranchAndFinancialInstitutionIdentification4 DebtorAgent { get; init; } 
     /// <summary>
     /// Ultimate party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
-    [DataMember]
     public PartyIdentification32? UltimateDebtor { get; init; } 
     /// <summary>
     /// Set of elements used to provide information to identify the underlying documents associated with the mandate.
     /// </summary>
-    [DataMember]
     public ReferredDocumentInformation3? ReferredDocument { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MandateIdentification is IsoMax35Text MandateIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MndtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MandateIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MndtReqId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MandateRequestIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Type is MandateTypeInformation1 TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Occurrences is MandateOccurrences1 OccurrencesValue)
+        {
+            writer.WriteStartElement(null, "Ocrncs", xmlNamespace );
+            OccurrencesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollectionAmount is IsoActiveCurrencyAndAmount CollectionAmountValue)
+        {
+            writer.WriteStartElement(null, "ColltnAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CollectionAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MaximumAmount is IsoActiveCurrencyAndAmount MaximumAmountValue)
+        {
+            writer.WriteStartElement(null, "MaxAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MaximumAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CreditorSchemeIdentification is PartyIdentification32 CreditorSchemeIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CdtrSchmeId", xmlNamespace );
+            CreditorSchemeIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Cdtr", xmlNamespace );
+        Creditor.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CreditorAccount is CashAccount16 CreditorAccountValue)
+        {
+            writer.WriteStartElement(null, "CdtrAcct", xmlNamespace );
+            CreditorAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditorAgent is BranchAndFinancialInstitutionIdentification4 CreditorAgentValue)
+        {
+            writer.WriteStartElement(null, "CdtrAgt", xmlNamespace );
+            CreditorAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UltimateCreditor is PartyIdentification32 UltimateCreditorValue)
+        {
+            writer.WriteStartElement(null, "UltmtCdtr", xmlNamespace );
+            UltimateCreditorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Dbtr", xmlNamespace );
+        Debtor.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DebtorAccount is CashAccount16 DebtorAccountValue)
+        {
+            writer.WriteStartElement(null, "DbtrAcct", xmlNamespace );
+            DebtorAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DbtrAgt", xmlNamespace );
+        DebtorAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (UltimateDebtor is PartyIdentification32 UltimateDebtorValue)
+        {
+            writer.WriteStartElement(null, "UltmtDbtr", xmlNamespace );
+            UltimateDebtorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReferredDocument is ReferredDocumentInformation3 ReferredDocumentValue)
+        {
+            writer.WriteStartElement(null, "RfrdDoc", xmlNamespace );
+            ReferredDocumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MandateInformation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification196Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification196Choice;
 /// Legal entity.
 /// </summary>
 public partial record LegalPerson : PartyIdentification196Choice_
+     , IIsoXmlSerilizable<LegalPerson>
 {
     #nullable enable
+    
     /// <summary>
     /// Name and address of the party.
     /// </summary>
@@ -43,5 +47,59 @@ public partial record LegalPerson : PartyIdentification196Choice_
     /// Provides information about the ownership on an asset.
     /// </summary>
     public Ownership1? Ownership { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NmAndAdr", xmlNamespace );
+        NameAndAddress.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (EmailAddress is IsoMax256Text EmailAddressValue)
+        {
+            writer.WriteStartElement(null, "EmailAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(EmailAddressValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CountryOfIncorporation is CountryCode CountryOfIncorporationValue)
+        {
+            writer.WriteStartElement(null, "CtryOfIncorprtn", xmlNamespace );
+            writer.WriteValue(CountryOfIncorporationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ActivityIndicator is IsoISICIdentifier ActivityIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ActvtyInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISICIdentifier(ActivityIndicatorValue)); // data type ISICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (InvestorType is InvestorType1Choice_ InvestorTypeValue)
+        {
+            writer.WriteStartElement(null, "InvstrTp", xmlNamespace );
+            InvestorTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Ownership is Ownership1 OwnershipValue)
+        {
+            writer.WriteStartElement(null, "Ownrsh", xmlNamespace );
+            OwnershipValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new LegalPerson Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

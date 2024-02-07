@@ -7,6 +7,8 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -14,37 +16,72 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Limits and amounts not part of the transaction amount. Not included in reconciliation totals. 
 /// ISO 8583 bit 54
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalAmounts3
+     : IIsoXmlSerilizable<AdditionalAmounts3>
 {
     #nullable enable
     
     /// <summary>
     /// Type or class of amount.
     /// </summary>
-    [DataMember]
     public required ISO8583AmountTypeCode Type { get; init; } 
     /// <summary>
     /// Other type of amount.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Amount of one occurrence of the breakdown amount.
     /// </summary>
-    [DataMember]
     public required Amount17 Amount { get; init; } 
     /// <summary>
     /// Short description of the additional amount.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Description { get; init; } 
     /// <summary>
     /// Additional data for the additional amount.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherType is IsoMax35Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        Amount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Description is IsoMax70Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(DescriptionValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AdditionalAmounts3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,83 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information concerning the negotiation process leading to a treasury trade.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GeneralInformation5
+     : IIsoXmlSerilizable<GeneralInformation5>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the trade is a block or single trade.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? BlockIndicator { get; init; } 
     /// <summary>
     /// Reference to a preceding transaction, for example, an option or swap.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RelatedTradeReference { get; init; } 
     /// <summary>
     /// Method used by the trading parties to negotiate and/or execute a deal.
     /// </summary>
-    [DataMember]
     public Trading1MethodCode? DealingMethod { get; init; } 
     /// <summary>
     /// Specifies the broker which arranged the deal between the trading side and the counterparty side or, when two money brokers are involved, between the trading side and the other money broker.
     /// </summary>
-    [DataMember]
     public PartyIdentification73Choice_? BrokerIdentification { get; init; } 
     /// <summary>
     /// Counterparty's reference for the trade.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CounterpartyReference { get; init; } 
     /// <summary>
     /// Brokerage fee for a broker confirmation.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? BrokersCommission { get; init; } 
     /// <summary>
     /// Specifies additional information for the receiver and applies to the whole message.
     /// </summary>
-    [DataMember]
     public IsoMax210Text? SenderToReceiverInformation { get; init; } 
     /// <summary>
     /// Specifies the branch at the trading side with which the deal was done.
     /// </summary>
-    [DataMember]
     public PartyIdentification73Choice_? DealingBranchTradingSide { get; init; } 
     /// <summary>
     /// Specifies the branch at the counterparty side with which the deal was done.
     /// </summary>
-    [DataMember]
     public PartyIdentification73Choice_? DealingBranchCounterpartySide { get; init; } 
     /// <summary>
     /// Specifies the name and/or electronic address of the receiver of the message who may be contacted for any queries concerning this trade.
     /// </summary>
-    [DataMember]
     public ContactInformation1? ContactInformation { get; init; } 
     /// <summary>
     /// Specifies the type, date and version of the agreement used in a trade.
     /// </summary>
-    [DataMember]
     public AgreementConditions1? AgreementDetails { get; init; } 
     /// <summary>
     /// Specifies the year of definitions of the agreement.
     /// </summary>
-    [DataMember]
     public IsoISOYear? DefinitionsYear { get; init; } 
     /// <summary>
     /// Specifies a reference applied to the trade instruction by a broker.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? BrokersReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (BlockIndicator is IsoYesNoIndicator BlockIndicatorValue)
+        {
+            writer.WriteStartElement(null, "BlckInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(BlockIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (RelatedTradeReference is IsoMax35Text RelatedTradeReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdTradRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RelatedTradeReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DealingMethod is Trading1MethodCode DealingMethodValue)
+        {
+            writer.WriteStartElement(null, "DealgMtd", xmlNamespace );
+            writer.WriteValue(DealingMethodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (BrokerIdentification is PartyIdentification73Choice_ BrokerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "BrkrId", xmlNamespace );
+            BrokerIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CounterpartyReference is IsoMax35Text CounterpartyReferenceValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CounterpartyReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (BrokersCommission is IsoActiveCurrencyAndAmount BrokersCommissionValue)
+        {
+            writer.WriteStartElement(null, "BrkrsComssn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(BrokersCommissionValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (SenderToReceiverInformation is IsoMax210Text SenderToReceiverInformationValue)
+        {
+            writer.WriteStartElement(null, "SndrToRcvrInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax210Text(SenderToReceiverInformationValue)); // data type Max210Text System.String
+            writer.WriteEndElement();
+        }
+        if (DealingBranchTradingSide is PartyIdentification73Choice_ DealingBranchTradingSideValue)
+        {
+            writer.WriteStartElement(null, "DealgBrnchTradgSd", xmlNamespace );
+            DealingBranchTradingSideValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DealingBranchCounterpartySide is PartyIdentification73Choice_ DealingBranchCounterpartySideValue)
+        {
+            writer.WriteStartElement(null, "DealgBrnchCtrPtySd", xmlNamespace );
+            DealingBranchCounterpartySideValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContactInformation is ContactInformation1 ContactInformationValue)
+        {
+            writer.WriteStartElement(null, "CtctInf", xmlNamespace );
+            ContactInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AgreementDetails is AgreementConditions1 AgreementDetailsValue)
+        {
+            writer.WriteStartElement(null, "AgrmtDtls", xmlNamespace );
+            AgreementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DefinitionsYear is IsoISOYear DefinitionsYearValue)
+        {
+            writer.WriteStartElement(null, "DefsYr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOYear(DefinitionsYearValue)); // data type ISOYear System.UInt16
+            writer.WriteEndElement();
+        }
+        if (BrokersReference is IsoMax35Text BrokersReferenceValue)
+        {
+            writer.WriteStartElement(null, "BrkrsRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(BrokersReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static GeneralInformation5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

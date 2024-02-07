@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reason for the complete status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransferCancellationCompleteReason1
+     : IIsoXmlSerilizable<TransferCancellationCompleteReason1>
 {
     #nullable enable
     
     /// <summary>
     /// Reason for a complete status in structured form.
     /// </summary>
-    [DataMember]
     public required CancellationCompleteStatusReason1Code Structured { get; init; } 
     /// <summary>
     /// Additional information about the reason for the complete status in textual form.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Strd", xmlNamespace );
+        writer.WriteValue(Structured.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TransferCancellationCompleteReason1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

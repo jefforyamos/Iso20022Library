@@ -7,58 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies corporate action quantities.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionQuantity3
+     : IIsoXmlSerilizable<CorporateActionQuantity3>
 {
     #nullable enable
     
     /// <summary>
     /// Minimum quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1Choice_? MinimumExercisableQuantity { get; init; } 
     /// <summary>
     /// Minimum multiple quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1Choice_? MinimumExercisableMultipleQuantity { get; init; } 
     /// <summary>
     /// Maximum number of securities the offeror is requesting to complete the event.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity16Choice_? MaximumQuantity { get; init; } 
     /// <summary>
     /// Minimum quantity of securities the offeror/issuer will purchase or redeem under the terms of the event. This can be a number or the term "any and all".
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity16Choice_? MinimumQuantitySought { get; init; } 
     /// <summary>
     /// Quantity of equity that makes up the new board lot.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1Choice_? NewBoardLotQuantity { get; init; } 
     /// <summary>
     /// New denomination of the equity following, for example, an increase or decrease in nominal value.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1Choice_? NewDenominationQuantity { get; init; } 
     /// <summary>
     /// Minimum integral amount of securities that each account owner must have remaining after the called amounts are applied.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1Choice_? BaseDenomination { get; init; } 
     /// <summary>
     /// Amount used when the called amount is not met by running the lottery with the base denomination.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1Choice_? IncrementalDenomination { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MinimumExercisableQuantity is FinancialInstrumentQuantity1Choice_ MinimumExercisableQuantityValue)
+        {
+            writer.WriteStartElement(null, "MinExrcblQty", xmlNamespace );
+            MinimumExercisableQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MinimumExercisableMultipleQuantity is FinancialInstrumentQuantity1Choice_ MinimumExercisableMultipleQuantityValue)
+        {
+            writer.WriteStartElement(null, "MinExrcblMltplQty", xmlNamespace );
+            MinimumExercisableMultipleQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MaximumQuantity is FinancialInstrumentQuantity16Choice_ MaximumQuantityValue)
+        {
+            writer.WriteStartElement(null, "MaxQty", xmlNamespace );
+            MaximumQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MinimumQuantitySought is FinancialInstrumentQuantity16Choice_ MinimumQuantitySoughtValue)
+        {
+            writer.WriteStartElement(null, "MinQtySght", xmlNamespace );
+            MinimumQuantitySoughtValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewBoardLotQuantity is FinancialInstrumentQuantity1Choice_ NewBoardLotQuantityValue)
+        {
+            writer.WriteStartElement(null, "NewBrdLotQty", xmlNamespace );
+            NewBoardLotQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewDenominationQuantity is FinancialInstrumentQuantity1Choice_ NewDenominationQuantityValue)
+        {
+            writer.WriteStartElement(null, "NewDnmtnQty", xmlNamespace );
+            NewDenominationQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BaseDenomination is FinancialInstrumentQuantity1Choice_ BaseDenominationValue)
+        {
+            writer.WriteStartElement(null, "BaseDnmtn", xmlNamespace );
+            BaseDenominationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IncrementalDenomination is FinancialInstrumentQuantity1Choice_ IncrementalDenominationValue)
+        {
+            writer.WriteStartElement(null, "IncrmtlDnmtn", xmlNamespace );
+            IncrementalDenominationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionQuantity3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

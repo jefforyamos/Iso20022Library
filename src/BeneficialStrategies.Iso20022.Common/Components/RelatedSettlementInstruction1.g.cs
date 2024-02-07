@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a related settlement instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RelatedSettlementInstruction1
+     : IIsoXmlSerilizable<RelatedSettlementInstruction1>
 {
     #nullable enable
     
     /// <summary>
     /// Unambiguous identification of the related settlement instruction assigned by the account holder.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text RelatedSettlementInstructionIdentification { get; init; } 
     /// <summary>
     /// Quantity of securities for which the market claim has been raised.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity18Choice_? RelatedSettlementQuantity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RltdSttlmInstrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(RelatedSettlementInstructionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (RelatedSettlementQuantity is FinancialInstrumentQuantity18Choice_ RelatedSettlementQuantityValue)
+        {
+            writer.WriteStartElement(null, "RltdSttlmQty", xmlNamespace );
+            RelatedSettlementQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RelatedSettlementInstruction1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

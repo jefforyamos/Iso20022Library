@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Transparency calculation specific details for an energy commodity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CommodityDerivative6
+     : IIsoXmlSerilizable<CommodityDerivative6>
 {
     #nullable enable
     
     /// <summary>
     /// Place where the delivery and the cash settlement of the base product occurs. 
     /// </summary>
-    [DataMember]
     public required IsoMax25Text SettlementLocation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttlmLctn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax25Text(SettlementLocation)); // data type Max25Text System.String
+        writer.WriteEndElement();
+    }
+    public static CommodityDerivative6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

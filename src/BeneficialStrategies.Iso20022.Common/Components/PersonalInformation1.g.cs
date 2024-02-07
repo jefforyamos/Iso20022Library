@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the identification of a person.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PersonalInformation1
+     : IIsoXmlSerilizable<PersonalInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the father of the individual person.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? NameOfFather { get; init; } 
     /// <summary>
     /// Maiden (unmarried) name of the mother of the individual person.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MaidenNameOfMother { get; init; } 
     /// <summary>
     /// Name of the partner of the individual person.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? NameOfPartner { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NameOfFather is IsoMax35Text NameOfFatherValue)
+        {
+            writer.WriteStartElement(null, "NmOfFthr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameOfFatherValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MaidenNameOfMother is IsoMax35Text MaidenNameOfMotherValue)
+        {
+            writer.WriteStartElement(null, "MdnNmOfMthr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MaidenNameOfMotherValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (NameOfPartner is IsoMax35Text NameOfPartnerValue)
+        {
+            writer.WriteStartElement(null, "NmOfPrtnr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameOfPartnerValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PersonalInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

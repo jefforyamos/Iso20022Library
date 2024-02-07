@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PartyOrOperationalError3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrOperationalError3Choice;
 /// Report information about party reference data.
 /// </summary>
 public partial record PartyReport : PartyOrOperationalError3Choice_
+     , IIsoXmlSerilizable<PartyReport>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique identification to unambiguously identify the party within the system.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record PartyReport : PartyOrOperationalError3Choice_
     /// Identifies the returned party reference data or error information.
     /// </summary>
     public required PartyOrBusinessError3Choice_ PartyOrError { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PtyId", xmlNamespace );
+        PartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PtyOrErr", xmlNamespace );
+        PartyOrError.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new PartyReport Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

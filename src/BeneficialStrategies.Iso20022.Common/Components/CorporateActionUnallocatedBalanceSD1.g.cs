@@ -7,64 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Balance types related to an unallocated redemption payment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionUnallocatedBalanceSD1
+     : IIsoXmlSerilizable<CorporateActionUnallocatedBalanceSD1>
 {
     #nullable enable
     
     /// <summary>
     /// Total quantity of financial instruments of the balance.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat4? TotalEligibleBalance { get; init; } 
     /// <summary>
     /// The quantity that has been determined to be redeemed if the participant had
     /// position in a redemption security.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat4? AffectedBalance { get; init; } 
     /// <summary>
     /// Positions balance remaining after lottery is run.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat4? UnaffectedBalance { get; init; } 
     /// <summary>
     /// Position that account holders should return to the account servicer to participate in the event or to fulfill their obligation for the event to be complete, for example, return of securities for late announced drawing.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat4? ObligatedBalance { get; init; } 
     /// <summary>
     /// Position held in a security as of the day prior to publication date. This position is subject to a redemption lottery call when this is the first lottery. This balance will not be adjusted for the supplemental or concurrent lotteries and will remain constant to report the original position.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat4? OriginalBalance { get; init; } 
     /// <summary>
     /// Portion of the Original Balance position held in DTC General Free account as of day prior to Publication Date. Position held in this account is subject to redemption lottery call.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat4? PledgedBalance { get; init; } 
     /// <summary>
     /// Portion of the Original Balance position held in DTC General Free account as of day prior to Publication Date. Position held in this account is subject to redemption lottery call.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat4? UnpledgedBalance { get; init; } 
     /// <summary>
     /// Portion of the Original Balance position held in DTC Investment account as of day prior to Publication Date. Position held in this account is subject to redemption lottery call and must be released to allow allocation.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat4? InvestmentPledgedBalance { get; init; } 
     /// <summary>
     /// Portion of the Original Balance position held in DTC Segregated account as of day prior to Publication Date. Position held in this account is subject to redemption lottery call and must be released to allow allocation.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat4? InvestmentUnpledgedBalance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TotalEligibleBalance is SignedQuantityFormat4 TotalEligibleBalanceValue)
+        {
+            writer.WriteStartElement(null, "TtlElgblBal", xmlNamespace );
+            TotalEligibleBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AffectedBalance is SignedQuantityFormat4 AffectedBalanceValue)
+        {
+            writer.WriteStartElement(null, "AfctdBal", xmlNamespace );
+            AffectedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnaffectedBalance is SignedQuantityFormat4 UnaffectedBalanceValue)
+        {
+            writer.WriteStartElement(null, "UafctdBal", xmlNamespace );
+            UnaffectedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ObligatedBalance is SignedQuantityFormat4 ObligatedBalanceValue)
+        {
+            writer.WriteStartElement(null, "OblgtdBal", xmlNamespace );
+            ObligatedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalBalance is SignedQuantityFormat4 OriginalBalanceValue)
+        {
+            writer.WriteStartElement(null, "OrgnlBal", xmlNamespace );
+            OriginalBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PledgedBalance is SignedQuantityFormat4 PledgedBalanceValue)
+        {
+            writer.WriteStartElement(null, "PldgdBal", xmlNamespace );
+            PledgedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnpledgedBalance is SignedQuantityFormat4 UnpledgedBalanceValue)
+        {
+            writer.WriteStartElement(null, "UpldgdBal", xmlNamespace );
+            UnpledgedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestmentPledgedBalance is SignedQuantityFormat4 InvestmentPledgedBalanceValue)
+        {
+            writer.WriteStartElement(null, "InvstmtPldgdBal", xmlNamespace );
+            InvestmentPledgedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestmentUnpledgedBalance is SignedQuantityFormat4 InvestmentUnpledgedBalanceValue)
+        {
+            writer.WriteStartElement(null, "InvstmtUpldgdBal", xmlNamespace );
+            InvestmentUnpledgedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionUnallocatedBalanceSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

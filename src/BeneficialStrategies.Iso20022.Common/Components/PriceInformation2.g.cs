@@ -7,53 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PriceInformation2
+     : IIsoXmlSerilizable<PriceInformation2>
 {
     #nullable enable
     
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
-    [DataMember]
     public required PriceRateOrAmountOrUnknownChoice_ Value { get; init; } 
     /// <summary>
     /// Type of value in which the price is expressed.
     /// </summary>
-    [DataMember]
     public PriceValueType2Code? ValueType { get; init; } 
     /// <summary>
     /// Type and information about a price.
     /// </summary>
-    [DataMember]
     public required TypeOfPrice11Code Type { get; init; } 
     /// <summary>
     /// Type and information about a price.
     /// </summary>
-    [DataMember]
     public required IsoExtended350Code ExtendedType { get; init; } 
     /// <summary>
     /// Place from which the price was obtained.
     /// </summary>
-    [DataMember]
     public PriceSourceFormatChoice_? SourceOfPrice { get; init; } 
     /// <summary>
     /// Date on which the price is obtained. With an investment fund, this is as stated in the prospectus.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeChoice_? QuotationDate { get; init; } 
     /// <summary>
     /// Indicates whether the price is expressed as a yield. The absence of Yielded means it is not applicable.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? Yielded { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        Value.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ValueType is PriceValueType2Code ValueTypeValue)
+        {
+            writer.WriteStartElement(null, "ValTp", xmlNamespace );
+            writer.WriteValue(ValueTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtndedTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedType)); // data type Extended350Code System.String
+        writer.WriteEndElement();
+        if (SourceOfPrice is PriceSourceFormatChoice_ SourceOfPriceValue)
+        {
+            writer.WriteStartElement(null, "SrcOfPric", xmlNamespace );
+            SourceOfPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (QuotationDate is DateAndDateTimeChoice_ QuotationDateValue)
+        {
+            writer.WriteStartElement(null, "QtnDt", xmlNamespace );
+            QuotationDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Yielded is IsoYesNoIndicator YieldedValue)
+        {
+            writer.WriteStartElement(null, "Yldd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(YieldedValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PriceInformation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

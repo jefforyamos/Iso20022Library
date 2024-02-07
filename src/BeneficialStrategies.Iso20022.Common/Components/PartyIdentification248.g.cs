@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentification248
+     : IIsoXmlSerilizable<PartyIdentification248>
 {
     #nullable enable
     
     /// <summary>
     /// Name and address of the party.
     /// </summary>
-    [DataMember]
     public required PersonName2 NameAndAddress { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
-    [DataMember]
     public IsoMax256Text? EmailAddress { get; init; } 
     /// <summary>
     /// Identification of the party.
     /// </summary>
-    [DataMember]
     public PartyIdentification198Choice_? Identification { get; init; } 
     /// <summary>
     /// Identification of the shareholder in the company share register.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CompanyRegisterShareholderIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NmAndAdr", xmlNamespace );
+        NameAndAddress.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (EmailAddress is IsoMax256Text EmailAddressValue)
+        {
+            writer.WriteStartElement(null, "EmailAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(EmailAddressValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (Identification is PartyIdentification198Choice_ IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CompanyRegisterShareholderIdentification is IsoMax35Text CompanyRegisterShareholderIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CpnyRegrShrhldrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CompanyRegisterShareholderIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyIdentification248 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

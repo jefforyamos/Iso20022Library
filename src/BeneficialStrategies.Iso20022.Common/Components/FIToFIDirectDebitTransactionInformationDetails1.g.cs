@@ -7,33 +7,59 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements providing information specific to the individual direct debit(s).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FIToFIDirectDebitTransactionInformationDetails1
+     : IIsoXmlSerilizable<FIToFIDirectDebitTransactionInformationDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Common characteristics for all individual transactions included in the message.
     /// </summary>
-    [DataMember]
     public required GroupHeader63 GroupHeader { get; init; } 
     /// <summary>
     /// Characteristics that apply to the credit side of the payment transaction(s) included in the message.
     /// </summary>
-    [DataMember]
-    public ValueList<CreditTransferTransaction9> CreditInstruction { get; init; } = []; // Warning: Don't know multiplicity.
+    public CreditTransferTransaction9? CreditInstruction { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _iCkJgAbvEearf7_vc3OyqQ
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
+        GroupHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize CreditInstruction, multiplicity Unknown
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FIToFIDirectDebitTransactionInformationDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates the query criteria related to transaction types.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeTypeQueryCriteria1
+     : IIsoXmlSerilizable<TradeTypeQueryCriteria1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the AND/OR operators as query criteria.
     /// </summary>
-    [DataMember]
     public required Operation3Code Operator { get; init; } 
     /// <summary>
     /// Query criteria related to the type of the securities financing transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<ExposureType6Code> SecuritiesFinancingTransactionType { get; init; } = []; // Warning: Don't know multiplicity.
+    public ExposureType6Code? SecuritiesFinancingTransactionType { get; init; } 
     /// <summary>
     /// Query criteria related to the type of the collateral component.
     /// </summary>
-    [DataMember]
-    public ValueList<CollateralType6Code> CollateralComponentType { get; init; } = []; // Warning: Don't know multiplicity.
+    public CollateralType6Code? CollateralComponentType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Oprtr", xmlNamespace );
+        writer.WriteValue(Operator.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SecuritiesFinancingTransactionType is ExposureType6Code SecuritiesFinancingTransactionTypeValue)
+        {
+            writer.WriteStartElement(null, "SctiesFincgTxTp", xmlNamespace );
+            writer.WriteValue(SecuritiesFinancingTransactionTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CollateralComponentType is CollateralType6Code CollateralComponentTypeValue)
+        {
+            writer.WriteStartElement(null, "CollCmpntTp", xmlNamespace );
+            writer.WriteValue(CollateralComponentTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeTypeQueryCriteria1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

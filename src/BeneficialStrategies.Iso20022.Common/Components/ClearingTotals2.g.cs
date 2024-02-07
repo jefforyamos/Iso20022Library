@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Clearing totals of the batch file.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ClearingTotals2
+     : IIsoXmlSerilizable<ClearingTotals2>
 {
     #nullable enable
     
     /// <summary>
     /// Number of transactions to clear.
     /// </summary>
-    [DataMember]
     public required IsoNumber Count { get; init; } 
     /// <summary>
     /// Gross clearing accumulated amount.
     /// </summary>
-    [DataMember]
     public required Amount17 AccumulatedAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cnt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(Count)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcmltdAmt", xmlNamespace );
+        AccumulatedAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ClearingTotals2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

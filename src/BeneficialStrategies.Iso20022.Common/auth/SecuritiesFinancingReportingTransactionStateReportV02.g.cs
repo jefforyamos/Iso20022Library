@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.auth.SecuritiesFinancingReportingTransactionStateReportV02>;
 
 namespace BeneficialStrategies.Iso20022.auth;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// The SecuritiesFinancingReportingTransactionStateReport is sent by the trade repository (TR) to the other trade repository (TR) or the authority or made available to the  report submitting entity and the reporting counterparty as well as the entity responsible for reporting, if applicable, containing latest state of the transaction.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The SecuritiesFinancingReportingTransactionStateReport is sent by the trade repository (TR) to the other trade repository (TR) or the authority or made available to the  report submitting entity and the reporting counterparty as well as the entity responsible for reporting, if applicable, containing latest state of the transaction.")]
-public partial record SecuritiesFinancingReportingTransactionStateReportV02 : IOuterRecord
+public partial record SecuritiesFinancingReportingTransactionStateReportV02 : IOuterRecord<SecuritiesFinancingReportingTransactionStateReportV02,SecuritiesFinancingReportingTransactionStateReportV02Document>
+    ,IIsoXmlSerilizable<SecuritiesFinancingReportingTransactionStateReportV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record SecuritiesFinancingReportingTransactionStateReportV02 : IO
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesFincgRptgTxStatRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesFinancingReportingTransactionStateReportV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -66,6 +73,32 @@ public partial record SecuritiesFinancingReportingTransactionStateReportV02 : IO
     {
         return new SecuritiesFinancingReportingTransactionStateReportV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesFincgRptgTxStatRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TradData", xmlNamespace );
+        TradeData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesFinancingReportingTransactionStateReportV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -73,9 +106,7 @@ public partial record SecuritiesFinancingReportingTransactionStateReportV02 : IO
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesFinancingReportingTransactionStateReportV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesFinancingReportingTransactionStateReportV02Document : IOuterDocument<SecuritiesFinancingReportingTransactionStateReportV02>
+public partial record SecuritiesFinancingReportingTransactionStateReportV02Document : IOuterDocument<SecuritiesFinancingReportingTransactionStateReportV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -91,5 +122,22 @@ public partial record SecuritiesFinancingReportingTransactionStateReportV02Docum
     /// <summary>
     /// The instance of <seealso cref="SecuritiesFinancingReportingTransactionStateReportV02"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesFinancingReportingTransactionStateReportV02.XmlTag)]
     public required SecuritiesFinancingReportingTransactionStateReportV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesFinancingReportingTransactionStateReportV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.secl.NetPositionV03>;
 
 namespace BeneficialStrategies.Iso20022.secl;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.secl;
 /// The central counterparty (CCP) nets all the positions per clearing account and sends the Net Position report message to the Clearing member.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The Net Position Report message is sent by the central counterparty (CCP) to a clearing member to confirm the net position of all trade legs reported during the day.||The message definition is intended for use with the ISO 20022 Business Application Header.||Usage|The central counterparty (CCP) nets all the positions per clearing account and sends the Net Position report message to the Clearing member.")]
-public partial record NetPositionV03 : IOuterRecord
+public partial record NetPositionV03 : IOuterRecord<NetPositionV03,NetPositionV03Document>
+    ,IIsoXmlSerilizable<NetPositionV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record NetPositionV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "NetPos";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => NetPositionV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -112,6 +119,47 @@ public partial record NetPositionV03 : IOuterRecord
     {
         return new NetPositionV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("NetPos");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptParams", xmlNamespace );
+        ReportParameters.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Pgntn", xmlNamespace );
+        Pagination.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClrMmb", xmlNamespace );
+        ClearingMember.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ClearingSegment is PartyIdentification35Choice_ ClearingSegmentValue)
+        {
+            writer.WriteStartElement(null, "ClrSgmt", xmlNamespace );
+            ClearingSegmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "NetPosRpt", xmlNamespace );
+        NetPositionReport.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static NetPositionV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -119,9 +167,7 @@ public partial record NetPositionV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NetPositionV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record NetPositionV03Document : IOuterDocument<NetPositionV03>
+public partial record NetPositionV03Document : IOuterDocument<NetPositionV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -137,5 +183,22 @@ public partial record NetPositionV03Document : IOuterDocument<NetPositionV03>
     /// <summary>
     /// The instance of <seealso cref="NetPositionV03"/> is required.
     /// </summary>
+    [DataMember(Name=NetPositionV03.XmlTag)]
     public required NetPositionV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(NetPositionV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification through a unique product identifier.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UPIQueryCriteria1
+     : IIsoXmlSerilizable<UPIQueryCriteria1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification through a unique product identifier.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax52Text> Identifier { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax52Text? Identifier { get; init; } 
     /// <summary>
     /// Field can be queried for not reported value.
     /// </summary>
-    [DataMember]
     public NotReported1Code? NotReported { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identifier is IsoMax52Text IdentifierValue)
+        {
+            writer.WriteStartElement(null, "Idr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(IdentifierValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+        if (NotReported is NotReported1Code NotReportedValue)
+        {
+            writer.WriteStartElement(null, "NotRptd", xmlNamespace );
+            writer.WriteValue(NotReportedValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static UPIQueryCriteria1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

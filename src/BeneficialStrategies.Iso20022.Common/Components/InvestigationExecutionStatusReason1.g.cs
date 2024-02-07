@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the reason for a status on the execution of an investigation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestigationExecutionStatusReason1
+     : IIsoXmlSerilizable<InvestigationExecutionStatusReason1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the reason why the payment cancellation was rejected.
     /// </summary>
-    [DataMember]
     public PaymentCancellationRejection3Code? Rejected { get; init; } 
     /// <summary>
     /// Provides the reason why the payment cancellation is pending.
     /// </summary>
-    [DataMember]
     public PendingPaymentCancellationReason1Code? Pending { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Rejected is PaymentCancellationRejection3Code RejectedValue)
+        {
+            writer.WriteStartElement(null, "Rjctd", xmlNamespace );
+            writer.WriteValue(RejectedValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Pending is PendingPaymentCancellationReason1Code PendingValue)
+        {
+            writer.WriteStartElement(null, "Pdg", xmlNamespace );
+            writer.WriteValue(PendingValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static InvestigationExecutionStatusReason1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

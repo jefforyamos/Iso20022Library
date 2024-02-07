@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies a percentage together with a period of time. For overlapping periods, the maximum of all applicable elements at a given date is the result.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PercentageAndPeriod1
+     : IIsoXmlSerilizable<PercentageAndPeriod1>
 {
     #nullable enable
     
     /// <summary>
     /// Covered percentage (max 100%).
     /// </summary>
-    [DataMember]
     public required IsoPercentageBoundedRate Percentage { get; init; } 
     /// <summary>
     /// Start of period or immediate if not specified.
     /// </summary>
-    [DataMember]
     public IsoISODate? StartDate { get; init; } 
     /// <summary>
     /// End of period or indefinite if not specified.
     /// </summary>
-    [DataMember]
     public IsoISODate? EndDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Pctg", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageBoundedRate(Percentage)); // data type PercentageBoundedRate System.Decimal
+        writer.WriteEndElement();
+        if (StartDate is IsoISODate StartDateValue)
+        {
+            writer.WriteStartElement(null, "StartDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(StartDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (EndDate is IsoISODate EndDateValue)
+        {
+            writer.WriteStartElement(null, "EndDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(EndDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static PercentageAndPeriod1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,34 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the clearing of the contract.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeClearing3
+     : IIsoXmlSerilizable<TradeClearing3>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates, whether the reported contract belongs to a class of OTC derivatives that has been declared subject to the clearing obligation and both counterparties to the contract are subject to the clearing obligation, as of the time of execution of the contract.
     /// </summary>
-    [DataMember]
     public ClearingObligationType1Code? ClearingObligation { get; init; } 
     /// <summary>
     /// Indicates whether clearing of contract has taken place.
     /// </summary>
-    [DataMember]
     public Cleared9Choice_? ClearingStatus { get; init; } 
     /// <summary>
     /// Indicates whether the contract was entered into as an intragroup transaction.
     /// Usage: When absent, default value is false.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? IntraGroup { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ClearingObligation is ClearingObligationType1Code ClearingObligationValue)
+        {
+            writer.WriteStartElement(null, "ClrOblgtn", xmlNamespace );
+            writer.WriteValue(ClearingObligationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ClearingStatus is Cleared9Choice_ ClearingStatusValue)
+        {
+            writer.WriteStartElement(null, "ClrSts", xmlNamespace );
+            ClearingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntraGroup is IsoTrueFalseIndicator IntraGroupValue)
+        {
+            writer.WriteStartElement(null, "IntraGrp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(IntraGroupValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeClearing3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

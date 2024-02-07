@@ -7,27 +7,26 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates the independent amount and how it was applied in the calculation. It also provides a description of the amount type.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IndependentAmount2
+     : IIsoXmlSerilizable<IndependentAmount2>
 {
     #nullable enable
     
     /// <summary>
     /// Description of the other amount used in the calculation of the independent amount.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     /// <summary>
     /// Provides the independant amount.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Determines how the independent amount was applied in the calculation. 
@@ -36,8 +35,36 @@ public partial record IndependentAmount2
     /// - after threshold where the amount is an add on to the credit support amount and forms part of the variation margin requirement,
     /// - segregated where it is treated independently of variation margin for segregation purposes.
     /// </summary>
-    [DataMember]
     public required IndependentAmountConventionType1Code Convention { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Description is IsoMax140Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(DescriptionValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Cnvntn", xmlNamespace );
+        writer.WriteValue(Convention.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static IndependentAmount2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

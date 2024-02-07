@@ -7,23 +7,46 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies technical attributes of the message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TechnicalAttributes1
+     : IIsoXmlSerilizable<TechnicalAttributes1>
 {
     #nullable enable
     
     /// <summary>
     /// List of possible values for TRs reconciliation purposes.
     /// </summary>
-    [DataMember]
     public Reconciliation1Code? ReconciliationFlag { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReconciliationFlag is Reconciliation1Code ReconciliationFlagValue)
+        {
+            writer.WriteStartElement(null, "RcncltnFlg", xmlNamespace );
+            writer.WriteValue(ReconciliationFlagValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static TechnicalAttributes1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

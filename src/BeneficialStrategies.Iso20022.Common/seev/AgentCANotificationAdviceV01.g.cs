@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.AgentCANotificationAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -30,10 +33,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// Note: The amendment of a corporate action notification is done through a replacement mechanism in line with both the ISO 15022 messages used in the flow between the CSD and its clients, and the ISO 20022 proxy voting messages.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|This message is sent by an issuer (or its agent) to a CSD to:|- Provide a CSD with the details of a corporate action along with the possible options available to the clients of that CSD; and|- to update a corporate action notification. A notification advice can be initially sent as a preliminary advice and subsequently replaced by another notification advice with updated information.|Usage|This message is used:|- to provide a CSD with the details of a corporate action along with the possible options available to the clients of that CSD. The information can be complete or incomplete.|- to update a corporate action notification advice. A notification advice can be initially sent as a preliminary advice and subsequently replaced by another notification advice with updated information. As per SMPG recommendation, all the information should be provided in the update, not only updated information.|An Agent Corporate Action Notification Status Advice is sent in reply to the Agent Corporate Action Notification Advice.|Note: The amendment of a corporate action notification is done through a replacement mechanism in line with both the ISO 15022 messages used in the flow between the CSD and its clients, and the ISO 20022 proxy voting messages.")]
-public partial record AgentCANotificationAdviceV01 : IOuterRecord
+public partial record AgentCANotificationAdviceV01 : IOuterRecord<AgentCANotificationAdviceV01,AgentCANotificationAdviceV01Document>
+    ,IIsoXmlSerilizable<AgentCANotificationAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -45,6 +47,11 @@ public partial record AgentCANotificationAdviceV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AgtCANtfctnAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AgentCANotificationAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -133,6 +140,56 @@ public partial record AgentCANotificationAdviceV01 : IOuterRecord
     {
         return new AgentCANotificationAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AgtCANtfctnAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NtfctnTpAndLkg", xmlNamespace );
+        NotificationTypeAndLinkage.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NtfctnGnlInf", xmlNamespace );
+        NotificationGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+        CorporateActionGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CorpActnDtls", xmlNamespace );
+        CorporateActionDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CorporateActionOptionDetails is CorporateActionOption1 CorporateActionOptionDetailsValue)
+        {
+            writer.WriteStartElement(null, "CorpActnOptnDtls", xmlNamespace );
+            CorporateActionOptionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContactDetails is ContactPerson1 ContactDetailsValue)
+        {
+            writer.WriteStartElement(null, "CtctDtls", xmlNamespace );
+            ContactDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is CorporateActionNarrative2 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AgentCANotificationAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -140,9 +197,7 @@ public partial record AgentCANotificationAdviceV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCANotificationAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AgentCANotificationAdviceV01Document : IOuterDocument<AgentCANotificationAdviceV01>
+public partial record AgentCANotificationAdviceV01Document : IOuterDocument<AgentCANotificationAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -158,5 +213,22 @@ public partial record AgentCANotificationAdviceV01Document : IOuterDocument<Agen
     /// <summary>
     /// The instance of <seealso cref="AgentCANotificationAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=AgentCANotificationAdviceV01.XmlTag)]
     public required AgentCANotificationAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AgentCANotificationAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes each adjustment made to the original price.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Adjustment11
+     : IIsoXmlSerilizable<Adjustment11>
 {
     #nullable enable
     
     /// <summary>
     /// Contains the adjusted amount (for example, discounts).
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether or not the line item is a credit amount.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CreditIndicator { get; init; } 
     /// <summary>
     /// Reason for the adjustment.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Reason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(Amount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (CreditIndicator is IsoTrueFalseIndicator CreditIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CdtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CreditIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Reason is IsoMax35Text ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReasonValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Adjustment11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

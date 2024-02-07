@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the market and purpose for the settlement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MarketIdentification87
+     : IIsoXmlSerilizable<MarketIdentification87>
 {
     #nullable enable
     
     /// <summary>
     /// Country in which the financial instrument is to be settled.
     /// </summary>
-    [DataMember]
     public required CountryCode Country { get; init; } 
     /// <summary>
     /// Type of instrument covered by the SSI instruction.
     /// </summary>
-    [DataMember]
     public required ClassificationType1Choice_ ClassificationType { get; init; } 
     /// <summary>
     /// Purpose of the instruction, for example, whether for regular payments, margin payments related to a collateral movement, securities settlements, securities lending.
     /// </summary>
-    [DataMember]
     public Purpose3Choice_? SettlementPurpose { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ctry", xmlNamespace );
+        writer.WriteValue(Country.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClssfctnTp", xmlNamespace );
+        ClassificationType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SettlementPurpose is Purpose3Choice_ SettlementPurposeValue)
+        {
+            writer.WriteStartElement(null, "SttlmPurp", xmlNamespace );
+            SettlementPurposeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MarketIdentification87 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

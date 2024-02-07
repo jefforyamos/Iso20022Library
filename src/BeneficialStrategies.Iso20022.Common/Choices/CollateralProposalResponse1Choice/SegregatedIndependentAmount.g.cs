@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CollateralProposalResponse1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralProposalResponse1Choic
 /// Provides the collateral proposal response for the segregated independent amount only.
 /// </summary>
 public partial record SegregatedIndependentAmount : CollateralProposalResponse1Choice_
+     , IIsoXmlSerilizable<SegregatedIndependentAmount>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique identifier for a collateral proposal.
     /// </summary>
@@ -35,5 +39,44 @@ public partial record SegregatedIndependentAmount : CollateralProposalResponse1C
     /// Additional information regarding why the collateral proposal has a rejected status.
     /// </summary>
     public IsoMax35Text? RejectionInformation { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CollPrpslId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(CollateralProposalIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RspnTp", xmlNamespace );
+        writer.WriteValue(ResponseType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (RejectionReason is RejectionReasonV021Code RejectionReasonValue)
+        {
+            writer.WriteStartElement(null, "RjctnRsn", xmlNamespace );
+            writer.WriteValue(RejectionReasonValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (RejectionInformation is IsoMax35Text RejectionInformationValue)
+        {
+            writer.WriteStartElement(null, "RjctnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RejectionInformationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new SegregatedIndependentAmount Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

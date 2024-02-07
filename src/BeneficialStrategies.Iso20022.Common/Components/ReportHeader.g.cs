@@ -7,38 +7,64 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies generic information about an investigation report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReportHeader
+     : IIsoXmlSerilizable<ReportHeader>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the report.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Party reporting the status of the case.
     /// </summary>
-    [DataMember]
     public required IsoAnyBICIdentifier From { get; init; } 
     /// <summary>
     /// Party to which the status of the case is reported.
     /// </summary>
-    [DataMember]
     public required IsoAnyBICIdentifier To { get; init; } 
     /// <summary>
     /// Creation date and time of the report generation.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Fr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(From)); // data type AnyBICIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "To", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(To)); // data type AnyBICIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+    }
+    public static ReportHeader Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

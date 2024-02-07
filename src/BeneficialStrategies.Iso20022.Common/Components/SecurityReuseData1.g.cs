@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details of the security pledged as collateral.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityReuseData1
+     : IIsoXmlSerilizable<SecurityReuseData1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifier of the security used as collateral.
     /// </summary>
-    [DataMember]
     public required IsoISINOct2015Identifier ISIN { get; init; } 
     /// <summary>
     /// Indication whether reused value is actual or estimated.
     /// </summary>
-    [DataMember]
     public required ReuseValue1Choice_ ReuseValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ISIN", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(ISIN)); // data type ISINOct2015Identifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ReuseVal", xmlNamespace );
+        ReuseValue.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SecurityReuseData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

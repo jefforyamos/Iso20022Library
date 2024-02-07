@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment for a card transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Environment28
+     : IIsoXmlSerilizable<Environment28>
 {
     #nullable enable
     
     /// <summary>
     /// Party in contract with an acceptor to acquire card payment transactions.
     /// </summary>
-    [DataMember]
     public PartyIdentification263? Acquirer { get; init; } 
     /// <summary>
     /// Identifies the originator of the transaction.
     /// </summary>
-    [DataMember]
     public PartyIdentification263? Originator { get; init; } 
     /// <summary>
     /// Party sending the message to another intermediary agent or to the final destination.
     /// </summary>
-    [DataMember]
     public PartyIdentification263? Sender { get; init; } 
     /// <summary>
     /// Party receiving the message from the originator or another intermediary agent.
     /// </summary>
-    [DataMember]
     public PartyIdentification263? Receiver { get; init; } 
     /// <summary>
     /// Identifies the destination of the transaction.
     /// </summary>
-    [DataMember]
     public PartyIdentification263? Destination { get; init; } 
     /// <summary>
     /// Information related to the issuer.
     /// </summary>
-    [DataMember]
     public PartyIdentification263? Issuer { get; init; } 
     /// <summary>
     /// Card or payment token performing the transaction.
     /// </summary>
-    [DataMember]
     public CardData8? Card { get; init; } 
     /// <summary>
     /// Details of payment token.
     /// </summary>
-    [DataMember]
     public Token2? Token { get; init; } 
     /// <summary>
     /// Cardholder performing the card payment transaction.
     /// </summary>
-    [DataMember]
     public Cardholder19? Cardholder { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Acquirer is PartyIdentification263 AcquirerValue)
+        {
+            writer.WriteStartElement(null, "Acqrr", xmlNamespace );
+            AcquirerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Originator is PartyIdentification263 OriginatorValue)
+        {
+            writer.WriteStartElement(null, "Orgtr", xmlNamespace );
+            OriginatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Sender is PartyIdentification263 SenderValue)
+        {
+            writer.WriteStartElement(null, "Sndr", xmlNamespace );
+            SenderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Receiver is PartyIdentification263 ReceiverValue)
+        {
+            writer.WriteStartElement(null, "Rcvr", xmlNamespace );
+            ReceiverValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Destination is PartyIdentification263 DestinationValue)
+        {
+            writer.WriteStartElement(null, "Dstn", xmlNamespace );
+            DestinationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Issuer is PartyIdentification263 IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            IssuerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Card is CardData8 CardValue)
+        {
+            writer.WriteStartElement(null, "Card", xmlNamespace );
+            CardValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Token is Token2 TokenValue)
+        {
+            writer.WriteStartElement(null, "Tkn", xmlNamespace );
+            TokenValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Cardholder is Cardholder19 CardholderValue)
+        {
+            writer.WriteStartElement(null, "Crdhldr", xmlNamespace );
+            CardholderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Environment28 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

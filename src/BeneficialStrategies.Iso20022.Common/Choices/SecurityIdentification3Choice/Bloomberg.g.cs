@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification3Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification3Choice;
 /// Identifier of a security assigned by the Bloomberg organisation.
 /// </summary>
 public partial record Bloomberg : SecurityIdentification3Choice_
+     , IIsoXmlSerilizable<Bloomberg>
 {
-    public required IsoBloombergIdentifier Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// An identifier of a security assigned by the Bloomberg organisation.
+    /// </summary>
+    public required IsoBloombergIdentifier Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Blmbrg", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBloombergIdentifier(Value)); // data type BloombergIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static new Bloomberg Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

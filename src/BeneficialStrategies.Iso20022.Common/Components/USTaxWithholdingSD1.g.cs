@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// US tax withholding election details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record USTaxWithholdingSD1
+     : IIsoXmlSerilizable<USTaxWithholdingSD1>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Non resident alien (NRA) tax code. Each U.S. tax withholding eligible distribution must have a determination of the tax liability. This code is relevant to tax withholding and U.S. IRS reporting. Foreign securities also have an applicable tax code, but all foreign issues have one standard code.
     /// </summary>
-    [DataMember]
     public required NRATax1Code NRATaxCode { get; init; } 
     /// <summary>
     /// Percentage of a cash distribution that will be withheld by a tax authority.
     /// </summary>
-    [DataMember]
     public RateFormat6Choice_? WithholdingTaxRate { get; init; } 
     /// <summary>
     /// Elected quantity per NRA tax code.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NRATaxCd", xmlNamespace );
+        writer.WriteValue(NRATaxCode.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (WithholdingTaxRate is RateFormat6Choice_ WithholdingTaxRateValue)
+        {
+            writer.WriteStartElement(null, "WhldgTaxRate", xmlNamespace );
+            WithholdingTaxRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        Quantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static USTaxWithholdingSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies an amount of money as a debit or credit amount.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CreditDebitAmount1
+     : IIsoXmlSerilizable<CreditDebitAmount1>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of money expressed in an eligible currency.
     /// </summary>
-    [DataMember]
     public required Amount2Choice_ Amount { get; init; } 
     /// <summary>
     /// Specifies whether the amount of money is a debit or a credit.
     /// </summary>
-    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        Amount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static CreditDebitAmount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

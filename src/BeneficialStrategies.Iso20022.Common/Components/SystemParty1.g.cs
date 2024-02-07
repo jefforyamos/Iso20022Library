@@ -7,6 +7,8 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -15,57 +17,102 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// A party shall denote any legal or organisational entity required in the system. 
 /// This entity shall store the parties from the first three levels: the system operator, the central securities depositaries, the participants of the central securities depositaries, the national central banks and payment banks.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SystemParty1
+     : IIsoXmlSerilizable<SystemParty1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification to unambiguously identify the party within the system.
     /// </summary>
-    [DataMember]
     public required SystemPartyIdentification1 Identification { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address.
     /// </summary>
-    [DataMember]
     public PostalAddress10? Address { get; init; } 
     /// <summary>
     /// Specifies the opening date of the party.
     /// </summary>
-    [DataMember]
     public required IsoISODate OpeningDate { get; init; } 
     /// <summary>
     /// Specifies the closing date of the party.
     /// </summary>
-    [DataMember]
     public IsoISODate? ClosingDate { get; init; } 
     /// <summary>
     /// Specifies the type classification of the party.
     /// </summary>
-    [DataMember]
     public required SystemPartyType1Code Type { get; init; } 
     /// <summary>
     /// Unique technical address to unambiguously identify a party for receiving messages from the executing system.
     /// </summary>
-    [DataMember]
-    public ValueList<TechnicalIdentification1Choice_> TechnicalAddress { get; init; } = []; // Warning: Don't know multiplicity.
+    public TechnicalIdentification1Choice_? TechnicalAddress { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _kl5JI-5NEeCisYr99QEiWA_-49843880
     /// <summary>
     /// Additional attributes defined by a central security depositary for a party.
     /// </summary>
-    [DataMember]
-    public ValueList<MarketSpecificAttribute1> MarketSpecificAttribute { get; init; } = []; // Warning: Don't know multiplicity.
+    public MarketSpecificAttribute1? MarketSpecificAttribute { get; init; } 
     /// <summary>
     /// Specifies the name by which a party is known and which is usually used to identify that party.
     /// </summary>
-    [DataMember]
     public required PartyName1 Name { get; init; } 
     /// <summary>
     /// Defines the specific processing characteristics for a party to ensure configurability of specific requirements, as prescribed by national legal and regulatory requirements and practices.
     /// </summary>
-    [DataMember]
-    public ValueList<SystemRestriction1> Restriction { get; init; } = []; // Warning: Don't know multiplicity.
+    public SystemRestriction1? Restriction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Address is PostalAddress10 AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OpngDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(OpeningDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (ClosingDate is IsoISODate ClosingDateValue)
+        {
+            writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ClosingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        // Not sure how to serialize TechnicalAddress, multiplicity Unknown
+        if (MarketSpecificAttribute is MarketSpecificAttribute1 MarketSpecificAttributeValue)
+        {
+            writer.WriteStartElement(null, "MktSpcfcAttr", xmlNamespace );
+            MarketSpecificAttributeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        Name.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Restriction is SystemRestriction1 RestrictionValue)
+        {
+            writer.WriteStartElement(null, "Rstrctn", xmlNamespace );
+            RestrictionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SystemParty1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

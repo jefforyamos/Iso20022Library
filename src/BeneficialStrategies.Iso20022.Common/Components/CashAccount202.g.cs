@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account to or from which a cash entry is made.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashAccount202
+     : IIsoXmlSerilizable<CashAccount202>
 {
     #nullable enable
     
     /// <summary>
     /// Currency of the settlement.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Cash account for settlement.
     /// </summary>
-    [DataMember]
     public CashAccount203? PrimaryAccount { get; init; } 
     /// <summary>
     /// Sub-division of a master or omnibus cash account.
     /// </summary>
-    [DataMember]
     public CashAccount203? SecondaryAccount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PrimaryAccount is CashAccount203 PrimaryAccountValue)
+        {
+            writer.WriteStartElement(null, "PmryAcct", xmlNamespace );
+            PrimaryAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecondaryAccount is CashAccount203 SecondaryAccountValue)
+        {
+            writer.WriteStartElement(null, "ScndryAcct", xmlNamespace );
+            SecondaryAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CashAccount202 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

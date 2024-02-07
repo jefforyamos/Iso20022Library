@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional functions or services that have been or are to be performed in conjunction with the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalService2
+     : IIsoXmlSerilizable<AdditionalService2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of additional service applied to the transaction.
     /// </summary>
-    [DataMember]
     public required AdditionalServiceType2Code Type { get; init; } 
     /// <summary>
     /// Other additional service applied to the transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Result from performing the identified service.
     /// </summary>
-    [DataMember]
     public AdditionalServiceResult1Code? Result { get; init; } 
     /// <summary>
     /// Other nationally or privately defined additional service result code.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherResult { get; init; } 
     /// <summary>
     /// Contains additional information for the execution or results of the service.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> ServiceDetail { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? ServiceDetail { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherType is IsoMax35Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Result is AdditionalServiceResult1Code ResultValue)
+        {
+            writer.WriteStartElement(null, "Rslt", xmlNamespace );
+            writer.WriteValue(ResultValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherResult is IsoMax35Text OtherResultValue)
+        {
+            writer.WriteStartElement(null, "OthrRslt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherResultValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ServiceDetail is AdditionalData1 ServiceDetailValue)
+        {
+            writer.WriteStartElement(null, "SvcDtl", xmlNamespace );
+            ServiceDetailValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AdditionalService2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

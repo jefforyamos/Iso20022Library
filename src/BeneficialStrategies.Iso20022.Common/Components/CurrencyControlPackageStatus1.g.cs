@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details of each package of currency control records.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CurrencyControlPackageStatus1
+     : IIsoXmlSerilizable<CurrencyControlPackageStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of each package of transactions and optionally the entry/record within the package of transactions.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text PackageIdentification { get; init; } 
     /// <summary>
     /// Defines the status of the reported transaction.
     /// </summary>
-    [DataMember]
     public required StatisticalReportingStatus1Code Status { get; init; } 
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
-    [DataMember]
-    public ValueList<ValidationStatusReason1> StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public ValidationStatusReason1? StatusReason { get; init; } 
     /// <summary>
     /// Provides the date and time when the status was issued.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? StatusDateTime { get; init; } 
     /// <summary>
     /// Provides the status of the individual records in the package.
     /// </summary>
-    [DataMember]
-    public ValueList<CurrencyControlRecordStatus1> RecordStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    public CurrencyControlRecordStatus1? RecordStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PackgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(PackageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (StatusReason is ValidationStatusReason1 StatusReasonValue)
+        {
+            writer.WriteStartElement(null, "StsRsn", xmlNamespace );
+            StatusReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StatusDateTime is IsoISODateTime StatusDateTimeValue)
+        {
+            writer.WriteStartElement(null, "StsDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(StatusDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (RecordStatus is CurrencyControlRecordStatus1 RecordStatusValue)
+        {
+            writer.WriteStartElement(null, "RcrdSts", xmlNamespace );
+            RecordStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CurrencyControlPackageStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

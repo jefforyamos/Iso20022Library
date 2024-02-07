@@ -7,129 +7,247 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides further details specific to the individual transaction(s) included in the message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CreditTransferTransaction47
+     : IIsoXmlSerilizable<CreditTransferTransaction47>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by a sending party, to unambiguously identify the credit instruction within the message.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text CreditIdentification { get; init; } 
     /// <summary>
     /// Identifies whether a single entry per individual direct debit transaction or a batch entry for the sum of the amounts of all transactions within the group of a message is requested.
     /// Usage: Batch booking is used to request and not order a possible batch booking.
     /// </summary>
-    [DataMember]
     public IsoBatchBookingIndicator? BatchBooking { get; init; } 
     /// <summary>
     /// Further specifies the type of transaction.
     /// </summary>
-    [DataMember]
     public PaymentTypeInformation28? PaymentTypeInformation { get; init; } 
     /// <summary>
     /// Amount of money moved between the instructing agent and the instructed agent.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalInterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
-    [DataMember]
     public IsoISODate? InterbankSettlementDate { get; init; } 
     /// <summary>
     /// Provides information on the occurred settlement time(s) of the payment transaction.
     /// </summary>
-    [DataMember]
     public SettlementDateTimeIndication1? SettlementTimeIndication { get; init; } 
     /// <summary>
     /// Agent that instructs the next party in the chain to carry out the (set of) instruction(s).
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? InstructingAgent { get; init; } 
     /// <summary>
     /// Agent that is instructed by the previous party in the chain to carry out the (set of) instruction(s).
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? InstructedAgent { get; init; } 
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.||Usage: If more than one intermediary agent is present, then IntermediaryAgent1 identifies the agent between the DebtorAgent and the IntermediaryAgent2.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? IntermediaryAgent1 { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the intermediary agent 1 at its servicing agent in the payment chain.
     /// </summary>
-    [DataMember]
     public CashAccount38? IntermediaryAgent1Account { get; init; } 
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.||Usage: If more than two intermediary agents are present, then IntermediaryAgent2 identifies the agent between the IntermediaryAgent1 and the IntermediaryAgent3.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? IntermediaryAgent2 { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the intermediary agent 2 at its servicing agent in the payment chain.
     /// </summary>
-    [DataMember]
     public CashAccount38? IntermediaryAgent2Account { get; init; } 
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.||Usage: If IntermediaryAgent3 is present, then it identifies the agent between the IntermediaryAgent 2 and the CreditorAgent.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? IntermediaryAgent3 { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the intermediary agent 3 at its servicing agent in the payment chain.
     /// </summary>
-    [DataMember]
     public CashAccount38? IntermediaryAgent3Account { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? CreditorAgent { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the creditor agent at its servicing agent to which a credit entry will be made as a result of the payment transaction.
     /// </summary>
-    [DataMember]
     public CashAccount38? CreditorAgentAccount { get; init; } 
     /// <summary>
     /// Financial institution that receives an amount of money from the financial institutional debtor.
     /// </summary>
-    [DataMember]
     public required BranchAndFinancialInstitutionIdentification6 Creditor { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the creditor to which a credit entry will be posted as a result of the payment transaction.
     /// </summary>
-    [DataMember]
     public CashAccount38? CreditorAccount { get; init; } 
     /// <summary>
     /// Ultimate financial institution to which an amount of money is due.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? UltimateCreditor { get; init; } 
     /// <summary>
     /// Further information related to the processing of the payment instruction, provided by the initiating party, and intended for the creditor agent.
     /// </summary>
-    [DataMember]
-    public ValueList<InstructionForCreditorAgent3> InstructionForCreditorAgent { get; init; } = []; // Warning: Don't know multiplicity.
+    public InstructionForCreditorAgent3? InstructionForCreditorAgent { get; init; } 
     /// <summary>
     /// Provides information on the individual debit transaction(s) included in the message.
     /// </summary>
-    [DataMember]
-    public ValueList<DirectDebitTransactionInformation26> DirectDebitTransactionInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public DirectDebitTransactionInformation26? DirectDebitTransactionInformation { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _sNsd8wbHEeqF8ePC1fs2Gg
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CdtId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(CreditIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (BatchBooking is IsoBatchBookingIndicator BatchBookingValue)
+        {
+            writer.WriteStartElement(null, "BtchBookg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBatchBookingIndicator(BatchBookingValue)); // data type BatchBookingIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PaymentTypeInformation is PaymentTypeInformation28 PaymentTypeInformationValue)
+        {
+            writer.WriteStartElement(null, "PmtTpInf", xmlNamespace );
+            PaymentTypeInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalInterbankSettlementAmount is IsoActiveCurrencyAndAmount TotalInterbankSettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlIntrBkSttlmAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalInterbankSettlementAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (InterbankSettlementDate is IsoISODate InterbankSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "IntrBkSttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(InterbankSettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SettlementTimeIndication is SettlementDateTimeIndication1 SettlementTimeIndicationValue)
+        {
+            writer.WriteStartElement(null, "SttlmTmIndctn", xmlNamespace );
+            SettlementTimeIndicationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructingAgent is BranchAndFinancialInstitutionIdentification6 InstructingAgentValue)
+        {
+            writer.WriteStartElement(null, "InstgAgt", xmlNamespace );
+            InstructingAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructedAgent is BranchAndFinancialInstitutionIdentification6 InstructedAgentValue)
+        {
+            writer.WriteStartElement(null, "InstdAgt", xmlNamespace );
+            InstructedAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryAgent1 is BranchAndFinancialInstitutionIdentification6 IntermediaryAgent1Value)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt1", xmlNamespace );
+            IntermediaryAgent1Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryAgent1Account is CashAccount38 IntermediaryAgent1AccountValue)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt1Acct", xmlNamespace );
+            IntermediaryAgent1AccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryAgent2 is BranchAndFinancialInstitutionIdentification6 IntermediaryAgent2Value)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt2", xmlNamespace );
+            IntermediaryAgent2Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryAgent2Account is CashAccount38 IntermediaryAgent2AccountValue)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt2Acct", xmlNamespace );
+            IntermediaryAgent2AccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryAgent3 is BranchAndFinancialInstitutionIdentification6 IntermediaryAgent3Value)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt3", xmlNamespace );
+            IntermediaryAgent3Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediaryAgent3Account is CashAccount38 IntermediaryAgent3AccountValue)
+        {
+            writer.WriteStartElement(null, "IntrmyAgt3Acct", xmlNamespace );
+            IntermediaryAgent3AccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditorAgent is BranchAndFinancialInstitutionIdentification6 CreditorAgentValue)
+        {
+            writer.WriteStartElement(null, "CdtrAgt", xmlNamespace );
+            CreditorAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditorAgentAccount is CashAccount38 CreditorAgentAccountValue)
+        {
+            writer.WriteStartElement(null, "CdtrAgtAcct", xmlNamespace );
+            CreditorAgentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Cdtr", xmlNamespace );
+        Creditor.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CreditorAccount is CashAccount38 CreditorAccountValue)
+        {
+            writer.WriteStartElement(null, "CdtrAcct", xmlNamespace );
+            CreditorAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UltimateCreditor is BranchAndFinancialInstitutionIdentification6 UltimateCreditorValue)
+        {
+            writer.WriteStartElement(null, "UltmtCdtr", xmlNamespace );
+            UltimateCreditorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructionForCreditorAgent is InstructionForCreditorAgent3 InstructionForCreditorAgentValue)
+        {
+            writer.WriteStartElement(null, "InstrForCdtrAgt", xmlNamespace );
+            InstructionForCreditorAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize DirectDebitTransactionInformation, multiplicity Unknown
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CreditTransferTransaction47 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

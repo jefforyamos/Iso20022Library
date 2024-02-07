@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the response of an authorisation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AcquirerAuthorisationResponse1
+     : IIsoXmlSerilizable<AcquirerAuthorisationResponse1>
 {
     #nullable enable
     
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
-    [DataMember]
     public required CardTransactionEnvironment2 Environment { get; init; } 
     /// <summary>
     /// Context in which the card transaction is performed.
     /// </summary>
-    [DataMember]
     public CardTransactionContext3? Context { get; init; } 
     /// <summary>
     /// Card transaction for which the authorisation has been requested.
     /// </summary>
-    [DataMember]
     public CardTransaction4? Transaction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Envt", xmlNamespace );
+        Environment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Context is CardTransactionContext3 ContextValue)
+        {
+            writer.WriteStartElement(null, "Cntxt", xmlNamespace );
+            ContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Transaction is CardTransaction4 TransactionValue)
+        {
+            writer.WriteStartElement(null, "Tx", xmlNamespace );
+            TransactionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AcquirerAuthorisationResponse1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

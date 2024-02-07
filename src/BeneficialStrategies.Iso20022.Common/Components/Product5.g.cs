@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Product to purchase.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Product5
+     : IIsoXmlSerilizable<Product5>
 {
     #nullable enable
     
     /// <summary>
     /// Product code of the item.
     /// </summary>
-    [DataMember]
     public required IsoMax70Text ProductCode { get; init; } 
     /// <summary>
     /// Additional product code related to the product.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? AdditionalProductCode { get; init; } 
     /// <summary>
     /// Amount limit for the product.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? AmountLimit { get; init; } 
     /// <summary>
     /// Quantity limit for the product.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? QuantityLimit { get; init; } 
     /// <summary>
     /// Unit of measure of the item purchased.
     /// </summary>
-    [DataMember]
     public UnitOfMeasure6Code? UnitOfMeasure { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PdctCd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(ProductCode)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        if (AdditionalProductCode is IsoMax70Text AdditionalProductCodeValue)
+        {
+            writer.WriteStartElement(null, "AddtlPdctCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AdditionalProductCodeValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (AmountLimit is IsoImpliedCurrencyAndAmount AmountLimitValue)
+        {
+            writer.WriteStartElement(null, "AmtLmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(AmountLimitValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (QuantityLimit is IsoDecimalNumber QuantityLimitValue)
+        {
+            writer.WriteStartElement(null, "QtyLmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(QuantityLimitValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (UnitOfMeasure is UnitOfMeasure6Code UnitOfMeasureValue)
+        {
+            writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
+            writer.WriteValue(UnitOfMeasureValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static Product5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

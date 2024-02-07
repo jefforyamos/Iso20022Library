@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentAggregateBalance1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentAggregateBala
 /// Balance of holdings.
 /// </summary>
 public partial record HoldingBalance : FinancialInstrumentAggregateBalance1Choice_
+     , IIsoXmlSerilizable<HoldingBalance>
 {
     #nullable enable
+    
     /// <summary>
     /// Balance of settled transactions.
     /// </summary>
@@ -26,6 +30,42 @@ public partial record HoldingBalance : FinancialInstrumentAggregateBalance1Choic
     /// <summary>
     /// Breakdown of the balances of holdings into sub-balances.
     /// </summary>
-    public SubBalanceBreakdown1? BalanceBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public SubBalanceBreakdown1? BalanceBreakdown { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SettledBalance is FinancialInstrumentQuantity1Choice_ SettledBalanceValue)
+        {
+            writer.WriteStartElement(null, "SttldBal", xmlNamespace );
+            SettledBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradedBalance is FinancialInstrumentQuantity1Choice_ TradedBalanceValue)
+        {
+            writer.WriteStartElement(null, "TraddBal", xmlNamespace );
+            TradedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BalanceBreakdown is SubBalanceBreakdown1 BalanceBreakdownValue)
+        {
+            writer.WriteStartElement(null, "BalBrkdwn", xmlNamespace );
+            BalanceBreakdownValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new HoldingBalance Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

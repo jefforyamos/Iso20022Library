@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the beneficiary of a drawdown.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BeneficiaryDrawdown1
+     : IIsoXmlSerilizable<BeneficiaryDrawdown1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of beneficiary.
     /// </summary>
-    [DataMember]
     public BeneficiaryType1Choice_? BeneficiaryType { get; init; } 
     /// <summary>
     /// Indicates whether the original pension holder was under the age limit when deceased. Typically, in the UK this limit is seventy-five.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? DeathUnderLimit { get; init; } 
     /// <summary>
     /// Additional information about the recipient of the drawdown.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (BeneficiaryType is BeneficiaryType1Choice_ BeneficiaryTypeValue)
+        {
+            writer.WriteStartElement(null, "BnfcryTp", xmlNamespace );
+            BeneficiaryTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeathUnderLimit is IsoYesNoIndicator DeathUnderLimitValue)
+        {
+            writer.WriteStartElement(null, "DthUdrLmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DeathUnderLimitValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BeneficiaryDrawdown1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

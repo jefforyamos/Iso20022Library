@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Magnetic track or equivalent payment card data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TrackData2
+     : IIsoXmlSerilizable<TrackData2>
 {
     #nullable enable
     
     /// <summary>
     /// Track number of the card.
     /// </summary>
-    [DataMember]
     public IsoNumber? TrackNumber { get; init; } 
     /// <summary>
     /// Card or check track format.
     /// </summary>
-    [DataMember]
     public TrackFormat1Code? TrackFormat { get; init; } 
     /// <summary>
     /// Card track content or equivalent.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text TrackValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TrackNumber is IsoNumber TrackNumberValue)
+        {
+            writer.WriteStartElement(null, "TrckNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(TrackNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (TrackFormat is TrackFormat1Code TrackFormatValue)
+        {
+            writer.WriteStartElement(null, "TrckFrmt", xmlNamespace );
+            writer.WriteValue(TrackFormatValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TrckVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(TrackValue)); // data type Max140Text System.String
+        writer.WriteEndElement();
+    }
+    public static TrackData2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

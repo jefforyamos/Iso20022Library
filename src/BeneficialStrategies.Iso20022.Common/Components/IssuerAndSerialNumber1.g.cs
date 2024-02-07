@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Certificate issuer name and serial number (see X.509).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IssuerAndSerialNumber1
+     : IIsoXmlSerilizable<IssuerAndSerialNumber1>
 {
     #nullable enable
     
     /// <summary>
     /// Certificate issuer name (see X.509).
     /// </summary>
-    [DataMember]
     public required CertificateIssuer1 Issuer { get; init; } 
     /// <summary>
     /// Certificate serial number (see X.509).
     /// </summary>
-    [DataMember]
     public required IsoMax35Binary SerialNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Issr", xmlNamespace );
+        Issuer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SrlNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Binary(SerialNumber)); // data type Max35Binary System.Byte[]
+        writer.WriteEndElement();
+    }
+    public static IssuerAndSerialNumber1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

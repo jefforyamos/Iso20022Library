@@ -7,104 +7,198 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details about the settlement obligation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementObligation7
+     : IIsoXmlSerilizable<SettlementObligation7>
 {
     #nullable enable
     
     /// <summary>
     /// Last reference given by the settlement platform (this is the central securities depository) to the transaction (non settled instruction).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CSDTransactionIdentification { get; init; } 
     /// <summary>
     /// Reference of the transaction (non settled instruction) given by the central counterparty.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CentralCounterpartyTransactionIdentification { get; init; } 
     /// <summary>
     /// Original buy-in identification number in case an event causes a generation of a new buy-in identification.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PreviousBuyInIdentification { get; init; } 
     /// <summary>
     /// An account opened by the central counterparty in the name of the clearing member within the account structure, for settlement purposes (gives information about the clearing member account at central counterparty).
     /// </summary>
-    [DataMember]
     public SecuritiesAccount19? DeliveryAccount { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    [DataMember]
     public SafekeepingPlaceFormat7Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Clearing member account at the central securities depository.
     /// </summary>
-    [DataMember]
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Clearing organisation that will clear the trade.
     /// Note: This field allows clearing member firm to segregate flows coming from clearing counterparty's clearing system. Indeed, clearing member firms receive messages from the same system (same sender) and this field allows them to know if the message is related to equities or derivatives.
     /// </summary>
-    [DataMember]
     public PartyIdentification35Choice_? ClearingSegment { get; init; } 
     /// <summary>
     /// Provides the identification for the non-clearing member and account.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount31? NonClearingMember { get; init; } 
     /// <summary>
     /// Provides the intended settlement date of the position.
     /// </summary>
-    [DataMember]
     public IsoISODate? IntendedSettlementDate { get; init; } 
     /// <summary>
     /// Provides details about the security identification.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification14 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Provides the trade date.
     /// </summary>
-    [DataMember]
     public IsoISODate? TradeDate { get; init; } 
     /// <summary>
     /// Provides the price of the trade.
     /// </summary>
-    [DataMember]
     public Price4? DealPrice { get; init; } 
     /// <summary>
     /// Provides the quantity of the trade.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Place where settlement of the securities takes place.
     /// </summary>
-    [DataMember]
     public PartyIdentification34Choice_? Depository { get; init; } 
     /// <summary>
     /// Provides the remaining quantity to be settled.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1Choice_? RemainingQuantityToBeSettled { get; init; } 
     /// <summary>
     /// Provides the amount to be settled.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection27 SettlementAmount { get; init; } 
     /// <summary>
     /// Provides the remaining amount to be settled.
     /// </summary>
-    [DataMember]
     public AmountAndDirection27? RemainingAmountToBeSettled { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CSDTransactionIdentification is IsoMax35Text CSDTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CSDTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CSDTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CentralCounterpartyTransactionIdentification is IsoMax35Text CentralCounterpartyTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CntrlCtrPtyTxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CentralCounterpartyTransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PreviousBuyInIdentification is IsoMax35Text PreviousBuyInIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrvsBuyInId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PreviousBuyInIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DeliveryAccount is SecuritiesAccount19 DeliveryAccountValue)
+        {
+            writer.WriteStartElement(null, "DlvryAcct", xmlNamespace );
+            DeliveryAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingPlace is SafekeepingPlaceFormat7Choice_ SafekeepingPlaceValue)
+        {
+            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
+            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingAccount is SecuritiesAccount19 SafekeepingAccountValue)
+        {
+            writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+            SafekeepingAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingSegment is PartyIdentification35Choice_ ClearingSegmentValue)
+        {
+            writer.WriteStartElement(null, "ClrSgmt", xmlNamespace );
+            ClearingSegmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NonClearingMember is PartyIdentificationAndAccount31 NonClearingMemberValue)
+        {
+            writer.WriteStartElement(null, "NonClrMmb", xmlNamespace );
+            NonClearingMemberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntendedSettlementDate is IsoISODate IntendedSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "IntnddSttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(IntendedSettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TradeDate is IsoISODate TradeDateValue)
+        {
+            writer.WriteStartElement(null, "TradDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(TradeDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (DealPrice is Price4 DealPriceValue)
+        {
+            writer.WriteStartElement(null, "DealPric", xmlNamespace );
+            DealPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        Quantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Depository is PartyIdentification34Choice_ DepositoryValue)
+        {
+            writer.WriteStartElement(null, "Dpstry", xmlNamespace );
+            DepositoryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RemainingQuantityToBeSettled is FinancialInstrumentQuantity1Choice_ RemainingQuantityToBeSettledValue)
+        {
+            writer.WriteStartElement(null, "RmngQtyToBeSttld", xmlNamespace );
+            RemainingQuantityToBeSettledValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
+        SettlementAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RemainingAmountToBeSettled is AmountAndDirection27 RemainingAmountToBeSettledValue)
+        {
+            writer.WriteStartElement(null, "RmngAmtToBeSttld", xmlNamespace );
+            RemainingAmountToBeSettledValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementObligation7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

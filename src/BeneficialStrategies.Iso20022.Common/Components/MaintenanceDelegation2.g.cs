@@ -7,63 +7,119 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information on the delegation of a maintenance action or maintenance function.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MaintenanceDelegation2
+     : IIsoXmlSerilizable<MaintenanceDelegation2>
 {
     #nullable enable
     
     /// <summary>
     /// Maintenance service to be delegated.
     /// </summary>
-    [DataMember]
-    public ValueList<DataSetCategory6Code> MaintenanceService { get; init; } = []; // Warning: Don't know multiplicity.
+    public DataSetCategory6Code? MaintenanceService { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is __16csWqGEeS8RZDTbvnB_A
     /// <summary>
     /// Response of the MTM to the delegation of the maintenance service.
     /// </summary>
-    [DataMember]
     public required Response2Code Response { get; init; } 
     /// <summary>
     /// Reason of the response of the MTM.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ResponseReason { get; init; } 
     /// <summary>
     /// Subset of the terminal estate for the delegated actions, for instance for pilot or key deactivation). The subset may be expressed as a list of POI or terminal estate subset identifier.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> POISubset { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? POISubset { get; init; } 
     /// <summary>
     /// Identification of the parameters subset assigned by the MTM.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ParametersSubsetIdentification { get; init; } 
     /// <summary>
     /// Definition of the subset of application parameters, for instance the range of application profiles, the RID (registered application provider identification).
     /// </summary>
-    [DataMember]
     public IsoMax3000Binary? ParametersSubsetDefinition { get; init; } 
     /// <summary>
     /// Proof of delegation to be verified by the POI, when performing the delegated actions.
     /// </summary>
-    [DataMember]
     public IsoMax5000Binary? DelegationProof { get; init; } 
     /// <summary>
     /// Protected proof of delegation.
     /// </summary>
-    [DataMember]
     public ContentInformationType12? ProtectedDelegationProof { get; init; } 
     /// <summary>
     /// Association of the TM identifier and the MTM identifier of a POI.
     /// </summary>
-    [DataMember]
-    public ValueList<MaintenanceIdentificationAssociation1> POIIdentificationAssociation { get; init; } = []; // Warning: Don't know multiplicity.
+    public MaintenanceIdentificationAssociation1? POIIdentificationAssociation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize MaintenanceService, multiplicity Unknown
+        writer.WriteStartElement(null, "Rspn", xmlNamespace );
+        writer.WriteValue(Response.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ResponseReason is IsoMax35Text ResponseReasonValue)
+        {
+            writer.WriteStartElement(null, "RspnRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ResponseReasonValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (POISubset is IsoMax35Text POISubsetValue)
+        {
+            writer.WriteStartElement(null, "POISubset", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(POISubsetValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ParametersSubsetIdentification is IsoMax35Text ParametersSubsetIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ParamsSubsetId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ParametersSubsetIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ParametersSubsetDefinition is IsoMax3000Binary ParametersSubsetDefinitionValue)
+        {
+            writer.WriteStartElement(null, "ParamsSubsetDef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3000Binary(ParametersSubsetDefinitionValue)); // data type Max3000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (DelegationProof is IsoMax5000Binary DelegationProofValue)
+        {
+            writer.WriteStartElement(null, "DlgtnProof", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax5000Binary(DelegationProofValue)); // data type Max5000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (ProtectedDelegationProof is ContentInformationType12 ProtectedDelegationProofValue)
+        {
+            writer.WriteStartElement(null, "PrtctdDlgtnProof", xmlNamespace );
+            ProtectedDelegationProofValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (POIIdentificationAssociation is MaintenanceIdentificationAssociation1 POIIdentificationAssociationValue)
+        {
+            writer.WriteStartElement(null, "POIIdAssoctn", xmlNamespace );
+            POIIdentificationAssociationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MaintenanceDelegation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

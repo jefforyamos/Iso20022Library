@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Other business parties relevant to the transaction/Instruction
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OtherParties38
+     : IIsoXmlSerilizable<OtherParties38>
 {
     #nullable enable
     
     /// <summary>
     /// Issuer of the financial instrument.
     /// </summary>
-    [DataMember]
     public PartyIdentification136? Issuer { get; init; } 
     /// <summary>
     /// Instructing party, either an individual or organisation, whose assets are being invested.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyIdentification149> Investor { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyIdentification149? Investor { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Issuer is PartyIdentification136 IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            IssuerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Investor is PartyIdentification149 InvestorValue)
+        {
+            writer.WriteStartElement(null, "Invstr", xmlNamespace );
+            InvestorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OtherParties38 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

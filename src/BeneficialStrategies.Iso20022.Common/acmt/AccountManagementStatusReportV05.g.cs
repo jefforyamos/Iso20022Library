@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.acmt.AccountManagementStatusReportV05>;
 
 namespace BeneficialStrategies.Iso20022.acmt;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// The account owner may report that the status of the instruction is either rejected, accepted, that the instruction is being processed or that the instruction has been forwarded to the next intermediary party for further processing.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account servicer, for example, a registrar, transfer agent, custodian bank or securities depository sends the AccountManagementStatusReport message to the account owner or its designated agent, for example, an investor to report on the receipt or the processing status of a previously received AccountOpeningInstruction or AccountModificationInstruction or GetAccountDetails message.|Usage|The AccountManagementStatusReport message is used to provide the processing status of a previously received AccountOpeningInstruction or of an AccountModificationInstruction message.|The AccountManagementStatusReport message is also used by an account servicer to reject an AccountOpeningInstruction or AccountModificationInstruction or GetAccountDetails message when the message is not compliant with the agreed SLA or when the account cannot be uniquely identified.|The account owner may report that the status of the instruction is either rejected, accepted, that the instruction is being processed or that the instruction has been forwarded to the next intermediary party for further processing.")]
-public partial record AccountManagementStatusReportV05 : IOuterRecord
+public partial record AccountManagementStatusReportV05 : IOuterRecord<AccountManagementStatusReportV05,AccountManagementStatusReportV05Document>
+    ,IIsoXmlSerilizable<AccountManagementStatusReportV05>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record AccountManagementStatusReportV05 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AcctMgmtStsRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AccountManagementStatusReportV05Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -60,7 +67,7 @@ public partial record AccountManagementStatusReportV05 : IOuterRecord
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public required IReadOnlyCollection<AdditionalReference6> RelatedReference { get; init; } = []; // Min=1, Max=2
+    public required ValueList<AdditionalReference6> RelatedReference { get; init; } = []; // Min=1, Max=2
     
     /// <summary>
     /// Status report details of an account opening instruction or account modification instruction that was previously received.
@@ -99,6 +106,44 @@ public partial record AccountManagementStatusReportV05 : IOuterRecord
     {
         return new AccountManagementStatusReportV05Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AcctMgmtStsRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+        RelatedReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StsRpt", xmlNamespace );
+        StatusReport.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MarketPracticeVersion is MarketPracticeVersion1 MarketPracticeVersionValue)
+        {
+            writer.WriteStartElement(null, "MktPrctcVrsn", xmlNamespace );
+            MarketPracticeVersionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountManagementStatusReportV05 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -106,9 +151,7 @@ public partial record AccountManagementStatusReportV05 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountManagementStatusReportV05"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AccountManagementStatusReportV05Document : IOuterDocument<AccountManagementStatusReportV05>
+public partial record AccountManagementStatusReportV05Document : IOuterDocument<AccountManagementStatusReportV05>, IXmlSerializable
 {
     
     /// <summary>
@@ -124,5 +167,22 @@ public partial record AccountManagementStatusReportV05Document : IOuterDocument<
     /// <summary>
     /// The instance of <seealso cref="AccountManagementStatusReportV05"/> is required.
     /// </summary>
+    [DataMember(Name=AccountManagementStatusReportV05.XmlTag)]
     public required AccountManagementStatusReportV05 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AccountManagementStatusReportV05.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

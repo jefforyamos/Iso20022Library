@@ -7,73 +7,143 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Investment restrictions linked to the instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestmentRestrictions2
+     : IIsoXmlSerilizable<InvestmentRestrictions2>
 {
     #nullable enable
     
     /// <summary>
     /// Minimum initial quantity of securities, expressed as an amount that must be purchased at subscription.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? MinimumInitialSubscriptionAmount { get; init; } 
     /// <summary>
     /// Minimum initial number of units/shares that must be purchased.
     /// </summary>
-    [DataMember]
     public IsoNumber? MinimumInitialSubscriptionUnits { get; init; } 
     /// <summary>
     /// Minimum quantity of securities, expressed as an amount that must be purchased.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? MinimumSubsequentSubscriptionAmount { get; init; } 
     /// <summary>
     /// Minimum quantity of securities, expressed as number of units/shares that must be purchased.
     /// </summary>
-    [DataMember]
     public IsoNumber? MinimumSubsequentSubscriptionUnits { get; init; } 
     /// <summary>
     /// Maximum quantity of securities, expressed as an amount that can be sold.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? MaximumRedemptionAmount { get; init; } 
     /// <summary>
     /// Maximum number of shares/units that may be redeemed on a single dealing day.
     /// </summary>
-    [DataMember]
     public IsoNumber? MaximumRedemptionUnits { get; init; } 
     /// <summary>
     /// Specifies any other restrictions that may limit an investor's ability to redeem.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? OtherRedemptionRestrictions { get; init; } 
     /// <summary>
     /// Minimum value of units that must be maintained to avoid automatic redemption.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? MinimumHoldingAmount { get; init; } 
     /// <summary>
     /// Minimum number of units that must be maintained to avoid automatic redemption.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? MinimumHoldingUnits { get; init; } 
     /// <summary>
     /// Description of a period, that may be a number of days, weeks or descriptive period during which the units/shares must be held following their issue before redemption will be permitted.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? MinimumHoldingPeriod { get; init; } 
     /// <summary>
     /// Indicates whether registered investors are able to transfer some or all of their holdings to third parties.
     /// </summary>
-    [DataMember]
     public required HoldingTransferable1Code HoldingTransferable { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MinimumInitialSubscriptionAmount is IsoActiveCurrencyAndAmount MinimumInitialSubscriptionAmountValue)
+        {
+            writer.WriteStartElement(null, "MinInitlSbcptAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MinimumInitialSubscriptionAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MinimumInitialSubscriptionUnits is IsoNumber MinimumInitialSubscriptionUnitsValue)
+        {
+            writer.WriteStartElement(null, "MinInitlSbcptUnits", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MinimumInitialSubscriptionUnitsValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (MinimumSubsequentSubscriptionAmount is IsoActiveCurrencyAndAmount MinimumSubsequentSubscriptionAmountValue)
+        {
+            writer.WriteStartElement(null, "MinSbsqntSbcptAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MinimumSubsequentSubscriptionAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MinimumSubsequentSubscriptionUnits is IsoNumber MinimumSubsequentSubscriptionUnitsValue)
+        {
+            writer.WriteStartElement(null, "MinSbsqntSbcptUnits", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MinimumSubsequentSubscriptionUnitsValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (MaximumRedemptionAmount is IsoActiveCurrencyAndAmount MaximumRedemptionAmountValue)
+        {
+            writer.WriteStartElement(null, "MaxRedAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MaximumRedemptionAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MaximumRedemptionUnits is IsoNumber MaximumRedemptionUnitsValue)
+        {
+            writer.WriteStartElement(null, "MaxRedUnits", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumRedemptionUnitsValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (OtherRedemptionRestrictions is IsoMax350Text OtherRedemptionRestrictionsValue)
+        {
+            writer.WriteStartElement(null, "OthrRedRstrctns", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(OtherRedemptionRestrictionsValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (MinimumHoldingAmount is IsoActiveCurrencyAndAmount MinimumHoldingAmountValue)
+        {
+            writer.WriteStartElement(null, "MinHldgAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MinimumHoldingAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MinimumHoldingUnits is IsoDecimalNumber MinimumHoldingUnitsValue)
+        {
+            writer.WriteStartElement(null, "MinHldgUnits", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(MinimumHoldingUnitsValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (MinimumHoldingPeriod is IsoMax70Text MinimumHoldingPeriodValue)
+        {
+            writer.WriteStartElement(null, "MinHldgPrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(MinimumHoldingPeriodValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "HldgTrfbl", xmlNamespace );
+        writer.WriteValue(HoldingTransferable.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static InvestmentRestrictions2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

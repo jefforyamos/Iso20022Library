@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.MarginRequirement1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.MarginRequirement1Choice;
 /// Provides details about the margin requirements for the segregated independent amount only.
 /// </summary>
 public partial record SegregatedIndependentAmountRequirement : MarginRequirement1Choice_
+     , IIsoXmlSerilizable<SegregatedIndependentAmountRequirement>
 {
     #nullable enable
+    
     /// <summary>
     /// Amount of new margin that will be delivered to one party by the other party after rounding, threshold and minimum transfer amount are taken into account.
     /// </summary>
@@ -23,5 +27,35 @@ public partial record SegregatedIndependentAmountRequirement : MarginRequirement
     /// Amount of new margin that will be recalled to one party from the other party after rounding, threshold and minimum transfer amount are taken into account.
     /// </summary>
     public IsoActiveCurrencyAndAmount? ReturnMarginAmount { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DeliverMarginAmount is IsoActiveCurrencyAndAmount DeliverMarginAmountValue)
+        {
+            writer.WriteStartElement(null, "DlvrMrgnAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(DeliverMarginAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ReturnMarginAmount is IsoActiveCurrencyAndAmount ReturnMarginAmountValue)
+        {
+            writer.WriteStartElement(null, "RtrMrgnAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ReturnMarginAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static new SegregatedIndependentAmountRequirement Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

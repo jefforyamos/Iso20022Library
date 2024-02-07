@@ -7,73 +7,146 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details of the collateral used in the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralData33
+     : IIsoXmlSerilizable<CollateralData33>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the collateral has been provided for a net exposure, rather than for a single transaction.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? NetExposureCollateralisationIndicator { get; init; } 
     /// <summary>
     /// Indication of the type of collateral component.
     /// </summary>
-    [DataMember]
     public CollateralType6Code? ComponentType { get; init; } 
     /// <summary>
     /// Currency of unit of cash collateral component.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? CashCollateralCurrency { get; init; } 
     /// <summary>
     /// Currency of price of unit of collateral component.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? PriceCurrency { get; init; } 
     /// <summary>
     /// Code that classifies the risk of the security.
     /// </summary>
-    [DataMember]
     public CollateralQualityType1Code? Quality { get; init; } 
     /// <summary>
     /// Maturity of the security.
     /// </summary>
-    [DataMember]
     public ContractTerm6Choice_? Maturity { get; init; } 
     /// <summary>
     /// Jurisdiction of the issuer of the security used as collateral. 
     /// </summary>
-    [DataMember]
     public IssuerJurisdiction1Choice_? IssuerJurisdiction { get; init; } 
     /// <summary>
     /// Classification of the type of the security.
     /// </summary>
-    [DataMember]
     public SecuritiesLendingType3Choice_? Type { get; init; } 
     /// <summary>
     /// Trade Repository to which the other counterparty reported.
     /// </summary>
-    [DataMember]
     public OrganisationIdentification15Choice_? TradeRepository { get; init; } 
     /// <summary>
     /// List of possible values for TRs reconciliation purposes.
     /// </summary>
-    [DataMember]
     public ReconciliationFlag2? ReconciliationFlag { get; init; } 
     /// <summary>
     /// Provides details on the type and amount of the cash reinvestment in a given currency.
     /// </summary>
-    [DataMember]
     public ReinvestedCashTypeAndAmount2? ReinvestedCash { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NetExposureCollateralisationIndicator is IsoTrueFalseIndicator NetExposureCollateralisationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NetXpsrCollstnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(NetExposureCollateralisationIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ComponentType is CollateralType6Code ComponentTypeValue)
+        {
+            writer.WriteStartElement(null, "CmpntTp", xmlNamespace );
+            writer.WriteValue(ComponentTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CashCollateralCurrency is ActiveOrHistoricCurrencyCode CashCollateralCurrencyValue)
+        {
+            writer.WriteStartElement(null, "CshCollCcy", xmlNamespace );
+            writer.WriteValue(CashCollateralCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PriceCurrency is ActiveOrHistoricCurrencyCode PriceCurrencyValue)
+        {
+            writer.WriteStartElement(null, "PricCcy", xmlNamespace );
+            writer.WriteValue(PriceCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Quality is CollateralQualityType1Code QualityValue)
+        {
+            writer.WriteStartElement(null, "Qlty", xmlNamespace );
+            writer.WriteValue(QualityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Maturity is ContractTerm6Choice_ MaturityValue)
+        {
+            writer.WriteStartElement(null, "Mtrty", xmlNamespace );
+            MaturityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssuerJurisdiction is IssuerJurisdiction1Choice_ IssuerJurisdictionValue)
+        {
+            writer.WriteStartElement(null, "IssrJursdctn", xmlNamespace );
+            IssuerJurisdictionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Type is SecuritiesLendingType3Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeRepository is OrganisationIdentification15Choice_ TradeRepositoryValue)
+        {
+            writer.WriteStartElement(null, "TradRpstry", xmlNamespace );
+            TradeRepositoryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReconciliationFlag is ReconciliationFlag2 ReconciliationFlagValue)
+        {
+            writer.WriteStartElement(null, "RcncltnFlg", xmlNamespace );
+            ReconciliationFlagValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReinvestedCash is ReinvestedCashTypeAndAmount2 ReinvestedCashValue)
+        {
+            writer.WriteStartElement(null, "RinvstdCsh", xmlNamespace );
+            ReinvestedCashValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralData33 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

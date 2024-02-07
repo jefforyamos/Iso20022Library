@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.LimitIdentification2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitIdentification2Choice;
 /// Identification of the default limit.
 /// </summary>
 public partial record Default : LimitIdentification2Choice_
+     , IIsoXmlSerilizable<Default>
 {
     #nullable enable
+    
     /// <summary>
     /// Identification of a particular cash clearing system.
     /// </summary>
@@ -35,5 +39,50 @@ public partial record Default : LimitIdentification2Choice_
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
     public AccountIdentification4Choice_? AccountIdentification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SystemIdentification is SystemIdentification2Choice_ SystemIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SysId", xmlNamespace );
+            SystemIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BilateralLimitCounterpartyIdentification is BranchAndFinancialInstitutionIdentification6 BilateralLimitCounterpartyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "BilLmtCtrPtyId", xmlNamespace );
+            BilateralLimitCounterpartyIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountOwner is BranchAndFinancialInstitutionIdentification6 AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountIdentification is AccountIdentification4Choice_ AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            AccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Default Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

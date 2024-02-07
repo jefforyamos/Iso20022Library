@@ -7,43 +7,71 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Characteristics shared by all individual items included in the currency control message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CurrencyControlHeader2
+     : IIsoXmlSerilizable<CurrencyControlHeader2>
 {
     #nullable enable
     
     /// <summary>
     /// Point to point reference, as assigned by the instructing party, and sent to the next party in the chain to unambiguously identify the message.|Usage: The instructing party has to make sure that MessageIdentification is unique per instructed party for a pre-agreed period.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Number of individual items contained in the message.
     /// </summary>
-    [DataMember]
     public required IsoMax15NumericText NumberOfItems { get; init; } 
     /// <summary>
     /// Party that receives the message.
     /// </summary>
-    [DataMember]
     public required PartyIdentification77 ReceivingParty { get; init; } 
     /// <summary>
     /// Agent which sends the message.
     /// </summary>
-    [DataMember]
     public required BranchAndFinancialInstitutionIdentification5 RegistrationAgent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NbOfItms", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(NumberOfItems)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RcvgPty", xmlNamespace );
+        ReceivingParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RegnAgt", xmlNamespace );
+        RegistrationAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CurrencyControlHeader2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

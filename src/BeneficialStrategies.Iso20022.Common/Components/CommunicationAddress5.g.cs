@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Communication information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CommunicationAddress5
+     : IIsoXmlSerilizable<CommunicationAddress5>
 {
     #nullable enable
     
     /// <summary>
     /// Postal address of the entity.
     /// </summary>
-    [DataMember]
     public PostalAddress18? PostalAddress { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
-    [DataMember]
     public IsoMax256Text? Email { get; init; } 
     /// <summary>
     /// Address for the Universal Resource Locator (URL), for example used over the www (HTTP) service.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? URLAddress { get; init; } 
     /// <summary>
     /// Collection of information that identifies a phone number, as defined by telecom services.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? Phone { get; init; } 
     /// <summary>
     /// Phone number of the customer service.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? CustomerService { get; init; } 
     /// <summary>
     /// Additional information used to facilitate contact with the card acceptor, for instance sales agent name, dispute manager name.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? AdditionalContactInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PostalAddress is PostalAddress18 PostalAddressValue)
+        {
+            writer.WriteStartElement(null, "PstlAdr", xmlNamespace );
+            PostalAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Email is IsoMax256Text EmailValue)
+        {
+            writer.WriteStartElement(null, "Email", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(EmailValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (URLAddress is IsoMax256Text URLAddressValue)
+        {
+            writer.WriteStartElement(null, "URLAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(URLAddressValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (Phone is IsoPhoneNumber PhoneValue)
+        {
+            writer.WriteStartElement(null, "Phne", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(PhoneValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (CustomerService is IsoPhoneNumber CustomerServiceValue)
+        {
+            writer.WriteStartElement(null, "CstmrSvc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(CustomerServiceValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalContactInformation is IsoMax256Text AdditionalContactInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlCtctInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(AdditionalContactInformationValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CommunicationAddress5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Party29Choice;
 
@@ -13,11 +15,37 @@ namespace BeneficialStrategies.Iso20022.Choices.Party29Choice;
 /// Identification of a person or an organisation.
 /// </summary>
 public partial record OrganisationIdentification : Party29Choice_
+     , IIsoXmlSerilizable<OrganisationIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique and unambiguous identification of a party.
     /// </summary>
     public Party1? Identification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is Party1 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new OrganisationIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

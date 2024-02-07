@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information needed to process a currency exchange or conversion.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ForeignExchangeTerms10
+     : IIsoXmlSerilizable<ForeignExchangeTerms10>
 {
     #nullable enable
     
     /// <summary>
     /// Cash amount resulting from a foreign exchange trade.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? ToAmount { get; init; } 
     /// <summary>
     /// Cash amount for which a foreign exchange is required.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINActiveCurrencyAndAmount? FromAmount { get; init; } 
     /// <summary>
     /// Currency in which the rate of exchange is expressed in a currency exchange. In the example 1GBP = xxxCUR, the unit currency is GBP.
     /// </summary>
-    [DataMember]
     public required ActiveOrHistoricCurrencyCode UnitCurrency { get; init; } 
     /// <summary>
     /// Currency into which the base currency is converted, in a currency exchange.
     /// </summary>
-    [DataMember]
     public required ActiveOrHistoricCurrencyCode QuotedCurrency { get; init; } 
     /// <summary>
     /// The value of one currency expressed in relation to another currency. ExchangeRate expresses the ratio between UnitCurrency and QuotedCurrency (ExchangeRate = UnitCurrency/QuotedCurrency).
     /// </summary>
-    [DataMember]
     public required IsoBaseOneRate ExchangeRate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ToAmount is IsoRestrictedFINActiveCurrencyAnd13DecimalAmount ToAmountValue)
+        {
+            writer.WriteStartElement(null, "ToAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAnd13DecimalAmount(ToAmountValue)); // data type RestrictedFINActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (FromAmount is IsoRestrictedFINActiveCurrencyAndAmount FromAmountValue)
+        {
+            writer.WriteStartElement(null, "FrAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAndAmount(FromAmountValue)); // data type RestrictedFINActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "UnitCcy", xmlNamespace );
+        writer.WriteValue(UnitCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "QtdCcy", xmlNamespace );
+        writer.WriteValue(QuotedCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XchgRate", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ExchangeRate)); // data type BaseOneRate System.Decimal
+        writer.WriteEndElement();
+    }
+    public static ForeignExchangeTerms10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

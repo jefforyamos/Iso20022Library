@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Intra-position type used to specify pairs of from/to balances.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IntraPositionType2
+     : IIsoXmlSerilizable<IntraPositionType2>
 {
     #nullable enable
     
     /// <summary>
     /// Balance from which the securities are moving.
     /// </summary>
-    [DataMember]
     public SecuritiesSubBalanceTypeAndQuantityBreakdown3? BalanceFrom { get; init; } 
     /// <summary>
     /// Balance to which the securities are moving.
     /// </summary>
-    [DataMember]
     public SecuritiesSubBalanceTypeAndQuantityBreakdown3? BalanceTo { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (BalanceFrom is SecuritiesSubBalanceTypeAndQuantityBreakdown3 BalanceFromValue)
+        {
+            writer.WriteStartElement(null, "BalFr", xmlNamespace );
+            BalanceFromValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BalanceTo is SecuritiesSubBalanceTypeAndQuantityBreakdown3 BalanceToValue)
+        {
+            writer.WriteStartElement(null, "BalTo", xmlNamespace );
+            BalanceToValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IntraPositionType2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

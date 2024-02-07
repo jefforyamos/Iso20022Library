@@ -7,88 +7,148 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines a list of party management registration and guarantee requests.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancingAgreementList1
+     : IIsoXmlSerilizable<FinancingAgreementList1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification assigned to unambiguously identify the agreement list.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identifier { get; init; } 
     /// <summary>
     /// Creation date of this list.
     /// </summary>
-    [DataMember]
     public required IsoISODate Date { get; init; } 
     /// <summary>
     /// Reference to related document.
     /// </summary>
-    [DataMember]
-    public ValueList<QualifiedDocumentInformation1> RelatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1? RelatedDocument { get; init; } 
     /// <summary>
     /// Requestor of the agreement(s).
     /// </summary>
-    [DataMember]
     public required QualifiedPartyIdentification1 AgreementRequestor { get; init; } 
     /// <summary>
     /// Party the agreement(s) are (to be) made with.
     /// </summary>
-    [DataMember]
     public required QualifiedPartyIdentification1 AgreementResponder { get; init; } 
     /// <summary>
     /// Applicant of the guarantee.
     /// </summary>
-    [DataMember]
     public required QualifiedPartyIdentification1 GuaranteeApplicant { get; init; } 
     /// <summary>
     /// Beneficiary of the guarantee.
     /// </summary>
-    [DataMember]
     public required QualifiedPartyIdentification1 GuaranteeBeneficiary { get; init; } 
     /// <summary>
     /// Party that issues the guarantee.
     /// </summary>
-    [DataMember]
     public required QualifiedPartyIdentification1 GuaranteeIssuer { get; init; } 
     /// <summary>
     /// Party or parties to notify and to acknowledge the agreement.
     /// </summary>
-    [DataMember]
-    public ValueList<FinancingNotificationParties1> NotificationInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public FinancingNotificationParties1? NotificationInformation { get; init; } 
     /// <summary>
     /// List of agreement items.
     /// </summary>
-    [DataMember]
-    public ValueList<FinancingAgreementItem1> Item { get; init; } = []; // Warning: Don't know multiplicity.
+    public FinancingAgreementItem1? Item { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _OTgzMzU3-AOSNFX-8224501
     /// <summary>
     /// Number of individual items contained in the list.
     /// </summary>
-    [DataMember]
     public required IsoMax15NumericText ItemCount { get; init; } 
     /// <summary>
     /// Total of all individual amounts included in the list, irrespective of currencies.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? ControlSum { get; init; } 
     /// <summary>
     /// Additional proprietary formal information concerning the list.
     /// </summary>
-    [DataMember]
     public IsoMax2000Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Validation status of the list.
     /// </summary>
-    [DataMember]
     public ValidationStatusInformation1? ValidationStatusInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Idr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identifier)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Dt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(Date)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (RelatedDocument is QualifiedDocumentInformation1 RelatedDocumentValue)
+        {
+            writer.WriteStartElement(null, "RltdDoc", xmlNamespace );
+            RelatedDocumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AgrmtRqstr", xmlNamespace );
+        AgreementRequestor.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AgrmtRspndr", xmlNamespace );
+        AgreementResponder.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "GrntApplcnt", xmlNamespace );
+        GuaranteeApplicant.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "GrntNbfcry", xmlNamespace );
+        GuaranteeBeneficiary.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "GrntIssr", xmlNamespace );
+        GuaranteeIssuer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (NotificationInformation is FinancingNotificationParties1 NotificationInformationValue)
+        {
+            writer.WriteStartElement(null, "NtfctnInf", xmlNamespace );
+            NotificationInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize Item, multiplicity Unknown
+        writer.WriteStartElement(null, "ItmCnt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(ItemCount)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+        if (ControlSum is IsoDecimalNumber ControlSumValue)
+        {
+            writer.WriteStartElement(null, "CtrlSum", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(ControlSumValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax2000Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2000Text(AdditionalInformationValue)); // data type Max2000Text System.String
+            writer.WriteEndElement();
+        }
+        if (ValidationStatusInformation is ValidationStatusInformation1 ValidationStatusInformationValue)
+        {
+            writer.WriteStartElement(null, "VldtnStsInf", xmlNamespace );
+            ValidationStatusInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancingAgreementList1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

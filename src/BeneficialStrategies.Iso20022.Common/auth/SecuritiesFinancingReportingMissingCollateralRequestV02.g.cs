@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.auth.SecuritiesFinancingReportingMissingCollateralRequestV02>;
 
 namespace BeneficialStrategies.Iso20022.auth;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// The SecuritiesFinancingReportingMissingCollateralRequest is made available by the trade repository (TR) to the  report submitting entity and the reporting counterparty as well as the entity responsible for reporting, if applicable, with a request to submit collateral information for a given trade. 
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The SecuritiesFinancingReportingMissingCollateralRequest is made available by the trade repository (TR) to the  report submitting entity and the reporting counterparty as well as the entity responsible for reporting, if applicable, with a request to submit collateral information for a given trade. ")]
-public partial record SecuritiesFinancingReportingMissingCollateralRequestV02 : IOuterRecord
+public partial record SecuritiesFinancingReportingMissingCollateralRequestV02 : IOuterRecord<SecuritiesFinancingReportingMissingCollateralRequestV02,SecuritiesFinancingReportingMissingCollateralRequestV02Document>
+    ,IIsoXmlSerilizable<SecuritiesFinancingReportingMissingCollateralRequestV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record SecuritiesFinancingReportingMissingCollateralRequestV02 : 
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesFincgRptgMssngCollReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesFinancingReportingMissingCollateralRequestV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -66,6 +73,32 @@ public partial record SecuritiesFinancingReportingMissingCollateralRequestV02 : 
     {
         return new SecuritiesFinancingReportingMissingCollateralRequestV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesFincgRptgMssngCollReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesFinancingReportingMissingCollateralRequestV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -73,9 +106,7 @@ public partial record SecuritiesFinancingReportingMissingCollateralRequestV02 : 
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesFinancingReportingMissingCollateralRequestV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesFinancingReportingMissingCollateralRequestV02Document : IOuterDocument<SecuritiesFinancingReportingMissingCollateralRequestV02>
+public partial record SecuritiesFinancingReportingMissingCollateralRequestV02Document : IOuterDocument<SecuritiesFinancingReportingMissingCollateralRequestV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -91,5 +122,22 @@ public partial record SecuritiesFinancingReportingMissingCollateralRequestV02Doc
     /// <summary>
     /// The instance of <seealso cref="SecuritiesFinancingReportingMissingCollateralRequestV02"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesFinancingReportingMissingCollateralRequestV02.XmlTag)]
     public required SecuritiesFinancingReportingMissingCollateralRequestV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesFinancingReportingMissingCollateralRequestV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

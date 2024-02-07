@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parties related to an investment fund.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FundParties1
+     : IIsoXmlSerilizable<FundParties1>
 {
     #nullable enable
     
     /// <summary>
     /// Guarantor of the financial instrument. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00080.
     /// </summary>
-    [DataMember]
     public ContactAttributes5? Guarantor { get; init; } 
     /// <summary>
     /// Party that regularly monitors compliance with the legal regulations.
     /// </summary>
-    [DataMember]
     public ContactAttributes5? Auditor { get; init; } 
     /// <summary>
     /// Legal owner of the financial instrument. However, the beneficiary has the equitable or beneficial ownership.
     /// </summary>
-    [DataMember]
     public ContactAttributes5? Trustee { get; init; } 
     /// <summary>
     /// Other type of party.
     /// </summary>
-    [DataMember]
-    public ValueList<ExtendedParty13> OtherParty { get; init; } = []; // Warning: Don't know multiplicity.
+    public ExtendedParty13? OtherParty { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Guarantor is ContactAttributes5 GuarantorValue)
+        {
+            writer.WriteStartElement(null, "Guarntr", xmlNamespace );
+            GuarantorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Auditor is ContactAttributes5 AuditorValue)
+        {
+            writer.WriteStartElement(null, "Audtr", xmlNamespace );
+            AuditorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Trustee is ContactAttributes5 TrusteeValue)
+        {
+            writer.WriteStartElement(null, "Trstee", xmlNamespace );
+            TrusteeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherParty is ExtendedParty13 OtherPartyValue)
+        {
+            writer.WriteStartElement(null, "OthrPty", xmlNamespace );
+            OtherPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FundParties1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

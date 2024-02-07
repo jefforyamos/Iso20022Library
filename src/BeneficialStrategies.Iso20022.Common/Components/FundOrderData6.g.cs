@@ -7,45 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Extract of trade data for an investment fund switch order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FundOrderData6
+     : IIsoXmlSerilizable<FundOrderData6>
 {
     #nullable enable
     
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the individual order.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     /// <summary>
     /// Method by which the transaction is settled.
     /// </summary>
-    [DataMember]
     public DeliveryReceiptType2Code? SettlementMethod { get; init; } 
     /// <summary>
     /// Choice between additional cash in or resulting cash out.
     /// </summary>
-    [DataMember]
     public AdditionalAmount1Choice_? AdditionalAmount { get; init; } 
     /// <summary>
     /// Currency from which the quoted currency is converted in an exchange rate calculation.
     /// 1 x <UnitCcy> = <XchgRate> x <QtdCcy>.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? UnitCurrency { get; init; } 
     /// <summary>
     /// Currency into which the unit currency is converted in an exchange rate calculation.
     /// 1 x <UnitCcy> = <XchgRate> x <QtdCcy>.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? QuotedCurrency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SettlementAmount is IsoActiveCurrencyAndAmount SettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(SettlementAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (SettlementMethod is DeliveryReceiptType2Code SettlementMethodValue)
+        {
+            writer.WriteStartElement(null, "SttlmMtd", xmlNamespace );
+            writer.WriteValue(SettlementMethodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AdditionalAmount is AdditionalAmount1Choice_ AdditionalAmountValue)
+        {
+            writer.WriteStartElement(null, "AddtlAmt", xmlNamespace );
+            AdditionalAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnitCurrency is ActiveCurrencyCode UnitCurrencyValue)
+        {
+            writer.WriteStartElement(null, "UnitCcy", xmlNamespace );
+            writer.WriteValue(UnitCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (QuotedCurrency is ActiveCurrencyCode QuotedCurrencyValue)
+        {
+            writer.WriteStartElement(null, "QtdCcy", xmlNamespace );
+            writer.WriteValue(QuotedCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static FundOrderData6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

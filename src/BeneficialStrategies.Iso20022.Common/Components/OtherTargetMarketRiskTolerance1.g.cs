@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Risk tolerance target market.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OtherTargetMarketRiskTolerance1
+     : IIsoXmlSerilizable<OtherTargetMarketRiskTolerance1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of risk tolerance.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RiskToleranceType { get; init; } 
     /// <summary>
     /// Choice of formats for the specification of whether the product is aimed at the type of risk tolerance.
     /// </summary>
-    [DataMember]
     public TargetMarket1Choice_? Target { get; init; } 
     /// <summary>
     /// Additional information about the target market and the investor's risk tolerance.
     /// </summary>
-    [DataMember]
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (RiskToleranceType is IsoMax35Text RiskToleranceTypeValue)
+        {
+            writer.WriteStartElement(null, "RskTlrnceTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RiskToleranceTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Target is TargetMarket1Choice_ TargetValue)
+        {
+            writer.WriteStartElement(null, "Trgt", xmlNamespace );
+            TargetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OtherTargetMarketRiskTolerance1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

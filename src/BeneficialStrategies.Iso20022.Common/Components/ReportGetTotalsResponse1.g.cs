@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Get Totals Response message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReportGetTotalsResponse1
+     : IIsoXmlSerilizable<ReportGetTotalsResponse1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the reconciliation period between Sale and POI.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text POIReconciliationIdentification { get; init; } 
     /// <summary>
     /// Result of the Sale to POI Totals processing.
     /// </summary>
-    [DataMember]
-    public ValueList<TransactionTotalsSet1> TransactionTotalsSet { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransactionTotalsSet1? TransactionTotalsSet { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "POIRcncltnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(POIReconciliationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (TransactionTotalsSet is TransactionTotalsSet1 TransactionTotalsSetValue)
+        {
+            writer.WriteStartElement(null, "TxTtlsSet", xmlNamespace );
+            TransactionTotalsSetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ReportGetTotalsResponse1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

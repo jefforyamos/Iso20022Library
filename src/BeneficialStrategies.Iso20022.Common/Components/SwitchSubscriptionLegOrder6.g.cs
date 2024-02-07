@@ -7,83 +7,160 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Subscription leg, or switch-in, of a switch order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SwitchSubscriptionLegOrder6
+     : IIsoXmlSerilizable<SwitchSubscriptionLegOrder6>
 {
     #nullable enable
     
     /// <summary>
     /// Unique technical identifier for the instance of the leg within a switch.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? LegIdentification { get; init; } 
     /// <summary>
     /// Investment fund class related to the subscription leg of the order.
     /// </summary>
-    [DataMember]
     public required FinancialInstrument57 FinancialInstrumentDetails { get; init; } 
     /// <summary>
     /// Amount of money, number of units or percentage for the redemption leg of the switch order.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity26Choice_? FinancialInstrumentQuantityChoice { get; init; } 
     /// <summary>
     /// Account impacted by the investment fund order.
     /// </summary>
-    [DataMember]
     public InvestmentAccount58? InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Dividend option chosen by the account owner based on the options offered in the prospectus.
     /// </summary>
-    [DataMember]
     public IncomePreference1Code? IncomePreference { get; init; } 
     /// <summary>
     /// Currency requested for settlement of cash proceeds.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? RequestedSettlementCurrency { get; init; } 
     /// <summary>
     /// Currency to be used for pricing the fund. This currency must be among the set of currencies in which the price may be expressed, as stated in the prospectus.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? RequestedNAVCurrency { get; init; } 
     /// <summary>
     /// Fees (charges/commission) and tax to be applied to the net amount.
     /// </summary>
-    [DataMember]
     public FeeAndTax1? TransactionOverhead { get; init; } 
     /// <summary>
     /// Parameters used to execute the settlement of an investment fund order.
     /// </summary>
-    [DataMember]
     public FundSettlementParameters11? SettlementAndCustodyDetails { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator PhysicalDeliveryIndicator { get; init; } 
     /// <summary>
     /// Information related to the physical delivery of the securities.
     /// </summary>
-    [DataMember]
     public NameAndAddress4? PhysicalDeliveryDetails { get; init; } 
     /// <summary>
     /// Additional specific settlement information for non-regulated traded funds.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? NonStandardSettlementInformation { get; init; } 
     /// <summary>
     /// Part of an investor's subscription amount that is held by the fund in order to pay incentive/performance fees at the end of the fiscal year.
     /// </summary>
-    [DataMember]
     public Equalisation1? Equalisation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (LegIdentification is IsoMax35Text LegIdentificationValue)
+        {
+            writer.WriteStartElement(null, "LegId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(LegIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FinInstrmDtls", xmlNamespace );
+        FinancialInstrumentDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FinancialInstrumentQuantityChoice is FinancialInstrumentQuantity26Choice_ FinancialInstrumentQuantityChoiceValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmQtyChc", xmlNamespace );
+            FinancialInstrumentQuantityChoiceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestmentAccountDetails is InvestmentAccount58 InvestmentAccountDetailsValue)
+        {
+            writer.WriteStartElement(null, "InvstmtAcctDtls", xmlNamespace );
+            InvestmentAccountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IncomePreference is IncomePreference1Code IncomePreferenceValue)
+        {
+            writer.WriteStartElement(null, "IncmPref", xmlNamespace );
+            writer.WriteValue(IncomePreferenceValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (RequestedSettlementCurrency is ActiveCurrencyCode RequestedSettlementCurrencyValue)
+        {
+            writer.WriteStartElement(null, "ReqdSttlmCcy", xmlNamespace );
+            writer.WriteValue(RequestedSettlementCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (RequestedNAVCurrency is ActiveOrHistoricCurrencyCode RequestedNAVCurrencyValue)
+        {
+            writer.WriteStartElement(null, "ReqdNAVCcy", xmlNamespace );
+            writer.WriteValue(RequestedNAVCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TransactionOverhead is FeeAndTax1 TransactionOverheadValue)
+        {
+            writer.WriteStartElement(null, "TxOvrhd", xmlNamespace );
+            TransactionOverheadValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementAndCustodyDetails is FundSettlementParameters11 SettlementAndCustodyDetailsValue)
+        {
+            writer.WriteStartElement(null, "SttlmAndCtdyDtls", xmlNamespace );
+            SettlementAndCustodyDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PhysDlvryInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PhysicalDeliveryIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (PhysicalDeliveryDetails is NameAndAddress4 PhysicalDeliveryDetailsValue)
+        {
+            writer.WriteStartElement(null, "PhysDlvryDtls", xmlNamespace );
+            PhysicalDeliveryDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NonStandardSettlementInformation is IsoMax350Text NonStandardSettlementInformationValue)
+        {
+            writer.WriteStartElement(null, "NonStdSttlmInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(NonStandardSettlementInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (Equalisation is Equalisation1 EqualisationValue)
+        {
+            writer.WriteStartElement(null, "Equlstn", xmlNamespace );
+            EqualisationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SwitchSubscriptionLegOrder6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

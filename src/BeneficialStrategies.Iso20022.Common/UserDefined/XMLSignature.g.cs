@@ -13,7 +13,7 @@ namespace BeneficialStrategies.Iso20022.UserDefined;
 ///  XML Signature Syntax and Processing (Second Edition) W3C Recommendation 10 June 2008
 /// http://www.w3.org/TR/2008/REC-xmldsig-core-20080610/.
 /// </summary>
-[DataContract]
+[DataContract(Namespace = "")]
 public partial record XMLSignature
 {
     #nullable enable

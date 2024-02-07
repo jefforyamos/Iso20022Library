@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment token information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardPaymentToken3
+     : IIsoXmlSerilizable<CardPaymentToken3>
 {
     #nullable enable
     
     /// <summary>
     /// Additional payment token information.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> TokenCharacteristic { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? TokenCharacteristic { get; init; } 
     /// <summary>
     /// Identifier of a token provider requestor.
     /// </summary>
-    [DataMember]
     public PaymentTokenIdentifiers1? TokenRequestor { get; init; } 
     /// <summary>
     /// Level of confidence resulting of the identification and authentication of the cardholder performed and the entity that performed it.
     /// </summary>
-    [DataMember]
     public IsoNumber? TokenAssuranceLevel { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TokenCharacteristic is IsoMax35Text TokenCharacteristicValue)
+        {
+            writer.WriteStartElement(null, "TknChrtc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TokenCharacteristicValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TokenRequestor is PaymentTokenIdentifiers1 TokenRequestorValue)
+        {
+            writer.WriteStartElement(null, "TknRqstr", xmlNamespace );
+            TokenRequestorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TokenAssuranceLevel is IsoNumber TokenAssuranceLevelValue)
+        {
+            writer.WriteStartElement(null, "TknAssrncLvl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(TokenAssuranceLevelValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static CardPaymentToken3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies additional parameters to the message or transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalParameters24
+     : IIsoXmlSerilizable<AdditionalParameters24>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether there exists a pre-confirmation.
     /// </summary>
-    [DataMember]
     public PreConfirmation1Code? PreConfirmation { get; init; } 
     /// <summary>
     /// Specifies partial settlement information.
     /// </summary>
-    [DataMember]
     public PartialSettlement2Code? PartialSettlement { get; init; } 
     /// <summary>
     /// Identification of the confirmation previously sent to confirm the partial settlement of a transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PreviousPartialConfirmationIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PreConfirmation is PreConfirmation1Code PreConfirmationValue)
+        {
+            writer.WriteStartElement(null, "PreConf", xmlNamespace );
+            writer.WriteValue(PreConfirmationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PartialSettlement is PartialSettlement2Code PartialSettlementValue)
+        {
+            writer.WriteStartElement(null, "PrtlSttlm", xmlNamespace );
+            writer.WriteValue(PartialSettlementValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PreviousPartialConfirmationIdentification is IsoMax35Text PreviousPartialConfirmationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrvsPrtlConfId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PreviousPartialConfirmationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AdditionalParameters24 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

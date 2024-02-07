@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains additional acceptor data
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalAcceptorData1
+     : IIsoXmlSerilizable<AdditionalAcceptorData1>
 {
     #nullable enable
     
     /// <summary>
     /// Contains a code that facilitates card acceptor/corporation communication and record keeping.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? AdditionalTransactionReferenceNumber { get; init; } 
     /// <summary>
     /// Identification of the company recognized by the taxation authority.  Used for reporting transaction-related taxes.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? TaxRegistrationIdentification { get; init; } 
     /// <summary>
     /// Identification of the company recognized by the taxation authority.  Used for reporting corporate-related taxes.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CorporateTaxIdentification { get; init; } 
     /// <summary>
     /// Indicates the corporate tax identification type.
     /// </summary>
-    [DataMember]
     public CorporateTaxType1Code? CorporateTaxIdentificationType { get; init; } 
     /// <summary>
     /// Contains additional identification information. 
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalIdentification1> AdditionalIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalIdentification1? AdditionalIdentification { get; init; } 
     /// <summary>
     /// Contains various classifications of business ownership characteristics.
     /// </summary>
-    [DataMember]
     public AdditionalCharacteristics1? Characteristics { get; init; } 
     /// <summary>
     /// Additional information about the card acceptor.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AdditionalTransactionReferenceNumber is IsoMax70Text AdditionalTransactionReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "AddtlTxRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AdditionalTransactionReferenceNumberValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (TaxRegistrationIdentification is IsoMax70Text TaxRegistrationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TaxRegnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(TaxRegistrationIdentificationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (CorporateTaxIdentification is IsoMax35Text CorporateTaxIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CorpTaxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CorporateTaxIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CorporateTaxIdentificationType is CorporateTaxType1Code CorporateTaxIdentificationTypeValue)
+        {
+            writer.WriteStartElement(null, "CorpTaxIdTp", xmlNamespace );
+            writer.WriteValue(CorporateTaxIdentificationTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AdditionalIdentification is AdditionalIdentification1 AdditionalIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AddtlId", xmlNamespace );
+            AdditionalIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Characteristics is AdditionalCharacteristics1 CharacteristicsValue)
+        {
+            writer.WriteStartElement(null, "Chrtcs", xmlNamespace );
+            CharacteristicsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AdditionalAcceptorData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

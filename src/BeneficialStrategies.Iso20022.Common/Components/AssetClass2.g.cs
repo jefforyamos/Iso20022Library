@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Structure for defining asset class specific details of a derivative to be declared.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AssetClass2
+     : IIsoXmlSerilizable<AssetClass2>
 {
     #nullable enable
     
     /// <summary>
     /// The fields in this section should only be populated for instruments that have non-financial instrument of type commodity as underlying.
     /// </summary>
-    [DataMember]
     public DerivativeCommodity2? Commodity { get; init; } 
     /// <summary>
     /// The fields in this section should only be populated for instruments that have non-financial instrument of type interest rates as underlying.
     /// </summary>
-    [DataMember]
     public DerivativeInterest3? Interest { get; init; } 
     /// <summary>
     /// The fields in this section should only be populated for instruments that have non-financial instrument of type foreign exchange as underlying.
     /// </summary>
-    [DataMember]
     public DerivativeForeignExchange3? ForeignExchange { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Commodity is DerivativeCommodity2 CommodityValue)
+        {
+            writer.WriteStartElement(null, "Cmmdty", xmlNamespace );
+            CommodityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Interest is DerivativeInterest3 InterestValue)
+        {
+            writer.WriteStartElement(null, "Intrst", xmlNamespace );
+            InterestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ForeignExchange is DerivativeForeignExchange3 ForeignExchangeValue)
+        {
+            writer.WriteStartElement(null, "FX", xmlNamespace );
+            ForeignExchangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AssetClass2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

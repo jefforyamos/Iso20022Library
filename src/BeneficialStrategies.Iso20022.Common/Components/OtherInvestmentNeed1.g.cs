@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Other investment need.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OtherInvestmentNeed1
+     : IIsoXmlSerilizable<OtherInvestmentNeed1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of return profile.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClientObjectivesAndNeedsType { get; init; } 
     /// <summary>
     /// Choice of formats for the specification of whether the product is aimed at the type of return profile.
     /// </summary>
-    [DataMember]
     public TargetMarket1Choice_? Target { get; init; } 
     /// <summary>
     /// Additional information about the target market and the Investor’s investment requirements.
     /// </summary>
-    [DataMember]
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ClientObjectivesAndNeedsType is IsoMax35Text ClientObjectivesAndNeedsTypeValue)
+        {
+            writer.WriteStartElement(null, "ClntObjctvsAndNeedsTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientObjectivesAndNeedsTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Target is TargetMarket1Choice_ TargetValue)
+        {
+            writer.WriteStartElement(null, "Trgt", xmlNamespace );
+            TargetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OtherInvestmentNeed1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

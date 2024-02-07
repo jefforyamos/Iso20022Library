@@ -7,58 +7,110 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the request of certificate management.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CertificateManagementRequest2
+     : IIsoXmlSerilizable<CertificateManagementRequest2>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the terminal or system using the certificate management service.
     /// </summary>
-    [DataMember]
     public required GenericIdentification176 POIIdentification { get; init; } 
     /// <summary>
     /// Identification of the TM or the MTM providing the Certificate Authority service.
     /// </summary>
-    [DataMember]
     public GenericIdentification176? TMIdentification { get; init; } 
     /// <summary>
     /// Requested certificate management service.
     /// </summary>
-    [DataMember]
     public required CardPaymentServiceType10Code CertificateService { get; init; } 
     /// <summary>
     /// Identification of the client and server public key infrastructures containing the certificate. In addition, it may identify specific requirements of the customer.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? SecurityDomain { get; init; } 
     /// <summary>
     /// PKCS#10 (Public Key Certificate Standard 10) certification request coded in base64 ASN.1/DER (Abstract Syntax Notation 1, Distinguished Encoding Rules) or PEM (Privacy Enhanced Message) format.
     /// </summary>
-    [DataMember]
     public IsoMax20000Text? BinaryCertificationRequest { get; init; } 
     /// <summary>
     /// Certification request PKCS#10 (Public Key Certificate Standard 10) for creation or renewal of an X.509 certificate.
     /// </summary>
-    [DataMember]
     public CertificationRequest1? CertificationRequest { get; init; } 
     /// <summary>
     /// Created certificate. The certificate is ASN.1/DER encoded, for renewal or revocation of certificate.
     /// </summary>
-    [DataMember]
     public IsoMax10KBinary? ClientCertificate { get; init; } 
     /// <summary>
     /// Identification of the white list element, for white list addition or removal.
     /// </summary>
-    [DataMember]
     public PointOfInteraction6? WhiteListIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "POIId", xmlNamespace );
+        POIIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TMIdentification is GenericIdentification176 TMIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TMId", xmlNamespace );
+            TMIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CertSvc", xmlNamespace );
+        writer.WriteValue(CertificateService.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SecurityDomain is IsoMax70Text SecurityDomainValue)
+        {
+            writer.WriteStartElement(null, "SctyDomn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(SecurityDomainValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (BinaryCertificationRequest is IsoMax20000Text BinaryCertificationRequestValue)
+        {
+            writer.WriteStartElement(null, "BinryCertfctnReq", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax20000Text(BinaryCertificationRequestValue)); // data type Max20000Text System.String
+            writer.WriteEndElement();
+        }
+        if (CertificationRequest is CertificationRequest1 CertificationRequestValue)
+        {
+            writer.WriteStartElement(null, "CertfctnReq", xmlNamespace );
+            CertificationRequestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClientCertificate is IsoMax10KBinary ClientCertificateValue)
+        {
+            writer.WriteStartElement(null, "ClntCert", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10KBinary(ClientCertificateValue)); // data type Max10KBinary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (WhiteListIdentification is PointOfInteraction6 WhiteListIdentificationValue)
+        {
+            writer.WriteStartElement(null, "WhtListId", xmlNamespace );
+            WhiteListIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CertificateManagementRequest2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

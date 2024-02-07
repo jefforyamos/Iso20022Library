@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsin.PartyRegistrationAndGuaranteeStatusV01>;
 
 namespace BeneficialStrategies.Iso20022.tsin;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.tsin;
 /// The message can carry digital signatures if required by context.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The message PartyRegistrationAndGuaranteeStatus is either sent by a factoring service to a financing client to indicate the status of a factoring service agreement or from a guarantee issuer to a factoring client or a factoring service to indicate the guarantee covering a requested factoring service agreement. The message can also be sent to an interested party.|The factoring service or guarantee issuer may include references to a corresponding PartyRegistrationAndGuaranteeRequest message or other related messages and may include referenced data.|The message contains information about other parties to be notified about the financial service agreement or the guarantee and whether these parties are required to acknowledge the agreement.|The message contains information returned by the financial institution indicating acceptance or rejection of the trade partner; a positive response is necessary before being able to assign financial items concerning the trade party.|This message contains identifications of cash accounts to enable payer and payee to treat the transferred payment obligations.|The message can carry digital signatures if required by context.")]
-public partial record PartyRegistrationAndGuaranteeStatusV01 : IOuterRecord
+public partial record PartyRegistrationAndGuaranteeStatusV01 : IOuterRecord<PartyRegistrationAndGuaranteeStatusV01,PartyRegistrationAndGuaranteeStatusV01Document>
+    ,IIsoXmlSerilizable<PartyRegistrationAndGuaranteeStatusV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record PartyRegistrationAndGuaranteeStatusV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "PtyRegnAndGrntSts";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => PartyRegistrationAndGuaranteeStatusV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -108,6 +115,53 @@ public partial record PartyRegistrationAndGuaranteeStatusV01 : IOuterRecord
     {
         return new PartyRegistrationAndGuaranteeStatusV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("PtyRegnAndGrntSts");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AgrmtList", xmlNamespace );
+        AgreementList.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AgreementCount is IsoMax15NumericText AgreementCountValue)
+        {
+            writer.WriteStartElement(null, "AgrmtCnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(AgreementCountValue)); // data type Max15NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (ItemCount is IsoMax15NumericText ItemCountValue)
+        {
+            writer.WriteStartElement(null, "ItmCnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(ItemCountValue)); // data type Max15NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (ControlSum is IsoDecimalNumber ControlSumValue)
+        {
+            writer.WriteStartElement(null, "CtrlSum", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(ControlSumValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (AttachedMessage is EncapsulatedBusinessMessage1 AttachedMessageValue)
+        {
+            writer.WriteStartElement(null, "AttchdMsg", xmlNamespace );
+            AttachedMessageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyRegistrationAndGuaranteeStatusV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -115,9 +169,7 @@ public partial record PartyRegistrationAndGuaranteeStatusV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyRegistrationAndGuaranteeStatusV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record PartyRegistrationAndGuaranteeStatusV01Document : IOuterDocument<PartyRegistrationAndGuaranteeStatusV01>
+public partial record PartyRegistrationAndGuaranteeStatusV01Document : IOuterDocument<PartyRegistrationAndGuaranteeStatusV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -133,5 +185,22 @@ public partial record PartyRegistrationAndGuaranteeStatusV01Document : IOuterDoc
     /// <summary>
     /// The instance of <seealso cref="PartyRegistrationAndGuaranteeStatusV01"/> is required.
     /// </summary>
+    [DataMember(Name=PartyRegistrationAndGuaranteeStatusV01.XmlTag)]
     public required PartyRegistrationAndGuaranteeStatusV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(PartyRegistrationAndGuaranteeStatusV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

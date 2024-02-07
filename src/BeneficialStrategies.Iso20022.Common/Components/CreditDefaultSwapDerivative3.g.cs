@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Credit default swap derivative specific for reporting derivatives on a credit default swap index.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CreditDefaultSwapDerivative3
+     : IIsoXmlSerilizable<CreditDefaultSwapDerivative3>
 {
     #nullable enable
     
     /// <summary>
     /// Derivative on a credit default swap with the ISIN code of the underlying index.
     /// </summary>
-    [DataMember]
     public IsoISINOct2015Identifier? UnderlyingIndexIdentification { get; init; } 
     /// <summary>
     /// To be populated for derivatives on a CDS index with the standardized name of the index.
     /// </summary>
-    [DataMember]
     public required IsoMax25Text IndexName { get; init; } 
     /// <summary>
     /// Describes the Index specific details the derivative is being made on.
     /// </summary>
-    [DataMember]
     public required CreditDefaultSwapIndex2 Index { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (UnderlyingIndexIdentification is IsoISINOct2015Identifier UnderlyingIndexIdentificationValue)
+        {
+            writer.WriteStartElement(null, "UndrlygIndxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(UnderlyingIndexIdentificationValue)); // data type ISINOct2015Identifier System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "IndxNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax25Text(IndexName)); // data type Max25Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Indx", xmlNamespace );
+        Index.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CreditDefaultSwapDerivative3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

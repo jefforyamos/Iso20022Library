@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the frequency of the trade query execution.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeQueryExecutionFrequency3
+     : IIsoXmlSerilizable<TradeQueryExecutionFrequency3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the frequency type of the trade query execution.
     /// </summary>
-    [DataMember]
     public required Frequency14Code FrequencyType { get; init; } 
     /// <summary>
     /// Specifies the day of the expected delivery of the query response.
     /// </summary>
-    [DataMember]
-    public ValueList<WeekDay3Code> DeliveryDay { get; init; } = []; // Warning: Don't know multiplicity.
+    public WeekDay3Code? DeliveryDay { get; init; } 
     /// <summary>
     /// Day of the month of the monthly query execution.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoDayOfMonthNumber> DayOfMonth { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoDayOfMonthNumber? DayOfMonth { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FrqcyTp", xmlNamespace );
+        writer.WriteValue(FrequencyType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (DeliveryDay is WeekDay3Code DeliveryDayValue)
+        {
+            writer.WriteStartElement(null, "DlvryDay", xmlNamespace );
+            writer.WriteValue(DeliveryDayValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DayOfMonth is IsoDayOfMonthNumber DayOfMonthValue)
+        {
+            writer.WriteStartElement(null, "DayOfMnth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDayOfMonthNumber(DayOfMonthValue)); // data type DayOfMonthNumber System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeQueryExecutionFrequency3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

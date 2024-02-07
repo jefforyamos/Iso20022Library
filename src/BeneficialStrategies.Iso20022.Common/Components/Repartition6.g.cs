@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates how the amount of the investment plan is split amongst the funds.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Repartition6
+     : IIsoXmlSerilizable<Repartition6>
 {
     #nullable enable
     
     /// <summary>
     /// Amount, units or percentage of financial instrument invested or withdrawn.
     /// </summary>
-    [DataMember]
     public required UnitsOrAmountOrPercentage1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Detailed information about the security or investment fund.
     /// </summary>
-    [DataMember]
     public required FinancialInstrument87 FinancialInstrument { get; init; } 
     /// <summary>
     /// When a fund has multiple currencies within same ISIN, this indicates the currency of the savings or withdrawal plan.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? CurrencyOfPlan { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        Quantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FinInstrm", xmlNamespace );
+        FinancialInstrument.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CurrencyOfPlan is ActiveOrHistoricCurrencyCode CurrencyOfPlanValue)
+        {
+            writer.WriteStartElement(null, "CcyOfPlan", xmlNamespace );
+            writer.WriteValue(CurrencyOfPlanValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static Repartition6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

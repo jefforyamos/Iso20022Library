@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides detailed information on protect and cover protect instructions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProtectInstruction3
+     : IIsoXmlSerilizable<ProtectInstruction3>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the instruction is a protect or a cover protect instruction.
     /// </summary>
-    [DataMember]
     public required ProtectTransactionType3Code TransactionType { get; init; } 
     /// <summary>
     /// Unique reference of the protect transaction assigned by the depository and used for cover protect validation.
     /// </summary>
-    [DataMember]
     public IsoMax15Text? TransactionIdentification { get; init; } 
     /// <summary>
     /// Date at which the protect instruction was created and used for cover protect validation.
     /// </summary>
-    [DataMember]
     public IsoISODate? ProtectDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxTp", xmlNamespace );
+        writer.WriteValue(TransactionType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (TransactionIdentification is IsoMax15Text TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15Text(TransactionIdentificationValue)); // data type Max15Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProtectDate is IsoISODate ProtectDateValue)
+        {
+            writer.WriteStartElement(null, "PrtctDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ProtectDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static ProtectInstruction3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

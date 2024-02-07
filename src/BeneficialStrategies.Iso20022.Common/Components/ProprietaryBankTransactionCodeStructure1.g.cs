@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements to fully identify a proprietary bank transaction code.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProprietaryBankTransactionCodeStructure1
+     : IIsoXmlSerilizable<ProprietaryBankTransactionCodeStructure1>
 {
     #nullable enable
     
     /// <summary>
     /// Proprietary bank transaction code to identify the underlying transaction.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Code { get; init; } 
     /// <summary>
     /// Identification of the issuer of the proprietary bank transaction code.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Code)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Issuer is IsoMax35Text IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ProprietaryBankTransactionCodeStructure1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

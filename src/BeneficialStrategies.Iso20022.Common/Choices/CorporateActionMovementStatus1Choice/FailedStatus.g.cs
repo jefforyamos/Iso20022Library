@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CorporateActionMovementStatus1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionMovementStatus1Ch
 /// Provides information about the settlement failure.
 /// </summary>
 public partial record FailedStatus : CorporateActionMovementStatus1Choice_
+     , IIsoXmlSerilizable<FailedStatus>
 {
     #nullable enable
+    
     /// <summary>
     /// Identification of the agent account.
     /// </summary>
@@ -31,5 +35,40 @@ public partial record FailedStatus : CorporateActionMovementStatus1Choice_
     /// Provides information about the resource movement that failed and the reason of the failure.
     /// </summary>
     public FailedMovement1? ResourceDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _Rjbfqtp-Ed-ak6NoX_4Aeg_-1713973917
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AgtAcctId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(AgentAccountIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ClientAccountIdentification is IsoMax35Text ClientAccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClntAcctId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientAccountIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountOwnerIdentification is PartyIdentification2Choice_ AccountOwnerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnrId", xmlNamespace );
+            AccountOwnerIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize ResourceDetails, multiplicity Unknown
+    }
+    public static new FailedStatus Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

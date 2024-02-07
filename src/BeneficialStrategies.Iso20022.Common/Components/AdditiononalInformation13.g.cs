@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Restrictions, remarks or notes that may be applied to an account or investment plan.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditiononalInformation13
+     : IIsoXmlSerilizable<AdditiononalInformation13>
 {
     #nullable enable
     
     /// <summary>
     /// Restrictions and/or limitations on the account or party.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? Limitation { get; init; } 
     /// <summary>
     /// Additional information such as remarks or notes that must be conveyed about the account management activity or party.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Information or instructions for the by-passing of validations in the account registration process.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AccountValidation { get; init; } 
     /// <summary>
     /// Type or identification of the remark, note, limitation or restriction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Regulator that may have to be informed about the remark, note, limitation or restriction.
     /// </summary>
-    [DataMember]
     public PartyIdentification125Choice_? Regulator { get; init; } 
     /// <summary>
     /// Status of the remark, note, limitation or restriction.
     /// </summary>
-    [DataMember]
     public RestrictionStatus1Choice_? Status { get; init; } 
     /// <summary>
     /// Period of the restriction.
     /// </summary>
-    [DataMember]
     public DateTimePeriod2? Period { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Limitation is IsoMax350Text LimitationValue)
+        {
+            writer.WriteStartElement(null, "Lmttn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(LimitationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountValidation is IsoMax350Text AccountValidationValue)
+        {
+            writer.WriteStartElement(null, "AcctVldtn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AccountValidationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (Type is IsoMax35Text TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Regulator is PartyIdentification125Choice_ RegulatorValue)
+        {
+            writer.WriteStartElement(null, "Rgltr", xmlNamespace );
+            RegulatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Status is RestrictionStatus1Choice_ StatusValue)
+        {
+            writer.WriteStartElement(null, "Sts", xmlNamespace );
+            StatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Period is DateTimePeriod2 PeriodValue)
+        {
+            writer.WriteStartElement(null, "Prd", xmlNamespace );
+            PeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AdditiononalInformation13 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

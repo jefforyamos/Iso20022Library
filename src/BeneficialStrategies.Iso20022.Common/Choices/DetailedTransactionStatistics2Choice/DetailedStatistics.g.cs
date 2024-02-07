@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.DetailedTransactionStatistics2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.DetailedTransactionStatistics2Ch
 /// Information about number of transactions accepted and rejected and the reasons of the rejections.
 /// </summary>
 public partial record DetailedStatistics : DetailedTransactionStatistics2Choice_
+     , IIsoXmlSerilizable<DetailedStatistics>
 {
     #nullable enable
+    
     /// <summary>
     /// Total number of reports sent or received.
     /// </summary>
@@ -30,6 +34,39 @@ public partial record DetailedStatistics : DetailedTransactionStatistics2Choice_
     /// <summary>
     /// Details on transactions rejected per error code.
     /// </summary>
-    public RejectionReason53? TransactionsRejectionsReason { get; init;  } // Warning: Don't know multiplicity.
+    public RejectionReason53? TransactionsRejectionsReason { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TtlNbOfTxs", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(TotalNumberOfTransactions)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlNbOfTxsAccptd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(TotalNumberOfTransactionsAccepted)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlNbOfTxsRjctd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(TotalNumberOfTransactionsRejected)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+        if (TransactionsRejectionsReason is RejectionReason53 TransactionsRejectionsReasonValue)
+        {
+            writer.WriteStartElement(null, "TxsRjctnsRsn", xmlNamespace );
+            TransactionsRejectionsReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new DetailedStatistics Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

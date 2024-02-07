@@ -7,28 +7,52 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a price report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PriceReport2
+     : IIsoXmlSerilizable<PriceReport2>
 {
     #nullable enable
     
     /// <summary>
     /// Information related to the price valuation of a financial instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<PriceValuation3> PriceValuationDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public PriceValuation3? PriceValuationDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _RLuxU9p-Ed-ak6NoX_4Aeg_167787161
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<Extension1> Extension { get; init; } = []; // Warning: Don't know multiplicity.
+    public Extension1? Extension { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize PriceValuationDetails, multiplicity Unknown
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PriceReport2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,78 +7,149 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Execution of a subscription order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SubscriptionMultipleExecution5
+     : IIsoXmlSerilizable<SubscriptionMultipleExecution5>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the confirmation is an amendment of a previous confirmation.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? AmendmentIndicator { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual orders, as assigned by the instructing party. This identifier links the individual orders together.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Market in which the advised trade transaction was executed.
     /// </summary>
-    [DataMember]
     public PlaceOfTradeIdentification1Choice_? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Date and time at which the order was placed by the investor or its agent.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? OrderDateTime { get; init; } 
     /// <summary>
     /// Date and time the order was received by the executing party, for example, the transfer agent.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ReceivedDateTime { get; init; } 
     /// <summary>
     /// Future date at which the investor requests the order to be executed.|The specification of a requested future trade date is not allowed in some markets. The date must be a date in the future.
     /// </summary>
-    [DataMember]
     public IsoISODate? RequestedFutureTradeDate { get; init; } 
     /// <summary>
     /// Cancellation right of the investor with respect to the investment fund order.
     /// </summary>
-    [DataMember]
     public CancellationRight1Choice_? CancellationRight { get; init; } 
     /// <summary>
     /// Account impacted by the investment fund order execution.
     /// </summary>
-    [DataMember]
     public required InvestmentAccount58 InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Additional information about the investor.
     /// </summary>
-    [DataMember]
-    public ValueList<IndividualPerson32> BeneficiaryDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public IndividualPerson32? BeneficiaryDetails { get; init; } 
     /// <summary>
     /// Execution of a subscription order.
     /// </summary>
-    [DataMember]
-    public ValueList<SubscriptionExecution13> IndividualExecutionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public SubscriptionExecution13? IndividualExecutionDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _HUykrTbtEead9bDRE_1DAQ
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the multiple order.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalSettlementAmount { get; init; } 
     /// <summary>
     /// Payment process for the transfer of cash from the debtor to the creditor.
     /// </summary>
-    [DataMember]
     public PaymentTransaction70? BulkCashSettlementDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AmendmentIndicator is IsoYesNoIndicator AmendmentIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AmdmntInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AmendmentIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PlaceOfTrade is PlaceOfTradeIdentification1Choice_ PlaceOfTradeValue)
+        {
+            writer.WriteStartElement(null, "PlcOfTrad", xmlNamespace );
+            PlaceOfTradeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OrderDateTime is IsoISODateTime OrderDateTimeValue)
+        {
+            writer.WriteStartElement(null, "OrdrDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(OrderDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ReceivedDateTime is IsoISODateTime ReceivedDateTimeValue)
+        {
+            writer.WriteStartElement(null, "RcvdDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ReceivedDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (RequestedFutureTradeDate is IsoISODate RequestedFutureTradeDateValue)
+        {
+            writer.WriteStartElement(null, "ReqdFutrTradDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(RequestedFutureTradeDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (CancellationRight is CancellationRight1Choice_ CancellationRightValue)
+        {
+            writer.WriteStartElement(null, "CxlRght", xmlNamespace );
+            CancellationRightValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InvstmtAcctDtls", xmlNamespace );
+        InvestmentAccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BeneficiaryDetails is IndividualPerson32 BeneficiaryDetailsValue)
+        {
+            writer.WriteStartElement(null, "BnfcryDtls", xmlNamespace );
+            BeneficiaryDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize IndividualExecutionDetails, multiplicity Unknown
+        if (TotalSettlementAmount is IsoActiveCurrencyAndAmount TotalSettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlSttlmAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalSettlementAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (BulkCashSettlementDetails is PaymentTransaction70 BulkCashSettlementDetailsValue)
+        {
+            writer.WriteStartElement(null, "BlkCshSttlmDtls", xmlNamespace );
+            BulkCashSettlementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SubscriptionMultipleExecution5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

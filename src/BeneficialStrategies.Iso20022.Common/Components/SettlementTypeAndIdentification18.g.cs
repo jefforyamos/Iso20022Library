@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides transaction type and identification information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementTypeAndIdentification18
+     : IIsoXmlSerilizable<SettlementTypeAndIdentification18>
 {
     #nullable enable
     
     /// <summary>
     /// Provides unambiguous transaction identification information.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Specifies if the movement on a securities account results from a deliver or a receive instruction.
     /// </summary>
-    [DataMember]
     public required ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
     /// <summary>
     /// Specifies how the transaction is to be settled, for example, against payment.
     /// </summary>
-    [DataMember]
     public required DeliveryReceiptType2Code Payment { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctiesMvmntTp", xmlNamespace );
+        writer.WriteValue(SecuritiesMovementType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Pmt", xmlNamespace );
+        writer.WriteValue(Payment.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static SettlementTypeAndIdentification18 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

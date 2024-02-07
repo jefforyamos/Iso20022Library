@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters applied to the settlement of a security transfer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DeliveringPartiesAndAccount16
+     : IIsoXmlSerilizable<DeliveringPartiesAndAccount16>
 {
     #nullable enable
     
     /// <summary>
     /// Party that acts on behalf of the seller of securities when the seller does not have a direct relationship with the delivering agent.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount147? DeliverersCustodianDetails { get; init; } 
     /// <summary>
     /// Party that the deliverer's custodian uses to effect the delivery of a security, when the deliverer's custodian does not have a direct relationship with the delivering agent.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount147? DeliverersIntermediary1Details { get; init; } 
     /// <summary>
     /// Party that interacts with the deliverer's intermediary 1.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount147? DeliverersIntermediary2Details { get; init; } 
     /// <summary>
     /// Party that delivers securities to the receiving agent at the place of settlement, for example, central securities depository.
     /// </summary>
-    [DataMember]
     public required PartyIdentificationAndAccount147 DeliveringAgentDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DeliverersCustodianDetails is PartyIdentificationAndAccount147 DeliverersCustodianDetailsValue)
+        {
+            writer.WriteStartElement(null, "DlvrrsCtdnDtls", xmlNamespace );
+            DeliverersCustodianDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliverersIntermediary1Details is PartyIdentificationAndAccount147 DeliverersIntermediary1DetailsValue)
+        {
+            writer.WriteStartElement(null, "DlvrrsIntrmy1Dtls", xmlNamespace );
+            DeliverersIntermediary1DetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliverersIntermediary2Details is PartyIdentificationAndAccount147 DeliverersIntermediary2DetailsValue)
+        {
+            writer.WriteStartElement(null, "DlvrrsIntrmy2Dtls", xmlNamespace );
+            DeliverersIntermediary2DetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DlvrgAgtDtls", xmlNamespace );
+        DeliveringAgentDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static DeliveringPartiesAndAccount16 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

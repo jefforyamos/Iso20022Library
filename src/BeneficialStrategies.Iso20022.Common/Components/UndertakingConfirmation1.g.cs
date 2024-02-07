@@ -7,38 +7,64 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Confirmation information for the issued undertaking.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UndertakingConfirmation1
+     : IIsoXmlSerilizable<UndertakingConfirmation1>
 {
     #nullable enable
     
     /// <summary>
     /// Party that adds its undertaking to honour the undertaking or amendment of the undertaking.
     /// </summary>
-    [DataMember]
     public required PartyIdentification43 Confirmer { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier assigned by the confirmer to the undertaking.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ReferenceNumber { get; init; } 
     /// <summary>
     /// Date and time when the undertaking or amendment of the undertaking was confirmed.
     /// </summary>
-    [DataMember]
     public required DateAndDateTimeChoice_ Date { get; init; } 
     /// <summary>
     /// Confirmation of the undertaking or amendment of the confirmed undertaking.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax2000Text> Confirmation { get; init; } = [];
+    public SimpleValueList<IsoMax2000Text> Confirmation { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cnfrmr", xmlNamespace );
+        Confirmer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RefNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ReferenceNumber)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Dt", xmlNamespace );
+        Date.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Conf", xmlNamespace );
+        Confirmation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+    }
+    public static UndertakingConfirmation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

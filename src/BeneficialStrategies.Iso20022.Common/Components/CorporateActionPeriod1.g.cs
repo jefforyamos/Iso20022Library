@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies periods.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionPeriod1
+     : IIsoXmlSerilizable<CorporateActionPeriod1>
 {
     #nullable enable
     
     /// <summary>
     /// Period during which the specified option, or all options of the event, remains valid, eg, offer period.
     /// </summary>
-    [DataMember]
     public Period1? ActionPeriod { get; init; } 
     /// <summary>
     /// Period during a take-over where any outstanding equity must be purchased by the take-over company.
     /// </summary>
-    [DataMember]
     public Period1? CompulsoryPurchasePeriod { get; init; } 
     /// <summary>
     /// Period during which the interest rate has been applied.
     /// </summary>
-    [DataMember]
     public Period1? InterestPeriod { get; init; } 
     /// <summary>
     /// Period during which the security is blocked.
     /// </summary>
-    [DataMember]
     public Period1? BlockingPeriod { get; init; } 
     /// <summary>
     /// Period during which the price of a security is determined.
     /// </summary>
-    [DataMember]
     public Period1? PriceCalculationPeriod { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ActionPeriod is Period1 ActionPeriodValue)
+        {
+            writer.WriteStartElement(null, "ActnPrd", xmlNamespace );
+            ActionPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CompulsoryPurchasePeriod is Period1 CompulsoryPurchasePeriodValue)
+        {
+            writer.WriteStartElement(null, "CmplsryPurchsPrd", xmlNamespace );
+            CompulsoryPurchasePeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestPeriod is Period1 InterestPeriodValue)
+        {
+            writer.WriteStartElement(null, "IntrstPrd", xmlNamespace );
+            InterestPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BlockingPeriod is Period1 BlockingPeriodValue)
+        {
+            writer.WriteStartElement(null, "BlckgPrd", xmlNamespace );
+            BlockingPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PriceCalculationPeriod is Period1 PriceCalculationPeriodValue)
+        {
+            writer.WriteStartElement(null, "PricClctnPrd", xmlNamespace );
+            PriceCalculationPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionPeriod1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,6 +7,8 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -21,67 +23,129 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// The two latter identifiers are independent permitting to identify the same item in several lists.
 /// The element identification is of schema type ID, it can be referenced by IDREF typed elements (composite=false).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record QualifiedDocumentInformation1
+     : IIsoXmlSerilizable<QualifiedDocumentInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Local identification to be used in IDREFs in this message.
     /// </summary>
-    [DataMember]
     public required IsoID Identification { get; init; } 
     /// <summary>
     /// Party issuing the reference.
     /// </summary>
-    [DataMember]
     public QualifiedPartyIdentification1? Issuer { get; init; } 
     /// <summary>
     /// Unambiguous identifier relative to the issuing party of a list of items.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ItemListIdentifier { get; init; } 
     /// <summary>
     /// Unambiguous identifier relative to the issuing party of an item (independent of any list).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ItemIdentifier { get; init; } 
     /// <summary>
     /// Date of document or element. This may be used as a control value to indicate a specific version.
     /// </summary>
-    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// Identification of the version of the document or element. This may be used as a control value to indicate a specific version.
     /// </summary>
-    [DataMember]
     public IsoMax6Text? Version { get; init; } 
     /// <summary>
     /// If true, document is in its original form, otherwise it is a scanned version.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ElectronicOriginal { get; init; } 
     /// <summary>
     /// Cryptographic hash of the document.
     /// </summary>
-    [DataMember]
     public ValueList<AlgorithmAndDigest1> Digest { get; init; } = [];
     /// <summary>
     /// Specifies the type of the document, for example commercial invoice.
     /// </summary>
-    [DataMember]
     public ExternalDocumentType1Code? DocumentType { get; init; } 
     /// <summary>
     /// URL (Uniform Resource Locator) where the document can be found.
     /// </summary>
-    [DataMember]
     public IsoMax2048Text? URL { get; init; } 
     /// <summary>
     /// Attached file for this document. The file must be in a self-describing format.
     /// </summary>
-    [DataMember]
-    public ValueList<BinaryFile1> AttachedFile { get; init; } = []; // Warning: Don't know multiplicity.
+    public BinaryFile1? AttachedFile { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoID(Identification)); // data type ID System.String
+        writer.WriteEndElement();
+        if (Issuer is QualifiedPartyIdentification1 IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            IssuerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ItemListIdentifier is IsoMax35Text ItemListIdentifierValue)
+        {
+            writer.WriteStartElement(null, "ItmListIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ItemListIdentifierValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ItemIdentifier is IsoMax35Text ItemIdentifierValue)
+        {
+            writer.WriteStartElement(null, "ItmIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ItemIdentifierValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Date is IsoISODate DateValue)
+        {
+            writer.WriteStartElement(null, "Dt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Version is IsoMax6Text VersionValue)
+        {
+            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax6Text(VersionValue)); // data type Max6Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ElctrncOrgnl", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ElectronicOriginal)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Dgst", xmlNamespace );
+        Digest.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DocumentType is ExternalDocumentType1Code DocumentTypeValue)
+        {
+            writer.WriteStartElement(null, "DocTp", xmlNamespace );
+            writer.WriteValue(DocumentTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (URL is IsoMax2048Text URLValue)
+        {
+            writer.WriteStartElement(null, "URL", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2048Text(URLValue)); // data type Max2048Text System.String
+            writer.WriteEndElement();
+        }
+        if (AttachedFile is BinaryFile1 AttachedFileValue)
+        {
+            writer.WriteStartElement(null, "AttchdFile", xmlNamespace );
+            AttachedFileValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static QualifiedDocumentInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,93 +7,177 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the billing adjustments for a specific service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BillingServiceAdjustment1
+     : IIsoXmlSerilizable<BillingServiceAdjustment1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the type of adjustment.
     /// </summary>
-    [DataMember]
     public required ServiceAdjustmentType1Code Type { get; init; } 
     /// <summary>
     /// Free-form description and clarification of the adjustment.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text Description { get; init; } 
     /// <summary>
     /// Amount of the adjustment, expressed in the settlement currency.||Usage: If the amount would reduce charges due then the amount should be negatively signed.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection34 Amount { get; init; } 
     /// <summary>
     /// Specifies whether the balance amount requires an adjustment.
     /// </summary>
-    [DataMember]
     public AmountAndDirection34? BalanceRequiredAmount { get; init; } 
     /// <summary>
     /// Date on which the situation causing the service adjustment occurred. If the date is not known then used the last day of the month in which the situation occurred or the date of the billing statement which reported the original service to which this adjustment applies.
     /// </summary>
-    [DataMember]
     public IsoISODate? ErrorDate { get; init; } 
     /// <summary>
     /// Financial institution's own, internal service identification code, used to uniquely identify the service within the financial institution.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AdjustmentIdentification { get; init; } 
     /// <summary>
     /// Defines the financial institution sub-service identification if the financial institution service identification code is used for more than one service.
     /// </summary>
-    [DataMember]
     public BillingSubServiceIdentification1? SubService { get; init; } 
     /// <summary>
     /// Change in the service price, expressed in the pricing currency. A negative value indicates a price reduction.
     /// </summary>
-    [DataMember]
     public AmountAndDirection34? PriceChange { get; init; } 
     /// <summary>
     /// Price that was applied to the service, prior to the change, expressed in the pricing currency.
     /// </summary>
-    [DataMember]
     public AmountAndDirection34? OriginalPrice { get; init; } 
     /// <summary>
     /// New, adjusted service price, expressed in the pricing currency.
     /// </summary>
-    [DataMember]
     public AmountAndDirection34? NewPrice { get; init; } 
     /// <summary>
     /// Change in the service volume. A negative value indicates a volume reduction.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? VolumeChange { get; init; } 
     /// <summary>
     /// Original service volume.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? OriginalVolume { get; init; } 
     /// <summary>
     /// New, adjusted service volume.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? NewVolume { get; init; } 
     /// <summary>
     /// Service charge that was applied to the service, prior to the change, expressed in the pricing currency.
     /// </summary>
-    [DataMember]
     public AmountAndDirection34? OriginalChargeAmount { get; init; } 
     /// <summary>
     /// New, adjusted service charge, expressed in the pricing currency.
     /// </summary>
-    [DataMember]
     public AmountAndDirection34? NewChargeAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Desc", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(Description)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        Amount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BalanceRequiredAmount is AmountAndDirection34 BalanceRequiredAmountValue)
+        {
+            writer.WriteStartElement(null, "BalReqrdAmt", xmlNamespace );
+            BalanceRequiredAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ErrorDate is IsoISODate ErrorDateValue)
+        {
+            writer.WriteStartElement(null, "ErrDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ErrorDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (AdjustmentIdentification is IsoMax35Text AdjustmentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AdjstmntId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdjustmentIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SubService is BillingSubServiceIdentification1 SubServiceValue)
+        {
+            writer.WriteStartElement(null, "SubSvc", xmlNamespace );
+            SubServiceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PriceChange is AmountAndDirection34 PriceChangeValue)
+        {
+            writer.WriteStartElement(null, "PricChng", xmlNamespace );
+            PriceChangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalPrice is AmountAndDirection34 OriginalPriceValue)
+        {
+            writer.WriteStartElement(null, "OrgnlPric", xmlNamespace );
+            OriginalPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewPrice is AmountAndDirection34 NewPriceValue)
+        {
+            writer.WriteStartElement(null, "NewPric", xmlNamespace );
+            NewPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (VolumeChange is IsoDecimalNumber VolumeChangeValue)
+        {
+            writer.WriteStartElement(null, "VolChng", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(VolumeChangeValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (OriginalVolume is IsoDecimalNumber OriginalVolumeValue)
+        {
+            writer.WriteStartElement(null, "OrgnlVol", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(OriginalVolumeValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (NewVolume is IsoDecimalNumber NewVolumeValue)
+        {
+            writer.WriteStartElement(null, "NewVol", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(NewVolumeValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (OriginalChargeAmount is AmountAndDirection34 OriginalChargeAmountValue)
+        {
+            writer.WriteStartElement(null, "OrgnlChrgAmt", xmlNamespace );
+            OriginalChargeAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewChargeAmount is AmountAndDirection34 NewChargeAmountValue)
+        {
+            writer.WriteStartElement(null, "NewChrgAmt", xmlNamespace );
+            NewChargeAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BillingServiceAdjustment1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

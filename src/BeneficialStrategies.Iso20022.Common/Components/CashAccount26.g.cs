@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account to or from which a cash entry is made.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashAccount26
+     : IIsoXmlSerilizable<CashAccount26>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public required AccountIdentificationAndName3 Identification { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? AccountServicer { get; init; } 
     /// <summary>
     /// Information identifying a specific branch of a financial institution.||Usage: this component should be used in case the identification information in the financial institution component does not provide identification up to branch level.
     /// </summary>
-    [DataMember]
     public BranchData? AccountServicerBranch { get; init; } 
     /// <summary>
     /// Purpose of the account/source fund type. This is typically linked to an investment product, eg, wrapper, ISA.
     /// </summary>
-    [DataMember]
     public InvestmentAccountType1Choice_? InvestmentAccountType { get; init; } 
     /// <summary>
     /// Other identification such as national registration identification number, passport number.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericIdentification46> AccountOwnerOtherIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericIdentification46? AccountOwnerOtherIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountOwner is PartyIdentification2Choice_ AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountServicer is PartyIdentification2Choice_ AccountServicerValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+            AccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountServicerBranch is BranchData AccountServicerBranchValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcrBrnch", xmlNamespace );
+            AccountServicerBranchValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestmentAccountType is InvestmentAccountType1Choice_ InvestmentAccountTypeValue)
+        {
+            writer.WriteStartElement(null, "InvstmtAcctTp", xmlNamespace );
+            InvestmentAccountTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountOwnerOtherIdentification is GenericIdentification46 AccountOwnerOtherIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnrOthrId", xmlNamespace );
+            AccountOwnerOtherIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CashAccount26 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentification3Choice;
 
@@ -13,6 +15,37 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// Identification for a clearing system member, identified in the list of clearing system member identifications published externally.
 /// </summary>
 public partial record Identification : ClearingSystemMemberIdentification3Choice_
+     , IIsoXmlSerilizable<Identification>
 {
-    public required ExternalClearingSystemMemberCode Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies the external clearing system member code in the format of character string with a maximum length of 35 characters.
+    /// The list of valid codes is an external code list published separately.
+    /// External code sets can be downloaded from www.iso20022.org.
+    /// </summary>
+    public required ExternalClearingSystemMemberCode Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new Identification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

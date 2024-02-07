@@ -34,7 +34,15 @@ public partial record Proprietary : AddressType3Choice_
     
     #nullable disable
     
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
     public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
     public override void Serialize(XmlWriter writer, string xmlNamespace)
     {
         writer.WriteStartElement(null, "Id", xmlNamespace );

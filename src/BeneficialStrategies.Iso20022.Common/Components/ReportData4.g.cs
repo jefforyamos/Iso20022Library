@@ -7,48 +7,81 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Numerical representation of the nett increases and decreases in an account at a specific point in time. A cash balance is calculated from a sum of cash credits minus a sum of cash debits.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReportData4
+     : IIsoXmlSerilizable<ReportData4>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the report as assigned by the sender.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Value date for which the pay-in schedule is generated.
     /// </summary>
-    [DataMember]
     public required IsoISODate ValueDate { get; init; } 
     /// <summary>
     /// Date and time on which the report is generated. The offset with UTC may also be specified.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime DateAndTimeStamp { get; init; } 
     /// <summary>
     /// Type of pay-in schedule.
     /// </summary>
-    [DataMember]
     public required Entry2Code Type { get; init; } 
     /// <summary>
     /// Defines the schedule timing that is, whether it is an initial or a revised schedule.
     /// </summary>
-    [DataMember]
     public required IsoExact4AlphaNumericText ScheduleType { get; init; } 
     /// <summary>
     /// To indicate the requested CLS Settlement Session that the related trade is part of.
     /// </summary>
-    [DataMember]
     public IsoExact4AlphaNumericText? SettlementSessionIdentifier { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ValDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ValueDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DtAndTmStmp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(DateAndTimeStamp)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SchdlTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(ScheduleType)); // data type Exact4AlphaNumericText System.String
+        writer.WriteEndElement();
+        if (SettlementSessionIdentifier is IsoExact4AlphaNumericText SettlementSessionIdentifierValue)
+        {
+            writer.WriteStartElement(null, "SttlmSsnIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(SettlementSessionIdentifierValue)); // data type Exact4AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ReportData4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

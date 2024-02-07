@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CentralisedAndAuthorisedBranchIdentification1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.CentralisedAndAuthorisedBranchId
 /// Identifier of the authorised branch.
 /// </summary>
 public partial record AuthorisedBranchIdentifier : CentralisedAndAuthorisedBranchIdentification1Choice_
+     , IIsoXmlSerilizable<AuthorisedBranchIdentifier>
 {
     #nullable enable
+    
     /// <summary>
     /// Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
     /// </summary>
@@ -27,5 +31,41 @@ public partial record AuthorisedBranchIdentifier : CentralisedAndAuthorisedBranc
     /// Unique identification of an agent, as assigned by an institution, using an identification scheme.
     /// </summary>
     public GenericFinancialIdentification1? Other { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (BICFI is IsoBICFIIdentifier BICFIValue)
+        {
+            writer.WriteStartElement(null, "BICFI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBICFIIdentifier(BICFIValue)); // data type BICFIIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (ClearingSystemMemberIdentification is ClearingSystemMemberIdentification2 ClearingSystemMemberIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClrSysMmbId", xmlNamespace );
+            ClearingSystemMemberIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Other is GenericFinancialIdentification1 OtherValue)
+        {
+            writer.WriteStartElement(null, "Othr", xmlNamespace );
+            OtherValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new AuthorisedBranchIdentifier Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides for reporting calculation results of non equity instruments as part of transparency.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransparencyDataReport14
+     : IIsoXmlSerilizable<TransparencyDataReport14>
 {
     #nullable enable
     
@@ -24,60 +25,129 @@ public partial record TransparencyDataReport14
     /// Usage:
     /// This identification will be used in the status advice report sent back.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
-    [DataMember]
     public required IsoISINOct2015Identifier Identification { get; init; } 
     /// <summary>
     /// Full name of the reporting entity.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? FullName { get; init; } 
     /// <summary>
     /// Segment MIC for the trading venue where applicable, otherwise the operational MIC.
     /// </summary>
-    [DataMember]
     public IsoMICIdentifier? TradingVenue { get; init; } 
     /// <summary>
     /// Period to which the quantitative data fields relate.
     /// </summary>
-    [DataMember]
     public Period4Choice_? ReportingPeriod { get; init; } 
     /// <summary>
     /// Flag to say if this ISIN is liquid or not post calculations.
     /// Usage:
     /// When not present, this field should be treated as not applicable.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? Liquidity { get; init; } 
     /// <summary>
     /// The pre-trade Large in Scale threshold.
     /// </summary>
-    [DataMember]
     public TonsOrCurrency2Choice_? PreTradeLargeInScaleThreshold { get; init; } 
     /// <summary>
     /// The post-trade Large in Scale threshold.
     /// </summary>
-    [DataMember]
     public TonsOrCurrency2Choice_? PostTradeLargeInScaleThreshold { get; init; } 
     /// <summary>
     /// The pre-trade Size Specific to an Instrument threshold.
     /// </summary>
-    [DataMember]
     public TonsOrCurrency2Choice_? PreTradeInstrumentSizeSpecificThreshold { get; init; } 
     /// <summary>
     /// The post-trade Size Specific to an Instrument threshold.
     /// </summary>
-    [DataMember]
     public TonsOrCurrency2Choice_? PostTradeInstrumentSizeSpecificThreshold { get; init; } 
     /// <summary>
     /// Statistics for a financial instrument generated as part of transparency calculations.
     /// </summary>
-    [DataMember]
     public StatisticsTransparency2? Statistics { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TechnicalRecordIdentification is IsoMax35Text TechnicalRecordIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TechnicalRecordIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(Identification)); // data type ISINOct2015Identifier System.String
+        writer.WriteEndElement();
+        if (FullName is IsoMax350Text FullNameValue)
+        {
+            writer.WriteStartElement(null, "FullNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(FullNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (TradingVenue is IsoMICIdentifier TradingVenueValue)
+        {
+            writer.WriteStartElement(null, "TradgVn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(TradingVenueValue)); // data type MICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (ReportingPeriod is Period4Choice_ ReportingPeriodValue)
+        {
+            writer.WriteStartElement(null, "RptgPrd", xmlNamespace );
+            ReportingPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Liquidity is IsoTrueFalseIndicator LiquidityValue)
+        {
+            writer.WriteStartElement(null, "Lqdty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(LiquidityValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PreTradeLargeInScaleThreshold is TonsOrCurrency2Choice_ PreTradeLargeInScaleThresholdValue)
+        {
+            writer.WriteStartElement(null, "PreTradLrgInScaleThrshld", xmlNamespace );
+            PreTradeLargeInScaleThresholdValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PostTradeLargeInScaleThreshold is TonsOrCurrency2Choice_ PostTradeLargeInScaleThresholdValue)
+        {
+            writer.WriteStartElement(null, "PstTradLrgInScaleThrshld", xmlNamespace );
+            PostTradeLargeInScaleThresholdValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreTradeInstrumentSizeSpecificThreshold is TonsOrCurrency2Choice_ PreTradeInstrumentSizeSpecificThresholdValue)
+        {
+            writer.WriteStartElement(null, "PreTradInstrmSzSpcfcThrshld", xmlNamespace );
+            PreTradeInstrumentSizeSpecificThresholdValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PostTradeInstrumentSizeSpecificThreshold is TonsOrCurrency2Choice_ PostTradeInstrumentSizeSpecificThresholdValue)
+        {
+            writer.WriteStartElement(null, "PstTradInstrmSzSpcfcThrshld", xmlNamespace );
+            PostTradeInstrumentSizeSpecificThresholdValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Statistics is StatisticsTransparency2 StatisticsValue)
+        {
+            writer.WriteStartElement(null, "Sttstcs", xmlNamespace );
+            StatisticsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransparencyDataReport14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Value
+     : IIsoXmlSerilizable<Value>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the amount in the base currency of the receiver.
     /// </summary>
-    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount BaseCurrencyItem { get; init; } 
     /// <summary>
     /// Specifies the amount in another currency.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoActiveOrHistoricCurrencyAndAmount> AlternateCurrencyItem { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoActiveOrHistoricCurrencyAndAmount? AlternateCurrencyItem { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _SVDJ09p-Ed-ak6NoX_4Aeg_249291013
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BaseCcyItm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(BaseCurrencyItem)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        // Not sure how to serialize AlternateCurrencyItem, multiplicity Unknown
+    }
+    public static Value Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

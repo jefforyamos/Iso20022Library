@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details for negotiating and trading a large number of securities contained in or comprising a portfolio. ||One example is index arbitrage, which consists in the purchase or sale of a basket of stocks in conjunction with the sale or purchase of|a derivative product (for example index futures) to profit from price differences between the basket and the derivative product. ||Other examples include liquidation of EFP (Exchange for Physical) stock positions, portfolio realignment and portfolio liquidation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record List2
+     : IIsoXmlSerilizable<List2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identifier for a list, as assigned by the trading party. The identifier must be unique within a single trading day.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ListIdentification { get; init; } 
     /// <summary>
     /// Indicates the date and time of the agreement in principal between counter-parties prior to actual trade date.|Used with fixed income for municipal new issue markets.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? TradeOriginationDateTime { get; init; } 
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? TradeDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ListId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ListIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (TradeOriginationDateTime is IsoISODateTime TradeOriginationDateTimeValue)
+        {
+            writer.WriteStartElement(null, "TradOrgtnDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(TradeOriginationDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (TradeDate is IsoISODateTime TradeDateValue)
+        {
+            writer.WriteStartElement(null, "TradDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(TradeDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static List2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

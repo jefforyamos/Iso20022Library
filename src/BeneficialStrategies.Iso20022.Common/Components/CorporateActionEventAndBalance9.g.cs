@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed account holdings information report for a corporate action event.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionEventAndBalance9
+     : IIsoXmlSerilizable<CorporateActionEventAndBalance9>
 {
     #nullable enable
     
     /// <summary>
     /// Provides general information related to a corporate action event.
     /// </summary>
-    [DataMember]
     public required EventInformation7 GeneralInformation { get; init; } 
     /// <summary>
     /// Security concerned by the corporate action.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification19 UnderlyingSecurity { get; init; } 
     /// <summary>
     /// Provides information about the balance related to a corporate action.
     /// </summary>
-    [DataMember]
     public CorporateActionBalanceDetails30? Balance { get; init; } 
     /// <summary>
     /// Provides additional information related to the event and the balance of the corporate action.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GnlInf", xmlNamespace );
+        GeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UndrlygScty", xmlNamespace );
+        UnderlyingSecurity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Balance is CorporateActionBalanceDetails30 BalanceValue)
+        {
+            writer.WriteStartElement(null, "Bal", xmlNamespace );
+            BalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionEventAndBalance9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

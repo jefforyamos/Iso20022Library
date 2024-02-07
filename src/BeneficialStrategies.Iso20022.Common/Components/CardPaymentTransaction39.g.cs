@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Authorisation response from the acquirer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardPaymentTransaction39
+     : IIsoXmlSerilizable<CardPaymentTransaction39>
 {
     #nullable enable
     
     /// <summary>
     /// Outcome of the authorisation, and actions to perform.
     /// </summary>
-    [DataMember]
     public required AuthorisationResult4 AuthorisationResult { get; init; } 
     /// <summary>
     /// Result of the verifications performed by the issuer to deliver or decline the authorisation.
     /// </summary>
-    [DataMember]
-    public ValueList<TransactionVerificationResult3> TransactionVerificationResult { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransactionVerificationResult3? TransactionVerificationResult { get; init; } 
     /// <summary>
     /// Product code for which the authorisation was declined.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax70Text> DeclinedProductCode { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax70Text? DeclinedProductCode { get; init; } 
     /// <summary>
     /// Balance of the account, related to the payment.
     /// </summary>
-    [DataMember]
     public AmountAndDirection41? Balance { get; init; } 
     /// <summary>
     /// Encrypted balance of the account.
     /// </summary>
-    [DataMember]
     public ContentInformationType10? ProtectedBalance { get; init; } 
     /// <summary>
     /// Set of actions to be performed by the POI (Point Of Interaction) system.
     /// </summary>
-    [DataMember]
-    public ValueList<Action3> Action { get; init; } = []; // Warning: Don't know multiplicity.
+    public Action3? Action { get; init; } 
     /// <summary>
     /// Conversion between the currency of a card acceptor and the currency of a card issuer, provided by a dedicated service provider. The currency conversion has to be accepted by the cardholder.
     /// </summary>
-    [DataMember]
     public CurrencyConversion3? CurrencyConversion { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AuthstnRslt", xmlNamespace );
+        AuthorisationResult.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionVerificationResult is TransactionVerificationResult3 TransactionVerificationResultValue)
+        {
+            writer.WriteStartElement(null, "TxVrfctnRslt", xmlNamespace );
+            TransactionVerificationResultValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeclinedProductCode is IsoMax70Text DeclinedProductCodeValue)
+        {
+            writer.WriteStartElement(null, "DclndPdctCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(DeclinedProductCodeValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Balance is AmountAndDirection41 BalanceValue)
+        {
+            writer.WriteStartElement(null, "Bal", xmlNamespace );
+            BalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProtectedBalance is ContentInformationType10 ProtectedBalanceValue)
+        {
+            writer.WriteStartElement(null, "PrtctdBal", xmlNamespace );
+            ProtectedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Action is Action3 ActionValue)
+        {
+            writer.WriteStartElement(null, "Actn", xmlNamespace );
+            ActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CurrencyConversion is CurrencyConversion3 CurrencyConversionValue)
+        {
+            writer.WriteStartElement(null, "CcyConvs", xmlNamespace );
+            CurrencyConversionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardPaymentTransaction39 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

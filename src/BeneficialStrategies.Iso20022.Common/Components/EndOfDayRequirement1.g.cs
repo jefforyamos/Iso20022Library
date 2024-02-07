@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Obligations of a clearing member with respect to a central counterparty that are calculated based on end of day positions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record EndOfDayRequirement1
+     : IIsoXmlSerilizable<EndOfDayRequirement1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the initial margin requirement for position.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? InitialMarginRequirement { get; init; } 
     /// <summary>
     /// Daily change in mark-to-market for the associated position. Indicates whether variation margin paid to clearing members (true) or received from clearing members (false).
     /// </summary>
-    [DataMember]
     public AmountAndDirection102? VariationMarginRequirement { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (InitialMarginRequirement is IsoActiveCurrencyAndAmount InitialMarginRequirementValue)
+        {
+            writer.WriteStartElement(null, "InitlMrgnRqrmnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(InitialMarginRequirementValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (VariationMarginRequirement is AmountAndDirection102 VariationMarginRequirementValue)
+        {
+            writer.WriteStartElement(null, "VartnMrgnRqrmnt", xmlNamespace );
+            VariationMarginRequirementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static EndOfDayRequirement1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

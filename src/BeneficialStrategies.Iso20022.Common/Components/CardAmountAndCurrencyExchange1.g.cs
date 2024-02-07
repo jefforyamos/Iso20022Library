@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the detailed or original amount and currency.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardAmountAndCurrencyExchange1
+     : IIsoXmlSerilizable<CardAmountAndCurrencyExchange1>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Reports on currency exchange information.
     /// </summary>
-    [DataMember]
     public CurrencyExchange3? CurrencyExchange { get; init; } 
     /// <summary>
     /// Identification or qualification of the type of amount.
     /// </summary>
-    [DataMember]
     public TypeOfAmount3Code? Type { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (CurrencyExchange is CurrencyExchange3 CurrencyExchangeValue)
+        {
+            writer.WriteStartElement(null, "CcyXchg", xmlNamespace );
+            CurrencyExchangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Type is TypeOfAmount3Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static CardAmountAndCurrencyExchange1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

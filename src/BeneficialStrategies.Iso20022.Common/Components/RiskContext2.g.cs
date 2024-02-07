@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Context of the risk associated with the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RiskContext2
+     : IIsoXmlSerilizable<RiskContext2>
 {
     #nullable enable
     
     /// <summary>
     /// Input data to be considered in a risk assessment.
     /// </summary>
-    [DataMember]
-    public ValueList<RiskInputData1> RiskInputData { get; init; } = []; // Warning: Don't know multiplicity.
+    public RiskInputData1? RiskInputData { get; init; } 
     /// <summary>
     /// Indicates to the card issuer the level of risk associated with the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<RiskAssessment2> RiskAssessment { get; init; } = []; // Warning: Don't know multiplicity.
+    public RiskAssessment2? RiskAssessment { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (RiskInputData is RiskInputData1 RiskInputDataValue)
+        {
+            writer.WriteStartElement(null, "RskInptData", xmlNamespace );
+            RiskInputDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RiskAssessment is RiskAssessment2 RiskAssessmentValue)
+        {
+            writer.WriteStartElement(null, "RskAssmnt", xmlNamespace );
+            RiskAssessmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RiskContext2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

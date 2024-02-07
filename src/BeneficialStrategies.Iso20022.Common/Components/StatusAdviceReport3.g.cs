@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the report level status advice.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StatusAdviceReport3
+     : IIsoXmlSerilizable<StatusAdviceReport3>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the status for the full message.
     /// </summary>
-    [DataMember]
     public required ReportingMessageStatus1Code Status { get; init; } 
     /// <summary>
     /// Provides the details of the rule which could not be validated.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericValidationRuleIdentification1> ValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericValidationRuleIdentification1? ValidationRule { get; init; } 
     /// <summary>
     /// Indicates the report date with the status advice message is related to.
     /// </summary>
-    [DataMember]
     public IsoISODate? MessageDate { get; init; } 
     /// <summary>
     /// Statistical information on the results of the records processing.
     /// </summary>
-    [DataMember]
     public OriginalReportStatistics3? Statistics { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ValidationRule is GenericValidationRuleIdentification1 ValidationRuleValue)
+        {
+            writer.WriteStartElement(null, "VldtnRule", xmlNamespace );
+            ValidationRuleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageDate is IsoISODate MessageDateValue)
+        {
+            writer.WriteStartElement(null, "MsgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(MessageDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Statistics is OriginalReportStatistics3 StatisticsValue)
+        {
+            writer.WriteStartElement(null, "Sttstcs", xmlNamespace );
+            StatisticsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static StatusAdviceReport3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

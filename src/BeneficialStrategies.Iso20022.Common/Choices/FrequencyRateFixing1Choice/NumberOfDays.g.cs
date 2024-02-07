@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.FrequencyRateFixing1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.FrequencyRateFixing1Choice;
 /// Specific number of days assigned for the frequency fixing of the rate.
 /// </summary>
 public partial record NumberOfDays : FrequencyRateFixing1Choice_
+     , IIsoXmlSerilizable<NumberOfDays>
 {
-    public required IsoMax3NumericText Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a numeric string with a maximum length of 3 digits.
+    /// </summary>
+    public required IsoMax3NumericText Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NbOfDays", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax3NumericText(Value)); // data type Max3NumericText System.String
+        writer.WriteEndElement();
+    }
+    public static new NumberOfDays Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

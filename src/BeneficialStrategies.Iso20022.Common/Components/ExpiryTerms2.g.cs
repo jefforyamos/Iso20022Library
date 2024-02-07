@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Expiry conditions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ExpiryTerms2
+     : IIsoXmlSerilizable<ExpiryTerms2>
 {
     #nullable enable
     
     /// <summary>
     /// Date and time when the undertaking will cease to be available.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeChoice_? DateTime { get; init; } 
     /// <summary>
     /// Details related to the automatic extension of the undertaking.
     /// </summary>
-    [DataMember]
     public AutoExtension1? AutoExtension { get; init; } 
     /// <summary>
     /// Documentary condition that indicates when the undertaking will cease to be available.
     /// </summary>
-    [DataMember]
     public IsoMax2000Text? Condition { get; init; } 
     /// <summary>
     /// Indicates whether the expiry terms are without a fixed expiry date.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? OpenEndedIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DateTime is DateAndDateTimeChoice_ DateTimeValue)
+        {
+            writer.WriteStartElement(null, "DtTm", xmlNamespace );
+            DateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AutoExtension is AutoExtension1 AutoExtensionValue)
+        {
+            writer.WriteStartElement(null, "AutoXtnsn", xmlNamespace );
+            AutoExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Condition is IsoMax2000Text ConditionValue)
+        {
+            writer.WriteStartElement(null, "Cond", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2000Text(ConditionValue)); // data type Max2000Text System.String
+            writer.WriteEndElement();
+        }
+        if (OpenEndedIndicator is IsoYesNoIndicator OpenEndedIndicatorValue)
+        {
+            writer.WriteStartElement(null, "OpnEnddInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OpenEndedIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ExpiryTerms2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the authorised tax paying party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxAuthorisation1
+     : IIsoXmlSerilizable<TaxAuthorisation1>
 {
     #nullable enable
     
     /// <summary>
     /// Title or position of debtor or the debtor's authorised representative.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Title { get; init; } 
     /// <summary>
     /// Name of the debtor or the debtor's authorised representative.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Name { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Title is IsoMax35Text TitleValue)
+        {
+            writer.WriteStartElement(null, "Titl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TitleValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Name is IsoMax140Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(NameValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TaxAuthorisation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

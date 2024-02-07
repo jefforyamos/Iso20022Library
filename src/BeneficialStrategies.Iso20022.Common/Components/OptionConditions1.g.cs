@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Conditions to be met by the holder.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OptionConditions1
+     : IIsoXmlSerilizable<OptionConditions1>
 {
     #nullable enable
     
     /// <summary>
     /// Number of the condition.
     /// </summary>
-    [DataMember]
     public required IsoMax1Number ConditionNumber { get; init; } 
     /// <summary>
     /// Description of the condition.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINXMax520Text ConditionText { get; init; } 
     /// <summary>
     /// States whether the condition must be acknowledged. Conditions with a No ("false" or "0") do not need acknowledgement.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ConditionRequiredFlag { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CondNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax1Number(ConditionNumber)); // data type Max1Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CondTxt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax520Text(ConditionText)); // data type RestrictedFINXMax520Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CondReqrdFlg", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ConditionRequiredFlag)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static OptionConditions1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.MeetingVoteExecutionConfirmationV07>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// This message definition is intended for use with the Business Application Header (BAH).
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The MeetingVoteExecutionConfirmation message is sent by an issuer, its agent or an intermediary to another intermediary, a party holding the right to vote, a registered security holder or to a beneficial holder to confirm, to the Sender of the MeetingInstruction message, that their vote has been recorded and counted by the Issuer.|Usage|This message is sent after the shareholders meeting has taken place. The Sender of this message confirms the execution of the vote at the meeting.|This messages is sent if the Sender of the MeetingInstruction message has requested such a confirmation or if market practice or regulation stipulates the need for a full audit trail.|This message definition is intended for use with the Business Application Header (BAH).")]
-public partial record MeetingVoteExecutionConfirmationV07 : IOuterRecord
+public partial record MeetingVoteExecutionConfirmationV07 : IOuterRecord<MeetingVoteExecutionConfirmationV07,MeetingVoteExecutionConfirmationV07Document>
+    ,IIsoXmlSerilizable<MeetingVoteExecutionConfirmationV07>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record MeetingVoteExecutionConfirmationV07 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MtgVoteExctnConf";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => MeetingVoteExecutionConfirmationV07Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -109,6 +116,50 @@ public partial record MeetingVoteExecutionConfirmationV07 : IOuterRecord
     {
         return new MeetingVoteExecutionConfirmationV07Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MtgVoteExctnConf");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MtgInstrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MeetingInstructionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MtgRef", xmlNamespace );
+        MeetingReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (VoteInstructions is DetailedInstructionStatus15 VoteInstructionsValue)
+        {
+            writer.WriteStartElement(null, "VoteInstrs", xmlNamespace );
+            VoteInstructionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (VoteInstructionsConfirmationURLAddress is IsoMax2048Text VoteInstructionsConfirmationURLAddressValue)
+        {
+            writer.WriteStartElement(null, "VoteInstrsConfURLAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2048Text(VoteInstructionsConfirmationURLAddressValue)); // data type Max2048Text System.String
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MeetingVoteExecutionConfirmationV07 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -116,9 +167,7 @@ public partial record MeetingVoteExecutionConfirmationV07 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingVoteExecutionConfirmationV07"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record MeetingVoteExecutionConfirmationV07Document : IOuterDocument<MeetingVoteExecutionConfirmationV07>
+public partial record MeetingVoteExecutionConfirmationV07Document : IOuterDocument<MeetingVoteExecutionConfirmationV07>, IXmlSerializable
 {
     
     /// <summary>
@@ -134,5 +183,22 @@ public partial record MeetingVoteExecutionConfirmationV07Document : IOuterDocume
     /// <summary>
     /// The instance of <seealso cref="MeetingVoteExecutionConfirmationV07"/> is required.
     /// </summary>
+    [DataMember(Name=MeetingVoteExecutionConfirmationV07.XmlTag)]
     public required MeetingVoteExecutionConfirmationV07 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(MeetingVoteExecutionConfirmationV07.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

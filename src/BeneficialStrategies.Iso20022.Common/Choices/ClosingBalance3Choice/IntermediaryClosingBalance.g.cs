@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ClosingBalance3Choice;
 
@@ -13,11 +15,34 @@ namespace BeneficialStrategies.Iso20022.Choices.ClosingBalance3Choice;
 /// Closing Balance of this page only. Must be the intermediary opening balance of the next page (part of the same statement).
 /// </summary>
 public partial record IntermediaryClosingBalance : ClosingBalance3Choice_
+     , IIsoXmlSerilizable<IntermediaryClosingBalance>
 {
     #nullable enable
+    
     /// <summary>
     /// Quantity expressed as a number, eg, a number of shares.
     /// </summary>
     public required IsoDecimalNumber Unit { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Unit", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(Unit)); // data type DecimalNumber System.UInt64
+        writer.WriteEndElement();
+    }
+    public static new IntermediaryClosingBalance Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

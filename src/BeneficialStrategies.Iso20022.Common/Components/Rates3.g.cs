@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Interest rate of the loan.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Rates3
+     : IIsoXmlSerilizable<Rates3>
 {
     #nullable enable
     
     /// <summary>
     /// Details of the fixed rate.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Fixed { get; init; } 
     /// <summary>
     /// Details about the variable rate.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Floating { get; init; } 
     /// <summary>
     /// Transaction by which a counterparty buys or sells securities, commodities, or guaranteed rights relating to title to securities or commodities, agreeing, respectively, to sell or to buy back securities, commodities or such guaranteed rights of the same description at a specified price on a future date, that transaction being a buy-sell back transaction for the counterparty buying the securities, commodities or guaranteed rights, and a sell-buy back transaction for the counterparty selling them, such buy-sell back transaction or sell-buy back transaction not being governed by a repurchase agreement or by a reverse-repurchase agreement.
     /// </summary>
-    [DataMember]
     public SecuritiesTransactionPrice18Choice_? BuySellBack { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Fixed is IsoPercentageRate FixedValue)
+        {
+            writer.WriteStartElement(null, "Fxd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(FixedValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Floating is IsoPercentageRate FloatingValue)
+        {
+            writer.WriteStartElement(null, "Fltg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(FloatingValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (BuySellBack is SecuritiesTransactionPrice18Choice_ BuySellBackValue)
+        {
+            writer.WriteStartElement(null, "BuySellBck", xmlNamespace );
+            BuySellBackValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Rates3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

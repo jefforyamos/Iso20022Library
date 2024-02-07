@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Type of document and the type of communication method to be used to notify a party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DocumentToSend3
+     : IIsoXmlSerilizable<DocumentToSend3>
 {
     #nullable enable
     
     /// <summary>
     /// Type of document.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text Type { get; init; } 
     /// <summary>
     /// Party that should receive the document.
     /// </summary>
-    [DataMember]
     public required PartyIdentification70Choice_ Recipient { get; init; } 
     /// <summary>
     /// Communication method to be used.
     /// </summary>
-    [DataMember]
     public required CommunicationMethod3Choice_ MethodOfTransmission { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(Type)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rcpt", xmlNamespace );
+        Recipient.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MtdOfTrnsmssn", xmlNamespace );
+        MethodOfTransmission.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static DocumentToSend3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

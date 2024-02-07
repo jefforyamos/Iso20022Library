@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.auth.RegulatoryTransactionReportStatusV01>;
 
 namespace BeneficialStrategies.Iso20022.auth;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// If the status is rejected, then reason for the rejection must be specified.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|A regulator or an intermediary sends the RegulatoryTransactionReportStatus to a reporting institution to provide the status of a RegulatoryTransactionReport previously sent by the reporting institution.|Usage|The message definition may be used to provide a status for the entire report or to provide a status at the level of individual transactions within the report. One of the following statuses can be reported:|- Completed, or,|- Pending, or,|- Rejected.|If the status is rejected, then reason for the rejection must be specified.")]
-public partial record RegulatoryTransactionReportStatusV01 : IOuterRecord
+public partial record RegulatoryTransactionReportStatusV01 : IOuterRecord<RegulatoryTransactionReportStatusV01,RegulatoryTransactionReportStatusV01Document>
+    ,IIsoXmlSerilizable<RegulatoryTransactionReportStatusV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record RegulatoryTransactionReportStatusV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "RgltryTxRptStsV01";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => RegulatoryTransactionReportStatusV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -94,6 +101,35 @@ public partial record RegulatoryTransactionReportStatusV01 : IOuterRecord
     {
         return new RegulatoryTransactionReportStatusV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("RgltryTxRptStsV01");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptgInstn", xmlNamespace );
+        ReportingInstitution.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptSts", xmlNamespace );
+        ReportStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IndvTxSts", xmlNamespace );
+        IndividualTransactionStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static RegulatoryTransactionReportStatusV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -101,9 +137,7 @@ public partial record RegulatoryTransactionReportStatusV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RegulatoryTransactionReportStatusV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record RegulatoryTransactionReportStatusV01Document : IOuterDocument<RegulatoryTransactionReportStatusV01>
+public partial record RegulatoryTransactionReportStatusV01Document : IOuterDocument<RegulatoryTransactionReportStatusV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -119,5 +153,22 @@ public partial record RegulatoryTransactionReportStatusV01Document : IOuterDocum
     /// <summary>
     /// The instance of <seealso cref="RegulatoryTransactionReportStatusV01"/> is required.
     /// </summary>
+    [DataMember(Name=RegulatoryTransactionReportStatusV01.XmlTag)]
     public required RegulatoryTransactionReportStatusV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(RegulatoryTransactionReportStatusV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

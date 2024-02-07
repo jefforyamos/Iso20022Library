@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Distinct pool of financial instruments managed by a single investment policy. May or not be part of an umbrella fund.The pool is issued in at least one investment fund class.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FundIdentification3
+     : IIsoXmlSerilizable<FundIdentification3>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the investment fund.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text FundIdentification { get; init; } 
     /// <summary>
     /// Identifies the account of the fund held with the custodian.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountIdentificationWithCustodian { get; init; } 
     /// <summary>
     /// Identification of the custodian which services the account of the fund.
     /// </summary>
-    [DataMember]
     public PartyIdentification19Choice_? CustodianIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FndId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(FundIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (AccountIdentificationWithCustodian is IsoMax35Text AccountIdentificationWithCustodianValue)
+        {
+            writer.WriteStartElement(null, "AcctIdWthCtdn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountIdentificationWithCustodianValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CustodianIdentification is PartyIdentification19Choice_ CustodianIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CtdnId", xmlNamespace );
+            CustodianIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FundIdentification3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

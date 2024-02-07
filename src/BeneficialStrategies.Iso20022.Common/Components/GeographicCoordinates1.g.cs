@@ -7,29 +7,51 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Location on the Earth specified by two numbers representing vertical and horizontal position.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GeographicCoordinates1
+     : IIsoXmlSerilizable<GeographicCoordinates1>
 {
     #nullable enable
     
     /// <summary>
     /// Latitude measured in degrees, minutes and seconds, following by 'N' for the north and 'S' for the south of the equator (for example 48°51'29" N for the Eiffel Tower latitude).
     /// </summary>
-    [DataMember]
     public required IsoMax16Text Latitude { get; init; } 
     /// <summary>
     /// Angular measurement of the distance of a location on the earth east or west of the Greenwich observatory.
     /// The longitude is measured in degrees, minutes and seconds, following by 'E' for the east and 'W' for the west (for example 2°17'40" E for the Eiffel Tower longitude).
     /// </summary>
-    [DataMember]
     public required IsoMax16Text Longitude { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Lat", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax16Text(Latitude)); // data type Max16Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Long", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax16Text(Longitude)); // data type Max16Text System.String
+        writer.WriteEndElement();
+    }
+    public static GeographicCoordinates1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,68 +7,136 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to report on an account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashAccountReturnCriteria3
+     : IIsoXmlSerilizable<CashAccountReturnCriteria3>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the account name is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? NameIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account currency is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? CurrencyIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account type is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? TypeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the multilateral limit is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? MultilateralLimitIndicator { get; init; } 
     /// <summary>
     /// Defines the criteria used to report on a multilateral balance.
     /// </summary>
-    [DataMember]
     public CashBalanceReturnCriteria? MultilateralBalanceReturnCriteria { get; init; } 
     /// <summary>
     /// Indicates whether the bilateral limit is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? BilateralLimitIndicator { get; init; } 
     /// <summary>
     /// Defines the criteria used to report on a bilateral balance.
     /// </summary>
-    [DataMember]
     public CashBalanceReturnCriteria? BilateralBalanceReturnCriteria { get; init; } 
     /// <summary>
     /// Indicates whether the account standing order is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? StandingOrderIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account owner information is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? AccountOwnerIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account servicer information is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? AccountServicerIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NameIndicator is IsoRequestedIndicator NameIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NmInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(NameIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CurrencyIndicator is IsoRequestedIndicator CurrencyIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CcyInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(CurrencyIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TypeIndicator is IsoRequestedIndicator TypeIndicatorValue)
+        {
+            writer.WriteStartElement(null, "TpInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(TypeIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (MultilateralLimitIndicator is IsoRequestedIndicator MultilateralLimitIndicatorValue)
+        {
+            writer.WriteStartElement(null, "MulLmtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(MultilateralLimitIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (MultilateralBalanceReturnCriteria is CashBalanceReturnCriteria MultilateralBalanceReturnCriteriaValue)
+        {
+            writer.WriteStartElement(null, "MulBalRtrCrit", xmlNamespace );
+            MultilateralBalanceReturnCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BilateralLimitIndicator is IsoRequestedIndicator BilateralLimitIndicatorValue)
+        {
+            writer.WriteStartElement(null, "BilLmtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(BilateralLimitIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (BilateralBalanceReturnCriteria is CashBalanceReturnCriteria BilateralBalanceReturnCriteriaValue)
+        {
+            writer.WriteStartElement(null, "BilBalRtrCrit", xmlNamespace );
+            BilateralBalanceReturnCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StandingOrderIndicator is IsoRequestedIndicator StandingOrderIndicatorValue)
+        {
+            writer.WriteStartElement(null, "StgOrdrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(StandingOrderIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AccountOwnerIndicator is IsoRequestedIndicator AccountOwnerIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(AccountOwnerIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AccountServicerIndicator is IsoRequestedIndicator AccountServicerIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(AccountServicerIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CashAccountReturnCriteria3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

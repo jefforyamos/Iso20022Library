@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the voting entitlement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record EligiblePosition3
+     : IIsoXmlSerilizable<EligiblePosition3>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the securities account.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountIdentification { get; init; } 
     /// <summary>
     /// Identifies party that legally owns the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification9Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Net position of a segregated holding of a single security within the overall position held in a securities account, eg, sub-balance per status.
     /// </summary>
-    [DataMember]
     public ValueList<HoldingBalance6> HoldingBalance { get; init; } = [];
     /// <summary>
     /// Identifies owner of the voting rights.
     /// </summary>
-    [DataMember]
     public ValueList<PartyIdentification9Choice_> RightsHolder { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountIdentification is IsoMax35Text AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountOwner is PartyIdentification9Choice_ AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "HldgBal", xmlNamespace );
+        HoldingBalance.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RghtsHldr", xmlNamespace );
+        RightsHolder.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static EligiblePosition3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

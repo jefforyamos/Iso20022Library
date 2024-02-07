@@ -7,73 +7,143 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details on the queried trade parties.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradePartyQueryCriteria5
+     : IIsoXmlSerilizable<TradePartyQueryCriteria5>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the AND/OR operators as query criteria.
     /// </summary>
-    [DataMember]
     public required Operation3Code Operator { get; init; } 
     /// <summary>
     /// Identifies the reporting counterparty of the contract.
     /// </summary>
-    [DataMember]
     public TradePartyIdentificationQuery8? ReportingCounterparty { get; init; } 
     /// <summary>
     /// Data specific to branch of the reporting counterparty and related fields.
     /// </summary>
-    [DataMember]
     public TradePartyIdentificationQuery9? ReportingCounterpartyBranch { get; init; } 
     /// <summary>
     /// Identifies the other counterparty of the contract.
     /// </summary>
-    [DataMember]
     public TradePartyIdentificationQuery8? OtherCounterparty { get; init; } 
     /// <summary>
     /// Data specific to branch of the other reporting counterparty and related fields.
     /// </summary>
-    [DataMember]
     public TradePartyIdentificationQuery9? OtherCounterpartyBranch { get; init; } 
     /// <summary>
     /// Identifies the party subject to the rights and obligations arising from the contract.
     /// </summary>
-    [DataMember]
     public TradePartyIdentificationQuery8? Beneficiary { get; init; } 
     /// <summary>
     /// Identifies the submitting agent of the reported of the contract.
     /// </summary>
-    [DataMember]
     public TradePartyIdentificationQuery8? SubmittingAgent { get; init; } 
     /// <summary>
     /// Identifies the broker who acts as an intermediary for the reporting counterparty.
     /// </summary>
-    [DataMember]
     public TradePartyIdentificationQuery8? Broker { get; init; } 
     /// <summary>
     /// Unique code for the CCP that has cleared the contract.
     /// </summary>
-    [DataMember]
     public TradePartyIdentificationQuery8? CCP { get; init; } 
     /// <summary>
     /// Identification of the agent lender involved in the securities lending transaction.
     /// </summary>
-    [DataMember]
     public TradePartyIdentificationQuery8? AgentLender { get; init; } 
     /// <summary>
     /// Identification of the third party that administers the transaction.
     /// </summary>
-    [DataMember]
     public TradePartyIdentificationQuery8? TripartyAgent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Oprtr", xmlNamespace );
+        writer.WriteValue(Operator.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ReportingCounterparty is TradePartyIdentificationQuery8 ReportingCounterpartyValue)
+        {
+            writer.WriteStartElement(null, "RptgCtrPty", xmlNamespace );
+            ReportingCounterpartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReportingCounterpartyBranch is TradePartyIdentificationQuery9 ReportingCounterpartyBranchValue)
+        {
+            writer.WriteStartElement(null, "RptgCtrPtyBrnch", xmlNamespace );
+            ReportingCounterpartyBranchValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherCounterparty is TradePartyIdentificationQuery8 OtherCounterpartyValue)
+        {
+            writer.WriteStartElement(null, "OthrCtrPty", xmlNamespace );
+            OtherCounterpartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherCounterpartyBranch is TradePartyIdentificationQuery9 OtherCounterpartyBranchValue)
+        {
+            writer.WriteStartElement(null, "OthrCtrPtyBrnch", xmlNamespace );
+            OtherCounterpartyBranchValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Beneficiary is TradePartyIdentificationQuery8 BeneficiaryValue)
+        {
+            writer.WriteStartElement(null, "Bnfcry", xmlNamespace );
+            BeneficiaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SubmittingAgent is TradePartyIdentificationQuery8 SubmittingAgentValue)
+        {
+            writer.WriteStartElement(null, "SubmitgAgt", xmlNamespace );
+            SubmittingAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Broker is TradePartyIdentificationQuery8 BrokerValue)
+        {
+            writer.WriteStartElement(null, "Brkr", xmlNamespace );
+            BrokerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CCP is TradePartyIdentificationQuery8 CCPValue)
+        {
+            writer.WriteStartElement(null, "CCP", xmlNamespace );
+            CCPValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AgentLender is TradePartyIdentificationQuery8 AgentLenderValue)
+        {
+            writer.WriteStartElement(null, "AgtLndr", xmlNamespace );
+            AgentLenderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TripartyAgent is TradePartyIdentificationQuery8 TripartyAgentValue)
+        {
+            writer.WriteStartElement(null, "TrptyAgt", xmlNamespace );
+            TripartyAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradePartyQueryCriteria5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

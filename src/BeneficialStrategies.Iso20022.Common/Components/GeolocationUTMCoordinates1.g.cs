@@ -7,6 +7,8 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -14,29 +16,51 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Location on the Earth specified by the Universal Transverse Mercator coordinate system.
 /// Identifies the geographic location using the WGS84 ellipsoid spatial reference system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GeolocationUTMCoordinates1
+     : IIsoXmlSerilizable<GeolocationUTMCoordinates1>
 {
     #nullable enable
     
     /// <summary>
     /// UTM grid zone combination of the longitude zone (1 to 60) and the latitude band (C to X, excluding I and O).
     /// </summary>
-    [DataMember]
     public required IsoMax35Text UTMZone { get; init; } 
     /// <summary>
     /// X-coordinate of the Universal Transverse Mercator 
     /// coordinate system.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text UTMEastward { get; init; } 
     /// <summary>
     /// Y-coordinate of the Universal Transverse Mercator 
     /// coordinate system.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text UTMNorthward { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UTMZone", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(UTMZone)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UTMEstwrd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(UTMEastward)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UTMNrthwrd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(UTMNorthward)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static GeolocationUTMCoordinates1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

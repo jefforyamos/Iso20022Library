@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ActiveAmountRange3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.ActiveAmountRange3Choice;
 /// Expresses an amount or an amount range with an explicit debit/credit indicator and where the currency is implied.
 /// </summary>
 public partial record ImpliedCurrencyAndAmountRange : ActiveAmountRange3Choice_
+     , IIsoXmlSerilizable<ImpliedCurrencyAndAmountRange>
 {
     #nullable enable
+    
     /// <summary>
     /// A specified amount or amount range.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record ImpliedCurrencyAndAmountRange : ActiveAmountRange3Choice_
     /// Indicates whether the amount is a credited or debited amount.
     /// </summary>
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        Amount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CreditDebitIndicator is CreditDebitCode CreditDebitIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+            writer.WriteValue(CreditDebitIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static new ImpliedCurrencyAndAmountRange Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

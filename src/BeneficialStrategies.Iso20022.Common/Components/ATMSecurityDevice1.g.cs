@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Hardware security module of the ATM.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMSecurityDevice1
+     : IIsoXmlSerilizable<ATMSecurityDevice1>
 {
     #nullable enable
     
     /// <summary>
     /// Hardware security module information, so called EPP for Encrypted PIN Pad.
     /// </summary>
-    [DataMember]
     public ATMEquipment2? DeviceProperty { get; init; } 
     /// <summary>
     /// Configuration parameters in use by the security device.
     /// </summary>
-    [DataMember]
     public required ATMSecurityConfiguration1 CurrentConfiguration { get; init; } 
     /// <summary>
     /// Configuration parameters supported by the security device.
     /// </summary>
-    [DataMember]
     public ATMSecurityConfiguration1? SupportedConfiguration { get; init; } 
     /// <summary>
     /// Current status of the security device.
     /// </summary>
-    [DataMember]
     public required ATMStatus2Code CurrentStatus { get; init; } 
     /// <summary>
     /// Incident occurring on the device.
     /// </summary>
-    [DataMember]
     public FailureReason5Code? Incident { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DeviceProperty is ATMEquipment2 DevicePropertyValue)
+        {
+            writer.WriteStartElement(null, "DvcPrprty", xmlNamespace );
+            DevicePropertyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CurCfgtn", xmlNamespace );
+        CurrentConfiguration.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupportedConfiguration is ATMSecurityConfiguration1 SupportedConfigurationValue)
+        {
+            writer.WriteStartElement(null, "SpprtdCfgtn", xmlNamespace );
+            SupportedConfigurationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CurSts", xmlNamespace );
+        writer.WriteValue(CurrentStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Incident is FailureReason5Code IncidentValue)
+        {
+            writer.WriteStartElement(null, "Incdnt", xmlNamespace );
+            writer.WriteValue(IncidentValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMSecurityDevice1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,73 +7,134 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Customer order attached to a customer, recorded in the POI system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CustomerOrder1
+     : IIsoXmlSerilizable<CustomerOrder1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a customer order.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text CustomerOrderIdentification { get; init; } 
     /// <summary>
     /// Identification of a Sale transaction for a sequence of related POI transactions.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text SaleReferenceIdentification { get; init; } 
     /// <summary>
     /// Specifies if a customer order is currently open.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? OpenOrderState { get; init; } 
     /// <summary>
     /// Date time of the beginning of an operation.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime StartDate { get; init; } 
     /// <summary>
     /// Date time of the end of an operation.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? EndDate { get; init; } 
     /// <summary>
     /// Unit of amount.
     /// </summary>
-    [DataMember]
     public AmountUnit1Code? Unit { get; init; } 
     /// <summary>
     /// Initial or global amount of the order.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount ForecastedAmount { get; init; } 
     /// <summary>
     /// Total amount of all completed transactions of a customer order.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? CurrentAmount { get; init; } 
     /// <summary>
     /// Currency of monetary amount.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Identification of an entity accessing data to perform an operation.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccessedBy { get; init; } 
     /// <summary>
     /// Unqualified information related to customer order.
     /// </summary>
-    [DataMember]
     public IsoMax1025Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CstmrOrdrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(CustomerOrderIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SaleRefId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReferenceIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (OpenOrderState is IsoTrueFalseIndicator OpenOrderStateValue)
+        {
+            writer.WriteStartElement(null, "OpnOrdrStat", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(OpenOrderStateValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "StartDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(StartDate)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (EndDate is IsoISODateTime EndDateValue)
+        {
+            writer.WriteStartElement(null, "EndDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(EndDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (Unit is AmountUnit1Code UnitValue)
+        {
+            writer.WriteStartElement(null, "Unit", xmlNamespace );
+            writer.WriteValue(UnitValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FrcstdAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ForecastedAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (CurrentAmount is IsoImpliedCurrencyAndAmount CurrentAmountValue)
+        {
+            writer.WriteStartElement(null, "CurAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(CurrentAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AccessedBy is IsoMax35Text AccessedByValue)
+        {
+            writer.WriteStartElement(null, "AccsdBy", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccessedByValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax1025Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1025Text(AdditionalInformationValue)); // data type Max1025Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CustomerOrder1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

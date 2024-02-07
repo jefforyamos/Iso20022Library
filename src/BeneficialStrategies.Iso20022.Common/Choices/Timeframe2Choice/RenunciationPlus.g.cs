@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Timeframe2Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.Timeframe2Choice;
 /// An agreed number of days after the renunciation of title documents are received used to define standard timeframes in Redemption e.g R+3 Redemption settlement cycle.
 /// </summary>
 public partial record RenunciationPlus : Timeframe2Choice_
+     , IIsoXmlSerilizable<RenunciationPlus>
 {
-    public required IsoNumber Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Number of objects represented as an integer.
+    /// </summary>
+    public required IsoNumber Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RPlus", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(Value)); // data type Number System.UInt64
+        writer.WriteEndElement();
+    }
+    public static new RenunciationPlus Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

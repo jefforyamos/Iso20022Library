@@ -7,58 +7,107 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Transaction totals during the reconciliation period, for a certain type of transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LoyaltyTransactionTotals1
+     : IIsoXmlSerilizable<LoyaltyTransactionTotals1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifier assigned by the merchant identifying a set of POI terminals performing some categories of transactions.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? POIGroupIdentification { get; init; } 
     /// <summary>
     /// Unit of the amount, expressed in point or in a monetary value and a currency.
     /// </summary>
-    [DataMember]
     public AmountUnit1Code? LoyaltyUnit { get; init; } 
     /// <summary>
     /// Cards category related to the acceptance processing rules defined by the Loyalty provider.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CardProductProfile { get; init; } 
     /// <summary>
     /// Currency associated with the transaction totals.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Type of Loyalty transaction for Report.
     /// </summary>
-    [DataMember]
     public required LoyaltyTypeTransactionTotals1Code TransactionType { get; init; } 
     /// <summary>
     /// Total number of transactions during a reconciliation period.
     /// </summary>
-    [DataMember]
     public required IsoNumber TotalNumber { get; init; } 
     /// <summary>
     /// Total amount of a collection of transactions.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount CumulativeAmount { get; init; } 
     /// <summary>
     /// Detailed amounts associated with the total amount of transactions.
     /// </summary>
-    [DataMember]
     public DetailedAmount15? DetailedAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (POIGroupIdentification is IsoMax35Text POIGroupIdentificationValue)
+        {
+            writer.WriteStartElement(null, "POIGrpId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(POIGroupIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (LoyaltyUnit is AmountUnit1Code LoyaltyUnitValue)
+        {
+            writer.WriteStartElement(null, "LltyUnit", xmlNamespace );
+            writer.WriteValue(LoyaltyUnitValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CardProductProfile is IsoMax35Text CardProductProfileValue)
+        {
+            writer.WriteStartElement(null, "CardPdctPrfl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CardProductProfileValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxTp", xmlNamespace );
+        writer.WriteValue(TransactionType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumber)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CmltvAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(CumulativeAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (DetailedAmount is DetailedAmount15 DetailedAmountValue)
+        {
+            writer.WriteStartElement(null, "DtldAmt", xmlNamespace );
+            DetailedAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LoyaltyTransactionTotals1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

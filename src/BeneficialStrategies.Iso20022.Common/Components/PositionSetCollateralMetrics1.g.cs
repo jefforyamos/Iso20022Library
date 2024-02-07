@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Variables used to quantify the different calculations for collateral position sets and currency collateral position sets reports.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PositionSetCollateralMetrics1
+     : IIsoXmlSerilizable<PositionSetCollateralMetrics1>
 {
     #nullable enable
     
@@ -23,14 +24,41 @@ public partial record PositionSetCollateralMetrics1
     /// Total values by the reporting counterparty to the other counterparty. 
     /// Usage: Where the value is on a portfolio basis, this field should include the overall value  posted for the portfolio.
     /// </summary>
-    [DataMember]
     public PositionSetCollateralTotal1? Total { get; init; } 
     /// <summary>
     /// Clean values by the reporting counterparty to the other counterparty with outliers removed. 
     /// Usage: Where the value is on a portfolio basis, this field should include the overall value posted for the portfolio.
     /// </summary>
-    [DataMember]
     public PositionSetCollateralTotal1? Clean { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Total is PositionSetCollateralTotal1 TotalValue)
+        {
+            writer.WriteStartElement(null, "Ttl", xmlNamespace );
+            TotalValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Clean is PositionSetCollateralTotal1 CleanValue)
+        {
+            writer.WriteStartElement(null, "Clean", xmlNamespace );
+            CleanValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PositionSetCollateralMetrics1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

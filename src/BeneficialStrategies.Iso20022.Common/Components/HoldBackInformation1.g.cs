@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about hold back.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record HoldBackInformation1
+     : IIsoXmlSerilizable<HoldBackInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Value of the redemption amount subject to hold back.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? HoldBackAmount { get; init; } 
     /// <summary>
     /// Date on which the hold back amount is to be released.
     /// </summary>
-    [DataMember]
     public IsoISODate? HoldBackReleaseDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (HoldBackAmount is IsoActiveCurrencyAndAmount HoldBackAmountValue)
+        {
+            writer.WriteStartElement(null, "HldBckAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(HoldBackAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (HoldBackReleaseDate is IsoISODate HoldBackReleaseDateValue)
+        {
+            writer.WriteStartElement(null, "HldBckRlsDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(HoldBackReleaseDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static HoldBackInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes each adjustment made to the original price.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AmountDetails1
+     : IIsoXmlSerilizable<AmountDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Code that describes the type of amount or fee.
     /// </summary>
-    [DataMember]
     public TypeOfAmount18Code? Type { get; init; } 
     /// <summary>
     /// Description of other type of amount or fee.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Contains the amount.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether or not the amount is a credit or debit. 
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CreditIndicator { get; init; } 
     /// <summary>
     /// Taxes related to the products or services. 
     /// </summary>
-    [DataMember]
-    public ValueList<Tax33> Tax { get; init; } = []; // Warning: Don't know multiplicity.
+    public Tax33? Tax { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is TypeOfAmount18Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherType is IsoMax35Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(Amount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (CreditIndicator is IsoTrueFalseIndicator CreditIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CdtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CreditIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Tax is Tax33 TaxValue)
+        {
+            writer.WriteStartElement(null, "Tax", xmlNamespace );
+            TaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AmountDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

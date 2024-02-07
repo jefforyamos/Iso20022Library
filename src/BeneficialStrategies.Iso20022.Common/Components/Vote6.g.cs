@@ -7,83 +7,163 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Decision of the voting party for one resolution. Several types of decisions can be indicated to allow for split vote specification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Vote6
+     : IIsoXmlSerilizable<Vote6>
 {
     #nullable enable
     
     /// <summary>
     /// Numbering of the resolution as specified by the issuer or its agent.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text IssuerLabel { get; init; } 
     /// <summary>
     /// Number of votes in favour of one resolution.
     /// </summary>
-    [DataMember]
     public IsoNumber? For { get; init; } 
     /// <summary>
     /// Number of votes against one resolution.
     /// </summary>
-    [DataMember]
     public IsoNumber? Against { get; init; } 
     /// <summary>
     /// Number of votes expressed as abstain for one resolution.
     /// </summary>
-    [DataMember]
     public IsoNumber? Abstain { get; init; } 
     /// <summary>
     /// Number of votes withheld for one resolution.
     /// </summary>
-    [DataMember]
     public IsoNumber? Withhold { get; init; } 
     /// <summary>
     /// Number of votes in line with the votes of the management.
     /// </summary>
-    [DataMember]
     public IsoNumber? WithManagement { get; init; } 
     /// <summary>
     /// Number of votes against the voting recommendation of the management.
     /// </summary>
-    [DataMember]
     public IsoNumber? AgainstManagement { get; init; } 
     /// <summary>
     /// Number of votes for which decision is left to the party that will exercise the voting right.
     /// </summary>
-    [DataMember]
     public IsoNumber? Discretionary { get; init; } 
     /// <summary>
     /// Number of votes in favour for one year for "say on pay" type of resolution.
     /// </summary>
-    [DataMember]
     public IsoNumber? OneYear { get; init; } 
     /// <summary>
     /// Number of votes in favour of two years for "say on pay" type of resolution.
     /// </summary>
-    [DataMember]
     public IsoNumber? TwoYears { get; init; } 
     /// <summary>
     /// Number of votes in favour of three years for "say on pay" type of resolution.
     /// </summary>
-    [DataMember]
     public IsoNumber? ThreeYears { get; init; } 
     /// <summary>
     /// Number of votes for which no action has been taken.
     /// </summary>
-    [DataMember]
     public IsoNumber? NoAction { get; init; } 
     /// <summary>
     /// Resolution withdrawn at the meeting.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? Withdrawn { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IssrLabl", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerLabel)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (For is IsoNumber ForValue)
+        {
+            writer.WriteStartElement(null, "For", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(ForValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Against is IsoNumber AgainstValue)
+        {
+            writer.WriteStartElement(null, "Agnst", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(AgainstValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Abstain is IsoNumber AbstainValue)
+        {
+            writer.WriteStartElement(null, "Abstn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(AbstainValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Withhold is IsoNumber WithholdValue)
+        {
+            writer.WriteStartElement(null, "Wthhld", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(WithholdValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (WithManagement is IsoNumber WithManagementValue)
+        {
+            writer.WriteStartElement(null, "WthMgmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(WithManagementValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (AgainstManagement is IsoNumber AgainstManagementValue)
+        {
+            writer.WriteStartElement(null, "AgnstMgmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(AgainstManagementValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Discretionary is IsoNumber DiscretionaryValue)
+        {
+            writer.WriteStartElement(null, "Dscrtnry", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(DiscretionaryValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (OneYear is IsoNumber OneYearValue)
+        {
+            writer.WriteStartElement(null, "OneYr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(OneYearValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (TwoYears is IsoNumber TwoYearsValue)
+        {
+            writer.WriteStartElement(null, "TwoYrs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(TwoYearsValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (ThreeYears is IsoNumber ThreeYearsValue)
+        {
+            writer.WriteStartElement(null, "ThreeYrs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(ThreeYearsValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (NoAction is IsoNumber NoActionValue)
+        {
+            writer.WriteStartElement(null, "NoActn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NoActionValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Withdrawn is IsoYesNoIndicator WithdrawnValue)
+        {
+            writer.WriteStartElement(null, "Wdrwn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(WithdrawnValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Vote6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

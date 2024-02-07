@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Print Response message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DevicePrintResponse1
+     : IIsoXmlSerilizable<DevicePrintResponse1>
 {
     #nullable enable
     
     /// <summary>
     /// Qualification of the document printed to the Cashier or the Customer.
     /// </summary>
-    [DataMember]
     public required DocumentType7Code DocumentQualifier { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DocQlfr", xmlNamespace );
+        writer.WriteValue(DocumentQualifier.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static DevicePrintResponse1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

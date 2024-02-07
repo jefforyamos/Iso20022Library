@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Proprietary information related to a balance.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GenericIdentification144
+     : IIsoXmlSerilizable<GenericIdentification144>
 {
     #nullable enable
     
     /// <summary>
     /// Proprietary information, often a code, issued by the data source scheme issuer.
     /// </summary>
-    [DataMember]
     public required IsoExact4AlphaNumericText Identification { get; init; } 
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>
-    [DataMember]
     public required IsoMax4AlphaNumericText Issuer { get; init; } 
     /// <summary>
     /// Short textual description of the scheme.
     /// </summary>
-    [DataMember]
     public IsoMax4AlphaNumericText? SchemeName { get; init; } 
     /// <summary>
     /// Value of the balance.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINDecimalNumber Balance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(Identification)); // data type Exact4AlphaNumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Issr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(Issuer)); // data type Max4AlphaNumericText System.String
+        writer.WriteEndElement();
+        if (SchemeName is IsoMax4AlphaNumericText SchemeNameValue)
+        {
+            writer.WriteStartElement(null, "SchmeNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(SchemeNameValue)); // data type Max4AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Bal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINDecimalNumber(Balance)); // data type RestrictedFINDecimalNumber System.UInt64
+        writer.WriteEndElement();
+    }
+    public static GenericIdentification144 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

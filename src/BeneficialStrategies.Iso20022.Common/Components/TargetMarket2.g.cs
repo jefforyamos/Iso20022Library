@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Target market criteria.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TargetMarket2
+     : IIsoXmlSerilizable<TargetMarket2>
 {
     #nullable enable
     
     /// <summary>
     /// Date to which the target market data refers. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 01000.
     /// </summary>
-    [DataMember]
     public IsoISODate? ReferenceDate { get; init; } 
     /// <summary>
     /// Investor for which the financial instrument is targeted.
     /// </summary>
-    [DataMember]
     public InvestorType2? InvestorType { get; init; } 
     /// <summary>
     /// Knowledge and/or experience of the investor.
     /// </summary>
-    [DataMember]
     public InvestorKnowledge1? KnowledgeAndOrExperience { get; init; } 
     /// <summary>
     /// Investor’s ability to bear losses.
     /// </summary>
-    [DataMember]
     public LossBearing2? AbilityToBearLosses { get; init; } 
     /// <summary>
     /// Investor’s tolerance to risk.
     /// </summary>
-    [DataMember]
     public RiskTolerance1? RiskTolerance { get; init; } 
     /// <summary>
     /// Investor’s investment requirements.
     /// </summary>
-    [DataMember]
     public InvestorRequirements2? ClientObjectivesAndNeeds { get; init; } 
     /// <summary>
     /// Other target market parameter.
     /// </summary>
-    [DataMember]
-    public ValueList<OtherTargetMarket1> Other { get; init; } = []; // Warning: Don't know multiplicity.
+    public OtherTargetMarket1? Other { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReferenceDate is IsoISODate ReferenceDateValue)
+        {
+            writer.WriteStartElement(null, "RefDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ReferenceDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (InvestorType is InvestorType2 InvestorTypeValue)
+        {
+            writer.WriteStartElement(null, "InvstrTp", xmlNamespace );
+            InvestorTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (KnowledgeAndOrExperience is InvestorKnowledge1 KnowledgeAndOrExperienceValue)
+        {
+            writer.WriteStartElement(null, "KnwldgAndOrExprnc", xmlNamespace );
+            KnowledgeAndOrExperienceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AbilityToBearLosses is LossBearing2 AbilityToBearLossesValue)
+        {
+            writer.WriteStartElement(null, "AbltyToBearLosses", xmlNamespace );
+            AbilityToBearLossesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RiskTolerance is RiskTolerance1 RiskToleranceValue)
+        {
+            writer.WriteStartElement(null, "RskTlrnce", xmlNamespace );
+            RiskToleranceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClientObjectivesAndNeeds is InvestorRequirements2 ClientObjectivesAndNeedsValue)
+        {
+            writer.WriteStartElement(null, "ClntObjctvsAndNeeds", xmlNamespace );
+            ClientObjectivesAndNeedsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Other is OtherTargetMarket1 OtherValue)
+        {
+            writer.WriteStartElement(null, "Othr", xmlNamespace );
+            OtherValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TargetMarket2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

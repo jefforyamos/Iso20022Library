@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.pacs.FinancialInstitutionCreditTransferV01>;
 
 namespace BeneficialStrategies.Iso20022.pacs;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.pacs;
 /// 
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The FinancialInstitutionCreditTransfer message is sent by a debtor financial institution to a creditor financial institution, directly or through other agents and/or a payment clearing and settlement system.|It is used to move funds from a debtor account to a creditor, where both debtor and creditor are financial institutions.|Usage|The FinancialInstitutionCreditTransfer message is exchanged between agents and can contain one or more credit transfer instructions where debtor and creditor are both financial institutions.|The FinancialInstitutionCreditTransfer message does not allow for grouping: a CreditTransferTransactionInformation block must be present for each credit transfer transaction.|The FinancialInstitutionCreditTransfer message can be used in domestic and cross-border scenarios.|")]
-public partial record FinancialInstitutionCreditTransferV01 : IOuterRecord
+public partial record FinancialInstitutionCreditTransferV01 : IOuterRecord<FinancialInstitutionCreditTransferV01,FinancialInstitutionCreditTransferV01Document>
+    ,IIsoXmlSerilizable<FinancialInstitutionCreditTransferV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record FinancialInstitutionCreditTransferV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "pacs.009.001.01";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => FinancialInstitutionCreditTransferV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -74,6 +81,29 @@ public partial record FinancialInstitutionCreditTransferV01 : IOuterRecord
     {
         return new FinancialInstitutionCreditTransferV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("pacs.009.001.01");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
+        GroupHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CdtTrfTxInf", xmlNamespace );
+        CreditTransferTransactionInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static FinancialInstitutionCreditTransferV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -81,9 +111,7 @@ public partial record FinancialInstitutionCreditTransferV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInstitutionCreditTransferV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record FinancialInstitutionCreditTransferV01Document : IOuterDocument<FinancialInstitutionCreditTransferV01>
+public partial record FinancialInstitutionCreditTransferV01Document : IOuterDocument<FinancialInstitutionCreditTransferV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -99,5 +127,22 @@ public partial record FinancialInstitutionCreditTransferV01Document : IOuterDocu
     /// <summary>
     /// The instance of <seealso cref="FinancialInstitutionCreditTransferV01"/> is required.
     /// </summary>
+    [DataMember(Name=FinancialInstitutionCreditTransferV01.XmlTag)]
     public required FinancialInstitutionCreditTransferV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(FinancialInstitutionCreditTransferV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

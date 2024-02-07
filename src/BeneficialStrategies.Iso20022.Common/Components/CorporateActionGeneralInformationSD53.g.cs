@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action general information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionGeneralInformationSD53
+     : IIsoXmlSerilizable<CorporateActionGeneralInformationSD53>
 {
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// DTC processing domain/ category for event types.
     /// </summary>
-    [DataMember]
     public EventGroup3Code? EventGroup { get; init; } 
     /// <summary>
     /// DTCC (The Depository Trust and Clearing Corporation) native corporate action sub event type name further defines the event type.
     /// </summary>
-    [DataMember]
     public DTCCSubEventType10Code? SubEventType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (EventGroup is EventGroup3Code EventGroupValue)
+        {
+            writer.WriteStartElement(null, "EvtGrp", xmlNamespace );
+            writer.WriteValue(EventGroupValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SubEventType is DTCCSubEventType10Code SubEventTypeValue)
+        {
+            writer.WriteStartElement(null, "SubEvtTp", xmlNamespace );
+            writer.WriteValue(SubEventTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionGeneralInformationSD53 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

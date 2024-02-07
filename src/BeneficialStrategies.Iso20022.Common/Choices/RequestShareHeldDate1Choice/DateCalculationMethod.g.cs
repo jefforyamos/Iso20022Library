@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.RequestShareHeldDate1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.RequestShareHeldDate1Choice;
 /// Indicates what is the logical method to be used to determine and communicate from which date the shares have been held.
 /// </summary>
 public partial record DateCalculationMethod : RequestShareHeldDate1Choice_
+     , IIsoXmlSerilizable<DateCalculationMethod>
 {
-    public required DateCalculationMethod1Code Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Indicates the calculation method to be used to determine on which dates the shares have been acquired.
+    /// </summary>
+    public required DateCalculationMethod1Code Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DtClctnMtd", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new DateCalculationMethod Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,150 +7,289 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the corporate action option.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionOption164
+     : IIsoXmlSerilizable<CorporateActionOption164>
 {
     #nullable enable
     
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    [DataMember]
     public required IsoExact3NumericText OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    [DataMember]
     public required CorporateActionOption30Choice_ OptionType { get; init; } 
     /// <summary>
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
-    [DataMember]
     public FractionDispositionType26Choice_? FractionDisposition { get; init; } 
     /// <summary>
     /// Specifies the conditions that apply to the offer.
     /// </summary>
-    [DataMember]
-    public ValueList<OfferTypeFormat10Choice_> OfferType { get; init; } = []; // Warning: Don't know multiplicity.
+    public OfferTypeFormat10Choice_? OfferType { get; init; } 
     /// <summary>
     /// Specifies the features that may apply to a corporate action option.
     /// </summary>
-    [DataMember]
-    public ValueList<OptionFeaturesFormat24Choice_> OptionFeatures { get; init; } = []; // Warning: Don't know multiplicity.
+    public OptionFeaturesFormat24Choice_? OptionFeatures { get; init; } 
     /// <summary>
     /// Specifies the type of intermediates securities distribution.
     /// </summary>
-    [DataMember]
     public IntermediateSecuritiesDistributionTypeFormat15Choice_? IntermediateSecuritiesDistributionType { get; init; } 
     /// <summary>
     /// Specifies the status of the option.
     /// </summary>
-    [DataMember]
     public OptionAvailabilityStatus3Choice_? OptionAvailabilityStatus { get; init; } 
     /// <summary>
     /// Type of certification/breakdown.
     /// </summary>
-    [DataMember]
-    public ValueList<BeneficiaryCertificationType9Choice_> CertificationBreakdownType { get; init; } = []; // Warning: Don't know multiplicity.
+    public BeneficiaryCertificationType9Choice_? CertificationBreakdownType { get; init; } 
     /// <summary>
     /// Holder of the security has to certify, in line with the terms of the corporate action, that it is not domiciled in the country indicated.
     /// </summary>
-    [DataMember]
-    public ValueList<CountryCode> NonDomicileCountry { get; init; } = []; // Warning: Don't know multiplicity.
+    public CountryCode? NonDomicileCountry { get; init; } 
     /// <summary>
     /// Country of domicile in which the Corporate Action option is valid. The holder of the security has to certify that it is domiciled in the country indicated.
     /// </summary>
-    [DataMember]
-    public ValueList<CountryCode> ValidDomicileCountry { get; init; } = []; // Warning: Don't know multiplicity.
+    public CountryCode? ValidDomicileCountry { get; init; } 
     /// <summary>
     /// Currency in which the cash disbursed from an interest or dividend payment is offered.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? CurrencyOption { get; init; } 
     /// <summary>
     /// Indicates whether the corporate action movement is a default processing or a standing instruction.
     /// </summary>
-    [DataMember]
     public required DefaultProcessingOrStandingInstruction1Choice_ DefaultProcessingOrStandingInstruction { get; init; } 
     /// <summary>
     /// Indicates whether redemption charges apply.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ChargesAppliedIndicator { get; init; } 
     /// <summary>
     /// Indicates whether certification/breakdown is required from the account owner. 
     /// Yes: certification required 
     /// No: no certification required.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? CertificationBreakdownIndicator { get; init; } 
     /// <summary>
     /// Indicates whether withdrawal of instruction is allowed.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? WithdrawalAllowedIndicator { get; init; } 
     /// <summary>
     /// Indicates whether change of instruction is allowed.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ChangeAllowedIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the option, different from the default one, shall be applied by the account owner.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? AppliedOptionIndicator { get; init; } 
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
-    [DataMember]
     public SecurityIdentification19? SecurityIdentification { get; init; } 
     /// <summary>
     /// Provides information about the dates related to a corporate action option.
     /// </summary>
-    [DataMember]
     public CorporateActionDate75? DateDetails { get; init; } 
     /// <summary>
     /// Provides information about the periods related to a corporate action option.
     /// </summary>
-    [DataMember]
     public CorporateActionPeriod12? PeriodDetails { get; init; } 
     /// <summary>
     /// Provides information about rates and amounts related to a corporate action option.
     /// </summary>
-    [DataMember]
     public CorporateActionRate100? RateAndAmountDetails { get; init; } 
     /// <summary>
     /// Provides information about the prices related to a corporate action option.
     /// </summary>
-    [DataMember]
     public CorporateActionPrice68? PriceDetails { get; init; } 
     /// <summary>
     /// Provides information about securities quantity related to a corporate action option.
     /// </summary>
-    [DataMember]
     public SecuritiesOption51? SecuritiesQuantity { get; init; } 
     /// <summary>
     /// Provides information about securities movement related to a corporate action option.
     /// </summary>
-    [DataMember]
-    public ValueList<SecuritiesOption71> SecuritiesMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecuritiesOption71? SecuritiesMovementDetails { get; init; } 
     /// <summary>
     /// Provides information about the cash movement linked to the corporate action option.
     /// </summary>
-    [DataMember]
-    public ValueList<CashOption72> CashMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashOption72? CashMovementDetails { get; init; } 
     /// <summary>
     /// Provides additional information about the corporate action movement.
     /// </summary>
-    [DataMember]
     public CorporateActionNarrative29? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OptnNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact3NumericText(OptionNumber)); // data type Exact3NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+        OptionType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FractionDisposition is FractionDispositionType26Choice_ FractionDispositionValue)
+        {
+            writer.WriteStartElement(null, "FrctnDspstn", xmlNamespace );
+            FractionDispositionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OfferType is OfferTypeFormat10Choice_ OfferTypeValue)
+        {
+            writer.WriteStartElement(null, "OfferTp", xmlNamespace );
+            OfferTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionFeatures is OptionFeaturesFormat24Choice_ OptionFeaturesValue)
+        {
+            writer.WriteStartElement(null, "OptnFeatrs", xmlNamespace );
+            OptionFeaturesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediateSecuritiesDistributionType is IntermediateSecuritiesDistributionTypeFormat15Choice_ IntermediateSecuritiesDistributionTypeValue)
+        {
+            writer.WriteStartElement(null, "IntrmdtSctiesDstrbtnTp", xmlNamespace );
+            IntermediateSecuritiesDistributionTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionAvailabilityStatus is OptionAvailabilityStatus3Choice_ OptionAvailabilityStatusValue)
+        {
+            writer.WriteStartElement(null, "OptnAvlbtySts", xmlNamespace );
+            OptionAvailabilityStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CertificationBreakdownType is BeneficiaryCertificationType9Choice_ CertificationBreakdownTypeValue)
+        {
+            writer.WriteStartElement(null, "CertfctnBrkdwnTp", xmlNamespace );
+            CertificationBreakdownTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NonDomicileCountry is CountryCode NonDomicileCountryValue)
+        {
+            writer.WriteStartElement(null, "NonDmclCtry", xmlNamespace );
+            writer.WriteValue(NonDomicileCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ValidDomicileCountry is CountryCode ValidDomicileCountryValue)
+        {
+            writer.WriteStartElement(null, "VldDmclCtry", xmlNamespace );
+            writer.WriteValue(ValidDomicileCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CurrencyOption is ActiveCurrencyCode CurrencyOptionValue)
+        {
+            writer.WriteStartElement(null, "CcyOptn", xmlNamespace );
+            writer.WriteValue(CurrencyOptionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DfltPrcgOrStgInstr", xmlNamespace );
+        DefaultProcessingOrStandingInstruction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ChargesAppliedIndicator is IsoYesNoIndicator ChargesAppliedIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ChrgsApldInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ChargesAppliedIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CertificationBreakdownIndicator is IsoYesNoIndicator CertificationBreakdownIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CertfctnBrkdwnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CertificationBreakdownIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (WithdrawalAllowedIndicator is IsoYesNoIndicator WithdrawalAllowedIndicatorValue)
+        {
+            writer.WriteStartElement(null, "WdrwlAllwdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(WithdrawalAllowedIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ChangeAllowedIndicator is IsoYesNoIndicator ChangeAllowedIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ChngAllwdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ChangeAllowedIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AppliedOptionIndicator is IsoYesNoIndicator AppliedOptionIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ApldOptnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AppliedOptionIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SecurityIdentification is SecurityIdentification19 SecurityIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SctyId", xmlNamespace );
+            SecurityIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DateDetails is CorporateActionDate75 DateDetailsValue)
+        {
+            writer.WriteStartElement(null, "DtDtls", xmlNamespace );
+            DateDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PeriodDetails is CorporateActionPeriod12 PeriodDetailsValue)
+        {
+            writer.WriteStartElement(null, "PrdDtls", xmlNamespace );
+            PeriodDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RateAndAmountDetails is CorporateActionRate100 RateAndAmountDetailsValue)
+        {
+            writer.WriteStartElement(null, "RateAndAmtDtls", xmlNamespace );
+            RateAndAmountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PriceDetails is CorporateActionPrice68 PriceDetailsValue)
+        {
+            writer.WriteStartElement(null, "PricDtls", xmlNamespace );
+            PriceDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesQuantity is SecuritiesOption51 SecuritiesQuantityValue)
+        {
+            writer.WriteStartElement(null, "SctiesQty", xmlNamespace );
+            SecuritiesQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesMovementDetails is SecuritiesOption71 SecuritiesMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "SctiesMvmntDtls", xmlNamespace );
+            SecuritiesMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashMovementDetails is CashOption72 CashMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "CshMvmntDtls", xmlNamespace );
+            CashMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is CorporateActionNarrative29 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionOption164 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

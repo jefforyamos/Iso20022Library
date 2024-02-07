@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the reason for requesting a debit authorisation as well as the amount of the requested debit.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DebitAuthorisationDetails2
+     : IIsoXmlSerilizable<DebitAuthorisationDetails2>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the reason for cancellation.
     /// </summary>
-    [DataMember]
     public required CancellationReason3Code CancellationReason { get; init; } 
     /// <summary>
     /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? AmountToDebit { get; init; } 
     /// <summary>
     /// Value date for debiting the amount.
     /// </summary>
-    [DataMember]
     public IsoISODate? ValueDateToDebit { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CxlRsn", xmlNamespace );
+        writer.WriteValue(CancellationReason.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AmountToDebit is IsoCurrencyAndAmount AmountToDebitValue)
+        {
+            writer.WriteStartElement(null, "AmtToDbt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(AmountToDebitValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ValueDateToDebit is IsoISODate ValueDateToDebitValue)
+        {
+            writer.WriteStartElement(null, "ValDtToDbt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ValueDateToDebitValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static DebitAuthorisationDetails2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the financial institution sending the request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RequestorDetails1
+     : IIsoXmlSerilizable<RequestorDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Date and time at which the request was created.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime DateTimeStamp { get; init; } 
     /// <summary>
     /// Identification of the requester.
     /// </summary>
-    [DataMember]
     public required IsoAnyBICIdentifier Requestor { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DtTmStmp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(DateTimeStamp)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rqstr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(Requestor)); // data type AnyBICIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static RequestorDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

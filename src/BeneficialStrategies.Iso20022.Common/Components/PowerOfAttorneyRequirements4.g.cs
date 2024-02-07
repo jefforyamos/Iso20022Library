@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Conditions to get power of attorney.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PowerOfAttorneyRequirements4
+     : IIsoXmlSerilizable<PowerOfAttorneyRequirements4>
 {
     #nullable enable
     
     /// <summary>
     /// Authority that must validate the power of attorney.
     /// </summary>
-    [DataMember]
-    public ValueList<PowerOfAttorneyLegalisation1Code> LegalRequirement { get; init; } = [];
+    public SimpleValueList<PowerOfAttorneyLegalisation1Code> LegalRequirement { get; init; } = [];
     /// <summary>
     /// Documents needed to obtain a valid power of attorney.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? OtherDocumentation { get; init; } 
     /// <summary>
     /// Date by which the requested documents must be provided.
     /// </summary>
-    [DataMember]
     public DateFormat58Choice_? DocumentSubmissionDeadline { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "LglRqrmnt", xmlNamespace );
+        writer.WriteValue(LegalRequirement.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherDocumentation is IsoMax350Text OtherDocumentationValue)
+        {
+            writer.WriteStartElement(null, "OthrDcmnttn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(OtherDocumentationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (DocumentSubmissionDeadline is DateFormat58Choice_ DocumentSubmissionDeadlineValue)
+        {
+            writer.WriteStartElement(null, "DocSubmissnDdln", xmlNamespace );
+            DocumentSubmissionDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PowerOfAttorneyRequirements4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

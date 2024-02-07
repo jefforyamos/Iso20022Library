@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// General Information, indicating the function of the message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GeneralInformation3
+     : IIsoXmlSerilizable<GeneralInformation3>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for the message, as assigned by the sender.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Indicates whether the message is sent as a request or as a response.
     /// </summary>
-    [DataMember]
     public required MessageFunction2Code MessageFunction { get; init; } 
     /// <summary>
     /// Reference to the request message for which the notification is sent.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RequestReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MsgFctn", xmlNamespace );
+        writer.WriteValue(MessageFunction.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (RequestReference is IsoMax35Text RequestReferenceValue)
+        {
+            writer.WriteStartElement(null, "ReqRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RequestReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static GeneralInformation3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

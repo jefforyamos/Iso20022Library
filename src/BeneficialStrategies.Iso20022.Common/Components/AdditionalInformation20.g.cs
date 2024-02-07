@@ -7,58 +7,113 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional information relevant to the destination.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalInformation20
+     : IIsoXmlSerilizable<AdditionalInformation20>
 {
     #nullable enable
     
     /// <summary>
     /// Recipient of the additional information to display, print, send or store.
     /// </summary>
-    [DataMember]
     public PartyType22Code? Recipient { get; init; } 
     /// <summary>
     /// Other type of recipient of action data.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherRecipient { get; init; } 
     /// <summary>
     /// Target of the additional information to print, display, send or store.
     /// </summary>
-    [DataMember]
-    public ValueList<UserInterface6Code> Target { get; init; } = []; // Warning: Don't know multiplicity.
+    public UserInterface6Code? Target { get; init; } 
     /// <summary>
     /// Other type of target for action data.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherTarget { get; init; } 
     /// <summary>
     /// Format of the additional information.
     /// </summary>
-    [DataMember]
     public OutputFormat4Code? Format { get; init; } 
     /// <summary>
     /// Other output format.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherFormat { get; init; } 
     /// <summary>
     /// Defines the type of the value.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Content of or reference to the message.
     /// </summary>
-    [DataMember]
     public required IsoMax20KText Value { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Recipient is PartyType22Code RecipientValue)
+        {
+            writer.WriteStartElement(null, "Rcpt", xmlNamespace );
+            writer.WriteValue(RecipientValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherRecipient is IsoMax35Text OtherRecipientValue)
+        {
+            writer.WriteStartElement(null, "OthrRcpt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherRecipientValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Target is UserInterface6Code TargetValue)
+        {
+            writer.WriteStartElement(null, "Trgt", xmlNamespace );
+            writer.WriteValue(TargetValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherTarget is IsoMax35Text OtherTargetValue)
+        {
+            writer.WriteStartElement(null, "OthrTrgt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTargetValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Format is OutputFormat4Code FormatValue)
+        {
+            writer.WriteStartElement(null, "Frmt", xmlNamespace );
+            writer.WriteValue(FormatValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherFormat is IsoMax35Text OtherFormatValue)
+        {
+            writer.WriteStartElement(null, "OthrFrmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherFormatValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Type is IsoMax35Text TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20KText(Value)); // data type Max20KText System.String
+        writer.WriteEndElement();
+    }
+    public static AdditionalInformation20 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

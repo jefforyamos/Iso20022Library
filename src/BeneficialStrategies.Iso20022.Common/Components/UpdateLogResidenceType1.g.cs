@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the old and new values for a residence type.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UpdateLogResidenceType1
+     : IIsoXmlSerilizable<UpdateLogResidenceType1>
 {
     #nullable enable
     
     /// <summary>
     /// Old value before the update.
     /// </summary>
-    [DataMember]
     public required ResidenceType1Code Old { get; init; } 
     /// <summary>
     /// New value after the update.
     /// </summary>
-    [DataMember]
     public required ResidenceType1Code New { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Od", xmlNamespace );
+        writer.WriteValue(Old.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "New", xmlNamespace );
+        writer.WriteValue(New.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static UpdateLogResidenceType1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

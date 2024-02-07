@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsin.FinancialInvoiceV01>;
 
 namespace BeneficialStrategies.Iso20022.tsin;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.tsin;
 /// The use of self-billing by the buyer to the seller, where the buyer acts as the invoice issuer or the process of handling an incorrect invoice, is not in scope.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The FinancialInvoice message is used to support the provision of financial and related services where there is a requirement to exchange invoice information.|Usage|While the prime function of the FinancialInvoice message is as a request from the seller to the buyer for payment, the FinancialInvoice message can also serve to evidence an invoice in support of a financial service such as invoice factoring, letters of credit, and bank payment obligations, to enable Web based services such as electronic bill payment and presentment, and as the basis to transfer invoice information via third parties such as e-invoicing service providers.|A consequence of the receipt of an invoice by the buyer is that it acts as a trigger for the use of related messages that are already defined in ISO 20022, notably where the information contained in the Financial Invoice enables payment for the goods or services received, and/or is provided in support of a request for invoice financing. While certain of these related messages, such as the CreditTransfer and PaymentInitiation messages, are shown in the sequence diagram they are out of scope. They are shown only to illustrate a given scenario and to place the invoice in the context of the financial banking processes that might be conducted between different financial institutions.|The use of self-billing by the buyer to the seller, where the buyer acts as the invoice issuer or the process of handling an incorrect invoice, is not in scope.")]
-public partial record FinancialInvoiceV01 : IOuterRecord
+public partial record FinancialInvoiceV01 : IOuterRecord<FinancialInvoiceV01,FinancialInvoiceV01Document>
+    ,IIsoXmlSerilizable<FinancialInvoiceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record FinancialInvoiceV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "FinInvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => FinancialInvoiceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -101,6 +108,41 @@ public partial record FinancialInvoiceV01 : IOuterRecord
     {
         return new FinancialInvoiceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("FinInvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "InvcHdr", xmlNamespace );
+        InvoiceHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradAgrmt", xmlNamespace );
+        TradeAgreement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradDlvry", xmlNamespace );
+        TradeDelivery.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradSttlm", xmlNamespace );
+        TradeSettlement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LineItem is LineItem10 LineItemValue)
+        {
+            writer.WriteStartElement(null, "LineItm", xmlNamespace );
+            LineItemValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInvoiceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -108,9 +150,7 @@ public partial record FinancialInvoiceV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInvoiceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record FinancialInvoiceV01Document : IOuterDocument<FinancialInvoiceV01>
+public partial record FinancialInvoiceV01Document : IOuterDocument<FinancialInvoiceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -126,5 +166,22 @@ public partial record FinancialInvoiceV01Document : IOuterDocument<FinancialInvo
     /// <summary>
     /// The instance of <seealso cref="FinancialInvoiceV01"/> is required.
     /// </summary>
+    [DataMember(Name=FinancialInvoiceV01.XmlTag)]
     public required FinancialInvoiceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(FinancialInvoiceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

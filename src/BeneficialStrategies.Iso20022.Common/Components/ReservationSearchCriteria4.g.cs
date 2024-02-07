@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to search for a reservation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReservationSearchCriteria4
+     : IIsoXmlSerilizable<ReservationSearchCriteria4>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a particular cash clearing system.
     /// </summary>
-    [DataMember]
     public SystemIdentification2Choice_? SystemIdentification { get; init; } 
     /// <summary>
     /// Type of reservation as set by default in the system. The default reservation is applicable by the system unless otherwise instructed.
     /// </summary>
-    [DataMember]
-    public ValueList<ReservationType2Choice_> DefaultReservationType { get; init; } = []; // Warning: Don't know multiplicity.
+    public ReservationType2Choice_? DefaultReservationType { get; init; } 
     /// <summary>
     /// Type of reservation applied by the system at the present time.
     /// </summary>
-    [DataMember]
-    public ValueList<ReservationType2Choice_> CurrentReservationType { get; init; } = []; // Warning: Don't know multiplicity.
+    public ReservationType2Choice_? CurrentReservationType { get; init; } 
     /// <summary>
     /// Owner of the account which is being queried.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? AccountOwner { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public AccountIdentification4Choice_? AccountIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SystemIdentification is SystemIdentification2Choice_ SystemIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SysId", xmlNamespace );
+            SystemIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DefaultReservationType is ReservationType2Choice_ DefaultReservationTypeValue)
+        {
+            writer.WriteStartElement(null, "DfltRsvatnTp", xmlNamespace );
+            DefaultReservationTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CurrentReservationType is ReservationType2Choice_ CurrentReservationTypeValue)
+        {
+            writer.WriteStartElement(null, "CurRsvatnTp", xmlNamespace );
+            CurrentReservationTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountOwner is BranchAndFinancialInstitutionIdentification6 AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountIdentification is AccountIdentification4Choice_ AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            AccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ReservationSearchCriteria4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

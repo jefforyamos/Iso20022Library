@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Capabilities of the terminal performing the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PointOfInteractionCapabilities4
+     : IIsoXmlSerilizable<PointOfInteractionCapabilities4>
 {
     #nullable enable
     
@@ -23,52 +24,110 @@ public partial record PointOfInteractionCapabilities4
     /// Card reading capabilities of the terminal performing the transaction. 
     /// It correspond to the ISO 8583 field number 22-2 for the version 93, and field number 27-1 for the version 2003.
     /// </summary>
-    [DataMember]
-    public ValueList<CardDataReading2Code> CardReadingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardDataReading2Code? CardReadingCapabilities { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _Ye6w0XrwEeSz_of_1TY14A
     /// <summary>
     /// Card writting capabilities of the terminal performing the transaction. 
     /// It correspond to the ISO 8583 field number 22-10 for the version 93, and field number 27-8_9 for the version 2003.
     /// </summary>
-    [DataMember]
-    public ValueList<CardDataReading3Code> CardWrittingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardDataReading3Code? CardWrittingCapabilities { get; init; } 
     /// <summary>
     /// Cardholder verification capabilities by the terminal. 
     /// It correspond to the ISO 8583 field number 22-2 for the versions 87 and 93, and field number 27-2 for the version 2003.
     /// </summary>
-    [DataMember]
-    public ValueList<CardholderVerificationCapability2Code> CardholderVerificationCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardholderVerificationCapability2Code? CardholderVerificationCapabilities { get; init; } 
     /// <summary>
     /// Maximum number of digits the POI is able to accept when the cardholder enters its PIN. 
     /// It correspond to the ISO 8583, field number 25 for the version 87, 22-12 for the version 93, and field number 27-11 for the version 2003.
     /// </summary>
-    [DataMember]
     public IsoNumber? PINLengthCapabilities { get; init; } 
     /// <summary>
     /// Maximum number of characters of the approval code the POI is able to manage.
     /// </summary>
-    [DataMember]
     public IsoNumber? ApprovalCodeLength { get; init; } 
     /// <summary>
     /// Maximum data length in bytes that a card issuer can return to the ICC at the terminal.
     /// </summary>
-    [DataMember]
     public IsoNumber? MaxScriptLength { get; init; } 
     /// <summary>
     /// True if the POI is able to capture card.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CardCaptureCapable { get; init; } 
     /// <summary>
     /// On-line and off-line capabilities of the POI (Point Of Interaction).
     /// </summary>
-    [DataMember]
     public OnLineCapability1Code? OnLineCapabilities { get; init; } 
     /// <summary>
     /// Capabilities of the terminal to display or print message to the cardholder and the merchant. 
     /// It correspond to the ISO 8583 field number 22-11 for the version 93, and field number 27-6 for the version 2003.
     /// </summary>
-    [DataMember]
-    public ValueList<DisplayCapabilities3> MessageCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    public DisplayCapabilities3? MessageCapabilities { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize CardReadingCapabilities, multiplicity Unknown
+        if (CardWrittingCapabilities is CardDataReading3Code CardWrittingCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "CardWrttgCpblties", xmlNamespace );
+            writer.WriteValue(CardWrittingCapabilitiesValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CardholderVerificationCapabilities is CardholderVerificationCapability2Code CardholderVerificationCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrVrfctnCpblties", xmlNamespace );
+            writer.WriteValue(CardholderVerificationCapabilitiesValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PINLengthCapabilities is IsoNumber PINLengthCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "PINLngthCpblties", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(PINLengthCapabilitiesValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (ApprovalCodeLength is IsoNumber ApprovalCodeLengthValue)
+        {
+            writer.WriteStartElement(null, "ApprvlCdLngth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(ApprovalCodeLengthValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (MaxScriptLength is IsoNumber MaxScriptLengthValue)
+        {
+            writer.WriteStartElement(null, "MxScrptLngth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MaxScriptLengthValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (CardCaptureCapable is IsoTrueFalseIndicator CardCaptureCapableValue)
+        {
+            writer.WriteStartElement(null, "CardCaptrCpbl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CardCaptureCapableValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (OnLineCapabilities is OnLineCapability1Code OnLineCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "OnLineCpblties", xmlNamespace );
+            writer.WriteValue(OnLineCapabilitiesValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MessageCapabilities is DisplayCapabilities3 MessageCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "MsgCpblties", xmlNamespace );
+            MessageCapabilitiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PointOfInteractionCapabilities4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

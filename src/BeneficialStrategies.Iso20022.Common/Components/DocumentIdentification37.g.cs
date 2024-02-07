@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a document and type of link.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DocumentIdentification37
+     : IIsoXmlSerilizable<DocumentIdentification37>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the document.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINXMax16Text Identification { get; init; } 
     /// <summary>
     /// Specifies when this document is to be processed relative to another referred document.
     /// </summary>
-    [DataMember]
     public ProcessingPosition10Choice_? LinkageType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax16Text(Identification)); // data type RestrictedFINXMax16Text System.String
+        writer.WriteEndElement();
+        if (LinkageType is ProcessingPosition10Choice_ LinkageTypeValue)
+        {
+            writer.WriteStartElement(null, "LkgTp", xmlNamespace );
+            LinkageTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DocumentIdentification37 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

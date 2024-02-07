@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AccountOrOperationalError5Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOrOperationalError5Choice
 /// Indicates that an operational error has been issued during the processing of the related request.
 /// </summary>
 public partial record OperationalError : AccountOrOperationalError5Choice_
+     , IIsoXmlSerilizable<OperationalError>
 {
     #nullable enable
+    
     /// <summary>
     /// Specification of the error, in coded or proprietary form.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record OperationalError : AccountOrOperationalError5Choice_
     /// Specification of the error, in free format.
     /// </summary>
     public IsoMax140Text? Description { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Err", xmlNamespace );
+        Error.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Description is IsoMax140Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(DescriptionValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new OperationalError Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

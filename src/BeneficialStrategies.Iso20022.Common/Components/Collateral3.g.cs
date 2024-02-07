@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the current and market value of the collateral held.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Collateral3
+     : IIsoXmlSerilizable<Collateral3>
 {
     #nullable enable
     
     /// <summary>
     /// Value of the collateral after deduction of a percentage (the haircut) that reflects the perceived risk associated with holding this collateral.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount PostHaircutValue { get; init; } 
     /// <summary>
     /// Value of the underlying collateral (cash, securities, LoC) based on current market prices.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount MarketValue { get; init; } 
     /// <summary>
     /// Provides the type of collateral, such as securities or cash.
     /// </summary>
-    [DataMember]
     public required CollateralType2Code CollateralType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PstHrcutVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PostHaircutValue)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MktVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MarketValue)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CollTp", xmlNamespace );
+        writer.WriteValue(CollateralType.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static Collateral3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique and unambiguous way to identify a system party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SystemPartyIdentification6
+     : IIsoXmlSerilizable<SystemPartyIdentification6>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification of the party referenced by a request.
     /// </summary>
-    [DataMember]
     public required PartyIdentification91 RelatedPartyIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the party responsible for the maintenance of the party reference data.
     /// </summary>
-    [DataMember]
     public FinancialInstitutionIdentification12? ResponsiblePartyIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RltdPtyId", xmlNamespace );
+        RelatedPartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ResponsiblePartyIdentification is FinancialInstitutionIdentification12 ResponsiblePartyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RspnsblPtyId", xmlNamespace );
+            ResponsiblePartyIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SystemPartyIdentification6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

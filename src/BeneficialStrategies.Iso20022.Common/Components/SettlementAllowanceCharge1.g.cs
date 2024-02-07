@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies a pricing component, such as a service, promotion, allowance or charge, for this trade settlement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementAllowanceCharge1
+     : IIsoXmlSerilizable<SettlementAllowanceCharge1>
 {
     #nullable enable
     
     /// <summary>
     /// Indication of whether or not this allowance charge is a charge.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? AllowanceChargeIndicator { get; init; } 
     /// <summary>
     /// Actual monetary amount specified for the allowance or charge.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoCurrencyAndAmount> ActualAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount? ActualAmount { get; init; } 
     /// <summary>
     /// Reason, expressed as text, for this allowance or charge.
     /// </summary>
-    [DataMember]
     public DiscountOrChargeType1Choice_? Reason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AllowanceChargeIndicator is IsoYesNoIndicator AllowanceChargeIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AllwncChrgInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AllowanceChargeIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ActualAmount is IsoCurrencyAndAmount ActualAmountValue)
+        {
+            writer.WriteStartElement(null, "ActlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(ActualAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Reason is DiscountOrChargeType1Choice_ ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            ReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementAllowanceCharge1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

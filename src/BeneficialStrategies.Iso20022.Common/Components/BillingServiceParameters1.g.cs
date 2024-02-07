@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the detailed parameters a service to be billed.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BillingServiceParameters1
+     : IIsoXmlSerilizable<BillingServiceParameters1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the details to fully identify the bank service.
     /// </summary>
-    [DataMember]
     public required BillingServiceIdentification1 BankService { get; init; } 
     /// <summary>
     /// Count or number of items (volume) involved in the charge.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? Volume { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BkSvc", xmlNamespace );
+        BankService.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Volume is IsoDecimalNumber VolumeValue)
+        {
+            writer.WriteStartElement(null, "Vol", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(VolumeValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static BillingServiceParameters1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action securities movement fraction disposition details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FractionDispositionTypeSD1
+     : IIsoXmlSerilizable<FractionDispositionTypeSD1>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Used for the fractional rule that cannot be classified in ISO (fractional disposition) in the event that fractional disposition is calculated specific to the beneficial owner positions. Identifies a scenario where the issuer / market announced fractional security rounding at beneficial holder level. Used in conjunction with a rounding factor. For an example if rounding factor is 0.6, this means that fractional units greater than or equal to 6 will be rounded up and less than 6 will be rounded down.
     /// </summary>
-    [DataMember]
     public FractionalSecurityRule1Code? FractionalSecurityRule { get; init; } 
     /// <summary>
     /// Decimal above which numbers are rounded. For an example if rounding factor is 0.6 this means that fractional units greater than or equal to 6 will be rounded up and less than 6 will be rounded down.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? RoundingFactor { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (FractionalSecurityRule is FractionalSecurityRule1Code FractionalSecurityRuleValue)
+        {
+            writer.WriteStartElement(null, "FrctnlSctyRule", xmlNamespace );
+            writer.WriteValue(FractionalSecurityRuleValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (RoundingFactor is IsoDecimalNumber RoundingFactorValue)
+        {
+            writer.WriteStartElement(null, "RndgFctr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(RoundingFactorValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static FractionDispositionTypeSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

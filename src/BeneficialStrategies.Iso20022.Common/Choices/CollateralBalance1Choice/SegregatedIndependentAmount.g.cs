@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CollateralBalance1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralBalance1Choice;
 /// Provides details about the collateral held, in transit or that still needs to be agreed by both parties, against the segregated independent amount only.
 /// </summary>
 public partial record SegregatedIndependentAmount : CollateralBalance1Choice_
+     , IIsoXmlSerilizable<SegregatedIndependentAmount>
 {
     #nullable enable
+    
     /// <summary>
     /// Post haircut market value of all margin collateral held by party A.
     /// </summary>
@@ -39,5 +43,59 @@ public partial record SegregatedIndependentAmount : CollateralBalance1Choice_
     /// Sum of all margin collateral movements due to party B in progress but not yet settled.
     /// </summary>
     public IsoActiveCurrencyAndAmount? InTransitToPartyB { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (HeldByPartyA is IsoActiveCurrencyAndAmount HeldByPartyAValue)
+        {
+            writer.WriteStartElement(null, "HeldByPtyA", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(HeldByPartyAValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (HeldByPartyB is IsoActiveCurrencyAndAmount HeldByPartyBValue)
+        {
+            writer.WriteStartElement(null, "HeldByPtyB", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(HeldByPartyBValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PriorAgreedToPartyA is IsoActiveCurrencyAndAmount PriorAgreedToPartyAValue)
+        {
+            writer.WriteStartElement(null, "PrrAgrdToPtyA", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PriorAgreedToPartyAValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PriorAgreedToPartyB is IsoActiveCurrencyAndAmount PriorAgreedToPartyBValue)
+        {
+            writer.WriteStartElement(null, "PrrAgrdToPtyB", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PriorAgreedToPartyBValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (InTransitToPartyA is IsoActiveCurrencyAndAmount InTransitToPartyAValue)
+        {
+            writer.WriteStartElement(null, "InTrnstToPtyA", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(InTransitToPartyAValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (InTransitToPartyB is IsoActiveCurrencyAndAmount InTransitToPartyBValue)
+        {
+            writer.WriteStartElement(null, "InTrnstToPtyB", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(InTransitToPartyBValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static new SegregatedIndependentAmount Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the amount reserved to cover the anticipated charges associated with the lodging stay.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AuthorisedAmount1
+     : IIsoXmlSerilizable<AuthorisedAmount1>
 {
     #nullable enable
     
     /// <summary>
     /// Date and time of the amount authorized
     /// </summary>
-    [DataMember]
     public IsoISODateTime? DateTime { get; init; } 
     /// <summary>
     /// Contains the amount.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Contains additional information about the authorized amount.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DateTime is IsoISODateTime DateTimeValue)
+        {
+            writer.WriteStartElement(null, "DtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(DateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(Amount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (AdditionalData is IsoMax350Text AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalDataValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AuthorisedAmount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

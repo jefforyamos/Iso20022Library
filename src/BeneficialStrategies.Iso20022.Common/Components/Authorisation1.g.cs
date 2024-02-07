@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Autorisation of the mandate holder.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Authorisation1
+     : IIsoXmlSerilizable<Authorisation1>
 {
     #nullable enable
     
     /// <summary>
     /// Minimum amount per transaction allowed by the mandate.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount MinimumAmountPerTransaction { get; init; } 
     /// <summary>
     /// Maximum amount per transaction allowed by the mandate.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount MaximumAmountPerTransaction { get; init; } 
     /// <summary>
     /// Maximum amount allowed over a specific period of time.
     /// </summary>
-    [DataMember]
-    public ValueList<MaximumAmountByPeriod1> MaximumAmountByPeriod { get; init; } = []; // Warning: Don't know multiplicity.
+    public MaximumAmountByPeriod1? MaximumAmountByPeriod { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MinAmtPerTx", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MinimumAmountPerTransaction)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MaxAmtPerTx", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MaximumAmountPerTransaction)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (MaximumAmountByPeriod is MaximumAmountByPeriod1 MaximumAmountByPeriodValue)
+        {
+            writer.WriteStartElement(null, "MaxAmtByPrd", xmlNamespace );
+            MaximumAmountByPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Authorisation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.auth.CCPPortfolioStressTestingDefinitionReportV01>;
 
 namespace BeneficialStrategies.Iso20022.auth;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// The CCPPortfolioStressTestingDefinitionReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority about how the central counterparty defines stress scenarios used to stress clearing member portfolios.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The CCPPortfolioStressTestingDefinitionReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority about how the central counterparty defines stress scenarios used to stress clearing member portfolios.")]
-public partial record CCPPortfolioStressTestingDefinitionReportV01 : IOuterRecord
+public partial record CCPPortfolioStressTestingDefinitionReportV01 : IOuterRecord<CCPPortfolioStressTestingDefinitionReportV01,CCPPortfolioStressTestingDefinitionReportV01Document>
+    ,IIsoXmlSerilizable<CCPPortfolioStressTestingDefinitionReportV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record CCPPortfolioStressTestingDefinitionReportV01 : IOuterRecor
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "CCPPrtflStrssTstgDefRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CCPPortfolioStressTestingDefinitionReportV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -66,6 +73,32 @@ public partial record CCPPortfolioStressTestingDefinitionReportV01 : IOuterRecor
     {
         return new CCPPortfolioStressTestingDefinitionReportV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("CCPPrtflStrssTstgDefRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ScnroDef", xmlNamespace );
+        ScenarioDefinition.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CCPPortfolioStressTestingDefinitionReportV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -73,9 +106,7 @@ public partial record CCPPortfolioStressTestingDefinitionReportV01 : IOuterRecor
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPPortfolioStressTestingDefinitionReportV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CCPPortfolioStressTestingDefinitionReportV01Document : IOuterDocument<CCPPortfolioStressTestingDefinitionReportV01>
+public partial record CCPPortfolioStressTestingDefinitionReportV01Document : IOuterDocument<CCPPortfolioStressTestingDefinitionReportV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -91,5 +122,22 @@ public partial record CCPPortfolioStressTestingDefinitionReportV01Document : IOu
     /// <summary>
     /// The instance of <seealso cref="CCPPortfolioStressTestingDefinitionReportV01"/> is required.
     /// </summary>
+    [DataMember(Name=CCPPortfolioStressTestingDefinitionReportV01.XmlTag)]
     public required CCPPortfolioStressTestingDefinitionReportV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CCPPortfolioStressTestingDefinitionReportV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

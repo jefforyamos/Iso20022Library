@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment related to the reconciliation of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Environment4
+     : IIsoXmlSerilizable<Environment4>
 {
     #nullable enable
     
     /// <summary>
     /// Originator of the message.
     /// </summary>
-    [DataMember]
     public Originator1? Originator { get; init; } 
     /// <summary>
     /// Destination of the message.
     /// </summary>
-    [DataMember]
     public required Destination1 Destination { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Originator is Originator1 OriginatorValue)
+        {
+            writer.WriteStartElement(null, "Orgtr", xmlNamespace );
+            OriginatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Dstn", xmlNamespace );
+        Destination.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static Environment4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.semt.SecuritiesEndOfProcessReportV01>;
 
 namespace BeneficialStrategies.Iso20022.semt;
 
@@ -30,10 +33,9 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// Respondent: Custodian or an affirming party does not need to respond.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|Sent by an executing party or an instructing party to the custodian or an affirming party to notify that all the necessary SecuritiesTradeConfirmation message or any other notification of the process have been sent.|It may also be sent through Central Matching Utility (CMU).|The instructing party is typically the investment manager or an intermediary system/vendor communicating on behalf of the investment manager.|The executing party is typically the broker/dealer or an intermediary system/vendor communicating on behalf of the broker/dealer.|The custodian or an affirming party is typically the custodian, trustee, financial institution, intermediary system/vendor communicating on behalf of them, or their agent.|The ISO 20022 Business Application Header must be used|Usage|Initiator: Executing Party, CMU or Instructing Party|Respondent: Custodian or an affirming party does not need to respond.")]
-public partial record SecuritiesEndOfProcessReportV01 : IOuterRecord
+public partial record SecuritiesEndOfProcessReportV01 : IOuterRecord<SecuritiesEndOfProcessReportV01,SecuritiesEndOfProcessReportV01Document>
+    ,IIsoXmlSerilizable<SecuritiesEndOfProcessReportV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -45,6 +47,11 @@ public partial record SecuritiesEndOfProcessReportV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "SctiesEndOfPrcRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SecuritiesEndOfProcessReportV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -102,6 +109,50 @@ public partial record SecuritiesEndOfProcessReportV01 : IOuterRecord
     {
         return new SecuritiesEndOfProcessReportV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("SctiesEndOfPrcRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Pagination is Pagination PaginationValue)
+        {
+            writer.WriteStartElement(null, "Pgntn", xmlNamespace );
+            PaginationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RptGnlDtls", xmlNamespace );
+        ReportGeneralDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ConfirmationParties is ConfirmationParties2 ConfirmationPartiesValue)
+        {
+            writer.WriteStartElement(null, "ConfPties", xmlNamespace );
+            ConfirmationPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Investor is PartyIdentificationAndAccount79 InvestorValue)
+        {
+            writer.WriteStartElement(null, "Invstr", xmlNamespace );
+            InvestorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesEndOfProcessReportV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -109,9 +160,7 @@ public partial record SecuritiesEndOfProcessReportV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesEndOfProcessReportV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SecuritiesEndOfProcessReportV01Document : IOuterDocument<SecuritiesEndOfProcessReportV01>
+public partial record SecuritiesEndOfProcessReportV01Document : IOuterDocument<SecuritiesEndOfProcessReportV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -127,5 +176,22 @@ public partial record SecuritiesEndOfProcessReportV01Document : IOuterDocument<S
     /// <summary>
     /// The instance of <seealso cref="SecuritiesEndOfProcessReportV01"/> is required.
     /// </summary>
+    [DataMember(Name=SecuritiesEndOfProcessReportV01.XmlTag)]
     public required SecuritiesEndOfProcessReportV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SecuritiesEndOfProcessReportV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

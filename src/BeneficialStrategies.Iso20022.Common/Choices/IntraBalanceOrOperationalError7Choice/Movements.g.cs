@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.IntraBalanceOrOperationalError7Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraBalanceOrOperationalError7C
 /// Identifies the transactions.
 /// </summary>
 public partial record Movements : IntraBalanceOrOperationalError7Choice_
+     , IIsoXmlSerilizable<Movements>
 {
     #nullable enable
+    
     /// <summary>
     /// Account to or from which an entry is made.
     /// </summary>
@@ -35,5 +39,49 @@ public partial record Movements : IntraBalanceOrOperationalError7Choice_
     /// Further details on the individual intrabalance movement transaction.
     /// </summary>
     public IntraBalanceMovement5? Movement { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _YN1OfTneEem7JZMuWtwtsg
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CashAccount is CashAccount38 CashAccountValue)
+        {
+            writer.WriteStartElement(null, "CshAcct", xmlNamespace );
+            CashAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccountOwner is SystemPartyIdentification8 CashAccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "CshAcctOwnr", xmlNamespace );
+            CashAccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccountServicer is BranchAndFinancialInstitutionIdentification6 CashAccountServicerValue)
+        {
+            writer.WriteStartElement(null, "CshAcctSvcr", xmlNamespace );
+            CashAccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StatusAndReason is IntraBalanceStatusAndReason2 StatusAndReasonValue)
+        {
+            writer.WriteStartElement(null, "StsAndRsn", xmlNamespace );
+            StatusAndReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize Movement, multiplicity Unknown
+    }
+    public static new Movements Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

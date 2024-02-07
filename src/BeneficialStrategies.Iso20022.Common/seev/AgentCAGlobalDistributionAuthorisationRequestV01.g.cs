@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.AgentCAGlobalDistributionAuthorisationRequestV01>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// This message can also be used to pre-advise a global distribution authorisation request, in which case the value of the field pre-advice indicator must be set to yes.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|This message is sent by a CSD to an issuer (or its agent) to request the authorisation to process the entitlement movements (cash and/or securities) calculated by the CSD for a given corporate action entire event, a given corporate action option and optionally a given resource.|This message can also be sent to request the issuer (or its agent) to make available / deliver the relevant resources to the CSD.|Usage|This message is used to request the authorisation to process the entitlement movements calculated by the CSD for a given corporate action event and option. An Agent Corporate Action Global Distribution Authorisation Request message must be sent for each option and if several resources are associated to an option, an Agent Corporate Action Global Distribution Authorisation Request message can be sent for each resource.|This message can also be used to pre-advise a global distribution authorisation request, in which case the value of the field pre-advice indicator must be set to yes.")]
-public partial record AgentCAGlobalDistributionAuthorisationRequestV01 : IOuterRecord
+public partial record AgentCAGlobalDistributionAuthorisationRequestV01 : IOuterRecord<AgentCAGlobalDistributionAuthorisationRequestV01,AgentCAGlobalDistributionAuthorisationRequestV01Document>
+    ,IIsoXmlSerilizable<AgentCAGlobalDistributionAuthorisationRequestV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record AgentCAGlobalDistributionAuthorisationRequestV01 : IOuterR
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AgtCAGblDstrbtnAuthstnReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AgentCAGlobalDistributionAuthorisationRequestV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -82,6 +89,32 @@ public partial record AgentCAGlobalDistributionAuthorisationRequestV01 : IOuterR
     {
         return new AgentCAGlobalDistributionAuthorisationRequestV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AgtCAGblDstrbtnAuthstnReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+        CorporateActionGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "GblDstrbtnDtls", xmlNamespace );
+        GlobalDistributionDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static AgentCAGlobalDistributionAuthorisationRequestV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -89,9 +122,7 @@ public partial record AgentCAGlobalDistributionAuthorisationRequestV01 : IOuterR
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAGlobalDistributionAuthorisationRequestV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AgentCAGlobalDistributionAuthorisationRequestV01Document : IOuterDocument<AgentCAGlobalDistributionAuthorisationRequestV01>
+public partial record AgentCAGlobalDistributionAuthorisationRequestV01Document : IOuterDocument<AgentCAGlobalDistributionAuthorisationRequestV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -107,5 +138,22 @@ public partial record AgentCAGlobalDistributionAuthorisationRequestV01Document :
     /// <summary>
     /// The instance of <seealso cref="AgentCAGlobalDistributionAuthorisationRequestV01"/> is required.
     /// </summary>
+    [DataMember(Name=AgentCAGlobalDistributionAuthorisationRequestV01.XmlTag)]
     public required AgentCAGlobalDistributionAuthorisationRequestV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AgentCAGlobalDistributionAuthorisationRequestV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

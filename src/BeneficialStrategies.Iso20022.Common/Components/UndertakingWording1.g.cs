@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the wording for a demand guarantee, standby letter of credit or other undertaking.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UndertakingWording1
+     : IIsoXmlSerilizable<UndertakingWording1>
 {
     #nullable enable
     
     /// <summary>
     /// Wording template for the undertaking content made available for use with certain governance rules or made available by particular institutions.
     /// </summary>
-    [DataMember]
     public ModelFormIdentification1? ModelForm { get; init; } 
     /// <summary>
     /// Language of the standard wording provided by the issuer.
     /// </summary>
-    [DataMember]
     public ISO2ALanguageCode? RequestedWordingLanguage { get; init; } 
     /// <summary>
     /// Terms and conditions of the undertaking.
     /// </summary>
-    [DataMember]
-    public ValueList<Narrative1> UndertakingTermsAndConditions { get; init; } = []; // Warning: Don't know multiplicity.
+    public Narrative1? UndertakingTermsAndConditions { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ModelForm is ModelFormIdentification1 ModelFormValue)
+        {
+            writer.WriteStartElement(null, "MdlForm", xmlNamespace );
+            ModelFormValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequestedWordingLanguage is ISO2ALanguageCode RequestedWordingLanguageValue)
+        {
+            writer.WriteStartElement(null, "ReqdWrdgLang", xmlNamespace );
+            writer.WriteValue(RequestedWordingLanguageValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (UndertakingTermsAndConditions is Narrative1 UndertakingTermsAndConditionsValue)
+        {
+            writer.WriteStartElement(null, "UdrtkgTermsAndConds", xmlNamespace );
+            UndertakingTermsAndConditionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static UndertakingWording1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

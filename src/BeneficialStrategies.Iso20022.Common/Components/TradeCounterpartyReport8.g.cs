@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of the trade counterparties in the contract.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeCounterpartyReport8
+     : IIsoXmlSerilizable<TradeCounterpartyReport8>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the reporting counterparty.
     /// </summary>
-    [DataMember]
     public required Counterparty25 ReportingCounterparty { get; init; } 
     /// <summary>
     /// Identification of the other counterparty in the transaction.
     /// </summary>
-    [DataMember]
     public required Counterparty28 OtherCounterparty { get; init; } 
     /// <summary>
     /// Identification of the broker as an intermediary for the reporting counterparty.
     /// </summary>
-    [DataMember]
     public OrganisationIdentification9Choice_? Broker { get; init; } 
     /// <summary>
     /// Identification of the submitting agent in the case where the reporting counterparty has delegated the submission of the report to a third party or to the other counterparty.
     /// </summary>
-    [DataMember]
     public OrganisationIdentification9Choice_? SubmittingAgent { get; init; } 
     /// <summary>
     /// Identification of the clearing member in the case where the trade is cleared.
     /// </summary>
-    [DataMember]
     public OrganisationIdentification9Choice_? ClearingMember { get; init; } 
     /// <summary>
     /// Identification of the beneficiary who is subject to the rights and obligations arising from the contract.
     /// </summary>
-    [DataMember]
     public OrganisationIdentification9Choice_? Beneficiary { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptgCtrPty", xmlNamespace );
+        ReportingCounterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrCtrPty", xmlNamespace );
+        OtherCounterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Broker is OrganisationIdentification9Choice_ BrokerValue)
+        {
+            writer.WriteStartElement(null, "Brkr", xmlNamespace );
+            BrokerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SubmittingAgent is OrganisationIdentification9Choice_ SubmittingAgentValue)
+        {
+            writer.WriteStartElement(null, "SubmitgAgt", xmlNamespace );
+            SubmittingAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingMember is OrganisationIdentification9Choice_ ClearingMemberValue)
+        {
+            writer.WriteStartElement(null, "ClrMmb", xmlNamespace );
+            ClearingMemberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Beneficiary is OrganisationIdentification9Choice_ BeneficiaryValue)
+        {
+            writer.WriteStartElement(null, "Bnfcry", xmlNamespace );
+            BeneficiaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeCounterpartyReport8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

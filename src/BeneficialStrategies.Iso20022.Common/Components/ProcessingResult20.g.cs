@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Outcome of the processing of the batch.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProcessingResult20
+     : IIsoXmlSerilizable<ProcessingResult20>
 {
     #nullable enable
     
     /// <summary>
     /// Result information related to the processing of the transaction.
     /// </summary>
-    [DataMember]
     public required ResultData8 ResultData { get; init; } 
     /// <summary>
     /// Outcome of a previous processing, for example, in response to a duplicate request.
     /// </summary>
-    [DataMember]
     public ResultData7? OriginalResultData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RsltData", xmlNamespace );
+        ResultData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OriginalResultData is ResultData7 OriginalResultDataValue)
+        {
+            writer.WriteStartElement(null, "OrgnlRsltData", xmlNamespace );
+            OriginalResultDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ProcessingResult20 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

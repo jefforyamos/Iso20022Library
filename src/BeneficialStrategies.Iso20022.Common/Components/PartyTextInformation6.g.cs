@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding the party, for example, the contact unit or person responsible for the transaction identified in the message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyTextInformation6
+     : IIsoXmlSerilizable<PartyTextInformation6>
 {
     #nullable enable
     
     /// <summary>
     /// Provides declaration details narrative relative to the party.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? DeclarationDetails { get; init; } 
     /// <summary>
     /// Provides additional information regarding the party, for example, the contact unit or person responsible for the transaction identified in the message.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? PartyContactDetails { get; init; } 
     /// <summary>
     /// Provides information required for the registration.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? RegistrationDetails { get; init; } 
     /// <summary>
     /// Address of the nominee company that holds the assets at the transfer agent or International Central Securities Depository or Central Securities Depository on behalf of the party.
     /// </summary>
-    [DataMember]
     public PostalAddress1? RegistrationAddress { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DeclarationDetails is IsoMax350Text DeclarationDetailsValue)
+        {
+            writer.WriteStartElement(null, "DclrtnDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(DeclarationDetailsValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (PartyContactDetails is IsoMax140Text PartyContactDetailsValue)
+        {
+            writer.WriteStartElement(null, "PtyCtctDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(PartyContactDetailsValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (RegistrationDetails is IsoMax350Text RegistrationDetailsValue)
+        {
+            writer.WriteStartElement(null, "RegnDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(RegistrationDetailsValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (RegistrationAddress is PostalAddress1 RegistrationAddressValue)
+        {
+            writer.WriteStartElement(null, "RegnAdr", xmlNamespace );
+            RegistrationAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyTextInformation6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

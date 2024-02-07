@@ -7,113 +7,226 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the rates related to securities movement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RateDetails25
+     : IIsoXmlSerilizable<RateDetails25>
 {
     #nullable enable
     
     /// <summary>
     /// Rate used for additional tax that cannot be categorised.
     /// </summary>
-    [DataMember]
     public RateAndAmountFormat46Choice_? AdditionalTax { get; init; } 
     /// <summary>
     /// Cash dividend amount per equity before deductions or allowances have been made.
     /// </summary>
-    [DataMember]
-    public ValueList<GrossDividendRateFormat26Choice_> GrossDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
+    public GrossDividendRateFormat26Choice_? GrossDividendRate { get; init; } 
     /// <summary>
     /// The actual interest rate used for the payment of the interest for the specified interest period. |Usage guideline: It is used to provide the applicable rate for the current payment, after all calculations have been performed, that is, application of period and method of interest computation.
     /// </summary>
-    [DataMember]
-    public ValueList<InterestRateUsedForPaymentFormat10Choice_> InterestRateUsedForPayment { get; init; } = []; // Warning: Don't know multiplicity.
+    public InterestRateUsedForPaymentFormat10Choice_? InterestRateUsedForPayment { get; init; } 
     /// <summary>
     /// Percentage of a cash distribution that will be withheld by the tax authorities of the jurisdiction of the issuer, for which a relief at source and/or reclaim may be possible.
     /// </summary>
-    [DataMember]
-    public ValueList<RateAndAmountFormat47Choice_> WithholdingTaxRate { get; init; } = []; // Warning: Don't know multiplicity.
+    public RateAndAmountFormat47Choice_? WithholdingTaxRate { get; init; } 
     /// <summary>
     /// Rate at which the income will be withheld by a jurisdiction other than the jurisdiction of the issuer’s country of tax incorporation, for which a relief at source and/or reclaim may be possible. It is levied in complement or offset of the withholding tax rate (TAXR) levied by the jurisdiction of the issuer’s tax domicile.
     /// </summary>
-    [DataMember]
-    public ValueList<RateAndAmountFormat47Choice_> SecondLevelTax { get; init; } = []; // Warning: Don't know multiplicity.
+    public RateAndAmountFormat47Choice_? SecondLevelTax { get; init; } 
     /// <summary>
     /// Rate used to calculate the amount of the charges/fees that cannot be categorised.
     /// </summary>
-    [DataMember]
     public RateAndAmountFormat46Choice_? ChargesFees { get; init; } 
     /// <summary>
     /// Cash rate made available, as an incentive, in addition to the solicitation fee, in order to encourage early participation in an offer.
     /// </summary>
-    [DataMember]
     public SolicitationFeeRateFormat10Choice_? EarlySolicitationFeeRate { get; init; } 
     /// <summary>
     /// Percentage of fiscal tax to apply.
     /// </summary>
-    [DataMember]
     public RateFormat3Choice_? FiscalStamp { get; init; } 
     /// <summary>
     /// Rate resulting from a fully franked dividend paid by a company; rate includes tax credit for companies that have made sufficient tax payments during fiscal period.
     /// </summary>
-    [DataMember]
     public RateAndAmountFormat46Choice_? FullyFrankedRate { get; init; } 
     /// <summary>
     /// Cash rate made available in an event in order to encourage participation in the offer. As information, payment is made to a third party who has solicited an entity to take part in the offer.
     /// </summary>
-    [DataMember]
     public RateFormat21Choice_? ThirdPartyIncentiveRate { get; init; } 
     /// <summary>
     /// Cash dividend amount per equity after deductions or allowances have been made.
     /// </summary>
-    [DataMember]
-    public ValueList<NetDividendRateFormat28Choice_> NetDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
+    public NetDividendRateFormat28Choice_? NetDividendRate { get; init; } 
     /// <summary>
     /// Rate per share to which a non-resident is entitled.
     /// </summary>
-    [DataMember]
     public RateAndAmountFormat46Choice_? NonResidentRate { get; init; } 
     /// <summary>
     /// Rate applicable to the event announced, for example, redemption rate for a redemption event.
     /// </summary>
-    [DataMember]
     public RateFormat3Choice_? ApplicableRate { get; init; } 
     /// <summary>
     /// Rate of the cash premium made available if the securities holder consents or participates to an event, for example consent fees or solicitation fee.
     /// </summary>
-    [DataMember]
     public SolicitationFeeRateFormat10Choice_? SolicitationFeeRate { get; init; } 
     /// <summary>
     /// Amount of money per equity allocated as the result of a tax credit.
     /// </summary>
-    [DataMember]
-    public ValueList<TaxCreditRateFormat10Choice_> TaxCreditRate { get; init; } = []; // Warning: Don't know multiplicity.
+    public TaxCreditRateFormat10Choice_? TaxCreditRate { get; init; } 
     /// <summary>
     /// Overall tax withheld at source by fund managers prior to considering the tax obligation of each unit holder.
     /// </summary>
-    [DataMember]
     public RateAndAmountFormat46Choice_? TaxOnIncome { get; init; } 
     /// <summary>
     /// Taxation applied on an amount clearly identified as capital profits, capital gains.
     /// </summary>
-    [DataMember]
     public RateFormat3Choice_? TaxOnProfits { get; init; } 
     /// <summary>
     /// Percentage of cash that was paid in excess of actual tax obligation and was reclaimed.
     /// </summary>
-    [DataMember]
     public RateFormat3Choice_? TaxReclaimRate { get; init; } 
     /// <summary>
     /// Portion of the fund distribution which represents the average accrued income included in the purchase price for units bought during the account period.
     /// </summary>
-    [DataMember]
     public RateAndAmountFormat48Choice_? EqualisationRate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AdditionalTax is RateAndAmountFormat46Choice_ AdditionalTaxValue)
+        {
+            writer.WriteStartElement(null, "AddtlTax", xmlNamespace );
+            AdditionalTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GrossDividendRate is GrossDividendRateFormat26Choice_ GrossDividendRateValue)
+        {
+            writer.WriteStartElement(null, "GrssDvddRate", xmlNamespace );
+            GrossDividendRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestRateUsedForPayment is InterestRateUsedForPaymentFormat10Choice_ InterestRateUsedForPaymentValue)
+        {
+            writer.WriteStartElement(null, "IntrstRateUsdForPmt", xmlNamespace );
+            InterestRateUsedForPaymentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (WithholdingTaxRate is RateAndAmountFormat47Choice_ WithholdingTaxRateValue)
+        {
+            writer.WriteStartElement(null, "WhldgTaxRate", xmlNamespace );
+            WithholdingTaxRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecondLevelTax is RateAndAmountFormat47Choice_ SecondLevelTaxValue)
+        {
+            writer.WriteStartElement(null, "ScndLvlTax", xmlNamespace );
+            SecondLevelTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ChargesFees is RateAndAmountFormat46Choice_ ChargesFeesValue)
+        {
+            writer.WriteStartElement(null, "ChrgsFees", xmlNamespace );
+            ChargesFeesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EarlySolicitationFeeRate is SolicitationFeeRateFormat10Choice_ EarlySolicitationFeeRateValue)
+        {
+            writer.WriteStartElement(null, "EarlySlctnFeeRate", xmlNamespace );
+            EarlySolicitationFeeRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FiscalStamp is RateFormat3Choice_ FiscalStampValue)
+        {
+            writer.WriteStartElement(null, "FsclStmp", xmlNamespace );
+            FiscalStampValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FullyFrankedRate is RateAndAmountFormat46Choice_ FullyFrankedRateValue)
+        {
+            writer.WriteStartElement(null, "FullyFrnkdRate", xmlNamespace );
+            FullyFrankedRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ThirdPartyIncentiveRate is RateFormat21Choice_ ThirdPartyIncentiveRateValue)
+        {
+            writer.WriteStartElement(null, "ThrdPtyIncntivRate", xmlNamespace );
+            ThirdPartyIncentiveRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NetDividendRate is NetDividendRateFormat28Choice_ NetDividendRateValue)
+        {
+            writer.WriteStartElement(null, "NetDvddRate", xmlNamespace );
+            NetDividendRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NonResidentRate is RateAndAmountFormat46Choice_ NonResidentRateValue)
+        {
+            writer.WriteStartElement(null, "NonResdtRate", xmlNamespace );
+            NonResidentRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ApplicableRate is RateFormat3Choice_ ApplicableRateValue)
+        {
+            writer.WriteStartElement(null, "AplblRate", xmlNamespace );
+            ApplicableRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SolicitationFeeRate is SolicitationFeeRateFormat10Choice_ SolicitationFeeRateValue)
+        {
+            writer.WriteStartElement(null, "SlctnFeeRate", xmlNamespace );
+            SolicitationFeeRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxCreditRate is TaxCreditRateFormat10Choice_ TaxCreditRateValue)
+        {
+            writer.WriteStartElement(null, "TaxCdtRate", xmlNamespace );
+            TaxCreditRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxOnIncome is RateAndAmountFormat46Choice_ TaxOnIncomeValue)
+        {
+            writer.WriteStartElement(null, "TaxOnIncm", xmlNamespace );
+            TaxOnIncomeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxOnProfits is RateFormat3Choice_ TaxOnProfitsValue)
+        {
+            writer.WriteStartElement(null, "TaxOnPrfts", xmlNamespace );
+            TaxOnProfitsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxReclaimRate is RateFormat3Choice_ TaxReclaimRateValue)
+        {
+            writer.WriteStartElement(null, "TaxRclmRate", xmlNamespace );
+            TaxReclaimRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EqualisationRate is RateAndAmountFormat48Choice_ EqualisationRateValue)
+        {
+            writer.WriteStartElement(null, "EqulstnRate", xmlNamespace );
+            EqualisationRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RateDetails25 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

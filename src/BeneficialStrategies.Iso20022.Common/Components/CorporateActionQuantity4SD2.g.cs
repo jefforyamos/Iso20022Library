@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Extension to specify corporate action quantities.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionQuantity4SD2
+     : IIsoXmlSerilizable<CorporateActionQuantity4SD2>
 {
     #nullable enable
     
@@ -23,42 +24,94 @@ public partial record CorporateActionQuantity4SD2
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance. 
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Planned number of shares to be purchased.
     ///  買付予定株式数.
     /// </summary>
-    [DataMember]
     public PlannedQuantity1Choice_? PlannedQuantity { get; init; } 
     /// <summary>
     /// Planned excess quantity of share purchase.
     /// 買付超過予定数
     /// </summary>
-    [DataMember]
     public PlannedQuantity1Choice_? PlannedExcessPurchaseQuantity { get; init; } 
     /// <summary>
     /// TSE/JASDEC code for the minimum number of shares to be purchased when the corporate action event type code is TEND or BIDS.
     /// 買付株数に係る下限設定が「下限設定あり」「未定」.
     /// </summary>
-    [DataMember]
     public SecuritiesQuantity1Code? MinimumQuantityCode { get; init; } 
     /// <summary>
     /// TSE/JASDEC code for the maximum number of shares to be purchased when the corporate action event type code is TEND or BIDS.
     ///  買付株数に係る上限設定が「上限設定あり」「未定」.
     /// </summary>
-    [DataMember]
     public SecuritiesQuantity1Code? MaximumQuantityCode { get; init; } 
     /// <summary>
     /// Old share unit quantity.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity15Choice_? OldShareUnitQuantity { get; init; } 
     /// <summary>
     /// New share unit quantity.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity15Choice_? NewShareUnitQuantity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (PlannedQuantity is PlannedQuantity1Choice_ PlannedQuantityValue)
+        {
+            writer.WriteStartElement(null, "PlandQty", xmlNamespace );
+            PlannedQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PlannedExcessPurchaseQuantity is PlannedQuantity1Choice_ PlannedExcessPurchaseQuantityValue)
+        {
+            writer.WriteStartElement(null, "PlandXcssPurchsQty", xmlNamespace );
+            PlannedExcessPurchaseQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MinimumQuantityCode is SecuritiesQuantity1Code MinimumQuantityCodeValue)
+        {
+            writer.WriteStartElement(null, "MinQtyCd", xmlNamespace );
+            writer.WriteValue(MinimumQuantityCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MaximumQuantityCode is SecuritiesQuantity1Code MaximumQuantityCodeValue)
+        {
+            writer.WriteStartElement(null, "MaxQtyCd", xmlNamespace );
+            writer.WriteValue(MaximumQuantityCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OldShareUnitQuantity is FinancialInstrumentQuantity15Choice_ OldShareUnitQuantityValue)
+        {
+            writer.WriteStartElement(null, "OdShrUnitQty", xmlNamespace );
+            OldShareUnitQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewShareUnitQuantity is FinancialInstrumentQuantity15Choice_ NewShareUnitQuantityValue)
+        {
+            writer.WriteStartElement(null, "NewShrUnitQty", xmlNamespace );
+            NewShareUnitQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionQuantity4SD2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

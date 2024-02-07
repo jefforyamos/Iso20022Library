@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the acceptor configuration.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AcceptorConfigurationContent2
+     : IIsoXmlSerilizable<AcceptorConfigurationContent2>
 {
     #nullable enable
     
     /// <summary>
     /// Acceptor parameters dedicated to an acquirer protocol.
     /// </summary>
-    [DataMember]
-    public ValueList<AcquirerProtocolParameters3> AcquirerProtocolParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public AcquirerProtocolParameters3? AcquirerProtocolParameters { get; init; } 
     /// <summary>
     /// Acceptor parameters dedicated to the merchant.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax10000Binary> MerchantParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax10000Binary? MerchantParameters { get; init; } 
     /// <summary>
     /// Manufacturer configuration parameters of the point of interaction.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax10000Binary> TerminalParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax10000Binary? TerminalParameters { get; init; } 
     /// <summary>
     /// Acceptor parameters dedicated to a payment application of the point of interaction.
     /// </summary>
-    [DataMember]
-    public ValueList<ApplicationParameters2> ApplicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public ApplicationParameters2? ApplicationParameters { get; init; } 
     /// <summary>
     /// Acceptor parameters dedicated to the communication with an acquirer host.
     /// </summary>
-    [DataMember]
-    public ValueList<HostCommunicationParameter2> HostCommunicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public HostCommunicationParameter2? HostCommunicationParameters { get; init; } 
     /// <summary>
     /// Point of interaction parameters related to the security of software application and application protocol.
     /// </summary>
-    [DataMember]
-    public ValueList<SecurityParameters1> SecurityParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecurityParameters1? SecurityParameters { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AcquirerProtocolParameters is AcquirerProtocolParameters3 AcquirerProtocolParametersValue)
+        {
+            writer.WriteStartElement(null, "AcqrrPrtcolParams", xmlNamespace );
+            AcquirerProtocolParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MerchantParameters is IsoMax10000Binary MerchantParametersValue)
+        {
+            writer.WriteStartElement(null, "MrchntParams", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(MerchantParametersValue)); // data type Max10000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (TerminalParameters is IsoMax10000Binary TerminalParametersValue)
+        {
+            writer.WriteStartElement(null, "TermnlParams", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(TerminalParametersValue)); // data type Max10000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (ApplicationParameters is ApplicationParameters2 ApplicationParametersValue)
+        {
+            writer.WriteStartElement(null, "ApplParams", xmlNamespace );
+            ApplicationParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (HostCommunicationParameters is HostCommunicationParameter2 HostCommunicationParametersValue)
+        {
+            writer.WriteStartElement(null, "HstComParams", xmlNamespace );
+            HostCommunicationParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecurityParameters is SecurityParameters1 SecurityParametersValue)
+        {
+            writer.WriteStartElement(null, "SctyParams", xmlNamespace );
+            SecurityParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AcceptorConfigurationContent2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

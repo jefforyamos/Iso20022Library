@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Query criteria regarding action type, product classification, venue of execution, asset class, corporate sector nature of counterparty.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeAdditionalQueryCriteria7
+     : IIsoXmlSerilizable<TradeAdditionalQueryCriteria7>
 {
     #nullable enable
     
     /// <summary>
     /// Action types allowed as query criteria.
     /// </summary>
-    [DataMember]
-    public ValueList<TransactionOperationType6Code> ActionType { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransactionOperationType6Code? ActionType { get; init; } 
     /// <summary>
     /// Indicates the execution venue of the reported transaction.
     /// </summary>
-    [DataMember]
     public SecuritiesTradeVenueCriteria1Choice_? ExecutionVenue { get; init; } 
     /// <summary>
     /// Indicates the nature of the reporting counterparty (if it is a central counterparty (CCP), a financial counterparty, a non-financial counterparty or another type of counterparty).
     /// </summary>
-    [DataMember]
-    public ValueList<PartyNatureType1Code> NatureOfCounterparty { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyNatureType1Code? NatureOfCounterparty { get; init; } 
     /// <summary>
     /// Specifies the corporate sector of the reporting counterparty.
     /// </summary>
-    [DataMember]
-    public ValueList<CorporateSectorCriteria5> CorporateSector { get; init; } = []; // Warning: Don't know multiplicity.
+    public CorporateSectorCriteria5? CorporateSector { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ActionType is TransactionOperationType6Code ActionTypeValue)
+        {
+            writer.WriteStartElement(null, "ActnTp", xmlNamespace );
+            writer.WriteValue(ActionTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExecutionVenue is SecuritiesTradeVenueCriteria1Choice_ ExecutionVenueValue)
+        {
+            writer.WriteStartElement(null, "ExctnVn", xmlNamespace );
+            ExecutionVenueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NatureOfCounterparty is PartyNatureType1Code NatureOfCounterpartyValue)
+        {
+            writer.WriteStartElement(null, "NtrOfCtrPty", xmlNamespace );
+            writer.WriteValue(NatureOfCounterpartyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CorporateSector is CorporateSectorCriteria5 CorporateSectorValue)
+        {
+            writer.WriteStartElement(null, "CorpSctr", xmlNamespace );
+            CorporateSectorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeAdditionalQueryCriteria7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

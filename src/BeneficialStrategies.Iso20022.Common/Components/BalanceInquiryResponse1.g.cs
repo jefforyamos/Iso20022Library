@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Balance Inquiry Response message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BalanceInquiryResponse1
+     : IIsoXmlSerilizable<BalanceInquiryResponse1>
 {
     #nullable enable
     
     /// <summary>
     /// Payment account information.
     /// </summary>
-    [DataMember]
     public PaymentAccount2? PaymentAccount { get; init; } 
     /// <summary>
     /// Loyalty account information.
     /// </summary>
-    [DataMember]
     public LoyaltyAccount1? LoyaltyAccount { get; init; } 
     /// <summary>
     /// Stored value account information.
     /// </summary>
-    [DataMember]
-    public ValueList<StoredValueAccount1> StoredValueAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    public StoredValueAccount1? StoredValueAccount { get; init; } 
     /// <summary>
     /// Receipt to print after a balance inquiry.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentReceipt1> Receipt { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentReceipt1? Receipt { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PaymentAccount is PaymentAccount2 PaymentAccountValue)
+        {
+            writer.WriteStartElement(null, "PmtAcct", xmlNamespace );
+            PaymentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LoyaltyAccount is LoyaltyAccount1 LoyaltyAccountValue)
+        {
+            writer.WriteStartElement(null, "LltyAcct", xmlNamespace );
+            LoyaltyAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StoredValueAccount is StoredValueAccount1 StoredValueAccountValue)
+        {
+            writer.WriteStartElement(null, "StordValAcct", xmlNamespace );
+            StoredValueAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Receipt is PaymentReceipt1 ReceiptValue)
+        {
+            writer.WriteStartElement(null, "Rct", xmlNamespace );
+            ReceiptValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BalanceInquiryResponse1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

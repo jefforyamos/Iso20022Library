@@ -7,53 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the intra-position movement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IntraPositionDetails11
+     : IIsoXmlSerilizable<IntraPositionDetails11>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
-    [DataMember]
     public PriorityNumeric1Choice_? Priority { get; init; } 
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ SettlementQuantity { get; init; } 
     /// <summary>
     /// Number identifying a lot constituting the financial instrument.
     /// </summary>
-    [DataMember]
     public Number2Choice_? LotNumber { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be moved.
     /// </summary>
-    [DataMember]
     public required DateAndDateTimeChoice_ SettlementDate { get; init; } 
     /// <summary>
     /// Balance from which the securities are moving.
     /// </summary>
-    [DataMember]
     public required SecuritiesBalanceType2Choice_ BalanceFrom { get; init; } 
     /// <summary>
     /// Balance to which the securities are moving.
     /// </summary>
-    [DataMember]
     public required SecuritiesBalanceType2Choice_ BalanceTo { get; init; } 
     /// <summary>
     /// Provides additional settlement processing information which can not be included within the structured fields of the message.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? InstructionProcessingAdditionalDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Priority is PriorityNumeric1Choice_ PriorityValue)
+        {
+            writer.WriteStartElement(null, "Prty", xmlNamespace );
+            PriorityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SttlmQty", xmlNamespace );
+        SettlementQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LotNumber is Number2Choice_ LotNumberValue)
+        {
+            writer.WriteStartElement(null, "LotNb", xmlNamespace );
+            LotNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
+        SettlementDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BalFr", xmlNamespace );
+        BalanceFrom.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BalTo", xmlNamespace );
+        BalanceTo.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (InstructionProcessingAdditionalDetails is IsoMax350Text InstructionProcessingAdditionalDetailsValue)
+        {
+            writer.WriteStartElement(null, "InstrPrcgAddtlDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(InstructionProcessingAdditionalDetailsValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static IntraPositionDetails11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details for a call/put option.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Option12
+     : IIsoXmlSerilizable<Option12>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies whether the instrument has a call option or a put option. If the instrument contains both options, i.e. a call and a put, both the call option and the put option have to be reported.
     /// </summary>
-    [DataMember]
     public required OptionType1Code Type { get; init; } 
     /// <summary>
     /// Provides the exercise date or notice period for a call/put option.
     /// </summary>
-    [DataMember]
     public required OptionDateOrPeriod1Choice_ DateOrPeriod { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DtOrPrd", xmlNamespace );
+        DateOrPeriod.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static Option12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

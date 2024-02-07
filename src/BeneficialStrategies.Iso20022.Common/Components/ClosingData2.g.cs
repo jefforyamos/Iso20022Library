@@ -7,58 +7,101 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of data specified for the fixing of a non deliverable trade.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ClosingData2
+     : IIsoXmlSerilizable<ClosingData2>
 {
     #nullable enable
     
     /// <summary>
     /// Date at which the trading parties have agreed on a valuation rate for a non deliverable trade.
     /// </summary>
-    [DataMember]
     public required IsoISODate TradeDate { get; init; } 
     /// <summary>
     /// Refers to the identification of a trade assigned by the trading side of a non deliverable forward trade.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text NotificationIdentification { get; init; } 
     /// <summary>
     /// Reference common to the parties of a trade.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CommonReference { get; init; } 
     /// <summary>
     /// Refers to the identification of a previous event in the life of a non deliverable forward trade.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RelatedReference { get; init; } 
     /// <summary>
     /// Describes the reason for the cancellation or the amendment.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AmendOrCancelReason { get; init; } 
     /// <summary>
     /// Specifies the amounts traded at the valuation of a non-deliverable trade.
     /// </summary>
-    [DataMember]
     public required AmountsAndValueDate1 TradeAmounts { get; init; } 
     /// <summary>
     /// Rate obtained at valuation time by following the valuation conditions (agreed upon by the trading parties at the opening of the non-deliverable contract).
     /// </summary>
-    [DataMember]
     public required AgreedRate1 ValuationRate { get; init; } 
     /// <summary>
     /// Set of parameters used to calculate the valuation rate to be applied to a non-deliverable agreement.
     /// </summary>
-    [DataMember]
     public required ValuationData2 ValuationInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TradDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(TradeDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NtfctnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(NotificationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (CommonReference is IsoMax35Text CommonReferenceValue)
+        {
+            writer.WriteStartElement(null, "CmonRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CommonReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is IsoMax35Text RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RelatedReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AmendOrCancelReason is IsoMax35Text AmendOrCancelReasonValue)
+        {
+            writer.WriteStartElement(null, "AmdOrCclRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AmendOrCancelReasonValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TradAmts", xmlNamespace );
+        TradeAmounts.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ValtnRate", xmlNamespace );
+        ValuationRate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ValtnInf", xmlNamespace );
+        ValuationInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ClosingData2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

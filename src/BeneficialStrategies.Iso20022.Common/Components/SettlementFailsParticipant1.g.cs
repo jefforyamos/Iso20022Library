@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details on the settlement fails per participant.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementFailsParticipant1
+     : IIsoXmlSerilizable<SettlementFailsParticipant1>
 {
     #nullable enable
     
     /// <summary>
     /// Legal entity identification of the participant in the securities settlement system.
     /// </summary>
-    [DataMember]
     public required IsoLEIIdentifier LEI { get; init; } 
     /// <summary>
     /// Ranking of the top participants with the highest rate of settlement fails.
     /// </summary>
-    [DataMember]
     public required IsoMax2NumericText Rank { get; init; } 
     /// <summary>
     /// Aggregated data of the settlement instructions.
     /// </summary>
-    [DataMember]
     public required SettlementTotalData1 Aggregate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "LEI", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEI)); // data type LEIIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rank", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax2NumericText(Rank)); // data type Max2NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Aggt", xmlNamespace );
+        Aggregate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SettlementFailsParticipant1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

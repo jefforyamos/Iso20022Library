@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the parameters to calculate the local reporting time.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UTCOffset1
+     : IIsoXmlSerilizable<UTCOffset1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the offset is before or after 00: 00 hour UTC.
     /// </summary>
-    [DataMember]
     public required IsoPlusOrMinusIndicator Sign { get; init; } 
     /// <summary>
     /// Offset of the reporting time, in hours, before or after 00: 00 hour UTC.
     /// </summary>
-    [DataMember]
     public required IsoISOTime NumberOfHours { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sgn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPlusOrMinusIndicator(Sign)); // data type PlusOrMinusIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NbOfHrs", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISOTime(NumberOfHours)); // data type ISOTime System.TimeOnly
+        writer.WriteEndElement();
+    }
+    public static UTCOffset1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

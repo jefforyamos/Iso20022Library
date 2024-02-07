@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details for one to many netting cut off update requests to be actioned by a central system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NettingCutOff1
+     : IIsoXmlSerilizable<NettingCutOff1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the netting party or group.
     /// </summary>
-    [DataMember]
     public required NettingIdentification1Choice_ NettingIdentification { get; init; } 
     /// <summary>
     /// Specifies the information regarding the updated netting cut off.
     /// </summary>
-    [DataMember]
-    public ValueList<CutOff1> NewCutOff { get; init; } = []; // Warning: Don't know multiplicity.
+    public CutOff1? NewCutOff { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _JpSG4JVMEeaYkf5FCqYMeA
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NetgId", xmlNamespace );
+        NettingIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize NewCutOff, multiplicity Unknown
+    }
+    public static NettingCutOff1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

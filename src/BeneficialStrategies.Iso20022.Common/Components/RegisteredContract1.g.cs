@@ -7,43 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Currency control registered contract amendment details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RegisteredContract1
+     : IIsoXmlSerilizable<RegisteredContract1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the contract registration amendment.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ContractRegistrationAmendmentIdentification { get; init; } 
     /// <summary>
     /// Party registering the currency control contract.
     /// </summary>
-    [DataMember]
     public required TradeParty2 ReportingParty { get; init; } 
     /// <summary>
     /// Agent which registers the currency control contract.
     /// </summary>
-    [DataMember]
     public required BranchAndFinancialInstitutionIdentification5 RegistrationAgent { get; init; } 
     /// <summary>
     /// Amendment details applied on one or several registered contracts.
     /// </summary>
-    [DataMember]
-    public ValueList<RegisteredContract3> RegisteredContractAmendment { get; init; } = []; // Warning: Don't know multiplicity.
+    public RegisteredContract3? RegisteredContractAmendment { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _nI5VWdL9EeSDLevdaFPXHw
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CtrctRegnAmdmntId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ContractRegistrationAmendmentIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptgPty", xmlNamespace );
+        ReportingParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RegnAgt", xmlNamespace );
+        RegistrationAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize RegisteredContractAmendment, multiplicity Unknown
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RegisteredContract1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

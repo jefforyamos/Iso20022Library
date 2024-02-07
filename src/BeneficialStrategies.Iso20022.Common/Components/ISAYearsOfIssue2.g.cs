@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Year in which the ISA plan is issued.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ISAYearsOfIssue2
+     : IIsoXmlSerilizable<ISAYearsOfIssue2>
 {
     #nullable enable
     
     /// <summary>
     /// ISA that was issued during the current fiscal year.
     /// </summary>
-    [DataMember]
     public ISAType2Code? CurrentYearType { get; init; } 
     /// <summary>
     /// Current year ISA is an ISA that was issued during the current fiscal year.
     /// </summary>
-    [DataMember]
     public IsoExtended350Code? ExtendedCurrentYearType { get; init; } 
     /// <summary>
     /// Selection of investment plans issued during previous years.
     /// </summary>
-    [DataMember]
     public PreviousYearChoice_? PreviousYears { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CurrentYearType is ISAType2Code CurrentYearTypeValue)
+        {
+            writer.WriteStartElement(null, "CurYrTp", xmlNamespace );
+            writer.WriteValue(CurrentYearTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExtendedCurrentYearType is IsoExtended350Code ExtendedCurrentYearTypeValue)
+        {
+            writer.WriteStartElement(null, "XtndedCurYrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedCurrentYearTypeValue)); // data type Extended350Code System.String
+            writer.WriteEndElement();
+        }
+        if (PreviousYears is PreviousYearChoice_ PreviousYearsValue)
+        {
+            writer.WriteStartElement(null, "PrvsYrs", xmlNamespace );
+            PreviousYearsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ISAYearsOfIssue2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

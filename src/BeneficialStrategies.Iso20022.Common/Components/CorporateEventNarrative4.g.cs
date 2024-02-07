@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides disclaimer narrative information about the event.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateEventNarrative4
+     : IIsoXmlSerilizable<CorporateEventNarrative4>
 {
     #nullable enable
     
     /// <summary>
     /// Issuer’s disclaimer notice relative to the meeting announcement information provided. It may be ignored for automated processing.
     /// </summary>
-    [DataMember]
-    public ValueList<LanguageSpecifiedNarrative1> Disclaimer { get; init; } = []; // Warning: Don't know multiplicity.
+    public LanguageSpecifiedNarrative1? Disclaimer { get; init; } 
     /// <summary>
     /// Provides additional information from the account servicer or a service provider solely intended for the next immediate account holder to enable or facilitate event processing between parties.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax8000Text> ProcessingTextForNextIntermediary { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax8000Text? ProcessingTextForNextIntermediary { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Disclaimer is LanguageSpecifiedNarrative1 DisclaimerValue)
+        {
+            writer.WriteStartElement(null, "Dsclmr", xmlNamespace );
+            DisclaimerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProcessingTextForNextIntermediary is IsoMax8000Text ProcessingTextForNextIntermediaryValue)
+        {
+            writer.WriteStartElement(null, "PrcgTxtForNxtIntrmy", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax8000Text(ProcessingTextForNextIntermediaryValue)); // data type Max8000Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateEventNarrative4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

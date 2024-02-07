@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.RejectInvestigationV04>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -36,10 +39,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// The Reject Investigation message must be forwarded by all subsequent case assignee(s) until it reaches the case assigner and must not be used in place of a Resolution Of Investigation or Case Status Report message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The Reject Investigation message is sent by a case assignee to a case creator or case assigner to reject a case given to him.|Usage|The Reject Investigation message is used to notify the case creator or case assigner the rejection of an assignment by the case assignee in a:|- request to cancel payment case|- request to modify payment case|- unable to apply case|- claim non receipt case|Rejecting a case assignment occurs when:|- the case assignee is unable to trace the original payment instruction|- the case assignee is unable, or does not have authority, to process the assigned case (indicate ""You have by-passed a party"",|- the case assignee has received a non expected message, and rejects the message with a wrong message indicator|- the case assignee has not yet received the Resolution Of Investigation message and the case has already been reopened|- the case assignee has rejects an non-cash related query|The Reject Investigation message covers one and only one case at a time. If the case assignee needs to reject several case assignments, then multiple Reject Investigation messages must be sent.|The Reject Investigation message must be forwarded by all subsequent case assignee(s) until it reaches the case assigner and must not be used in place of a Resolution Of Investigation or Case Status Report message.")]
-public partial record RejectInvestigationV04 : IOuterRecord
+public partial record RejectInvestigationV04 : IOuterRecord<RejectInvestigationV04,RejectInvestigationV04Document>
+    ,IIsoXmlSerilizable<RejectInvestigationV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -51,6 +53,11 @@ public partial record RejectInvestigationV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "RjctInvstgtn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => RejectInvestigationV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -101,6 +108,38 @@ public partial record RejectInvestigationV04 : IOuterRecord
     {
         return new RejectInvestigationV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("RjctInvstgtn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Assgnmt", xmlNamespace );
+        Assignment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Case", xmlNamespace );
+        Case.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Justfn", xmlNamespace );
+        Justification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RejectInvestigationV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -108,9 +147,7 @@ public partial record RejectInvestigationV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RejectInvestigationV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record RejectInvestigationV04Document : IOuterDocument<RejectInvestigationV04>
+public partial record RejectInvestigationV04Document : IOuterDocument<RejectInvestigationV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -126,5 +163,22 @@ public partial record RejectInvestigationV04Document : IOuterDocument<RejectInve
     /// <summary>
     /// The instance of <seealso cref="RejectInvestigationV04"/> is required.
     /// </summary>
+    [DataMember(Name=RejectInvestigationV04.XmlTag)]
     public required RejectInvestigationV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(RejectInvestigationV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

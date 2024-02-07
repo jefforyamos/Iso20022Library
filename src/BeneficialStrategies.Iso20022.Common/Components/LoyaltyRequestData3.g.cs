@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data linked to card loyalty during payment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LoyaltyRequestData3
+     : IIsoXmlSerilizable<LoyaltyRequestData3>
 {
     #nullable enable
     
     /// <summary>
     /// To retrieve Card Acquisition Data.
     /// </summary>
-    [DataMember]
     public CustomerOrder1? CustomerOrder { get; init; } 
     /// <summary>
     /// Identification of a Loyalty account.
     /// </summary>
-    [DataMember]
     public LoyaltyAccount3? Account { get; init; } 
     /// <summary>
     /// Amount of a loyalty account.
     /// </summary>
-    [DataMember]
     public LoyaltyAmount1? Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CustomerOrder is CustomerOrder1 CustomerOrderValue)
+        {
+            writer.WriteStartElement(null, "CstmrOrdr", xmlNamespace );
+            CustomerOrderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Account is LoyaltyAccount3 AccountValue)
+        {
+            writer.WriteStartElement(null, "Acct", xmlNamespace );
+            AccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Amount is LoyaltyAmount1 AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            AmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LoyaltyRequestData3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

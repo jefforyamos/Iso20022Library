@@ -7,53 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Undertaking extend or pay query details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ExtendOrPayQuery1
+     : IIsoXmlSerilizable<ExtendOrPayQuery1>
 {
     #nullable enable
     
     /// <summary>
     /// Details related to the identification of the undertaking.
     /// </summary>
-    [DataMember]
     public required Undertaking9 UndertakingIdentification { get; init; } 
     /// <summary>
     /// Details related to the demand.
     /// </summary>
-    [DataMember]
     public required Demand2 DemandDetails { get; init; } 
     /// <summary>
     /// Requested new expiry date as an alternative to payment of the demand.
     /// </summary>
-    [DataMember]
     public required IsoISODate RequestedExpiryDate { get; init; } 
     /// <summary>
     /// Details of the instructions from the bank.
     /// </summary>
-    [DataMember]
     public BankInstructions1? BankInstructions { get; init; } 
     /// <summary>
     /// Contact at the issuing bank.
     /// </summary>
-    [DataMember]
-    public ValueList<Contacts3> BankContact { get; init; } = []; // Warning: Don't know multiplicity.
+    public Contacts3? BankContact { get; init; } 
     /// <summary>
     /// Document or template enclosed in the request.
     /// </summary>
-    [DataMember]
-    public ValueList<Document9> EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
+    public Document9? EnclosedFile { get; init; } 
     /// <summary>
     /// Additional information related to the request.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UdrtkgId", xmlNamespace );
+        UndertakingIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DmndDtls", xmlNamespace );
+        DemandDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ReqdXpryDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(RequestedExpiryDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (BankInstructions is BankInstructions1 BankInstructionsValue)
+        {
+            writer.WriteStartElement(null, "BkInstrs", xmlNamespace );
+            BankInstructionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BankContact is Contacts3 BankContactValue)
+        {
+            writer.WriteStartElement(null, "BkCtct", xmlNamespace );
+            BankContactValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EnclosedFile is Document9 EnclosedFileValue)
+        {
+            writer.WriteStartElement(null, "NclsdFile", xmlNamespace );
+            EnclosedFileValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+    }
+    public static ExtendOrPayQuery1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

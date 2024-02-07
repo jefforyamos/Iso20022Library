@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionSD16
+     : IIsoXmlSerilizable<CorporateActionSD16>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// DTC generated number to distinguish between the series of lotteries run against a particular redemption.
     /// </summary>
-    [DataMember]
     public IsoMax3NumericText? LotterySequenceNumber { get; init; } 
     /// <summary>
     /// Date/time on which the lottery is run and applied to the holder's positions. This is also applicable to partial calls.
     /// </summary>
-    [DataMember]
     public IsoISODate? LotteryDate { get; init; } 
     /// <summary>
     /// For Reorganization events, date at which instructions will be accepted by agent for payment.
     /// </summary>
-    [DataMember]
     public IsoISODate? ProcessToDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (LotterySequenceNumber is IsoMax3NumericText LotterySequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "LtrySeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(LotterySequenceNumberValue)); // data type Max3NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (LotteryDate is IsoISODate LotteryDateValue)
+        {
+            writer.WriteStartElement(null, "LtryDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(LotteryDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ProcessToDate is IsoISODate ProcessToDateValue)
+        {
+            writer.WriteStartElement(null, "PrcToDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ProcessToDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionSD16 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

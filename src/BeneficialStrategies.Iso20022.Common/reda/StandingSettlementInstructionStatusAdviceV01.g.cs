@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.reda.StandingSettlementInstructionStatusAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.reda;
 
@@ -30,10 +33,9 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// -	a proprietary status.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The receiver of a StandingSettlementInstruction message sends the StandingSettlementInstructionStatusAdvice message to the instructing party (sender of the StandingSettlementInstruction message) to provide the status of a previously received StandingSettlementInstruction, StandingSettlementInstructionCancellation or StandingSettlementInstructionDeletion message.||Usage|The StandingSettlementInstructionStatusAdvice message is used to report one of the following statuses:|-	a received status, or, |-	an accepted status, or,|-	a rejected status, or,|-	a pending processing status, or,|-	a proprietary status.")]
-public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecord
+public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecord<StandingSettlementInstructionStatusAdviceV01,StandingSettlementInstructionStatusAdviceV01Document>
+    ,IIsoXmlSerilizable<StandingSettlementInstructionStatusAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -45,6 +47,11 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "StgSttlmInstrStsAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => StandingSettlementInstructionStatusAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -125,6 +132,50 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
     {
         return new StandingSettlementInstructionStatusAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("StgSttlmInstrStsAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (EffectiveDateDetails is EffectiveDate1 EffectiveDateDetailsValue)
+        {
+            writer.WriteStartElement(null, "FctvDtDtls", xmlNamespace );
+            EffectiveDateDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AcctId", xmlNamespace );
+        AccountIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MktId", xmlNamespace );
+        MarketIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmDtls", xmlNamespace );
+        SettlementDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RltdMsgRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(RelatedMessageReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PrcgSts", xmlNamespace );
+        ProcessingStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static StandingSettlementInstructionStatusAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -132,9 +183,7 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StandingSettlementInstructionStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record StandingSettlementInstructionStatusAdviceV01Document : IOuterDocument<StandingSettlementInstructionStatusAdviceV01>
+public partial record StandingSettlementInstructionStatusAdviceV01Document : IOuterDocument<StandingSettlementInstructionStatusAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -150,5 +199,22 @@ public partial record StandingSettlementInstructionStatusAdviceV01Document : IOu
     /// <summary>
     /// The instance of <seealso cref="StandingSettlementInstructionStatusAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=StandingSettlementInstructionStatusAdviceV01.XmlTag)]
     public required StandingSettlementInstructionStatusAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(StandingSettlementInstructionStatusAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

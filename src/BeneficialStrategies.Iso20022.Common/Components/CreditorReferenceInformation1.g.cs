@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Structured information supplied to enable the matching, i.e. reconciliation, of a payment with the items that the payment is intended to settle, eg, commercial invoices in an accounts receivable system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CreditorReferenceInformation1
+     : IIsoXmlSerilizable<CreditorReferenceInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the type of the creditor reference.
     /// </summary>
-    [DataMember]
     public CreditorReferenceType1? CreditorReferenceType { get; init; } 
     /// <summary>
     /// Unique and unambiguous reference assigned by the creditor to refer to the payment transaction.||Usage: if available, the initiating party should provide this reference in the structured remittance information, to enable reconciliation by the creditor upon receipt of the cash.||If the business context requires the use of a creditor reference or a payment remit identification, and only one identifier can be passed through the end-to-end chain, the creditor's reference or payment remittance identification should be quoted in the end-to-end transaction identification.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CreditorReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CreditorReferenceType is CreditorReferenceType1 CreditorReferenceTypeValue)
+        {
+            writer.WriteStartElement(null, "CdtrRefTp", xmlNamespace );
+            CreditorReferenceTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditorReference is IsoMax35Text CreditorReferenceValue)
+        {
+            writer.WriteStartElement(null, "CdtrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CreditorReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CreditorReferenceInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

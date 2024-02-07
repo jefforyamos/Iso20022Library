@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status of a transfer cancellation instruction and the reason for the status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CancellationStatusAndReason
+     : IIsoXmlSerilizable<CancellationStatusAndReason>
 {
     #nullable enable
     
     /// <summary>
     /// Status of the transfer cancellation instruction.
     /// </summary>
-    [DataMember]
     public required TransferCancellationStatus Status { get; init; } 
     /// <summary>
     /// Status of transfer cancellation is rejected.
     /// </summary>
-    [DataMember]
     public required TransferCancellationRejectedStatus1Choice_ Rejected { get; init; } 
     /// <summary>
     /// Status of the transfer cancellation is complete. The cancellation instruction has been accepted and processed, the cancellation is complete.
     /// </summary>
-    [DataMember]
     public required TransferCancellationCompleteStatusChoice_ Complete { get; init; } 
     /// <summary>
     /// Party that initiates the status.
     /// </summary>
-    [DataMember]
     public PartyIdentification1Choice_? StatusInitiator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        Status.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rjctd", xmlNamespace );
+        Rejected.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Cmplt", xmlNamespace );
+        Complete.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (StatusInitiator is PartyIdentification1Choice_ StatusInitiatorValue)
+        {
+            writer.WriteStartElement(null, "StsInitr", xmlNamespace );
+            StatusInitiatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CancellationStatusAndReason Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

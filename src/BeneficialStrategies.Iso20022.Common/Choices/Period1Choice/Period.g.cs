@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Period1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Period1Choice;
 /// Time span defined by a start date and time, and an end date and time.
 /// </summary>
 public partial record Period : Period1Choice_
+     , IIsoXmlSerilizable<Period>
 {
     #nullable enable
+    
     /// <summary>
     /// Date and time at which the range starts.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record Period : Period1Choice_
     /// Date and time at which the range ends.
     /// </summary>
     public required DateFormat12Choice_ EndDate { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "StartDt", xmlNamespace );
+        StartDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EndDt", xmlNamespace );
+        EndDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new Period Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

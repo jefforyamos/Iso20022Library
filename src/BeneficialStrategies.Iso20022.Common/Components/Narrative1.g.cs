@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Narrative information for an undertaking.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Narrative1
+     : IIsoXmlSerilizable<Narrative1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of term or condition.
     /// </summary>
-    [DataMember]
     public NarrativeType1Choice_? Type { get; init; } 
     /// <summary>
     /// Narrative text.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax20000Text> Text { get; init; } = [];
+    public SimpleValueList<IsoMax20000Text> Text { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is NarrativeType1Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Txt", xmlNamespace );
+        Text.Serialize(writer, xmlNamespace, "Max20000Text", SerializationFormatter.IsoMax20000Text );
+        writer.WriteEndElement();
+    }
+    public static Narrative1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

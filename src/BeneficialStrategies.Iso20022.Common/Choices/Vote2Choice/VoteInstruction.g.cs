@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Vote2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote2Choice;
 /// Instruction specifying the instructed quantity of voting rights per resolution. Split votes can be indicated. If only one type of decision is indicated, the number of votes cast must not be adjusted if the position of the voting party increases.
 /// </summary>
 public partial record VoteInstruction : Vote2Choice_
+     , IIsoXmlSerilizable<VoteInstruction>
 {
     #nullable enable
+    
     /// <summary>
     /// Numbering of the resolution as specified by the issuer or its agent.
     /// </summary>
@@ -51,5 +55,74 @@ public partial record VoteInstruction : Vote2Choice_
     /// Number of votes for which no action has been taken.
     /// </summary>
     public IsoNumber? NoAction { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IssrLabl", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerLabel)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (For is IsoNumber ForValue)
+        {
+            writer.WriteStartElement(null, "For", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(ForValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Against is IsoNumber AgainstValue)
+        {
+            writer.WriteStartElement(null, "Agnst", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(AgainstValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Abstain is IsoNumber AbstainValue)
+        {
+            writer.WriteStartElement(null, "Abstn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(AbstainValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Withhold is IsoNumber WithholdValue)
+        {
+            writer.WriteStartElement(null, "Wthhld", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(WithholdValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (WithManagement is IsoNumber WithManagementValue)
+        {
+            writer.WriteStartElement(null, "WthMgmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(WithManagementValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (AgainstManagement is IsoNumber AgainstManagementValue)
+        {
+            writer.WriteStartElement(null, "AgnstMgmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(AgainstManagementValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Discretionary is IsoNumber DiscretionaryValue)
+        {
+            writer.WriteStartElement(null, "Dscrtnry", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(DiscretionaryValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (NoAction is IsoNumber NoActionValue)
+        {
+            writer.WriteStartElement(null, "NoActn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NoActionValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static new VoteInstruction Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

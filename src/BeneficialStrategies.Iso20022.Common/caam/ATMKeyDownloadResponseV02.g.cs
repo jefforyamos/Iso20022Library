@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.caam.ATMKeyDownloadResponseV02>;
 
 namespace BeneficialStrategies.Iso20022.caam;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.caam;
 /// The ATMKeyDownloadResponse message is sent from an acquirer to an ATM in response to an ATMKeyDownloadRequest message, to download of one or several cryptographic keys.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The ATMKeyDownloadResponse message is sent from an acquirer to an ATM in response to an ATMKeyDownloadRequest message, to download of one or several cryptographic keys.")]
-public partial record ATMKeyDownloadResponseV02 : IOuterRecord
+public partial record ATMKeyDownloadResponseV02 : IOuterRecord<ATMKeyDownloadResponseV02,ATMKeyDownloadResponseV02Document>
+    ,IIsoXmlSerilizable<ATMKeyDownloadResponseV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record ATMKeyDownloadResponseV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "ATMKeyDwnldRspn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ATMKeyDownloadResponseV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -84,6 +91,44 @@ public partial record ATMKeyDownloadResponseV02 : IOuterRecord
     {
         return new ATMKeyDownloadResponseV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("ATMKeyDwnldRspn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ProtectedATMKeyDownloadResponse is ContentInformationType10 ProtectedATMKeyDownloadResponseValue)
+        {
+            writer.WriteStartElement(null, "PrtctdATMKeyDwnldRspn", xmlNamespace );
+            ProtectedATMKeyDownloadResponseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ATMKeyDownloadResponse is ATMKeyDownloadResponse2 ATMKeyDownloadResponseValue)
+        {
+            writer.WriteStartElement(null, "ATMKeyDwnldRspn", xmlNamespace );
+            ATMKeyDownloadResponseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecurityTrailer is ContentInformationType13 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMKeyDownloadResponseV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -91,9 +136,7 @@ public partial record ATMKeyDownloadResponseV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMKeyDownloadResponseV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ATMKeyDownloadResponseV02Document : IOuterDocument<ATMKeyDownloadResponseV02>
+public partial record ATMKeyDownloadResponseV02Document : IOuterDocument<ATMKeyDownloadResponseV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -109,5 +152,22 @@ public partial record ATMKeyDownloadResponseV02Document : IOuterDocument<ATMKeyD
     /// <summary>
     /// The instance of <seealso cref="ATMKeyDownloadResponseV02"/> is required.
     /// </summary>
+    [DataMember(Name=ATMKeyDownloadResponseV02.XmlTag)]
     public required ATMKeyDownloadResponseV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ATMKeyDownloadResponseV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

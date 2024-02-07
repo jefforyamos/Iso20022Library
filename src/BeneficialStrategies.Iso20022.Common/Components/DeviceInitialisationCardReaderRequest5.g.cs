@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies what to do during a card reader initialisation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DeviceInitialisationCardReaderRequest5
+     : IIsoXmlSerilizable<DeviceInitialisationCardReaderRequest5>
 {
     #nullable enable
     
     /// <summary>
     /// Flag to request a warm reset on a chip.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? WarmResetFlag { get; init; } 
     /// <summary>
     /// Payment instrument entry mode requested by the Sale System.
     /// </summary>
-    [DataMember]
-    public ValueList<CardDataReading8Code> ForceEntryMode { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardDataReading8Code? ForceEntryMode { get; init; } 
     /// <summary>
     /// Flag to indicate the POI System to keep the card in the reader for a smart card.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? LeaveCardFlag { get; init; } 
     /// <summary>
     /// Maximum time in seconds that the POI has to wait for a card response.
     /// </summary>
-    [DataMember]
     public IsoNumber? MaximumWaitingTime { get; init; } 
     /// <summary>
     /// Information to display.
     /// </summary>
-    [DataMember]
     public ActionMessage10? DisplayOutput { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (WarmResetFlag is IsoTrueFalseIndicator WarmResetFlagValue)
+        {
+            writer.WriteStartElement(null, "WarmRstFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(WarmResetFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ForceEntryMode is CardDataReading8Code ForceEntryModeValue)
+        {
+            writer.WriteStartElement(null, "ForceNtryMd", xmlNamespace );
+            writer.WriteValue(ForceEntryModeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (LeaveCardFlag is IsoTrueFalseIndicator LeaveCardFlagValue)
+        {
+            writer.WriteStartElement(null, "LeavCardFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(LeaveCardFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (MaximumWaitingTime is IsoNumber MaximumWaitingTimeValue)
+        {
+            writer.WriteStartElement(null, "MaxWtgTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumWaitingTimeValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (DisplayOutput is ActionMessage10 DisplayOutputValue)
+        {
+            writer.WriteStartElement(null, "DispOutpt", xmlNamespace );
+            DisplayOutputValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DeviceInitialisationCardReaderRequest5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

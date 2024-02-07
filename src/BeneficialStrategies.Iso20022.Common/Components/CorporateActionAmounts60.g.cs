@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies amounts in the framework of a corporate action event.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionAmounts60
+     : IIsoXmlSerilizable<CorporateActionAmounts60>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of a cash distribution that will be withheld by the tax authorities of the jurisdiction of the issuer, for which a relief at source and/or reclaim may be possible.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? WithholdingTaxAmount { get; init; } 
     /// <summary>
     /// Amount of money withheld by the jurisdiction other than the jurisdiction of the issuer’s country of tax incorporation, for which a relief at source and/or reclaim may be possible. It is levied in complement or offset of the withholding tax rate levied by the jurisdiction of the issuer’s tax domicile.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? SecondLevelTaxAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (WithholdingTaxAmount is IsoActiveCurrencyAndAmount WithholdingTaxAmountValue)
+        {
+            writer.WriteStartElement(null, "WhldgTaxAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(WithholdingTaxAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (SecondLevelTaxAmount is IsoActiveCurrencyAndAmount SecondLevelTaxAmountValue)
+        {
+            writer.WriteStartElement(null, "ScndLvlTaxAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(SecondLevelTaxAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionAmounts60 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

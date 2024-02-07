@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.MarginTerms1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.MarginTerms1Choice;
 /// Elements used to calculate the collateral margin call for the segregated independent amount.
 /// </summary>
 public partial record SegregatedIndependentAmountMargin : MarginTerms1Choice_
+     , IIsoXmlSerilizable<SegregatedIndependentAmountMargin>
 {
     #nullable enable
+    
     /// <summary>
     /// Minimum amount to pay/receive as specified in the agreement in the base currency (to avoid the need to transfer an inconveniently small amount of segregated independent amount).
     /// </summary>
@@ -27,5 +31,38 @@ public partial record SegregatedIndependentAmountMargin : MarginTerms1Choice_
     /// Defines how the rounding amount was applied in the calculation. For example, should the amount of collateral required be rounded up, down, to the closer integral multiple specified or not rounded.
     /// </summary>
     public RoundingMethod1Code? RoundingMethod { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MinTrfAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MinimumTransferAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (RoundingAmount is IsoActiveCurrencyAndAmount RoundingAmountValue)
+        {
+            writer.WriteStartElement(null, "RndgAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(RoundingAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (RoundingMethod is RoundingMethod1Code RoundingMethodValue)
+        {
+            writer.WriteStartElement(null, "RndgMtd", xmlNamespace );
+            writer.WriteValue(RoundingMethodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static new SegregatedIndependentAmountMargin Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

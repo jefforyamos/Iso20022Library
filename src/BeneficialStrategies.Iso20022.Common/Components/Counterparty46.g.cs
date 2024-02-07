@@ -7,34 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to counterparty identification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Counterparty46
+     : IIsoXmlSerilizable<Counterparty46>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates if the counterparty is a legal entity or a natural person.
     /// </summary>
-    [DataMember]
     public PartyIdentification248Choice_? IdentificationType { get; init; } 
     /// <summary>
     /// Indicates if the counterparty is a central counterparty, a financial, non-financial counterparty or other type of counterparty in accordance with regulation.
     /// </summary>
-    [DataMember]
     public CounterpartyTradeNature15Choice_? Nature { get; init; } 
     /// <summary>
     /// Indicator of whether the counterparty 2 has the reporting obligation (irrespective of who is responsible and legally liable for its reporting).
     /// Usage: If the element is not present, the ReportingObligation is False.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ReportingObligation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (IdentificationType is PartyIdentification248Choice_ IdentificationTypeValue)
+        {
+            writer.WriteStartElement(null, "IdTp", xmlNamespace );
+            IdentificationTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Nature is CounterpartyTradeNature15Choice_ NatureValue)
+        {
+            writer.WriteStartElement(null, "Ntr", xmlNamespace );
+            NatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReportingObligation is IsoTrueFalseIndicator ReportingObligationValue)
+        {
+            writer.WriteStartElement(null, "RptgOblgtn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ReportingObligationValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Counterparty46 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

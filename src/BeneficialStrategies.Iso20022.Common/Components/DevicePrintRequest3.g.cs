@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Print Request message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DevicePrintRequest3
+     : IIsoXmlSerilizable<DevicePrintRequest3>
 {
     #nullable enable
     
     /// <summary>
     /// Qualifies the type of document.
     /// </summary>
-    [DataMember]
     public required DocumentType7Code DocumentQualifier { get; init; } 
     /// <summary>
     /// Type of awaited response (none, immediate, after printing, after sound).
     /// </summary>
-    [DataMember]
     public required ResponseMode2Code ResponseMode { get; init; } 
     /// <summary>
     /// Flag that the print is integrated to other prints.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? IntegratedPrintFlag { get; init; } 
     /// <summary>
     /// Flag to require a physical signature by the Customer.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? RequiredSignatureFlag { get; init; } 
     /// <summary>
     /// Content of the message to print.
     /// </summary>
-    [DataMember]
     public required ActionMessage8 OutputContent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DocQlfr", xmlNamespace );
+        writer.WriteValue(DocumentQualifier.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RspnMd", xmlNamespace );
+        writer.WriteValue(ResponseMode.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (IntegratedPrintFlag is IsoTrueFalseIndicator IntegratedPrintFlagValue)
+        {
+            writer.WriteStartElement(null, "IntgrtdPrtFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(IntegratedPrintFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (RequiredSignatureFlag is IsoTrueFalseIndicator RequiredSignatureFlagValue)
+        {
+            writer.WriteStartElement(null, "ReqrdSgntrFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(RequiredSignatureFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OutptCntt", xmlNamespace );
+        OutputContent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static DevicePrintRequest3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

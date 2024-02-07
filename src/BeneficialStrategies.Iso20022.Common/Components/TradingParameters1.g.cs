@@ -7,58 +7,113 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Place at which the security is traded.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradingParameters1
+     : IIsoXmlSerilizable<TradingParameters1>
 {
     #nullable enable
     
     /// <summary>
     /// Code allocated to places of trade, ie, stock exchanges, regulated markets, for example, Electronic Trading Platforms (ECN), and unregulated markets, for example, Automated Trading Systems (ATS) (MIC - ISO 3166).
     /// </summary>
-    [DataMember]
     public IsoMICIdentifier? MarketIdentification { get; init; } 
     /// <summary>
     /// Minimum quantity of securities that can be purchased without incurring a larger fee. For example, if the round lot size is 100 and the trade is for 125 shares, then 100 will be processed without a fee and the remaining 25 will incur a service fee for being an odd lot size.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1Choice_? RoundLot { get; init; } 
     /// <summary>
     /// Minimum number of securities that can be traded.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1Choice_? TradeLotSize { get; init; } 
     /// <summary>
     /// Market(s) on which the security is listed.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMICIdentifier> SecondaryPlaceOfListing { get; init; } = [];
+    public SimpleValueList<IsoMICIdentifier> SecondaryPlaceOfListing { get; init; } = [];
     /// <summary>
     /// Minimum number of securities that can be traded.
     /// </summary>
-    [DataMember]
     public UnitOrFaceAmountChoice_? MinimumTradedNominalQuantity { get; init; } 
     /// <summary>
     /// Maximum number of securities that can be traded.
     /// </summary>
-    [DataMember]
     public UnitOrFaceAmountChoice_? MaximumTradedNominalQuantity { get; init; } 
     /// <summary>
     /// Indicates the minimum or smallest movement (up or down) in the price allowed for the security.
     /// </summary>
-    [DataMember]
     public IsoNumber? MinimumTradingPricingIncrement { get; init; } 
     /// <summary>
     /// Market(s) on which the security is listed.
     /// </summary>
-    [DataMember]
     public IsoMICIdentifier? PrimaryPlaceOfListingIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MarketIdentification is IsoMICIdentifier MarketIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MktId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(MarketIdentificationValue)); // data type MICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (RoundLot is FinancialInstrumentQuantity1Choice_ RoundLotValue)
+        {
+            writer.WriteStartElement(null, "RndLot", xmlNamespace );
+            RoundLotValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeLotSize is FinancialInstrumentQuantity1Choice_ TradeLotSizeValue)
+        {
+            writer.WriteStartElement(null, "TradLotSz", xmlNamespace );
+            TradeLotSizeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ScndryPlcOfListg", xmlNamespace );
+        SecondaryPlaceOfListing.Serialize(writer, xmlNamespace, "MICIdentifier", SerializationFormatter.IsoMICIdentifier );
+        writer.WriteEndElement();
+        if (MinimumTradedNominalQuantity is UnitOrFaceAmountChoice_ MinimumTradedNominalQuantityValue)
+        {
+            writer.WriteStartElement(null, "MinTraddNmnlQty", xmlNamespace );
+            MinimumTradedNominalQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MaximumTradedNominalQuantity is UnitOrFaceAmountChoice_ MaximumTradedNominalQuantityValue)
+        {
+            writer.WriteStartElement(null, "MaxTraddNmnlQty", xmlNamespace );
+            MaximumTradedNominalQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MinimumTradingPricingIncrement is IsoNumber MinimumTradingPricingIncrementValue)
+        {
+            writer.WriteStartElement(null, "MinTradgPricgIncrmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MinimumTradingPricingIncrementValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (PrimaryPlaceOfListingIdentification is IsoMICIdentifier PrimaryPlaceOfListingIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PmryPlcOfListgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(PrimaryPlaceOfListingIdentificationValue)); // data type MICIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TradingParameters1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

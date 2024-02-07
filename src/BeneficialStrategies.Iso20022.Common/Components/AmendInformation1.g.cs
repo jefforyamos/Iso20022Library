@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information specific to an amendment or cancellation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AmendInformation1
+     : IIsoXmlSerilizable<AmendInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the linked message which was previously sent.
     /// </summary>
-    [DataMember]
     public required MessageIdentification PreviousReference { get; init; } 
     /// <summary>
     /// Indicates whether instructions must be resent (in case of modification of the parameters of a meeting for which instructions have already been sent).
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ReconfirmInstructions { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+        PreviousReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RcnfrmInstrs", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ReconfirmInstructions)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static AmendInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// The final result of a single invoice financing request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancingResult1
+     : IIsoXmlSerilizable<FinancingResult1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the status of the financing request (e.g. financed. not financed).
     /// </summary>
-    [DataMember]
     public required RequestStatus1Code FinancingRequestStatus { get; init; } 
     /// <summary>
     /// Indicates the reasons that have determined the result of the single request.
     /// </summary>
-    [DataMember]
     public StatusReason4Choice_? StatusReason { get; init; } 
     /// <summary>
     /// Further details on the status reason.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax105Text> AdditionalStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax105Text? AdditionalStatusReasonInformation { get; init; } 
     /// <summary>
     /// Indicates amount financed related to the request.
     /// </summary>
-    [DataMember]
     public FinancingRateOrAmountChoice_? FinancedAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FincgReqSts", xmlNamespace );
+        writer.WriteValue(FinancingRequestStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (StatusReason is StatusReason4Choice_ StatusReasonValue)
+        {
+            writer.WriteStartElement(null, "StsRsn", xmlNamespace );
+            StatusReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalStatusReasonInformation is IsoMax105Text AdditionalStatusReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlStsRsnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax105Text(AdditionalStatusReasonInformationValue)); // data type Max105Text System.String
+            writer.WriteEndElement();
+        }
+        if (FinancedAmount is FinancingRateOrAmountChoice_ FinancedAmountValue)
+        {
+            writer.WriteStartElement(null, "FincdAmt", xmlNamespace );
+            FinancedAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancingResult1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

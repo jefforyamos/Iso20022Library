@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to the cardholder.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Cardholder8
+     : IIsoXmlSerilizable<Cardholder8>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the cardholder involved in a transaction.
     /// </summary>
-    [DataMember]
     public PersonIdentification7? Identification { get; init; } 
     /// <summary>
     /// Cardholder name associated with the card.
     /// </summary>
-    [DataMember]
     public IsoMax45Text? Name { get; init; } 
     /// <summary>
     /// Identifies personal data related to the cardholder.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? PersonalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is PersonIdentification7 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Name is IsoMax45Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax45Text(NameValue)); // data type Max45Text System.String
+            writer.WriteEndElement();
+        }
+        if (PersonalData is IsoMax70Text PersonalDataValue)
+        {
+            writer.WriteStartElement(null, "PrsnlData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(PersonalDataValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Cardholder8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

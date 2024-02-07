@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the software and hardware feature of the Sale Terminal.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SaleTerminalData1
+     : IIsoXmlSerilizable<SaleTerminalData1>
 {
     #nullable enable
     
     /// <summary>
     /// Human attendance at the POI location during the transaction.
     /// </summary>
-    [DataMember]
     public AttendanceContext1Code? TerminalEnvironment { get; init; } 
     /// <summary>
     /// Identifier of the reconciliation between the Sale system and the POI system.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SaleReconciliationIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TerminalEnvironment is AttendanceContext1Code TerminalEnvironmentValue)
+        {
+            writer.WriteStartElement(null, "TermnlEnvt", xmlNamespace );
+            writer.WriteValue(TerminalEnvironmentValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SaleReconciliationIdentification is IsoMax35Text SaleReconciliationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleRcncltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReconciliationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SaleTerminalData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

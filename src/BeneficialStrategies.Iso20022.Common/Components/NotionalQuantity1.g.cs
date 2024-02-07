@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates the reference quantity of the transaction and the schedule applicable to the quantity computation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NotionalQuantity1
+     : IIsoXmlSerilizable<NotionalQuantity1>
 {
     #nullable enable
     
     /// <summary>
     /// Number of units of the financial instrument, that is, the nominal value.
     /// </summary>
-    [DataMember]
     public required IsoLongFraction19DecimalNumber Quantity { get; init; } 
     /// <summary>
     /// Specifies the effective date and end date of the schedule for derivative transactions negotiated in non-monetary amounts with a notional quantity varying throughout the life of the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<Schedule2> Schedule { get; init; } = []; // Warning: Don't know multiplicity.
+    public Schedule2? Schedule { get; init; } 
     /// <summary>
     /// Indicates the unit of measure in which the total notional quantity and notional quantity schedules are expressed.
     /// </summary>
-    [DataMember]
     public required UnitOfMeasure12Code UnitOfMeasure { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLongFraction19DecimalNumber(Quantity)); // data type LongFraction19DecimalNumber System.UInt64
+        writer.WriteEndElement();
+        if (Schedule is Schedule2 ScheduleValue)
+        {
+            writer.WriteStartElement(null, "Schdl", xmlNamespace );
+            ScheduleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
+        writer.WriteValue(UnitOfMeasure.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static NotionalQuantity1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

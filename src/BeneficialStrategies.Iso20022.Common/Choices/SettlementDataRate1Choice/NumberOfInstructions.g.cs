@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SettlementDataRate1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementDataRate1Choice;
 /// Specifies the rate of settlement fails, based either on the number of settlement instructions or on the value of settlement instructions, is lower than the ceiling rate as specified in the local regulation.
 /// </summary>
 public partial record NumberOfInstructions : SettlementDataRate1Choice_
+     , IIsoXmlSerilizable<NumberOfInstructions>
 {
-    public required IsoPercentageRate Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.
+    /// </summary>
+    public required IsoPercentageRate Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NbOfInstrs", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(Value)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+    }
+    public static new NumberOfInstructions Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the reason for cancelling a meeting.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MeetingCancellationReason2
+     : IIsoXmlSerilizable<MeetingCancellationReason2>
 {
     #nullable enable
     
     /// <summary>
     /// Reason for cancelling a meeting.
     /// </summary>
-    [DataMember]
     public MeetingCancellationReason1Choice_? CancellationReasonCode { get; init; } 
     /// <summary>
     /// Provides more information on the reason for cancelling a meeting in free format form.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? CancellationReason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CancellationReasonCode is MeetingCancellationReason1Choice_ CancellationReasonCodeValue)
+        {
+            writer.WriteStartElement(null, "CxlRsnCd", xmlNamespace );
+            CancellationReasonCodeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CancellationReason is IsoMax140Text CancellationReasonValue)
+        {
+            writer.WriteStartElement(null, "CxlRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(CancellationReasonValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static MeetingCancellationReason2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

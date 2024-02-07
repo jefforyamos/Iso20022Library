@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument9Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument9Choice;
 /// Instruction, initiated by the creditor, to debit a debtor's account in favour of the creditor. A direct debit can be pre-authorised or not. In most countries, authorisation is in the form of a mandate between the debtor and creditor.
 /// </summary>
 public partial record DirectDebitDetails : PaymentInstrument9Choice_
+     , IIsoXmlSerilizable<DirectDebitDetails>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
@@ -43,5 +47,59 @@ public partial record DirectDebitDetails : PaymentInstrument9Choice_
     /// Reference of the direct debit mandate that has been agreed upon by the debtor and creditor.
     /// </summary>
     public IsoMax35Text? MandateIdentification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DbtrAcctId", xmlNamespace );
+        DebtorAccountIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DebtorIdentification is PartyIdentification2Choice_ DebtorIdentificationValue)
+        {
+            writer.WriteStartElement(null, "DbtrId", xmlNamespace );
+            DebtorIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditorIdentification is PartyIdentification2Choice_ CreditorIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CdtrId", xmlNamespace );
+            CreditorIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FrstAgt", xmlNamespace );
+        FirstAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FinalAgent is FinancialInstitutionIdentification3Choice_ FinalAgentValue)
+        {
+            writer.WriteStartElement(null, "FnlAgt", xmlNamespace );
+            FinalAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RegistrationIdentification is IsoMax35Text RegistrationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RegnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RegistrationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (MandateIdentification is IsoMax35Text MandateIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MndtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MandateIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new DirectDebitDetails Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,108 +7,207 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the shareholders meeting, specifying the participation requirements and the voting procedures. Alternatively, it may indicate where such information may be obtained.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MeetingNotice4
+     : IIsoXmlSerilizable<MeetingNotice4>
 {
     #nullable enable
     
     /// <summary>
     /// Identification assigned to the general meeting by the party notifying the meeting. It must be unique for the party notifying the meeting.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MeetingIdentification { get; init; } 
     /// <summary>
     /// Identification assigned to the meeting by the issuer. It must be unique for the issuer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? IssuerMeetingIdentification { get; init; } 
     /// <summary>
     /// Specifies the type of security holders meeting.
     /// </summary>
-    [DataMember]
     public required MeetingType3Code Type { get; init; } 
     /// <summary>
     /// Classifies the type of meeting.
     /// </summary>
-    [DataMember]
     public MeetingTypeClassification1Choice_? Classification { get; init; } 
     /// <summary>
     /// Official meeting announcement date.
     /// </summary>
-    [DataMember]
     public IsoISODate? AnnouncementDate { get; init; } 
     /// <summary>
     /// Indicates whether physical participation to the meeting is required in order to be allowed to vote.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? AttendanceRequired { get; init; } 
     /// <summary>
     /// Indicates how to order the attendance card or to give notice of attendance.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AttendanceConfirmationInformation { get; init; } 
     /// <summary>
     /// Date and time by which the beneficial owner or agent must notify of its intention to participate in the meeting. This deadline is set by an intermediary.
     /// </summary>
-    [DataMember]
     public DateFormat29Choice_? AttendanceConfirmationDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the beneficial owner or agent must notify of its intention to participate in the meeting (STP mode). This deadline is set by an intermediary.
     /// </summary>
-    [DataMember]
     public DateFormat29Choice_? AttendanceConfirmationSTPDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the attendance to the meeting should be confirmed. This deadline is set by the issuer.
     /// </summary>
-    [DataMember]
     public DateFormat29Choice_? AttendanceConfirmationMarketDeadline { get; init; } 
     /// <summary>
     /// Address to use over the www (HTTP) service where additional information on the meeting may be found.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? AdditionalDocumentationURLAddress { get; init; } 
     /// <summary>
     /// Additional procedural information about the general meeting, specifying the participation requirements and the voting procedures. Alternatively, this may indicate where such information may be obtained.
     /// </summary>
-    [DataMember]
     public ValueList<AdditionalRights2> AdditionalProcedureDetails { get; init; } = [];
     /// <summary>
     /// Number of securities admitted to the vote, expressed as an amount and a currency.
     /// </summary>
-    [DataMember]
     public UnitOrFaceAmount1Choice_? TotalNumberOfSecuritiesOutstanding { get; init; } 
     /// <summary>
     /// Number of rights admitted to the vote.
     /// </summary>
-    [DataMember]
     public IsoNumber? TotalNumberOfVotingRights { get; init; } 
     /// <summary>
     /// Address where the information on the proxy should be sent.
     /// </summary>
-    [DataMember]
     public PostalAddress1? ProxyAppointmentNotificationAddress { get; init; } 
     /// <summary>
     /// Indicates whether a proxy is allowed.
     /// </summary>
-    [DataMember]
     public Proxy2Choice_? ProxyChoice { get; init; } 
     /// <summary>
     /// Contact person at the party organising the meeting, at the issuer or at an intermediary.
     /// </summary>
-    [DataMember]
     public ValueList<MeetingContactPerson2> ContactPersonDetails { get; init; } = [];
     /// <summary>
     /// Date on which the company publishes the results of its meeting.
     /// </summary>
-    [DataMember]
     public DateFormat3Choice_? ResultPublicationDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MeetingIdentification is IsoMax35Text MeetingIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MtgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MeetingIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (IssuerMeetingIdentification is IsoMax35Text IssuerMeetingIdentificationValue)
+        {
+            writer.WriteStartElement(null, "IssrMtgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerMeetingIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Classification is MeetingTypeClassification1Choice_ ClassificationValue)
+        {
+            writer.WriteStartElement(null, "Clssfctn", xmlNamespace );
+            ClassificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AnnouncementDate is IsoISODate AnnouncementDateValue)
+        {
+            writer.WriteStartElement(null, "AnncmntDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(AnnouncementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (AttendanceRequired is IsoYesNoIndicator AttendanceRequiredValue)
+        {
+            writer.WriteStartElement(null, "AttndncReqrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AttendanceRequiredValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AttendanceConfirmationInformation is IsoMax350Text AttendanceConfirmationInformationValue)
+        {
+            writer.WriteStartElement(null, "AttndncConfInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AttendanceConfirmationInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (AttendanceConfirmationDeadline is DateFormat29Choice_ AttendanceConfirmationDeadlineValue)
+        {
+            writer.WriteStartElement(null, "AttndncConfDdln", xmlNamespace );
+            AttendanceConfirmationDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AttendanceConfirmationSTPDeadline is DateFormat29Choice_ AttendanceConfirmationSTPDeadlineValue)
+        {
+            writer.WriteStartElement(null, "AttndncConfSTPDdln", xmlNamespace );
+            AttendanceConfirmationSTPDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AttendanceConfirmationMarketDeadline is DateFormat29Choice_ AttendanceConfirmationMarketDeadlineValue)
+        {
+            writer.WriteStartElement(null, "AttndncConfMktDdln", xmlNamespace );
+            AttendanceConfirmationMarketDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalDocumentationURLAddress is IsoMax256Text AdditionalDocumentationURLAddressValue)
+        {
+            writer.WriteStartElement(null, "AddtlDcmnttnURLAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(AdditionalDocumentationURLAddressValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AddtlPrcdrDtls", xmlNamespace );
+        AdditionalProcedureDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TotalNumberOfSecuritiesOutstanding is UnitOrFaceAmount1Choice_ TotalNumberOfSecuritiesOutstandingValue)
+        {
+            writer.WriteStartElement(null, "TtlNbOfSctiesOutsdng", xmlNamespace );
+            TotalNumberOfSecuritiesOutstandingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalNumberOfVotingRights is IsoNumber TotalNumberOfVotingRightsValue)
+        {
+            writer.WriteStartElement(null, "TtlNbOfVtngRghts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberOfVotingRightsValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (ProxyAppointmentNotificationAddress is PostalAddress1 ProxyAppointmentNotificationAddressValue)
+        {
+            writer.WriteStartElement(null, "PrxyAppntmntNtfctnAdr", xmlNamespace );
+            ProxyAppointmentNotificationAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProxyChoice is Proxy2Choice_ ProxyChoiceValue)
+        {
+            writer.WriteStartElement(null, "PrxyChc", xmlNamespace );
+            ProxyChoiceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CtctPrsnDtls", xmlNamespace );
+        ContactPersonDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ResultPublicationDate is DateFormat3Choice_ ResultPublicationDateValue)
+        {
+            writer.WriteStartElement(null, "RsltPblctnDt", xmlNamespace );
+            ResultPublicationDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MeetingNotice4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

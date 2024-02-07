@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides further information required for the account switch.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransferInstruction1
+     : IIsoXmlSerilizable<TransferInstruction1>
 {
     #nullable enable
     
@@ -23,33 +24,77 @@ public partial record TransferInstruction1
     /// Indicates whether a payment arrangement is transferable.
     /// Usage: Default value for TransferIndicator is false.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? TransferIndicator { get; init; } 
     /// <summary>
     /// Specifies an additional parameter to be applied to the requested transaction schedule.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Code { get; init; } 
     /// <summary>
     /// Specifies an additional parameter to be applied to the transaction schedule in a proprietary format.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? Proprietary { get; init; } 
     /// <summary>
     /// The date and time at which the event specified by Code commences.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? StartDateTime { get; init; } 
     /// <summary>
     /// The date on which the event specified by Code commences.
     /// </summary>
-    [DataMember]
     public IsoISODate? StartDate { get; init; } 
     /// <summary>
     /// Additional switch parameters in a free text format.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? Description { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TransferIndicator is IsoYesNoIndicator TransferIndicatorValue)
+        {
+            writer.WriteStartElement(null, "TrfInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(TransferIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Code)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Proprietary is IsoMax256Text ProprietaryValue)
+        {
+            writer.WriteStartElement(null, "Prtry", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(ProprietaryValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (StartDateTime is IsoISODateTime StartDateTimeValue)
+        {
+            writer.WriteStartElement(null, "StartDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(StartDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (StartDate is IsoISODate StartDateValue)
+        {
+            writer.WriteStartElement(null, "StartDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(StartDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Description is IsoMax350Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(DescriptionValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TransferInstruction1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

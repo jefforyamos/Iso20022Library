@@ -7,39 +7,71 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Card acceptor performing the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Organisation19
+     : IIsoXmlSerilizable<Organisation19>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the card acceptor.
     /// </summary>
-    [DataMember]
     public required GenericIdentification32 Identification { get; init; } 
     /// <summary>
     /// Name of the card acceptor as appearing on the receipt or the statement of account of the cardholder.
     /// It correspond to the ISO 8583, field number 43.
     /// </summary>
-    [DataMember]
     public required IsoMax70Text CommonName { get; init; } 
     /// <summary>
     /// Selected language of the card acceptor. Reference ISO 639-1 (alpha-2) and ISO 639-2 (alpha-3).
     /// </summary>
-    [DataMember]
     public LanguageCode? SelectedLanguage { get; init; } 
     /// <summary>
     /// Additional card acceptor data required by a card scheme.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? SchemeData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CmonNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(CommonName)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        if (SelectedLanguage is LanguageCode SelectedLanguageValue)
+        {
+            writer.WriteStartElement(null, "SelctdLang", xmlNamespace );
+            writer.WriteValue(SelectedLanguageValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SchemeData is IsoMax140Text SchemeDataValue)
+        {
+            writer.WriteStartElement(null, "SchmeData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(SchemeDataValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Organisation19 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

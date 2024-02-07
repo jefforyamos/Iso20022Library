@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.catm.TerminalManagementRejectionV04>;
 
 namespace BeneficialStrategies.Iso20022.catm;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.catm;
 /// The TerminalManagementRejection message is sent by the terminal manager to reject a message request sent by an acceptor, to indicate that the received message could not be processed.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The TerminalManagementRejection message is sent by the terminal manager to reject a message request sent by an acceptor, to indicate that the received message could not be processed.")]
-public partial record TerminalManagementRejectionV04 : IOuterRecord
+public partial record TerminalManagementRejectionV04 : IOuterRecord<TerminalManagementRejectionV04,TerminalManagementRejectionV04Document>
+    ,IIsoXmlSerilizable<TerminalManagementRejectionV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record TerminalManagementRejectionV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "TermnlMgmtRjctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => TerminalManagementRejectionV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -67,6 +74,29 @@ public partial record TerminalManagementRejectionV04 : IOuterRecord
     {
         return new TerminalManagementRejectionV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("TermnlMgmtRjctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rjct", xmlNamespace );
+        Reject.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static TerminalManagementRejectionV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -74,9 +104,7 @@ public partial record TerminalManagementRejectionV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TerminalManagementRejectionV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record TerminalManagementRejectionV04Document : IOuterDocument<TerminalManagementRejectionV04>
+public partial record TerminalManagementRejectionV04Document : IOuterDocument<TerminalManagementRejectionV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -92,5 +120,22 @@ public partial record TerminalManagementRejectionV04Document : IOuterDocument<Te
     /// <summary>
     /// The instance of <seealso cref="TerminalManagementRejectionV04"/> is required.
     /// </summary>
+    [DataMember(Name=TerminalManagementRejectionV04.XmlTag)]
     public required TerminalManagementRejectionV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(TerminalManagementRejectionV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

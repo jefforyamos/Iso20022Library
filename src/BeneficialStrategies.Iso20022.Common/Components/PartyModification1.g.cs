@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the type of change to party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyModification1
+     : IIsoXmlSerilizable<PartyModification1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of change.
     /// </summary>
-    [DataMember]
     public Modification1Code? ModificationCode { get; init; } 
     /// <summary>
     /// Identification of the party.
     /// </summary>
-    [DataMember]
     public required PartyIdentification40 PartyIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ModificationCode is Modification1Code ModificationCodeValue)
+        {
+            writer.WriteStartElement(null, "ModCd", xmlNamespace );
+            writer.WriteValue(ModificationCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PtyId", xmlNamespace );
+        PartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static PartyModification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

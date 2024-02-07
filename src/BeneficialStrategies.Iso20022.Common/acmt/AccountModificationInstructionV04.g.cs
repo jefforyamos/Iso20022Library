@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.acmt.AccountModificationInstructionV04>;
 
 namespace BeneficialStrategies.Iso20022.acmt;
 
@@ -31,10 +34,9 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// Execution of the AccountModificationInstruction is confirmed via an AccountDetailsConfirmation message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account owner, for example, an investor or its designated agent, sends the AccountModificationInstruction message to the account servicer, for example, a registrar, transfer agent or custodian bank to modify, that is, create, update or delete specific details of an existing investment fund account.|Usage|The AccountModificationInstruction message is used to modify the details of an existing account.|The AccountModificationInstruction message has three specific uses:|- to maintain/update any of the existing account details, for example, to update the address of the beneficiary or modify the preference to income from distribution to capitalisation, or,|- to add/create specific details to the existing account when these details were not yet recorded at the time of account creation, for example, to add a second address or to establish new cash settlement standing instructions, or,|- to delete specific account details, for example, delete cash standing instructions.|This message cannot be used to delete an entire account, as institution specific and regulatory rules pertaining to account deletion are diverse.|The usage of this message may be subject to service level agreement (SLA) between the counterparties.|Execution of the AccountModificationInstruction is confirmed via an AccountDetailsConfirmation message.")]
-public partial record AccountModificationInstructionV04 : IOuterRecord
+public partial record AccountModificationInstructionV04 : IOuterRecord<AccountModificationInstructionV04,AccountModificationInstructionV04Document>
+    ,IIsoXmlSerilizable<AccountModificationInstructionV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -46,6 +48,11 @@ public partial record AccountModificationInstructionV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AcctModInstr";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AccountModificationInstructionV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -102,7 +109,7 @@ public partial record AccountModificationInstructionV04 : IOuterRecord
     [Description(@"Information related to the account related parties, for example, primary owner to be inserted, updated or deleted.")]
     [DataMember(Name="ModfdAcctPties")]
     [XmlElement(ElementName="ModfdAcctPties")]
-    public required IReadOnlyCollection<AccountParties8> ModifiedAccountParties { get; init; } = []; // Min=0, Max=10
+    public required ValueList<AccountParties8> ModifiedAccountParties { get; init; } = []; // Min=0, Max=10
     
     /// <summary>
     /// Information related to intermediaries to be inserted, updated or deleted.
@@ -111,7 +118,7 @@ public partial record AccountModificationInstructionV04 : IOuterRecord
     [Description(@"Information related to intermediaries to be inserted, updated or deleted.")]
     [DataMember(Name="ModfdIntrmies")]
     [XmlElement(ElementName="ModfdIntrmies")]
-    public required IReadOnlyCollection<ModificationScope20> ModifiedIntermediaries { get; init; } = []; // Min=0, Max=10
+    public required ValueList<ModificationScope20> ModifiedIntermediaries { get; init; } = []; // Min=0, Max=10
     
     /// <summary>
     /// Information related to referred placement agent in the hedge fund industry to be inserted, updated or deleted.
@@ -138,7 +145,7 @@ public partial record AccountModificationInstructionV04 : IOuterRecord
     [Description(@"Information related to a savings plan to be either inserted, updated or deleted.")]
     [DataMember(Name="ModfdSvgsInvstmtPlan")]
     [XmlElement(ElementName="ModfdSvgsInvstmtPlan")]
-    public required IReadOnlyCollection<ModificationScope18> ModifiedSavingsInvestmentPlan { get; init; } = []; // Min=0, Max=50
+    public required ValueList<ModificationScope18> ModifiedSavingsInvestmentPlan { get; init; } = []; // Min=0, Max=50
     
     /// <summary>
     /// Information related to a withdrawal plan to be either inserted, updated or deleted.
@@ -147,7 +154,7 @@ public partial record AccountModificationInstructionV04 : IOuterRecord
     [Description(@"Information related to a withdrawal plan to be either inserted, updated or deleted.")]
     [DataMember(Name="ModfdWdrwlInvstmtPlan")]
     [XmlElement(ElementName="ModfdWdrwlInvstmtPlan")]
-    public required IReadOnlyCollection<ModificationScope18> ModifiedWithdrawalInvestmentPlan { get; init; } = []; // Min=0, Max=10
+    public required ValueList<ModificationScope18> ModifiedWithdrawalInvestmentPlan { get; init; } = []; // Min=0, Max=10
     
     /// <summary>
     /// Cash settlement standing instruction associated to the investment fund transaction and to be either inserted or deleted.
@@ -156,7 +163,7 @@ public partial record AccountModificationInstructionV04 : IOuterRecord
     [Description(@"Cash settlement standing instruction associated to the investment fund transaction and to be either inserted or deleted.")]
     [DataMember(Name="ModfdCshSttlm")]
     [XmlElement(ElementName="ModfdCshSttlm")]
-    public required IReadOnlyCollection<InvestmentFundCashSettlementInformation8> ModifiedCashSettlement { get; init; } = []; // Min=0, Max=8
+    public required ValueList<InvestmentFundCashSettlementInformation8> ModifiedCashSettlement { get; init; } = []; // Min=0, Max=8
     
     /// <summary>
     /// Information related to documents to be added, deleted or updated.|.
@@ -165,7 +172,7 @@ public partial record AccountModificationInstructionV04 : IOuterRecord
     [Description(@"Information related to documents to be added, deleted or updated.|.")]
     [DataMember(Name="ModfdSvcLvlAgrmt")]
     [XmlElement(ElementName="ModfdSvcLvlAgrmt")]
-    public required IReadOnlyCollection<ModificationScope10> ModifiedServiceLevelAgreement { get; init; } = []; // Min=0, Max=30
+    public required ValueList<ModificationScope10> ModifiedServiceLevelAgreement { get; init; } = []; // Min=0, Max=30
     
     /// <summary>
     /// Identifies the market practice to which the message conforms.
@@ -194,6 +201,89 @@ public partial record AccountModificationInstructionV04 : IOuterRecord
     {
         return new AccountModificationInstructionV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AcctModInstr");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PreviousReference is AdditionalReference3 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructionDetails is InvestmentAccountModificationDetails InstructionDetailsValue)
+        {
+            writer.WriteStartElement(null, "InstrDtls", xmlNamespace );
+            InstructionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InvstmtAcctSelctn", xmlNamespace );
+        InvestmentAccountSelection.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ModifiedInvestmentAccount is InvestmentAccount39 ModifiedInvestmentAccountValue)
+        {
+            writer.WriteStartElement(null, "ModfdInvstmtAcct", xmlNamespace );
+            ModifiedInvestmentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ModfdAcctPties", xmlNamespace );
+        ModifiedAccountParties.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ModfdIntrmies", xmlNamespace );
+        ModifiedIntermediaries.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ModifiedPlacement is ReferredAgent1 ModifiedPlacementValue)
+        {
+            writer.WriteStartElement(null, "ModfdPlcmnt", xmlNamespace );
+            ModifiedPlacementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ModifiedIssueAllocation is ModificationScope9 ModifiedIssueAllocationValue)
+        {
+            writer.WriteStartElement(null, "ModfdIsseAllcn", xmlNamespace );
+            ModifiedIssueAllocationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ModfdSvgsInvstmtPlan", xmlNamespace );
+        ModifiedSavingsInvestmentPlan.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ModfdWdrwlInvstmtPlan", xmlNamespace );
+        ModifiedWithdrawalInvestmentPlan.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ModfdCshSttlm", xmlNamespace );
+        ModifiedCashSettlement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ModfdSvcLvlAgrmt", xmlNamespace );
+        ModifiedServiceLevelAgreement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MarketPracticeVersion is MarketPracticeVersion1 MarketPracticeVersionValue)
+        {
+            writer.WriteStartElement(null, "MktPrctcVrsn", xmlNamespace );
+            MarketPracticeVersionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountModificationInstructionV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -201,9 +291,7 @@ public partial record AccountModificationInstructionV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountModificationInstructionV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AccountModificationInstructionV04Document : IOuterDocument<AccountModificationInstructionV04>
+public partial record AccountModificationInstructionV04Document : IOuterDocument<AccountModificationInstructionV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -219,5 +307,22 @@ public partial record AccountModificationInstructionV04Document : IOuterDocument
     /// <summary>
     /// The instance of <seealso cref="AccountModificationInstructionV04"/> is required.
     /// </summary>
+    [DataMember(Name=AccountModificationInstructionV04.XmlTag)]
     public required AccountModificationInstructionV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AccountModificationInstructionV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

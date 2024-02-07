@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the placement agent identification for a hedge fund if the investor was referred by one.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReferredAgent3
+     : IIsoXmlSerilizable<ReferredAgent3>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates if the investor was referred by a placement agent.
     /// </summary>
-    [DataMember]
     public required Referred1Code Referred { get; init; } 
     /// <summary>
     /// Placement agent that referred the investor.
     /// </summary>
-    [DataMember]
     public PartyIdentification125Choice_? ReferredPlacementAgent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Rfrd", xmlNamespace );
+        writer.WriteValue(Referred.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ReferredPlacementAgent is PartyIdentification125Choice_ ReferredPlacementAgentValue)
+        {
+            writer.WriteStartElement(null, "RfrdPlcmntAgt", xmlNamespace );
+            ReferredPlacementAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ReferredAgent3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ProductIdentifier2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.ProductIdentifier2Choice;
 /// Specifies the type of product identifier.
 /// </summary>
 public partial record StructuredProductIdentifier : ProductIdentifier2Choice_
+     , IIsoXmlSerilizable<StructuredProductIdentifier>
 {
     #nullable enable
+    
     /// <summary>
     /// Specifies the type of product identifier by means of a code.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record StructuredProductIdentifier : ProductIdentifier2Choice_
     /// Specifies the product identifier.
     /// </summary>
     public required IsoMax35Text Identifier { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Idr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identifier)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static new StructuredProductIdentifier Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

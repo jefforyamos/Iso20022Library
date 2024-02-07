@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.DailyFundTransfer1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.DailyFundTransfer1Choice;
 /// Information about code and number of transfer.
 /// </summary>
 public partial record TransferEvent : DailyFundTransfer1Choice_
+     , IIsoXmlSerilizable<TransferEvent>
 {
     #nullable enable
+    
     /// <summary>
     /// Code of fund transfer event.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record TransferEvent : DailyFundTransfer1Choice_
     /// Event number related to the event code.
     /// </summary>
     public IsoMax3NumericText? EventNumber { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "EvtCd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4Text(EventCode)); // data type Max4Text System.String
+        writer.WriteEndElement();
+        if (EventNumber is IsoMax3NumericText EventNumberValue)
+        {
+            writer.WriteStartElement(null, "EvtNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(EventNumberValue)); // data type Max3NumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new TransferEvent Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.NotificationToReceiveV07>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -24,10 +27,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// The NotificationToReceive message is used to advise the account servicing institution of funds that the account owner expects to have credited to its account. The message can be used in either a direct or a relay scenario.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The NotificationToReceive message is sent by an account owner or by a party acting on the account owner's behalf to one of the account owner's account servicing institutions. It is an advance notice that the account servicing institution will receive funds to be credited to the account of the account owner.|Usage|The NotificationToReceive message is used to advise the account servicing institution of funds that the account owner expects to have credited to its account. The message can be used in either a direct or a relay scenario.")]
-public partial record NotificationToReceiveV07 : IOuterRecord
+public partial record NotificationToReceiveV07 : IOuterRecord<NotificationToReceiveV07,NotificationToReceiveV07Document>
+    ,IIsoXmlSerilizable<NotificationToReceiveV07>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -39,6 +41,11 @@ public partial record NotificationToReceiveV07 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "NtfctnToRcv";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => NotificationToReceiveV07Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -79,6 +86,35 @@ public partial record NotificationToReceiveV07 : IOuterRecord
     {
         return new NotificationToReceiveV07Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("NtfctnToRcv");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
+        GroupHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Ntfctn", xmlNamespace );
+        Notification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static NotificationToReceiveV07 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -86,9 +122,7 @@ public partial record NotificationToReceiveV07 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NotificationToReceiveV07"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record NotificationToReceiveV07Document : IOuterDocument<NotificationToReceiveV07>
+public partial record NotificationToReceiveV07Document : IOuterDocument<NotificationToReceiveV07>, IXmlSerializable
 {
     
     /// <summary>
@@ -104,5 +138,22 @@ public partial record NotificationToReceiveV07Document : IOuterDocument<Notifica
     /// <summary>
     /// The instance of <seealso cref="NotificationToReceiveV07"/> is required.
     /// </summary>
+    [DataMember(Name=NotificationToReceiveV07.XmlTag)]
     public required NotificationToReceiveV07 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(NotificationToReceiveV07.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

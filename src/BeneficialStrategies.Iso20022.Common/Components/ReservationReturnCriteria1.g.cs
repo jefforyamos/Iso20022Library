@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to report on reservation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReservationReturnCriteria1
+     : IIsoXmlSerilizable<ReservationReturnCriteria1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the reservation start date time is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? StartDateTimeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the reservation status is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? StatusIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (StartDateTimeIndicator is IsoRequestedIndicator StartDateTimeIndicatorValue)
+        {
+            writer.WriteStartElement(null, "StartDtTmInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(StartDateTimeIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (StatusIndicator is IsoRequestedIndicator StatusIndicatorValue)
+        {
+            writer.WriteStartElement(null, "StsInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(StatusIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ReservationReturnCriteria1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

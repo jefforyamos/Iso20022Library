@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional data related to risk assessment of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalRiskData1
+     : IIsoXmlSerilizable<AdditionalRiskData1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the additional risk data type related to the transaction.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Data value of the additional risk data associated with the transaction.
     /// </summary>
-    [DataMember]
     public required IsoMax10KText Value { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Type)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax10KText(Value)); // data type Max10KText System.String
+        writer.WriteEndElement();
+    }
+    public static AdditionalRiskData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

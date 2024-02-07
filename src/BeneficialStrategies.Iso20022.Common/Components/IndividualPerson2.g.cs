@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IndividualPerson2
+     : IIsoXmlSerilizable<IndividualPerson2>
 {
     #nullable enable
     
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? Name { get; init; } 
     /// <summary>
     /// Date on which a person is born.
     /// </summary>
-    [DataMember]
     public IsoISODate? BirthDate { get; init; } 
     /// <summary>
     /// Country and residential status of an individual, for example, non-pernament resident.
     /// </summary>
-    [DataMember]
     public CountryAndResidentialStatusType1? CountryAndResidentialStatus { get; init; } 
     /// <summary>
     /// Alternative identification, for example, national registration identification number, passport number, or an account number used to further identify the beneficial owner, for example, a Central Provident Fund (CFP) account as required for Singapore.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericIdentification8> OtherIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericIdentification8? OtherIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax350Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(NameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (BirthDate is IsoISODate BirthDateValue)
+        {
+            writer.WriteStartElement(null, "BirthDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(BirthDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (CountryAndResidentialStatus is CountryAndResidentialStatusType1 CountryAndResidentialStatusValue)
+        {
+            writer.WriteStartElement(null, "CtryAndResdtlSts", xmlNamespace );
+            CountryAndResidentialStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherIdentification is GenericIdentification8 OtherIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OthrId", xmlNamespace );
+            OtherIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IndividualPerson2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

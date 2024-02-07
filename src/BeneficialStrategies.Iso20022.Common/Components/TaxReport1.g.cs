@@ -7,59 +7,108 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains all needed party details for tax agency (sender of the TaxReport) and tax authority (receiver of the TaxReport) and the details of the reported sales transaction and calculated tax related that specific business transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxReport1
+     : IIsoXmlSerilizable<TaxReport1>
 {
     #nullable enable
     
     /// <summary>
     /// Basic report details.
     /// </summary>
-    [DataMember]
     public required GroupHeader69 TaxReportHeader { get; init; } 
     /// <summary>
     /// Tax reporting agent, for example seller.
     /// Responsible to issue tax reporting to tax authority.
     /// </summary>
-    [DataMember]
     public required PartyIdentification72 Seller { get; init; } 
     /// <summary>
     /// Specifies the buyer of goods/service reported in this message.
     /// </summary>
-    [DataMember]
     public PartyIdentification72? Buyer { get; init; } 
     /// <summary>
     /// Contains the details of the business transactions reported in the message.
     /// </summary>
-    [DataMember]
     public required TradeSettlement2 TradeSettlement { get; init; } 
     /// <summary>
     /// Reserved for parties that may be required by a specific tax authority.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyIdentification72> OtherParty { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyIdentification72? OtherParty { get; init; } 
     /// <summary>
     /// Additional reference like site key or identifier.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation1> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation1? AdditionalInformation { get; init; } 
     /// <summary>
     /// Structure to deliver link to external attachment or deliver base64-coded attachment inside message.
     /// </summary>
-    [DataMember]
-    public ValueList<DocumentGeneralInformation2> AdditionalReference { get; init; } = []; // Warning: Don't know multiplicity.
+    public DocumentGeneralInformation2? AdditionalReference { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TaxRptHdr", xmlNamespace );
+        TaxReportHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sellr", xmlNamespace );
+        Seller.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Buyer is PartyIdentification72 BuyerValue)
+        {
+            writer.WriteStartElement(null, "Buyr", xmlNamespace );
+            BuyerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TradSttlm", xmlNamespace );
+        TradeSettlement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OtherParty is PartyIdentification72 OtherPartyValue)
+        {
+            writer.WriteStartElement(null, "OthrPty", xmlNamespace );
+            OtherPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation1 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalReference is DocumentGeneralInformation2 AdditionalReferenceValue)
+        {
+            writer.WriteStartElement(null, "AddtlRef", xmlNamespace );
+            AdditionalReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TaxReport1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the customer
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Customer6
+     : IIsoXmlSerilizable<Customer6>
 {
     #nullable enable
     
     /// <summary>
     /// Customer account number with the service provider.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountNumber { get; init; } 
     /// <summary>
     /// Name of the customer.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Customer's primary contact phone number. 
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? PhoneNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountNumber is IsoMax35Text AccountNumberValue)
+        {
+            writer.WriteStartElement(null, "AcctNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Name is IsoMax70Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (PhoneNumber is IsoPhoneNumber PhoneNumberValue)
+        {
+            writer.WriteStartElement(null, "PhneNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(PhoneNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Customer6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

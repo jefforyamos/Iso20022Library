@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Other parties' information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OtherParties33
+     : IIsoXmlSerilizable<OtherParties33>
 {
     #nullable enable
     
     /// <summary>
     /// Party, either an individual or organisation, whose assets are being invested.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyIdentificationAndAccount167> Investor { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyIdentificationAndAccount167? Investor { get; init; } 
     /// <summary>
     /// Foreign financial institution which has been authorised by local authorities to act as account management institution in the country.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount166? QualifiedForeignIntermediary { get; init; } 
     /// <summary>
     /// Identification of the stock exchange to which transaction reporting will be done.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount165? StockExchange { get; init; } 
     /// <summary>
     /// Institution to which a trade must be reported.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount165? TradeRegulator { get; init; } 
     /// <summary>
     /// Party responsible for the administration of a tri-party collateral transaction including collateral allocation, marking to market and substitution of collateral.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount166? TripartyAgent { get; init; } 
     /// <summary>
     /// Party that identifies a broker when required (for example, authorised broker, prime broker, etc).
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount166? Broker { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Investor is PartyIdentificationAndAccount167 InvestorValue)
+        {
+            writer.WriteStartElement(null, "Invstr", xmlNamespace );
+            InvestorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (QualifiedForeignIntermediary is PartyIdentificationAndAccount166 QualifiedForeignIntermediaryValue)
+        {
+            writer.WriteStartElement(null, "QlfdFrgnIntrmy", xmlNamespace );
+            QualifiedForeignIntermediaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StockExchange is PartyIdentificationAndAccount165 StockExchangeValue)
+        {
+            writer.WriteStartElement(null, "StockXchg", xmlNamespace );
+            StockExchangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeRegulator is PartyIdentificationAndAccount165 TradeRegulatorValue)
+        {
+            writer.WriteStartElement(null, "TradRgltr", xmlNamespace );
+            TradeRegulatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TripartyAgent is PartyIdentificationAndAccount166 TripartyAgentValue)
+        {
+            writer.WriteStartElement(null, "TrptyAgt", xmlNamespace );
+            TripartyAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Broker is PartyIdentificationAndAccount166 BrokerValue)
+        {
+            writer.WriteStartElement(null, "Brkr", xmlNamespace );
+            BrokerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OtherParties33 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

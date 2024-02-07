@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains the details of the labour performed and associated duration and billing rate. 
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TemporaryServicesLabor1
+     : IIsoXmlSerilizable<TemporaryServicesLabor1>
 {
     #nullable enable
     
     /// <summary>
     /// Contains the time sheet identification number.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TimeSheetNumber { get; init; } 
     /// <summary>
     /// Contains the date of the end of the billing cycle. 
     /// </summary>
-    [DataMember]
     public IsoMax10NumericText? WeekEnding { get; init; } 
     /// <summary>
     /// Contains details of the amount charged. 
     /// </summary>
-    [DataMember]
-    public ValueList<Amount12> Charge { get; init; } = []; // Warning: Don't know multiplicity.
+    public Amount12? Charge { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TimeSheetNumber is IsoMax35Text TimeSheetNumberValue)
+        {
+            writer.WriteStartElement(null, "TmSheetNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TimeSheetNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (WeekEnding is IsoMax10NumericText WeekEndingValue)
+        {
+            writer.WriteStartElement(null, "WkEndg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10NumericText(WeekEndingValue)); // data type Max10NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (Charge is Amount12 ChargeValue)
+        {
+            writer.WriteStartElement(null, "Chrg", xmlNamespace );
+            ChargeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TemporaryServicesLabor1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

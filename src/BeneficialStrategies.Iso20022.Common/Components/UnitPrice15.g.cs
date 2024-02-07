@@ -7,113 +7,207 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UnitPrice15
+     : IIsoXmlSerilizable<UnitPrice15>
 {
     #nullable enable
     
     /// <summary>
     /// Type and information about a price.
     /// </summary>
-    [DataMember]
     public required TypeOfPrice9Code Type { get; init; } 
     /// <summary>
     /// Type and information about a price.
     /// </summary>
-    [DataMember]
     public required IsoExtended350Code ExtendedType { get; init; } 
     /// <summary>
     /// Type of pricing calculation method.
     /// </summary>
-    [DataMember]
     public PriceMethod1Code? PriceMethod { get; init; } 
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
-    [DataMember]
-    public ValueList<PriceValue1> ValueInInvestmentCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    public PriceValue1? ValueInInvestmentCurrency { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _QeuhYdp-Ed-ak6NoX_4Aeg_116968420
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
-    [DataMember]
-    public ValueList<PriceValue1> ValueInAlternativeCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    public PriceValue1? ValueInAlternativeCurrency { get; init; } 
     /// <summary>
     /// Indicates whether the price information can be used for the execution of a transaction.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ForExecutionIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the dividend is included, ie, cum-dividend, in the price. When the dividend is not included, the price will be ex-dividend.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator CumDividendIndicator { get; init; } 
     /// <summary>
     /// Ratio applied on the non-adjusted price.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? CalculationBasis { get; init; } 
     /// <summary>
     /// Indicates whether the price is an estimated price.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator EstimatedPriceIndicator { get; init; } 
     /// <summary>
     /// Specifies the number of days from trade date that the counterparty on the other side of the trade should "given up" or divulged.
     /// </summary>
-    [DataMember]
     public IsoNumber? NumberOfDaysAccrued { get; init; } 
     /// <summary>
     /// Amount included in the NAV that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? TaxableIncomePerShare { get; init; } 
     /// <summary>
     /// Specifies whether the fund calculates a taxable interest per share (TIS).
     /// </summary>
-    [DataMember]
     public TaxableIncomePerShareCalculated2Code? TaxableIncomePerShareCalculated { get; init; } 
     /// <summary>
     /// Specifies whether the fund calculates a taxable interest per share (TIS).
     /// </summary>
-    [DataMember]
     public IsoExtended350Code? ExtendedTaxableIncomePerShareCalculated { get; init; } 
     /// <summary>
     /// Amount included in the dividend that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? TaxableIncomePerDividend { get; init; } 
     /// <summary>
     /// Specifies whether dividend is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
-    [DataMember]
     public EUDividendStatus1Code? EUDividendStatus { get; init; } 
     /// <summary>
     /// Specifies whether dividend is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
-    [DataMember]
     public IsoExtended350Code? ExtendedEUDividendStatus { get; init; } 
     /// <summary>
     /// Amount of money associated with a service.
     /// </summary>
-    [DataMember]
-    public ValueList<Charge15> ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Charge15? ChargeDetails { get; init; } 
     /// <summary>
     /// Information related to taxes that are due.
     /// </summary>
-    [DataMember]
-    public ValueList<Tax17> TaxLiabilityDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Tax17? TaxLiabilityDetails { get; init; } 
     /// <summary>
     /// Information related to taxes that are paid back.
     /// </summary>
-    [DataMember]
-    public ValueList<Tax17> TaxRefundDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Tax17? TaxRefundDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtndedTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedType)); // data type Extended350Code System.String
+        writer.WriteEndElement();
+        if (PriceMethod is PriceMethod1Code PriceMethodValue)
+        {
+            writer.WriteStartElement(null, "PricMtd", xmlNamespace );
+            writer.WriteValue(PriceMethodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize ValueInInvestmentCurrency, multiplicity Unknown
+        if (ValueInAlternativeCurrency is PriceValue1 ValueInAlternativeCurrencyValue)
+        {
+            writer.WriteStartElement(null, "ValInAltrntvCcy", xmlNamespace );
+            ValueInAlternativeCurrencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ForExctnInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ForExecutionIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CumDvddInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CumDividendIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (CalculationBasis is IsoPercentageRate CalculationBasisValue)
+        {
+            writer.WriteStartElement(null, "ClctnBsis", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(CalculationBasisValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "EstmtdPricInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(EstimatedPriceIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (NumberOfDaysAccrued is IsoNumber NumberOfDaysAccruedValue)
+        {
+            writer.WriteStartElement(null, "NbOfDaysAcrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfDaysAccruedValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (TaxableIncomePerShare is IsoActiveOrHistoricCurrencyAnd13DecimalAmount TaxableIncomePerShareValue)
+        {
+            writer.WriteStartElement(null, "TaxblIncmPerShr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd13DecimalAmount(TaxableIncomePerShareValue)); // data type ActiveOrHistoricCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TaxableIncomePerShareCalculated is TaxableIncomePerShareCalculated2Code TaxableIncomePerShareCalculatedValue)
+        {
+            writer.WriteStartElement(null, "TaxblIncmPerShrClctd", xmlNamespace );
+            writer.WriteValue(TaxableIncomePerShareCalculatedValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExtendedTaxableIncomePerShareCalculated is IsoExtended350Code ExtendedTaxableIncomePerShareCalculatedValue)
+        {
+            writer.WriteStartElement(null, "XtndedTaxblIncmPerShrClctd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedTaxableIncomePerShareCalculatedValue)); // data type Extended350Code System.String
+            writer.WriteEndElement();
+        }
+        if (TaxableIncomePerDividend is IsoActiveOrHistoricCurrencyAnd13DecimalAmount TaxableIncomePerDividendValue)
+        {
+            writer.WriteStartElement(null, "TaxblIncmPerDvdd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd13DecimalAmount(TaxableIncomePerDividendValue)); // data type ActiveOrHistoricCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (EUDividendStatus is EUDividendStatus1Code EUDividendStatusValue)
+        {
+            writer.WriteStartElement(null, "EUDvddSts", xmlNamespace );
+            writer.WriteValue(EUDividendStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExtendedEUDividendStatus is IsoExtended350Code ExtendedEUDividendStatusValue)
+        {
+            writer.WriteStartElement(null, "XtndedEUDvddSts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedEUDividendStatusValue)); // data type Extended350Code System.String
+            writer.WriteEndElement();
+        }
+        if (ChargeDetails is Charge15 ChargeDetailsValue)
+        {
+            writer.WriteStartElement(null, "ChrgDtls", xmlNamespace );
+            ChargeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxLiabilityDetails is Tax17 TaxLiabilityDetailsValue)
+        {
+            writer.WriteStartElement(null, "TaxLbltyDtls", xmlNamespace );
+            TaxLiabilityDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxRefundDetails is Tax17 TaxRefundDetailsValue)
+        {
+            writer.WriteStartElement(null, "TaxRfndDtls", xmlNamespace );
+            TaxRefundDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static UnitPrice15 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

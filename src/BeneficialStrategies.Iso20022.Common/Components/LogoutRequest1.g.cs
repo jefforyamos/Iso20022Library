@@ -7,23 +7,46 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Logout Request message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LogoutRequest1
+     : IIsoXmlSerilizable<LogoutRequest1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates that the POI terminal is able to go(or have to go) to maintenance.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? MaintenanceAllowed { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MaintenanceAllowed is IsoTrueFalseIndicator MaintenanceAllowedValue)
+        {
+            writer.WriteStartElement(null, "MntncAllwd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(MaintenanceAllowedValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static LogoutRequest1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

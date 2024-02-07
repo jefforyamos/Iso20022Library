@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the settlement details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Settlement1
+     : IIsoXmlSerilizable<Settlement1>
 {
     #nullable enable
     
     /// <summary>
     /// Total amount to be settled.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection27 SettlementAmount { get; init; } 
     /// <summary>
     /// Place where settlement of the securities takes place.
     /// </summary>
-    [DataMember]
     public PartyIdentification34Choice_? Depository { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttlmAmt", xmlNamespace );
+        SettlementAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Depository is PartyIdentification34Choice_ DepositoryValue)
+        {
+            writer.WriteStartElement(null, "Dpstry", xmlNamespace );
+            DepositoryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Settlement1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

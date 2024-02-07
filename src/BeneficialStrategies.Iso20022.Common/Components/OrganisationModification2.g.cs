@@ -7,88 +7,164 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information which describes the organisation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OrganisationModification2
+     : IIsoXmlSerilizable<OrganisationModification2>
 {
     #nullable enable
     
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
-    [DataMember]
     public required FullLegalNameModification1 FullLegalName { get; init; } 
     /// <summary>
     /// Name used by a business for commercial purposes, although its registered legal name, used for contracts and other formal situations, may be another.
     /// </summary>
-    [DataMember]
     public TradingNameModification1? TradingName { get; init; } 
     /// <summary>
     /// Country in which the organisation has its business activity.
     /// </summary>
-    [DataMember]
     public required CountryCode CountryOfOperation { get; init; } 
     /// <summary>
     /// Date at which a given organisation was officially registered.
     /// </summary>
-    [DataMember]
     public IsoISODate? RegistrationDate { get; init; } 
     /// <summary>
     /// Specifies an operational address, for example, of a shared services centre.
     /// </summary>
-    [DataMember]
     public AddressModification2? OperationalAddress { get; init; } 
     /// <summary>
     /// Specifies the address where the business activity is taking place.
     /// </summary>
-    [DataMember]
     public AddressModification2? BusinessAddress { get; init; } 
     /// <summary>
     /// Specifies the address where the entity resides and is registered. More generically, it is the home address (Residential address).
     /// </summary>
-    [DataMember]
     public required AddressModification2 LegalAddress { get; init; } 
     /// <summary>
     /// Address where invoices must be sent.
     /// </summary>
-    [DataMember]
     public AddressModification2? BillingAddress { get; init; } 
     /// <summary>
     /// Unique and unambiguous way of identifying an organisation.
     /// </summary>
-    [DataMember]
     public required OrganisationIdentification29 OrganisationIdentification { get; init; } 
     /// <summary>
     /// Person in the customer's organisation who can be contacted by the account servicer in relation to the account(s) identified in this instruction.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyModification2> RepresentativeOfficer { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyModification2? RepresentativeOfficer { get; init; } 
     /// <summary>
     /// Person responsible of the treasury department within the customer’s organisation.
     /// </summary>
-    [DataMember]
     public PartyModification2? TreasuryManager { get; init; } 
     /// <summary>
     /// Person that has the mandate to delegate authority, to assign mandates to other individuals (mandate holders) to perform specific bank operations on the account.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyModification2> MainMandateHolder { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyModification2? MainMandateHolder { get; init; } 
     /// <summary>
     /// Person that may be the potential sender of a message related to the life cycle of the account.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyModification2> Sender { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyModification2? Sender { get; init; } 
     /// <summary>
     /// Person that is officially and legally mandated to represent the organisation. Depending on legislation, the legal representative(s) might for instance be assigned by the Board, identified in the by-laws of the organisation, be publicly announced in the official journal of a country, etc.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyModification2> LegalRepresentative { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyModification2? LegalRepresentative { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FullLglNm", xmlNamespace );
+        FullLegalName.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TradingName is TradingNameModification1 TradingNameValue)
+        {
+            writer.WriteStartElement(null, "TradgNm", xmlNamespace );
+            TradingNameValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CtryOfOpr", xmlNamespace );
+        writer.WriteValue(CountryOfOperation.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (RegistrationDate is IsoISODate RegistrationDateValue)
+        {
+            writer.WriteStartElement(null, "RegnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(RegistrationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (OperationalAddress is AddressModification2 OperationalAddressValue)
+        {
+            writer.WriteStartElement(null, "OprlAdr", xmlNamespace );
+            OperationalAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BusinessAddress is AddressModification2 BusinessAddressValue)
+        {
+            writer.WriteStartElement(null, "BizAdr", xmlNamespace );
+            BusinessAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "LglAdr", xmlNamespace );
+        LegalAddress.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BillingAddress is AddressModification2 BillingAddressValue)
+        {
+            writer.WriteStartElement(null, "BllgAdr", xmlNamespace );
+            BillingAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OrgId", xmlNamespace );
+        OrganisationIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RepresentativeOfficer is PartyModification2 RepresentativeOfficerValue)
+        {
+            writer.WriteStartElement(null, "RprtvOffcr", xmlNamespace );
+            RepresentativeOfficerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TreasuryManager is PartyModification2 TreasuryManagerValue)
+        {
+            writer.WriteStartElement(null, "TrsrMgr", xmlNamespace );
+            TreasuryManagerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MainMandateHolder is PartyModification2 MainMandateHolderValue)
+        {
+            writer.WriteStartElement(null, "MainMndtHldr", xmlNamespace );
+            MainMandateHolderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Sender is PartyModification2 SenderValue)
+        {
+            writer.WriteStartElement(null, "Sndr", xmlNamespace );
+            SenderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LegalRepresentative is PartyModification2 LegalRepresentativeValue)
+        {
+            writer.WriteStartElement(null, "LglRprtv", xmlNamespace );
+            LegalRepresentativeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OrganisationModification2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

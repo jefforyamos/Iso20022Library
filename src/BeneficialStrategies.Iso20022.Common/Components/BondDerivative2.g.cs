@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Transparency calculation specific details on a bond derivative.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BondDerivative2
+     : IIsoXmlSerilizable<BondDerivative2>
 {
     #nullable enable
     
     /// <summary>
     /// Legal Entity Identifier (LEI) code of the issuer of the direct or ultimate underlying bond.
     /// </summary>
-    [DataMember]
     public required IsoLEIIdentifier Issuer { get; init; } 
     /// <summary>
     /// Date of maturity of the underlying bond. This field applies to debt instruments with defined maturity.
     /// </summary>
-    [DataMember]
     public IsoISODate? MaturityDate { get; init; } 
     /// <summary>
     /// Populated with the issuance date of the underlying bond.
     /// </summary>
-    [DataMember]
     public IsoISODate? IssuanceDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Issr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(Issuer)); // data type LEIIdentifier System.String
+        writer.WriteEndElement();
+        if (MaturityDate is IsoISODate MaturityDateValue)
+        {
+            writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(MaturityDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (IssuanceDate is IsoISODate IssuanceDateValue)
+        {
+            writer.WriteStartElement(null, "IssncDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(IssuanceDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static BondDerivative2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

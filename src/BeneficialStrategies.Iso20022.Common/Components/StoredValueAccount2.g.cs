@@ -7,68 +7,136 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the stored value account or the stored value card (Prepaid card).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StoredValueAccount2
+     : IIsoXmlSerilizable<StoredValueAccount2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of stored value account.
     /// </summary>
-    [DataMember]
     public StoredValueAccountType1Code? AccountType { get; init; } 
     /// <summary>
     /// Type of identification for this Stored Value Account.
     /// </summary>
-    [DataMember]
     public CardIdentificationType1Code? IdentificationType { get; init; } 
     /// <summary>
     /// Identification of Stored Value Account.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Brand to which belong the account.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Brand { get; init; } 
     /// <summary>
     /// Provider of the Stored Value Account.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Provider { get; init; } 
     /// <summary>
     /// Owner name of an account.
     /// </summary>
-    [DataMember]
     public IsoMax45Text? OwnerName { get; init; } 
     /// <summary>
     /// Expiry date of the account of card.
     /// </summary>
-    [DataMember]
     public IsoMax10Text? ExpiryDate { get; init; } 
     /// <summary>
     /// Standard or last entry mode to access the Stored Value account or card.
     /// </summary>
-    [DataMember]
     public CardDataReading8Code? EntryMode { get; init; } 
     /// <summary>
     /// Currency of the Stored Value account.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Current balance of the Stored Value account.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? Balance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountType is StoredValueAccountType1Code AccountTypeValue)
+        {
+            writer.WriteStartElement(null, "AcctTp", xmlNamespace );
+            writer.WriteValue(AccountTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (IdentificationType is CardIdentificationType1Code IdentificationTypeValue)
+        {
+            writer.WriteStartElement(null, "IdTp", xmlNamespace );
+            writer.WriteValue(IdentificationTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Identification is IsoMax35Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Brand is IsoMax35Text BrandValue)
+        {
+            writer.WriteStartElement(null, "Brnd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(BrandValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Provider is IsoMax35Text ProviderValue)
+        {
+            writer.WriteStartElement(null, "Prvdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProviderValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OwnerName is IsoMax45Text OwnerNameValue)
+        {
+            writer.WriteStartElement(null, "OwnrNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax45Text(OwnerNameValue)); // data type Max45Text System.String
+            writer.WriteEndElement();
+        }
+        if (ExpiryDate is IsoMax10Text ExpiryDateValue)
+        {
+            writer.WriteStartElement(null, "XpryDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10Text(ExpiryDateValue)); // data type Max10Text System.String
+            writer.WriteEndElement();
+        }
+        if (EntryMode is CardDataReading8Code EntryModeValue)
+        {
+            writer.WriteStartElement(null, "NtryMd", xmlNamespace );
+            writer.WriteValue(EntryModeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Balance is IsoImpliedCurrencyAndAmount BalanceValue)
+        {
+            writer.WriteStartElement(null, "Bal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(BalanceValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static StoredValueAccount2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

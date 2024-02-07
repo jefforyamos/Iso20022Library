@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information used to calculate the tax.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxCalculationInformation3
+     : IIsoXmlSerilizable<TaxCalculationInformation3>
 {
     #nullable enable
     
     /// <summary>
     /// Basis used to determine the capital gain or loss, eg, the purchase price.
     /// </summary>
-    [DataMember]
     public TaxationBasis1? Basis { get; init; } 
     /// <summary>
     /// Specifies whether capital gain is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
-    [DataMember]
     public EUCapitalGain1? EUCapitalGain { get; init; } 
     /// <summary>
     /// Amount of money that it is to be taxed.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? TaxableAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Basis is TaxationBasis1 BasisValue)
+        {
+            writer.WriteStartElement(null, "Bsis", xmlNamespace );
+            BasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EUCapitalGain is EUCapitalGain1 EUCapitalGainValue)
+        {
+            writer.WriteStartElement(null, "EUCptlGn", xmlNamespace );
+            EUCapitalGainValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxableAmount is IsoActiveCurrencyAnd13DecimalAmount TaxableAmountValue)
+        {
+            writer.WriteStartElement(null, "TaxblAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(TaxableAmountValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static TaxCalculationInformation3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

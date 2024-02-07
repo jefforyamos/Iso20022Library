@@ -7,63 +7,120 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details about the schedule change.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ScheduleChangeEntry1
+     : IIsoXmlSerilizable<ScheduleChangeEntry1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of the scheduled event.
     /// </summary>
-    [DataMember]
     public required SystemEventType2Choice_ ScheduleEventType { get; init; } 
     /// <summary>
     /// Identificaiton of the scheduled event.
     /// </summary>
-    [DataMember]
     public IsoExact1NumericText? ScheduleEventIdentification { get; init; } 
     /// <summary>
     /// New frequency of the scheduled event.
     /// </summary>
-    [DataMember]
     public IsoMax4Text? EventFrequency { get; init; } 
     /// <summary>
     /// Frequency of the scheduled event before change.
     /// </summary>
-    [DataMember]
     public IsoMax4Text? EventPreviousFrequency { get; init; } 
     /// <summary>
     /// New scheduled time of the event.
     /// </summary>
-    [DataMember]
     public IsoISOTime? EventTime { get; init; } 
     /// <summary>
     /// Scheduled time of the event before change.
     /// </summary>
-    [DataMember]
     public IsoISOTime? EventPreviousTime { get; init; } 
     /// <summary>
     /// Minimum duration of event.
     /// </summary>
-    [DataMember]
     public IsoMax3NumericText? EventDuration { get; init; } 
     /// <summary>
     /// Set earlier duration of event.
     /// </summary>
-    [DataMember]
     public IsoMax3NumericText? EventPreviousDuration { get; init; } 
     /// <summary>
     /// Type of schedule modification (i.e. event cancelled, new event).
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ChangeType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SchdlEvtTp", xmlNamespace );
+        ScheduleEventType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ScheduleEventIdentification is IsoExact1NumericText ScheduleEventIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SchdlEvtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact1NumericText(ScheduleEventIdentificationValue)); // data type Exact1NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (EventFrequency is IsoMax4Text EventFrequencyValue)
+        {
+            writer.WriteStartElement(null, "EvtFrqcy", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4Text(EventFrequencyValue)); // data type Max4Text System.String
+            writer.WriteEndElement();
+        }
+        if (EventPreviousFrequency is IsoMax4Text EventPreviousFrequencyValue)
+        {
+            writer.WriteStartElement(null, "EvtPrvsFrqcy", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4Text(EventPreviousFrequencyValue)); // data type Max4Text System.String
+            writer.WriteEndElement();
+        }
+        if (EventTime is IsoISOTime EventTimeValue)
+        {
+            writer.WriteStartElement(null, "EvtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(EventTimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+        if (EventPreviousTime is IsoISOTime EventPreviousTimeValue)
+        {
+            writer.WriteStartElement(null, "EvtPrvsTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(EventPreviousTimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+        if (EventDuration is IsoMax3NumericText EventDurationValue)
+        {
+            writer.WriteStartElement(null, "EvtDrtn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(EventDurationValue)); // data type Max3NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (EventPreviousDuration is IsoMax3NumericText EventPreviousDurationValue)
+        {
+            writer.WriteStartElement(null, "EvtPrvsDrtn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(EventPreviousDurationValue)); // data type Max3NumericText System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ChngTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ChangeType)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static ScheduleChangeEntry1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

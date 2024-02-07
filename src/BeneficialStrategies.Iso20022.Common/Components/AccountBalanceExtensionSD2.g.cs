@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding account balance. Contains transaction details of the stock loans, repurchase agreements (REPOs) and undelivered trades (FAILs).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountBalanceExtensionSD2
+     : IIsoXmlSerilizable<AccountBalanceExtensionSD2>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Position that is concerned in transaction.
     /// </summary>
-    [DataMember]
     public AdjustedBalanceTypeSD2Choice_? TransactionPosition { get; init; } 
     /// <summary>
     /// Effective date of the transaction.
     /// </summary>
-    [DataMember]
     public IsoISODate? AsOfDate { get; init; } 
     /// <summary>
     /// Transaction contra participant identification for stock loans, repurchase agreements (REPOs).
     /// </summary>
-    [DataMember]
     public IsoMax8Text? ContraParticipantNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (TransactionPosition is AdjustedBalanceTypeSD2Choice_ TransactionPositionValue)
+        {
+            writer.WriteStartElement(null, "TxPos", xmlNamespace );
+            TransactionPositionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AsOfDate is IsoISODate AsOfDateValue)
+        {
+            writer.WriteStartElement(null, "AsOfDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(AsOfDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ContraParticipantNumber is IsoMax8Text ContraParticipantNumberValue)
+        {
+            writer.WriteStartElement(null, "ContraPtcptNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax8Text(ContraParticipantNumberValue)); // data type Max8Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountBalanceExtensionSD2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

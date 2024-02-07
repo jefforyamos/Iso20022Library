@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of the contact person.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Contact9
+     : IIsoXmlSerilizable<Contact9>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the party, such as a person or a team, responsible for the report.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text Name { get; init; } 
     /// <summary>
     /// Phone number of the person responsible for the report.
     /// </summary>
-    [DataMember]
     public required IsoPhoneNumber PhoneNumber { get; init; } 
     /// <summary>
     /// Electronic mail (e-mail) address of the of the person responsible for the report.
     /// </summary>
-    [DataMember]
     public required IsoMax256Text EmailAddress { get; init; } 
     /// <summary>
     /// Function of the person responsible for the report.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Function { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(Name)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PhneNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPhoneNumber(PhoneNumber)); // data type PhoneNumber System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EmailAdr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax256Text(EmailAddress)); // data type Max256Text System.String
+        writer.WriteEndElement();
+        if (Function is IsoMax140Text FunctionValue)
+        {
+            writer.WriteStartElement(null, "Fctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(FunctionValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Contact9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

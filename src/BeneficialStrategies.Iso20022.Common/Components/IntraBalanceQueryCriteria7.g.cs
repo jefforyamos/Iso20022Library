@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria based on which information is included.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IntraBalanceQueryCriteria7
+     : IIsoXmlSerilizable<IntraBalanceQueryCriteria7>
 {
     #nullable enable
     
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> CancellationRequestIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? CancellationRequestIdentification { get; init; } 
     /// <summary>
     /// Provides the status of settlement of a transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<CancellationProcessingStatus9Choice_> ProcessingStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    public CancellationProcessingStatus9Choice_? ProcessingStatus { get; init; } 
     /// <summary>
     /// Account in which cash is maintained.
     /// </summary>
-    [DataMember]
-    public ValueList<AccountIdentificationSearchCriteria2Choice_> CashAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    public AccountIdentificationSearchCriteria2Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Party that owns the account.
     /// </summary>
-    [DataMember]
-    public ValueList<SystemPartyIdentification8> CashAccountOwner { get; init; } = []; // Warning: Don't know multiplicity.
+    public SystemPartyIdentification8? CashAccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the cash account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; } 
     /// <summary>
     /// Party that originated the message, if other than the sender.
     /// </summary>
-    [DataMember]
-    public ValueList<SystemPartyIdentification8> MessageOriginator { get; init; } = []; // Warning: Don't know multiplicity.
+    public SystemPartyIdentification8? MessageOriginator { get; init; } 
     /// <summary>
     /// Specifies the creation date/time of the intra-balance movement.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeSearch5Choice_? CreationDateTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CancellationRequestIdentification is IsoMax35Text CancellationRequestIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CxlReqId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CancellationRequestIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ProcessingStatus is CancellationProcessingStatus9Choice_ ProcessingStatusValue)
+        {
+            writer.WriteStartElement(null, "PrcgSts", xmlNamespace );
+            ProcessingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccount is AccountIdentificationSearchCriteria2Choice_ CashAccountValue)
+        {
+            writer.WriteStartElement(null, "CshAcct", xmlNamespace );
+            CashAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccountOwner is SystemPartyIdentification8 CashAccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "CshAcctOwnr", xmlNamespace );
+            CashAccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccountServicer is BranchAndFinancialInstitutionIdentification6 CashAccountServicerValue)
+        {
+            writer.WriteStartElement(null, "CshAcctSvcr", xmlNamespace );
+            CashAccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageOriginator is SystemPartyIdentification8 MessageOriginatorValue)
+        {
+            writer.WriteStartElement(null, "MsgOrgtr", xmlNamespace );
+            MessageOriginatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreationDateTime is DateAndDateTimeSearch5Choice_ CreationDateTimeValue)
+        {
+            writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+            CreationDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IntraBalanceQueryCriteria7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

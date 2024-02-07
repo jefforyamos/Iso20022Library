@@ -7,38 +7,64 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Characteristics of a hardware memory module.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MemoryCharacteristics1
+     : IIsoXmlSerilizable<MemoryCharacteristics1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification or name of the memory.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Total size of the memory unit.
     /// </summary>
-    [DataMember]
     public required IsoDecimalNumber TotalSize { get; init; } 
     /// <summary>
     /// Total size of the available memory.
     /// </summary>
-    [DataMember]
     public required IsoDecimalNumber FreeSize { get; init; } 
     /// <summary>
     /// Memory unit of the sizes.
     /// </summary>
-    [DataMember]
     public required MemoryUnit1Code Unit { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlSz", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(TotalSize)); // data type DecimalNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FreeSz", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(FreeSize)); // data type DecimalNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Unit", xmlNamespace );
+        writer.WriteValue(Unit.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static MemoryCharacteristics1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

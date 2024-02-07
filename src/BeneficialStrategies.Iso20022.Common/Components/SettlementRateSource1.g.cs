@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the components of a settlement rate source for a non delvierable trade.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementRateSource1
+     : IIsoXmlSerilizable<SettlementRateSource1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the rate source for the non deliverable trade.
     /// </summary>
-    [DataMember]
     public required IsoRateSourceText RateSource { get; init; } 
     /// <summary>
     /// Specifies the time "HHMM" associated with the rate source.
     /// </summary>
-    [DataMember]
     public IsoExact4NumericText? Time { get; init; } 
     /// <summary>
     /// Specifies the country code for the quoted rate source.
     /// </summary>
-    [DataMember]
     public CountryCode? CountryCode { get; init; } 
     /// <summary>
     /// The location expressed as a 2 character code.
     /// </summary>
-    [DataMember]
     public IsoExact2AlphaNumericText? LocationCode { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RateSrc", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRateSourceText(RateSource)); // data type RateSourceText System.String
+        writer.WriteEndElement();
+        if (Time is IsoExact4NumericText TimeValue)
+        {
+            writer.WriteStartElement(null, "Tm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact4NumericText(TimeValue)); // data type Exact4NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (CountryCode is CountryCode CountryCodeValue)
+        {
+            writer.WriteStartElement(null, "CtryCd", xmlNamespace );
+            writer.WriteValue(CountryCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (LocationCode is IsoExact2AlphaNumericText LocationCodeValue)
+        {
+            writer.WriteStartElement(null, "LctnCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact2AlphaNumericText(LocationCodeValue)); // data type Exact2AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementRateSource1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

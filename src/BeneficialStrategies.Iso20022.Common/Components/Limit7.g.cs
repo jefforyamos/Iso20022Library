@@ -7,58 +7,113 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details on the limits.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Limit7
+     : IIsoXmlSerilizable<Limit7>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
-    [DataMember]
     public required Amount2Choice_ Amount { get; init; } 
     /// <summary>
     /// Specifies if a limit is a debit limit or a credit limit.
     /// </summary>
-    [DataMember]
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Status of the limit, such as enabled or disabled.
     /// </summary>
-    [DataMember]
     public LimitStatus1Code? Status { get; init; } 
     /// <summary>
     /// Date and time at which the limit becomes effective.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? StartDateTime { get; init; } 
     /// <summary>
     /// Actual usage of the limit expressed as an amount.
     /// </summary>
-    [DataMember]
     public Amount2Choice_? UsedAmount { get; init; } 
     /// <summary>
     /// Specifies if the used amount of the limit is a debit amount or a credit amount.
     /// </summary>
-    [DataMember]
     public CreditDebitCode? UsedAmountCreditDebitIndicator { get; init; } 
     /// <summary>
     /// Actual usage of the limit expressed as a percentage.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? UsedPercentage { get; init; } 
     /// <summary>
     /// Actual usage of the limit expressed as an amount.
     /// </summary>
-    [DataMember]
     public Amount2Choice_? RemainingAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        Amount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CreditDebitIndicator is CreditDebitCode CreditDebitIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+            writer.WriteValue(CreditDebitIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Status is LimitStatus1Code StatusValue)
+        {
+            writer.WriteStartElement(null, "Sts", xmlNamespace );
+            writer.WriteValue(StatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (StartDateTime is DateAndDateTime2Choice_ StartDateTimeValue)
+        {
+            writer.WriteStartElement(null, "StartDtTm", xmlNamespace );
+            StartDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UsedAmount is Amount2Choice_ UsedAmountValue)
+        {
+            writer.WriteStartElement(null, "UsdAmt", xmlNamespace );
+            UsedAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UsedAmountCreditDebitIndicator is CreditDebitCode UsedAmountCreditDebitIndicatorValue)
+        {
+            writer.WriteStartElement(null, "UsdAmtCdtDbtInd", xmlNamespace );
+            writer.WriteValue(UsedAmountCreditDebitIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (UsedPercentage is IsoPercentageRate UsedPercentageValue)
+        {
+            writer.WriteStartElement(null, "UsdPctg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(UsedPercentageValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (RemainingAmount is Amount2Choice_ RemainingAmountValue)
+        {
+            writer.WriteStartElement(null, "RmngAmt", xmlNamespace );
+            RemainingAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Limit7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

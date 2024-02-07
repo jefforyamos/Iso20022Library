@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Lodging provides summary information about lodging accommodations and related expenses for the cardholder. 
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Lodging3
+     : IIsoXmlSerilizable<Lodging3>
 {
     #nullable enable
     
     /// <summary>
     /// Component provides summary information about lodging accommodations and related expenses for the cardholder. One occurrence of this component provides lodging accommodation reporting for a single lodging folio, such as a single stay at a lodging facility with one check-in and one check-out.
     /// </summary>
-    [DataMember]
     public LodgingSummary2? Summary { get; init; } 
     /// <summary>
     /// Component provides detailed information about lodging accommodations and related expenses for the cardholder. Acquirers can submit multiple occurrences of this component for each lodging transaction, to provide details of one or more folios. 
     /// </summary>
-    [DataMember]
-    public ValueList<LodgingLineItem2> LineItem { get; init; } = []; // Warning: Don't know multiplicity.
+    public LodgingLineItem2? LineItem { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Summary is LodgingSummary2 SummaryValue)
+        {
+            writer.WriteStartElement(null, "Summry", xmlNamespace );
+            SummaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LineItem is LodgingLineItem2 LineItemValue)
+        {
+            writer.WriteStartElement(null, "LineItm", xmlNamespace );
+            LineItemValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Lodging3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

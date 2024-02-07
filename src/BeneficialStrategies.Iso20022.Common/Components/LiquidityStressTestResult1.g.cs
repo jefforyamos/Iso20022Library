@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Results of a scenario used to test whether a legal entity or other financial construct has sufficient liquid resources to meet its obligations as they arise.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LiquidityStressTestResult1
+     : IIsoXmlSerilizable<LiquidityStressTestResult1>
 {
     #nullable enable
     
     /// <summary>
     /// CCP’s internal unique identifier of the stress scenario that generates the reported liquidity need.
     /// </summary>
-    [DataMember]
     public required IsoMax256Text Identification { get; init; } 
     /// <summary>
     /// Identification of assumed defaulters under the stress scenario.
     /// </summary>
-    [DataMember]
     public required CoverTwoDefaulters1 ScenarioDefaulters { get; init; } 
     /// <summary>
     /// Indicates the stressed resources and liquidity requirements under the liquidity stress test. The balance of resources are reported as of day ‘T‐1’. The requirements and any flows of resources are reported on their respective day from day ’ T’ to ‘T+5'.
     /// </summary>
-    [DataMember]
     public ValueList<LiquidityRequiredAndAvailable1> LiquidityRequiredAndAvailable { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax256Text(Identification)); // data type Max256Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ScnroDfltrs", xmlNamespace );
+        ScenarioDefaulters.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "LqdtyReqrdAndAvlbl", xmlNamespace );
+        LiquidityRequiredAndAvailable.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static LiquidityStressTestResult1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,58 +7,101 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Intention to transfer an ownership of a financial instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartialFill2
+     : IIsoXmlSerilizable<PartialFill2>
 {
     #nullable enable
     
     /// <summary>
     /// Quantity of financial instrument to be ordered.
     /// </summary>
-    [DataMember]
     public required Quantity6Choice_ ConfirmationQuantity { get; init; } 
     /// <summary>
     /// Amount of money for which goods or services are offered, sold, or bought.
     /// </summary>
-    [DataMember]
     public required Price4 DealPrice { get; init; } 
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    [DataMember]
     public TradeDate4Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Market in which a trade transaction is to be or has been executed.
     /// </summary>
-    [DataMember]
     public MarketIdentification80? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Quantity of financial instrument ordered.
     /// </summary>
-    [DataMember]
     public required QuantityOrAmount1Choice_ OriginalOrderedQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument that has been previously executed.
     /// </summary>
-    [DataMember]
     public required QuantityOrAmount1Choice_ PreviouslyExecutedQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument that is remaining in order.
     /// </summary>
-    [DataMember]
     public required QuantityOrAmount1Choice_ RemainingQuantity { get; init; } 
     /// <summary>
     /// Minimum quantity that applies to every execution. The order may still fill against smaller orders, but the cumulative quantity of the execution must be in multiples of the Match Increment.
     /// </summary>
-    [DataMember]
     public QuantityOrAmount1Choice_? MatchIncrementQuantity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ConfQty", xmlNamespace );
+        ConfirmationQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DealPric", xmlNamespace );
+        DealPrice.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TradeDate is TradeDate4Choice_ TradeDateValue)
+        {
+            writer.WriteStartElement(null, "TradDt", xmlNamespace );
+            TradeDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PlaceOfTrade is MarketIdentification80 PlaceOfTradeValue)
+        {
+            writer.WriteStartElement(null, "PlcOfTrad", xmlNamespace );
+            PlaceOfTradeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OrgnlOrdrdQty", xmlNamespace );
+        OriginalOrderedQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PrevslyExctdQty", xmlNamespace );
+        PreviouslyExecutedQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RmngQty", xmlNamespace );
+        RemainingQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MatchIncrementQuantity is QuantityOrAmount1Choice_ MatchIncrementQuantityValue)
+        {
+            writer.WriteStartElement(null, "MtchIncrmtQty", xmlNamespace );
+            MatchIncrementQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartialFill2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

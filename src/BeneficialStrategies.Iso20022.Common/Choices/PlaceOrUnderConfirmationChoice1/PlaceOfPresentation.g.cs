@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PlaceOrUnderConfirmationChoice1;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PlaceOrUnderConfirmationChoice1;
 /// Party to which the presentation is to be made.
 /// </summary>
 public partial record PlaceOfPresentation : PlaceOrUnderConfirmationChoice1_
+     , IIsoXmlSerilizable<PlaceOfPresentation>
 {
     #nullable enable
+    
     /// <summary>
     /// Place of the presentation.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record PlaceOfPresentation : PlaceOrUnderConfirmationChoice1_
     /// Country where a presentation is to be made.
     /// </summary>
     public CountryCode? Country { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Plc", xmlNamespace );
+        writer.WriteValue(Place.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Country is CountryCode CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(CountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static new PlaceOfPresentation Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

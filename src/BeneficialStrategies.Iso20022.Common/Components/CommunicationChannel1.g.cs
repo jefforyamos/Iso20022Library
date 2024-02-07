@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Communication channel information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CommunicationChannel1
+     : IIsoXmlSerilizable<CommunicationChannel1>
 {
     #nullable enable
     
     /// <summary>
     /// Method by which the original undertaking or proposed amendment is to be made available.
     /// </summary>
-    [DataMember]
     public required ExternalChannel1Code Method { get; init; } 
     /// <summary>
     /// Type of party to whom the original undertaking or proposed amendment is intended to be delivered.
     /// </summary>
-    [DataMember]
     public required PartyType1Choice_ DeliverToPartyType { get; init; } 
     /// <summary>
     /// Name of party to whom the original undertaking or proposed amendment is intended to be delivered.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? DeliverToName { get; init; } 
     /// <summary>
     /// Address of party to whom the original undertaking or proposed amendment is intended to be delivered.
     /// </summary>
-    [DataMember]
     public PostalAddress6? DeliverToAddress { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Mtd", xmlNamespace );
+        writer.WriteValue(Method.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DlvrToPtyTp", xmlNamespace );
+        DeliverToPartyType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DeliverToName is IsoMax140Text DeliverToNameValue)
+        {
+            writer.WriteStartElement(null, "DlvrToNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(DeliverToNameValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (DeliverToAddress is PostalAddress6 DeliverToAddressValue)
+        {
+            writer.WriteStartElement(null, "DlvrToAdr", xmlNamespace );
+            DeliverToAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CommunicationChannel1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

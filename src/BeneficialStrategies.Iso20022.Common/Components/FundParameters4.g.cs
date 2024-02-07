@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters required to request a Fund Processing Passport (FPP).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FundParameters4
+     : IIsoXmlSerilizable<FundParameters4>
 {
     #nullable enable
     
     /// <summary>
     /// Financial instrument for which the fund processing passport report report is requested.
     /// </summary>
-    [DataMember]
-    public ValueList<FinancialInstrument17> FinancialInstrumentDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public FinancialInstrument17? FinancialInstrumentDetails { get; init; } 
     /// <summary>
     /// Fund management company for which the report is requested.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyIdentification2Choice_> FundManagementCompany { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyIdentification2Choice_? FundManagementCompany { get; init; } 
     /// <summary>
     /// Specifies the date on or after which the information required will have been last updated. Only the most recent versions of the data is required.
     /// </summary>
-    [DataMember]
     public IsoISODate? DateFrom { get; init; } 
     /// <summary>
     /// Country where the fund has legal domicile as reflected in the ISIN classification.
     /// </summary>
-    [DataMember]
     public CountryCode? CountryOfDomicile { get; init; } 
     /// <summary>
     /// Countries where the fund is registered for distribution.
     /// </summary>
-    [DataMember]
     public CountryCode? RegisteredDistributionCountry { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FinancialInstrumentDetails is FinancialInstrument17 FinancialInstrumentDetailsValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmDtls", xmlNamespace );
+            FinancialInstrumentDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FundManagementCompany is PartyIdentification2Choice_ FundManagementCompanyValue)
+        {
+            writer.WriteStartElement(null, "FndMgmtCpny", xmlNamespace );
+            FundManagementCompanyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DateFrom is IsoISODate DateFromValue)
+        {
+            writer.WriteStartElement(null, "DtFr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateFromValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (CountryOfDomicile is CountryCode CountryOfDomicileValue)
+        {
+            writer.WriteStartElement(null, "CtryOfDmcl", xmlNamespace );
+            writer.WriteValue(CountryOfDomicileValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (RegisteredDistributionCountry is CountryCode RegisteredDistributionCountryValue)
+        {
+            writer.WriteStartElement(null, "RegdDstrbtnCtry", xmlNamespace );
+            writer.WriteValue(RegisteredDistributionCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static FundParameters4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

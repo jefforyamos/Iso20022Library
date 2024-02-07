@@ -7,58 +7,113 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in a structured form.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StructuredRemittanceInformation10
+     : IIsoXmlSerilizable<StructuredRemittanceInformation10>
 {
     #nullable enable
     
     /// <summary>
     /// Set of elements used to provide the content of the referred document.
     /// </summary>
-    [DataMember]
-    public ValueList<ReferredDocumentInformation4> ReferredDocumentInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public ReferredDocumentInformation4? ReferredDocumentInformation { get; init; } 
     /// <summary>
     /// Provides details on the amounts of the referred document.
     /// </summary>
-    [DataMember]
     public RemittanceAmount2? ReferredDocumentAmount { get; init; } 
     /// <summary>
     /// Reference information provided by the creditor to allow the identification of the underlying documents.
     /// </summary>
-    [DataMember]
     public CreditorReferenceInformation2? CreditorReferenceInformation { get; init; } 
     /// <summary>
     /// Identification of the organisation issuing the invoice, when it is different from the creditor or ultimate creditor.
     /// </summary>
-    [DataMember]
     public PartyIdentification43? Invoicer { get; init; } 
     /// <summary>
     /// Identification of the party to whom an invoice is issued, when it is different from the debtor or ultimate debtor.
     /// </summary>
-    [DataMember]
     public PartyIdentification43? Invoicee { get; init; } 
     /// <summary>
     /// Provides remittance information about a payment made for tax-related purposes.
     /// </summary>
-    [DataMember]
     public TaxInformation4? TaxRemittance { get; init; } 
     /// <summary>
     /// Provides remittance information about a payment for garnishment-related purposes.
     /// </summary>
-    [DataMember]
     public Garnishment1? GarnishmentRemittance { get; init; } 
     /// <summary>
     /// Additional information, in free text form, to complement the structured remittance information.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax140Text> AdditionalRemittanceInformation { get; init; } = [];
+    public SimpleValueList<IsoMax140Text> AdditionalRemittanceInformation { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReferredDocumentInformation is ReferredDocumentInformation4 ReferredDocumentInformationValue)
+        {
+            writer.WriteStartElement(null, "RfrdDocInf", xmlNamespace );
+            ReferredDocumentInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReferredDocumentAmount is RemittanceAmount2 ReferredDocumentAmountValue)
+        {
+            writer.WriteStartElement(null, "RfrdDocAmt", xmlNamespace );
+            ReferredDocumentAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditorReferenceInformation is CreditorReferenceInformation2 CreditorReferenceInformationValue)
+        {
+            writer.WriteStartElement(null, "CdtrRefInf", xmlNamespace );
+            CreditorReferenceInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Invoicer is PartyIdentification43 InvoicerValue)
+        {
+            writer.WriteStartElement(null, "Invcr", xmlNamespace );
+            InvoicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Invoicee is PartyIdentification43 InvoiceeValue)
+        {
+            writer.WriteStartElement(null, "Invcee", xmlNamespace );
+            InvoiceeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxRemittance is TaxInformation4 TaxRemittanceValue)
+        {
+            writer.WriteStartElement(null, "TaxRmt", xmlNamespace );
+            TaxRemittanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GarnishmentRemittance is Garnishment1 GarnishmentRemittanceValue)
+        {
+            writer.WriteStartElement(null, "GrnshmtRmt", xmlNamespace );
+            GarnishmentRemittanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AddtlRmtInf", xmlNamespace );
+        AdditionalRemittanceInformation.Serialize(writer, xmlNamespace, "Max140Text", SerializationFormatter.IsoMax140Text );
+        writer.WriteEndElement();
+    }
+    public static StructuredRemittanceInformation10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

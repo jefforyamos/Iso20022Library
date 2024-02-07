@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a database.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DataBaseCheck1
+     : IIsoXmlSerilizable<DataBaseCheck1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the individual or organisation is listed in an on-line global Know Your Customer (KYC) database.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator DatabaseCheck { get; init; } 
     /// <summary>
     /// Identification of the database.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DBChck", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DatabaseCheck)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static DataBaseCheck1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details about the investment fund class.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestmentFund1
+     : IIsoXmlSerilizable<InvestmentFund1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the investment fund or investment fund class.
     /// </summary>
-    [DataMember]
     public SecurityIdentification14? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Features of units offered by a fund. For example, a unit may have a specific load structure, eg, front end or back end, an income policy, eg, pay out or accumulate, or a trailer policy, eg, with or without. Fund classes are typically denoted by a single character, for example, 'Class A', 'Class 2'.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClassType { get; init; } 
     /// <summary>
     /// Number of shares outstanding for the investment fund or investment fund share class.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? TotalUnitsOutstanding { get; init; } 
     /// <summary>
     /// Total transactional units (subscriptions and redemptions) which are applied to the investment fund or investment fund share class for the report period.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? TransactionalUnits { get; init; } 
     /// <summary>
     /// Total value of the investment fund or investment fund share class units.
     /// </summary>
-    [DataMember]
     public AmountAndDirection30? TotalValue { get; init; } 
     /// <summary>
     /// Amount of money for which goods or services are offered, sold, or bought.
     /// </summary>
-    [DataMember]
-    public ValueList<PriceInformation10> Price { get; init; } = []; // Warning: Don't know multiplicity.
+    public PriceInformation10? Price { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FinancialInstrumentIdentification is SecurityIdentification14 FinancialInstrumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+            FinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClassType is IsoMax35Text ClassTypeValue)
+        {
+            writer.WriteStartElement(null, "ClssTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClassTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TotalUnitsOutstanding is IsoDecimalNumber TotalUnitsOutstandingValue)
+        {
+            writer.WriteStartElement(null, "TtlUnitsOutsdng", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(TotalUnitsOutstandingValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (TransactionalUnits is IsoDecimalNumber TransactionalUnitsValue)
+        {
+            writer.WriteStartElement(null, "TxnlUnits", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(TransactionalUnitsValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (TotalValue is AmountAndDirection30 TotalValueValue)
+        {
+            writer.WriteStartElement(null, "TtlVal", xmlNamespace );
+            TotalValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Price is PriceInformation10 PriceValue)
+        {
+            writer.WriteStartElement(null, "Pric", xmlNamespace );
+            PriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InvestmentFund1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

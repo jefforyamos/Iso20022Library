@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a switch order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SwitchOrderInstruction1
+     : IIsoXmlSerilizable<SwitchOrderInstruction1>
 {
     #nullable enable
     
     /// <summary>
     /// Information related to the switch order.
     /// </summary>
-    [DataMember]
     public required SwitchOrder2 SwitchOrderDetails { get; init; } 
     /// <summary>
     /// Confirmation of the information related to an intermediary.
     /// </summary>
-    [DataMember]
     public ValueList<Intermediary4> IntermediaryDetails { get; init; } = [];
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
     /// </summary>
-    [DataMember]
     public CopyInformation1? CopyDetails { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<Extension1> Extension { get; init; } = []; // Warning: Don't know multiplicity.
+    public Extension1? Extension { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SwtchOrdrDtls", xmlNamespace );
+        SwitchOrderDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IntrmyDtls", xmlNamespace );
+        IntermediaryDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CopyDetails is CopyInformation1 CopyDetailsValue)
+        {
+            writer.WriteStartElement(null, "CpyDtls", xmlNamespace );
+            CopyDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SwitchOrderInstruction1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

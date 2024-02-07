@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information provided when the message is a copy of a previous message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CopyInformation5
+     : IIsoXmlSerilizable<CopyInformation5>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the message is a copy.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator CopyIndicator { get; init; } 
     /// <summary>
     /// Original receiver of the message, if this message is a copy.
     /// </summary>
-    [DataMember]
     public IsoAnyBICDec2014Identifier? OriginalReceiver { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CpyInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CopyIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (OriginalReceiver is IsoAnyBICDec2014Identifier OriginalReceiverValue)
+        {
+            writer.WriteStartElement(null, "OrgnlRcvr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICDec2014Identifier(OriginalReceiverValue)); // data type AnyBICDec2014Identifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CopyInformation5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

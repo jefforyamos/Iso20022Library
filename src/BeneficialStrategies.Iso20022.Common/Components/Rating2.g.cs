@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Rating and source of the rating of the financial instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Rating2
+     : IIsoXmlSerilizable<Rating2>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the rating of the financial instrument.
     /// </summary>
-    [DataMember]
     public required IsoMax10Text Rating { get; init; } 
     /// <summary>
     /// Agency, which provides rating services, for example, Moody's and S&P.
     /// </summary>
-    [DataMember]
     public required MarketIdentification89 SourceOfRating { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ratg", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax10Text(Rating)); // data type Max10Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SrcOfRatg", xmlNamespace );
+        SourceOfRating.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static Rating2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

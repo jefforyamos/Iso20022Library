@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsrv.DemandRefusalNotificationV01>;
 
 namespace BeneficialStrategies.Iso20022.tsrv;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.tsrv;
 /// The DemandRefusalNotification message is sent to the beneficiary or presenter by the party obligated on the undertaking and to whom a demand for payment has been made, either directly or via one or more advising parties. It notifies the beneficiary or presenter that the demand has been refused.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The DemandRefusalNotification message is sent to the beneficiary or presenter by the party obligated on the undertaking and to whom a demand for payment has been made, either directly or via one or more advising parties. It notifies the beneficiary or presenter that the demand has been refused.")]
-public partial record DemandRefusalNotificationV01 : IOuterRecord
+public partial record DemandRefusalNotificationV01 : IOuterRecord<DemandRefusalNotificationV01,DemandRefusalNotificationV01Document>
+    ,IIsoXmlSerilizable<DemandRefusalNotificationV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record DemandRefusalNotificationV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "DmndRfslNtfctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => DemandRefusalNotificationV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -65,6 +72,35 @@ public partial record DemandRefusalNotificationV01 : IOuterRecord
     {
         return new DemandRefusalNotificationV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("DmndRfslNtfctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DemandRefusalNotificationDetails is DemandRefusal1 DemandRefusalNotificationDetailsValue)
+        {
+            writer.WriteStartElement(null, "DmndRfslNtfctnDtls", xmlNamespace );
+            DemandRefusalNotificationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DigitalSignature is PartyAndSignature2 DigitalSignatureValue)
+        {
+            writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
+            DigitalSignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DemandRefusalNotificationV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -72,9 +108,7 @@ public partial record DemandRefusalNotificationV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DemandRefusalNotificationV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record DemandRefusalNotificationV01Document : IOuterDocument<DemandRefusalNotificationV01>
+public partial record DemandRefusalNotificationV01Document : IOuterDocument<DemandRefusalNotificationV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -90,5 +124,22 @@ public partial record DemandRefusalNotificationV01Document : IOuterDocument<Dema
     /// <summary>
     /// The instance of <seealso cref="DemandRefusalNotificationV01"/> is required.
     /// </summary>
+    [DataMember(Name=DemandRefusalNotificationV01.XmlTag)]
     public required DemandRefusalNotificationV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(DemandRefusalNotificationV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

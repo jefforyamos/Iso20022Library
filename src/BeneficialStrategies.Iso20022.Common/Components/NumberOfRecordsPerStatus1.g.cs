@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides detailed information on the number of transactions that are reported with a specific transaction status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NumberOfRecordsPerStatus1
+     : IIsoXmlSerilizable<NumberOfRecordsPerStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Number of individual records contained in the message, detailed per status.
     /// </summary>
-    [DataMember]
     public required IsoMax15NumericText DetailedNumberOfRecords { get; init; } 
     /// <summary>
     /// Common transaction status for all individual records reported.
     /// </summary>
-    [DataMember]
     public required ReportingRecordStatus1Code DetailedStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DtldNbOfRcrds", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(DetailedNumberOfRecords)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DtldSts", xmlNamespace );
+        writer.WriteValue(DetailedStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static NumberOfRecordsPerStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

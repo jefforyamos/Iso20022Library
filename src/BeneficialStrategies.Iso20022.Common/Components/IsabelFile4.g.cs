@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the parameters for an Isabel reporting file.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IsabelFile4
+     : IIsoXmlSerilizable<IsabelFile4>
 {
     #nullable enable
     
     /// <summary>
     /// Format of the file.
     /// </summary>
-    [DataMember]
     public required IsoMax16Text Format { get; init; } 
     /// <summary>
     /// Name of the mime file.
     /// </summary>
-    [DataMember]
     public IsoMax100AlphaNumericUnderscoreText? Name { get; init; } 
     /// <summary>
     /// Type of the mime file.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? MIMEType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Frmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax16Text(Format)); // data type Max16Text System.String
+        writer.WriteEndElement();
+        if (Name is IsoMax100AlphaNumericUnderscoreText NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax100AlphaNumericUnderscoreText(NameValue)); // data type Max100AlphaNumericUnderscoreText System.String
+            writer.WriteEndElement();
+        }
+        if (MIMEType is IsoMax256Text MIMETypeValue)
+        {
+            writer.WriteStartElement(null, "MIMETp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(MIMETypeValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static IsabelFile4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

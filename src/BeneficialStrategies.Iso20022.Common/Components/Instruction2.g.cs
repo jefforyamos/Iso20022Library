@@ -7,58 +7,107 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information on the instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Instruction2
+     : IIsoXmlSerilizable<Instruction2>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the detailed instruction.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text InstructionIdentification { get; init; } 
     /// <summary>
     /// Date at which the instruction must be executed.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? RequestedExecutionDate { get; init; } 
     /// <summary>
     /// Indicates that a Vote execution confirmation is requested.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator VoteExecutionConfirmation { get; init; } 
     /// <summary>
     /// Identification of the securities account.
     /// </summary>
-    [DataMember]
     public required SafekeepingAccount4 AccountDetails { get; init; } 
     /// <summary>
     /// Identification of the person appointed by the security holder as proxy.
     /// </summary>
-    [DataMember]
     public Proxy4? Proxy { get; init; } 
     /// <summary>
     /// Specifies detailed voting instructions.
     /// </summary>
-    [DataMember]
     public VoteDetails2? VoteDetails { get; init; } 
     /// <summary>
     /// Identification of the security holder who will attend and vote at the meeting in person and/or a person assigned by the security holder to attend the meeting without having any voting rights or taking any action.
     /// </summary>
-    [DataMember]
-    public ValueList<IndividualPerson17> MeetingAttendee { get; init; } = []; // Warning: Don't know multiplicity.
+    public IndividualPerson17? MeetingAttendee { get; init; } 
     /// <summary>
     /// Request to execute specific instructions, such as participation registration, securities registration or blocking of securities.
     /// </summary>
-    [DataMember]
     public SpecificInstructionRequest1? SpecificInstructionRequest { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "InstrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(InstructionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (RequestedExecutionDate is IsoISODateTime RequestedExecutionDateValue)
+        {
+            writer.WriteStartElement(null, "ReqdExctnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(RequestedExecutionDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "VoteExctnConf", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(VoteExecutionConfirmation)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
+        AccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Proxy is Proxy4 ProxyValue)
+        {
+            writer.WriteStartElement(null, "Prxy", xmlNamespace );
+            ProxyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (VoteDetails is VoteDetails2 VoteDetailsValue)
+        {
+            writer.WriteStartElement(null, "VoteDtls", xmlNamespace );
+            VoteDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MeetingAttendee is IndividualPerson17 MeetingAttendeeValue)
+        {
+            writer.WriteStartElement(null, "MtgAttndee", xmlNamespace );
+            MeetingAttendeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SpecificInstructionRequest is SpecificInstructionRequest1 SpecificInstructionRequestValue)
+        {
+            writer.WriteStartElement(null, "SpcfcInstrReq", xmlNamespace );
+            SpecificInstructionRequestValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Instruction2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

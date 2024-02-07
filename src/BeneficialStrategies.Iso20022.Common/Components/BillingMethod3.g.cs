@@ -7,29 +7,51 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details for the tax calculation method D.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BillingMethod3
+     : IIsoXmlSerilizable<BillingMethod3>
 {
     #nullable enable
     
     /// <summary>
     /// Equivalent amount to the service tax host amount but allows the sender to optionally express the value in the pricing currency.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection34 ServiceTaxPriceAmount { get; init; } 
     /// <summary>
     /// Provides for the specific tax identification within the same tax region. 
     /// Usage: This element allows for a maximum of three regional taxes on the same service.
     /// </summary>
-    [DataMember]
     public ValueList<BillingServicesTax2> TaxIdentification { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SvcTaxPricAmt", xmlNamespace );
+        ServiceTaxPriceAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TaxId", xmlNamespace );
+        TaxIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static BillingMethod3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

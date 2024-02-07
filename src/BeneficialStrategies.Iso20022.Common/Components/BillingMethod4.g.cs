@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details for the tax calculation method C.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BillingMethod4
+     : IIsoXmlSerilizable<BillingMethod4>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the details of the taxable services using tax calculation method C.
     /// </summary>
-    [DataMember]
-    public ValueList<BillingServiceParameters2> ServiceDetail { get; init; } = []; // Warning: Don't know multiplicity.
+    public BillingServiceParameters2? ServiceDetail { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _6QGNpJqlEeGSON8vddiWzQ_-708502230
     /// <summary>
     /// Total amount of service charge to be taxed in the tax region’s host currency along with the supporting tax calculations. ||Usage: Used for tax calculation method C only, and only one per tax region may be specified.
     /// </summary>
-    [DataMember]
     public required TaxCalculation1 TaxCalculation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize ServiceDetail, multiplicity Unknown
+        writer.WriteStartElement(null, "TaxClctn", xmlNamespace );
+        TaxCalculation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static BillingMethod4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

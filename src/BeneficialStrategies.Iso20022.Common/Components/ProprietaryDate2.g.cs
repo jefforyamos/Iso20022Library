@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to identify a proprietary date.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProprietaryDate2
+     : IIsoXmlSerilizable<ProprietaryDate2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of date.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Date in ISO format.
     /// </summary>
-    [DataMember]
     public required DateAndDateTimeChoice_ Date { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Type)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Dt", xmlNamespace );
+        Date.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ProprietaryDate2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

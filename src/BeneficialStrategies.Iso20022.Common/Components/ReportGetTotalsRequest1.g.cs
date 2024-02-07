@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Get Totals Request message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReportGetTotalsRequest1
+     : IIsoXmlSerilizable<ReportGetTotalsRequest1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the hierarchical structure of the report.
     /// </summary>
-    [DataMember]
     public TotalDetails1Code? TotalDetails { get; init; } 
     /// <summary>
     /// Filter to compute the totals.
     /// </summary>
-    [DataMember]
     public TotalFilter1? TotalFilter { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TotalDetails is TotalDetails1Code TotalDetailsValue)
+        {
+            writer.WriteStartElement(null, "TtlDtls", xmlNamespace );
+            writer.WriteValue(TotalDetailsValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TotalFilter is TotalFilter1 TotalFilterValue)
+        {
+            writer.WriteStartElement(null, "TtlFltr", xmlNamespace );
+            TotalFilterValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ReportGetTotalsRequest1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

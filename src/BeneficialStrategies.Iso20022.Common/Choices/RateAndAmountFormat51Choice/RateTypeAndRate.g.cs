@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.RateAndAmountFormat51Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.RateAndAmountFormat51Choice;
 /// Value is expressed as a rate type and a percentage rate.
 /// </summary>
 public partial record RateTypeAndRate : RateAndAmountFormat51Choice_
+     , IIsoXmlSerilizable<RateTypeAndRate>
 {
     #nullable enable
+    
     /// <summary>
     /// Value expressed as a rate type.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record RateTypeAndRate : RateAndAmountFormat51Choice_
     /// Value expressed as a rate.
     /// </summary>
     public required IsoPercentageRate Rate { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RateTp", xmlNamespace );
+        RateType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rate", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(Rate)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+    }
+    public static new RateTypeAndRate Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

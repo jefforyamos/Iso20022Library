@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the type of change to the trading name.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradingNameModification1
+     : IIsoXmlSerilizable<TradingNameModification1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of change.
     /// </summary>
-    [DataMember]
     public Modification1Code? ModificationCode { get; init; } 
     /// <summary>
     /// Name used by a business for commercial purposes, although its registered legal name, used for contracts and other formal situations, may be another.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text TradingName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ModificationCode is Modification1Code ModificationCodeValue)
+        {
+            writer.WriteStartElement(null, "ModCd", xmlNamespace );
+            writer.WriteValue(ModificationCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TradgNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(TradingName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+    }
+    public static TradingNameModification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains text fields in the local language.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LocalData6
+     : IIsoXmlSerilizable<LocalData6>
 {
     #nullable enable
     
     /// <summary>
     /// The language code conforming to ISO 639-1 that identifies the language in which the fields are expressed in this component.
     /// </summary>
-    [DataMember]
     public required ISOMax3ALanguageCode Language { get; init; } 
     /// <summary>
     /// For cases where the card was not received, contains the local language equivalent of where the card was mailed to.
     /// </summary>
-    [DataMember]
     public Address3? MailingAddress { get; init; } 
     /// <summary>
     /// For cases where the card was not received, contains the local language equivalent of the Unstructured mailing address where the card was mailed to.
     /// </summary>
-    [DataMember]
     public IsoMax512Text? MailingAddressUnstructured { get; init; } 
     /// <summary>
     /// For cases where the card was not received, contains the local language equivalent of the postal code where the card was mailed from.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MailedFromPostalCode { get; init; } 
     /// <summary>
     /// Local language equivalent of the Cardholder name.
     /// </summary>
-    [DataMember]
     public CardholderName2? CardholderName { get; init; } 
     /// <summary>
     /// Additional information relevant for the settlement report.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation22> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation22? AdditionalInformation { get; init; } 
     /// <summary>
     /// Additional local language data
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Lang", xmlNamespace );
+        writer.WriteValue(Language.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (MailingAddress is Address3 MailingAddressValue)
+        {
+            writer.WriteStartElement(null, "MlngAdr", xmlNamespace );
+            MailingAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MailingAddressUnstructured is IsoMax512Text MailingAddressUnstructuredValue)
+        {
+            writer.WriteStartElement(null, "MlngAdrUstrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax512Text(MailingAddressUnstructuredValue)); // data type Max512Text System.String
+            writer.WriteEndElement();
+        }
+        if (MailedFromPostalCode is IsoMax35Text MailedFromPostalCodeValue)
+        {
+            writer.WriteStartElement(null, "MldFrPstlCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MailedFromPostalCodeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CardholderName is CardholderName2 CardholderNameValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrNm", xmlNamespace );
+            CardholderNameValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation22 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LocalData6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

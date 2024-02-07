@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies rate details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionRate6
+     : IIsoXmlSerilizable<CorporateActionRate6>
 {
     #nullable enable
     
     /// <summary>
     /// Quantity of additional intermediate securities/new equities awarded for a given quantity of securities derived from subscription.
     /// </summary>
-    [DataMember]
     public RatioFormat3Choice_? AdditionalQuantityForSubscribedResultantSecurities { get; init; } 
     /// <summary>
     /// Quantity of additional securities for a given quantity of underlying securities where underlying securities are not exchanged or debited, for example, 1 for 1: 1 new equity credited for every 1 underlying equity = 2 resulting equities.
     /// </summary>
-    [DataMember]
     public RatioFormat3Choice_? AdditionalQuantityForExistingSecurities { get; init; } 
     /// <summary>
     /// Quantity of new securities for a given quantity of underlying securities, where the underlying securities will be exchanged or debited, for example, 2 for 1: 2 new equities credited for every 1 underlying equity debited = 2 resulting equities.
     /// </summary>
-    [DataMember]
     public RatioFormat4Choice_? NewToOld { get; init; } 
     /// <summary>
     /// Quantity of new equities that will be derived by the exercise of a given quantity of intermediate securities.
     /// </summary>
-    [DataMember]
     public RatioFormat4Choice_? NewSecuritiesToUnderlyingSecurities { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AdditionalQuantityForSubscribedResultantSecurities is RatioFormat3Choice_ AdditionalQuantityForSubscribedResultantSecuritiesValue)
+        {
+            writer.WriteStartElement(null, "AddtlQtyForSbcbdRsltntScties", xmlNamespace );
+            AdditionalQuantityForSubscribedResultantSecuritiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalQuantityForExistingSecurities is RatioFormat3Choice_ AdditionalQuantityForExistingSecuritiesValue)
+        {
+            writer.WriteStartElement(null, "AddtlQtyForExstgScties", xmlNamespace );
+            AdditionalQuantityForExistingSecuritiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewToOld is RatioFormat4Choice_ NewToOldValue)
+        {
+            writer.WriteStartElement(null, "NewToOd", xmlNamespace );
+            NewToOldValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewSecuritiesToUnderlyingSecurities is RatioFormat4Choice_ NewSecuritiesToUnderlyingSecuritiesValue)
+        {
+            writer.WriteStartElement(null, "NewSctiesToUndrlygScties", xmlNamespace );
+            NewSecuritiesToUnderlyingSecuritiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionRate6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

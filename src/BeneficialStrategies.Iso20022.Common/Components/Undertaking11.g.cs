@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details related to the local undertaking.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Undertaking11
+     : IIsoXmlSerilizable<Undertaking11>
 {
     #nullable enable
     
     /// <summary>
     /// Details related to the requested new amount for the local undertaking.
     /// </summary>
-    [DataMember]
     public UndertakingAmount2? NewUndertakingAmount { get; init; } 
     /// <summary>
     /// Details related to the requested new expiry terms for the local undertaking.
     /// </summary>
-    [DataMember]
     public ExpiryDetails1? NewExpiryDetails { get; init; } 
     /// <summary>
     /// Details related to the requested new beneficiary for the local undertaking.
     /// </summary>
-    [DataMember]
     public PartyIdentification43? NewBeneficiary { get; init; } 
     /// <summary>
     /// Details related to the requested new terms and conditions for the local undertaking.
     /// </summary>
-    [DataMember]
     public Narrative1? NewUndertakingTermsAndConditions { get; init; } 
     /// <summary>
     /// Details related to the delivery channel for the amended local undertaking.
     /// </summary>
-    [DataMember]
     public CommunicationChannel1? DeliveryChannel { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NewUndertakingAmount is UndertakingAmount2 NewUndertakingAmountValue)
+        {
+            writer.WriteStartElement(null, "NewUdrtkgAmt", xmlNamespace );
+            NewUndertakingAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewExpiryDetails is ExpiryDetails1 NewExpiryDetailsValue)
+        {
+            writer.WriteStartElement(null, "NewXpryDtls", xmlNamespace );
+            NewExpiryDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewBeneficiary is PartyIdentification43 NewBeneficiaryValue)
+        {
+            writer.WriteStartElement(null, "NewBnfcry", xmlNamespace );
+            NewBeneficiaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewUndertakingTermsAndConditions is Narrative1 NewUndertakingTermsAndConditionsValue)
+        {
+            writer.WriteStartElement(null, "NewUdrtkgTermsAndConds", xmlNamespace );
+            NewUndertakingTermsAndConditionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveryChannel is CommunicationChannel1 DeliveryChannelValue)
+        {
+            writer.WriteStartElement(null, "DlvryChanl", xmlNamespace );
+            DeliveryChannelValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Undertaking11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

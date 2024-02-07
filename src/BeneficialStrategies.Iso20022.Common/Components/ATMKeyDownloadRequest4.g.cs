@@ -7,48 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the request of a key download from an ATM.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMKeyDownloadRequest4
+     : IIsoXmlSerilizable<ATMKeyDownloadRequest4>
 {
     #nullable enable
     
     /// <summary>
     /// Environment of the key download.
     /// </summary>
-    [DataMember]
     public required ATMEnvironment15 Environment { get; init; } 
     /// <summary>
     /// Result of a maintenance command performed by the ATM.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMCommand11> CommandResult { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMCommand11? CommandResult { get; init; } 
     /// <summary>
     /// Security command in progress inside which the key download is requested.
     /// </summary>
-    [DataMember]
     public ATMCommand12? CommandContext { get; init; } 
     /// <summary>
     /// Context of the ATM for the key download.
     /// </summary>
-    [DataMember]
     public required ATMSecurityContext3 ATMSecurityContext { get; init; } 
     /// <summary>
     /// Security parameters of the ATM for the initiated key download.
     /// </summary>
-    [DataMember]
     public required SecurityParameters9 ATMSecurityParameters { get; init; } 
     /// <summary>
     /// Random value from the host provided during a previous exchange.
     /// </summary>
-    [DataMember]
     public IsoMax140Binary? HostChallenge { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Envt", xmlNamespace );
+        Environment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CommandResult is ATMCommand11 CommandResultValue)
+        {
+            writer.WriteStartElement(null, "CmdRslt", xmlNamespace );
+            CommandResultValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CommandContext is ATMCommand12 CommandContextValue)
+        {
+            writer.WriteStartElement(null, "CmdCntxt", xmlNamespace );
+            CommandContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ATMSctyCntxt", xmlNamespace );
+        ATMSecurityContext.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ATMSctyParams", xmlNamespace );
+        ATMSecurityParameters.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (HostChallenge is IsoMax140Binary HostChallengeValue)
+        {
+            writer.WriteStartElement(null, "HstChllng", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Binary(HostChallengeValue)); // data type Max140Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMKeyDownloadRequest4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

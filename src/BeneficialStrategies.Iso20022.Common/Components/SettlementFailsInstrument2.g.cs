@@ -7,63 +7,99 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the type of financial instruments that are initially recorded or centrally maintained in CSDs (central securities depositories) as defined in the relevant regulation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementFailsInstrument2
+     : IIsoXmlSerilizable<SettlementFailsInstrument2>
 {
     #nullable enable
     
     /// <summary>
     /// Shares in companies and other securities equivalent to shares in companies, partnerships or other entities, and depositary receipts in respect of share.
     /// </summary>
-    [DataMember]
     public required SettlementTotalData1Choice_ Equity { get; init; } 
     /// <summary>
     /// Debt instrument issued by a sovereign issuer.
     /// </summary>
-    [DataMember]
     public required SettlementTotalData1Choice_ SovereignDebt { get; init; } 
     /// <summary>
     /// Bonds other than sovereign debt.
     /// </summary>
-    [DataMember]
     public required SettlementTotalData1Choice_ Bond { get; init; } 
     /// <summary>
     /// Securities meeting the criteria laid down in the relevant legislation.
     /// </summary>
-    [DataMember]
     public required SettlementTotalData1Choice_ OtherTransferableSecurities { get; init; } 
     /// <summary>
     /// Relates to a fund of which at least one unit or share class is traded throughout the day on at least one trading venue and with at least one market maker which takes action to ensure that the price of its units or shares on the trading venue does not vary significantly from its net asset value and, where applicable, from its indicative net asset value, as referred to in the relevant legislation.
     /// </summary>
-    [DataMember]
     public required SettlementTotalData1Choice_ ExchangeTradedFunds { get; init; } 
     /// <summary>
     /// Units in collective investment undertakings, other than ETFs.
     /// </summary>
-    [DataMember]
     public required SettlementTotalData1Choice_ CollectiveInvestmentUndertakings { get; init; } 
     /// <summary>
     /// Money market instruments other than sovereign debts.
     /// </summary>
-    [DataMember]
     public required SettlementTotalData1Choice_ MoneyMarketInstrument { get; init; } 
     /// <summary>
     /// Relates to emission allowances which are tradable according to the relevant legislation.
     /// </summary>
-    [DataMember]
     public required SettlementTotalData1Choice_ EmissionAllowance { get; init; } 
     /// <summary>
     /// Covers any financial instruments not covered as a dedicated category.
     /// </summary>
-    [DataMember]
     public required SettlementTotalData1Choice_ Other { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Eqty", xmlNamespace );
+        Equity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SvrgnDebt", xmlNamespace );
+        SovereignDebt.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Bd", xmlNamespace );
+        Bond.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrTrfblScties", xmlNamespace );
+        OtherTransferableSecurities.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XchgTraddFnds", xmlNamespace );
+        ExchangeTradedFunds.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CllctvInvstmtUdrtkgs", xmlNamespace );
+        CollectiveInvestmentUndertakings.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MnyMktInstrm", xmlNamespace );
+        MoneyMarketInstrument.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EmssnAllwnc", xmlNamespace );
+        EmissionAllowance.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Othr", xmlNamespace );
+        Other.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SettlementFailsInstrument2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

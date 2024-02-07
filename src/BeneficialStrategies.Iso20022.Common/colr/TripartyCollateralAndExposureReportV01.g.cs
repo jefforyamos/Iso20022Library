@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.colr.TripartyCollateralAndExposureReportV01>;
 
 namespace BeneficialStrategies.Iso20022.colr;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// This message is sent to provide the details of the valuation of both the collateral and the exposure.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope:|This message is sent by a triparty agent to both the collateral giver and the collateral taker or to an account servicer, who manage the account at the triparty agent on behalf of a trading party, in the following circumstances:|- after all collateral movements have been affected (after settlement-initiated) to show the end (fixed) positions (current status) or,|- taking into account all collateral management instructions (including pending initiation and/or initiated.||Usage:|This message is sent to provide the details of the valuation of both the collateral and the exposure.")]
-public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord
+public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord<TripartyCollateralAndExposureReportV01,TripartyCollateralAndExposureReportV01Document>
+    ,IIsoXmlSerilizable<TripartyCollateralAndExposureReportV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "TrptyCollAndXpsrRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => TripartyCollateralAndExposureReportV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -137,6 +144,68 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord
     {
         return new TripartyCollateralAndExposureReportV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("TrptyCollAndXpsrRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Pgntn", xmlNamespace );
+        Pagination.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StmtGnlDtls", xmlNamespace );
+        StatementGeneralDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CollPties", xmlNamespace );
+        CollateralParties.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OverallCollateralAggregation is OverallCollateralDetails2 OverallCollateralAggregationValue)
+        {
+            writer.WriteStartElement(null, "OvrllCollAggtn", xmlNamespace );
+            OverallCollateralAggregationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExposureTypeAggregation is ExposureTypeAggregation3 ExposureTypeAggregationValue)
+        {
+            writer.WriteStartElement(null, "XpsrTpAggtn", xmlNamespace );
+            ExposureTypeAggregationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CounterpartyAggregation is CounterpartyAggregation3 CounterpartyAggregationValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyAggtn", xmlNamespace );
+            CounterpartyAggregationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Transactions is Transaction124 TransactionsValue)
+        {
+            writer.WriteStartElement(null, "Txs", xmlNamespace );
+            TransactionsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountBaseCurrencyTotalAmounts is TotalValueInPageAndStatement5 AccountBaseCurrencyTotalAmountsValue)
+        {
+            writer.WriteStartElement(null, "AcctBaseCcyTtlAmts", xmlNamespace );
+            AccountBaseCurrencyTotalAmountsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TripartyCollateralAndExposureReportV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -144,9 +213,7 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TripartyCollateralAndExposureReportV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record TripartyCollateralAndExposureReportV01Document : IOuterDocument<TripartyCollateralAndExposureReportV01>
+public partial record TripartyCollateralAndExposureReportV01Document : IOuterDocument<TripartyCollateralAndExposureReportV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -162,5 +229,22 @@ public partial record TripartyCollateralAndExposureReportV01Document : IOuterDoc
     /// <summary>
     /// The instance of <seealso cref="TripartyCollateralAndExposureReportV01"/> is required.
     /// </summary>
+    [DataMember(Name=TripartyCollateralAndExposureReportV01.XmlTag)]
     public required TripartyCollateralAndExposureReportV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(TripartyCollateralAndExposureReportV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

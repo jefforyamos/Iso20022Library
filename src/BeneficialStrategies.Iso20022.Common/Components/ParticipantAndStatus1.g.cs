@@ -7,33 +7,59 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on the participant and their operational status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ParticipantAndStatus1
+     : IIsoXmlSerilizable<ParticipantAndStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of participant.
     /// </summary>
-    [DataMember]
     public required FinancialInstitutionIdentification13 ParticipantIdentification { get; init; } 
     /// <summary>
     /// Set of elements used to indicate how to contact the participant.
     /// </summary>
-    [DataMember]
     public ContactDetails2? ParticipantContactDetails { get; init; } 
     /// <summary>
     /// Provides details on operational availability of the participant business service.
     /// </summary>
-    [DataMember]
-    public ValueList<ServiceAvailability1> ServiceAvailability { get; init; } = []; // Warning: Don't know multiplicity.
+    public ServiceAvailability1? ServiceAvailability { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _Odl2CdNSEeWCqoSJYcWUsg
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PtcptId", xmlNamespace );
+        ParticipantIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ParticipantContactDetails is ContactDetails2 ParticipantContactDetailsValue)
+        {
+            writer.WriteStartElement(null, "PtcptCtctDtls", xmlNamespace );
+            ParticipantContactDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize ServiceAvailability, multiplicity Unknown
+    }
+    public static ParticipantAndStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

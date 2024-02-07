@@ -7,33 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Choice between selected investment plans issued during previous years or the entirety of the investment plans.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PreviousYear1
+     : IIsoXmlSerilizable<PreviousYear1>
 {
     #nullable enable
     
     /// <summary>
     /// Selection ot the entirety of the investment plans.
     /// </summary>
-    [DataMember]
     public required IsoPreviousAll AllPreviousYears { get; init; } 
     /// <summary>
     /// Selection of investment plans issued during previous years.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoISOYear> SpecificPreviousYears { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoISOYear? SpecificPreviousYears { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _Svkiqtp-Ed-ak6NoX_4Aeg_-248328915
     /// <summary>
     /// Indicates whether the ISA contains a cash component asset for transfer.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator CashComponentIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AllPrvsYrs", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPreviousAll(AllPreviousYears)); // data type PreviousAll System.String
+        writer.WriteEndElement();
+        // Not sure how to serialize SpecificPreviousYears, multiplicity Unknown
+        writer.WriteStartElement(null, "CshCmpntInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CashComponentIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static PreviousYear1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

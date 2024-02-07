@@ -7,55 +7,108 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the margin call request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MarginCall1
+     : IIsoXmlSerilizable<MarginCall1>
 {
     #nullable enable
     
     /// <summary>
     /// Sum of the exposures of all transactions which are in the favour of party A. That is, all transactions which would have an amount payable by party B to party A if they were being terminated.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? ExposedAmountPartyA { get; init; } 
     /// <summary>
     /// Sum of the exposures of all transactions which are in the favour of party B. That is, all transactions which would have an amount payable by party A to party B if they were being terminated.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? ExposedAmountPartyB { get; init; } 
     /// <summary>
     /// Determines how the variation margin requirement is to be calculated:
     /// - either Net, in which the exposure of all transactions in favour of party A and the the exposure of all transactions in favour of party B will be netted together or
     /// - gross in which two separate variation margin requirements will be determined.
     /// </summary>
-    [DataMember]
     public ExposureConventionType1Code? ExposureConvention { get; init; } 
     /// <summary>
     /// Amount applied as an add-on to the exposure (to party A) usually intended to cover a possible increase in exposure before the next valuation date.
     /// </summary>
-    [DataMember]
     public AggregatedIndependentAmount1? IndependentAmountPartyA { get; init; } 
     /// <summary>
     /// An amount applied as an add-on to the exposure (to party B) usually intended to cover a possible increase in exposure before the next valuation date.
     /// </summary>
-    [DataMember]
     public AggregatedIndependentAmount1? IndependentAmountPartyB { get; init; } 
     /// <summary>
     /// Provides information like threshold amount, threshold type, minimum transfer amount, rouding amount or rounding convention, that applies to either the variation margin or the segregated independent amount.
     /// </summary>
-    [DataMember]
     public MarginTerms1Choice_? MarginTerms { get; init; } 
     /// <summary>
     /// Provides details about the collateral held, in transit or that still needs to be agreed by both parties with a segregation between variation margin and segregated independent amount.
     /// </summary>
-    [DataMember]
     public CollateralBalance1Choice_? CollateralBalance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ExposedAmountPartyA is IsoActiveCurrencyAndAmount ExposedAmountPartyAValue)
+        {
+            writer.WriteStartElement(null, "XpsdAmtPtyA", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ExposedAmountPartyAValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExposedAmountPartyB is IsoActiveCurrencyAndAmount ExposedAmountPartyBValue)
+        {
+            writer.WriteStartElement(null, "XpsdAmtPtyB", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ExposedAmountPartyBValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExposureConvention is ExposureConventionType1Code ExposureConventionValue)
+        {
+            writer.WriteStartElement(null, "XpsrCnvntn", xmlNamespace );
+            writer.WriteValue(ExposureConventionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (IndependentAmountPartyA is AggregatedIndependentAmount1 IndependentAmountPartyAValue)
+        {
+            writer.WriteStartElement(null, "IndpdntAmtPtyA", xmlNamespace );
+            IndependentAmountPartyAValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IndependentAmountPartyB is AggregatedIndependentAmount1 IndependentAmountPartyBValue)
+        {
+            writer.WriteStartElement(null, "IndpdntAmtPtyB", xmlNamespace );
+            IndependentAmountPartyBValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarginTerms is MarginTerms1Choice_ MarginTermsValue)
+        {
+            writer.WriteStartElement(null, "MrgnTerms", xmlNamespace );
+            MarginTermsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollateralBalance is CollateralBalance1Choice_ CollateralBalanceValue)
+        {
+            writer.WriteStartElement(null, "CollBal", xmlNamespace );
+            CollateralBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MarginCall1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the derivative instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DerivativeInstrument9
+     : IIsoXmlSerilizable<DerivativeInstrument9>
 {
     #nullable enable
     
@@ -24,44 +25,92 @@ public partial record DerivativeInstrument9
     /// Usage:
     /// Field applies to derivatives with defined expiry date.
     /// </summary>
-    [DataMember]
     public IsoISODate? ExpiryDate { get; init; } 
     /// <summary>
     /// Number of units of the underlying instrument represented by a single derivative contract.
     /// For a future or option on an index, the amount per index point.
     /// </summary>
-    [DataMember]
     public required IsoNonNegativeDecimalNumber PriceMultiplier { get; init; } 
     /// <summary>
     /// Choice to specify the type(s) of underlying instrument(s) that make up the financial instrument.
     /// </summary>
-    [DataMember]
     public required UnderlyingIdentification3Choice_ UnderlyingInstrument { get; init; } 
     /// <summary>
     /// Specifies whether it is a call option (right to purchase a specific underlying asset) or a put option (right to sell a specific underlying asset).
     /// </summary>
-    [DataMember]
     public OptionType2Code? OptionType { get; init; } 
     /// <summary>
     /// Predetermined price at which the holder will have to buy or sell the underlying instrument.
     /// </summary>
-    [DataMember]
     public SecuritiesTransactionPrice4Choice_? StrikePrice { get; init; } 
     /// <summary>
     /// Indication as to whether the option may be exercised only at a fixed date (European, and Asian style), a series of pre-specified dates (Bermudan) or at any time during the life of the contract (American style). This field does not have to be populated for ISIN instruments.
     /// </summary>
-    [DataMember]
     public OptionStyle7Code? OptionExerciseStyle { get; init; } 
     /// <summary>
     /// Indicates whether the transaction is settled physically or in cash.
     /// </summary>
-    [DataMember]
     public required PhysicalTransferType4Code DeliveryType { get; init; } 
     /// <summary>
     /// Specific attributes of the underlying asset class of the financial instrument.
     /// </summary>
-    [DataMember]
     public AssetClassAttributes1Choice_? AssetClassSpecificAttributes { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ExpiryDate is IsoISODate ExpiryDateValue)
+        {
+            writer.WriteStartElement(null, "XpryDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExpiryDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PricMltplr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNonNegativeDecimalNumber(PriceMultiplier)); // data type NonNegativeDecimalNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UndrlygInstrm", xmlNamespace );
+        UnderlyingInstrument.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OptionType is OptionType2Code OptionTypeValue)
+        {
+            writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+            writer.WriteValue(OptionTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (StrikePrice is SecuritiesTransactionPrice4Choice_ StrikePriceValue)
+        {
+            writer.WriteStartElement(null, "StrkPric", xmlNamespace );
+            StrikePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionExerciseStyle is OptionStyle7Code OptionExerciseStyleValue)
+        {
+            writer.WriteStartElement(null, "OptnExrcStyle", xmlNamespace );
+            writer.WriteValue(OptionExerciseStyleValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DlvryTp", xmlNamespace );
+        writer.WriteValue(DeliveryType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AssetClassSpecificAttributes is AssetClassAttributes1Choice_ AssetClassSpecificAttributesValue)
+        {
+            writer.WriteStartElement(null, "AsstClssSpcfcAttrbts", xmlNamespace );
+            AssetClassSpecificAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DerivativeInstrument9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

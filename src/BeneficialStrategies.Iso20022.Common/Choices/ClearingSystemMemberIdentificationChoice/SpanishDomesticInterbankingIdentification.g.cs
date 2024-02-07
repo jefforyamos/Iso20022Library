@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificationChoice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// Spanish Domestic Interbanking Code - identifies Spanish financial institutions on the Spanish national clearing system. The code is assigned by the Centro de Cooperacion Interbancaria (CCI).
 /// </summary>
 public partial record SpanishDomesticInterbankingIdentification : ClearingSystemMemberIdentificationChoice_
+     , IIsoXmlSerilizable<SpanishDomesticInterbankingIdentification>
 {
-    public required IsoSpanishDomesticInterbankingIdentifier Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Spanish Domestic Interbanking Code. Identifies Spanish financial institutions on the Spanish national clearing system. The code is assigned by the Centro de Cooperacion Interbancaria (CCI).
+    /// </summary>
+    public required IsoSpanishDomesticInterbankingIdentifier Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ESNCC", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoSpanishDomesticInterbankingIdentifier(Value)); // data type SpanishDomesticInterbankingIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static new SpanishDomesticInterbankingIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

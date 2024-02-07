@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Sensible data associated with the payment card performing the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PlainCardData12
+     : IIsoXmlSerilizable<PlainCardData12>
 {
     #nullable enable
     
     /// <summary>
     /// Primary Account Number (PAN) of the card, or surrogate of the PAN by a payment token.
     /// </summary>
-    [DataMember]
     public required IsoMin8Max28NumericText PAN { get; init; } 
     /// <summary>
     /// Identify a card or a payment token inside a set of cards with the same PAN or token.
     /// </summary>
-    [DataMember]
     public IsoMin2Max3NumericText? CardSequenceNumber { get; init; } 
     /// <summary>
     /// Expiry date of the card or the payment token expressed either in the YYYY-MM format, or in the YYYY-MM-DD format.
     /// </summary>
-    [DataMember]
     public IsoMax10Text? ExpiryDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PAN", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMin8Max28NumericText(PAN)); // data type Min8Max28NumericText System.String
+        writer.WriteEndElement();
+        if (CardSequenceNumber is IsoMin2Max3NumericText CardSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "CardSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMin2Max3NumericText(CardSequenceNumberValue)); // data type Min2Max3NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (ExpiryDate is IsoMax10Text ExpiryDateValue)
+        {
+            writer.WriteStartElement(null, "XpryDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10Text(ExpiryDateValue)); // data type Max10Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PlainCardData12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

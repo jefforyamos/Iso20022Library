@@ -7,62 +7,120 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of collateral agreement between counterparties.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeCollateralReport2
+     : IIsoXmlSerilizable<TradeCollateralReport2>
 {
     #nullable enable
     
     /// <summary>
     /// Information indicating the type of collateral agreement existing between counterparties.
     /// </summary>
-    [DataMember]
     public CollateralisationType1Code? Collateralisation { get; init; } 
     /// <summary>
     /// A unique code determined by the reporting counterparty to identify the portfolio if collateral is reported on a portfolio basis.
     /// </summary>
-    [DataMember]
     public IsoMax52Text? Portfolio { get; init; } 
     /// <summary>
     /// Value of the initial margin posted by the reporting counterparty to the other counterparty. 
     /// Usage: Where initial margin is posted on a portfolio basis, this field should include the overall value of initial margin posted for the portfolio.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd20Amount? InitialMarginPosted { get; init; } 
     /// <summary>
     /// Value of the variation margin posted, including cash settled, by the reporting counterparty to the other counterparty. 
     /// Usage: Where variation margin is posted on a portfolio basis, this field should include the overall value of variation margin posted for the portfolio.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd20Amount? VariationMarginPosted { get; init; } 
     /// <summary>
     /// Value of the initial margin received by the reporting counterparty from the other counterparty. 
     /// Usage: Where initial margin is received on a portfolio basis, this field should include the overall value of initial margin received for the portfolio.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd20Amount? InitialMarginReceived { get; init; } 
     /// <summary>
     /// Value of the variation margin received, including cash settled, by the reporting counterparty from the other counterparty. 
     /// Usage: Where variation margin is received on a portfolio basis, this field should include the overall value of variation margin received for the portfolio.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd20Amount? VariationMarginReceived { get; init; } 
     /// <summary>
     /// Value of collateral posted in excess of the required collateral.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd20Amount? ExcessCollateralPosted { get; init; } 
     /// <summary>
     /// Value of collateral received in excess of the required collateral.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd20Amount? ExcessCollateralReceived { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Collateralisation is CollateralisationType1Code CollateralisationValue)
+        {
+            writer.WriteStartElement(null, "Collstn", xmlNamespace );
+            writer.WriteValue(CollateralisationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Portfolio is IsoMax52Text PortfolioValue)
+        {
+            writer.WriteStartElement(null, "Prtfl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(PortfolioValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+        if (InitialMarginPosted is IsoActiveCurrencyAnd20Amount InitialMarginPostedValue)
+        {
+            writer.WriteStartElement(null, "InitlMrgnPstd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd20Amount(InitialMarginPostedValue)); // data type ActiveCurrencyAnd20Amount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (VariationMarginPosted is IsoActiveCurrencyAnd20Amount VariationMarginPostedValue)
+        {
+            writer.WriteStartElement(null, "VartnMrgnPstd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd20Amount(VariationMarginPostedValue)); // data type ActiveCurrencyAnd20Amount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (InitialMarginReceived is IsoActiveCurrencyAnd20Amount InitialMarginReceivedValue)
+        {
+            writer.WriteStartElement(null, "InitlMrgnRcvd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd20Amount(InitialMarginReceivedValue)); // data type ActiveCurrencyAnd20Amount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (VariationMarginReceived is IsoActiveCurrencyAnd20Amount VariationMarginReceivedValue)
+        {
+            writer.WriteStartElement(null, "VartnMrgnRcvd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd20Amount(VariationMarginReceivedValue)); // data type ActiveCurrencyAnd20Amount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExcessCollateralPosted is IsoActiveCurrencyAnd20Amount ExcessCollateralPostedValue)
+        {
+            writer.WriteStartElement(null, "XcssCollPstd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd20Amount(ExcessCollateralPostedValue)); // data type ActiveCurrencyAnd20Amount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExcessCollateralReceived is IsoActiveCurrencyAnd20Amount ExcessCollateralReceivedValue)
+        {
+            writer.WriteStartElement(null, "XcssCollRcvd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd20Amount(ExcessCollateralReceivedValue)); // data type ActiveCurrencyAnd20Amount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeCollateralReport2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

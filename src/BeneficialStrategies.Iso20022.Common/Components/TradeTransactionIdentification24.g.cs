@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on transaction and conducting counterparty.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeTransactionIdentification24
+     : IIsoXmlSerilizable<TradeTransactionIdentification24>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Indication of the action type of the transaction.
     /// </summary>
-    [DataMember]
     public TransactionOperationType10Code? ActionType { get; init; } 
     /// <summary>
     /// Indicates the date and time of the submission of the report to the trade repository.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ReportingTimeStamp { get; init; } 
     /// <summary>
     /// Classification of derivative event type.
     /// </summary>
-    [DataMember]
     public DerivativeEventType3Code? DerivativeEventType { get; init; } 
     /// <summary>
     /// Indicates the time stamp of a derivative event.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? DerivativeEventTimeStamp { get; init; } 
     /// <summary>
     /// Unique code identifying the entity with which the reporting counterparty concluded the transaction.
     /// </summary>
-    [DataMember]
     public PartyIdentification248Choice_? OtherCounterparty { get; init; } 
     /// <summary>
     /// Choice between a Unique Transaction Identifier (UTI) or a proprietary identifier as agreed with the counterparty.
     /// </summary>
-    [DataMember]
     public UniqueTransactionIdentifier2Choice_? UniqueIdentifier { get; init; } 
     /// <summary>
     /// Details related to the master agreement.
     /// </summary>
-    [DataMember]
     public MasterAgreement8? MasterAgreement { get; init; } 
     /// <summary>
     /// Unique codes identifying the portfolio.
     /// </summary>
-    [DataMember]
     public CollateralPortfolioCode5Choice_? CollateralPortfolioCode { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TechnicalRecordIdentification is IsoMax140Text TechnicalRecordIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(TechnicalRecordIdentificationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (ActionType is TransactionOperationType10Code ActionTypeValue)
+        {
+            writer.WriteStartElement(null, "ActnTp", xmlNamespace );
+            writer.WriteValue(ActionTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ReportingTimeStamp is IsoISODateTime ReportingTimeStampValue)
+        {
+            writer.WriteStartElement(null, "RptgTmStmp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ReportingTimeStampValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (DerivativeEventType is DerivativeEventType3Code DerivativeEventTypeValue)
+        {
+            writer.WriteStartElement(null, "DerivEvtTp", xmlNamespace );
+            writer.WriteValue(DerivativeEventTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DerivativeEventTimeStamp is DateAndDateTime2Choice_ DerivativeEventTimeStampValue)
+        {
+            writer.WriteStartElement(null, "DerivEvtTmStmp", xmlNamespace );
+            DerivativeEventTimeStampValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherCounterparty is PartyIdentification248Choice_ OtherCounterpartyValue)
+        {
+            writer.WriteStartElement(null, "OthrCtrPty", xmlNamespace );
+            OtherCounterpartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UniqueIdentifier is UniqueTransactionIdentifier2Choice_ UniqueIdentifierValue)
+        {
+            writer.WriteStartElement(null, "UnqIdr", xmlNamespace );
+            UniqueIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MasterAgreement is MasterAgreement8 MasterAgreementValue)
+        {
+            writer.WriteStartElement(null, "MstrAgrmt", xmlNamespace );
+            MasterAgreementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollateralPortfolioCode is CollateralPortfolioCode5Choice_ CollateralPortfolioCodeValue)
+        {
+            writer.WriteStartElement(null, "CollPrtflCd", xmlNamespace );
+            CollateralPortfolioCodeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeTransactionIdentification24 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

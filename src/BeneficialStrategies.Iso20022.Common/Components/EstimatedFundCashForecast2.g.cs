@@ -7,78 +7,140 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Cash movements from or to a fund as a result of investment funds transactions, eg, subscriptions or redemptions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record EstimatedFundCashForecast2
+     : IIsoXmlSerilizable<EstimatedFundCashForecast2>
 {
     #nullable enable
     
     /// <summary>
     /// Date and, if required, the time, at which the price has been applied.
     /// </summary>
-    [DataMember]
     public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     /// <summary>
     /// Previous date and time at which a price was applied.
     /// </summary>
-    [DataMember]
     public required DateAndDateTimeChoice_ PreviousTradeDateTime { get; init; } 
     /// <summary>
     /// Investment fund class to which a cash flow is related.
     /// </summary>
-    [DataMember]
     public required FinancialInstrument5 FinancialInstrumentDetails { get; init; } 
     /// <summary>
     /// Estimated total value of all the holdings, less the fund's liabilities, attributable to a specific investment fund class.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? EstimatedTotalNAV { get; init; } 
     /// <summary>
     /// Previous estimated value of all the holdings, less the fund's liabilities, attributable to a specific investment fund class.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? PreviousEstimatedTotalNAV { get; init; } 
     /// <summary>
     /// Estimated total number of investment fund class units that have been issued.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1? EstimatedTotalUnitsNumber { get; init; } 
     /// <summary>
     /// Previous estimated value of all the holdings, less the fund's liabilities, attributable to a specific investment fund class.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1? PreviousEstimatedTotalUnitsNumber { get; init; } 
     /// <summary>
     /// Rate of change of the net asset value.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? EstimatedTotalNAVChangeRate { get; init; } 
     /// <summary>
     /// Currency of the investment fund class.
     /// </summary>
-    [DataMember]
-    public ValueList<ActiveOrHistoricCurrencyCode> InvestmentCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    public ActiveOrHistoricCurrencyCode? InvestmentCurrency { get; init; } 
     /// <summary>
     /// Indicates whether the estimated net cash flow is exceptional.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ExceptionalNetCashFlowIndicator { get; init; } 
     /// <summary>
     /// Information related to the estimated cash movements reported by pre-defined or user defined criteria.
     /// </summary>
-    [DataMember]
-    public ValueList<CashSortingCriterion1> SortingCriteriaDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashSortingCriterion1? SortingCriteriaDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _VCfnhtp-Ed-ak6NoX_4Aeg_-373893431
     /// <summary>
     /// Net cash movements per financial instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<NetCashForecast1> EstimatedNetCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public NetCashForecast1? EstimatedNetCashForecastDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TradDtTm", xmlNamespace );
+        TradeDateTime.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PrvsTradDtTm", xmlNamespace );
+        PreviousTradeDateTime.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FinInstrmDtls", xmlNamespace );
+        FinancialInstrumentDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (EstimatedTotalNAV is IsoActiveOrHistoricCurrencyAndAmount EstimatedTotalNAVValue)
+        {
+            writer.WriteStartElement(null, "EstmtdTtlNAV", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(EstimatedTotalNAVValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PreviousEstimatedTotalNAV is IsoActiveOrHistoricCurrencyAndAmount PreviousEstimatedTotalNAVValue)
+        {
+            writer.WriteStartElement(null, "PrvsEstmtdTtlNAV", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(PreviousEstimatedTotalNAVValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (EstimatedTotalUnitsNumber is FinancialInstrumentQuantity1 EstimatedTotalUnitsNumberValue)
+        {
+            writer.WriteStartElement(null, "EstmtdTtlUnitsNb", xmlNamespace );
+            EstimatedTotalUnitsNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousEstimatedTotalUnitsNumber is FinancialInstrumentQuantity1 PreviousEstimatedTotalUnitsNumberValue)
+        {
+            writer.WriteStartElement(null, "PrvsEstmtdTtlUnitsNb", xmlNamespace );
+            PreviousEstimatedTotalUnitsNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EstimatedTotalNAVChangeRate is IsoPercentageRate EstimatedTotalNAVChangeRateValue)
+        {
+            writer.WriteStartElement(null, "EstmtdTtlNAVChngRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(EstimatedTotalNAVChangeRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (InvestmentCurrency is ActiveOrHistoricCurrencyCode InvestmentCurrencyValue)
+        {
+            writer.WriteStartElement(null, "InvstmtCcy", xmlNamespace );
+            writer.WriteValue(InvestmentCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "XcptnlNetCshFlowInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ExceptionalNetCashFlowIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        // Not sure how to serialize SortingCriteriaDetails, multiplicity Unknown
+        if (EstimatedNetCashForecastDetails is NetCashForecast1 EstimatedNetCashForecastDetailsValue)
+        {
+            writer.WriteStartElement(null, "EstmtdNetCshFcstDtls", xmlNamespace );
+            EstimatedNetCashForecastDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static EstimatedFundCashForecast2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

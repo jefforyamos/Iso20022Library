@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acquirer configuration parameters for a host.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AcquirerHostConfiguration9
+     : IIsoXmlSerilizable<AcquirerHostConfiguration9>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a host.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text HostIdentification { get; init; } 
     /// <summary>
     /// Types of message to sent to this host.
     /// </summary>
-    [DataMember]
-    public ValueList<MessageFunction43Code> MessageToSend { get; init; } = []; // Warning: Don't know multiplicity.
+    public MessageFunction43Code? MessageToSend { get; init; } 
     /// <summary>
     /// Protocol version to use when using these parameters.
     /// </summary>
-    [DataMember]
     public IsoMax8Text? ProtocolVersion { get; init; } 
     /// <summary>
     /// List of types that the receiver supports and that the sender could use as type of an ExternallyDefinedData message component.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax1025Text> ExternallyTypeSupported { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax1025Text? ExternallyTypeSupported { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "HstId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(HostIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (MessageToSend is MessageFunction43Code MessageToSendValue)
+        {
+            writer.WriteStartElement(null, "MsgToSnd", xmlNamespace );
+            writer.WriteValue(MessageToSendValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ProtocolVersion is IsoMax8Text ProtocolVersionValue)
+        {
+            writer.WriteStartElement(null, "PrtcolVrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax8Text(ProtocolVersionValue)); // data type Max8Text System.String
+            writer.WriteEndElement();
+        }
+        if (ExternallyTypeSupported is IsoMax1025Text ExternallyTypeSupportedValue)
+        {
+            writer.WriteStartElement(null, "XtrnlyTpSpprtd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1025Text(ExternallyTypeSupportedValue)); // data type Max1025Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AcquirerHostConfiguration9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

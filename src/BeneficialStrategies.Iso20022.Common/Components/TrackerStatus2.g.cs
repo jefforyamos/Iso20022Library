@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides detailed information on the transaction status to be updated in the tracker.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TrackerStatus2
+     : IIsoXmlSerilizable<TrackerStatus2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the status of a transaction, in a coded form.
     /// </summary>
-    [DataMember]
     public required ExternalPaymentTransactionStatus1Code Status { get; init; } 
     /// <summary>
     /// Date for the status.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? Date { get; init; } 
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
-    [DataMember]
-    public ValueList<TrackerAlertStatusReason1Choice_> Reason { get; init; } = []; // Warning: Don't know multiplicity.
+    public TrackerAlertStatusReason1Choice_? Reason { get; init; } 
     /// <summary>
     /// Further details on the status reason.||Usage: Additional information can be used for several purposes such as the reporting of repaired information.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax105Text> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax105Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Date is DateAndDateTime2Choice_ DateValue)
+        {
+            writer.WriteStartElement(null, "Dt", xmlNamespace );
+            DateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Reason is TrackerAlertStatusReason1Choice_ ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            ReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax105Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax105Text(AdditionalInformationValue)); // data type Max105Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TrackerStatus2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,43 +7,74 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed information about the outstanding derivatives for which no valuation or outdated valuation has been reported.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MissingValuationsData2
+     : IIsoXmlSerilizable<MissingValuationsData2>
 {
     #nullable enable
     
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
-    [DataMember]
     public required CounterpartyData92 CounterpartyIdentification { get; init; } 
     /// <summary>
     /// Number of outstanding derivatives. 
     /// </summary>
-    [DataMember]
     public required IsoNumber NumberOfOutstandingDerivatives { get; init; } 
     /// <summary>
     /// Number of outstanding derivatives for which valuation amount was never reported.
     /// </summary>
-    [DataMember]
     public required IsoNumber NumberOfOutstandingDerivativesWithNoValuation { get; init; } 
     /// <summary>
     /// Number of outstanding derivatives with outdated valuation.
     /// </summary>
-    [DataMember]
     public required IsoNumber NumberOfOutstandingDerivativesWithOutdatedValuation { get; init; } 
     /// <summary>
     /// Details of missing valuations per transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<MissingValuationsTransactionData2> TransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public MissingValuationsTransactionData2? TransactionDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
+        CounterpartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NbOfOutsdngDerivs", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfOutstandingDerivatives)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NbOfOutsdngDerivsWthNoValtn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfOutstandingDerivativesWithNoValuation)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NbOfOutsdngDerivsWthOutdtdValtn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfOutstandingDerivativesWithOutdatedValuation)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        if (TransactionDetails is MissingValuationsTransactionData2 TransactionDetailsValue)
+        {
+            writer.WriteStartElement(null, "TxDtls", xmlNamespace );
+            TransactionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MissingValuationsData2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

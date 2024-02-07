@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Format to express a date and a date mode.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DateFormat1
+     : IIsoXmlSerilizable<DateFormat1>
 {
     #nullable enable
     
     /// <summary>
     /// Date at which the event occurs.
     /// </summary>
-    [DataMember]
     public required DateFormat3Choice_ Date { get; init; } 
     /// <summary>
     /// Specifies whether an event for which a date is provided occurs typically at the "beginning of day" or at the "end of day".
     /// </summary>
-    [DataMember]
     public DateMode1Code? DateMode { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Dt", xmlNamespace );
+        Date.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DateMode is DateMode1Code DateModeValue)
+        {
+            writer.WriteStartElement(null, "DtMd", xmlNamespace );
+            writer.WriteValue(DateModeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static DateFormat1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

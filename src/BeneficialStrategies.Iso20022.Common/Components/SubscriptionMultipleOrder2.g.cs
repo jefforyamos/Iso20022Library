@@ -7,58 +7,109 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Order to invest the investor's principal in an investment fund.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SubscriptionMultipleOrder2
+     : IIsoXmlSerilizable<SubscriptionMultipleOrder2>
 {
     #nullable enable
     
     /// <summary>
     /// Market in which the advised trade transaction was executed.
     /// </summary>
-    [DataMember]
     public CountryCode? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Date the investor places the order.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? OrderDateTime { get; init; } 
     /// <summary>
     /// Date on which the order expires.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ExpiryDateTime { get; init; } 
     /// <summary>
     /// Cancellation right of an investor with respect to an investment fund order.
     /// </summary>
-    [DataMember]
     public CancellationRight1? CancellationRight { get; init; } 
     /// <summary>
     /// Account impacted by an investment fund order.
     /// </summary>
-    [DataMember]
     public required InvestmentAccount13 InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Additional information about the beneficial owner.
     /// </summary>
-    [DataMember]
     public IndividualPerson2? BeneficiaryDetails { get; init; } 
     /// <summary>
     /// Order to invest the investor's principal in an investment fund.
     /// </summary>
-    [DataMember]
-    public ValueList<SubscriptionOrder4> IndividualOrderDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public SubscriptionOrder4? IndividualOrderDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _VUFGxdp-Ed-ak6NoX_4Aeg_-1053593051
     /// <summary>
     /// Payment transaction resulting from the investment fund order execution.
     /// </summary>
-    [DataMember]
     public PaymentTransaction19? BulkCashSettlementDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceOfTrade is CountryCode PlaceOfTradeValue)
+        {
+            writer.WriteStartElement(null, "PlcOfTrad", xmlNamespace );
+            writer.WriteValue(PlaceOfTradeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OrderDateTime is IsoISODateTime OrderDateTimeValue)
+        {
+            writer.WriteStartElement(null, "OrdrDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(OrderDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ExpiryDateTime is IsoISODateTime ExpiryDateTimeValue)
+        {
+            writer.WriteStartElement(null, "XpryDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ExpiryDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (CancellationRight is CancellationRight1 CancellationRightValue)
+        {
+            writer.WriteStartElement(null, "CxlRght", xmlNamespace );
+            CancellationRightValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InvstmtAcctDtls", xmlNamespace );
+        InvestmentAccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BeneficiaryDetails is IndividualPerson2 BeneficiaryDetailsValue)
+        {
+            writer.WriteStartElement(null, "BnfcryDtls", xmlNamespace );
+            BeneficiaryDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize IndividualOrderDetails, multiplicity Unknown
+        if (BulkCashSettlementDetails is PaymentTransaction19 BulkCashSettlementDetailsValue)
+        {
+            writer.WriteStartElement(null, "BlkCshSttlmDtls", xmlNamespace );
+            BulkCashSettlementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SubscriptionMultipleOrder2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

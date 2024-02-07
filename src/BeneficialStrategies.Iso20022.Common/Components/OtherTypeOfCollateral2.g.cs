@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Allows to specify other collateral type by providing a description and the quantity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OtherTypeOfCollateral2
+     : IIsoXmlSerilizable<OtherTypeOfCollateral2>
 {
     #nullable enable
     
     /// <summary>
     /// Provides details about the collateral.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text Description { get; init; } 
     /// <summary>
     /// Quantity of other collateral.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1Choice_? Quantity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Desc", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(Description)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        if (Quantity is FinancialInstrumentQuantity1Choice_ QuantityValue)
+        {
+            writer.WriteStartElement(null, "Qty", xmlNamespace );
+            QuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OtherTypeOfCollateral2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

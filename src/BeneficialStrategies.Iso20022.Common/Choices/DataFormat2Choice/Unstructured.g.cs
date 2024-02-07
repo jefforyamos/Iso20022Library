@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.DataFormat2Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.DataFormat2Choice;
 /// Specification of data for which there isn't a structured form.
 /// </summary>
 public partial record Unstructured : DataFormat2Choice_
+     , IIsoXmlSerilizable<Unstructured>
 {
-    public required IsoMax140Text Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a character string with a maximum length of 140 characters.
+    /// </summary>
+    public required IsoMax140Text Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ustrd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(Value)); // data type Max140Text System.String
+        writer.WriteEndElement();
+    }
+    public static new Unstructured Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

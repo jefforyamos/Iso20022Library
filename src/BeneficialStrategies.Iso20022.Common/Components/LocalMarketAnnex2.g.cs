@@ -7,43 +7,69 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Context, or geographic environment, in which trading parties may meet in order to negotiate and execute trades among themselves.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LocalMarketAnnex2
+     : IIsoXmlSerilizable<LocalMarketAnnex2>
 {
     #nullable enable
     
     /// <summary>
     /// Country in which the processing characteristic applies.
     /// </summary>
-    [DataMember]
-    public ValueList<CountryCode> Country { get; init; } = []; // Warning: Don't know multiplicity.
+    public CountryCode? Country { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _Q5QhRtp-Ed-ak6NoX_4Aeg_-1288934537
     /// <summary>
     /// Organisation established primarily to provide financial services.
     /// </summary>
-    [DataMember]
     public required ContactAttributes1 LocalOrderDesk { get; init; } 
     /// <summary>
     /// Processing characteristics linked to the instrument, ie, not to the market.
     /// </summary>
-    [DataMember]
     public required ProcessingCharacteristics2 SubscriptionProcessingCharacteristics { get; init; } 
     /// <summary>
     /// Processing characteristics linked to the instrument, ie, not to the market.
     /// </summary>
-    [DataMember]
     public required ProcessingCharacteristics3 RedemptionProcessingCharacteristics { get; init; } 
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    [DataMember]
-    public ValueList<CashAccount22> SettlementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashAccount22? SettlementDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _Q5ZrMdp-Ed-ak6NoX_4Aeg_-653648231
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize Country, multiplicity Unknown
+        writer.WriteStartElement(null, "LclOrdrDsk", xmlNamespace );
+        LocalOrderDesk.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SbcptPrcgChrtcs", xmlNamespace );
+        SubscriptionProcessingCharacteristics.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RedPrcgChrtcs", xmlNamespace );
+        RedemptionProcessingCharacteristics.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize SettlementDetails, multiplicity Unknown
+    }
+    public static LocalMarketAnnex2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Proprietary quantity format.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProprietaryQuantity7
+     : IIsoXmlSerilizable<ProprietaryQuantity7>
 {
     #nullable enable
     
     /// <summary>
     /// Sign of the quantity of security.
     /// </summary>
-    [DataMember]
     public ShortLong1Code? ShortLongPosition { get; init; } 
     /// <summary>
     /// Provides the proprietary quantity with a decimal number.
     /// </summary>
-    [DataMember]
     public required IsoDecimalNumber Quantity { get; init; } 
     /// <summary>
     /// Identifies the type of proprietary quantity reported.
     /// </summary>
-    [DataMember]
     public required IsoExact4AlphaNumericText QuantityType { get; init; } 
     /// <summary>
     /// Provides information related to issuer in free format.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Issuer { get; init; } 
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SchemeName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ShortLongPosition is ShortLong1Code ShortLongPositionValue)
+        {
+            writer.WriteStartElement(null, "ShrtLngPos", xmlNamespace );
+            writer.WriteValue(ShortLongPositionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(Quantity)); // data type DecimalNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "QtyTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(QuantityType)); // data type Exact4AlphaNumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Issr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Issuer)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (SchemeName is IsoMax35Text SchemeNameValue)
+        {
+            writer.WriteStartElement(null, "SchmeNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SchemeNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ProprietaryQuantity7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

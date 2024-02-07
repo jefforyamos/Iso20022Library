@@ -7,63 +7,123 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Counters of media inside an ATM cassette.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMCassetteCounters4
+     : IIsoXmlSerilizable<ATMCassetteCounters4>
 {
     #nullable enable
     
     /// <summary>
     /// Type of counters.
     /// </summary>
-    [DataMember]
     public required ATMCounterType1Code Type { get; init; } 
     /// <summary>
     /// Number of added media during servicing operations.
     /// </summary>
-    [DataMember]
     public IsoNumber? AddedNumber { get; init; } 
     /// <summary>
     /// Number of removed media during servicing operations.
     /// </summary>
-    [DataMember]
     public IsoNumber? RemovedNumber { get; init; } 
     /// <summary>
     /// Total number of media out of the cassette.
     /// </summary>
-    [DataMember]
     public IsoNumber? DispensedNumber { get; init; } 
     /// <summary>
     /// Total number of media deposited in the cassette.
     /// </summary>
-    [DataMember]
     public IsoNumber? DepositedNumber { get; init; } 
     /// <summary>
     /// Total number of recycled media from the cassette.
     /// </summary>
-    [DataMember]
     public IsoNumber? RecycledNumber { get; init; } 
     /// <summary>
     /// Total number of retracted media originating from the cassette.
     /// </summary>
-    [DataMember]
     public IsoNumber? RetractedNumber { get; init; } 
     /// <summary>
     /// Total number of media from this cassette which are on the reject bin.
     /// </summary>
-    [DataMember]
     public IsoNumber? RejectedNumber { get; init; } 
     /// <summary>
     /// Total number of media presented to the customer.
     /// </summary>
-    [DataMember]
     public IsoNumber? PresentedNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AddedNumber is IsoNumber AddedNumberValue)
+        {
+            writer.WriteStartElement(null, "AddedNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(AddedNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (RemovedNumber is IsoNumber RemovedNumberValue)
+        {
+            writer.WriteStartElement(null, "RmvdNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(RemovedNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (DispensedNumber is IsoNumber DispensedNumberValue)
+        {
+            writer.WriteStartElement(null, "DspnsdNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(DispensedNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (DepositedNumber is IsoNumber DepositedNumberValue)
+        {
+            writer.WriteStartElement(null, "DpstdNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(DepositedNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (RecycledNumber is IsoNumber RecycledNumberValue)
+        {
+            writer.WriteStartElement(null, "RcycldNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(RecycledNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (RetractedNumber is IsoNumber RetractedNumberValue)
+        {
+            writer.WriteStartElement(null, "RtrctdNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(RetractedNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (RejectedNumber is IsoNumber RejectedNumberValue)
+        {
+            writer.WriteStartElement(null, "RjctdNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(RejectedNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (PresentedNumber is IsoNumber PresentedNumberValue)
+        {
+            writer.WriteStartElement(null, "PresntdNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(PresentedNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMCassetteCounters4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.caaa.AcceptorCancellationResponseV01>;
 
 namespace BeneficialStrategies.Iso20022.caaa;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// - a rejection from the acquirer for technical reasons.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The AcceptorCancellationResponse message is sent by the acquirer to inform the card acceptor of the outcome of the cancellation process. The message can be sent directly to the acceptor or through an agent.|Usage|The AcceptorCancellationResponse message is used to indicate one of the possible outcomes of a cancellation process:|- a successful cancellation;|- a rejection from the acquirer for financial reasons;|- a rejection from the acquirer for technical reasons.")]
-public partial record AcceptorCancellationResponseV01 : IOuterRecord
+public partial record AcceptorCancellationResponseV01 : IOuterRecord<AcceptorCancellationResponseV01,AcceptorCancellationResponseV01Document>
+    ,IIsoXmlSerilizable<AcceptorCancellationResponseV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record AcceptorCancellationResponseV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AccptrCxlRspn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AcceptorCancellationResponseV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -83,6 +90,32 @@ public partial record AcceptorCancellationResponseV01 : IOuterRecord
     {
         return new AcceptorCancellationResponseV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AccptrCxlRspn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CxlRspn", xmlNamespace );
+        CancellationResponse.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+        SecurityTrailer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static AcceptorCancellationResponseV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -90,9 +123,7 @@ public partial record AcceptorCancellationResponseV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorCancellationResponseV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AcceptorCancellationResponseV01Document : IOuterDocument<AcceptorCancellationResponseV01>
+public partial record AcceptorCancellationResponseV01Document : IOuterDocument<AcceptorCancellationResponseV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -108,5 +139,22 @@ public partial record AcceptorCancellationResponseV01Document : IOuterDocument<A
     /// <summary>
     /// The instance of <seealso cref="AcceptorCancellationResponseV01"/> is required.
     /// </summary>
+    [DataMember(Name=AcceptorCancellationResponseV01.XmlTag)]
     public required AcceptorCancellationResponseV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AcceptorCancellationResponseV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

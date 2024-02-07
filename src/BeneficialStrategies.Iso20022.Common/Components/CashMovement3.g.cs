@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the cash movement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashMovement3
+     : IIsoXmlSerilizable<CashMovement3>
 {
     #nullable enable
     
     /// <summary>
     /// Date and time of the posting.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeChoice_? PostingDateTime { get; init; } 
     /// <summary>
     /// Value date.
     /// </summary>
-    [DataMember]
     public required IsoISODate ValueDate { get; init; } 
     /// <summary>
     /// Cash amount that is posted.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount PostingAmount { get; init; } 
     /// <summary>
     /// Provides information about the account which is debited/credited.
     /// </summary>
-    [DataMember]
     public ValueList<CashAccount18> AccountDetails { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PostingDateTime is DateAndDateTimeChoice_ PostingDateTimeValue)
+        {
+            writer.WriteStartElement(null, "PstngDtTm", xmlNamespace );
+            PostingDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ValDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ValueDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PstngAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(PostingAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
+        AccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CashMovement3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

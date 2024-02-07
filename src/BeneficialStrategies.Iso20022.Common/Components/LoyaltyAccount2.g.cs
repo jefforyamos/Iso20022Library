@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Loyalty Account description.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LoyaltyAccount2
+     : IIsoXmlSerilizable<LoyaltyAccount2>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of Loyalty Account.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? LoyaltyIdentification { get; init; } 
     /// <summary>
     /// Standard or last entry mode to access the Loyalty account or card.
     /// </summary>
-    [DataMember]
     public CardDataReading8Code? EntryMode { get; init; } 
     /// <summary>
     /// Type of identification for this Loyalty Account.
     /// </summary>
-    [DataMember]
     public CardIdentificationType1Code? IdentificationType { get; init; } 
     /// <summary>
     /// Brand to which belong the account.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Brand { get; init; } 
     /// <summary>
     /// Provider of the Loyalty Account.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Provider { get; init; } 
     /// <summary>
     /// Owner name of an account.
     /// </summary>
-    [DataMember]
     public IsoMax45Text? OwnerName { get; init; } 
     /// <summary>
     /// Unit of a Loyalty Account (Point or Currency).
     /// </summary>
-    [DataMember]
     public AmountUnit1Code? Unit { get; init; } 
     /// <summary>
     /// Currency of a Loyalty Account if any.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Balance of a Loyalty Account.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? Balance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (LoyaltyIdentification is IsoMax35Text LoyaltyIdentificationValue)
+        {
+            writer.WriteStartElement(null, "LltyId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(LoyaltyIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (EntryMode is CardDataReading8Code EntryModeValue)
+        {
+            writer.WriteStartElement(null, "NtryMd", xmlNamespace );
+            writer.WriteValue(EntryModeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (IdentificationType is CardIdentificationType1Code IdentificationTypeValue)
+        {
+            writer.WriteStartElement(null, "IdTp", xmlNamespace );
+            writer.WriteValue(IdentificationTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Brand is IsoMax35Text BrandValue)
+        {
+            writer.WriteStartElement(null, "Brnd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(BrandValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Provider is IsoMax35Text ProviderValue)
+        {
+            writer.WriteStartElement(null, "Prvdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProviderValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OwnerName is IsoMax45Text OwnerNameValue)
+        {
+            writer.WriteStartElement(null, "OwnrNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax45Text(OwnerNameValue)); // data type Max45Text System.String
+            writer.WriteEndElement();
+        }
+        if (Unit is AmountUnit1Code UnitValue)
+        {
+            writer.WriteStartElement(null, "Unit", xmlNamespace );
+            writer.WriteValue(UnitValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Balance is IsoImpliedCurrencyAndAmount BalanceValue)
+        {
+            writer.WriteStartElement(null, "Bal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(BalanceValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static LoyaltyAccount2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

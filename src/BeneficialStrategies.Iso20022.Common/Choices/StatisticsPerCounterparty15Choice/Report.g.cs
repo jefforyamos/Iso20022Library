@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty15Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty15Choic
 /// Detailed statistics per counterparty.
 /// </summary>
 public partial record Report : StatisticsPerCounterparty15Choice_
+     , IIsoXmlSerilizable<Report>
 {
     #nullable enable
+    
     /// <summary>
     /// Reference date for statistics collection.
     /// </summary>
@@ -30,6 +34,42 @@ public partial record Report : StatisticsPerCounterparty15Choice_
     /// <summary>
     /// Details of derivatives submitted for reconciliation per counterparty pair.
     /// </summary>
-    public ReconciliationCounterpartyPairStatistics6? TransactionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public ReconciliationCounterpartyPairStatistics6? TransactionDetails { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RefDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ReferenceDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RcncltnCtgrs", xmlNamespace );
+        ReconciliationCategories.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TotalNumberOfTransactions is IsoNumber TotalNumberOfTransactionsValue)
+        {
+            writer.WriteStartElement(null, "TtlNbOfTxs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberOfTransactionsValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (TransactionDetails is ReconciliationCounterpartyPairStatistics6 TransactionDetailsValue)
+        {
+            writer.WriteStartElement(null, "TxDtls", xmlNamespace );
+            TransactionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Report Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

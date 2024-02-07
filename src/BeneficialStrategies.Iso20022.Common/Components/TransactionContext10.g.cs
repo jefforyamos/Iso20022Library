@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Context of the card payment transaction
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionContext10
+     : IIsoXmlSerilizable<TransactionContext10>
 {
     #nullable enable
     
     /// <summary>
     /// Card programme or brand related to the transaction.
     /// </summary>
-    [DataMember]
     public CardProgrammeMode3? CardProgrammeApplied { get; init; } 
     /// <summary>
     /// Contains information that identifies or is specific to a transaction jurisdiction.
     /// </summary>
-    [DataMember]
     public Jurisdiction2? Jurisdiction { get; init; } 
     /// <summary>
     /// Type of settlement service for specific services requiring settlement.
     /// </summary>
-    [DataMember]
     public SettlementService4? SettlementService { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period between the acquirer and the issuer or their respective agents.
     /// </summary>
-    [DataMember]
     public Reconciliation3? Reconciliation { get; init; } 
     /// <summary>
     /// Additional transaction context data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CardProgrammeApplied is CardProgrammeMode3 CardProgrammeAppliedValue)
+        {
+            writer.WriteStartElement(null, "CardPrgrmmApld", xmlNamespace );
+            CardProgrammeAppliedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Jurisdiction is Jurisdiction2 JurisdictionValue)
+        {
+            writer.WriteStartElement(null, "Jursdctn", xmlNamespace );
+            JurisdictionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementService is SettlementService4 SettlementServiceValue)
+        {
+            writer.WriteStartElement(null, "SttlmSvc", xmlNamespace );
+            SettlementServiceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Reconciliation is Reconciliation3 ReconciliationValue)
+        {
+            writer.WriteStartElement(null, "Rcncltn", xmlNamespace );
+            ReconciliationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionContext10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

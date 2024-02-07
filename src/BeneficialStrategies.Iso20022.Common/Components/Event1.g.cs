@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information on an event that happened in a system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Event1
+     : IIsoXmlSerilizable<Event1>
 {
     #nullable enable
     
     /// <summary>
     /// Proprietary code used to specify an event that occurred in a system.
     /// </summary>
-    [DataMember]
     public required IsoMax4AlphaNumericText EventCode { get; init; } 
     /// <summary>
     /// Describes the parameters of an event which occurred in a system.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> EventParameter { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? EventParameter { get; init; } 
     /// <summary>
     /// Free text used to describe an event which occurred in a system.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? EventDescription { get; init; } 
     /// <summary>
     /// Date and time at which the event occurred.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? EventTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "EvtCd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(EventCode)); // data type Max4AlphaNumericText System.String
+        writer.WriteEndElement();
+        if (EventParameter is IsoMax35Text EventParameterValue)
+        {
+            writer.WriteStartElement(null, "EvtParam", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(EventParameterValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (EventDescription is IsoMax350Text EventDescriptionValue)
+        {
+            writer.WriteStartElement(null, "EvtDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(EventDescriptionValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (EventTime is IsoISODateTime EventTimeValue)
+        {
+            writer.WriteStartElement(null, "EvtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(EventTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static Event1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

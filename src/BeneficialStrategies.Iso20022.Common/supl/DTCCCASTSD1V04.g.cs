@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.supl.DTCCCASTSD1V04>;
 
 namespace BeneficialStrategies.Iso20022.supl;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// The DTCCCASTSD1 message extends ISO corporate action instruction statement report message with DTCC corporate action elements not covered in the standard message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The DTCCCASTSD1 message extends ISO corporate action instruction statement report message with DTCC corporate action elements not covered in the standard message.")]
-public partial record DTCCCASTSD1V04 : IOuterRecord
+public partial record DTCCCASTSD1V04 : IOuterRecord<DTCCCASTSD1V04,DTCCCASTSD1V04Document>
+    ,IIsoXmlSerilizable<DTCCCASTSD1V04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record DTCCCASTSD1V04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "DTCCCASTSD1";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => DTCCCASTSD1V04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -83,6 +90,47 @@ public partial record DTCCCASTSD1V04 : IOuterRecord
     {
         return new DTCCCASTSD1V04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("DTCCCASTSD1");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (EventBalanceDetails is CorporateActionBalanceSD5 EventBalanceDetailsValue)
+        {
+            writer.WriteStartElement(null, "EvtBalDtls", xmlNamespace );
+            EventBalanceDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalInstructedBalanceOptionBalanceDetails is CorporateActionInstructedBalanceOptionBalanceSD3 TotalInstructedBalanceOptionBalanceDetailsValue)
+        {
+            writer.WriteStartElement(null, "TtlInstdBalOptnBalDtls", xmlNamespace );
+            TotalInstructedBalanceOptionBalanceDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalInstructedBalanceOptionInstructionDetails is CorporateActionInstructedBalanceOptionInstructionSD3 TotalInstructedBalanceOptionInstructionDetailsValue)
+        {
+            writer.WriteStartElement(null, "TtlInstdBalOptnInstrDtls", xmlNamespace );
+            TotalInstructedBalanceOptionInstructionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalInstructedBalanceOptionProtectInstructionDetails is CorporateActionInstructedBalanceOptionProtectInstructionSD4 TotalInstructedBalanceOptionProtectInstructionDetailsValue)
+        {
+            writer.WriteStartElement(null, "TtlInstdBalOptnPrtctInstrDtls", xmlNamespace );
+            TotalInstructedBalanceOptionProtectInstructionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DTCCCASTSD1V04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -90,9 +138,7 @@ public partial record DTCCCASTSD1V04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCASTSD1V04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record DTCCCASTSD1V04Document : IOuterDocument<DTCCCASTSD1V04>
+public partial record DTCCCASTSD1V04Document : IOuterDocument<DTCCCASTSD1V04>, IXmlSerializable
 {
     
     /// <summary>
@@ -108,5 +154,22 @@ public partial record DTCCCASTSD1V04Document : IOuterDocument<DTCCCASTSD1V04>
     /// <summary>
     /// The instance of <seealso cref="DTCCCASTSD1V04"/> is required.
     /// </summary>
+    [DataMember(Name=DTCCCASTSD1V04.XmlTag)]
     public required DTCCCASTSD1V04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(DTCCCASTSD1V04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

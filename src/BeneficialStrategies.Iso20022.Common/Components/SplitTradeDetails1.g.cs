@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information describing the high level details of a split trade.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SplitTradeDetails1
+     : IIsoXmlSerilizable<SplitTradeDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides information on the status of a foreign exchange trade in the system.
     /// </summary>
-    [DataMember]
     public TradeData9? StatusDetails { get; init; } 
     /// <summary>
     /// Amounts of the foreign exchange trade.
     /// </summary>
-    [DataMember]
     public required AmountsAndValueDate1 TradeAmounts { get; init; } 
     /// <summary>
     /// Exchange rate as agreed by the traders.
     /// </summary>
-    [DataMember]
     public AgreedRate1? AgreedRate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (StatusDetails is TradeData9 StatusDetailsValue)
+        {
+            writer.WriteStartElement(null, "StsDtls", xmlNamespace );
+            StatusDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TradAmts", xmlNamespace );
+        TradeAmounts.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AgreedRate is AgreedRate1 AgreedRateValue)
+        {
+            writer.WriteStartElement(null, "AgrdRate", xmlNamespace );
+            AgreedRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SplitTradeDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

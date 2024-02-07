@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.caaa.AcceptorCurrencyConversionRequestV10>;
 
 namespace BeneficialStrategies.Iso20022.caaa;
 
@@ -22,10 +25,9 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// 
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The AcceptorCurrencyConversionRequest message is sent by the card acceptor to the currency conversion service provider to request if the cardholder is able to pay in the currency of its card.|")]
-public partial record AcceptorCurrencyConversionRequestV10 : IOuterRecord
+public partial record AcceptorCurrencyConversionRequestV10 : IOuterRecord<AcceptorCurrencyConversionRequestV10,AcceptorCurrencyConversionRequestV10Document>
+    ,IIsoXmlSerilizable<AcceptorCurrencyConversionRequestV10>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -37,6 +39,11 @@ public partial record AcceptorCurrencyConversionRequestV10 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AccptrCcyConvsReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AcceptorCurrencyConversionRequestV10Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -77,6 +84,35 @@ public partial record AcceptorCurrencyConversionRequestV10 : IOuterRecord
     {
         return new AcceptorCurrencyConversionRequestV10Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AccptrCcyConvsReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CcyConvsReq", xmlNamespace );
+        CurrencyConversionRequest.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecurityTrailer is ContentInformationType36 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AcceptorCurrencyConversionRequestV10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -84,9 +120,7 @@ public partial record AcceptorCurrencyConversionRequestV10 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorCurrencyConversionRequestV10"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AcceptorCurrencyConversionRequestV10Document : IOuterDocument<AcceptorCurrencyConversionRequestV10>
+public partial record AcceptorCurrencyConversionRequestV10Document : IOuterDocument<AcceptorCurrencyConversionRequestV10>, IXmlSerializable
 {
     
     /// <summary>
@@ -102,5 +136,22 @@ public partial record AcceptorCurrencyConversionRequestV10Document : IOuterDocum
     /// <summary>
     /// The instance of <seealso cref="AcceptorCurrencyConversionRequestV10"/> is required.
     /// </summary>
+    [DataMember(Name=AcceptorCurrencyConversionRequestV10.XmlTag)]
     public required AcceptorCurrencyConversionRequestV10 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AcceptorCurrencyConversionRequestV10.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

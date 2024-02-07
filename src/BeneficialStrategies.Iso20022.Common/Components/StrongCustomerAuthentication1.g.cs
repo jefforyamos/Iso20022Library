@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// EU PSD2 Strong Consumer Authentication data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StrongCustomerAuthentication1
+     : IIsoXmlSerilizable<StrongCustomerAuthentication1>
 {
     #nullable enable
     
     /// <summary>
     /// Boolean flag indicating whether the transaction is subject to Strong Customer Authentication requirements (True) or not (False).
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? SubjectToSCA { get; init; } 
     /// <summary>
     /// Strong customer authentication exemption detail.
     /// </summary>
-    [DataMember]
-    public ValueList<Exemption1> Exemption { get; init; } = []; // Warning: Don't know multiplicity.
+    public Exemption1? Exemption { get; init; } 
     /// <summary>
     /// Authentication performed by a delegated authority (for example by a wallet solution).
     /// </summary>
-    [DataMember]
     public AttestationValue1Code? DelegatedAuthority { get; init; } 
     /// <summary>
     /// Waiver claimed for a transaction subject to Strong Customer Authentication.
     /// </summary>
-    [DataMember]
     public AttestationValue1Code? Waiver { get; init; } 
     /// <summary>
     /// Reason why authentication was not performed.
     /// </summary>
-    [DataMember]
     public IsoMax4Text? ReasonAuthenticationNotPerformed { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SubjectToSCA is IsoTrueFalseIndicator SubjectToSCAValue)
+        {
+            writer.WriteStartElement(null, "SbjtToSCA", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(SubjectToSCAValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Exemption is Exemption1 ExemptionValue)
+        {
+            writer.WriteStartElement(null, "Xmptn", xmlNamespace );
+            ExemptionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DelegatedAuthority is AttestationValue1Code DelegatedAuthorityValue)
+        {
+            writer.WriteStartElement(null, "DlgtdAuthrty", xmlNamespace );
+            writer.WriteValue(DelegatedAuthorityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Waiver is AttestationValue1Code WaiverValue)
+        {
+            writer.WriteStartElement(null, "Wvr", xmlNamespace );
+            writer.WriteValue(WaiverValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ReasonAuthenticationNotPerformed is IsoMax4Text ReasonAuthenticationNotPerformedValue)
+        {
+            writer.WriteStartElement(null, "RsnAuthntcnNotPrfrmd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4Text(ReasonAuthenticationNotPerformedValue)); // data type Max4Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static StrongCustomerAuthentication1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

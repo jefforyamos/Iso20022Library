@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Cancellation11Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation11Choice;
 /// Information related to the transfer instruction to be cancelled.
 /// </summary>
 public partial record CancellationByTransferInstructionDetails : Cancellation11Choice_
+     , IIsoXmlSerilizable<CancellationByTransferInstructionDetails>
 {
     #nullable enable
+    
     /// <summary>
     /// Information identifying the primary individual investor, for example, name, address, social security number and date of birth.
     /// </summary>
@@ -26,7 +30,7 @@ public partial record CancellationByTransferInstructionDetails : Cancellation11C
     /// <summary>
     /// Information identifying the other individual investors, for example, name, address, social security number and date of birth.
     /// </summary>
-    public IndividualPerson8? OtherIndividualInvestor { get; init;  } // Warning: Don't know multiplicity.
+    public IndividualPerson8? OtherIndividualInvestor { get; init; } 
     /// <summary>
     /// Information identifying the primary corporate investor, for example, name and address.
     /// </summary>
@@ -38,7 +42,7 @@ public partial record CancellationByTransferInstructionDetails : Cancellation11C
     /// <summary>
     /// Information identifying the other corporate investors, for example, name and address.
     /// </summary>
-    public Organisation21? OtherCorporateInvestor { get; init;  } // Warning: Don't know multiplicity.
+    public Organisation21? OtherCorporateInvestor { get; init; } 
     /// <summary>
     /// Identification of an account owned by the investor at the old plan manager (account servicer).
     /// </summary>
@@ -54,7 +58,7 @@ public partial record CancellationByTransferInstructionDetails : Cancellation11C
     /// <summary>
     /// Identification of a related party or intermediary.
     /// </summary>
-    public Intermediary34? IntermediaryInformation { get; init;  } // Warning: Don't know multiplicity.
+    public Intermediary34? IntermediaryInformation { get; init; } 
     /// <summary>
     /// Identification of an account owned by the investor to which a cash entry is made based on the transfer of asset(s).
     /// </summary>
@@ -66,6 +70,93 @@ public partial record CancellationByTransferInstructionDetails : Cancellation11C
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1? Extension { get; init;  } // Warning: Don't know multiplicity.
+    public Extension1? Extension { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PrimaryIndividualInvestor is IndividualPerson8 PrimaryIndividualInvestorValue)
+        {
+            writer.WriteStartElement(null, "PmryIndvInvstr", xmlNamespace );
+            PrimaryIndividualInvestorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecondaryIndividualInvestor is IndividualPerson8 SecondaryIndividualInvestorValue)
+        {
+            writer.WriteStartElement(null, "ScndryIndvInvstr", xmlNamespace );
+            SecondaryIndividualInvestorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherIndividualInvestor is IndividualPerson8 OtherIndividualInvestorValue)
+        {
+            writer.WriteStartElement(null, "OthrIndvInvstr", xmlNamespace );
+            OtherIndividualInvestorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PrimaryCorporateInvestor is Organisation21 PrimaryCorporateInvestorValue)
+        {
+            writer.WriteStartElement(null, "PmryCorpInvstr", xmlNamespace );
+            PrimaryCorporateInvestorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecondaryCorporateInvestor is Organisation21 SecondaryCorporateInvestorValue)
+        {
+            writer.WriteStartElement(null, "ScndryCorpInvstr", xmlNamespace );
+            SecondaryCorporateInvestorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherCorporateInvestor is Organisation21 OtherCorporateInvestorValue)
+        {
+            writer.WriteStartElement(null, "OthrCorpInvstr", xmlNamespace );
+            OtherCorporateInvestorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TrfrAcct", xmlNamespace );
+        TransferorAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (NomineeAccount is Account19 NomineeAccountValue)
+        {
+            writer.WriteStartElement(null, "NmneeAcct", xmlNamespace );
+            NomineeAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Trfee", xmlNamespace );
+        Transferee.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (IntermediaryInformation is Intermediary34 IntermediaryInformationValue)
+        {
+            writer.WriteStartElement(null, "IntrmyInf", xmlNamespace );
+            IntermediaryInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccount is CashAccount34 CashAccountValue)
+        {
+            writer.WriteStartElement(null, "CshAcct", xmlNamespace );
+            CashAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PdctTrfAndRef", xmlNamespace );
+        ProductTransferAndReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new CancellationByTransferInstructionDetails Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

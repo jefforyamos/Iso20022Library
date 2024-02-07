@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.AgentCAMovementInstructionV01>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -33,10 +36,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// change of option, e.g. in the case of the closure of an option, by moving the exercised resources from one option to another option within the sequestered balances in accordance to the new option conditions. The order type must be 'option change order'.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|This message is sent by an issuer (or its agent) to a CSD to order:|- the global or individual debit of exercised resources (cash and/or securities), per event and optionally per option and per resource for all or individual CSD client's accounts;|- and/or the individual credits of the outturn resources per event and optionally per option and per resource for a given CSD client's account.|Usage|This message is used to instruct:|- the global debit of the exercised resources from the CSD client's available or sequestered balance, in which case, the order type must be 'global debit order';|- the individual debits and credits:|- the individual debit of the exercised resources from the CSD client's available or sequestered balance and/or|- the individual credit of the outturn resources to the CSD client's account.|The order type must be 'individual order';|- a return order, in the case of a scaleback, i.e. the return of the exercised resources to the CSD client's account. The order type must be either 'global return order' or 'individual return order'; and|change of option, e.g. in the case of the closure of an option, by moving the exercised resources from one option to another option within the sequestered balances in accordance to the new option conditions. The order type must be 'option change order'.")]
-public partial record AgentCAMovementInstructionV01 : IOuterRecord
+public partial record AgentCAMovementInstructionV01 : IOuterRecord<AgentCAMovementInstructionV01,AgentCAMovementInstructionV01Document>
+    ,IIsoXmlSerilizable<AgentCAMovementInstructionV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -48,6 +50,11 @@ public partial record AgentCAMovementInstructionV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AgtCAMvmntInstr";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AgentCAMovementInstructionV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -125,6 +132,56 @@ public partial record AgentCAMovementInstructionV01 : IOuterRecord
     {
         return new AgentCAMovementInstructionV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AgtCAMvmntInstr");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AgentCAElectionAdviceIdentification is DocumentIdentification8 AgentCAElectionAdviceIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AgtCAElctnAdvcId", xmlNamespace );
+            AgentCAElectionAdviceIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+        CorporateActionGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MvmntGnlInf", xmlNamespace );
+        MovementGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (UnderlyingSecuritiesMovementDetails is UnderlyingSecurityMovement1 UnderlyingSecuritiesMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "UndrlygSctiesMvmntDtls", xmlNamespace );
+            UnderlyingSecuritiesMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnderlyingCashMovementDetails is CashMovement2 UnderlyingCashMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "UndrlygCshMvmntDtls", xmlNamespace );
+            UnderlyingCashMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProceedsMovementDetails is ProceedsMovement1 ProceedsMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "PrcdsMvmntDtls", xmlNamespace );
+            ProceedsMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AgentCAMovementInstructionV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -132,9 +189,7 @@ public partial record AgentCAMovementInstructionV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAMovementInstructionV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AgentCAMovementInstructionV01Document : IOuterDocument<AgentCAMovementInstructionV01>
+public partial record AgentCAMovementInstructionV01Document : IOuterDocument<AgentCAMovementInstructionV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -150,5 +205,22 @@ public partial record AgentCAMovementInstructionV01Document : IOuterDocument<Age
     /// <summary>
     /// The instance of <seealso cref="AgentCAMovementInstructionV01"/> is required.
     /// </summary>
+    [DataMember(Name=AgentCAMovementInstructionV01.XmlTag)]
     public required AgentCAMovementInstructionV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AgentCAMovementInstructionV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

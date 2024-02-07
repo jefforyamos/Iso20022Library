@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Number of individual reports or transactions received / sent, detailed per validation rule.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NumberOfTransactionsPerValidationRule5
+     : IIsoXmlSerilizable<NumberOfTransactionsPerValidationRule5>
 {
     #nullable enable
     
     /// <summary>
     /// Number of individual reports or transactions sent / received, detailed per status.
     /// </summary>
-    [DataMember]
     public required IsoMax15NumericText DetailedNumber { get; init; } 
     /// <summary>
     /// Common validation rule for all individual reports received.
     /// </summary>
-    [DataMember]
-    public ValueList<RejectionReason45> ReportStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    public RejectionReason45? ReportStatus { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _Tr7yQ8rdEeii_5g6VX90qQ
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DtldNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(DetailedNumber)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+        // Not sure how to serialize ReportStatus, multiplicity Unknown
+    }
+    public static NumberOfTransactionsPerValidationRule5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

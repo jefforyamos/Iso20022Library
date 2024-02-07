@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentification4Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// Russian Central Bank Identification Code - identifies Russian financial institutions on the Russian national clearing system.
 /// </summary>
 public partial record RussianCentralBankIdentificationCode : ClearingSystemMemberIdentification4Choice_
+     , IIsoXmlSerilizable<RussianCentralBankIdentificationCode>
 {
-    public required IsoRussianCentralBankIdentificationCodeIdentifier Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Russian Central Bank Identification Code. Identifies Russian financial institutions on the Russian national clearing system.
+    /// </summary>
+    public required IsoRussianCentralBankIdentificationCodeIdentifier Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RUCB", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRussianCentralBankIdentificationCodeIdentifier(Value)); // data type RussianCentralBankIdentificationCodeIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static new RussianCentralBankIdentificationCode Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

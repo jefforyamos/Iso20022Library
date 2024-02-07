@@ -7,48 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Financial instrument cleared by a central counterparty.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ClearedProduct1
+     : IIsoXmlSerilizable<ClearedProduct1>
 {
     #nullable enable
     
     /// <summary>
     /// Exchange or trading venue where product is traded.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMICIdentifier> TradingVenue { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMICIdentifier? TradingVenue { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is __o5ZsLVNEeadLcJesEbkTQ
     /// <summary>
     /// CCP's unique identification for product cleared.
     /// </summary>
-    [DataMember]
     public required GenericIdentification168 CCPProductIdentification { get; init; } 
     /// <summary>
     /// Standard unique identification of product cleared.
     /// </summary>
-    [DataMember]
     public GenericIdentification168? UniversalProductIdentification { get; init; } 
     /// <summary>
     /// Choice between the major categories of financial instruments.
     /// </summary>
-    [DataMember]
     public required Product1Choice_ Product { get; init; } 
     /// <summary>
     /// Measure of the current stock of a financial instrument that has been traded on an exchange or cleared via a central counterparty.
     /// </summary>
-    [DataMember]
     public required OpenInterest1 OpenInterest { get; init; } 
     /// <summary>
     /// Number of trades cleared over the reporting period.
     /// </summary>
-    [DataMember]
     public IsoNonNegativeNumber? TradesCleared { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize TradingVenue, multiplicity Unknown
+        writer.WriteStartElement(null, "CCPPdctId", xmlNamespace );
+        CCPProductIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (UniversalProductIdentification is GenericIdentification168 UniversalProductIdentificationValue)
+        {
+            writer.WriteStartElement(null, "UvrslPdctId", xmlNamespace );
+            UniversalProductIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Pdct", xmlNamespace );
+        Product.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OpnIntrst", xmlNamespace );
+        OpenInterest.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TradesCleared is IsoNonNegativeNumber TradesClearedValue)
+        {
+            writer.WriteStartElement(null, "TrdsClrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNonNegativeNumber(TradesClearedValue)); // data type NonNegativeNumber System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static ClearedProduct1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

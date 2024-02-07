@@ -7,34 +7,58 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details for the tax calculation method B.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BillingMethod2
+     : IIsoXmlSerilizable<BillingMethod2>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of the original charge expressed in the host currency.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection34 ServiceChargeHostAmount { get; init; } 
     /// <summary>
     /// Provides for the regional taxes on the service. Up to three regional taxes may be defined for the same service.
     /// </summary>
-    [DataMember]
     public required BillingServicesAmount1 ServiceTax { get; init; } 
     /// <summary>
     /// Provides for the specific tax identification within the same tax region. 
     /// Usage: This element allows for a maximum of three regional taxes on the same service.
     /// </summary>
-    [DataMember]
     public ValueList<BillingServicesTax1> TaxIdentification { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SvcChrgHstAmt", xmlNamespace );
+        ServiceChargeHostAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SvcTax", xmlNamespace );
+        ServiceTax.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TaxId", xmlNamespace );
+        TaxIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static BillingMethod2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

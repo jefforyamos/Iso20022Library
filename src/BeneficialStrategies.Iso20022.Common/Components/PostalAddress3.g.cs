@@ -7,38 +7,64 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information that locates and identifies a specific address, as defined by postal services.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PostalAddress3
+     : IIsoXmlSerilizable<PostalAddress3>
 {
     #nullable enable
     
     /// <summary>
     /// Type of address.
     /// </summary>
-    [DataMember]
     public required AddressType1Code AddressType { get; init; } 
     /// <summary>
     /// Indicates whether mail should be sent to an address.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator MailingIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the address is the official address of the party.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator RegistrationAddressIndicator { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
-    [DataMember]
     public required NameAndAddress4 NameAndAddress { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AdrTp", xmlNamespace );
+        writer.WriteValue(AddressType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MlngInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MailingIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RegnAdrInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RegistrationAddressIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NmAndAdr", xmlNamespace );
+        NameAndAddress.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static PostalAddress3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

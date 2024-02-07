@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria which are used to search for a payment transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionSearchCriteria8
+     : IIsoXmlSerilizable<TransactionSearchCriteria8>
 {
     #nullable enable
     
     /// <summary>
     /// Defines the criteria which are used to search for the destination of the payment.
     /// </summary>
-    [DataMember]
-    public ValueList<SystemSearch4> PaymentTo { get; init; } = []; // Warning: Don't know multiplicity.
+    public SystemSearch4? PaymentTo { get; init; } 
     /// <summary>
     /// Defines the criteria which are used to search for the origin of the payment.
     /// </summary>
-    [DataMember]
-    public ValueList<SystemSearch4> PaymentFrom { get; init; } = []; // Warning: Don't know multiplicity.
+    public SystemSearch4? PaymentFrom { get; init; } 
     /// <summary>
     /// Defines the criteria which are used to search for a payment.
     /// </summary>
-    [DataMember]
     public PaymentSearch8? PaymentSearch { get; init; } 
     /// <summary>
     /// Defines the criteria which are used to search for a cash entry.
     /// </summary>
-    [DataMember]
     public CashAccountEntrySearch6? AccountEntrySearch { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PaymentTo is SystemSearch4 PaymentToValue)
+        {
+            writer.WriteStartElement(null, "PmtTo", xmlNamespace );
+            PaymentToValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentFrom is SystemSearch4 PaymentFromValue)
+        {
+            writer.WriteStartElement(null, "PmtFr", xmlNamespace );
+            PaymentFromValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentSearch is PaymentSearch8 PaymentSearchValue)
+        {
+            writer.WriteStartElement(null, "PmtSch", xmlNamespace );
+            PaymentSearchValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountEntrySearch is CashAccountEntrySearch6 AccountEntrySearchValue)
+        {
+            writer.WriteStartElement(null, "AcctNtrySch", xmlNamespace );
+            AccountEntrySearchValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionSearchCriteria8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

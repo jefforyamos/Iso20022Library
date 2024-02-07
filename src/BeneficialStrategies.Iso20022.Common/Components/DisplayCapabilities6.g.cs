@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Capabilities of the display components performing the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DisplayCapabilities6
+     : IIsoXmlSerilizable<DisplayCapabilities6>
 {
     #nullable enable
     
     /// <summary>
     /// Destination of the message to present.
     /// </summary>
-    [DataMember]
     public required UserInterface1Code Destination { get; init; } 
     /// <summary>
     /// Available message format.
     /// </summary>
-    [DataMember]
-    public ValueList<OutputFormat1Code> AvailableFormat { get; init; } = []; // Warning: Don't know multiplicity.
+    public OutputFormat1Code? AvailableFormat { get; init; } 
     /// <summary>
     /// Number of lines of the display.
     /// </summary>
-    [DataMember]
     public IsoNumber? NumberOfLines { get; init; } 
     /// <summary>
     /// Number of columns of the display or printer.
     /// </summary>
-    [DataMember]
     public IsoNumber? LineWidth { get; init; } 
     /// <summary>
     /// Available language for the message. Reference ISO 639-1 (alpha-2) et ISO 639-2 (alpha-3).
     /// </summary>
-    [DataMember]
-    public ValueList<LanguageCode> AvailableLanguage { get; init; } = []; // Warning: Don't know multiplicity.
+    public LanguageCode? AvailableLanguage { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Dstn", xmlNamespace );
+        writer.WriteValue(Destination.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AvailableFormat is OutputFormat1Code AvailableFormatValue)
+        {
+            writer.WriteStartElement(null, "AvlblFrmt", xmlNamespace );
+            writer.WriteValue(AvailableFormatValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (NumberOfLines is IsoNumber NumberOfLinesValue)
+        {
+            writer.WriteStartElement(null, "NbOfLines", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfLinesValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (LineWidth is IsoNumber LineWidthValue)
+        {
+            writer.WriteStartElement(null, "LineWidth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(LineWidthValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (AvailableLanguage is LanguageCode AvailableLanguageValue)
+        {
+            writer.WriteStartElement(null, "AvlblLang", xmlNamespace );
+            writer.WriteValue(AvailableLanguageValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static DisplayCapabilities6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

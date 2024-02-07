@@ -7,103 +7,200 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action option details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionOptionSD14
+     : IIsoXmlSerilizable<CorporateActionOptionSD14>
 {
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Used for options that have particular proprietary feature that cannot be represented in the standard ISO message.
     /// </summary>
-    [DataMember]
     public ExtendedOptionFeature1Code? ExtendedOptionFeatures { get; init; } 
     /// <summary>
     /// Indicates whether the option is declared as default by the issuer/offeror, and will be treated as default by the issuer/offeror if no elections is made.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? DefaultOptionFlag { get; init; } 
     /// <summary>
     /// Indicates whether optional dividend supplementary data are required in the ISO 20022 corporate action instruction (CAIN) message for this event.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? OptionalDividendSupplementaryDataRequiredFlag { get; init; } 
     /// <summary>
     /// Indicates whether the cash debit for the oversubscription charge is made at the time of instruction submission.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? OversubscriptionChargeFlag { get; init; } 
     /// <summary>
     /// Indicates whether the cash debit for the protect charge is made at the time of instruction submission.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ProtectChargeFlag { get; init; } 
     /// <summary>
     /// Indicates whether the cash debit for the step-up charge is made at the time of instruction submission.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? StepUpChargeFlag { get; init; } 
     /// <summary>
     /// Indicates whether the cash debit for the subscription charge is made at the time of instruction submission.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? SubscriptionChargeFlag { get; init; } 
     /// <summary>
     /// Determines the disposition of odd lot quantities resulting from proration. Depending on the event, if the remaining quantity (instructed quantity – accepted prorated quantity) is an odd lot, it may be added to the accepted instruction quantity. 
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? BackEndOddLotQuantityFlag { get; init; } 
     /// <summary>
     /// Identifies whether the exemption is in effect. Some offers stipulate that instructions submitted on odd lot positions will be exempted from any proration if submitted in full. 
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? FrontEndOddLotQuantityFlag { get; init; } 
     /// <summary>
     /// Indicates, whether an option for certain events may have a full condition indicator, meaning that either the conditional quantity must be instructed in full (equal to the instructed quantity) or zero must be instructed.  
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? FullConditionFlag { get; init; } 
     /// <summary>
     /// Unique DTCC legacy reference used for matching and reconciling legacy CCF records. The element will be populated to all levels of the message (event details, options, movements) where applicable to indicate how values are sourced from CCF legacy files. For example: event has 2 related activity types 74, and 54. If event details and cash option are sourced from the activity type 74, then activity type 74 will be in RDP reference number in event details, and also on the cash option. The activity type 54 will be "on" the security option. Also, usage rules will specify the different layouts of the RDP reference number based on DTCC event group (reorganization, distribution, or redemption).
     /// </summary>
-    [DataMember]
     public IsoExact32AlphaNumericText? RDPReferenceNumber { get; init; } 
     /// <summary>
     /// Number of conditions for a given option that must be acknowledged upon submission of instruction for voluntary reorganisation events.
     /// </summary>
-    [DataMember]
     public IsoMax2NumericText? NumberOfConditions { get; init; } 
     /// <summary>
     /// Identification of the tax category as issuers, their agents, or tax authorities may require a breakdown of holders at a category level that have requested to receive a distribution at a favourable rate of tax.
     /// </summary>
-    [DataMember]
     public ValueList<TaxCategory1> TaxCategory { get; init; } = [];
     /// <summary>
     /// Indicates how fractional positions will be handled for events with prorated options.
     /// </summary>
-    [DataMember]
     public FractionDispositionType12Code? ProrationRoundingIndicator { get; init; } 
     /// <summary>
     /// Decimal above which numbers are rounded for prorated options. For example if the rounding factor is 0.5, numbers of 0.5 and above will be rounded up.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? ProrationFraction { get; init; } 
     /// <summary>
     /// Participation in the event requires that certain conditions be met by the holder for certain voluntary options.
     /// </summary>
-    [DataMember]
     public ValueList<OptionConditions1> OptionConditions { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (ExtendedOptionFeatures is ExtendedOptionFeature1Code ExtendedOptionFeaturesValue)
+        {
+            writer.WriteStartElement(null, "XtndedOptnFeatrs", xmlNamespace );
+            writer.WriteValue(ExtendedOptionFeaturesValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DefaultOptionFlag is IsoYesNoIndicator DefaultOptionFlagValue)
+        {
+            writer.WriteStartElement(null, "DfltOptnFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DefaultOptionFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (OptionalDividendSupplementaryDataRequiredFlag is IsoYesNoIndicator OptionalDividendSupplementaryDataRequiredFlagValue)
+        {
+            writer.WriteStartElement(null, "OptnlDvddSplmtryDataReqrdFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OptionalDividendSupplementaryDataRequiredFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (OversubscriptionChargeFlag is IsoYesNoIndicator OversubscriptionChargeFlagValue)
+        {
+            writer.WriteStartElement(null, "OvrsbcptChrgFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(OversubscriptionChargeFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ProtectChargeFlag is IsoYesNoIndicator ProtectChargeFlagValue)
+        {
+            writer.WriteStartElement(null, "PrtctChrgFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ProtectChargeFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (StepUpChargeFlag is IsoYesNoIndicator StepUpChargeFlagValue)
+        {
+            writer.WriteStartElement(null, "StepUpChrgFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(StepUpChargeFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SubscriptionChargeFlag is IsoYesNoIndicator SubscriptionChargeFlagValue)
+        {
+            writer.WriteStartElement(null, "SbcptChrgFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SubscriptionChargeFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (BackEndOddLotQuantityFlag is IsoYesNoIndicator BackEndOddLotQuantityFlagValue)
+        {
+            writer.WriteStartElement(null, "BckEndOddLotQtyFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(BackEndOddLotQuantityFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (FrontEndOddLotQuantityFlag is IsoYesNoIndicator FrontEndOddLotQuantityFlagValue)
+        {
+            writer.WriteStartElement(null, "FrntEndOddLotQtyFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(FrontEndOddLotQuantityFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (FullConditionFlag is IsoYesNoIndicator FullConditionFlagValue)
+        {
+            writer.WriteStartElement(null, "FullCondFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(FullConditionFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (RDPReferenceNumber is IsoExact32AlphaNumericText RDPReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "RDPRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact32AlphaNumericText(RDPReferenceNumberValue)); // data type Exact32AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+        if (NumberOfConditions is IsoMax2NumericText NumberOfConditionsValue)
+        {
+            writer.WriteStartElement(null, "NbOfConds", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2NumericText(NumberOfConditionsValue)); // data type Max2NumericText System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TaxCtgy", xmlNamespace );
+        TaxCategory.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ProrationRoundingIndicator is FractionDispositionType12Code ProrationRoundingIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PrratnRndgInd", xmlNamespace );
+            writer.WriteValue(ProrationRoundingIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ProrationFraction is IsoDecimalNumber ProrationFractionValue)
+        {
+            writer.WriteStartElement(null, "PrratnFrctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(ProrationFractionValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OptnConds", xmlNamespace );
+        OptionConditions.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CorporateActionOptionSD14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

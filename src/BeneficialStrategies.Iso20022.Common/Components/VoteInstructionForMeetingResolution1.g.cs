@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Vote instruction applying to resolutions added during the meeting.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record VoteInstructionForMeetingResolution1
+     : IIsoXmlSerilizable<VoteInstructionForMeetingResolution1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the vote recommendation for resolutions added during the meeting.
     /// </summary>
-    [DataMember]
     public required VoteInstructionAtMeeting1Code VoteIndication { get; init; } 
     /// <summary>
     /// Specifies the name and address of the shareholder to whom the rights to vote are transferred for resolutions added during the meeting.
     /// </summary>
-    [DataMember]
     public required NameAndAddress9 Shareholder { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "VoteIndctn", xmlNamespace );
+        writer.WriteValue(VoteIndication.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Shrhldr", xmlNamespace );
+        Shareholder.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static VoteInstructionForMeetingResolution1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

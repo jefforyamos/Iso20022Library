@@ -7,79 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the enhanced parameters for an Isabel payment file.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IsabelEnhancedHeader1
+     : IIsoXmlSerilizable<IsabelEnhancedHeader1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of debit to be applied to the payment, as provided by the end-user.
     /// </summary>
-    [DataMember]
     public required DebitType1Code DebitType { get; init; } 
     /// <summary>
     /// Type of debit to be applied to the payment, as provided by the bank.
     /// This may supersede the debit type provided by the end-user.
     /// </summary>
-    [DataMember]
     public required DebitType1Code BankDebitType { get; init; } 
     /// <summary>
     /// Contract is defined on a specific account.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator AccountBasedContract { get; init; } 
     /// <summary>
     /// Results of all validations performed during the processing of a file provided in the payload.
     /// </summary>
-    [DataMember]
     public required Validation1Code ValidationResults { get; init; } 
     /// <summary>
     /// Results of the signature validation provided by the 'PowerToSign' user.
     /// </summary>
-    [DataMember]
     public required Validation2Code PowerToSignValidationResults { get; init; } 
     /// <summary>
     /// Validation of the time stamp provided by the 'PowerToSign' user.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime PowerToSignValidationTimeStamp { get; init; } 
     /// <summary>
     /// Trigger used by the sender to transfer the file.
     /// </summary>
-    [DataMember]
     public required IsabelSenderTrigger1Choice_ SenderTrigger { get; init; } 
     /// <summary>
     /// Time stamp on when the file is sent.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime SendTimeStamp { get; init; } 
     /// <summary>
     /// Indicates whether extra conditions are applicable and accepted for this file.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator ExtraConditionsAccepted { get; init; } 
     /// <summary>
     /// Input source for the generation of the file.
     /// </summary>
-    [DataMember]
     public required IsabelInputSource1Choice_ Source { get; init; } 
     /// <summary>
     /// Number of signatures required to validate the payments file.
     /// </summary>
-    [DataMember]
     public IsoNumber? NumberOfRequiredSignatures { get; init; } 
     /// <summary>
     /// Extended parameters for an Isabel payment initiation file.
     /// </summary>
-    [DataMember]
     public IsabelExtendedHeader1? Extended { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DbtTp", xmlNamespace );
+        writer.WriteValue(DebitType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BkDbtTp", xmlNamespace );
+        writer.WriteValue(BankDebitType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctBasedCtrct", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AccountBasedContract)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "VldtnRslts", xmlNamespace );
+        writer.WriteValue(ValidationResults.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PwrToSgnVldtnRslts", xmlNamespace );
+        writer.WriteValue(PowerToSignValidationResults.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PwrToSgnVldtnTmStmp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(PowerToSignValidationTimeStamp)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SndrTrggr", xmlNamespace );
+        SenderTrigger.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SndTmStmp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(SendTimeStamp)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtraCondsAccptd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ExtraConditionsAccepted)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Src", xmlNamespace );
+        Source.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (NumberOfRequiredSignatures is IsoNumber NumberOfRequiredSignaturesValue)
+        {
+            writer.WriteStartElement(null, "NbOfReqrdSgntrs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfRequiredSignaturesValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Extended is IsabelExtendedHeader1 ExtendedValue)
+        {
+            writer.WriteStartElement(null, "Xtnded", xmlNamespace );
+            ExtendedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IsabelEnhancedHeader1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

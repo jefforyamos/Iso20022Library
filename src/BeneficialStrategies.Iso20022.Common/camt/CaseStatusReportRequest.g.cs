@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.CaseStatusReportRequest>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -33,10 +36,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// An agent may suspense an investigation by classifying it as overdue if he, after sending the request for status, does not receive any response after a long time. Agents may set their individual threshold wait-time.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The Case Status Report Request message is sent by a case creator or case assigner to a case assignee.|This message is used to request the status of a case.|Usage|The Case Status Report Request message must be answered with a Case Status Report message. It can be used to request the status of a:|- request to cancel payment case|- request to modify payment case|- unable to apply case|- claim non receipt case|The Case Status Report Request message covers one and only one case at a time. If a case creator or case assigner needs the status of several cases, then multiple Case Status Report Request messages must be sent.|The Case Status Report Request message may be forwarded to subsequent case assignee(s) in the case processing chain.|The processing of a case generates Notification Of Case Assignment and/or Resolution Of Investigation messages to the case creator/case assigner. They alone should provide collaborating parties sufficient information about the progress of the investigation. The Case Status Report Request must therefore only be used when no information has been received from the case assignee within the expected time frame.|An agent may suspense an investigation by classifying it as overdue if he, after sending the request for status, does not receive any response after a long time. Agents may set their individual threshold wait-time.")]
-public partial record CaseStatusReportRequest : IOuterRecord
+public partial record CaseStatusReportRequest : IOuterRecord<CaseStatusReportRequest,CaseStatusReportRequestDocument>
+    ,IIsoXmlSerilizable<CaseStatusReportRequest>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -48,6 +50,11 @@ public partial record CaseStatusReportRequest : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "camt.038.001.01";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CaseStatusReportRequestDocument.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -79,6 +86,29 @@ public partial record CaseStatusReportRequest : IOuterRecord
     {
         return new CaseStatusReportRequestDocument { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("camt.038.001.01");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ReqHdr", xmlNamespace );
+        RequestHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Case", xmlNamespace );
+        Case.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CaseStatusReportRequest Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -86,9 +116,7 @@ public partial record CaseStatusReportRequest : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CaseStatusReportRequest"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CaseStatusReportRequestDocument : IOuterDocument<CaseStatusReportRequest>
+public partial record CaseStatusReportRequestDocument : IOuterDocument<CaseStatusReportRequest>, IXmlSerializable
 {
     
     /// <summary>
@@ -104,5 +132,22 @@ public partial record CaseStatusReportRequestDocument : IOuterDocument<CaseStatu
     /// <summary>
     /// The instance of <seealso cref="CaseStatusReportRequest"/> is required.
     /// </summary>
+    [DataMember(Name=CaseStatusReportRequest.XmlTag)]
     public required CaseStatusReportRequest Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CaseStatusReportRequest.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

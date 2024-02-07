@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data to request a Reversal.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReversalRequest1
+     : IIsoXmlSerilizable<ReversalRequest1>
 {
     #nullable enable
     
     /// <summary>
     /// Original transaction to reverse.
     /// </summary>
-    [DataMember]
     public CardPaymentTransaction91? OriginalPaymentTransaction { get; init; } 
     /// <summary>
     /// Reason for this reversal.
     /// </summary>
-    [DataMember]
     public required ReversalReason1Code ReversalReason { get; init; } 
     /// <summary>
     /// Amount to reverse (total or partial).
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? ReversedAmount { get; init; } 
     /// <summary>
     /// Specific Customer Order linked with the reversal.
     /// </summary>
-    [DataMember]
     public CustomerOrder1? CustomerOrder { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OriginalPaymentTransaction is CardPaymentTransaction91 OriginalPaymentTransactionValue)
+        {
+            writer.WriteStartElement(null, "OrgnlPmtTx", xmlNamespace );
+            OriginalPaymentTransactionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RvslRsn", xmlNamespace );
+        writer.WriteValue(ReversalReason.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ReversedAmount is IsoImpliedCurrencyAndAmount ReversedAmountValue)
+        {
+            writer.WriteStartElement(null, "RvsdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ReversedAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CustomerOrder is CustomerOrder1 CustomerOrderValue)
+        {
+            writer.WriteStartElement(null, "CstmrOrdr", xmlNamespace );
+            CustomerOrderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ReversalRequest1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

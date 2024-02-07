@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to counterparty identification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Counterparty31
+     : IIsoXmlSerilizable<Counterparty31>
 {
     #nullable enable
     
     /// <summary>
     /// The code of country where the registered office of the other counterparty is located or country of residence in case that the other counterparty is a natural person.
     /// </summary>
-    [DataMember]
     public CountryCode? Country { get; init; } 
     /// <summary>
     /// Indicates if the counterparty is a legal entity or a natural person.
     /// </summary>
-    [DataMember]
     public required PartyIdentification235Choice_ IdentificationType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Country is CountryCode CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(CountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "IdTp", xmlNamespace );
+        IdentificationType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static Counterparty31 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

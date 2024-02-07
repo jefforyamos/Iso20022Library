@@ -7,33 +7,62 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related for the transportation of goods by sea.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransportBySea3
+     : IIsoXmlSerilizable<TransportBySea3>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the port where the goods are loaded on board the ship.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> PortOfLoading { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? PortOfLoading { get; init; } 
     /// <summary>
     /// Identifies the port where the goods are discharged.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> PortOfDischarge { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? PortOfDischarge { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _SuiA0Np-Ed-ak6NoX_4Aeg_-719790520
     /// <summary>
     /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SeaCarrierName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PortOfLoading is IsoMax35Text PortOfLoadingValue)
+        {
+            writer.WriteStartElement(null, "PortOfLoadng", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PortOfLoadingValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize PortOfDischarge, multiplicity Unknown
+        if (SeaCarrierName is IsoMax35Text SeaCarrierNameValue)
+        {
+            writer.WriteStartElement(null, "SeaCrrierNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SeaCarrierNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TransportBySea3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

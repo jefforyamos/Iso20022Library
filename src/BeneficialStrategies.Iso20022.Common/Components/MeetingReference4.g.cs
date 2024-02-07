@@ -7,48 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Elements which allow to identify a meeting.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MeetingReference4
+     : IIsoXmlSerilizable<MeetingReference4>
 {
     #nullable enable
     
     /// <summary>
     /// Identification assigned to a general meeting by the party notifying the meeting. It must be unique for the party notifying the meeting.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MeetingIdentification { get; init; } 
     /// <summary>
     /// Identification assigned to a meeting by the issuer. It must be unique for the issuer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? IssuerMeetingIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the meeting will take place.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime MeetingDateAndTime { get; init; } 
     /// <summary>
     /// Specifies the type of meeting for which instructions are sent.
     /// </summary>
-    [DataMember]
     public required MeetingType2Code Type { get; init; } 
     /// <summary>
     /// Classifies the type of meeting.
     /// </summary>
-    [DataMember]
     public MeetingTypeClassification1Choice_? Classification { get; init; } 
     /// <summary>
     /// Place of the company meeting for the scheduled meeting date.
     /// </summary>
-    [DataMember]
     public ValueList<PostalAddress1> Location { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MeetingIdentification is IsoMax35Text MeetingIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MtgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MeetingIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (IssuerMeetingIdentification is IsoMax35Text IssuerMeetingIdentificationValue)
+        {
+            writer.WriteStartElement(null, "IssrMtgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerMeetingIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MtgDtAndTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(MeetingDateAndTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Classification is MeetingTypeClassification1Choice_ ClassificationValue)
+        {
+            writer.WriteStartElement(null, "Clssfctn", xmlNamespace );
+            ClassificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Lctn", xmlNamespace );
+        Location.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static MeetingReference4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

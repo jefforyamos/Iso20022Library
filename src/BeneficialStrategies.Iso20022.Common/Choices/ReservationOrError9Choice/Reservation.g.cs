@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ReservationOrError9Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.ReservationOrError9Choice;
 /// Requested information on the limit.
 /// </summary>
 public partial record Reservation : ReservationOrError9Choice_
+     , IIsoXmlSerilizable<Reservation>
 {
     #nullable enable
+    
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
@@ -27,5 +31,38 @@ public partial record Reservation : ReservationOrError9Choice_
     /// Date and time at which the reservation becomes effective.
     /// </summary>
     public DateAndDateTime2Choice_? StartDateTime { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        Amount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Status is ReservationStatus1Choice_ StatusValue)
+        {
+            writer.WriteStartElement(null, "Sts", xmlNamespace );
+            StatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StartDateTime is DateAndDateTime2Choice_ StartDateTimeValue)
+        {
+            writer.WriteStartElement(null, "StartDtTm", xmlNamespace );
+            StartDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Reservation Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

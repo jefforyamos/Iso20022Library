@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money debited or credited on the books of an account servicer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AmountAndDirection67
+     : IIsoXmlSerilizable<AmountAndDirection67>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of money in the cash entry.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether an entry is a credit or a debit.
     /// </summary>
-    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Posting/settlement amount in its original currency when conversion from/into another currency has occurred.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINActiveOrHistoricCurrencyAndAmount? OriginalCurrencyAndOrderedAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAndAmount(Amount)); // data type RestrictedFINActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OriginalCurrencyAndOrderedAmount is IsoRestrictedFINActiveOrHistoricCurrencyAndAmount OriginalCurrencyAndOrderedAmountValue)
+        {
+            writer.WriteStartElement(null, "OrgnlCcyAndOrdrdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveOrHistoricCurrencyAndAmount(OriginalCurrencyAndOrderedAmountValue)); // data type RestrictedFINActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static AmountAndDirection67 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the status report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StatusReportContent4
+     : IIsoXmlSerilizable<StatusReportContent4>
 {
     #nullable enable
     
     /// <summary>
     /// Capabilities of the POI (Point Of Interaction) performing the status report.
     /// </summary>
-    [DataMember]
     public PointOfInteractionCapabilities3? POICapabilities { get; init; } 
     /// <summary>
     /// Data related to a component of the POI (Point Of Interaction) performing the status report.
     /// </summary>
-    [DataMember]
-    public ValueList<PointOfInteractionComponent5> POIComponent { get; init; } = []; // Warning: Don't know multiplicity.
+    public PointOfInteractionComponent5? POIComponent { get; init; } 
     /// <summary>
     /// Human attendance at the POI (Point Of Interaction) location during transactions.
     /// </summary>
-    [DataMember]
     public AttendanceContext1Code? AttendanceContext { get; init; } 
     /// <summary>
     /// System date time of the point of interaction (POI) sending the status report.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime POIDateTime { get; init; } 
     /// <summary>
     /// Request the terminal management system to answer with the identified data set.
     /// </summary>
-    [DataMember]
     public TerminalManagementDataSet12? DataSetRequired { get; init; } 
     /// <summary>
     /// Result of an individual terminal management action by the point of interaction.
     /// </summary>
-    [DataMember]
-    public ValueList<TMSEvent3> Event { get; init; } = []; // Warning: Don't know multiplicity.
+    public TMSEvent3? Event { get; init; } 
     /// <summary>
     /// Error log of the point of interaction since the last status report.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax140Text> Errors { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax140Text? Errors { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (POICapabilities is PointOfInteractionCapabilities3 POICapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "POICpblties", xmlNamespace );
+            POICapabilitiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (POIComponent is PointOfInteractionComponent5 POIComponentValue)
+        {
+            writer.WriteStartElement(null, "POICmpnt", xmlNamespace );
+            POIComponentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AttendanceContext is AttendanceContext1Code AttendanceContextValue)
+        {
+            writer.WriteStartElement(null, "AttndncCntxt", xmlNamespace );
+            writer.WriteValue(AttendanceContextValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "POIDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(POIDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (DataSetRequired is TerminalManagementDataSet12 DataSetRequiredValue)
+        {
+            writer.WriteStartElement(null, "DataSetReqrd", xmlNamespace );
+            DataSetRequiredValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Event is TMSEvent3 EventValue)
+        {
+            writer.WriteStartElement(null, "Evt", xmlNamespace );
+            EventValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Errors is IsoMax140Text ErrorsValue)
+        {
+            writer.WriteStartElement(null, "Errs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(ErrorsValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static StatusReportContent4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,23 +7,46 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RemittanceInformation2
+     : IIsoXmlSerilizable<RemittanceInformation2>
 {
     #nullable enable
     
     /// <summary>
     /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, for example, commercial invoices in an accounts' receivable system in an unstructured form.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax140Text> Unstructured { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax140Text? Unstructured { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Unstructured is IsoMax140Text UnstructuredValue)
+        {
+            writer.WriteStartElement(null, "Ustrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(UnstructuredValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static RemittanceInformation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide information on the original amount.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AmountAndCurrencyExchange4
+     : IIsoXmlSerilizable<AmountAndCurrencyExchange4>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party and provides currency exchange information in case the instructed amount and/or currency is/are different from the entry amount and/or currency.
     /// </summary>
-    [DataMember]
     public AmountAndCurrencyExchangeDetails5? InstructedAmount { get; init; } 
     /// <summary>
     /// Amount of the underlying transaction.
     /// </summary>
-    [DataMember]
     public AmountAndCurrencyExchangeDetails5? TransactionAmount { get; init; } 
     /// <summary>
     /// Set of elements used to provide the countervalue amount and currency exchange information. |Usage: This can be either the counter amount quoted in an FX deal, or the result of the currency information applied to an instructed amount, before deduction of charges.
     /// </summary>
-    [DataMember]
     public AmountAndCurrencyExchangeDetails5? CounterValueAmount { get; init; } 
     /// <summary>
     /// Amount of money, based on terms of corporate action event and balance of underlying securities, entitled to/from the account owner.|In some situations, this amount may alternatively be called entitled amount.
     /// </summary>
-    [DataMember]
     public AmountAndCurrencyExchangeDetails5? AnnouncedPostingAmount { get; init; } 
     /// <summary>
     /// Set of elements used to provide information on the original amount and currency exchange.
     /// </summary>
-    [DataMember]
-    public ValueList<AmountAndCurrencyExchangeDetails6> ProprietaryAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public AmountAndCurrencyExchangeDetails6? ProprietaryAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (InstructedAmount is AmountAndCurrencyExchangeDetails5 InstructedAmountValue)
+        {
+            writer.WriteStartElement(null, "InstdAmt", xmlNamespace );
+            InstructedAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionAmount is AmountAndCurrencyExchangeDetails5 TransactionAmountValue)
+        {
+            writer.WriteStartElement(null, "TxAmt", xmlNamespace );
+            TransactionAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CounterValueAmount is AmountAndCurrencyExchangeDetails5 CounterValueAmountValue)
+        {
+            writer.WriteStartElement(null, "CntrValAmt", xmlNamespace );
+            CounterValueAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AnnouncedPostingAmount is AmountAndCurrencyExchangeDetails5 AnnouncedPostingAmountValue)
+        {
+            writer.WriteStartElement(null, "AnncdPstngAmt", xmlNamespace );
+            AnnouncedPostingAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProprietaryAmount is AmountAndCurrencyExchangeDetails6 ProprietaryAmountValue)
+        {
+            writer.WriteStartElement(null, "PrtryAmt", xmlNamespace );
+            ProprietaryAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AmountAndCurrencyExchange4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

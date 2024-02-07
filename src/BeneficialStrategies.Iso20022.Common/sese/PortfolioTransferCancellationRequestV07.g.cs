@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.PortfolioTransferCancellationRequestV07>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// The message identification of the PortfolioTransferInstruction may also be quoted in PreviousReference. It is also possible to request the cancellation of PortfolioTransferInstruction by just quoting its message identification in PreviousReference.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An instructing party, for example, a (new) plan manager (Transferee), sends the PortfolioTransferCancellationRequest message to the executing party, for example, a (old) plan manager (Transferor), to request the cancellation of a previously sent PortfolioTransferInstruction.|Usage|The PortfolioTransferCancellationRequest message is used to request the cancellation of an entire PortfolioTransferInstruction message, that is, all the product transfers that it contained. The cancellation request can be specified either by:|- quoting the transfer references of all the product transfers listed in the PortfolioTransferInstruction message, or,|- quoting the details of all the product transfers (this includes TransferReference) listed in PortfolioTransferInstruction message.|The message identification of the PortfolioTransferInstruction may also be quoted in PreviousReference. It is also possible to request the cancellation of PortfolioTransferInstruction by just quoting its message identification in PreviousReference.")]
-public partial record PortfolioTransferCancellationRequestV07 : IOuterRecord
+public partial record PortfolioTransferCancellationRequestV07 : IOuterRecord<PortfolioTransferCancellationRequestV07,PortfolioTransferCancellationRequestV07Document>
+    ,IIsoXmlSerilizable<PortfolioTransferCancellationRequestV07>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record PortfolioTransferCancellationRequestV07 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "PrtflTrfCxlReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => PortfolioTransferCancellationRequestV07Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -109,6 +116,53 @@ public partial record PortfolioTransferCancellationRequestV07 : IOuterRecord
     {
         return new PortfolioTransferCancellationRequestV07Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("PrtflTrfCxlReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgRef", xmlNamespace );
+        MessageReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PoolReference is AdditionalReference6 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousReference is AdditionalReference6 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference6 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Cxl", xmlNamespace );
+        Cancellation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MarketPracticeVersion is MarketPracticeVersion1 MarketPracticeVersionValue)
+        {
+            writer.WriteStartElement(null, "MktPrctcVrsn", xmlNamespace );
+            MarketPracticeVersionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PortfolioTransferCancellationRequestV07 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -116,9 +170,7 @@ public partial record PortfolioTransferCancellationRequestV07 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PortfolioTransferCancellationRequestV07"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record PortfolioTransferCancellationRequestV07Document : IOuterDocument<PortfolioTransferCancellationRequestV07>
+public partial record PortfolioTransferCancellationRequestV07Document : IOuterDocument<PortfolioTransferCancellationRequestV07>, IXmlSerializable
 {
     
     /// <summary>
@@ -134,5 +186,22 @@ public partial record PortfolioTransferCancellationRequestV07Document : IOuterDo
     /// <summary>
     /// The instance of <seealso cref="PortfolioTransferCancellationRequestV07"/> is required.
     /// </summary>
+    [DataMember(Name=PortfolioTransferCancellationRequestV07.XmlTag)]
     public required PortfolioTransferCancellationRequestV07 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(PortfolioTransferCancellationRequestV07.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

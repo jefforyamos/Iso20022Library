@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides for regional taxes on the service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BillingServicesTax3
+     : IIsoXmlSerilizable<BillingServicesTax3>
 {
     #nullable enable
     
     /// <summary>
     /// Identification number of the specific region tax used to calculate the tax.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Number { get; init; } 
     /// <summary>
     /// Name used to describe the tax (such as the national value added tax).
     /// </summary>
-    [DataMember]
     public IsoMax40Text? Description { get; init; } 
     /// <summary>
     /// Rate used to calculate the tax.
     /// </summary>
-    [DataMember]
     public required IsoDecimalNumber Rate { get; init; } 
     /// <summary>
     /// Specifies the tax obligation for taxable services within a tax region for a specific tax identifier (such as national value added tax equals 34,00), and expressed in the tax region’s host currency.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection34 TotalTaxAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Number)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Description is IsoMax40Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax40Text(DescriptionValue)); // data type Max40Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Rate", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(Rate)); // data type DecimalNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlTaxAmt", xmlNamespace );
+        TotalTaxAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static BillingServicesTax3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatus3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatus3Choice;
 /// Indicates a duplicated case. |Usage: When present, the case identified in the message must be closed. The case identified as duplicated (in this component) will be pursued.
 /// </summary>
 public partial record DuplicateOf : InvestigationStatus3Choice_
+     , IIsoXmlSerilizable<DuplicateOf>
 {
     #nullable enable
+    
     /// <summary>
     /// Uniquely identifies the case.
     /// </summary>
@@ -27,5 +31,35 @@ public partial record DuplicateOf : InvestigationStatus3Choice_
     /// Indicates whether or not the case was previously closed and is now re-opened.
     /// </summary>
     public IsoYesNoIndicator? ReopenCaseIndication { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Cretr", xmlNamespace );
+        Creator.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ReopenCaseIndication is IsoYesNoIndicator ReopenCaseIndicationValue)
+        {
+            writer.WriteStartElement(null, "ReopCaseIndctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ReopenCaseIndicationValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new DuplicateOf Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

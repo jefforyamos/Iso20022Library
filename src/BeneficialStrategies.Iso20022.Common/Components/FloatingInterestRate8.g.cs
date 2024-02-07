@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the index used to define the rate and optionally the basis point spread.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FloatingInterestRate8
+     : IIsoXmlSerilizable<FloatingInterestRate8>
 {
     #nullable enable
     
@@ -24,13 +25,37 @@ public partial record FloatingInterestRate8
     /// Usage:
     /// Index or name if the reference rate is not included in the index list.
     /// </summary>
-    [DataMember]
     public required BenchmarkCurveName5Choice_ ReferenceRate { get; init; } 
     /// <summary>
     /// Term of the reference rate.
     /// </summary>
-    [DataMember]
     public InterestRateContractTerm2? Term { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RefRate", xmlNamespace );
+        ReferenceRate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Term is InterestRateContractTerm2 TermValue)
+        {
+            writer.WriteStartElement(null, "Term", xmlNamespace );
+            TermValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FloatingInterestRate8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

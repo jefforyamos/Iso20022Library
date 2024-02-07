@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Summary of electronic message details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ElectronicMessageDetails1
+     : IIsoXmlSerilizable<ElectronicMessageDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Information about separate electronic system information message.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ElectronicSystemInformationMessageIdentifier { get; init; } 
     /// <summary>
     /// Information about packet of electronic system messages.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ElectronicSystemInformationMessagePacketIdentifier { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ElctrncSysInfMsgIdr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ElectronicSystemInformationMessageIdentifier)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ElectronicSystemInformationMessagePacketIdentifier is IsoMax35Text ElectronicSystemInformationMessagePacketIdentifierValue)
+        {
+            writer.WriteStartElement(null, "ElctrncSysInfMsgPacketIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ElectronicSystemInformationMessagePacketIdentifierValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ElectronicMessageDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

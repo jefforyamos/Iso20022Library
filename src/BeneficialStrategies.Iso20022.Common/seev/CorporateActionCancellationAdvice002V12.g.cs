@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.CorporateActionCancellationAdvice002V12>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate), using the relevant elements in the business application header (BAH).
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The CorporateActionCancellationAdvice message is sent by an account servicer to an account owner or its designated agent to cancel a previously announced corporate action event in case of error from the account servicer or in case of withdrawal by the issuer.|Usage|The message may also be used to:|- re-send a message previously sent (the sub-function of the message is Duplicate),|- provide a third party with a copy of a message for information (the sub-function of the message is Copy),|- re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate), using the relevant elements in the business application header (BAH).")]
-public partial record CorporateActionCancellationAdvice002V12 : IOuterRecord
+public partial record CorporateActionCancellationAdvice002V12 : IOuterRecord<CorporateActionCancellationAdvice002V12,CorporateActionCancellationAdvice002V12Document>
+    ,IIsoXmlSerilizable<CorporateActionCancellationAdvice002V12>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record CorporateActionCancellationAdvice002V12 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "CorpActnCxlAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CorporateActionCancellationAdvice002V12Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -191,6 +198,104 @@ public partial record CorporateActionCancellationAdvice002V12 : IOuterRecord
     {
         return new CorporateActionCancellationAdvice002V12Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("CorpActnCxlAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CxlAdvcGnlInf", xmlNamespace );
+        CancellationAdviceGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+        CorporateActionGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctsDtls", xmlNamespace );
+        AccountsDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CorporateActionDetails is CorporateAction74 CorporateActionDetailsValue)
+        {
+            writer.WriteStartElement(null, "CorpActnDtls", xmlNamespace );
+            CorporateActionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalText is IsoRestrictedFINZMax8000Text AdditionalTextValue)
+        {
+            writer.WriteStartElement(null, "AddtlTxt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINZMax8000Text(AdditionalTextValue)); // data type RestrictedFINZMax8000Text System.String
+            writer.WriteEndElement();
+        }
+        if (IssuerAgent is PartyIdentification137Choice_ IssuerAgentValue)
+        {
+            writer.WriteStartElement(null, "IssrAgt", xmlNamespace );
+            IssuerAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PayingAgent is PartyIdentification137Choice_ PayingAgentValue)
+        {
+            writer.WriteStartElement(null, "PngAgt", xmlNamespace );
+            PayingAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SubPayingAgent is PartyIdentification137Choice_ SubPayingAgentValue)
+        {
+            writer.WriteStartElement(null, "SubPngAgt", xmlNamespace );
+            SubPayingAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Registrar is PartyIdentification137Choice_ RegistrarValue)
+        {
+            writer.WriteStartElement(null, "Regar", xmlNamespace );
+            RegistrarValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ResellingAgent is PartyIdentification137Choice_ ResellingAgentValue)
+        {
+            writer.WriteStartElement(null, "RsellngAgt", xmlNamespace );
+            ResellingAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PhysicalSecuritiesAgent is PartyIdentification137Choice_ PhysicalSecuritiesAgentValue)
+        {
+            writer.WriteStartElement(null, "PhysSctiesAgt", xmlNamespace );
+            PhysicalSecuritiesAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DropAgent is PartyIdentification137Choice_ DropAgentValue)
+        {
+            writer.WriteStartElement(null, "DrpAgt", xmlNamespace );
+            DropAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SolicitationAgent is PartyIdentification137Choice_ SolicitationAgentValue)
+        {
+            writer.WriteStartElement(null, "SlctnAgt", xmlNamespace );
+            SolicitationAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InformationAgent is PartyIdentification137Choice_ InformationAgentValue)
+        {
+            writer.WriteStartElement(null, "InfAgt", xmlNamespace );
+            InformationAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionCancellationAdvice002V12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -198,9 +303,7 @@ public partial record CorporateActionCancellationAdvice002V12 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CorporateActionCancellationAdvice002V12"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CorporateActionCancellationAdvice002V12Document : IOuterDocument<CorporateActionCancellationAdvice002V12>
+public partial record CorporateActionCancellationAdvice002V12Document : IOuterDocument<CorporateActionCancellationAdvice002V12>, IXmlSerializable
 {
     
     /// <summary>
@@ -216,5 +319,22 @@ public partial record CorporateActionCancellationAdvice002V12Document : IOuterDo
     /// <summary>
     /// The instance of <seealso cref="CorporateActionCancellationAdvice002V12"/> is required.
     /// </summary>
+    [DataMember(Name=CorporateActionCancellationAdvice002V12.XmlTag)]
     public required CorporateActionCancellationAdvice002V12 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CorporateActionCancellationAdvice002V12.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

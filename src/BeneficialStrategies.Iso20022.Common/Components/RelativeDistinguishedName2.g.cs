@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Attribute of the certificate service to be put in the certificate extensions, or to be used for the request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RelativeDistinguishedName2
+     : IIsoXmlSerilizable<RelativeDistinguishedName2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of attribute of a distinguished name (see X.500).
     /// </summary>
-    [DataMember]
     public required AttributeType2Code AttributeType { get; init; } 
     /// <summary>
     /// Value of the attribute of a distinguished name (see X.500).
     /// </summary>
-    [DataMember]
     public required IsoMax140Text AttributeValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AttrTp", xmlNamespace );
+        writer.WriteValue(AttributeType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AttrVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(AttributeValue)); // data type Max140Text System.String
+        writer.WriteEndElement();
+    }
+    public static RelativeDistinguishedName2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

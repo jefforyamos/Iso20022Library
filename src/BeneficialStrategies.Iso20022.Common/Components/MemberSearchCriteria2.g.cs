@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to search for a member.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MemberSearchCriteria2
+     : IIsoXmlSerilizable<MemberSearchCriteria2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of a member within a system, assigned using the member identification scheme of the system.
     /// </summary>
-    [DataMember]
-    public ValueList<MemberIdentification2Choice_> Identification { get; init; } = []; // Warning: Don't know multiplicity.
+    public MemberIdentification2Choice_? Identification { get; init; } 
     /// <summary>
     /// Nature of the relationship a member has with a system.
     /// </summary>
-    [DataMember]
-    public ValueList<MemberType1Code> Type { get; init; } = []; // Warning: Don't know multiplicity.
+    public MemberType1Code? Type { get; init; } 
     /// <summary>
     /// Status of a member in a system, such as enabled or deleted.
     /// </summary>
-    [DataMember]
-    public ValueList<MemberStatus1Code> Status { get; init; } = []; // Warning: Don't know multiplicity.
+    public MemberStatus1Code? Status { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is MemberIdentification2Choice_ IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Type is MemberType1Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Status is MemberStatus1Code StatusValue)
+        {
+            writer.WriteStartElement(null, "Sts", xmlNamespace );
+            writer.WriteValue(StatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static MemberSearchCriteria2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

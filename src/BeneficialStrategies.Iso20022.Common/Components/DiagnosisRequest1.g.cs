@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Diagnosis Request message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DiagnosisRequest1
+     : IIsoXmlSerilizable<DiagnosisRequest1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates if Host Diagnosis are required.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? HostDiagnosisFlag { get; init; } 
     /// <summary>
     /// Identification of the Acquirers.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> AcquirerIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? AcquirerIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (HostDiagnosisFlag is IsoTrueFalseIndicator HostDiagnosisFlagValue)
+        {
+            writer.WriteStartElement(null, "HstDgnssFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(HostDiagnosisFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AcquirerIdentification is IsoMax35Text AcquirerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcqrrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AcquirerIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static DiagnosisRequest1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.ShareholdersIdentificationDisclosureResponseV02>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// The ShareholdersIdentificationDisclosureResponse message is sent in response to a shareholder identification disclosure request message by any intermediaries to the recipient designated by the issuer (such as an issuer's agent) in the disclosure request message in order to provide the requested information on the identity of the shareholders and their accounts holdings serviced by the intermediary for the requested financial instrument.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The ShareholdersIdentificationDisclosureResponse message is sent in response to a shareholder identification disclosure request message by any intermediaries to the recipient designated by the issuer (such as an issuer's agent) in the disclosure request message in order to provide the requested information on the identity of the shareholders and their accounts holdings serviced by the intermediary for the requested financial instrument.")]
-public partial record ShareholdersIdentificationDisclosureResponseV02 : IOuterRecord
+public partial record ShareholdersIdentificationDisclosureResponseV02 : IOuterRecord<ShareholdersIdentificationDisclosureResponseV02,ShareholdersIdentificationDisclosureResponseV02Document>
+    ,IIsoXmlSerilizable<ShareholdersIdentificationDisclosureResponseV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record ShareholdersIdentificationDisclosureResponseV02 : IOuterRe
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "ShrhldrsIdDsclsrRspn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ShareholdersIdentificationDisclosureResponseV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -105,6 +112,47 @@ public partial record ShareholdersIdentificationDisclosureResponseV02 : IOuterRe
     {
         return new ShareholdersIdentificationDisclosureResponseV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("ShrhldrsIdDsclsrRspn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Pagination is Pagination1 PaginationValue)
+        {
+            writer.WriteStartElement(null, "Pgntn", xmlNamespace );
+            PaginationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "IssrDsclsrReqRef", xmlNamespace );
+        IssuerDisclosureRequestReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DsclsrRspnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(DisclosureResponseIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RspndgIntrmy", xmlNamespace );
+        RespondingIntermediary.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DsclsrInf", xmlNamespace );
+        DisclosureInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ShareholdersIdentificationDisclosureResponseV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -112,9 +160,7 @@ public partial record ShareholdersIdentificationDisclosureResponseV02 : IOuterRe
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ShareholdersIdentificationDisclosureResponseV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ShareholdersIdentificationDisclosureResponseV02Document : IOuterDocument<ShareholdersIdentificationDisclosureResponseV02>
+public partial record ShareholdersIdentificationDisclosureResponseV02Document : IOuterDocument<ShareholdersIdentificationDisclosureResponseV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -130,5 +176,22 @@ public partial record ShareholdersIdentificationDisclosureResponseV02Document : 
     /// <summary>
     /// The instance of <seealso cref="ShareholdersIdentificationDisclosureResponseV02"/> is required.
     /// </summary>
+    [DataMember(Name=ShareholdersIdentificationDisclosureResponseV02.XmlTag)]
     public required ShareholdersIdentificationDisclosureResponseV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ShareholdersIdentificationDisclosureResponseV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,98 +7,196 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contracts which grant to the holder either the privilege to purchase or the privilege to sell the assets specified at a predetermined price or formula at or within a time in the future.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Option15
+     : IIsoXmlSerilizable<Option15>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the option contract settles at the open or close of the market.
     /// </summary>
-    [DataMember]
     public SettleStyle2Choice_? OptionSettlementStyle { get; init; } 
     /// <summary>
     /// Deadline by which a convertible security must be converted according to the terms of the issue.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ConversionDate { get; init; } 
     /// <summary>
     /// Amount of money for which goods, services or assets are offered, sold, or bought.
     /// </summary>
-    [DataMember]
     public Price8? StrikePrice { get; init; } 
     /// <summary>
     /// Minimum quantity of securities that must be exercised.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1Choice_? MinimumExercisableQuantity { get; init; } 
     /// <summary>
     /// Period during which a convertible security may be converted according to the terms of the issue.
     /// </summary>
-    [DataMember]
     public DateTimePeriod1Choice_? ConversionPeriod { get; init; } 
     /// <summary>
     /// Specifies how an option can be exercised (American, European, Bermudan).
     /// </summary>
-    [DataMember]
     public OptionStyle1Choice_? OptionStyle { get; init; } 
     /// <summary>
     /// Specifies whether it is a Call option (right to purchase a specific underlying asset) or a Put option (right to sell a specific underlying asset).
     /// </summary>
-    [DataMember]
     public OptionType8Choice_? OptionType { get; init; } 
     /// <summary>
     /// Used for derivatives. The number of shares/units for the financial instrument involved in the option trade.
     /// </summary>
-    [DataMember]
     public IsoNumber? StrikeValue { get; init; } 
     /// <summary>
     /// Used for derivatives. Multiplier applied to the strike price for the purpose of calculating the settlement value.
     /// </summary>
-    [DataMember]
     public IsoNumber? StrikeMultiplier { get; init; } 
     /// <summary>
     /// Method under which assignment was conducted.
     /// </summary>
-    [DataMember]
     public AssignmentMethod2Choice_? InstrumentAssignmentMethod { get; init; } 
     /// <summary>
     /// Number allocated by options exchanges to record that an option has undergone a change in its contract specifications (particularly adjustment of the strike price).
     /// </summary>
-    [DataMember]
     public IsoNumber? VersionNumber { get; init; } 
     /// <summary>
     /// Financial center where option expires.
     /// </summary>
-    [DataMember]
     public IsoMax4AlphaNumericText? ExpiryLocation { get; init; } 
     /// <summary>
     /// Specifies whether the terms of the security (underlying instruments, expiration date, contract size) are defined according to the exchange specifications or whether they can be user defined.
     /// </summary>
-    [DataMember]
     public Standardisation3Choice_? Standardisation { get; init; } 
     /// <summary>
     /// Specifies the party which is the buyer or the seller.
     /// </summary>
-    [DataMember]
     public OptionParty3Choice_? TradingPartyRole { get; init; } 
     /// <summary>
     /// Ratio or multiplying factor used to convert one contract into a quantity.
     /// </summary>
-    [DataMember]
     public IsoBaseOneRate? ContractSize { get; init; } 
     /// <summary>
     /// Provides more information about the underlying instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<UnderlyingAttributes4> AdditionalUnderlyingAttributes { get; init; } = []; // Warning: Don't know multiplicity.
+    public UnderlyingAttributes4? AdditionalUnderlyingAttributes { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OptionSettlementStyle is SettleStyle2Choice_ OptionSettlementStyleValue)
+        {
+            writer.WriteStartElement(null, "OptnSttlmStyle", xmlNamespace );
+            OptionSettlementStyleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ConversionDate is IsoISODateTime ConversionDateValue)
+        {
+            writer.WriteStartElement(null, "ConvsDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ConversionDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (StrikePrice is Price8 StrikePriceValue)
+        {
+            writer.WriteStartElement(null, "StrkPric", xmlNamespace );
+            StrikePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MinimumExercisableQuantity is FinancialInstrumentQuantity1Choice_ MinimumExercisableQuantityValue)
+        {
+            writer.WriteStartElement(null, "MinExrcblQty", xmlNamespace );
+            MinimumExercisableQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ConversionPeriod is DateTimePeriod1Choice_ ConversionPeriodValue)
+        {
+            writer.WriteStartElement(null, "ConvsPrd", xmlNamespace );
+            ConversionPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionStyle is OptionStyle1Choice_ OptionStyleValue)
+        {
+            writer.WriteStartElement(null, "OptnStyle", xmlNamespace );
+            OptionStyleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionType is OptionType8Choice_ OptionTypeValue)
+        {
+            writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+            OptionTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StrikeValue is IsoNumber StrikeValueValue)
+        {
+            writer.WriteStartElement(null, "StrkVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(StrikeValueValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (StrikeMultiplier is IsoNumber StrikeMultiplierValue)
+        {
+            writer.WriteStartElement(null, "StrkMltplr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(StrikeMultiplierValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (InstrumentAssignmentMethod is AssignmentMethod2Choice_ InstrumentAssignmentMethodValue)
+        {
+            writer.WriteStartElement(null, "InstrmAssgnmtMtd", xmlNamespace );
+            InstrumentAssignmentMethodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (VersionNumber is IsoNumber VersionNumberValue)
+        {
+            writer.WriteStartElement(null, "VrsnNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(VersionNumberValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (ExpiryLocation is IsoMax4AlphaNumericText ExpiryLocationValue)
+        {
+            writer.WriteStartElement(null, "XpryLctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(ExpiryLocationValue)); // data type Max4AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+        if (Standardisation is Standardisation3Choice_ StandardisationValue)
+        {
+            writer.WriteStartElement(null, "Stdstn", xmlNamespace );
+            StandardisationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradingPartyRole is OptionParty3Choice_ TradingPartyRoleValue)
+        {
+            writer.WriteStartElement(null, "TradgPtyRole", xmlNamespace );
+            TradingPartyRoleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContractSize is IsoBaseOneRate ContractSizeValue)
+        {
+            writer.WriteStartElement(null, "CtrctSz", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ContractSizeValue)); // data type BaseOneRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (AdditionalUnderlyingAttributes is UnderlyingAttributes4 AdditionalUnderlyingAttributesValue)
+        {
+            writer.WriteStartElement(null, "AddtlUndrlygAttrbts", xmlNamespace );
+            AdditionalUnderlyingAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Option15 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

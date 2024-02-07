@@ -7,48 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Group of the statement header reporting the bank services billing and the billing statement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StatementGroup3
+     : IIsoXmlSerilizable<StatementGroup3>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a group of customer billing statements.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text GroupIdentification { get; init; } 
     /// <summary>
     /// Originating financial institution sending the statement.
     /// </summary>
-    [DataMember]
     public required PartyIdentification138 Sender { get; init; } 
     /// <summary>
     /// Specifies the individual to contact in case of technical problems at the sender's location.
     /// </summary>
-    [DataMember]
     public ValueList<Contact4> SenderIndividualContact { get; init; } = [];
     /// <summary>
     /// Financial institution customer receiving the statement.
     /// </summary>
-    [DataMember]
     public required PartyIdentification138 Receiver { get; init; } 
     /// <summary>
     /// Specifies the individual to contact in case of technical problems at the receiver's location.
     /// </summary>
-    [DataMember]
     public ValueList<Contact4> ReceiverIndividualContact { get; init; } = [];
     /// <summary>
     /// Provides the bank services billing statement recounting of all service chargeable events that occurred during a reporting cycle, such as the end of the month reporting.
     /// </summary>
-    [DataMember]
-    public ValueList<BillingStatement3> BillingStatement { get; init; } = []; // Warning: Don't know multiplicity.
+    public BillingStatement3? BillingStatement { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _BVSV2249EeiU9cctagi5ow
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(GroupIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sndr", xmlNamespace );
+        Sender.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SndrIndvCtct", xmlNamespace );
+        SenderIndividualContact.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rcvr", xmlNamespace );
+        Receiver.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RcvrIndvCtct", xmlNamespace );
+        ReceiverIndividualContact.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize BillingStatement, multiplicity Unknown
+    }
+    public static StatementGroup3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

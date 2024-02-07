@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
 /// Specifies a proprietary update type.
 /// </summary>
 public partial record Other : UpdateLogPartyRecord1Choice_
+     , IIsoXmlSerilizable<Other>
 {
     #nullable enable
+    
     /// <summary>
     /// Name of the field whose value has been changed.
     /// </summary>
@@ -27,5 +31,32 @@ public partial record Other : UpdateLogPartyRecord1Choice_
     /// Value of the field after the change.
     /// </summary>
     public required IsoMax350Text NewFieldValue { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FldNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(FieldName)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OdFldVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(OldFieldValue)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NewFldVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(NewFieldValue)); // data type Max350Text System.String
+        writer.WriteEndElement();
+    }
+    public static new Other Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

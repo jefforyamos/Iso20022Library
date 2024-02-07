@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Certificate record in which all currency control transactions are registered.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionCertificateRecord2
+     : IIsoXmlSerilizable<TransactionCertificateRecord2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the certificate record.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text CertificateRecordIdentification { get; init; } 
     /// <summary>
     /// Indication of procedure for submitting documents.
     /// </summary>
-    [DataMember]
     public IsoExact1NumericText? DocumentSubmittingProcedure { get; init; } 
     /// <summary>
     /// Details of the transaction for which the record has been generated.
     /// </summary>
-    [DataMember]
     public required TransactionCertificate5 Transaction { get; init; } 
     /// <summary>
     /// Contract registration details related to the certificate record.
     /// </summary>
-    [DataMember]
     public TransactionCertificateContract2? Contract { get; init; } 
     /// <summary>
     /// Documents provided as attachments to the registered contract.
     /// </summary>
-    [DataMember]
-    public ValueList<DocumentGeneralInformation5> Attachment { get; init; } = []; // Warning: Don't know multiplicity.
+    public DocumentGeneralInformation5? Attachment { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CertRcrdId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(CertificateRecordIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (DocumentSubmittingProcedure is IsoExact1NumericText DocumentSubmittingProcedureValue)
+        {
+            writer.WriteStartElement(null, "DocSubmitgPrcdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact1NumericText(DocumentSubmittingProcedureValue)); // data type Exact1NumericText System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Tx", xmlNamespace );
+        Transaction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Contract is TransactionCertificateContract2 ContractValue)
+        {
+            writer.WriteStartElement(null, "Ctrct", xmlNamespace );
+            ContractValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Attachment is DocumentGeneralInformation5 AttachmentValue)
+        {
+            writer.WriteStartElement(null, "Attchmnt", xmlNamespace );
+            AttachmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionCertificateRecord2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

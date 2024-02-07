@@ -7,78 +7,150 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related for the transportation of goods by sea.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransportBySea5
+     : IIsoXmlSerilizable<TransportBySea5>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the port where the goods are loaded on board the ship.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text PortOfLoading { get; init; } 
     /// <summary>
     /// Identifies the port where the goods are discharged.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text PortOfDischarge { get; init; } 
     /// <summary>
     /// Name of a vessel.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? VesselName { get; init; } 
     /// <summary>
     /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? SeaCarrierName { get; init; } 
     /// <summary>
     /// Country in which the carrier of the goods, for example, shipping company, is located or registered.
     /// </summary>
-    [DataMember]
     public CountryCode? SeaCarrierCountry { get; init; } 
     /// <summary>
     /// Name of the carrier's (for example, shipping company's) agent that acts on behalf of the carrier and may be the issuer of transport documents relating to the underlying shipment.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? CarrierAgentName { get; init; } 
     /// <summary>
     /// Country of registration of the carrier's (for example, shipping company's) agent that acts on behalf of the carrier and may be the issuer of transport documents relating to the underlying shipment.
     /// </summary>
-    [DataMember]
     public CountryCode? CarrierAgentCountry { get; init; } 
     /// <summary>
     /// Name of the master or captain of a vessel that signs the document for example, bill of lading, charter party bill of lading, non-negotiable sea waybill or multimodal transport document that evidences shipment of the goods from a port of loading to a port of discharge.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? MasterName { get; init; } 
     /// <summary>
     /// Name of the company or individual that signs a charter party bill of lading that evidences shipment of the goods from a port of loading to a port of discharge and acts in the capacity of charterer.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? ChartererName { get; init; } 
     /// <summary>
     /// Name of the company or individual that signs a charter party bill of lading that evidences shipment of the goods from a port of loading to a port of discharge and acts in the capacity of owner;.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? OwnerName { get; init; } 
     /// <summary>
     /// International Maritime Organisation identification of a ship. The IMO identification number scheme was introduced in 1987 as a measure aimed at enhancing maritime safety and pollution prevention and to facilitate the prevention of maritime fraud. It assigns a permanent number to each vessel for identification purposes. This number remains unchanged upon transfer of the vessel to other flag(s) and is inserted in all vessel certificates. The IMO identification number is made up of the three letters "IMO" followed by a seven-digit number assigned to all vessels by IHS FairPlay (formerly known as Lloyd's Register-Fairplay). This is a unique seven digit number that is assigned to vessels and aids banks in determining whether a vessel is subject to an order that would not permit a bank to handle a certain transaction under local or international laws.
     /// </summary>
-    [DataMember]
     public IsoExact7NumericText? IMONumber { get; init; } 
     /// <summary>
     /// Identifies the voyage by sea.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? VoyageNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PortOfLoadng", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(PortOfLoading)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PortOfDschrge", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(PortOfDischarge)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (VesselName is IsoMax70Text VesselNameValue)
+        {
+            writer.WriteStartElement(null, "VsslNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(VesselNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (SeaCarrierName is IsoMax70Text SeaCarrierNameValue)
+        {
+            writer.WriteStartElement(null, "SeaCrrierNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(SeaCarrierNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (SeaCarrierCountry is CountryCode SeaCarrierCountryValue)
+        {
+            writer.WriteStartElement(null, "SeaCrrierCtry", xmlNamespace );
+            writer.WriteValue(SeaCarrierCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CarrierAgentName is IsoMax70Text CarrierAgentNameValue)
+        {
+            writer.WriteStartElement(null, "CrrierAgtNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(CarrierAgentNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (CarrierAgentCountry is CountryCode CarrierAgentCountryValue)
+        {
+            writer.WriteStartElement(null, "CrrierAgtCtry", xmlNamespace );
+            writer.WriteValue(CarrierAgentCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (MasterName is IsoMax70Text MasterNameValue)
+        {
+            writer.WriteStartElement(null, "MstrNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(MasterNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (ChartererName is IsoMax70Text ChartererNameValue)
+        {
+            writer.WriteStartElement(null, "ChrtrrNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(ChartererNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (OwnerName is IsoMax70Text OwnerNameValue)
+        {
+            writer.WriteStartElement(null, "OwnrNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(OwnerNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (IMONumber is IsoExact7NumericText IMONumberValue)
+        {
+            writer.WriteStartElement(null, "IMONb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact7NumericText(IMONumberValue)); // data type Exact7NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (VoyageNumber is IsoMax35Text VoyageNumberValue)
+        {
+            writer.WriteStartElement(null, "VygNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(VoyageNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TransportBySea5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

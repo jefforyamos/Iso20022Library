@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecuredCollateral1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredCollateral1Choice;
 /// Identifies the collateral when the asset class pledged as collateral does not correspond to an ISIN.
 /// </summary>
 public partial record OtherCollateral : SecuredCollateral1Choice_
+     , IIsoXmlSerilizable<OtherCollateral>
 {
     #nullable enable
+    
     /// <summary>
     /// Specifies whether the collateral is a pool collateral or not.
     /// </summary>
@@ -31,5 +35,38 @@ public partial record OtherCollateral : SecuredCollateral1Choice_
     /// Nominal amount of money of the security pledged as collateral, when the collateral cannot be identified through an individual or basket ISIN.
     /// </summary>
     public IsoActiveCurrencyAndAmount? NominalAmount { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PoolSts", xmlNamespace );
+        writer.WriteValue(PoolStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCFIIdentifier(Type)); // data type CFIIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sctr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoSNA2008SectorIdentifier(Sector)); // data type SNA2008SectorIdentifier System.String
+        writer.WriteEndElement();
+        if (NominalAmount is IsoActiveCurrencyAndAmount NominalAmountValue)
+        {
+            writer.WriteStartElement(null, "NmnlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(NominalAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static new OtherCollateral Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

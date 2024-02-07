@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on transaction and conducting counterparty.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeTransactionIdentification15
+     : IIsoXmlSerilizable<TradeTransactionIdentification15>
 {
     #nullable enable
     
     /// <summary>
     /// Unique code identifying the reporting counterparty.
     /// </summary>
-    [DataMember]
     public required OrganisationIdentification15Choice_ ReportingCounterparty { get; init; } 
     /// <summary>
     /// Unique code identifying the entity with which the reporting counterparty concluded the transaction.
     /// </summary>
-    [DataMember]
     public required PartyIdentification236Choice_ OtherCounterparty { get; init; } 
     /// <summary>
     /// Unique trade Identifier (UTI) as agreed with the counterparty.
     /// </summary>
-    [DataMember]
     public IsoMax52Text? UniqueTradeIdentifier { get; init; } 
     /// <summary>
     /// Details related to the master agreement.
     /// </summary>
-    [DataMember]
     public MasterAgreement7? MasterAgreement { get; init; } 
     /// <summary>
     /// Identification of the agent lender involved in the securities lending transaction.
     /// </summary>
-    [DataMember]
     public OrganisationIdentification15Choice_? AgentLender { get; init; } 
     /// <summary>
     /// Identification of the third party that administers the transaction.
     /// </summary>
-    [DataMember]
     public OrganisationIdentification15Choice_? TripartyAgent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptgCtrPty", xmlNamespace );
+        ReportingCounterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrCtrPty", xmlNamespace );
+        OtherCounterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (UniqueTradeIdentifier is IsoMax52Text UniqueTradeIdentifierValue)
+        {
+            writer.WriteStartElement(null, "UnqTradIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(UniqueTradeIdentifierValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+        if (MasterAgreement is MasterAgreement7 MasterAgreementValue)
+        {
+            writer.WriteStartElement(null, "MstrAgrmt", xmlNamespace );
+            MasterAgreementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AgentLender is OrganisationIdentification15Choice_ AgentLenderValue)
+        {
+            writer.WriteStartElement(null, "AgtLndr", xmlNamespace );
+            AgentLenderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TripartyAgent is OrganisationIdentification15Choice_ TripartyAgentValue)
+        {
+            writer.WriteStartElement(null, "TrptyAgt", xmlNamespace );
+            TripartyAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeTransactionIdentification15 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

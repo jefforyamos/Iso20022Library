@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.InterestRate8Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate8Choice;
 /// Interest rate is a variable / floating rate, based on an index.
 /// </summary>
 public partial record Floating : InterestRate8Choice_
+     , IIsoXmlSerilizable<Floating>
 {
     #nullable enable
+    
     /// <summary>
     /// Identifies the reference index for the instrument. 
     /// Usage:
@@ -25,5 +29,32 @@ public partial record Floating : InterestRate8Choice_
     /// Term of the reference rate.
     /// </summary>
     public InterestRateContractTerm2? Term { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RefRate", xmlNamespace );
+        ReferenceRate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Term is InterestRateContractTerm2 TermValue)
+        {
+            writer.WriteStartElement(null, "Term", xmlNamespace );
+            TermValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Floating Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

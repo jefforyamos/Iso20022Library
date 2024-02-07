@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of one or several keys of the request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RequestDetails4
+     : IIsoXmlSerilizable<RequestDetails4>
 {
     #nullable enable
     
     /// <summary>
     /// Key for which the specific data is returned, for example, a BIC.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Key { get; init; } 
     /// <summary>
     /// Data being returned.
     /// </summary>
-    [DataMember]
-    public ValueList<ReportParameter1> ReportData { get; init; } = []; // Warning: Don't know multiplicity.
+    public ReportParameter1? ReportData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Key", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Key)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ReportData is ReportParameter1 ReportDataValue)
+        {
+            writer.WriteStartElement(null, "RptData", xmlNamespace );
+            ReportDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RequestDetails4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

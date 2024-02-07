@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters to be used to update the configuration or the status security device.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMCommandParameters1
+     : IIsoXmlSerilizable<ATMCommandParameters1>
 {
     #nullable enable
     
     /// <summary>
     /// Serial number of the device.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SerialNumber { get; init; } 
     /// <summary>
     /// Update of the security configuration to apply on the security module of the ATM.
     /// </summary>
-    [DataMember]
     public ATMSecurityConfiguration1? RequiredConfiguration { get; init; } 
     /// <summary>
     /// New status to apply on the security module of the ATM.
     /// </summary>
-    [DataMember]
     public ATMStatus2Code? RequiredStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SerialNumber is IsoMax35Text SerialNumberValue)
+        {
+            writer.WriteStartElement(null, "SrlNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SerialNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RequiredConfiguration is ATMSecurityConfiguration1 RequiredConfigurationValue)
+        {
+            writer.WriteStartElement(null, "ReqrdCfgtn", xmlNamespace );
+            RequiredConfigurationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequiredStatus is ATMStatus2Code RequiredStatusValue)
+        {
+            writer.WriteStartElement(null, "ReqrdSts", xmlNamespace );
+            writer.WriteValue(RequiredStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMCommandParameters1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

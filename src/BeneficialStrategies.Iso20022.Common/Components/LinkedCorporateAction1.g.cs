@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies linkage information of a corporate action message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LinkedCorporateAction1
+     : IIsoXmlSerilizable<LinkedCorporateAction1>
 {
     #nullable enable
     
     /// <summary>
     /// The function of the notification e.g. new notification.
     /// </summary>
-    [DataMember]
     public required CorporateActionNotificationType1Code NotificationType { get; init; } 
     /// <summary>
     /// The identification of the linked notification advice.
     /// </summary>
-    [DataMember]
     public DocumentIdentification8? LinkedAgentCANotificationAdviceIdentification { get; init; } 
     /// <summary>
     /// Specifies when the instruction is to be executed relative to a linked instruction.
     /// </summary>
-    [DataMember]
     public ProcessingPosition2FormatChoice_? LinkageType { get; init; } 
     /// <summary>
     /// Reference given to the linked event by the CA event issuer (agent).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? LinkedIssuerCorporateActionIdentification { get; init; } 
     /// <summary>
     /// Reference assigned by the CSD to the linked coporate avent.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? LinkedCorporateActionProcessingIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NtfctnTp", xmlNamespace );
+        writer.WriteValue(NotificationType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (LinkedAgentCANotificationAdviceIdentification is DocumentIdentification8 LinkedAgentCANotificationAdviceIdentificationValue)
+        {
+            writer.WriteStartElement(null, "LkdAgtCANtfctnAdvcId", xmlNamespace );
+            LinkedAgentCANotificationAdviceIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LinkageType is ProcessingPosition2FormatChoice_ LinkageTypeValue)
+        {
+            writer.WriteStartElement(null, "LkgTp", xmlNamespace );
+            LinkageTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LinkedIssuerCorporateActionIdentification is IsoMax35Text LinkedIssuerCorporateActionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "LkdIssrCorpActnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(LinkedIssuerCorporateActionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (LinkedCorporateActionProcessingIdentification is IsoMax35Text LinkedCorporateActionProcessingIdentificationValue)
+        {
+            writer.WriteStartElement(null, "LkdCorpActnPrcgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(LinkedCorporateActionProcessingIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static LinkedCorporateAction1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

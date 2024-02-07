@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AssetClassAttributes1Choice;
 
@@ -13,12 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassAttributes1Choice;
 /// Asset class is a non-financial instrument of type interest rate.
 /// </summary>
 public partial record Interest : AssetClassAttributes1Choice_
+     , IIsoXmlSerilizable<Interest>
 {
     #nullable enable
+    
     /// <summary>
     /// Currency in which leg 2 of the contract is denominated, in case of multi-currency or cross-currency swaps.
     /// Currency in which leg 2 of the swap is denominated, in case of swaptions where the underlying swap is multi-currency.
     /// </summary>
     public required ActiveOrHistoricCurrencyCode OtherNotionalCurrency { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OthrNtnlCcy", xmlNamespace );
+        writer.WriteValue(OtherNotionalCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new Interest Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

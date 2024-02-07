@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Physical attendance admission conditions for a meeting.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AttendanceAdmissionConditions1
+     : IIsoXmlSerilizable<AttendanceAdmissionConditions1>
 {
     #nullable enable
     
     /// <summary>
     /// Condition for physical admittance to general meetings expressed as a code.
     /// </summary>
-    [DataMember]
     public required AttendanceAdmissionConditions1Code Code { get; init; } 
     /// <summary>
     /// Additional information on the conditions for physical admittance to general meeting.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AttendanceAdmissionConditions1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

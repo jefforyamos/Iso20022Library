@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.CreateMemberV01>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// Based on the criteria defined in the CreateLimit message, the transaction administrator will execute or reject the requested creation and respond with a Receipt message as a reply to the request.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The ModifyMember message is sent by a member to the transaction administrator.|It is used to create the profile of a member that the transaction administrator maintains.|Usage|Based on the criteria defined in the CreateLimit message, the transaction administrator will execute or reject the requested creation and respond with a Receipt message as a reply to the request.")]
-public partial record CreateMemberV01 : IOuterRecord
+public partial record CreateMemberV01 : IOuterRecord<CreateMemberV01,CreateMemberV01Document>
+    ,IIsoXmlSerilizable<CreateMemberV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record CreateMemberV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "CretMmb";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CreateMemberV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -90,6 +97,38 @@ public partial record CreateMemberV01 : IOuterRecord
     {
         return new CreateMemberV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("CretMmb");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+        MessageHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MmbId", xmlNamespace );
+        MemberIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ValSet", xmlNamespace );
+        ValueSet.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CreateMemberV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -97,9 +136,7 @@ public partial record CreateMemberV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CreateMemberV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CreateMemberV01Document : IOuterDocument<CreateMemberV01>
+public partial record CreateMemberV01Document : IOuterDocument<CreateMemberV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -115,5 +152,22 @@ public partial record CreateMemberV01Document : IOuterDocument<CreateMemberV01>
     /// <summary>
     /// The instance of <seealso cref="CreateMemberV01"/> is required.
     /// </summary>
+    [DataMember(Name=CreateMemberV01.XmlTag)]
     public required CreateMemberV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CreateMemberV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

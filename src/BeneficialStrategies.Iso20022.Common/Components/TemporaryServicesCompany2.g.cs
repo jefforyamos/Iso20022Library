@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains company related information for Temporary Services.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TemporaryServicesCompany2
+     : IIsoXmlSerilizable<TemporaryServicesCompany2>
 {
     #nullable enable
     
     /// <summary>
     /// Contains the name of the individual at the contracting company that has requested temporary services.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Contains the name of the department at the contracting company in which the temporary staff will be working. 
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Department { get; init; } 
     /// <summary>
     /// Identification of the temporary services company.
     /// </summary>
-    [DataMember]
     public PartyIdentification258? Identification { get; init; } 
     /// <summary>
     /// Contains the name of the individual at the contracting company that is supervising the temporary staff. 
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Supervisor { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax70Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Department is IsoMax70Text DepartmentValue)
+        {
+            writer.WriteStartElement(null, "Dept", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(DepartmentValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Identification is PartyIdentification258 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Supervisor is IsoMax70Text SupervisorValue)
+        {
+            writer.WriteStartElement(null, "Sprvsr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(SupervisorValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TemporaryServicesCompany2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

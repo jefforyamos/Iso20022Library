@@ -7,58 +7,113 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding underlying security details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrumentAttributesSD6
+     : IIsoXmlSerilizable<FinancialInstrumentAttributesSD6>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Country in which the security was issued.
     /// </summary>
-    [DataMember]
     public CountryCode? CountryOfListing { get; init; } 
     /// <summary>
     /// Country of source income for the security.
     /// </summary>
-    [DataMember]
     public CountryCode? IncomeSourceCountry { get; init; } 
     /// <summary>
     /// Classification of instruments into asset classes at DTC (The Depository Trust Corporation).
     /// </summary>
-    [DataMember]
     public AssetClass1Code? DTCAssetClass { get; init; } 
     /// <summary>
     /// Further classification of instruments into (issue) asset types at DTC (The Depository Trust Corporation).
     /// </summary>
-    [DataMember]
     public DTCAssetType1Code? DTCAssetType { get; init; } 
     /// <summary>
     /// Indicates whether the security is eligible for holding at DTC.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? SecurityEligibilityIndicator { get; init; } 
     /// <summary>
     /// Ticket symbol for the event security (underlying security).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TickerSymbol { get; init; } 
     /// <summary>
     /// Security whose characteristics mirror the event security for purposes of FCP eligibility and tax relief. Certain derivative securities like HOLDR may have certain events where the source of payments are from an underlying security.
     /// </summary>
-    [DataMember]
     public SecurityIdentification15? LinkedSecurity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (CountryOfListing is CountryCode CountryOfListingValue)
+        {
+            writer.WriteStartElement(null, "CtryOfListg", xmlNamespace );
+            writer.WriteValue(CountryOfListingValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (IncomeSourceCountry is CountryCode IncomeSourceCountryValue)
+        {
+            writer.WriteStartElement(null, "IncmSrcCtry", xmlNamespace );
+            writer.WriteValue(IncomeSourceCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DTCAssetClass is AssetClass1Code DTCAssetClassValue)
+        {
+            writer.WriteStartElement(null, "DTCAsstClss", xmlNamespace );
+            writer.WriteValue(DTCAssetClassValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DTCAssetType is DTCAssetType1Code DTCAssetTypeValue)
+        {
+            writer.WriteStartElement(null, "DTCAsstTp", xmlNamespace );
+            writer.WriteValue(DTCAssetTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SecurityEligibilityIndicator is IsoYesNoIndicator SecurityEligibilityIndicatorValue)
+        {
+            writer.WriteStartElement(null, "SctyElgbltyInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SecurityEligibilityIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TickerSymbol is IsoMax35Text TickerSymbolValue)
+        {
+            writer.WriteStartElement(null, "TckrSymb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TickerSymbolValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (LinkedSecurity is SecurityIdentification15 LinkedSecurityValue)
+        {
+            writer.WriteStartElement(null, "LkdScty", xmlNamespace );
+            LinkedSecurityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstrumentAttributesSD6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Strong Customer Authentication exemption details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Exemption1
+     : IIsoXmlSerilizable<Exemption1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of the exemption.
     /// </summary>
-    [DataMember]
     public required Exemption2Code Type { get; init; } 
     /// <summary>
     /// Status of the exemption.
     /// </summary>
-    [DataMember]
     public required AttestationValue1Code Value { get; init; } 
     /// <summary>
     /// Reason why the exemption claimed was not honored.
     /// </summary>
-    [DataMember]
     public IsoMax4Text? ReasonNotHonored { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ReasonNotHonored is IsoMax4Text ReasonNotHonoredValue)
+        {
+            writer.WriteStartElement(null, "RsnNotHnrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4Text(ReasonNotHonoredValue)); // data type Max4Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Exemption1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

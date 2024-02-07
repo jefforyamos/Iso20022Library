@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies prices related to a corporate action option.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionPrice10
+     : IIsoXmlSerilizable<CorporateActionPrice10>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the price is an indicative price or a market price.
     /// </summary>
-    [DataMember]
     public IndicativeOrMarketPrice1Choice_? IndicativeOrMarketPrice { get; init; } 
     /// <summary>
     /// Cash disbursement in lieu of equities; usually in lieu of fractional quantity.
     /// </summary>
-    [DataMember]
     public PriceFormat11Choice_? CashInLieuOfSharePrice { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (IndicativeOrMarketPrice is IndicativeOrMarketPrice1Choice_ IndicativeOrMarketPriceValue)
+        {
+            writer.WriteStartElement(null, "IndctvOrMktPric", xmlNamespace );
+            IndicativeOrMarketPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashInLieuOfSharePrice is PriceFormat11Choice_ CashInLieuOfSharePriceValue)
+        {
+            writer.WriteStartElement(null, "CshInLieuOfShrPric", xmlNamespace );
+            CashInLieuOfSharePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionPrice10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

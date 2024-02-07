@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Derivative3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative3Choice;
 /// Details specific for Contract for difference (CFDs).
 /// </summary>
 public partial record ContractForDifference : Derivative3Choice_
+     , IIsoXmlSerilizable<ContractForDifference>
 {
     #nullable enable
+    
     /// <summary>
     /// Underlying type of the contract for difference.
     /// </summary>
@@ -27,5 +31,38 @@ public partial record ContractForDifference : Derivative3Choice_
     /// Currency 2 of the underlying currency pair.
     /// </summary>
     public ActiveOrHistoricCurrencyCode? NotionalCurrency2 { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UndrlygTp", xmlNamespace );
+        writer.WriteValue(UnderlyingType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (NotionalCurrency1 is ActiveOrHistoricCurrencyCode NotionalCurrency1Value)
+        {
+            writer.WriteStartElement(null, "NtnlCcy1", xmlNamespace );
+            writer.WriteValue(NotionalCurrency1Value.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (NotionalCurrency2 is ActiveOrHistoricCurrencyCode NotionalCurrency2Value)
+        {
+            writer.WriteStartElement(null, "NtnlCcy2", xmlNamespace );
+            writer.WriteValue(NotionalCurrency2Value.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static new ContractForDifference Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to security commands.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMSecurityContext1
+     : IIsoXmlSerilizable<ATMSecurityContext1>
 {
     #nullable enable
     
     /// <summary>
     /// Key exchange security scheme in activation on the ATM for the host manager.
     /// </summary>
-    [DataMember]
     public required ATMSecurityScheme1Code CurrentSecurityScheme { get; init; } 
     /// <summary>
     /// Key exchange security schemes implemented in the hardware security module of the ATM.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMSecurityScheme2Code> SecuritySchemeCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMSecurityScheme2Code? SecuritySchemeCapabilities { get; init; } 
     /// <summary>
     /// Hardware security module of the ATM.
     /// </summary>
-    [DataMember]
     public required ATMSecurityDevice1 SecurityDevice { get; init; } 
     /// <summary>
     /// Cryptographic keys stored in the hardware security module of the ATM.
     /// </summary>
-    [DataMember]
-    public ValueList<CryptographicKey7> Key { get; init; } = []; // Warning: Don't know multiplicity.
+    public CryptographicKey7? Key { get; init; } 
     /// <summary>
     /// Random value from the host provided during a previous exchange.
     /// </summary>
-    [DataMember]
     public IsoMax140Binary? HostChallenge { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CurSctySchme", xmlNamespace );
+        writer.WriteValue(CurrentSecurityScheme.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SecuritySchemeCapabilities is ATMSecurityScheme2Code SecuritySchemeCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "SctySchmeCpblties", xmlNamespace );
+            writer.WriteValue(SecuritySchemeCapabilitiesValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SctyDvc", xmlNamespace );
+        SecurityDevice.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Key is CryptographicKey7 KeyValue)
+        {
+            writer.WriteStartElement(null, "Key", xmlNamespace );
+            KeyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (HostChallenge is IsoMax140Binary HostChallengeValue)
+        {
+            writer.WriteStartElement(null, "HstChllng", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Binary(HostChallengeValue)); // data type Max140Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMSecurityContext1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

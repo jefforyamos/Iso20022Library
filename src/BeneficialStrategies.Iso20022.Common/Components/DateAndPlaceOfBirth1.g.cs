@@ -9,15 +9,12 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
 using System.Xml;
 using System.Xml.Linq;
-using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Components.DateAndPlaceOfBirth1>;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Date and place of birth of a person.
 /// </summary>
-[DataContract(Namespace = "")]
-[XmlType]
 public partial record DateAndPlaceOfBirth1
      : IIsoXmlSerilizable<DateAndPlaceOfBirth1>
 {
@@ -26,26 +23,31 @@ public partial record DateAndPlaceOfBirth1
     /// <summary>
     /// Date on which a person is born.
     /// </summary>
-    [DataMember]
     public required IsoISODate BirthDate { get; init; } 
     /// <summary>
     /// Province where a person was born.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ProvinceOfBirth { get; init; } 
     /// <summary>
     /// City where a person was born.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text CityOfBirth { get; init; } 
     /// <summary>
     /// Country where a person was born.
     /// </summary>
-    [DataMember]
     public required CountryCode CountryOfBirth { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
     public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
     public void Serialize(XmlWriter writer, string xmlNamespace)
     {
         writer.WriteStartElement(null, "BirthDt", xmlNamespace );

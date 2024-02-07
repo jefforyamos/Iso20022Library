@@ -7,78 +7,147 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Fraud reporting type information
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReportedFraud1
+     : IIsoXmlSerilizable<ReportedFraud1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of fraud for which a report is established.
     /// </summary>
-    [DataMember]
     public required FraudType1Code FraudType { get; init; } 
     /// <summary>
     /// Other type of fraud.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherFraudType { get; init; } 
     /// <summary>
     /// Identifies the type of reported fraudulent transaction.
     /// </summary>
-    [DataMember]
     public required FraudReportingAction1Code FraudReportingAction { get; init; } 
     /// <summary>
     /// Other fraud reporting action.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherFraudReportingAction { get; init; } 
     /// <summary>
     /// Type of fraud reporting entity.
     /// </summary>
-    [DataMember]
     public required PartyType26Code ReportingEntity { get; init; } 
     /// <summary>
     /// Other type of fraud reporting entity.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherReportingEntity { get; init; } 
     /// <summary>
     /// Identifies the type of cardholder credential that was compromised.
     /// </summary>
-    [DataMember]
-    public ValueList<AuthenticationMethod11Code> CompromisedCredential { get; init; } = []; // Warning: Don't know multiplicity.
+    public AuthenticationMethod11Code? CompromisedCredential { get; init; } 
     /// <summary>
     /// Date of fraud as reported by the cardholder
     /// </summary>
-    [DataMember]
     public IsoISODate? CardholderReportingDate { get; init; } 
     /// <summary>
     /// Date fraud was confirmed by the cardholder.
     /// </summary>
-    [DataMember]
     public IsoISODate? ConfirmationReportingDate { get; init; } 
     /// <summary>
     /// Reference to the case as provided by the submitter.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SubmitterCaseReference { get; init; } 
     /// <summary>
     /// Details of fraudulent case.
     /// </summary>
-    [DataMember]
     public FraudCaseDetails1? FraudCaseDetails { get; init; } 
     /// <summary>
     /// Status of submitter investigation at time of submission.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? FraudInvestigationStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FrdTp", xmlNamespace );
+        writer.WriteValue(FraudType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherFraudType is IsoMax35Text OtherFraudTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrFrdTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherFraudTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FrdRptgActn", xmlNamespace );
+        writer.WriteValue(FraudReportingAction.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherFraudReportingAction is IsoMax35Text OtherFraudReportingActionValue)
+        {
+            writer.WriteStartElement(null, "OthrFrdRptgActn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherFraudReportingActionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RptgNtty", xmlNamespace );
+        writer.WriteValue(ReportingEntity.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherReportingEntity is IsoMax35Text OtherReportingEntityValue)
+        {
+            writer.WriteStartElement(null, "OthrRptgNtty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherReportingEntityValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CompromisedCredential is AuthenticationMethod11Code CompromisedCredentialValue)
+        {
+            writer.WriteStartElement(null, "CmprmsdCrdntl", xmlNamespace );
+            writer.WriteValue(CompromisedCredentialValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CardholderReportingDate is IsoISODate CardholderReportingDateValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrRptgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(CardholderReportingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ConfirmationReportingDate is IsoISODate ConfirmationReportingDateValue)
+        {
+            writer.WriteStartElement(null, "ConfRptgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ConfirmationReportingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SubmitterCaseReference is IsoMax35Text SubmitterCaseReferenceValue)
+        {
+            writer.WriteStartElement(null, "SubmitrCaseRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SubmitterCaseReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (FraudCaseDetails is FraudCaseDetails1 FraudCaseDetailsValue)
+        {
+            writer.WriteStartElement(null, "FrdCaseDtls", xmlNamespace );
+            FraudCaseDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FraudInvestigationStatus is IsoMax256Text FraudInvestigationStatusValue)
+        {
+            writer.WriteStartElement(null, "FrdInvstgtnSts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(FraudInvestigationStatusValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ReportedFraud1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

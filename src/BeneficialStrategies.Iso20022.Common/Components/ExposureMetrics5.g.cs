@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Numeric variables calculated on market exposures.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ExposureMetrics5
+     : IIsoXmlSerilizable<ExposureMetrics5>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of funds provided as collateral for borrowing the securities or commodities.
     /// </summary>
-    [DataMember]
     public AmountAndDirection53? CashCollateralAmount { get; init; } 
     /// <summary>
     /// Market value of asset or collateral component.
     /// </summary>
-    [DataMember]
     public AmountAndDirection53? CollateralMarketValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CashCollateralAmount is AmountAndDirection53 CashCollateralAmountValue)
+        {
+            writer.WriteStartElement(null, "CshCollAmt", xmlNamespace );
+            CashCollateralAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollateralMarketValue is AmountAndDirection53 CollateralMarketValueValue)
+        {
+            writer.WriteStartElement(null, "CollMktVal", xmlNamespace );
+            CollateralMarketValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ExposureMetrics5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides identification information about the tax category. 
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxCategory2
+     : IIsoXmlSerilizable<TaxCategory2>
 {
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Tax category identification.
     /// </summary>
-    [DataMember]
     public IsoMax2NumericText? Identification { get; init; } 
     /// <summary>
     /// Quantity to be withheld at the tax category level.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity15Choice_? Quantity { get; init; } 
     /// <summary>
     /// Identification of the country in which the tax is withheld.
     /// </summary>
-    [DataMember]
     public CountryCode? Country { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (Identification is IsoMax2NumericText IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2NumericText(IdentificationValue)); // data type Max2NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (Quantity is FinancialInstrumentQuantity15Choice_ QuantityValue)
+        {
+            writer.WriteStartElement(null, "Qty", xmlNamespace );
+            QuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Country is CountryCode CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(CountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static TaxCategory2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

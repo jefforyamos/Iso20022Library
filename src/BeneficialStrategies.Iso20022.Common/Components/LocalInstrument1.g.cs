@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements that further identifies the type of local instruments being requested by the initiating party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LocalInstrument1
+     : IIsoXmlSerilizable<LocalInstrument1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the local instrument published in an external local instrument code list - restricted to B2B or CORE within SEPA.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedB2BCORECodeText Code { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedB2BCORECodeText(Code)); // data type RestrictedB2BCORECodeText System.String
+        writer.WriteEndElement();
+    }
+    public static LocalInstrument1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

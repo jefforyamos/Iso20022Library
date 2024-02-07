@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unambiguous identification for the account between the account owner and the account servicer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesAccount21
+     : IIsoXmlSerilizable<SecuritiesAccount21>
 {
     #nullable enable
     
     /// <summary>
     /// Account identification.
     /// </summary>
-    [DataMember]
     public required AccountIdentification5 Account { get; init; } 
     /// <summary>
     /// Sub-account identification.
     /// </summary>
-    [DataMember]
     public AccountIdentification5? SubAccount { get; init; } 
     /// <summary>
     /// Base currency for the account.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? BaseCurrency { get; init; } 
     /// <summary>
     /// Currency chosen for reporting purposes by the account owner in agreement with the account servicer.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? ReportingCurrency { get; init; } 
     /// <summary>
     /// Foreign exchange rate applied between the reporting and base currencies. It is assumed the valuation date is the same as the report date.
     /// </summary>
-    [DataMember]
     public IsoBaseOneRate? ForeignExchangeRate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Acct", xmlNamespace );
+        Account.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SubAccount is AccountIdentification5 SubAccountValue)
+        {
+            writer.WriteStartElement(null, "SubAcct", xmlNamespace );
+            SubAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BaseCurrency is ActiveOrHistoricCurrencyCode BaseCurrencyValue)
+        {
+            writer.WriteStartElement(null, "BaseCcy", xmlNamespace );
+            writer.WriteValue(BaseCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ReportingCurrency is ActiveOrHistoricCurrencyCode ReportingCurrencyValue)
+        {
+            writer.WriteStartElement(null, "RptgCcy", xmlNamespace );
+            writer.WriteValue(ReportingCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ForeignExchangeRate is IsoBaseOneRate ForeignExchangeRateValue)
+        {
+            writer.WriteStartElement(null, "FXRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ForeignExchangeRateValue)); // data type BaseOneRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesAccount21 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

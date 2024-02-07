@@ -7,83 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Cryptographic key.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CryptographicKey12
+     : IIsoXmlSerilizable<CryptographicKey12>
 {
     #nullable enable
     
     /// <summary>
     /// Name or label of the key.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Name { get; init; } 
     /// <summary>
     /// Name of the cryptographic key.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Identification { get; init; } 
     /// <summary>
     /// Identification of the security domain.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SecurityDomainIdentification { get; init; } 
     /// <summary>
     /// Additional identification of the key, for instance to derive the key.
     /// </summary>
-    [DataMember]
     public IsoMax35Binary? AdditionalIdentification { get; init; } 
     /// <summary>
     /// Version of the cryptographic key.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? Version { get; init; } 
     /// <summary>
     /// Sequence counter of the cryptographic key.
     /// </summary>
-    [DataMember]
     public IsoNumber? SequenceCounter { get; init; } 
     /// <summary>
     /// Type of algorithm used by the cryptographic key.
     /// </summary>
-    [DataMember]
     public CryptographicKeyType3Code? Type { get; init; } 
     /// <summary>
     /// Allowed usage of the key.
     /// </summary>
-    [DataMember]
-    public ValueList<KeyUsage1Code> Function { get; init; } = []; // Warning: Don't know multiplicity.
+    public KeyUsage1Code? Function { get; init; } 
     /// <summary>
     /// Date and time on which the key must be activated.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ActivationDate { get; init; } 
     /// <summary>
     /// Date and time on which the key must be deactivated.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? DeactivationDate { get; init; } 
     /// <summary>
     /// Value for checking a cryptographic key.
     /// </summary>
-    [DataMember]
     public IsoMax35Binary? KeyCheckValue { get; init; } 
     /// <summary>
     /// Value of the public component of a RSA key.
     /// </summary>
-    [DataMember]
     public PublicRSAKey1? PublicKeyValue { get; init; } 
     /// <summary>
     /// Element containing the key information.
     /// </summary>
-    [DataMember]
     public KeyChoiceValue2_? KeyChoiceValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax140Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(NameValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (Identification is IsoMax140Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(IdentificationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (SecurityDomainIdentification is IsoMax35Text SecurityDomainIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SctyDomnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SecurityDomainIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalIdentification is IsoMax35Binary AdditionalIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AddtlId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Binary(AdditionalIdentificationValue)); // data type Max35Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (Version is IsoMax256Text VersionValue)
+        {
+            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(VersionValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (SequenceCounter is IsoNumber SequenceCounterValue)
+        {
+            writer.WriteStartElement(null, "SeqCntr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(SequenceCounterValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Type is CryptographicKeyType3Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Function is KeyUsage1Code FunctionValue)
+        {
+            writer.WriteStartElement(null, "Fctn", xmlNamespace );
+            writer.WriteValue(FunctionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ActivationDate is IsoISODateTime ActivationDateValue)
+        {
+            writer.WriteStartElement(null, "ActvtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ActivationDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (DeactivationDate is IsoISODateTime DeactivationDateValue)
+        {
+            writer.WriteStartElement(null, "DeactvtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(DeactivationDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (KeyCheckValue is IsoMax35Binary KeyCheckValueValue)
+        {
+            writer.WriteStartElement(null, "KeyChckVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Binary(KeyCheckValueValue)); // data type Max35Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (PublicKeyValue is PublicRSAKey1 PublicKeyValueValue)
+        {
+            writer.WriteStartElement(null, "PblcKeyVal", xmlNamespace );
+            PublicKeyValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (KeyChoiceValue is KeyChoiceValue2_ KeyChoiceValueValue)
+        {
+            writer.WriteStartElement(null, "KeyChcVal", xmlNamespace );
+            KeyChoiceValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CryptographicKey12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

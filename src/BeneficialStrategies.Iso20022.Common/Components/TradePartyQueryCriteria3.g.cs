@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details on the queried trade parties.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradePartyQueryCriteria3
+     : IIsoXmlSerilizable<TradePartyQueryCriteria3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the AND/OR operators as query criteria.
     /// </summary>
-    [DataMember]
     public required Operation3Code Operator { get; init; } 
     /// <summary>
     /// Identifies the reporting counterparty of the contract.
     /// </summary>
-    [DataMember]
     public TradePartyIdentificationQuery8? ReportingCounterparty { get; init; } 
     /// <summary>
     /// Identifies the other counterparty of the contract.
     /// </summary>
-    [DataMember]
     public TradePartyIdentificationQuery8? OtherCounterparty { get; init; } 
     /// <summary>
     /// Identifies the party subject to the rights and obligations arising from the contract.
     /// </summary>
-    [DataMember]
     public TradePartyIdentificationQuery8? Beneficiary { get; init; } 
     /// <summary>
     /// Identifies the submitting agent of the reported of the contract.
     /// </summary>
-    [DataMember]
     public TradePartyIdentificationQuery8? SubmittingAgent { get; init; } 
     /// <summary>
     /// Identifies the broker who acts as an intermediary for the reporting counterparty.
     /// </summary>
-    [DataMember]
     public TradePartyIdentificationQuery8? Broker { get; init; } 
     /// <summary>
     /// Unique code for the CCP that has cleared the contract.
     /// </summary>
-    [DataMember]
     public TradePartyIdentificationQuery8? CCP { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Oprtr", xmlNamespace );
+        writer.WriteValue(Operator.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ReportingCounterparty is TradePartyIdentificationQuery8 ReportingCounterpartyValue)
+        {
+            writer.WriteStartElement(null, "RptgCtrPty", xmlNamespace );
+            ReportingCounterpartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherCounterparty is TradePartyIdentificationQuery8 OtherCounterpartyValue)
+        {
+            writer.WriteStartElement(null, "OthrCtrPty", xmlNamespace );
+            OtherCounterpartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Beneficiary is TradePartyIdentificationQuery8 BeneficiaryValue)
+        {
+            writer.WriteStartElement(null, "Bnfcry", xmlNamespace );
+            BeneficiaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SubmittingAgent is TradePartyIdentificationQuery8 SubmittingAgentValue)
+        {
+            writer.WriteStartElement(null, "SubmitgAgt", xmlNamespace );
+            SubmittingAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Broker is TradePartyIdentificationQuery8 BrokerValue)
+        {
+            writer.WriteStartElement(null, "Brkr", xmlNamespace );
+            BrokerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CCP is TradePartyIdentificationQuery8 CCPValue)
+        {
+            writer.WriteStartElement(null, "CCP", xmlNamespace );
+            CCPValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradePartyQueryCriteria3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the line item number and the purchase order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LineItemAndPOIdentification1
+     : IIsoXmlSerilizable<LineItemAndPOIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification assigned to a line item.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax70Text> LineItemIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax70Text? LineItemIdentification { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _RaVOBtp-Ed-ak6NoX_4Aeg_-1638617880
     /// <summary>
     /// Reference to the purchase order containing the line item.
     /// </summary>
-    [DataMember]
     public required DocumentIdentification7 PurchaseOrderReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize LineItemIdentification, multiplicity Unknown
+        writer.WriteStartElement(null, "PurchsOrdrRef", xmlNamespace );
+        PurchaseOrderReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static LineItemAndPOIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Pension scheme tax reference.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxReference1
+     : IIsoXmlSerilizable<TaxReference1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of tax reference.
     /// </summary>
-    [DataMember]
     public TaxReferenceType1Choice_? TaxType { get; init; } 
     /// <summary>
     /// Tax reference.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Reference { get; init; } 
     /// <summary>
     /// Type of reference holder. For example, the transferee's tax reference. The transferee may also be known as the acquiring party.
     /// </summary>
-    [DataMember]
     public TaxReferenceParty1Choice_? HolderType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TaxType is TaxReferenceType1Choice_ TaxTypeValue)
+        {
+            writer.WriteStartElement(null, "TaxTp", xmlNamespace );
+            TaxTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Ref", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Reference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (HolderType is TaxReferenceParty1Choice_ HolderTypeValue)
+        {
+            writer.WriteStartElement(null, "HldrTp", xmlNamespace );
+            HolderTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TaxReference1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

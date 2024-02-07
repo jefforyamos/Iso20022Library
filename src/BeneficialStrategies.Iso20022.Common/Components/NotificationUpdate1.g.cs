@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a previous notification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NotificationUpdate1
+     : IIsoXmlSerilizable<NotificationUpdate1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a previously sent meeting notification message.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text PreviousNotificationIdentification { get; init; } 
     /// <summary>
     /// Indicates whether a meeting instruction must be resent in case the parameters of the meeting are changed and the meeting instruction has already been sent.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ReconfirmInstructions { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrvsNtfctnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(PreviousNotificationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RcnfrmInstrs", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ReconfirmInstructions)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static NotificationUpdate1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

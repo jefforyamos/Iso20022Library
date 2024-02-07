@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the summation of the call amounts for the variation margin and optionaly the segregated independent amount.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MarginCallResult2
+     : IIsoXmlSerilizable<MarginCallResult2>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the summation of the call amounts for the variation margin amount only.
     /// </summary>
-    [DataMember]
     public required Result1 VariationMarginResult { get; init; } 
     /// <summary>
     /// Provides the summation of the call amounts for the segregated independent amount.
     /// </summary>
-    [DataMember]
     public Result1? SegregatedIndependentAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "VartnMrgnRslt", xmlNamespace );
+        VariationMarginResult.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SegregatedIndependentAmount is Result1 SegregatedIndependentAmountValue)
+        {
+            writer.WriteStartElement(null, "SgrtdIndpdntAmt", xmlNamespace );
+            SegregatedIndependentAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MarginCallResult2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

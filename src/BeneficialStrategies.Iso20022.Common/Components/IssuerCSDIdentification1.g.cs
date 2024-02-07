@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the identification of the issuer CSD (central securities depository).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IssuerCSDIdentification1
+     : IIsoXmlSerilizable<IssuerCSDIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification code of the Issuer CSD, using LEI; Legal Entity Identifier (LEI) is a code allocated to a party as described in ISO 17442 'Financial Services - Legal Entity Identifier (LEI)'.
     /// </summary>
-    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     /// <summary>
     /// Identifies the jurisdiction relevant for the financial instrument based on the first two characters of its instrument identification code.
     /// </summary>
-    [DataMember]
     public required IsoExact2UpperCaseAlphaText FirstTwoCharactersInstrumentIdentification { get; init; } 
     /// <summary>
     /// Identifies the country code of the Issuer CSD, using ISO 3166 2-character code. 
     /// </summary>
-    [DataMember]
     public CountryCode? Country { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (LEI is IsoLEIIdentifier LEIValue)
+        {
+            writer.WriteStartElement(null, "LEI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEIValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FrstTwoCharsInstrmId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact2UpperCaseAlphaText(FirstTwoCharactersInstrumentIdentification)); // data type Exact2UpperCaseAlphaText System.String
+        writer.WriteEndElement();
+        if (Country is CountryCode CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(CountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static IssuerCSDIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

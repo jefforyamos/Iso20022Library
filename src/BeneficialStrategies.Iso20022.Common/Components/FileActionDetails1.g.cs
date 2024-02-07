@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the file action to be performed.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FileActionDetails1
+     : IIsoXmlSerilizable<FileActionDetails1>
 {
     #nullable enable
     
@@ -23,26 +24,57 @@ public partial record FileActionDetails1
     /// Identification of the file.
     /// ISO 8583 bit 101
     /// </summary>
-    [DataMember]
     public required IsoMax140Text FileName { get; init; } 
     /// <summary>
     /// Content of record to be added, updated, deleted or replaced.
     /// ISO 8583:93/2003 bit 72
     /// </summary>
-    [DataMember]
     public required IsoMax100KBinary DataRecord { get; init; } 
     /// <summary>
     /// Date when the file action should be performed.
     /// ISO 8583 bit 73.
     /// </summary>
-    [DataMember]
     public IsoISODate? ActionDate { get; init; } 
     /// <summary>
     /// Indicates that the originator of the message is authorised to update the file.
     /// ISO 8583:87 bit 92
     /// </summary>
-    [DataMember]
     public IsoMax35Text? FileSecurityCode { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FileNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(FileName)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DataRcrd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax100KBinary(DataRecord)); // data type Max100KBinary System.Byte[]
+        writer.WriteEndElement();
+        if (ActionDate is IsoISODate ActionDateValue)
+        {
+            writer.WriteStartElement(null, "ActnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ActionDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (FileSecurityCode is IsoMax35Text FileSecurityCodeValue)
+        {
+            writer.WriteStartElement(null, "FileSctyCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(FileSecurityCodeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static FileActionDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

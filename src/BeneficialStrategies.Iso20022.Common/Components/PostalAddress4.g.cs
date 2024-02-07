@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information that locates and identifies a specific address, as defined by postal services.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PostalAddress4
+     : IIsoXmlSerilizable<PostalAddress4>
 {
     #nullable enable
     
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services, that is presented in free format text.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax70Text> AddressLine { get; init; } = [];
+    public SimpleValueList<IsoMax70Text> AddressLine { get; init; } = [];
     /// <summary>
     /// Nation with its own government.
     /// </summary>
-    [DataMember]
     public required CountryCode Country { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AdrLine", xmlNamespace );
+        AddressLine.Serialize(writer, xmlNamespace, "Max70Text", SerializationFormatter.IsoMax70Text );
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Ctry", xmlNamespace );
+        writer.WriteValue(Country.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static PostalAddress4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

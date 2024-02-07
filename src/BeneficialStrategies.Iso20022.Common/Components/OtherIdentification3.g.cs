@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Other accepted financial instrument's identification than ISIN.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OtherIdentification3
+     : IIsoXmlSerilizable<OtherIdentification3>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a security.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINXMax31Text Identification { get; init; } 
     /// <summary>
     /// Identifies the suffix of the security identification.
     /// </summary>
-    [DataMember]
     public IsoMax16Text? Suffix { get; init; } 
     /// <summary>
     /// Type of the identification.
     /// </summary>
-    [DataMember]
     public required IdentificationSource3Choice_ Type { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax31Text(Identification)); // data type RestrictedFINXMax31Text System.String
+        writer.WriteEndElement();
+        if (Suffix is IsoMax16Text SuffixValue)
+        {
+            writer.WriteStartElement(null, "Sfx", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax16Text(SuffixValue)); // data type Max16Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static OtherIdentification3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// General cryptographic message syntax (CMS) containing encrypted data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ContentInformationType20
+     : IIsoXmlSerilizable<ContentInformationType20>
 {
     #nullable enable
     
@@ -25,15 +26,36 @@ public partial record ContentInformationType20
     /// ISO 8583:93 bit 53 or 111
     /// ISO 8583:2003 bit 53 or 50
     /// </summary>
-    [DataMember]
     public required MACData1 MACData { get; init; } 
     /// <summary>
     /// Message Authentication Code data.
     /// Binary, length of 8
     /// ISO 8583 bit 64 or bit 128
     /// </summary>
-    [DataMember]
     public required IsoMax8HexBinaryText MAC { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MACData", xmlNamespace );
+        MACData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MAC", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax8HexBinaryText(MAC)); // data type Max8HexBinaryText System.String
+        writer.WriteEndElement();
+    }
+    public static ContentInformationType20 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

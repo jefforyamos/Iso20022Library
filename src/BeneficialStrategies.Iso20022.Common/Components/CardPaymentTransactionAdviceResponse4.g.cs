@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Card payment completion advice response from the acquirer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardPaymentTransactionAdviceResponse4
+     : IIsoXmlSerilizable<CardPaymentTransactionAdviceResponse4>
 {
     #nullable enable
     
     /// <summary>
     /// Global reference of the sale transaction for the sale system.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SaleReferenceIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the transaction by the POI (Point Of Interaction).
     /// </summary>
-    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the reconciliation period between the acceptor and the acquirer. This identification might be linked to the identification of the settlement for further verification by the merchant.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     /// <summary>
     /// Result of a requested service.
     /// </summary>
-    [DataMember]
     public required Response1Code Response { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SaleReferenceIdentification is IsoMax35Text SaleReferenceIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleRefId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReferenceIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ReconciliationIdentification is IsoMax35Text ReconciliationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcncltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReconciliationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Rspn", xmlNamespace );
+        writer.WriteValue(Response.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static CardPaymentTransactionAdviceResponse4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

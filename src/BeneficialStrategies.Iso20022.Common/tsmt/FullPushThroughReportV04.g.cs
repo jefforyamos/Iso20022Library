@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsmt.FullPushThroughReportV04>;
 
 namespace BeneficialStrategies.Iso20022.tsmt;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// - the details of a BaselineAmendmentRequest message that it has obtained.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The FullPushThroughReport message is sent by the matching application to a party involved in a transaction.|This message is used to pass on information that the matching application has received from the submitter. The forwarded information can originate from an InitialBaselineSubmission or BaselineReSubmission or BaselineAmendmentRequest message.|Usage|The FullPushThroughReport message can be sent by the matching application to a party to convey|- the details of an InitialBaselineSubmission message that it has obtained, or|- the details of a BaselineResubmission message that it has obtained, or|- the details of a BaselineAmendmentRequest message that it has obtained.")]
-public partial record FullPushThroughReportV04 : IOuterRecord
+public partial record FullPushThroughReportV04 : IOuterRecord<FullPushThroughReportV04,FullPushThroughReportV04Document>
+    ,IIsoXmlSerilizable<FullPushThroughReportV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record FullPushThroughReportV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "FullPushThrghRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => FullPushThroughReportV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -91,7 +98,7 @@ public partial record FullPushThroughReportV04 : IOuterRecord
     [Description(@"Reference to the transaction for the financial institution which submitted the baseline.")]
     [DataMember(Name="UsrTxRef")]
     [XmlElement(ElementName="UsrTxRef")]
-    public required IReadOnlyCollection<DocumentIdentification5> UserTransactionReference { get; init; } = []; // Min=0, Max=2
+    public required ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = []; // Min=0, Max=2
     
     /// <summary>
     /// Specifies the type of report.
@@ -176,6 +183,83 @@ public partial record FullPushThroughReportV04 : IOuterRecord
     {
         return new FullPushThroughReportV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("FullPushThrghRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptId", xmlNamespace );
+        ReportIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (EstablishedBaselineIdentification is DocumentIdentification3 EstablishedBaselineIdentificationValue)
+        {
+            writer.WriteStartElement(null, "EstblishdBaselnId", xmlNamespace );
+            EstablishedBaselineIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxSts", xmlNamespace );
+        TransactionStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UsrTxRef", xmlNamespace );
+        UserTransactionReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptPurp", xmlNamespace );
+        ReportPurpose.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PushdThrghBaseln", xmlNamespace );
+        PushedThroughBaseline.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BuyerContactPerson is ContactIdentification1 BuyerContactPersonValue)
+        {
+            writer.WriteStartElement(null, "BuyrCtctPrsn", xmlNamespace );
+            BuyerContactPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SellerContactPerson is ContactIdentification1 SellerContactPersonValue)
+        {
+            writer.WriteStartElement(null, "SellrCtctPrsn", xmlNamespace );
+            SellerContactPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BuyerBankContactPerson is ContactIdentification1 BuyerBankContactPersonValue)
+        {
+            writer.WriteStartElement(null, "BuyrBkCtctPrsn", xmlNamespace );
+            BuyerBankContactPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SellerBankContactPerson is ContactIdentification1 SellerBankContactPersonValue)
+        {
+            writer.WriteStartElement(null, "SellrBkCtctPrsn", xmlNamespace );
+            SellerBankContactPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherBankContactPerson is ContactIdentification3 OtherBankContactPersonValue)
+        {
+            writer.WriteStartElement(null, "OthrBkCtctPrsn", xmlNamespace );
+            OtherBankContactPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequestForAction is PendingActivity2 RequestForActionValue)
+        {
+            writer.WriteStartElement(null, "ReqForActn", xmlNamespace );
+            RequestForActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FullPushThroughReportV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -183,9 +267,7 @@ public partial record FullPushThroughReportV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FullPushThroughReportV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record FullPushThroughReportV04Document : IOuterDocument<FullPushThroughReportV04>
+public partial record FullPushThroughReportV04Document : IOuterDocument<FullPushThroughReportV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -201,5 +283,22 @@ public partial record FullPushThroughReportV04Document : IOuterDocument<FullPush
     /// <summary>
     /// The instance of <seealso cref="FullPushThroughReportV04"/> is required.
     /// </summary>
+    [DataMember(Name=FullPushThroughReportV04.XmlTag)]
     public required FullPushThroughReportV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(FullPushThroughReportV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

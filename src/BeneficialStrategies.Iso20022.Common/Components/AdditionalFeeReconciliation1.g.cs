@@ -7,45 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains additional fee reconciliation data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalFeeReconciliation1
+     : IIsoXmlSerilizable<AdditionalFeeReconciliation1>
 {
     #nullable enable
     
     /// <summary>
     /// Reconciliation credit or debit indicator.
     /// </summary>
-    [DataMember]
     public required ReconciliationImpact1Code ReconciliationImpact { get; init; } 
     /// <summary>
     /// contains the list of additional fee types.
     /// </summary>
-    [DataMember]
     public required TypeOfAmount10Code Type { get; init; } 
     /// <summary>
     /// Other amount type defined at national or private level.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Cumulative amount of all financial transactions.
     /// ISO 8583:87 bit 82, 83, 84 & 85
     /// ISO 8583:93/2003 bit 109 & 110
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Number of transactions.
     /// </summary>
-    [DataMember]
     public required IsoNumber Count { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RcncltnImpct", xmlNamespace );
+        writer.WriteValue(ReconciliationImpact.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherType is IsoMax35Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(Amount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Cnt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(Count)); // data type Number System.UInt64
+        writer.WriteEndElement();
+    }
+    public static AdditionalFeeReconciliation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

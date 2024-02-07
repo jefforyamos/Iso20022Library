@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines commodity sub-product attributes of an industrial product derivative of type manufacturing.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IndustrialProductCommodityManufacturing1
+     : IIsoXmlSerilizable<IndustrialProductCommodityManufacturing1>
 {
     #nullable enable
     
     /// <summary>
     /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
     /// </summary>
-    [DataMember]
     public required AssetClassProductType6Code BaseProduct { get; init; } 
     /// <summary>
     /// Sub-product for the underlying asset class.
     /// </summary>
-    [DataMember]
     public AssetClassSubProductType34Code? SubProduct { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BasePdct", xmlNamespace );
+        writer.WriteValue(BaseProduct.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SubProduct is AssetClassSubProductType34Code SubProductValue)
+        {
+            writer.WriteStartElement(null, "SubPdct", xmlNamespace );
+            writer.WriteValue(SubProductValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static IndustrialProductCommodityManufacturing1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

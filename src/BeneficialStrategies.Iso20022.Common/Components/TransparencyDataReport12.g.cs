@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides for reporting calculation results of equity instruments as part of transparency.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransparencyDataReport12
+     : IIsoXmlSerilizable<TransparencyDataReport12>
 {
     #nullable enable
     
@@ -24,50 +25,109 @@ public partial record TransparencyDataReport12
     /// Usage:
     /// This identification will be used in the status advice report sent back.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
-    [DataMember]
     public required IsoISINOct2015Identifier Identification { get; init; } 
     /// <summary>
     /// Full name of the reporting entity.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? FullName { get; init; } 
     /// <summary>
     /// Segment MIC for the trading venue where applicable, otherwise the operational MIC.
     /// </summary>
-    [DataMember]
     public IsoMICIdentifier? TradingVenue { get; init; } 
     /// <summary>
     /// Period to which the quantitative data fields relate.
     /// </summary>
-    [DataMember]
     public Period4Choice_? ReportingPeriod { get; init; } 
     /// <summary>
     /// Flag to say if this ISIN is liquid or not post calculations.
     /// Usage:
     /// When not present, this field should be treated as not applicable.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? Liquidity { get; init; } 
     /// <summary>
     /// Methodology that has been used to calculate the result.
     /// </summary>
-    [DataMember]
     public TransparencyMethodology2Code? Methodology { get; init; } 
     /// <summary>
     /// Statistics for a financial instrument generated as part of transparency calculations.
     /// </summary>
-    [DataMember]
     public StatisticsTransparency3? Statistics { get; init; } 
     /// <summary>
     /// Specific market details related to the most relevant market in terms of liquidity.
     /// </summary>
-    [DataMember]
     public MarketDetail2? RelevantMarket { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TechnicalRecordIdentification is IsoMax35Text TechnicalRecordIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TechnicalRecordIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(Identification)); // data type ISINOct2015Identifier System.String
+        writer.WriteEndElement();
+        if (FullName is IsoMax350Text FullNameValue)
+        {
+            writer.WriteStartElement(null, "FullNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(FullNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (TradingVenue is IsoMICIdentifier TradingVenueValue)
+        {
+            writer.WriteStartElement(null, "TradgVn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(TradingVenueValue)); // data type MICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (ReportingPeriod is Period4Choice_ ReportingPeriodValue)
+        {
+            writer.WriteStartElement(null, "RptgPrd", xmlNamespace );
+            ReportingPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Liquidity is IsoTrueFalseIndicator LiquidityValue)
+        {
+            writer.WriteStartElement(null, "Lqdty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(LiquidityValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Methodology is TransparencyMethodology2Code MethodologyValue)
+        {
+            writer.WriteStartElement(null, "Mthdlgy", xmlNamespace );
+            writer.WriteValue(MethodologyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Statistics is StatisticsTransparency3 StatisticsValue)
+        {
+            writer.WriteStartElement(null, "Sttstcs", xmlNamespace );
+            StatisticsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelevantMarket is MarketDetail2 RelevantMarketValue)
+        {
+            writer.WriteStartElement(null, "RlvntMkt", xmlNamespace );
+            RelevantMarketValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransparencyDataReport12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

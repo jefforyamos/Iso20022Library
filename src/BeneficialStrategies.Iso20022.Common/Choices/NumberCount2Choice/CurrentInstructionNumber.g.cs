@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.NumberCount2Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.NumberCount2Choice;
 /// Sequential number of the instruction in a range of linked settlement instructions.
 /// </summary>
 public partial record CurrentInstructionNumber : NumberCount2Choice_
+     , IIsoXmlSerilizable<CurrentInstructionNumber>
 {
-    public required IsoMax6NumericText Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a numeric string with a maximum length of 6 digits.
+    /// </summary>
+    public required IsoMax6NumericText Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CurInstrNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax6NumericText(Value)); // data type Max6NumericText System.String
+        writer.WriteEndElement();
+    }
+    public static new CurrentInstructionNumber Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

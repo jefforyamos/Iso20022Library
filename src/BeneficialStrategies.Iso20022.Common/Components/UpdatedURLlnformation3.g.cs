@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional information with update description and date.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UpdatedURLlnformation3
+     : IIsoXmlSerilizable<UpdatedURLlnformation3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the amendments made to the narrative since the last message.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax140Text? UpdateDescription { get; init; } 
     /// <summary>
     /// Specifies the date at which the narrative has been updated.
     /// </summary>
-    [DataMember]
     public IsoISODate? UpdateDate { get; init; } 
     /// <summary>
     /// Provides the web address, that is, the address for the Universal Resource Locator (URL), to use over the www (HTTP) service where additional information may be found.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINZMax256Text URLAddress { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (UpdateDescription is IsoRestrictedFINXMax140Text UpdateDescriptionValue)
+        {
+            writer.WriteStartElement(null, "UpdDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax140Text(UpdateDescriptionValue)); // data type RestrictedFINXMax140Text System.String
+            writer.WriteEndElement();
+        }
+        if (UpdateDate is IsoISODate UpdateDateValue)
+        {
+            writer.WriteStartElement(null, "UpdDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(UpdateDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "URLAdr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINZMax256Text(URLAddress)); // data type RestrictedFINZMax256Text System.String
+        writer.WriteEndElement();
+    }
+    public static UpdatedURLlnformation3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

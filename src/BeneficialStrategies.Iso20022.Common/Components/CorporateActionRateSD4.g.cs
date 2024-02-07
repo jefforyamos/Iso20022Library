@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action option securities movement rate details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionRateSD4
+     : IIsoXmlSerilizable<CorporateActionRateSD4>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Corresponding rate of the security disbursed by CSD (for an example in US, DTC The Depository Trust Corporation).
     /// </summary>
-    [DataMember]
     public RatioFormat13Choice_? CSDSecurityRate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (CSDSecurityRate is RatioFormat13Choice_ CSDSecurityRateValue)
+        {
+            writer.WriteStartElement(null, "CSDSctyRate", xmlNamespace );
+            CSDSecurityRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionRateSD4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

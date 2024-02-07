@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a cryptographic algorithm and parameters for digital signatures.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AlgorithmIdentification4
+     : IIsoXmlSerilizable<AlgorithmIdentification4>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the algorithm.
     /// </summary>
-    [DataMember]
     public required Algorithm4Code Algorithm { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Algo", xmlNamespace );
+        writer.WriteValue(Algorithm.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static AlgorithmIdentification4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

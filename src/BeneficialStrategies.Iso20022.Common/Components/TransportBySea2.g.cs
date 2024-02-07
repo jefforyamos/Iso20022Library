@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related for the transportation of goods by sea.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransportBySea2
+     : IIsoXmlSerilizable<TransportBySea2>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the port where the goods are loaded on board the ship.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text PortOfLoading { get; init; } 
     /// <summary>
     /// Identifies the port where the goods are discharged.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text PortOfDischarge { get; init; } 
     /// <summary>
     /// Name of a vessel.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? VesselName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PortOfLoadng", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(PortOfLoading)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PortOfDschrge", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(PortOfDischarge)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (VesselName is IsoMax35Text VesselNameValue)
+        {
+            writer.WriteStartElement(null, "VsslNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(VesselNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TransportBySea2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

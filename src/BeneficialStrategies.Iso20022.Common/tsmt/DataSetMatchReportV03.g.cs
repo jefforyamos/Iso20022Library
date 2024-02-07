@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsmt.DataSetMatchReportV03>;
 
 namespace BeneficialStrategies.Iso20022.tsmt;
 
@@ -31,10 +34,9 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// The DataSetMatchReport message can be sent by the matching application to the party requesting a data set match or pre-match for a transaction established in the lodge mode. In the outlined scenario, the DataSetMatchReport will either inform about the successful match or list the mis-matches between the data set(s) conveyed with the DataSetSubmission message and the related baseline.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The DataSetMatchReport message is sent by the matching application to the parties involved in a data set match.|This message is used to either|- inform about the successful match of data sets submitted with the instruction match or pre-match (DataSetSubmission message) and the related baseline,or|- inform about mis-matches found between data sets submitted with the instruction match or pre-match (DataSetSubmission message) and the related baseline.|Usage|The DataSetMatchReport message can be sent by the matching application to the party requesting a data set pre-match for a transaction established in the push-through mode. In the outlined scenario, the DataSetMatchReport message will either inform about the successful pre-match or list the mis-matches between the data set(s) conveyed with the DataSetSubmission message and the related baseline.|or|The DataSetMatchReport message can be sent by the matching application to the parties involved in a data set match for a transaction established in the push-through mode. In the outlined scenario, the DataSetMatchReport message will either inform about the successful match or list the mis-matches between the data set(s) conveyed with the DataSetSubmission message and the related baseline.|or|The DataSetMatchReport message can be sent by the matching application to the party requesting a data set match or pre-match for a transaction established in the lodge mode. In the outlined scenario, the DataSetMatchReport will either inform about the successful match or list the mis-matches between the data set(s) conveyed with the DataSetSubmission message and the related baseline.")]
-public partial record DataSetMatchReportV03 : IOuterRecord
+public partial record DataSetMatchReportV03 : IOuterRecord<DataSetMatchReportV03,DataSetMatchReportV03Document>
+    ,IIsoXmlSerilizable<DataSetMatchReportV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -46,6 +48,11 @@ public partial record DataSetMatchReportV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "DataSetMtchRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => DataSetMatchReportV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -95,7 +102,7 @@ public partial record DataSetMatchReportV03 : IOuterRecord
     [Description(@"Reference to the transaction for each financial institution which is a party to the transaction.")]
     [DataMember(Name="UsrTxRef")]
     [XmlElement(ElementName="UsrTxRef")]
-    public required IReadOnlyCollection<DocumentIdentification5> UserTransactionReference { get; init; } = []; // Min=0, Max=2
+    public required ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = []; // Min=0, Max=2
     
     /// <summary>
     /// Party that buys goods or services, or a financial instrument.
@@ -144,7 +151,7 @@ public partial record DataSetMatchReportV03 : IOuterRecord
     [Description(@"Identifies the documents compared in this report.")]
     [DataMember(Name="CmpardDocRef")]
     [XmlElement(ElementName="CmpardDocRef")]
-    public DocumentIdentification10? ComparedDocumentReference { get; init; } // WARNING: Cardinality could not be determined.
+    public ValueList<DocumentIdentification10> ComparedDocumentReference { get; init; } = []; // WARNING: Cardinality could not be determined.
     
     /// <summary>
     /// Specifies whether the data set was submitted for match or pre-match.
@@ -184,6 +191,63 @@ public partial record DataSetMatchReportV03 : IOuterRecord
     {
         return new DataSetMatchReportV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("DataSetMtchRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptId", xmlNamespace );
+        ReportIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EstblishdBaselnId", xmlNamespace );
+        EstablishedBaselineIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxSts", xmlNamespace );
+        TransactionStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UsrTxRef", xmlNamespace );
+        UserTransactionReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Buyr", xmlNamespace );
+        Buyer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sellr", xmlNamespace );
+        Seller.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BuyrBk", xmlNamespace );
+        BuyerBank.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SellrBk", xmlNamespace );
+        SellerBank.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize ComparedDocumentReference, multiplicity Unknown
+        writer.WriteStartElement(null, "SubmissnTp", xmlNamespace );
+        SubmissionType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rpt", xmlNamespace );
+        Report.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RequestForAction is PendingActivity2 RequestForActionValue)
+        {
+            writer.WriteStartElement(null, "ReqForActn", xmlNamespace );
+            RequestForActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DataSetMatchReportV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -191,9 +255,7 @@ public partial record DataSetMatchReportV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DataSetMatchReportV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record DataSetMatchReportV03Document : IOuterDocument<DataSetMatchReportV03>
+public partial record DataSetMatchReportV03Document : IOuterDocument<DataSetMatchReportV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -209,5 +271,22 @@ public partial record DataSetMatchReportV03Document : IOuterDocument<DataSetMatc
     /// <summary>
     /// The instance of <seealso cref="DataSetMatchReportV03"/> is required.
     /// </summary>
+    [DataMember(Name=DataSetMatchReportV03.XmlTag)]
     public required DataSetMatchReportV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(DataSetMatchReportV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

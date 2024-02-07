@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the reconciliation period between the acquirer and the issuer or their respective agents.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionIdentifier2
+     : IIsoXmlSerilizable<TransactionIdentifier2>
 {
     #nullable enable
     
@@ -23,14 +24,38 @@ public partial record TransactionIdentifier2
     /// Date of the reconciliation.
     /// It correspond to the ISO 8583 field number 28 for the versions 1993 and 2003.
     /// </summary>
-    [DataMember]
     public required IsoISODate ReconciliationDate { get; init; } 
     /// <summary>
     /// Identification of the reconciliation.
     /// It correspond to the ISO 8583 field number 29 for the versions 1993 and 2003.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RcncltnDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ReconciliationDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (ReconciliationIdentification is IsoMax35Text ReconciliationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcncltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReconciliationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionIdentifier2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

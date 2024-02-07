@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status of a POI component (Point of Interaction).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PointOfInteractionComponentStatus3
+     : IIsoXmlSerilizable<PointOfInteractionComponentStatus3>
 {
     #nullable enable
     
     /// <summary>
     /// Current version of the component that might include the release number.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? VersionNumber { get; init; } 
     /// <summary>
     /// Current status of the component.
     /// </summary>
-    [DataMember]
     public POIComponentStatus1Code? Status { get; init; } 
     /// <summary>
     /// Expiration date of the component.
     /// </summary>
-    [DataMember]
     public IsoISODate? ExpiryDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (VersionNumber is IsoMax256Text VersionNumberValue)
+        {
+            writer.WriteStartElement(null, "VrsnNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(VersionNumberValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (Status is POIComponentStatus1Code StatusValue)
+        {
+            writer.WriteStartElement(null, "Sts", xmlNamespace );
+            writer.WriteValue(StatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExpiryDate is IsoISODate ExpiryDateValue)
+        {
+            writer.WriteStartElement(null, "XpryDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExpiryDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static PointOfInteractionComponentStatus3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

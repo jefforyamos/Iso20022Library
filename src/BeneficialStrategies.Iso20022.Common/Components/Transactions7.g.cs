@@ -7,33 +7,62 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reports on transactions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Transactions7
+     : IIsoXmlSerilizable<Transactions7>
 {
     #nullable enable
     
     /// <summary>
     /// Common detailed payment instruction information.
     /// </summary>
-    [DataMember]
     public PaymentCommon3? PaymentCommonInformation { get; init; } 
     /// <summary>
     /// Indicates the total number and sum of the transactions.
     /// </summary>
-    [DataMember]
     public NumberAndSumOfTransactions2? TransactionsSummary { get; init; } 
     /// <summary>
     /// Reports either on the transaction information or on a business error.
     /// </summary>
-    [DataMember]
-    public ValueList<TransactionReport4> TransactionReport { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransactionReport4? TransactionReport { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _NAXwTZlPEee-Zps0fZQaFQ
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PaymentCommonInformation is PaymentCommon3 PaymentCommonInformationValue)
+        {
+            writer.WriteStartElement(null, "PmtCmonInf", xmlNamespace );
+            PaymentCommonInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionsSummary is NumberAndSumOfTransactions2 TransactionsSummaryValue)
+        {
+            writer.WriteStartElement(null, "TxsSummry", xmlNamespace );
+            TransactionsSummaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize TransactionReport, multiplicity Unknown
+    }
+    public static Transactions7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

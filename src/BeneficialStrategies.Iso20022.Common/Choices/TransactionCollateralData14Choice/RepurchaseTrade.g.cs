@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TransactionCollateralData14Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionCollateralData14Choic
 /// Data on collateral used for the repurchase trade transaction.
 /// </summary>
 public partial record RepurchaseTrade : TransactionCollateralData14Choice_
+     , IIsoXmlSerilizable<RepurchaseTrade>
 {
     #nullable enable
+    
     /// <summary>
     /// Date on which the counterparties contractually agree the exchange of cash, securities, or commodities versus collateral for the opening leg (spot leg) of the transaction.
     /// </summary>
@@ -31,5 +35,47 @@ public partial record RepurchaseTrade : TransactionCollateralData14Choice_
     /// Identification of the collateral basket.
     /// </summary>
     public SecurityIdentification26Choice_? BasketIdentifier { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CollateralValueDate is IsoISODate CollateralValueDateValue)
+        {
+            writer.WriteStartElement(null, "CollValDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(CollateralValueDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (AssetType is CollateralType14 AssetTypeValue)
+        {
+            writer.WriteStartElement(null, "AsstTp", xmlNamespace );
+            AssetTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NetExposureCollateralisationIndicator is IsoTrueFalseIndicator NetExposureCollateralisationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NetXpsrCollstnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(NetExposureCollateralisationIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (BasketIdentifier is SecurityIdentification26Choice_ BasketIdentifierValue)
+        {
+            writer.WriteStartElement(null, "BsktIdr", xmlNamespace );
+            BasketIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new RepurchaseTrade Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

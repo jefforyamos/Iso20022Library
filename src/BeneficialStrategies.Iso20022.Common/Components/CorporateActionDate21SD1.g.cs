@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Extension to cater for specific corporate action dates.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionDate21SD1
+     : IIsoXmlSerilizable<CorporateActionDate21SD1>
 {
     #nullable enable
     
@@ -23,79 +24,161 @@ public partial record CorporateActionDate21SD1
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance. 
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Date and time of notification via web service as reference information.
     /// 通知日時 Notification date and time.
     /// </summary>
-    [DataMember]
     public DateFormat22Choice_? WebServiceNotificationDate { get; init; } 
     /// <summary>
     /// Date and time of previous notification via web service as a reference information (in case of replacement). 
     /// 訂正（削除）前通知日時.
     /// </summary>
-    [DataMember]
     public DateFormat22Choice_? PreviousWebServiceNotificationDate { get; init; } 
     /// <summary>
     /// Actual record date - the previous business day of the record date if the record date falls to Saturday, Sunday or national holiday.
     /// 権利確定日.
     /// </summary>
-    [DataMember]
     public DateFormat22Choice_? ActualRecordDate { get; init; } 
     /// <summary>
     /// Date of the board meeting.
     /// 取締役会決議日.
     /// </summary>
-    [DataMember]
     public DateFormat22Choice_? BoardMeetingDate { get; init; } 
     /// <summary>
     /// Date on which the new company will be registered.
     /// 新設会社登記日.
     /// </summary>
-    [DataMember]
     public DateFormat22Choice_? CorporateRegistrationDate { get; init; } 
     /// <summary>
     /// Earliest planned date on which the issue price will be set.
     /// 発行価格決定予定日（最短）.
     /// </summary>
-    [DataMember]
     public DateFormat22Choice_? EarliestPlannedDateOfIssuePrice { get; init; } 
     /// <summary>
     /// Latest planned date on which the issue price will be set.
     /// 発行価格決定予定日（最長）.
     /// </summary>
-    [DataMember]
     public DateFormat22Choice_? LatestPlannedDateOfIssuePrice { get; init; } 
     /// <summary>
     /// Date on which the issue price will be set.
     /// 発行価格決定日.
     /// </summary>
-    [DataMember]
     public DateFormat22Choice_? DateOfIssuePrice { get; init; } 
     /// <summary>
     /// Earliest planned date on which the cash payment (for the subscription cost) will be made.
     /// 払込期日予定日（最短）.
     /// </summary>
-    [DataMember]
     public DateFormat22Choice_? EarliestPlannedSubscriptionCostPaymentDate { get; init; } 
     /// <summary>
     /// Latest planned date on which the cash payment (for the subscription cost) will be made.
     /// 払込期日予定日（最長）.
     /// </summary>
-    [DataMember]
     public DateFormat22Choice_? LatestPlannedSubscriptionCostPaymentDate { get; init; } 
     /// <summary>
     /// Listing date of the new shares announced by Stock Exchange.
     /// 変更上場日.
     /// </summary>
-    [DataMember]
     public DateFormat22Choice_? SubsequentListingDate { get; init; } 
     /// <summary>
     /// Date at which the new share unit quantity becomes effective.
     /// </summary>
-    [DataMember]
     public DateFormat22Choice_? NewShareUnitQuantityEffectiveDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (WebServiceNotificationDate is DateFormat22Choice_ WebServiceNotificationDateValue)
+        {
+            writer.WriteStartElement(null, "WebSvcNtfctnDt", xmlNamespace );
+            WebServiceNotificationDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousWebServiceNotificationDate is DateFormat22Choice_ PreviousWebServiceNotificationDateValue)
+        {
+            writer.WriteStartElement(null, "PrvsWebSvcNtfctnDt", xmlNamespace );
+            PreviousWebServiceNotificationDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ActualRecordDate is DateFormat22Choice_ ActualRecordDateValue)
+        {
+            writer.WriteStartElement(null, "ActlRcrdDt", xmlNamespace );
+            ActualRecordDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BoardMeetingDate is DateFormat22Choice_ BoardMeetingDateValue)
+        {
+            writer.WriteStartElement(null, "BrdMtgDt", xmlNamespace );
+            BoardMeetingDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CorporateRegistrationDate is DateFormat22Choice_ CorporateRegistrationDateValue)
+        {
+            writer.WriteStartElement(null, "CorpRegnDt", xmlNamespace );
+            CorporateRegistrationDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EarliestPlannedDateOfIssuePrice is DateFormat22Choice_ EarliestPlannedDateOfIssuePriceValue)
+        {
+            writer.WriteStartElement(null, "EarlstPlandDtOfIssePric", xmlNamespace );
+            EarliestPlannedDateOfIssuePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LatestPlannedDateOfIssuePrice is DateFormat22Choice_ LatestPlannedDateOfIssuePriceValue)
+        {
+            writer.WriteStartElement(null, "LatstPlandDtOfIssePric", xmlNamespace );
+            LatestPlannedDateOfIssuePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DateOfIssuePrice is DateFormat22Choice_ DateOfIssuePriceValue)
+        {
+            writer.WriteStartElement(null, "DtOfIssePric", xmlNamespace );
+            DateOfIssuePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EarliestPlannedSubscriptionCostPaymentDate is DateFormat22Choice_ EarliestPlannedSubscriptionCostPaymentDateValue)
+        {
+            writer.WriteStartElement(null, "EarlstPlandSbcptCostPmtDt", xmlNamespace );
+            EarliestPlannedSubscriptionCostPaymentDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LatestPlannedSubscriptionCostPaymentDate is DateFormat22Choice_ LatestPlannedSubscriptionCostPaymentDateValue)
+        {
+            writer.WriteStartElement(null, "LatstPlandSbcptCostPmtDt", xmlNamespace );
+            LatestPlannedSubscriptionCostPaymentDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SubsequentListingDate is DateFormat22Choice_ SubsequentListingDateValue)
+        {
+            writer.WriteStartElement(null, "SbsqntListgDt", xmlNamespace );
+            SubsequentListingDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewShareUnitQuantityEffectiveDate is DateFormat22Choice_ NewShareUnitQuantityEffectiveDateValue)
+        {
+            writer.WriteStartElement(null, "NewShrUnitQtyFctvDt", xmlNamespace );
+            NewShareUnitQuantityEffectiveDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionDate21SD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Travel agency component provides details of travel agency, airline, or railway transactions. 
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TravelAgency3
+     : IIsoXmlSerilizable<TravelAgency3>
 {
     #nullable enable
     
     /// <summary>
     /// Information describing the travel agency or party providing travel-related services. 
     /// </summary>
-    [DataMember]
     public PartyIdentification261? Company { get; init; } 
     /// <summary>
     /// Provides detailed information about the travel package, excluding specific itinerary data. 
     /// </summary>
-    [DataMember]
-    public ValueList<TravelAgencyPackage1> TravelPackage { get; init; } = []; // Warning: Don't know multiplicity.
+    public TravelAgencyPackage1? TravelPackage { get; init; } 
     /// <summary>
     /// Provides additional travel details.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Company is PartyIdentification261 CompanyValue)
+        {
+            writer.WriteStartElement(null, "Cpny", xmlNamespace );
+            CompanyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TravelPackage is TravelAgencyPackage1 TravelPackageValue)
+        {
+            writer.WriteStartElement(null, "TrvlPackg", xmlNamespace );
+            TravelPackageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is IsoMax350Text AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalDataValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TravelAgency3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

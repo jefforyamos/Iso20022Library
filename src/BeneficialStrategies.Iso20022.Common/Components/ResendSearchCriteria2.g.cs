@@ -7,49 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria to extract the message(s) which should be resent.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ResendSearchCriteria2
+     : IIsoXmlSerilizable<ResendSearchCriteria2>
 {
     #nullable enable
     
     /// <summary>
     /// Date of the business day of the requested messages the resend function is used for.
     /// </summary>
-    [DataMember]
     public IsoISODate? BusinessDate { get; init; } 
     /// <summary>
     /// Independent counter for message sequence, which is available once per party technical address.|Specifies the identification sequence number for a specific couple sender/receiver.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SequenceNumber { get; init; } 
     /// <summary>
     /// Independent counter for a range of message sequences, which are available once per party technical address.
     /// Specifies the range of identification sequence numbers for a specific couple sender/receiver.
     /// </summary>
-    [DataMember]
     public SequenceRange1Choice_? SequenceRange { get; init; } 
     /// <summary>
     /// Unambiguously identifies the original bsiness message, which was delivered by the business sender.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalMessageNameIdentification { get; init; } 
     /// <summary>
     /// String of characters that uniquely identifies the file, which was delivered by the sender.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? FileReference { get; init; } 
     /// <summary>
     /// Unique identification to unambiguously identify the recipient of the report message.
     /// </summary>
-    [DataMember]
     public required PartyIdentification136 Recipient { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (BusinessDate is IsoISODate BusinessDateValue)
+        {
+            writer.WriteStartElement(null, "BizDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(BusinessDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SequenceNumber is IsoMax35Text SequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "SeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SequenceNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SequenceRange is SequenceRange1Choice_ SequenceRangeValue)
+        {
+            writer.WriteStartElement(null, "SeqRg", xmlNamespace );
+            SequenceRangeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalMessageNameIdentification is IsoMax35Text OriginalMessageNameIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlMsgNmId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalMessageNameIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (FileReference is IsoMax35Text FileReferenceValue)
+        {
+            writer.WriteStartElement(null, "FileRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(FileReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Rcpt", xmlNamespace );
+        Recipient.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ResendSearchCriteria2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

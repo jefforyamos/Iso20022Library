@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique identifier of an account, as assigned by the account servicer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountIdentification2
+     : IIsoXmlSerilizable<AccountIdentification2>
 {
     #nullable enable
     
     /// <summary>
     /// International Bank Account Number (IBAN) - identifier used internationally by financial institutions to uniquely identify the account of a customer. Further specifications of the format and content of the IBAN can be found in the standard ISO 13616 "Banking and related financial services - International Bank Account Number (IBAN)" version 1997-10-01, or later revisions.
     /// </summary>
-    [DataMember]
     public required IsoIBANIdentifier IBAN { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IBAN", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoIBANIdentifier(IBAN)); // data type IBANIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static AccountIdentification2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

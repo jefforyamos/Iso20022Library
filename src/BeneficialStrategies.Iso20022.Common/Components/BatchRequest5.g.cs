@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data to request a batch service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BatchRequest5
+     : IIsoXmlSerilizable<BatchRequest5>
 {
     #nullable enable
     
     /// <summary>
     /// Sale System identification of the batch in an unambiguous way.
     /// </summary>
-    [DataMember]
     public TransactionIdentifier1? SaleBatchIdentification { get; init; } 
     /// <summary>
     /// Flag to remove all the transactions.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? RemoveAllFlag { get; init; } 
     /// <summary>
     /// Content of the Batch Request message.
     /// </summary>
-    [DataMember]
-    public ValueList<TransactionToPerform5Choice_> TransactionToPerform { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransactionToPerform5Choice_? TransactionToPerform { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SaleBatchIdentification is TransactionIdentifier1 SaleBatchIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleBtchId", xmlNamespace );
+            SaleBatchIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RemoveAllFlag is IsoTrueFalseIndicator RemoveAllFlagValue)
+        {
+            writer.WriteStartElement(null, "RmvAllFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(RemoveAllFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionToPerform is TransactionToPerform5Choice_ TransactionToPerformValue)
+        {
+            writer.WriteStartElement(null, "TxToPrfrm", xmlNamespace );
+            TransactionToPerformValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BatchRequest5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information on the system restriction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SystemRestriction1
+     : IIsoXmlSerilizable<SystemRestriction1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the date from which the restriction is valid.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime ValidFrom { get; init; } 
     /// <summary>
     /// Specifies the date until which the restriction is valid.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ValidTo { get; init; } 
     /// <summary>
     /// Specifies the identification of a restriction.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "VldFr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(ValidFrom)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (ValidTo is IsoISODateTime ValidToValue)
+        {
+            writer.WriteStartElement(null, "VldTo", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ValidToValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Type)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static SystemRestriction1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

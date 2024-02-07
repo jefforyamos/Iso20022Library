@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Sound to play.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SoundContent1
+     : IIsoXmlSerilizable<SoundContent1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of sound to play, as a reference to a sound, a reference to a Message, or a Text to read.
     /// </summary>
-    [DataMember]
     public required SoundFormat1Code SoundFormat { get; init; } 
     /// <summary>
     /// Language of the text to play if Text-To-Speech is used.
     /// </summary>
-    [DataMember]
     public LanguageCode? Language { get; init; } 
     /// <summary>
     /// Reference of a predefined message to play (Sound or text file name, URL, etc.).
     /// </summary>
-    [DataMember]
     public IsoMax500Text? SoundReference { get; init; } 
     /// <summary>
     /// Content of text message to play (Text-to-Speech).
     /// </summary>
-    [DataMember]
     public IsoMax1025Text? Text { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SoundFrmt", xmlNamespace );
+        writer.WriteValue(SoundFormat.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Language is LanguageCode LanguageValue)
+        {
+            writer.WriteStartElement(null, "Lang", xmlNamespace );
+            writer.WriteValue(LanguageValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SoundReference is IsoMax500Text SoundReferenceValue)
+        {
+            writer.WriteStartElement(null, "SoundRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Text(SoundReferenceValue)); // data type Max500Text System.String
+            writer.WriteEndElement();
+        }
+        if (Text is IsoMax1025Text TextValue)
+        {
+            writer.WriteStartElement(null, "Txt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1025Text(TextValue)); // data type Max1025Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SoundContent1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

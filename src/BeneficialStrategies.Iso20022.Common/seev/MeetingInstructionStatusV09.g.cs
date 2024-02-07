@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.MeetingInstructionStatusV09>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -30,10 +33,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// This message definition is intended for use with the Business Application Header (BAH).
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The MeetingInstructionStatus message is sent by an intermediary to the sender of an instruction to confirm the status of such an instruction. The message gives the status of a complete message or of one or more specific instructions within the message.|The message may also be sent by the issuer or the intermediary to confirm that a vote has been cast.|Usage|The MeetingInstructionStatus message is used for four purposes.|First, it is used to provide a global processing or rejection status of a MeetingInstruction message.|Second, it provides the status on the processing of a MeetingInstructionCancellationRequest message, for example, whether the request message is rejected or accepted.|Third, it is used to provide a detailed processing or rejection status of one or more instructions within the MeetingInstruction message, for example, for each instruction in the MeetingInstruction message the processing or rejection status is individually reported by using the SingleInstructionIdentification element. This identification allows the receiver of the status message to link the status confirmation to its original instruction.|Fourth, it is used to confirm that the related vote instruction has been confirmed as cast by the issuer or its agent.|This message definition is intended for use with the Business Application Header (BAH).")]
-public partial record MeetingInstructionStatusV09 : IOuterRecord
+public partial record MeetingInstructionStatusV09 : IOuterRecord<MeetingInstructionStatusV09,MeetingInstructionStatusV09Document>
+    ,IIsoXmlSerilizable<MeetingInstructionStatusV09>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -45,6 +47,11 @@ public partial record MeetingInstructionStatusV09 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MtgInstrSts";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => MeetingInstructionStatusV09Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -123,7 +130,7 @@ public partial record MeetingInstructionStatusV09 : IOuterRecord
     [Description(@"Owner of the voting rights.")]
     [DataMember(Name="RghtsHldr")]
     [XmlElement(ElementName="RghtsHldr")]
-    public required IReadOnlyCollection<PartyIdentification246Choice_> RightsHolder { get; init; } = []; // Min=0, Max=250
+    public required ValueList<PartyIdentification246Choice_> RightsHolder { get; init; } = []; // Min=0, Max=250
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
@@ -143,6 +150,56 @@ public partial record MeetingInstructionStatusV09 : IOuterRecord
     {
         return new MeetingInstructionStatusV09Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MtgInstrSts");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "InstrTp", xmlNamespace );
+        InstructionType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MtgRef", xmlNamespace );
+        MeetingReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InstrTpSts", xmlNamespace );
+        InstructionTypeStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Position is EligiblePosition17 PositionValue)
+        {
+            writer.WriteStartElement(null, "Pos", xmlNamespace );
+            PositionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CnfrmgPty", xmlNamespace );
+        ConfirmingParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "VoteCstgPty", xmlNamespace );
+        VoteCastingParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RghtsHldr", xmlNamespace );
+        RightsHolder.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MeetingInstructionStatusV09 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -150,9 +207,7 @@ public partial record MeetingInstructionStatusV09 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingInstructionStatusV09"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record MeetingInstructionStatusV09Document : IOuterDocument<MeetingInstructionStatusV09>
+public partial record MeetingInstructionStatusV09Document : IOuterDocument<MeetingInstructionStatusV09>, IXmlSerializable
 {
     
     /// <summary>
@@ -168,5 +223,22 @@ public partial record MeetingInstructionStatusV09Document : IOuterDocument<Meeti
     /// <summary>
     /// The instance of <seealso cref="MeetingInstructionStatusV09"/> is required.
     /// </summary>
+    [DataMember(Name=MeetingInstructionStatusV09.XmlTag)]
     public required MeetingInstructionStatusV09 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(MeetingInstructionStatusV09.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

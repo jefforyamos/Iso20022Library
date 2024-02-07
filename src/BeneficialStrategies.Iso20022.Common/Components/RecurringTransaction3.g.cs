@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Financial loan (instalment) or a recurring transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RecurringTransaction3
+     : IIsoXmlSerilizable<RecurringTransaction3>
 {
     #nullable enable
     
     /// <summary>
     /// Date of first transfer.
     /// </summary>
-    [DataMember]
     public required IsoISODate StartDate { get; init; } 
     /// <summary>
     /// Number of transfers to perform.
     /// </summary>
-    [DataMember]
     public IsoNumber? NumberOfOccurrences { get; init; } 
     /// <summary>
     /// Date of last transfer.
     /// </summary>
-    [DataMember]
     public required IsoISODate EndDate { get; init; } 
     /// <summary>
     /// Period of the recurring transfer.
     /// </summary>
-    [DataMember]
     public Frequency3Code? PeriodUnit { get; init; } 
     /// <summary>
     /// Day of the period when the transfer will be performed.
     /// </summary>
-    [DataMember]
     public IsoNumber? IntervalDay { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "StartDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(StartDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (NumberOfOccurrences is IsoNumber NumberOfOccurrencesValue)
+        {
+            writer.WriteStartElement(null, "NbOfOcrncs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfOccurrencesValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "EndDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(EndDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (PeriodUnit is Frequency3Code PeriodUnitValue)
+        {
+            writer.WriteStartElement(null, "PrdUnit", xmlNamespace );
+            writer.WriteValue(PeriodUnitValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (IntervalDay is IsoNumber IntervalDayValue)
+        {
+            writer.WriteStartElement(null, "IntrvlDay", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(IntervalDayValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static RecurringTransaction3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

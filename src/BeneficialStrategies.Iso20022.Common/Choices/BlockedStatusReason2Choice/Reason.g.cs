@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.BlockedStatusReason2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.BlockedStatusReason2Choice;
 /// Transaction type for which the account is blocked and the underlying reason.
 /// </summary>
 public partial record Reason : BlockedStatusReason2Choice_
+     , IIsoXmlSerilizable<Reason>
 {
     #nullable enable
+    
     /// <summary>
     /// Type of transaction for which the account has a blocked status.
     /// </summary>
@@ -23,13 +27,43 @@ public partial record Reason : BlockedStatusReason2Choice_
     /// Indicates whether the account is blocked.
     /// </summary>
     public required IsoYesNoIndicator Blocked { get; init; } 
-    /// <summary>
-    /// Reason for the blocked status.
-    /// </summary>
-    public BlockedReason2Choice_? ReasonValue { get; init;  } // Warning: Don't know multiplicity.
+    public BlockedReason2Choice_? Value { get; init; } 
     /// <summary>
     /// Additional information about the blocked account status.
     /// </summary>
     public required IsoMax350Text AdditionalInformation { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxTp", xmlNamespace );
+        TransactionType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Blckd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Blocked)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (Value is BlockedReason2Choice_ ValueValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            ValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformation)); // data type Max350Text System.String
+        writer.WriteEndElement();
+    }
+    public static new Reason Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

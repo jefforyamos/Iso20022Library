@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// List of criteria following the AND logic.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SearchAnd1
+     : IIsoXmlSerilizable<SearchAnd1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifier of target element.
     /// </summary>
-    [DataMember]
     public required IsoMax500Text Target { get; init; } 
     /// <summary>
     /// Comparison operator used to evaluate matching transactions vs criteria.
     /// </summary>
-    [DataMember]
     public required Operator1Code Operator { get; init; } 
     /// <summary>
     /// Reference value to be used when evaluating against the target element value using the criteria operator.
     /// </summary>
-    [DataMember]
     public required IsoMax500Text Value { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Trgt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax500Text(Target)); // data type Max500Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Oprtr", xmlNamespace );
+        writer.WriteValue(Operator.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax500Text(Value)); // data type Max500Text System.String
+        writer.WriteEndElement();
+    }
+    public static SearchAnd1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

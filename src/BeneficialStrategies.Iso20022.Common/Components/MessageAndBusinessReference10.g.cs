@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information to identify funds order(s).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MessageAndBusinessReference10
+     : IIsoXmlSerilizable<MessageAndBusinessReference10>
 {
     #nullable enable
     
     /// <summary>
     /// Reference to a linked message that was previously sent.
     /// </summary>
-    [DataMember]
     public References62Choice_? Reference { get; init; } 
     /// <summary>
     /// Reference to a linked message that was previously received.
     /// </summary>
-    [DataMember]
     public AdditionalReference8? RelatedReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifiers of one or more individual order instructions or individual order cancellation requests.
     /// </summary>
-    [DataMember]
-    public ValueList<InvestmentFundOrder8> OrderReference { get; init; } = []; // Warning: Don't know multiplicity.
+    public InvestmentFundOrder8? OrderReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Reference is References62Choice_ ReferenceValue)
+        {
+            writer.WriteStartElement(null, "Ref", xmlNamespace );
+            ReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference8 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OrderReference is InvestmentFundOrder8 OrderReferenceValue)
+        {
+            writer.WriteStartElement(null, "OrdrRef", xmlNamespace );
+            OrderReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MessageAndBusinessReference10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

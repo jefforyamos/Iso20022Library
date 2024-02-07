@@ -7,29 +7,51 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details of a debt instrument in which the periodic interest payments are calculated on the basis of the value (that is, fixing of an underlying reference rate such as the Euribor) on predefined dates (that is, fixing dates) and which has a maturity of no more than one year.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FloatingRateNote1
+     : IIsoXmlSerilizable<FloatingRateNote1>
 {
     #nullable enable
     
     /// <summary>
     /// Underlying reference rate on the basis on which the periodic interest payments are calculated.
     /// </summary>
-    [DataMember]
     public required IsoISINIdentifier ReferenceRateIndex { get; init; } 
     /// <summary>
     /// Number of basis points added to (if positive) or deducted from (if negative) the underlying reference rate to calculate the actual interest rate applicable for a given period at issuance of the floating rate instrument.
     /// Used to express differences in interest rates, for example, a difference of 0.10% is equivalent to a change of 10 basis points.
     /// </summary>
-    [DataMember]
     public required IsoNumber BasisPointSpread { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RefRateIndx", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISINIdentifier(ReferenceRateIndex)); // data type ISINIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BsisPtSprd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(BasisPointSpread)); // data type Number System.UInt64
+        writer.WriteEndElement();
+    }
+    public static FloatingRateNote1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

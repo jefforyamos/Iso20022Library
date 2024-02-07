@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Key elements used to identify the original transaction(s) that is being referred to.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TrackerPaymentTransaction4
+     : IIsoXmlSerilizable<TrackerPaymentTransaction4>
 {
     #nullable enable
     
     /// <summary>
     /// Provides information on the original tracked message that contained the transaction.
     /// </summary>
-    [DataMember]
     public OriginalBusinessInstruction2? TrackedMessageIdentification { get; init; } 
     /// <summary>
     /// Party that provides information on the alert status and related details.
     /// </summary>
-    [DataMember]
     public TrackerPartyIdentification1? TrackerInformingParty { get; init; } 
     /// <summary>
     /// Set of elements used to reference a payment instruction.
     /// </summary>
-    [DataMember]
     public required PaymentIdentification11 PaymentIdentification { get; init; } 
     /// <summary>
     /// Agreement under which or rules under which the payment transaction should be processed.
     /// </summary>
-    [DataMember]
     public TransactionServiceLevel1? ServiceLevel { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TrackedMessageIdentification is OriginalBusinessInstruction2 TrackedMessageIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TrckdMsgId", xmlNamespace );
+            TrackedMessageIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TrackerInformingParty is TrackerPartyIdentification1 TrackerInformingPartyValue)
+        {
+            writer.WriteStartElement(null, "TrckrInfrmgPty", xmlNamespace );
+            TrackerInformingPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PmtId", xmlNamespace );
+        PaymentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ServiceLevel is TransactionServiceLevel1 ServiceLevelValue)
+        {
+            writer.WriteStartElement(null, "SvcLvl", xmlNamespace );
+            ServiceLevelValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TrackerPaymentTransaction4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Structured call details with address.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TelecomCallDetails2
+     : IIsoXmlSerilizable<TelecomCallDetails2>
 {
     #nullable enable
     
     /// <summary>
     /// Contains call type values.
     /// </summary>
-    [DataMember]
     public TelephonyCallType1Code? Type { get; init; } 
     /// <summary>
     /// Contains other call type values.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? OtherType { get; init; } 
     /// <summary>
     /// Origination or destination phone number.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? PhoneNumber { get; init; } 
     /// <summary>
     /// City from which or to which the call was made.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? City { get; init; } 
     /// <summary>
     /// State from which or to which the call was made.
     /// </summary>
-    [DataMember]
     public IsoMax16Text? State { get; init; } 
     /// <summary>
     /// Province from which or to which the call was made.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Province { get; init; } 
     /// <summary>
     /// Country from which or to which the call was made.
     /// </summary>
-    [DataMember]
     public ISOMax3ACountryCode? Country { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is TelephonyCallType1Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherType is IsoMax70Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(OtherTypeValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (PhoneNumber is IsoPhoneNumber PhoneNumberValue)
+        {
+            writer.WriteStartElement(null, "PhneNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(PhoneNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (City is IsoMax35Text CityValue)
+        {
+            writer.WriteStartElement(null, "City", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CityValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (State is IsoMax16Text StateValue)
+        {
+            writer.WriteStartElement(null, "Stat", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax16Text(StateValue)); // data type Max16Text System.String
+            writer.WriteEndElement();
+        }
+        if (Province is IsoMax35Text ProvinceValue)
+        {
+            writer.WriteStartElement(null, "Prvc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProvinceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Country is ISOMax3ACountryCode CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(CountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static TelecomCallDetails2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Outcome of the authorisation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AuthorisationResult2
+     : IIsoXmlSerilizable<AuthorisationResult2>
 {
     #nullable enable
     
     /// <summary>
     /// Type of party that has delivered or declined the card payment authorisation (the party is not identified).
     /// </summary>
-    [DataMember]
     public GenericIdentification33? AuthorisationEntity { get; init; } 
     /// <summary>
     /// Response to an authorisation request.
     /// </summary>
-    [DataMember]
     public required ResponseType1 ResponseToAuthorisation { get; init; } 
     /// <summary>
     /// Value assigned by the authorising party.
     /// </summary>
-    [DataMember]
     public IsoMin6Max8Text? AuthorisationCode { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AuthorisationEntity is GenericIdentification33 AuthorisationEntityValue)
+        {
+            writer.WriteStartElement(null, "AuthstnNtty", xmlNamespace );
+            AuthorisationEntityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RspnToAuthstn", xmlNamespace );
+        ResponseToAuthorisation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AuthorisationCode is IsoMin6Max8Text AuthorisationCodeValue)
+        {
+            writer.WriteStartElement(null, "AuthstnCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMin6Max8Text(AuthorisationCodeValue)); // data type Min6Max8Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AuthorisationResult2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

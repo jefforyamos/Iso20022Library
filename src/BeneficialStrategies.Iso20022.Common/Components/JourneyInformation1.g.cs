@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the journey before or after the rental.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record JourneyInformation1
+     : IIsoXmlSerilizable<JourneyInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of journey.
     /// </summary>
-    [DataMember]
     public JourneyType1Code? JourneyType { get; init; } 
     /// <summary>
     /// Data related to the type of journey selected (for example, AF1234 when FlightNumber selected).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? JourneyData { get; init; } 
     /// <summary>
     /// Date and time related to the journey type selected.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? DateAndTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (JourneyType is JourneyType1Code JourneyTypeValue)
+        {
+            writer.WriteStartElement(null, "JrnyTp", xmlNamespace );
+            writer.WriteValue(JourneyTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (JourneyData is IsoMax35Text JourneyDataValue)
+        {
+            writer.WriteStartElement(null, "JrnyData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(JourneyDataValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DateAndTime is IsoISODateTime DateAndTimeValue)
+        {
+            writer.WriteStartElement(null, "DtAndTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(DateAndTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static JourneyInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

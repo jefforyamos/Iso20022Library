@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Aim of the non financial response.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NonFinancialResponseContentComponent1
+     : IIsoXmlSerilizable<NonFinancialResponseContentComponent1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of non financial request that the Acquirer processed.
     /// </summary>
-    [DataMember]
     public required NonFinancialRequestType1Code NonFinancialRequestType { get; init; } 
     /// <summary>
     /// Identification of the most relevant Acquirer to process the transaction.
     /// </summary>
-    [DataMember]
     public Acquirer10? AcquirerSelected { get; init; } 
     /// <summary>
     /// Advice from the Acquirer (or its Agent) to the POI to manage risk. 
     /// </summary>
-    [DataMember]
     public NonFinancialResponseRisk1Code? RiskManagementResult { get; init; } 
     /// <summary>
     /// Set of actions to be performed by the POI (Point Of Interaction) system.
     /// </summary>
-    [DataMember]
-    public ValueList<Action11> Action { get; init; } = []; // Warning: Don't know multiplicity.
+    public Action11? Action { get; init; } 
     /// <summary>
     /// Result of the processing of the request.
     /// </summary>
-    [DataMember]
     public required ResponseType11 Response { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NonFinReqTp", xmlNamespace );
+        writer.WriteValue(NonFinancialRequestType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AcquirerSelected is Acquirer10 AcquirerSelectedValue)
+        {
+            writer.WriteStartElement(null, "AcqrrSelctd", xmlNamespace );
+            AcquirerSelectedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RiskManagementResult is NonFinancialResponseRisk1Code RiskManagementResultValue)
+        {
+            writer.WriteStartElement(null, "RskMgmtRslt", xmlNamespace );
+            writer.WriteValue(RiskManagementResultValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Action is Action11 ActionValue)
+        {
+            writer.WriteStartElement(null, "Actn", xmlNamespace );
+            ActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Rspn", xmlNamespace );
+        Response.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static NonFinancialResponseContentComponent1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

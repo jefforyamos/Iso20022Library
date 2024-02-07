@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Settlement totals
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementCategoryTotal2
+     : IIsoXmlSerilizable<SettlementCategoryTotal2>
 {
     #nullable enable
     
     /// <summary>
     /// Number of transactions.
     /// </summary>
-    [DataMember]
     public IsoNumber? Count { get; init; } 
     /// <summary>
     /// Gross amount.
     /// </summary>
-    [DataMember]
     public required Amount17 Amount { get; init; } 
     /// <summary>
     /// Interchange fee amount.
     /// </summary>
-    [DataMember]
     public Amount17? InterchangeFee { get; init; } 
     /// <summary>
     /// Processing fee.
     /// </summary>
-    [DataMember]
     public Amount17? ProcessingFee { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Count is IsoNumber CountValue)
+        {
+            writer.WriteStartElement(null, "Cnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(CountValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        Amount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (InterchangeFee is Amount17 InterchangeFeeValue)
+        {
+            writer.WriteStartElement(null, "IntrchngFee", xmlNamespace );
+            InterchangeFeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProcessingFee is Amount17 ProcessingFeeValue)
+        {
+            writer.WriteStartElement(null, "PrcgFee", xmlNamespace );
+            ProcessingFeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementCategoryTotal2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the identification of the tax category.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxCategory1
+     : IIsoXmlSerilizable<TaxCategory1>
 {
     #nullable enable
     
     /// <summary>
     /// Tax category identification.
     /// </summary>
-    [DataMember]
     public IsoMax2NumericText? Identification { get; init; } 
     /// <summary>
     /// Description of the tax category.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Description { get; init; } 
     /// <summary>
     /// Identification of the country in which the tax is withheld.
     /// </summary>
-    [DataMember]
     public CountryCode? Country { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is IsoMax2NumericText IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2NumericText(IdentificationValue)); // data type Max2NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (Description is IsoMax35Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DescriptionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Country is CountryCode CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(CountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static TaxCategory1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

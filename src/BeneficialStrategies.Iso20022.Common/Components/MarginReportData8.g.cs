@@ -7,80 +7,152 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of the margin data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MarginReportData8
+     : IIsoXmlSerilizable<MarginReportData8>
 {
     #nullable enable
     
     /// <summary>
     /// Date and time of submission of the report to the trade repository.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ReportingTimeStamp { get; init; } 
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
-    [DataMember]
     public required TradeCounterpartyReport20 CounterpartyIdentification { get; init; } 
     /// <summary>
     /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
     /// </summary>
-    [DataMember]
     public IsoISODate? EventDate { get; init; } 
     /// <summary>
     /// Choice between a Unique Transaction Identifier (UTI) or a proprietary identifier as agreed with the counterparty. 
     /// </summary>
-    [DataMember]
     public UniqueTransactionIdentifier2Choice_? TransactionIdentification { get; init; } 
     /// <summary>
     /// Information related to collateral agreement existing between counterparties.
     /// </summary>
-    [DataMember]
     public required MarginCollateralReport4 Collateral { get; init; } 
     /// <summary>
     /// Information on posted collateral and margin.
     /// </summary>
-    [DataMember]
     public PostedMarginOrCollateral6? PostedMarginOrCollateral { get; init; } 
     /// <summary>
     /// Information on received collateral and margin.
     /// </summary>
-    [DataMember]
     public ReceivedMarginOrCollateral6? ReceivedMarginOrCollateral { get; init; } 
     /// <summary>
     /// Indicates if a counterparty rating trigger is agreed by the counterparties for the collateral posted by the reporting counterparty.
     /// Usage: If the element is not present, the CounterpartyRatingTrigger is False.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CounterpartyRatingTriggerIndicator { get; init; } 
     /// <summary>
     /// Indicates if a counterparty rating trigger includes a threshold that increases collateral requirements when the counterparty falls below the single-A rating or equivalent.
     /// Usage: If the CounterpartyRatingTrigger indicator is false, this element is omitted.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CounterpartyRatingThresholdIndicator { get; init; } 
     /// <summary>
     /// Contract modification details expressed as an action type and a reporting level type.
     /// </summary>
-    [DataMember]
     public ContractModification8? ContractModification { get; init; } 
     /// <summary>
     /// Specifies technical attributes of the message.
     /// </summary>
-    [DataMember]
     public TechnicalAttributes6? TechnicalAttributes { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReportingTimeStamp is IsoISODateTime ReportingTimeStampValue)
+        {
+            writer.WriteStartElement(null, "RptgTmStmp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ReportingTimeStampValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CtrPtyId", xmlNamespace );
+        CounterpartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (EventDate is IsoISODate EventDateValue)
+        {
+            writer.WriteStartElement(null, "EvtDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(EventDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (TransactionIdentification is UniqueTransactionIdentifier2Choice_ TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            TransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Coll", xmlNamespace );
+        Collateral.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PostedMarginOrCollateral is PostedMarginOrCollateral6 PostedMarginOrCollateralValue)
+        {
+            writer.WriteStartElement(null, "PstdMrgnOrColl", xmlNamespace );
+            PostedMarginOrCollateralValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReceivedMarginOrCollateral is ReceivedMarginOrCollateral6 ReceivedMarginOrCollateralValue)
+        {
+            writer.WriteStartElement(null, "RcvdMrgnOrColl", xmlNamespace );
+            ReceivedMarginOrCollateralValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CounterpartyRatingTriggerIndicator is IsoTrueFalseIndicator CounterpartyRatingTriggerIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyRatgTrggrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CounterpartyRatingTriggerIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CounterpartyRatingThresholdIndicator is IsoTrueFalseIndicator CounterpartyRatingThresholdIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyRatgThrshldInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CounterpartyRatingThresholdIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ContractModification is ContractModification8 ContractModificationValue)
+        {
+            writer.WriteStartElement(null, "CtrctMod", xmlNamespace );
+            ContractModificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TechnicalAttributes is TechnicalAttributes6 TechnicalAttributesValue)
+        {
+            writer.WriteStartElement(null, "TechAttrbts", xmlNamespace );
+            TechnicalAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MarginReportData8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

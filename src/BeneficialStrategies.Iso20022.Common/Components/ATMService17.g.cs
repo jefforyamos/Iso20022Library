@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Services allowed for the customer's profile.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMService17
+     : IIsoXmlSerilizable<ATMService17>
 {
     #nullable enable
     
     /// <summary>
     /// Describes the type of inquiry selected by the customer or the ATM.
     /// </summary>
-    [DataMember]
     public required ATMServiceType8Code ServiceType { get; init; } 
     /// <summary>
     /// Variant of the service.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMService18> ServiceVariant { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMService18? ServiceVariant { get; init; } 
     /// <summary>
     /// Limits of amounts.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMTransactionAmounts6> Limits { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMTransactionAmounts6? Limits { get; init; } 
     /// <summary>
     /// Preferred withdrawal transaction chosen by the customer.
     /// </summary>
-    [DataMember]
     public ATMTransaction8? PreferredWithdrawal { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SvcTp", xmlNamespace );
+        writer.WriteValue(ServiceType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ServiceVariant is ATMService18 ServiceVariantValue)
+        {
+            writer.WriteStartElement(null, "SvcVarnt", xmlNamespace );
+            ServiceVariantValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Limits is ATMTransactionAmounts6 LimitsValue)
+        {
+            writer.WriteStartElement(null, "Lmts", xmlNamespace );
+            LimitsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreferredWithdrawal is ATMTransaction8 PreferredWithdrawalValue)
+        {
+            writer.WriteStartElement(null, "PrefrdWdrwl", xmlNamespace );
+            PreferredWithdrawalValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMService17 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

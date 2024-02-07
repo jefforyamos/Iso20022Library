@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of a non-equity asset-class and sub-class.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AssetClassAndSubClassIdentification2
+     : IIsoXmlSerilizable<AssetClassAndSubClassIdentification2>
 {
     #nullable enable
     
     /// <summary>
     /// Asset class of non-equity instruments to which the result relates
     /// </summary>
-    [DataMember]
     public required NonEquityAssetClass1Code AssetClass { get; init; } 
     /// <summary>
     /// Sub class of non-equity instruments to which the result relates, as defined in the local regulation.
     /// </summary>
-    [DataMember]
     public NonEquitySubClass1? DerivativeSubClass { get; init; } 
     /// <summary>
     /// Identification of non-equity financial instruments.
     /// </summary>
-    [DataMember]
     public NonEquityInstrumentReportingClassification1Code? FinancialInstrumentClassification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AsstClss", xmlNamespace );
+        writer.WriteValue(AssetClass.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (DerivativeSubClass is NonEquitySubClass1 DerivativeSubClassValue)
+        {
+            writer.WriteStartElement(null, "DerivSubClss", xmlNamespace );
+            DerivativeSubClassValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentClassification is NonEquityInstrumentReportingClassification1Code FinancialInstrumentClassificationValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmClssfctn", xmlNamespace );
+            writer.WriteValue(FinancialInstrumentClassificationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static AssetClassAndSubClassIdentification2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

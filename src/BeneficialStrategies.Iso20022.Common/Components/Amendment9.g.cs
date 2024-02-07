@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the amendment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Amendment9
+     : IIsoXmlSerilizable<Amendment9>
 {
     #nullable enable
     
     /// <summary>
     /// Contents of the related UndertakingAmendmentResponse message.
     /// </summary>
-    [DataMember]
     public required UndertakingAmendmentResponseMessage1 UndertakingAmendmentResponseMessage { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UdrtkgAmdmntRspnMsg", xmlNamespace );
+        UndertakingAmendmentResponseMessage.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static Amendment9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

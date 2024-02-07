@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AuditTrailOrBusinessError2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AuditTrailOrBusinessError2Choice
 /// Choice between data concerning static data audit trail retrieved or business error.
 /// </summary>
 public partial record AuditTrail : AuditTrailOrBusinessError2Choice_
+     , IIsoXmlSerilizable<AuditTrail>
 {
     #nullable enable
+    
     /// <summary>
     /// Name of the field whose value has been changed.
     /// </summary>
@@ -39,5 +43,44 @@ public partial record AuditTrail : AuditTrailOrBusinessError2Choice_
     /// User who approved the change instructed by the instructing user.
     /// </summary>
     public IsoMax256Text? ApprovingUser { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FldNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(FieldName)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OdFldVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(OldFieldValue)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NewFldVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(NewFieldValue)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OprTmStmp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(OperationTimeStamp)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InstgUsr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax256Text(InstructingUser)); // data type Max256Text System.String
+        writer.WriteEndElement();
+        if (ApprovingUser is IsoMax256Text ApprovingUserValue)
+        {
+            writer.WriteStartElement(null, "ApprvgUsr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(ApprovingUserValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new AuditTrail Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

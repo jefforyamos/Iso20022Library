@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the securities settlement system used in a settlement process.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesSettlementSystemIdentification2
+     : IIsoXmlSerilizable<SecuritiesSettlementSystemIdentification2>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the securities settlement system.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text SystemIdentification { get; init; } 
     /// <summary>
     /// Name of the securities settlement system.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? SystemName { get; init; } 
     /// <summary>
     /// Country code for the jurisdiction in which the CSD is established.
     /// </summary>
-    [DataMember]
     public CountryCode? CountryOfJurisdiction { get; init; } 
     /// <summary>
     /// Corporate name of the CSD.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? CSDLegalName { get; init; } 
     /// <summary>
     /// Legal entity identification of the CSD operating the securities settlement system.
     /// </summary>
-    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     /// <summary>
     /// Party (such as a person or a team) responsible for the report sent by the CSD.
     /// </summary>
-    [DataMember]
-    public ValueList<Contact9> ResponsibleParty { get; init; } = []; // Warning: Don't know multiplicity.
+    public Contact9? ResponsibleParty { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SysId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(SystemIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (SystemName is IsoMax140Text SystemNameValue)
+        {
+            writer.WriteStartElement(null, "SysNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(SystemNameValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (CountryOfJurisdiction is CountryCode CountryOfJurisdictionValue)
+        {
+            writer.WriteStartElement(null, "CtryOfJursdctn", xmlNamespace );
+            writer.WriteValue(CountryOfJurisdictionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CSDLegalName is IsoMax140Text CSDLegalNameValue)
+        {
+            writer.WriteStartElement(null, "CSDLglNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(CSDLegalNameValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (LEI is IsoLEIIdentifier LEIValue)
+        {
+            writer.WriteStartElement(null, "LEI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEIValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (ResponsibleParty is Contact9 ResponsiblePartyValue)
+        {
+            writer.WriteStartElement(null, "RspnsblPty", xmlNamespace );
+            ResponsiblePartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesSettlementSystemIdentification2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

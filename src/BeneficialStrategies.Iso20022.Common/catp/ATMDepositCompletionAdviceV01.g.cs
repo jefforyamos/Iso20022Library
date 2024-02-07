@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.catp.ATMDepositCompletionAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.catp;
 
@@ -23,10 +26,9 @@ namespace BeneficialStrategies.Iso20022.catp;
 /// This message can be used each time a bundle is put in the ATM safe and/or at the end of a multi bundle deposit.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The ATMDepositCompletionAdvice message is sent by an ATM to an acquirer or its agent to inform of the result of a deposit transaction at an ATM.|If the ATM is configured to only send negative completion, a generic completion message should be used instead of ATMCompletionAdvice.|This message can be used each time a bundle is put in the ATM safe and/or at the end of a multi bundle deposit.")]
-public partial record ATMDepositCompletionAdviceV01 : IOuterRecord
+public partial record ATMDepositCompletionAdviceV01 : IOuterRecord<ATMDepositCompletionAdviceV01,ATMDepositCompletionAdviceV01Document>
+    ,IIsoXmlSerilizable<ATMDepositCompletionAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -38,6 +40,11 @@ public partial record ATMDepositCompletionAdviceV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "ATMDpstCmpltnAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ATMDepositCompletionAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -86,6 +93,44 @@ public partial record ATMDepositCompletionAdviceV01 : IOuterRecord
     {
         return new ATMDepositCompletionAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("ATMDpstCmpltnAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ProtectedATMDepositCompletionAdvice is ContentInformationType10 ProtectedATMDepositCompletionAdviceValue)
+        {
+            writer.WriteStartElement(null, "PrtctdATMDpstCmpltnAdvc", xmlNamespace );
+            ProtectedATMDepositCompletionAdviceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ATMDepositCompletionAdvice is ATMDepositCompletionAdvice1 ATMDepositCompletionAdviceValue)
+        {
+            writer.WriteStartElement(null, "ATMDpstCmpltnAdvc", xmlNamespace );
+            ATMDepositCompletionAdviceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecurityTrailer is ContentInformationType15 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMDepositCompletionAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -93,9 +138,7 @@ public partial record ATMDepositCompletionAdviceV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMDepositCompletionAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ATMDepositCompletionAdviceV01Document : IOuterDocument<ATMDepositCompletionAdviceV01>
+public partial record ATMDepositCompletionAdviceV01Document : IOuterDocument<ATMDepositCompletionAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -111,5 +154,22 @@ public partial record ATMDepositCompletionAdviceV01Document : IOuterDocument<ATM
     /// <summary>
     /// The instance of <seealso cref="ATMDepositCompletionAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=ATMDepositCompletionAdviceV01.XmlTag)]
     public required ATMDepositCompletionAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ATMDepositCompletionAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsin.UndertakingApplicationV01>;
 
 namespace BeneficialStrategies.Iso20022.tsin;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.tsin;
 /// The UndertakingApplication message is sent by the party requesting issuance of the undertaking (applicant or obligor) to the party issuing the undertaking. It is used to request the issuance of an undertaking (demand guarantee or standby letter of credit or suretyship) or counter-undertaking (counter-guarantee or counter-standby or suretyship), and provides details on the applicable rules, terms, conditions and content of the undertaking to be issued.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The UndertakingApplication message is sent by the party requesting issuance of the undertaking (applicant or obligor) to the party issuing the undertaking. It is used to request the issuance of an undertaking (demand guarantee or standby letter of credit or suretyship) or counter-undertaking (counter-guarantee or counter-standby or suretyship), and provides details on the applicable rules, terms, conditions and content of the undertaking to be issued.")]
-public partial record UndertakingApplicationV01 : IOuterRecord
+public partial record UndertakingApplicationV01 : IOuterRecord<UndertakingApplicationV01,UndertakingApplicationV01Document>
+    ,IIsoXmlSerilizable<UndertakingApplicationV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record UndertakingApplicationV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "UdrtkgAppl";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => UndertakingApplicationV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -55,7 +62,7 @@ public partial record UndertakingApplicationV01 : IOuterRecord
     [Description(@"Instructions specific to the bank receiving the message.")]
     [DataMember(Name="InstrsToBk")]
     [XmlElement(ElementName="InstrsToBk")]
-    public required IReadOnlyCollection<IsoMax2000Text> InstructionsToBank { get; init; } = []; // Min=0, Max=5
+    public required SimpleValueList<IsoMax2000Text> InstructionsToBank { get; init; } = []; // Min=0, Max=5
     
     /// <summary>
     /// Digital signature of the undertaking application.
@@ -75,6 +82,35 @@ public partial record UndertakingApplicationV01 : IOuterRecord
     {
         return new UndertakingApplicationV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("UdrtkgAppl");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UdrtkgApplDtls", xmlNamespace );
+        UndertakingApplicationDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InstrsToBk", xmlNamespace );
+        InstructionsToBank.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+        if (DigitalSignature is PartyAndSignature2 DigitalSignatureValue)
+        {
+            writer.WriteStartElement(null, "DgtlSgntr", xmlNamespace );
+            DigitalSignatureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static UndertakingApplicationV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -82,9 +118,7 @@ public partial record UndertakingApplicationV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingApplicationV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record UndertakingApplicationV01Document : IOuterDocument<UndertakingApplicationV01>
+public partial record UndertakingApplicationV01Document : IOuterDocument<UndertakingApplicationV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -100,5 +134,22 @@ public partial record UndertakingApplicationV01Document : IOuterDocument<Underta
     /// <summary>
     /// The instance of <seealso cref="UndertakingApplicationV01"/> is required.
     /// </summary>
+    [DataMember(Name=UndertakingApplicationV01.XmlTag)]
     public required UndertakingApplicationV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(UndertakingApplicationV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.caaa.AcceptorReconciliationRequestV01>;
 
 namespace BeneficialStrategies.Iso20022.caaa;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// The AcceptorReconciliationRequest message is also used to close a reconciliation period.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The AcceptorReconciliationRequest message is sent by the card acceptor to the acquirer or an agent to communicate the totals of the card payment transaction for a reconciliation period. An agent never forwards the message.|Usage|The AcceptorReconciliationRequest message is used to ensure that the debits and credits correspond to the balances computed by the acquirer or its agent for the same reconciliation period.|The AcceptorReconciliationRequest message is also used to close a reconciliation period.")]
-public partial record AcceptorReconciliationRequestV01 : IOuterRecord
+public partial record AcceptorReconciliationRequestV01 : IOuterRecord<AcceptorReconciliationRequestV01,AcceptorReconciliationRequestV01Document>
+    ,IIsoXmlSerilizable<AcceptorReconciliationRequestV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record AcceptorReconciliationRequestV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AccptrRcncltnReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AcceptorReconciliationRequestV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -81,6 +88,32 @@ public partial record AcceptorReconciliationRequestV01 : IOuterRecord
     {
         return new AcceptorReconciliationRequestV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AccptrRcncltnReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RcncltnReq", xmlNamespace );
+        ReconciliationRequest.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+        SecurityTrailer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static AcceptorReconciliationRequestV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -88,9 +121,7 @@ public partial record AcceptorReconciliationRequestV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorReconciliationRequestV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AcceptorReconciliationRequestV01Document : IOuterDocument<AcceptorReconciliationRequestV01>
+public partial record AcceptorReconciliationRequestV01Document : IOuterDocument<AcceptorReconciliationRequestV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -106,5 +137,22 @@ public partial record AcceptorReconciliationRequestV01Document : IOuterDocument<
     /// <summary>
     /// The instance of <seealso cref="AcceptorReconciliationRequestV01"/> is required.
     /// </summary>
+    [DataMember(Name=AcceptorReconciliationRequestV01.XmlTag)]
     public required AcceptorReconciliationRequestV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AcceptorReconciliationRequestV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

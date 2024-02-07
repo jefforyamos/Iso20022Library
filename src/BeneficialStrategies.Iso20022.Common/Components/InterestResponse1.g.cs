@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details about the reponse to the interest payment request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InterestResponse1
+     : IIsoXmlSerilizable<InterestResponse1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the type of the response, either accepted or rejected.
     /// </summary>
-    [DataMember]
     public required Status4Code ResponseType { get; init; } 
     /// <summary>
     /// Provides a reason for rejection identified using a code or a proprietary format.
     /// </summary>
-    [DataMember]
     public RejectionReason21FormatChoice_? RejectionReason { get; init; } 
     /// <summary>
     /// Provides additional information on the rejection reason.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? RejectionReasonInformation { get; init; } 
     /// <summary>
     /// Provides the reference to the interest payment request.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text InterestPaymentRequestIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RspnTp", xmlNamespace );
+        writer.WriteValue(ResponseType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (RejectionReason is RejectionReason21FormatChoice_ RejectionReasonValue)
+        {
+            writer.WriteStartElement(null, "RjctnRsn", xmlNamespace );
+            RejectionReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RejectionReasonInformation is IsoMax140Text RejectionReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "RjctnRsnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(RejectionReasonInformationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "IntrstPmtReqId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(InterestPaymentRequestIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static InterestResponse1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

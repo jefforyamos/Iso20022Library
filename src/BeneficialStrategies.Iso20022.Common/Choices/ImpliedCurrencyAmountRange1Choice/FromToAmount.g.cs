@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ImpliedCurrencyAmountRange1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.ImpliedCurrencyAmountRange1Choic
 /// Range of valid amount values.
 /// </summary>
 public partial record FromToAmount : ImpliedCurrencyAmountRange1Choice_
+     , IIsoXmlSerilizable<FromToAmount>
 {
     #nullable enable
+    
     /// <summary>
     /// Lower boundary of a range of amount values.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record FromToAmount : ImpliedCurrencyAmountRange1Choice_
     /// Upper boundary of a range of amount values.
     /// </summary>
     public required AmountRangeBoundary1 ToAmount { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FrAmt", xmlNamespace );
+        FromAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ToAmt", xmlNamespace );
+        ToAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new FromToAmount Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SubBalanceQuantity1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SubBalanceQuantity1Choice;
 /// Quantity of securities in the sub-balance.
 /// </summary>
 public partial record QuantityAsDSS : SubBalanceQuantity1Choice_
+     , IIsoXmlSerilizable<QuantityAsDSS>
 {
     #nullable enable
+    
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>
@@ -27,5 +31,32 @@ public partial record QuantityAsDSS : SubBalanceQuantity1Choice_
     /// Value of the balance.
     /// </summary>
     public required IsoNumber Balance { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Issr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax8Text(Issuer)); // data type Max8Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Inf", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(Information)); // data type Exact4AlphaNumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Bal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(Balance)); // data type Number System.UInt64
+        writer.WriteEndElement();
+    }
+    public static new QuantityAsDSS Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

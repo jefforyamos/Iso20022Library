@@ -9,15 +9,12 @@ using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
 using System.Xml;
 using System.Xml.Linq;
-using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Components.BranchAndFinancialInstitutionIdentification6>;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique and unambiguous identification of a financial institution or a branch of a financial institution.
 /// </summary>
-[DataContract(Namespace = "")]
-[XmlType]
 public partial record BranchAndFinancialInstitutionIdentification6
      : IIsoXmlSerilizable<BranchAndFinancialInstitutionIdentification6>
 {
@@ -26,16 +23,23 @@ public partial record BranchAndFinancialInstitutionIdentification6
     /// <summary>
     /// Unique and unambiguous identification of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
     /// </summary>
-    [DataMember]
     public required FinancialInstitutionIdentification18 FinancialInstitutionIdentification { get; init; } 
     /// <summary>
     /// Identifies a specific branch of a financial institution.||Usage: This component should be used in case the identification information in the financial institution component does not provide identification up to branch level.
     /// </summary>
-    [DataMember]
     public BranchData3? BranchIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
     public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
     public void Serialize(XmlWriter writer, string xmlNamespace)
     {
         writer.WriteStartElement(null, "FinInstnId", xmlNamespace );

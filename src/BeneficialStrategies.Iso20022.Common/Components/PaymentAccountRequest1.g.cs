@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to the account pointed by the payment card.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentAccountRequest1
+     : IIsoXmlSerilizable<PaymentAccountRequest1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of cardholder account used for the transaction. By Default the code Default is taken into account.
     /// </summary>
-    [DataMember]
     public CardAccountType3Code? AccountType { get; init; } 
     /// <summary>
     /// To retrieve Card Acquisition Data.
     /// </summary>
-    [DataMember]
     public CustomerOrder1? CustomerOrder { get; init; } 
     /// <summary>
     /// Reference of an account (all types).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountType is CardAccountType3Code AccountTypeValue)
+        {
+            writer.WriteStartElement(null, "AcctTp", xmlNamespace );
+            writer.WriteValue(AccountTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CustomerOrder is CustomerOrder1 CustomerOrderValue)
+        {
+            writer.WriteStartElement(null, "CstmrOrdr", xmlNamespace );
+            CustomerOrderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountReference is IsoMax35Text AccountReferenceValue)
+        {
+            writer.WriteStartElement(null, "AcctRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentAccountRequest1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

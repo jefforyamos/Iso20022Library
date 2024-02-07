@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the summation of the call amounts per margin type and optionaly the default fund amount (only for CCP).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MarginCallResult1
+     : IIsoXmlSerilizable<MarginCallResult1>
 {
     #nullable enable
     
     /// <summary>
     /// Total amount required by the clearing member to participate to the default fund.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? DefaultFundAmount { get; init; } 
     /// <summary>
     /// Provides the summation of the call amounts for the variation margin and the segregated independent amount, or the segregated independent amount only.
     /// </summary>
-    [DataMember]
     public required MarginCallResult1Choice_ MarginCallResult { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DefaultFundAmount is IsoActiveCurrencyAndAmount DefaultFundAmountValue)
+        {
+            writer.WriteStartElement(null, "DfltFndAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(DefaultFundAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MrgnCallRslt", xmlNamespace );
+        MarginCallResult.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static MarginCallResult1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,53 +7,91 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes the type of product and the assets to be transferred.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PEPISATransfer3
+     : IIsoXmlSerilizable<PEPISATransfer3>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Identification assigned by the new plan manager to each transfer of asset.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransferIdentification { get; init; } 
     /// <summary>
     /// Indicates whether there is cash in the account that is awaiting investment.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ResidualCashIndicator { get; init; } 
     /// <summary>
     /// UK government schemes to encourage individuals to invest in securities based unit and investment trusts, offering certain tax benefits. These are not investment in their own right but are tax exempt wrappers in which individuals can hold equities, bonds and funds to shelter them from income and capital gains tax. |The Personal Equity Plan (PEP) and the Individual Savings Account (ISA) are provided only by UK based financial institutions.
     /// </summary>
-    [DataMember]
     public required ISAYearsOfIssue1 ISA { get; init; } 
     /// <summary>
     /// UK government schemes to encourage individuals to invest in securities based unit and investment trusts, offering certain tax benefits. These are not investment in their own right but are tax exempt wrappers in which individuals can hold equities, bonds and funds to shelter them from income and capital gains tax. ||The Personal Equity Plan (PEP) and the Individual Savings Account (ISA) are provided only by UK based financial institutions.
     /// </summary>
-    [DataMember]
     public required PreviousYearChoice_ PEP { get; init; } 
     /// <summary>
     /// Wrapper for a specific product or a specific sub-product owned by a set of beneficial owners.
     /// </summary>
-    [DataMember]
     public required Portfolio1 Portfolio { get; init; } 
     /// <summary>
     /// Specifies the underlying assets for the PEP, ISA or portfolio.
     /// </summary>
-    [DataMember]
-    public ValueList<FinancialInstrument11> FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
+    public FinancialInstrument11? FinancialInstrumentAssetForTransfer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TrfId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RsdlCshInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ResidualCashIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ISA", xmlNamespace );
+        ISA.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PEP", xmlNamespace );
+        PEP.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Prtfl", xmlNamespace );
+        Portfolio.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FinancialInstrumentAssetForTransfer is FinancialInstrument11 FinancialInstrumentAssetForTransferValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmAsstForTrf", xmlNamespace );
+            FinancialInstrumentAssetForTransferValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PEPISATransfer3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

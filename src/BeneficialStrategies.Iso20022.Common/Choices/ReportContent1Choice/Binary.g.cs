@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ReportContent1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportContent1Choice;
 /// BASE-64 encoded report content.
 /// </summary>
 public partial record Binary : ReportContent1Choice_
+     , IIsoXmlSerilizable<Binary>
 {
-    public required IsoMax20MbBinary Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Binary data of 20 megabytes (20 Mb) maximum.
+    /// </summary>
+    public required IsoMax20MbBinary Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Binry", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20MbBinary(Value)); // data type Max20MbBinary System.Byte[]
+        writer.WriteEndElement();
+    }
+    public static new Binary Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

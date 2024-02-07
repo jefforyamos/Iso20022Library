@@ -7,44 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Date related to the settlement of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementServiceDate1
+     : IIsoXmlSerilizable<SettlementServiceDate1>
 {
     #nullable enable
     
     /// <summary>
     /// Date requested for settlement.
     /// </summary>
-    [DataMember]
     public IsoISODate? RequestedSettlementDate { get; init; } 
     /// <summary>
     /// Actual date of settlement.
     /// ISO 8583 bit 15.
     /// </summary>
-    [DataMember]
     public IsoISODate? SettlementDate { get; init; } 
     /// <summary>
     /// Actual time of settlement.
     /// </summary>
-    [DataMember]
     public IsoISOTime? SettlementTime { get; init; } 
     /// <summary>
     /// Identifies the settlement period, cycle or group. May contain settlement frequency or the identification of specific settlement period. For example, daily, monthly or settlementperiod123acd.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SettlementPeriod { get; init; } 
     /// <summary>
     /// Identifies the effective end time of the settlement date and/or period. 
     /// </summary>
-    [DataMember]
     public IsoISODateTime? SettlementCutOffTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (RequestedSettlementDate is IsoISODate RequestedSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "ReqdSttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(RequestedSettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SettlementDate is IsoISODate SettlementDateValue)
+        {
+            writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(SettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SettlementTime is IsoISOTime SettlementTimeValue)
+        {
+            writer.WriteStartElement(null, "SttlmTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(SettlementTimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+        if (SettlementPeriod is IsoMax35Text SettlementPeriodValue)
+        {
+            writer.WriteStartElement(null, "SttlmPrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SettlementPeriodValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SettlementCutOffTime is IsoISODateTime SettlementCutOffTimeValue)
+        {
+            writer.WriteStartElement(null, "SttlmCutOffTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(SettlementCutOffTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementServiceDate1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

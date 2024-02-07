@@ -7,83 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the closing of the securities financing transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesFinancingTransactionDetails29
+     : IIsoXmlSerilizable<SecuritiesFinancingTransactionDetails29>
 {
     #nullable enable
     
     /// <summary>
     /// Unambiguous identification of the underlying securities financing trade as assigned by the instructing party. The identification is common to all collateral pieces (one or many).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SecuritiesFinancingTradeIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the second leg of the transaction as known by the account owner (or the instructing party acting on its behalf).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClosingLegIdentification { get; init; } 
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
-    [DataMember]
     public TerminationDate4Choice_? TerminationDate { get; init; } 
     /// <summary>
     /// Specifies whether the rate is fixed or variable.
     /// </summary>
-    [DataMember]
     public RateType35Choice_? RateType { get; init; } 
     /// <summary>
     /// Legal framework of the transaction.
     /// </summary>
-    [DataMember]
     public LegalFramework3Choice_? LegalFramework { get; init; } 
     /// <summary>
     /// Specifies whether the maturity date of the securities financing transaction may be modified.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? MaturityDateModification { get; init; } 
     /// <summary>
     /// Specifies whether the interest is to be paid to the collateral taker. If set to no, the interest is paid to the collateral giver.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? InterestPayment { get; init; } 
     /// <summary>
     /// Index or support rate used together with the spread to calculate the|repurchase rate.
     /// </summary>
-    [DataMember]
     public RateName1? VariableRateSupport { get; init; } 
     /// <summary>
     /// Rate to be used to recalculate the repurchase amount.
     /// </summary>
-    [DataMember]
     public Rate2? RepurchaseRate { get; init; } 
     /// <summary>
     /// Minimum number of days' notice a counterparty needs for terminating the transaction.
     /// </summary>
-    [DataMember]
     public IsoExact3NumericText? TransactionCallDelay { get; init; } 
     /// <summary>
     /// Interest amount that has accrued in between coupon payment periods.
     /// </summary>
-    [DataMember]
     public AmountAndDirection21? AccruedInterestAmount { get; init; } 
     /// <summary>
     /// Total amount of money to be settled to terminate the transaction.
     /// </summary>
-    [DataMember]
     public AmountAndDirection21? TerminationTransactionAmount { get; init; } 
     /// <summary>
     /// Provides additional information about the second leg in narrative form.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? SecondLegNarrative { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SecuritiesFinancingTradeIdentification is IsoMax35Text SecuritiesFinancingTradeIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SctiesFincgTradId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SecuritiesFinancingTradeIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClosingLegIdentification is IsoMax35Text ClosingLegIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClsgLegId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClosingLegIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TerminationDate is TerminationDate4Choice_ TerminationDateValue)
+        {
+            writer.WriteStartElement(null, "TermntnDt", xmlNamespace );
+            TerminationDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RateType is RateType35Choice_ RateTypeValue)
+        {
+            writer.WriteStartElement(null, "RateTp", xmlNamespace );
+            RateTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LegalFramework is LegalFramework3Choice_ LegalFrameworkValue)
+        {
+            writer.WriteStartElement(null, "LglFrmwk", xmlNamespace );
+            LegalFrameworkValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MaturityDateModification is IsoYesNoIndicator MaturityDateModificationValue)
+        {
+            writer.WriteStartElement(null, "MtrtyDtMod", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MaturityDateModificationValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (InterestPayment is IsoYesNoIndicator InterestPaymentValue)
+        {
+            writer.WriteStartElement(null, "IntrstPmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(InterestPaymentValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (VariableRateSupport is RateName1 VariableRateSupportValue)
+        {
+            writer.WriteStartElement(null, "VarblRateSpprt", xmlNamespace );
+            VariableRateSupportValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RepurchaseRate is Rate2 RepurchaseRateValue)
+        {
+            writer.WriteStartElement(null, "RpRate", xmlNamespace );
+            RepurchaseRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionCallDelay is IsoExact3NumericText TransactionCallDelayValue)
+        {
+            writer.WriteStartElement(null, "TxCallDely", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact3NumericText(TransactionCallDelayValue)); // data type Exact3NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (AccruedInterestAmount is AmountAndDirection21 AccruedInterestAmountValue)
+        {
+            writer.WriteStartElement(null, "AcrdIntrstAmt", xmlNamespace );
+            AccruedInterestAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TerminationTransactionAmount is AmountAndDirection21 TerminationTransactionAmountValue)
+        {
+            writer.WriteStartElement(null, "TermntnTxAmt", xmlNamespace );
+            TerminationTransactionAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecondLegNarrative is IsoMax140Text SecondLegNarrativeValue)
+        {
+            writer.WriteStartElement(null, "ScndLegNrrtv", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(SecondLegNarrativeValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesFinancingTransactionDetails29 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

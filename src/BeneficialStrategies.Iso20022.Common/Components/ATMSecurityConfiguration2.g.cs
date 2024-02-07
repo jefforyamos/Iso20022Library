@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Configuration of the cryptographic keys.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMSecurityConfiguration2
+     : IIsoXmlSerilizable<ATMSecurityConfiguration2>
 {
     #nullable enable
     
     /// <summary>
     /// Maximum number of symmetric keys the security module is able to manage.
     /// </summary>
-    [DataMember]
     public IsoNumber? MaximumSymmetricKey { get; init; } 
     /// <summary>
     /// Maximum number of asymmetric keys the security module is able to manage.
     /// </summary>
-    [DataMember]
     public IsoNumber? MaximumAsymmetricKey { get; init; } 
     /// <summary>
     /// Maximum RSA key length (in number of bytes), the security module is able to manage.
     /// </summary>
-    [DataMember]
     public IsoNumber? MaximumRSAKeyLength { get; init; } 
     /// <summary>
     /// Maximum RSA root key length (in number of bytes), the security module is able to manage, if different from the maximum RSA key length.
     /// </summary>
-    [DataMember]
     public IsoNumber? MaximumRootKeyLength { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MaximumSymmetricKey is IsoNumber MaximumSymmetricKeyValue)
+        {
+            writer.WriteStartElement(null, "MaxSmmtrcKey", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumSymmetricKeyValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (MaximumAsymmetricKey is IsoNumber MaximumAsymmetricKeyValue)
+        {
+            writer.WriteStartElement(null, "MaxAsmmtrcKey", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumAsymmetricKeyValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (MaximumRSAKeyLength is IsoNumber MaximumRSAKeyLengthValue)
+        {
+            writer.WriteStartElement(null, "MaxRSAKeyLngth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumRSAKeyLengthValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (MaximumRootKeyLength is IsoNumber MaximumRootKeyLengthValue)
+        {
+            writer.WriteStartElement(null, "MaxRootKeyLngth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumRootKeyLengthValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMSecurityConfiguration2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

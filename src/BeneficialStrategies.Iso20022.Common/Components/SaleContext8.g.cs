@@ -7,97 +7,190 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Context of the sale involved in a card transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SaleContext8
+     : IIsoXmlSerilizable<SaleContext8>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the sale terminal (electronic cash register or point of sale terminal) or the sale system.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SaleIdentification { get; init; } 
     /// <summary>
     /// Global reference of the sale transaction for the sale system.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SaleReferenceIdentification { get; init; } 
     /// <summary>
     /// Identify a sale transaction assigned by the sale system.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SaleReferenceNumber { get; init; } 
     /// <summary>
     /// Type of goods and/or services.
     /// </summary>
-    [DataMember]
     public GoodsAndServices1Code? GoodsAndServicesType { get; init; } 
     /// <summary>
     /// Sub type of goods and/or services.
     /// </summary>
-    [DataMember]
     public GoodsAndServicesSubType1Code? GoodAndServicesSubType { get; init; } 
     /// <summary>
     /// Other goods and services sub type applied to the transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? GoodAndServicesOtherSubType { get; init; } 
     /// <summary>
     /// Code that specifies the good or service delivery channel.
     /// </summary>
-    [DataMember]
     public GoodAndServiceDeliveryChannel1Code? GoodAndServiceDeliveryChannel { get; init; } 
     /// <summary>
     /// Other good or service delivery channel defined at private or national level.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherGoodAndServiceDeliveryChannel { get; init; } 
     /// <summary>
     /// Code that specifies the good or service delivery schedule.
     /// </summary>
-    [DataMember]
     public GoodAndServiceDeliverySchedule1Code? GoodAndServiceDeliverySchedule { get; init; } 
     /// <summary>
     /// Other good or service delivery schedule defined at private or national level.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherGoodAndServiceDeliverySchedule { get; init; } 
     /// <summary>
     /// Also referred to as split tender. Indicates whether the payment transaction is a partial payment of the sale transaction.
     /// True: Partial payment of a sale transaction
     /// False: Not a partial payment of a sale transaction.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? SplitPaymentIndicator { get; init; } 
     /// <summary>
     /// Indicates whether a receipt from the goods or services provider was requested.
     /// True: Receipt requested
     /// False: Receipt not requested.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ReceiptRequestIndicator { get; init; } 
     /// <summary>
     /// Type of receipt requested or communication channel used.
     /// </summary>
-    [DataMember]
-    public ValueList<ReceiptType1Code> ReceiptType { get; init; } = []; // Warning: Don't know multiplicity.
+    public ReceiptType1Code? ReceiptType { get; init; } 
     /// <summary>
     /// Destination of the receipt (for example, e-mail address, SMS number, etc.).
     /// </summary>
-    [DataMember]
     public IsoMax70Text? ReceiptDestination { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SaleIdentification is IsoMax35Text SaleIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SaleReferenceIdentification is IsoMax35Text SaleReferenceIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleRefId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReferenceIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SaleReferenceNumber is IsoMax35Text SaleReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "SaleRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SaleReferenceNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (GoodsAndServicesType is GoodsAndServices1Code GoodsAndServicesTypeValue)
+        {
+            writer.WriteStartElement(null, "GoodsAndSvcsTp", xmlNamespace );
+            writer.WriteValue(GoodsAndServicesTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (GoodAndServicesSubType is GoodsAndServicesSubType1Code GoodAndServicesSubTypeValue)
+        {
+            writer.WriteStartElement(null, "GoodAndSvcsSubTp", xmlNamespace );
+            writer.WriteValue(GoodAndServicesSubTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (GoodAndServicesOtherSubType is IsoMax35Text GoodAndServicesOtherSubTypeValue)
+        {
+            writer.WriteStartElement(null, "GoodAndSvcsOthrSubTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(GoodAndServicesOtherSubTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (GoodAndServiceDeliveryChannel is GoodAndServiceDeliveryChannel1Code GoodAndServiceDeliveryChannelValue)
+        {
+            writer.WriteStartElement(null, "GoodAndSvcDlvryChanl", xmlNamespace );
+            writer.WriteValue(GoodAndServiceDeliveryChannelValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherGoodAndServiceDeliveryChannel is IsoMax35Text OtherGoodAndServiceDeliveryChannelValue)
+        {
+            writer.WriteStartElement(null, "OthrGoodAndSvcDlvryChanl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherGoodAndServiceDeliveryChannelValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (GoodAndServiceDeliverySchedule is GoodAndServiceDeliverySchedule1Code GoodAndServiceDeliveryScheduleValue)
+        {
+            writer.WriteStartElement(null, "GoodAndSvcDlvrySchdl", xmlNamespace );
+            writer.WriteValue(GoodAndServiceDeliveryScheduleValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherGoodAndServiceDeliverySchedule is IsoMax35Text OtherGoodAndServiceDeliveryScheduleValue)
+        {
+            writer.WriteStartElement(null, "OthrGoodAndSvcDlvrySchdl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherGoodAndServiceDeliveryScheduleValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SplitPaymentIndicator is IsoTrueFalseIndicator SplitPaymentIndicatorValue)
+        {
+            writer.WriteStartElement(null, "SpltPmtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(SplitPaymentIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ReceiptRequestIndicator is IsoTrueFalseIndicator ReceiptRequestIndicatorValue)
+        {
+            writer.WriteStartElement(null, "RctReqInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ReceiptRequestIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ReceiptType is ReceiptType1Code ReceiptTypeValue)
+        {
+            writer.WriteStartElement(null, "RctTp", xmlNamespace );
+            writer.WriteValue(ReceiptTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ReceiptDestination is IsoMax70Text ReceiptDestinationValue)
+        {
+            writer.WriteStartElement(null, "RctDstn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(ReceiptDestinationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SaleContext8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

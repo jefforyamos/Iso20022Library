@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.EligibilityIdentification2Choice;
 
@@ -13,7 +15,27 @@ namespace BeneficialStrategies.Iso20022.Choices.EligibilityIdentification2Choice
 /// Issuer CSD identification used to identify the securities to be defined as eligible.
 /// </summary>
 public partial record IssuerCSDIdentification : EligibilityIdentification2Choice_
+     , IIsoXmlSerilizable<IssuerCSDIdentification>
 {
     #nullable enable
+    
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+    }
+    public static new IssuerCSDIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

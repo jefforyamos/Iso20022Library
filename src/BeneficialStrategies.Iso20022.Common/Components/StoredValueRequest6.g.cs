@@ -7,28 +7,52 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data to request a stored value service (prepaid card or account).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StoredValueRequest6
+     : IIsoXmlSerilizable<StoredValueRequest6>
 {
     #nullable enable
     
     /// <summary>
     /// Sale System identification of the transaction in an unambiguous way.
     /// </summary>
-    [DataMember]
     public TransactionIdentifier1? SaleTransactionIdentification { get; init; } 
     /// <summary>
     /// Data related to the stored value card.
     /// </summary>
-    [DataMember]
-    public ValueList<StoredValueData6> Data { get; init; } = []; // Warning: Don't know multiplicity.
+    public StoredValueData6? Data { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _dQkpI3G0Ee2TbaNWBpRZpQ
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SaleTransactionIdentification is TransactionIdentifier1 SaleTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SaleTxId", xmlNamespace );
+            SaleTransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize Data, multiplicity Unknown
+    }
+    public static StoredValueRequest6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

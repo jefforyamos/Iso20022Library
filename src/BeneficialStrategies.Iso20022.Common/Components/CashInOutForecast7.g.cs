@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Cash movements into or out of a fund as a result of investment funds transactions, for example, subscriptions, redemptions or switches.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashInOutForecast7
+     : IIsoXmlSerilizable<CashInOutForecast7>
 {
     #nullable enable
     
     /// <summary>
     /// Date on which cash is available.
     /// </summary>
-    [DataMember]
     public IsoISODate? CashSettlementDate { get; init; } 
     /// <summary>
     /// Amount of the cash flow.
     /// </summary>
-    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CashSettlementDate is IsoISODate CashSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "CshSttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(CashSettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(Amount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static CashInOutForecast7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

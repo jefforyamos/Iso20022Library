@@ -7,48 +7,84 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Numerical representation of the net increases and decreases in an account at a specific point in time. A cash balance is calculated from a sum of cash credits minus a sum of cash debits.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReportData1
+     : IIsoXmlSerilizable<ReportData1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the report assigned by the central system.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date by which the amount(s) requested must be settled.
     /// </summary>
-    [DataMember]
     public required IsoISODate ValueDate { get; init; } 
     /// <summary>
     /// Date and time on which the report is generated. The offset with UTC may also be specified.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime DateAndTimeStamp { get; init; } 
     /// <summary>
     /// Specifies the type of the Pay In Call.
     /// </summary>
-    [DataMember]
     public required CallIn1Code Type { get; init; } 
     /// <summary>
     /// Specifies the amount requested.
     /// </summary>
-    [DataMember]
-    public ValueList<PayInCallItem> PayInCallAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public PayInCallItem? PayInCallAmount { get; init; } 
     /// <summary>
     /// Specifies the requested amount in multiple currencies.
     /// </summary>
-    [DataMember]
     public Value? AlternateValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ValDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ValueDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DtAndTmStmp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(DateAndTimeStamp)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (PayInCallAmount is PayInCallItem PayInCallAmountValue)
+        {
+            writer.WriteStartElement(null, "PayInCallAmt", xmlNamespace );
+            PayInCallAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AlternateValue is Value AlternateValueValue)
+        {
+            writer.WriteStartElement(null, "AltrnVal", xmlNamespace );
+            AlternateValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ReportData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

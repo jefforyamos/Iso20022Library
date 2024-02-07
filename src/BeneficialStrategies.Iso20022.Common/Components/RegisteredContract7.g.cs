@@ -7,114 +7,195 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Document that a user must file with an authorised servicer for each contract that involves foreign currency transactions with non residents.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RegisteredContract7
+     : IIsoXmlSerilizable<RegisteredContract7>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification of the contract registration creation, amendment or closure request.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalContractRegistrationRequest { get; init; } 
     /// <summary>
     /// Party registering the currency control contract.
     /// </summary>
-    [DataMember]
     public required TradeParty5 ReportingParty { get; init; } 
     /// <summary>
     /// Agent which registers the currency control contract.
     /// </summary>
-    [DataMember]
     public required BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; init; } 
     /// <summary>
     /// Financial institution of the issuer of the contract.
     /// </summary>
-    [DataMember]
     public required BranchAndFinancialInstitutionIdentification6 IssuerFinancialInstitution { get; init; } 
     /// <summary>
     /// Details of the contract being registered.
     /// </summary>
-    [DataMember]
     public required UnderlyingContract2Choice_ Contract { get; init; } 
     /// <summary>
     /// Contract balance on date of contract registration.
     /// </summary>
-    [DataMember]
-    public ValueList<ContractBalance1> ContractBalance { get; init; } = []; // Warning: Don't know multiplicity.
+    public ContractBalance1? ContractBalance { get; init; } 
     /// <summary>
     /// Type of the payment schedule provided in the contract.
     /// </summary>
-    [DataMember]
     public PaymentScheduleType1Choice_? PaymentScheduleType { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the registered contract as assigned by the registration agent.
     /// </summary>
-    [DataMember]
     public required DocumentIdentification29 RegisteredContractIdentification { get; init; } 
     /// <summary>
     /// Identification of a previously defined registered contract linked to the same underlying contract.
     /// Usage:
     /// This is the identification of a previous contract registration for the same underlying contract, which was closed. In most cases, this is used when a reporting party moves from one registration agent to another.
     /// </summary>
-    [DataMember]
     public DocumentIdentification22? PreviousRegisteredContractIdentification { get; init; } 
     /// <summary>
     /// Journal of previously closed registered contracts for the same underlying contract, which were requested at the same registration agent.
     /// </summary>
-    [DataMember]
-    public ValueList<RegisteredContractJournal2> RegisteredContractJournal { get; init; } = []; // Warning: Don't know multiplicity.
+    public RegisteredContractJournal2? RegisteredContractJournal { get; init; } 
     /// <summary>
     /// Details on amendments to the registered contract.
     /// </summary>
-    [DataMember]
-    public ValueList<RegisteredContractAmendment1> Amendment { get; init; } = []; // Warning: Don't know multiplicity.
+    public RegisteredContractAmendment1? Amendment { get; init; } 
     /// <summary>
     /// Provides the communication method for the submission of the registered contract.
     /// </summary>
-    [DataMember]
     public required RegisteredContractCommunication1 Submission { get; init; } 
     /// <summary>
     /// Provides the communication method for the delivery of the registered contract.
     /// </summary>
-    [DataMember]
     public required RegisteredContractCommunication1 Delivery { get; init; } 
     /// <summary>
     /// Amount of money the borrower pays back to the lender outside of interests and charges.
     /// Usage:
     /// Only applicable for loan contracts.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? LoanPrincipalAmount { get; init; } 
     /// <summary>
     /// Indicates whether the dates provided are estimates or not.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator EstimatedDateIndicator { get; init; } 
     /// <summary>
     /// Indicates whether loan in which both the lender and the borrower are divisions of the same corporation or not.
     /// Usage:
     /// Only applicable for loan contracts.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator InterCompanyLoan { get; init; } 
     /// <summary>
     /// Further information on the registered contract.
     /// </summary>
-    [DataMember]
     public IsoMax1025Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OriginalContractRegistrationRequest is IsoMax35Text OriginalContractRegistrationRequestValue)
+        {
+            writer.WriteStartElement(null, "OrgnlCtrctRegnReq", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalContractRegistrationRequestValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RptgPty", xmlNamespace );
+        ReportingParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RegnAgt", xmlNamespace );
+        RegistrationAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IssrFI", xmlNamespace );
+        IssuerFinancialInstitution.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Ctrct", xmlNamespace );
+        Contract.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ContractBalance is ContractBalance1 ContractBalanceValue)
+        {
+            writer.WriteStartElement(null, "CtrctBal", xmlNamespace );
+            ContractBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentScheduleType is PaymentScheduleType1Choice_ PaymentScheduleTypeValue)
+        {
+            writer.WriteStartElement(null, "PmtSchdlTp", xmlNamespace );
+            PaymentScheduleTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RegdCtrctId", xmlNamespace );
+        RegisteredContractIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PreviousRegisteredContractIdentification is DocumentIdentification22 PreviousRegisteredContractIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrvsRegdCtrctId", xmlNamespace );
+            PreviousRegisteredContractIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RegisteredContractJournal is RegisteredContractJournal2 RegisteredContractJournalValue)
+        {
+            writer.WriteStartElement(null, "RegdCtrctJrnl", xmlNamespace );
+            RegisteredContractJournalValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Amendment is RegisteredContractAmendment1 AmendmentValue)
+        {
+            writer.WriteStartElement(null, "Amdmnt", xmlNamespace );
+            AmendmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Submissn", xmlNamespace );
+        Submission.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Dlvry", xmlNamespace );
+        Delivery.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LoanPrincipalAmount is IsoActiveCurrencyAndAmount LoanPrincipalAmountValue)
+        {
+            writer.WriteStartElement(null, "LnPrncplAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(LoanPrincipalAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "EstmtdDtInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(EstimatedDateIndicator)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IntrCpnyLn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(InterCompanyLoan)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax1025Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1025Text(AdditionalInformationValue)); // data type Max1025Text System.String
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RegisteredContract7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

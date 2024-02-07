@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates the number of voting rights cast to a resolution.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Vote5
+     : IIsoXmlSerilizable<Vote5>
 {
     #nullable enable
     
     /// <summary>
     /// Numbering of the resolution as specified by the issuer or its agent.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text IssuerLabel { get; init; } 
     /// <summary>
     /// Specifies whether a resolution is accepted or not.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Accepted { get; init; } 
     /// <summary>
     /// Number of votes in favour of one resolution.
     /// </summary>
-    [DataMember]
     public IsoNumber? For { get; init; } 
     /// <summary>
     /// Number of votes against one resolution.
     /// </summary>
-    [DataMember]
     public IsoNumber? Against { get; init; } 
     /// <summary>
     /// Number of votes expressed as abstain.
     /// </summary>
-    [DataMember]
     public IsoNumber? Abstain { get; init; } 
     /// <summary>
     /// Total votes withheld, eg in the case where a shareholder wishes not to endorse the election of a board member.
     /// </summary>
-    [DataMember]
     public IsoNumber? Withhold { get; init; } 
     /// <summary>
     /// Number of votes for which no action has been taken.
     /// </summary>
-    [DataMember]
     public IsoNumber? NoAction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IssrLabl", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerLabel)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Accptd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Accepted)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (For is IsoNumber ForValue)
+        {
+            writer.WriteStartElement(null, "For", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(ForValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Against is IsoNumber AgainstValue)
+        {
+            writer.WriteStartElement(null, "Agnst", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(AgainstValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Abstain is IsoNumber AbstainValue)
+        {
+            writer.WriteStartElement(null, "Abstn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(AbstainValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Withhold is IsoNumber WithholdValue)
+        {
+            writer.WriteStartElement(null, "Wthhld", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(WithholdValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (NoAction is IsoNumber NoActionValue)
+        {
+            writer.WriteStartElement(null, "NoActn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NoActionValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static Vote5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

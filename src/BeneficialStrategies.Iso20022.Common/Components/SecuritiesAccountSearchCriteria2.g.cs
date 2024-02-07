@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of search criteria for querying securities account reference data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesAccountSearchCriteria2
+     : IIsoXmlSerilizable<SecuritiesAccountSearchCriteria2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountIdentification { get; init; } 
     /// <summary>
     /// Party that services the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification136? AccountServicer { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    [DataMember]
     public SystemPartyIdentification8? AccountOwner { get; init; } 
     /// <summary>
     /// Specifies the type of the party for which securities account data have been queried.
     /// </summary>
-    [DataMember]
     public SystemPartyType1Choice_? PartyType { get; init; } 
     /// <summary>
     /// Legal opening date for the securities account.
     /// </summary>
-    [DataMember]
     public DatePeriodSearch1Choice_? OpeningDate { get; init; } 
     /// <summary>
     /// Legal closing date for the securities account.
     /// </summary>
-    [DataMember]
     public DatePeriodSearch1Choice_? ClosingDate { get; init; } 
     /// <summary>
     /// Specifies the type of securities account.
     /// </summary>
-    [DataMember]
     public SystemSecuritiesAccountType1Choice_? AccountType { get; init; } 
     /// <summary>
     /// Specifies information to identify securities accounts where allocation instructions are posted.
     /// </summary>
-    [DataMember]
     public IsoExact4AlphaNumericText? EndInvestorFlag { get; init; } 
     /// <summary>
     /// Defines how the price is applied to the securities account.
     /// </summary>
-    [DataMember]
     public IsoExact4AlphaNumericText? PricingScheme { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountIdentification is IsoMax35Text AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountServicer is PartyIdentification136 AccountServicerValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+            AccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountOwner is SystemPartyIdentification8 AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PartyType is SystemPartyType1Choice_ PartyTypeValue)
+        {
+            writer.WriteStartElement(null, "PtyTp", xmlNamespace );
+            PartyTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OpeningDate is DatePeriodSearch1Choice_ OpeningDateValue)
+        {
+            writer.WriteStartElement(null, "OpngDt", xmlNamespace );
+            OpeningDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClosingDate is DatePeriodSearch1Choice_ ClosingDateValue)
+        {
+            writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
+            ClosingDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountType is SystemSecuritiesAccountType1Choice_ AccountTypeValue)
+        {
+            writer.WriteStartElement(null, "AcctTp", xmlNamespace );
+            AccountTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EndInvestorFlag is IsoExact4AlphaNumericText EndInvestorFlagValue)
+        {
+            writer.WriteStartElement(null, "EndInvstrFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(EndInvestorFlagValue)); // data type Exact4AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+        if (PricingScheme is IsoExact4AlphaNumericText PricingSchemeValue)
+        {
+            writer.WriteStartElement(null, "PricgSchme", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(PricingSchemeValue)); // data type Exact4AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesAccountSearchCriteria2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

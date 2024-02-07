@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusCode5Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusCode5Choice;
 /// Qualifies further the settlement status.
 /// </summary>
 public partial record Settlement : PaymentStatusCode5Choice_
+     , IIsoXmlSerilizable<Settlement>
 {
-    public required IsoMax4AlphaNumericText Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies an alphanumeric string with a maximum length of 4 characters.
+    /// </summary>
+    public required IsoMax4AlphaNumericText Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sttlm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(Value)); // data type Max4AlphaNumericText System.String
+        writer.WriteEndElement();
+    }
+    public static new Settlement Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

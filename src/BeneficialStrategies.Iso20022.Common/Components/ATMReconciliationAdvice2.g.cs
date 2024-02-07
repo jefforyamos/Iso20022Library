@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the reconciliation of an ATM.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMReconciliationAdvice2
+     : IIsoXmlSerilizable<ATMReconciliationAdvice2>
 {
     #nullable enable
     
     /// <summary>
     /// Environment of the ATM.
     /// </summary>
-    [DataMember]
     public required ATMEnvironment10 Environment { get; init; } 
     /// <summary>
     /// Command result for reinitialisation of the transaction counters.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMCommand8> CommandResult { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMCommand8? CommandResult { get; init; } 
     /// <summary>
     /// Party which has requested the reconciliation.
     /// </summary>
-    [DataMember]
     public ATMCommand9? CommandContext { get; init; } 
     /// <summary>
     /// Information about the reconciliation request.
     /// </summary>
-    [DataMember]
     public required ATMTransaction25 Transaction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Envt", xmlNamespace );
+        Environment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CommandResult is ATMCommand8 CommandResultValue)
+        {
+            writer.WriteStartElement(null, "CmdRslt", xmlNamespace );
+            CommandResultValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CommandContext is ATMCommand9 CommandContextValue)
+        {
+            writer.WriteStartElement(null, "CmdCntxt", xmlNamespace );
+            CommandContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Tx", xmlNamespace );
+        Transaction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ATMReconciliationAdvice2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

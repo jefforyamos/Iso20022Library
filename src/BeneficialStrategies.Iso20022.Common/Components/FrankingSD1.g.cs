@@ -7,63 +7,123 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Franking details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FrankingSD1
+     : IIsoXmlSerilizable<FrankingSD1>
 {
     #nullable enable
     
     /// <summary>
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Dividend / Distribution kind where the franking information apples to.
     /// </summary>
-    [DataMember]
     public required FrankingClass1Code FrankingClass { get; init; } 
     /// <summary>
     /// Indicator if the dividend is fully franked.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? FullyFrankedIndicator { get; init; } 
     /// <summary>
     /// Percentage of dividend that is franked.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? FrankedPercentage { get; init; } 
     /// <summary>
     /// Percentage of dividend that is unfranked.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? UnfrankedPercentage { get; init; } 
     /// <summary>
     /// The corporate tax rate for the for franking credit of the dividend.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? CorporateTaxRateForFrankingCredit { get; init; } 
     /// <summary>
     /// Cents amount of the dividend which has been franked at 30%.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? FrankedAmountPerSecurity { get; init; } 
     /// <summary>
     /// Amount of the dividend which has been unfranked.|
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? UnfrankedAmountPerSecurity { get; init; } 
     /// <summary>
     /// Conduit foreign income (CFI) amount related to the corporate action.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? ConduitForeignIncomeAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FrnkgClss", xmlNamespace );
+        writer.WriteValue(FrankingClass.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (FullyFrankedIndicator is IsoYesNoIndicator FullyFrankedIndicatorValue)
+        {
+            writer.WriteStartElement(null, "FullyFrnkdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(FullyFrankedIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (FrankedPercentage is IsoPercentageRate FrankedPercentageValue)
+        {
+            writer.WriteStartElement(null, "FrnkdPctg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(FrankedPercentageValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (UnfrankedPercentage is IsoPercentageRate UnfrankedPercentageValue)
+        {
+            writer.WriteStartElement(null, "UfrnkdPctg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(UnfrankedPercentageValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CorporateTaxRateForFrankingCredit is IsoPercentageRate CorporateTaxRateForFrankingCreditValue)
+        {
+            writer.WriteStartElement(null, "CorpTaxRateForFrnkgCdt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(CorporateTaxRateForFrankingCreditValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (FrankedAmountPerSecurity is IsoRestrictedFINActiveCurrencyAnd13DecimalAmount FrankedAmountPerSecurityValue)
+        {
+            writer.WriteStartElement(null, "FrnkdAmtPerScty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAnd13DecimalAmount(FrankedAmountPerSecurityValue)); // data type RestrictedFINActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (UnfrankedAmountPerSecurity is IsoRestrictedFINActiveCurrencyAnd13DecimalAmount UnfrankedAmountPerSecurityValue)
+        {
+            writer.WriteStartElement(null, "UfrnkdAmtPerScty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAnd13DecimalAmount(UnfrankedAmountPerSecurityValue)); // data type RestrictedFINActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ConduitForeignIncomeAmount is IsoRestrictedFINActiveCurrencyAnd13DecimalAmount ConduitForeignIncomeAmountValue)
+        {
+            writer.WriteStartElement(null, "CndtFrgnIncmAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAnd13DecimalAmount(ConduitForeignIncomeAmountValue)); // data type RestrictedFINActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static FrankingSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Physical and logical characteristics of a POI component (Point of Interaction).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PointOfInteractionComponentCharacteristics1
+     : IIsoXmlSerilizable<PointOfInteractionComponentCharacteristics1>
 {
     #nullable enable
     
     /// <summary>
     /// Memory characteristics of the component.
     /// </summary>
-    [DataMember]
-    public ValueList<MemoryCharacteristics1> Memory { get; init; } = []; // Warning: Don't know multiplicity.
+    public MemoryCharacteristics1? Memory { get; init; } 
     /// <summary>
     /// Low level communication of the hardware or software component toward another component or an external entity.
     /// </summary>
-    [DataMember]
-    public ValueList<CommunicationCharacteristics1> Communication { get; init; } = []; // Warning: Don't know multiplicity.
+    public CommunicationCharacteristics1? Communication { get; init; } 
     /// <summary>
     /// Number of security access modules (SAM).
     /// </summary>
-    [DataMember]
     public IsoNumber? SecurityAccessModules { get; init; } 
     /// <summary>
     /// Number of subscriber identity modules (SIM).
     /// </summary>
-    [DataMember]
     public IsoNumber? SubscriberIdentityModules { get; init; } 
     /// <summary>
     /// Value for checking a cryptographic key security parameter.
     /// </summary>
-    [DataMember]
     public IsoMax35Binary? KeyCheckValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Memory is MemoryCharacteristics1 MemoryValue)
+        {
+            writer.WriteStartElement(null, "Mmry", xmlNamespace );
+            MemoryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Communication is CommunicationCharacteristics1 CommunicationValue)
+        {
+            writer.WriteStartElement(null, "Com", xmlNamespace );
+            CommunicationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecurityAccessModules is IsoNumber SecurityAccessModulesValue)
+        {
+            writer.WriteStartElement(null, "SctyAccsMdls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(SecurityAccessModulesValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (SubscriberIdentityModules is IsoNumber SubscriberIdentityModulesValue)
+        {
+            writer.WriteStartElement(null, "SbcbrIdntyMdls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(SubscriberIdentityModulesValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (KeyCheckValue is IsoMax35Binary KeyCheckValueValue)
+        {
+            writer.WriteStartElement(null, "KeyChckVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Binary(KeyCheckValueValue)); // data type Max35Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static PointOfInteractionComponentCharacteristics1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

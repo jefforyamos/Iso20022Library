@@ -7,113 +7,223 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains the requested modifications.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RequestedModification
+     : IIsoXmlSerilizable<RequestedModification>
 {
     #nullable enable
     
     /// <summary>
     /// Reference relating to a linked payment instruction or agreement which is meaningful to both parties (eg, the content of field 21 in a cover instruction).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RelatedReference { get; init; } 
     /// <summary>
     /// SWIFT defined service level applies to the payment instruction.
     /// </summary>
-    [DataMember]
     public SWIFTServiceLevel2Code? BankOperationCode { get; init; } 
     /// <summary>
     /// Further information related to the processing of the payment instruction. The instruction can relate to a level of service between the bank and the customer, or give instructions to and for specific parties in the payment chain.
     /// </summary>
-    [DataMember]
     public Instruction1Code? InstructionCode { get; init; } 
     /// <summary>
     /// Date and time the debtor requests the clearing agent to process the payment instruction.
     /// </summary>
-    [DataMember]
     public IsoISODate? RequestedExecutionDate { get; init; } 
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
-    [DataMember]
     public IsoISODate? ValueDate { get; init; } 
     /// <summary>
     /// Amount of money moved between the instructing agent and the instructed agent.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? InterbankSettledAmount { get; init; } 
     /// <summary>
     /// Debtor or Ordering customer of the payment instruction.
     /// </summary>
-    [DataMember]
     public PartyIdentification1? Debtor { get; init; } 
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    [DataMember]
     public CashAccount3? DebtorAccount { get; init; } 
     /// <summary>
     /// Party that executes a cash transfer received via a clearing agent or on request of an agreement party.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification? IntermediarySettlementAgent { get; init; } 
     /// <summary>
     /// Party that executes a cash transfer received via a clearing agent or on request of an agreement party.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification? LastSettlementAgent { get; init; } 
     /// <summary>
     /// Specification of a pre-agreed offering between clearing agents, or the channel through which the payment instruction is to be processed. This payment scheme can point to a specific rulebook governing the rules of clearing and settlement between two parties.
     /// </summary>
-    [DataMember]
     public PaymentSchemeChoice_? PaymentScheme { get; init; } 
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    [DataMember]
     public CashAccount3? BeneficiaryInstitutionAccount { get; init; } 
     /// <summary>
     /// Entity involved in an activity.
     /// </summary>
-    [DataMember]
     public PartyIdentification1? Creditor { get; init; } 
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    [DataMember]
     public CashAccount3? CreditorAccount { get; init; } 
     /// <summary>
     /// Structured information that enables the matching, ie, reconciliation, of a payment with the items that the payment is intended to settle, such as commercial invoices in an account receivable system.
     /// </summary>
-    [DataMember]
     public RemittanceInformation3Choice_? RemittanceInformation { get; init; } 
     /// <summary>
     /// Underlying reason for the payment transaction.
     /// </summary>
-    [DataMember]
     public PurposeChoice_? Purpose { get; init; } 
     /// <summary>
     /// Further information related to the processing of the payment instruction. The instruction can relate to a level of service between the bank and the customer, or give instructions to and for specific parties in the payment chain.
     /// </summary>
-    [DataMember]
     public InstructionForFinalAgent? InstructionForFinalAgent { get; init; } 
     /// <summary>
     /// Party(ies) liable for a charge associated with the transfer of cash.
     /// </summary>
-    [DataMember]
     public ChargeBearer1Code? DetailsOfCharges { get; init; } 
     /// <summary>
     /// Unformatted information from the sender to the receiver.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> SenderToReceiverInformation { get; init; } = [];
+    public SimpleValueList<IsoMax35Text> SenderToReceiverInformation { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (RelatedReference is IsoMax35Text RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RelatedReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (BankOperationCode is SWIFTServiceLevel2Code BankOperationCodeValue)
+        {
+            writer.WriteStartElement(null, "BkOprCd", xmlNamespace );
+            writer.WriteValue(BankOperationCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (InstructionCode is Instruction1Code InstructionCodeValue)
+        {
+            writer.WriteStartElement(null, "InstrCd", xmlNamespace );
+            writer.WriteValue(InstructionCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (RequestedExecutionDate is IsoISODate RequestedExecutionDateValue)
+        {
+            writer.WriteStartElement(null, "ReqdExctnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(RequestedExecutionDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ValueDate is IsoISODate ValueDateValue)
+        {
+            writer.WriteStartElement(null, "ValDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ValueDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (InterbankSettledAmount is IsoCurrencyAndAmount InterbankSettledAmountValue)
+        {
+            writer.WriteStartElement(null, "IntrBkSttldAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(InterbankSettledAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Debtor is PartyIdentification1 DebtorValue)
+        {
+            writer.WriteStartElement(null, "Dbtr", xmlNamespace );
+            DebtorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DebtorAccount is CashAccount3 DebtorAccountValue)
+        {
+            writer.WriteStartElement(null, "DbtrAcct", xmlNamespace );
+            DebtorAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediarySettlementAgent is BranchAndFinancialInstitutionIdentification IntermediarySettlementAgentValue)
+        {
+            writer.WriteStartElement(null, "IntrmySttlmAgt", xmlNamespace );
+            IntermediarySettlementAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LastSettlementAgent is BranchAndFinancialInstitutionIdentification LastSettlementAgentValue)
+        {
+            writer.WriteStartElement(null, "LastSttlmAgt", xmlNamespace );
+            LastSettlementAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentScheme is PaymentSchemeChoice_ PaymentSchemeValue)
+        {
+            writer.WriteStartElement(null, "PmtSchme", xmlNamespace );
+            PaymentSchemeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BeneficiaryInstitutionAccount is CashAccount3 BeneficiaryInstitutionAccountValue)
+        {
+            writer.WriteStartElement(null, "BnfcryInstnAcct", xmlNamespace );
+            BeneficiaryInstitutionAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Creditor is PartyIdentification1 CreditorValue)
+        {
+            writer.WriteStartElement(null, "Cdtr", xmlNamespace );
+            CreditorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CreditorAccount is CashAccount3 CreditorAccountValue)
+        {
+            writer.WriteStartElement(null, "CdtrAcct", xmlNamespace );
+            CreditorAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RemittanceInformation is RemittanceInformation3Choice_ RemittanceInformationValue)
+        {
+            writer.WriteStartElement(null, "RmtInf", xmlNamespace );
+            RemittanceInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Purpose is PurposeChoice_ PurposeValue)
+        {
+            writer.WriteStartElement(null, "Purp", xmlNamespace );
+            PurposeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructionForFinalAgent is InstructionForFinalAgent InstructionForFinalAgentValue)
+        {
+            writer.WriteStartElement(null, "InstrForFnlAgt", xmlNamespace );
+            InstructionForFinalAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DetailsOfCharges is ChargeBearer1Code DetailsOfChargesValue)
+        {
+            writer.WriteStartElement(null, "DtlsOfChrgs", xmlNamespace );
+            writer.WriteValue(DetailsOfChargesValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SndrToRcvrInf", xmlNamespace );
+        SenderToReceiverInformation.Serialize(writer, xmlNamespace, "Max35Text", SerializationFormatter.IsoMax35Text );
+        writer.WriteEndElement();
+    }
+    public static RequestedModification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

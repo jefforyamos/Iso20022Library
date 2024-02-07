@@ -7,49 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to parties in the contract.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeCounterpartyReport14
+     : IIsoXmlSerilizable<TradeCounterpartyReport14>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the counterparty to a derivative transaction who is fulfilling its reporting obligation in the present report.
     /// </summary>
-    [DataMember]
     public required Counterparty34 ReportingCounterparty { get; init; } 
     /// <summary>
     /// Identification of the other counterparty to a derivative transaction.
     /// </summary>
-    [DataMember]
     public required Counterparty31 OtherCounterparty { get; init; } 
     /// <summary>
     /// Identification of the broker as an intermediary for the reporting counterparty.
     /// </summary>
-    [DataMember]
     public OrganisationIdentification10Choice_? Broker { get; init; } 
     /// <summary>
     /// Identification of the party that ultimately submits the report to the trade repository.
     /// </summary>
-    [DataMember]
     public OrganisationIdentification10Choice_? SubmittingAgent { get; init; } 
     /// <summary>
     /// Identifies the clearing member through which a derivative transaction is cleared at a central counterparty (CCP).  The element applies to transactions under the agency clearing model and the principal clearing model.
     /// </summary>
-    [DataMember]
     public OrganisationIdentification10Choice_? ClearingMember { get; init; } 
     /// <summary>
     /// Identification of the beneficiary of a derivative transaction, ie a party that is subject to the rights and obligations arising from the contract.
     /// ||Usage: The first iteration must always be the beneficiary 1 of the counterparty 1 and the second iteration is the beneficiary 2 of the counterparty 2.
     /// </summary>
-    [DataMember]
     public ValueList<PartyIdentification235Choice_> Beneficiary { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptgCtrPty", xmlNamespace );
+        ReportingCounterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrCtrPty", xmlNamespace );
+        OtherCounterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Broker is OrganisationIdentification10Choice_ BrokerValue)
+        {
+            writer.WriteStartElement(null, "Brkr", xmlNamespace );
+            BrokerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SubmittingAgent is OrganisationIdentification10Choice_ SubmittingAgentValue)
+        {
+            writer.WriteStartElement(null, "SubmitgAgt", xmlNamespace );
+            SubmittingAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingMember is OrganisationIdentification10Choice_ ClearingMemberValue)
+        {
+            writer.WriteStartElement(null, "ClrMmb", xmlNamespace );
+            ClearingMemberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Bnfcry", xmlNamespace );
+        Beneficiary.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static TradeCounterpartyReport14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

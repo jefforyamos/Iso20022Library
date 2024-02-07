@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity10Choice;
 
@@ -13,11 +15,34 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity10Cho
 /// Total quantity of units to be redeemed.
 /// </summary>
 public partial record UnitsNumber : FinancialInstrumentQuantity10Choice_
+     , IIsoXmlSerilizable<UnitsNumber>
 {
     #nullable enable
+    
     /// <summary>
     /// Quantity expressed as a number, eg, a number of shares.
     /// </summary>
     public required IsoDecimalNumber Unit { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Unit", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(Unit)); // data type DecimalNumber System.UInt64
+        writer.WriteEndElement();
+    }
+    public static new UnitsNumber Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,54 +7,91 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains the details on the payment transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentTransaction100
+     : IIsoXmlSerilizable<PaymentTransaction100>
 {
     #nullable enable
     
     /// <summary>
     /// Contains the unique end to end transaction reference of a payment, issued by the originator.
     /// </summary>
-    [DataMember]
     public required IsoUUIDv4Identifier UETR { get; init; } 
     /// <summary>
     /// Specifies the status of a transaction, in a coded form.
     /// </summary>
-    [DataMember]
     public required PaymentStatus4 TransactionStatus { get; init; } 
     /// <summary>
     /// Specifies the time when the related status was reached.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime EventTime { get; init; } 
     /// <summary>
     /// Specifies the party that issues the status.
     /// </summary>
-    [DataMember]
     public required IsoAnyBICIdentifier Originator { get; init; } 
     /// <summary>
     /// Specifies the amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// Usage: This amount has to be transported unchanged through the transaction chain.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? InstructedAmount { get; init; } 
     /// <summary>
     /// Specifies the actual amount that has been paid to the ultimate beneficiary, after all charges etc... have been deducted.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ConfirmedAmount { get; init; } 
     /// <summary>
     /// This groups the information of an event which is a payment message or status confirmation update. It is repeated as many times as there are events to be returned.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentEvent6> PaymentEvent { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentEvent6? PaymentEvent { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is __su_cUJREeinU6Cqu8f2Ow
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UETR", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoUUIDv4Identifier(UETR)); // data type UUIDv4Identifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxSts", xmlNamespace );
+        TransactionStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EvtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(EventTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Orgtr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(Originator)); // data type AnyBICIdentifier System.String
+        writer.WriteEndElement();
+        if (InstructedAmount is IsoActiveOrHistoricCurrencyAndAmount InstructedAmountValue)
+        {
+            writer.WriteStartElement(null, "InstdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(InstructedAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ConfirmedAmount is IsoActiveOrHistoricCurrencyAndAmount ConfirmedAmountValue)
+        {
+            writer.WriteStartElement(null, "ConfdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ConfirmedAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize PaymentEvent, multiplicity Unknown
+    }
+    public static PaymentTransaction100 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

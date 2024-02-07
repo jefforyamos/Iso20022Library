@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ExchangeRateReportOrError2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.ExchangeRateReportOrError2Choice
 /// Requested business information.
 /// </summary>
 public partial record CurrencyExchange : ExchangeRateReportOrError2Choice_
+     , IIsoXmlSerilizable<CurrencyExchange>
 {
     #nullable enable
+    
     /// <summary>
     /// The value of one currency expressed in relation to another currency. ExchangeRate expresses the ratio between UnitCurrency and QuotedCurrency (ExchangeRate = UnitCurrency/QuotedCurrency).
     /// </summary>
@@ -27,5 +31,32 @@ public partial record CurrencyExchange : ExchangeRateReportOrError2Choice_
     /// Date and time at which an exchange rate is quoted.
     /// </summary>
     public required IsoISODateTime QuotationDate { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "XchgRate", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ExchangeRate)); // data type BaseOneRate System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "QtdCcy", xmlNamespace );
+        writer.WriteValue(QuotedCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "QtnDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(QuotationDate)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+    }
+    public static new CurrencyExchange Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsin.InvoiceFinancingCancellationRequestV01>;
 
 namespace BeneficialStrategies.Iso20022.tsin;
 
@@ -29,10 +32,9 @@ namespace BeneficialStrategies.Iso20022.tsin;
 /// - In a relay scenario, the message is sent to an Intermediary Agent. The Intermediary Agent forwards the InvoiceFinancingCancellingRequest message to the First Agent.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The InvoiceFinancingCancellationRequest message is sent by the Financing Requestor to the Intermediary Agent (relay scenario) or First Agent (direct scenario). It is used to request the cancellation of a previously sent financing request.|Usage|The InvoiceFinancingCancellationRequest message is used by the Financing Requestor to request the cancellation of a previously sent financing request.|It is not possible to send a cancellation request for a single invoice contained in a bulk invoice financing request.|The InvoiceFinancingCancellationRequest message contains references (original group identification and original creation date and time) of the original financing request message to which is referred.|As for InvoiceFinancingRequest, the message can be used in a direct or a relay scenario:|- In a direct scenario, the message is sent directly to the First Agent. The First Agent is the account servicer of the Financing Requestor.|- In a relay scenario, the message is sent to an Intermediary Agent. The Intermediary Agent forwards the InvoiceFinancingCancellingRequest message to the First Agent.")]
-public partial record InvoiceFinancingCancellationRequestV01 : IOuterRecord
+public partial record InvoiceFinancingCancellationRequestV01 : IOuterRecord<InvoiceFinancingCancellationRequestV01,InvoiceFinancingCancellationRequestV01Document>
+    ,IIsoXmlSerilizable<InvoiceFinancingCancellationRequestV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -44,6 +46,11 @@ public partial record InvoiceFinancingCancellationRequestV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "InvcFincgCxlReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => InvoiceFinancingCancellationRequestV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -75,6 +82,29 @@ public partial record InvoiceFinancingCancellationRequestV01 : IOuterRecord
     {
         return new InvoiceFinancingCancellationRequestV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("InvcFincgCxlReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CxlReqId", xmlNamespace );
+        CancellationRequestIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CxlReqInf", xmlNamespace );
+        CancellationRequestInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static InvoiceFinancingCancellationRequestV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -82,9 +112,7 @@ public partial record InvoiceFinancingCancellationRequestV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvoiceFinancingCancellationRequestV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record InvoiceFinancingCancellationRequestV01Document : IOuterDocument<InvoiceFinancingCancellationRequestV01>
+public partial record InvoiceFinancingCancellationRequestV01Document : IOuterDocument<InvoiceFinancingCancellationRequestV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -100,5 +128,22 @@ public partial record InvoiceFinancingCancellationRequestV01Document : IOuterDoc
     /// <summary>
     /// The instance of <seealso cref="InvoiceFinancingCancellationRequestV01"/> is required.
     /// </summary>
+    [DataMember(Name=InvoiceFinancingCancellationRequestV01.XmlTag)]
     public required InvoiceFinancingCancellationRequestV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(InvoiceFinancingCancellationRequestV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

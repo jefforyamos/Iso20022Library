@@ -7,93 +7,179 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account owned by a customer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CustomerAccount5
+     : IIsoXmlSerilizable<CustomerAccount5>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the account.
     /// </summary>
-    [DataMember]
-    public ValueList<AccountIdentification4Choice_> Identification { get; init; } = []; // Warning: Don't know multiplicity.
+    public AccountIdentification4Choice_? Identification { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _NtycwQ1iEeKGXqvMN6jpiw
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Specifies the current state of an account, eg, enabled or deleted.
     /// </summary>
-    [DataMember]
     public AccountStatus3Code? Status { get; init; } 
     /// <summary>
     /// Type of the account.
     /// </summary>
-    [DataMember]
     public CashAccountType2Choice_? Type { get; init; } 
     /// <summary>
     /// Medium of exchange of value.
     /// </summary>
-    [DataMember]
     public required ActiveCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Monthly average of the payment amounts (that is, payments going out) over a year.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? MonthlyPaymentValue { get; init; } 
     /// <summary>
     /// Monthly average of the received amounts over a year (that is, payments coming in).
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? MonthlyReceivedValue { get; init; } 
     /// <summary>
     /// Monthly average of the number of payments (coming in and going out) over a year.
     /// </summary>
-    [DataMember]
     public IsoMax5NumericText? MonthlyTransactionNumber { get; init; } 
     /// <summary>
     /// Sum of the end of day balances over a month divided by the number of business days in the month.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? AverageBalance { get; init; } 
     /// <summary>
     /// Specifies the purpose of the account.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? AccountPurpose { get; init; } 
     /// <summary>
     /// Specifies the value of the balance under which a notification will be sent to the account owner.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? FloorNotificationAmount { get; init; } 
     /// <summary>
     /// Specifies the value of the balance above which a notification will be sent to the account owner.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? CeilingNotificationAmount { get; init; } 
     /// <summary>
     /// Specifies how often statements (for audit purposes) will be sent, in which format, to which address.
     /// </summary>
-    [DataMember]
-    public ValueList<StatementFrequencyAndForm1> StatementFrequencyAndFormat { get; init; } = []; // Warning: Don't know multiplicity.
+    public StatementFrequencyAndForm1? StatementFrequencyAndFormat { get; init; } 
     /// <summary>
     /// Date when the account will be or was closed.
     /// </summary>
-    [DataMember]
     public IsoISODate? ClosingDate { get; init; } 
     /// <summary>
     /// Restriction on capability or operations allowed.
     /// </summary>
-    [DataMember]
-    public ValueList<Restriction1> Restriction { get; init; } = []; // Warning: Don't know multiplicity.
+    public Restriction1? Restriction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize Identification, multiplicity Unknown
+        if (Name is IsoMax70Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Status is AccountStatus3Code StatusValue)
+        {
+            writer.WriteStartElement(null, "Sts", xmlNamespace );
+            writer.WriteValue(StatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Type is CashAccountType2Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Ccy", xmlNamespace );
+        writer.WriteValue(Currency.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (MonthlyPaymentValue is IsoImpliedCurrencyAndAmount MonthlyPaymentValueValue)
+        {
+            writer.WriteStartElement(null, "MnthlyPmtVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MonthlyPaymentValueValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MonthlyReceivedValue is IsoImpliedCurrencyAndAmount MonthlyReceivedValueValue)
+        {
+            writer.WriteStartElement(null, "MnthlyRcvdVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(MonthlyReceivedValueValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MonthlyTransactionNumber is IsoMax5NumericText MonthlyTransactionNumberValue)
+        {
+            writer.WriteStartElement(null, "MnthlyTxNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax5NumericText(MonthlyTransactionNumberValue)); // data type Max5NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (AverageBalance is IsoImpliedCurrencyAndAmount AverageBalanceValue)
+        {
+            writer.WriteStartElement(null, "AvrgBal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(AverageBalanceValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (AccountPurpose is IsoMax140Text AccountPurposeValue)
+        {
+            writer.WriteStartElement(null, "AcctPurp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(AccountPurposeValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (FloorNotificationAmount is IsoImpliedCurrencyAndAmount FloorNotificationAmountValue)
+        {
+            writer.WriteStartElement(null, "FlrNtfctnAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(FloorNotificationAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CeilingNotificationAmount is IsoImpliedCurrencyAndAmount CeilingNotificationAmountValue)
+        {
+            writer.WriteStartElement(null, "ClngNtfctnAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(CeilingNotificationAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (StatementFrequencyAndFormat is StatementFrequencyAndForm1 StatementFrequencyAndFormatValue)
+        {
+            writer.WriteStartElement(null, "StmtFrqcyAndFrmt", xmlNamespace );
+            StatementFrequencyAndFormatValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClosingDate is IsoISODate ClosingDateValue)
+        {
+            writer.WriteStartElement(null, "ClsgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ClosingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Restriction is Restriction1 RestrictionValue)
+        {
+            writer.WriteStartElement(null, "Rstrctn", xmlNamespace );
+            RestrictionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CustomerAccount5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

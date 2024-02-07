@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information such as the taxation conditions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionNarrative14
+     : IIsoXmlSerilizable<CorporateActionNarrative14>
 {
     #nullable enable
     
     /// <summary>
     /// Provides declaration details narrative relative to the financial instrument, for example, beneficial ownership.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoRestrictedFINXMax350Text> DeclarationDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax350Text? DeclarationDetails { get; init; } 
     /// <summary>
     /// Provides additional information or specifies in more detail the content of a message. This field may only be used when the information to be transmitted, cannot be coded.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoRestrictedFINXMax350Text> AdditionalText { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax350Text? AdditionalText { get; init; } 
     /// <summary>
     /// Provides information that can be ignored for automated processing; - reiteration of information that has been included within structured fields of this message, - or narrative information not needed for automatic processing.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoRestrictedFINXMax350Text> NarrativeVersion { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax350Text? NarrativeVersion { get; init; } 
     /// <summary>
     /// Provides information required for the registration.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoRestrictedFINXMax350Text> RegistrationDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax350Text? RegistrationDetails { get; init; } 
     /// <summary>
     /// Provides conditional information related to the event, for example, an offer is subject to 50 percent acceptance, the offeror allows the securities holder to set some conditions.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoRestrictedFINXMax350Text> InformationConditions { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax350Text? InformationConditions { get; init; } 
     /// <summary>
     /// Provides information conditions to the account owner that are to be complied with, for example, not open to US/Canadian residents, Qualified Institutional Buyers (QIB) or SIL (Sophisticated Investor Letter) to be provided.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoRestrictedFINXMax350Text> InformationToComplyWith { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax350Text? InformationToComplyWith { get; init; } 
     /// <summary>
     /// Provides additional information regarding the party, for example, the contact unit or person responsible for the transaction identified in the message.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoRestrictedFINXMax350Text> PartyContactNarrative { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax350Text? PartyContactNarrative { get; init; } 
     /// <summary>
     /// Provides taxation conditions that cannot be included within the structured fields of this message and has not been mentioned in the Service Level Agreement (SLA).
     /// </summary>
-    [DataMember]
-    public ValueList<IsoRestrictedFINXMax350Text> TaxationConditions { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax350Text? TaxationConditions { get; init; } 
     /// <summary>
     /// Provides additional information on the basket or index underlying a security, for example a warrant.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoRestrictedFINXMax350Text> BasketOrIndexInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax350Text? BasketOrIndexInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DeclarationDetails is IsoRestrictedFINXMax350Text DeclarationDetailsValue)
+        {
+            writer.WriteStartElement(null, "DclrtnDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(DeclarationDetailsValue)); // data type RestrictedFINXMax350Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalText is IsoRestrictedFINXMax350Text AdditionalTextValue)
+        {
+            writer.WriteStartElement(null, "AddtlTxt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(AdditionalTextValue)); // data type RestrictedFINXMax350Text System.String
+            writer.WriteEndElement();
+        }
+        if (NarrativeVersion is IsoRestrictedFINXMax350Text NarrativeVersionValue)
+        {
+            writer.WriteStartElement(null, "NrrtvVrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(NarrativeVersionValue)); // data type RestrictedFINXMax350Text System.String
+            writer.WriteEndElement();
+        }
+        if (RegistrationDetails is IsoRestrictedFINXMax350Text RegistrationDetailsValue)
+        {
+            writer.WriteStartElement(null, "RegnDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(RegistrationDetailsValue)); // data type RestrictedFINXMax350Text System.String
+            writer.WriteEndElement();
+        }
+        if (InformationConditions is IsoRestrictedFINXMax350Text InformationConditionsValue)
+        {
+            writer.WriteStartElement(null, "InfConds", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(InformationConditionsValue)); // data type RestrictedFINXMax350Text System.String
+            writer.WriteEndElement();
+        }
+        if (InformationToComplyWith is IsoRestrictedFINXMax350Text InformationToComplyWithValue)
+        {
+            writer.WriteStartElement(null, "InfToCmplyWth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(InformationToComplyWithValue)); // data type RestrictedFINXMax350Text System.String
+            writer.WriteEndElement();
+        }
+        if (PartyContactNarrative is IsoRestrictedFINXMax350Text PartyContactNarrativeValue)
+        {
+            writer.WriteStartElement(null, "PtyCtctNrrtv", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(PartyContactNarrativeValue)); // data type RestrictedFINXMax350Text System.String
+            writer.WriteEndElement();
+        }
+        if (TaxationConditions is IsoRestrictedFINXMax350Text TaxationConditionsValue)
+        {
+            writer.WriteStartElement(null, "TaxtnConds", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(TaxationConditionsValue)); // data type RestrictedFINXMax350Text System.String
+            writer.WriteEndElement();
+        }
+        if (BasketOrIndexInformation is IsoRestrictedFINXMax350Text BasketOrIndexInformationValue)
+        {
+            writer.WriteStartElement(null, "BsktOrIndxInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax350Text(BasketOrIndexInformationValue)); // data type RestrictedFINXMax350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionNarrative14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

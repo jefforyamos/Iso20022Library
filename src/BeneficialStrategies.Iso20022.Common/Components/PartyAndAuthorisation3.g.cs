@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Party and related authorisation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyAndAuthorisation3
+     : IIsoXmlSerilizable<PartyAndAuthorisation3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of change.
     /// </summary>
-    [DataMember]
     public Modification1Code? ModificationCode { get; init; } 
     /// <summary>
     /// Specifies a party or a group of parties.
     /// </summary>
-    [DataMember]
     public required PartyOrGroup1Choice_ PartyOrGroup { get; init; } 
     /// <summary>
     /// Order in which the mandate holder has to sign.
     /// </summary>
-    [DataMember]
     public IsoMax15PlusSignedNumericText? SignatureOrder { get; init; } 
     /// <summary>
     /// Authorisation granted to a mandate holder.
     /// </summary>
-    [DataMember]
     public required Authorisation2 Authorisation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ModificationCode is Modification1Code ModificationCodeValue)
+        {
+            writer.WriteStartElement(null, "ModCd", xmlNamespace );
+            writer.WriteValue(ModificationCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PtyOrGrp", xmlNamespace );
+        PartyOrGroup.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SignatureOrder is IsoMax15PlusSignedNumericText SignatureOrderValue)
+        {
+            writer.WriteStartElement(null, "SgntrOrdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15PlusSignedNumericText(SignatureOrderValue)); // data type Max15PlusSignedNumericText System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Authstn", xmlNamespace );
+        Authorisation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static PartyAndAuthorisation3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

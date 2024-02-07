@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// U-003-2009 Addition and Modification of choice component. S-009-2009 They are not valid business options in the redemption processing context. S-015-2009 Add new data elements to indicate time zone.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MainFundOrderDeskLocation1
+     : IIsoXmlSerilizable<MainFundOrderDeskLocation1>
 {
     #nullable enable
     
     /// <summary>
     /// Country in which it is authorised to commercialise the fund.
     /// </summary>
-    [DataMember]
     public required CountryCode Country { get; init; } 
     /// <summary>
     /// Offset of the reporting time before or after 00: 00 hour UTC.
     /// </summary>
-    [DataMember]
     public required UTCOffset1 TimeZoneOffSet { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ctry", xmlNamespace );
+        writer.WriteValue(Country.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TmZoneOffSet", xmlNamespace );
+        TimeZoneOffSet.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static MainFundOrderDeskLocation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

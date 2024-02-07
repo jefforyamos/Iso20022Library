@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument12Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument12Choice;
 /// Written order on which instructions are given to an account holder (a financial institution) to pay a stated sum to a named recipient (the payee).
 /// </summary>
 public partial record ChequeDetails : PaymentInstrument12Choice_
+     , IIsoXmlSerilizable<ChequeDetails>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique and unambiguous identifier for a cheque as assigned by the financial institution.
     /// </summary>
@@ -31,5 +35,44 @@ public partial record ChequeDetails : PaymentInstrument12Choice_
     /// Account owner that issues a cheque ordering the drawee bank to pay a specific amount, upon demand, to the payee.
     /// </summary>
     public PartyIdentification2Choice_? DrawerIdentification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Number is IsoMax35Text NumberValue)
+        {
+            writer.WriteStartElement(null, "Nb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PyeeId", xmlNamespace );
+        PayeeIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DraweeIdentification is FinancialInstitutionIdentification3Choice_ DraweeIdentificationValue)
+        {
+            writer.WriteStartElement(null, "DrweeId", xmlNamespace );
+            DraweeIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DrawerIdentification is PartyIdentification2Choice_ DrawerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "DrwrId", xmlNamespace );
+            DrawerIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new ChequeDetails Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

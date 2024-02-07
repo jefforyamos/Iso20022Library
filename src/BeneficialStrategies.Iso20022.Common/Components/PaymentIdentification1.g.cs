@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide further means of referencing a payment transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentIdentification1
+     : IIsoXmlSerilizable<PaymentIdentification1>
 {
     #nullable enable
     
@@ -23,14 +24,38 @@ public partial record PaymentIdentification1
     /// Unique identification as assigned by an instructing party for an instructed party to unambiguously identify the instruction.
     /// Usage: The instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? InstructionIdentification { get; init; } 
     /// <summary>
     /// Unique identification assigned by the initiating party to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain.
     /// Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction. It can be included in several messages related to the transaction.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text EndToEndIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (InstructionIdentification is IsoMax35Text InstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "InstrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(InstructionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "EndToEndId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(EndToEndIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static PaymentIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

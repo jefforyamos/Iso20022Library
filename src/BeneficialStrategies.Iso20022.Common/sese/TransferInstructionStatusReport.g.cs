@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.sese.TransferInstructionStatusReport>;
 
 namespace BeneficialStrategies.Iso20022.sese;
 
@@ -31,10 +34,9 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// Further information about repair, unmatched, rejected or pending settlement statuses must be specified using either codes or unstructured information.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The TransferInstructionStatusReport message is sent by an instructing party to the executing party. The instructing party may be an investor, a transfer agent, or an intermediary, etc. The executing party may be a transfer agent, or an intermediary, etc.|This message gives the status of a transfer instruction, and can be used from the time the executing party receives the transfer instruction until its execution.|Usage|The TransferInstructionStatusReport message is sent by an executing party to the instructing party. The message can be used to report one of the following|- the status of the transfer instruction (using a code)or|- the repair status or|- the unmatched status or|- the rejection status or|- the pending settlement status.|Further information about repair, unmatched, rejected or pending settlement statuses must be specified using either codes or unstructured information.")]
-public partial record TransferInstructionStatusReport : IOuterRecord
+public partial record TransferInstructionStatusReport : IOuterRecord<TransferInstructionStatusReport,TransferInstructionStatusReportDocument>
+    ,IIsoXmlSerilizable<TransferInstructionStatusReport>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -46,6 +48,11 @@ public partial record TransferInstructionStatusReport : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "sese.011.001.01";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => TransferInstructionStatusReportDocument.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -87,6 +94,32 @@ public partial record TransferInstructionStatusReport : IOuterRecord
     {
         return new TransferInstructionStatusReportDocument { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("sese.011.001.01");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+        RelatedReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrRef", xmlNamespace );
+        OtherReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StsRpt", xmlNamespace );
+        StatusReport.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static TransferInstructionStatusReport Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -94,9 +127,7 @@ public partial record TransferInstructionStatusReport : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransferInstructionStatusReport"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record TransferInstructionStatusReportDocument : IOuterDocument<TransferInstructionStatusReport>
+public partial record TransferInstructionStatusReportDocument : IOuterDocument<TransferInstructionStatusReport>, IXmlSerializable
 {
     
     /// <summary>
@@ -112,5 +143,22 @@ public partial record TransferInstructionStatusReportDocument : IOuterDocument<T
     /// <summary>
     /// The instance of <seealso cref="TransferInstructionStatusReport"/> is required.
     /// </summary>
+    [DataMember(Name=TransferInstructionStatusReport.XmlTag)]
     public required TransferInstructionStatusReport Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(TransferInstructionStatusReport.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

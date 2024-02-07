@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Device used by the customer to perform the payment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CustomerDevice3
+     : IIsoXmlSerilizable<CustomerDevice3>
 {
     #nullable enable
     
     /// <summary>
     /// Identifier of the component.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Type of component.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Type { get; init; } 
     /// <summary>
     /// Provider of the component.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Provider { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is IsoMax35Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Type is IsoMax70Text TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(TypeValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Provider is IsoMax35Text ProviderValue)
+        {
+            writer.WriteStartElement(null, "Prvdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProviderValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CustomerDevice3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

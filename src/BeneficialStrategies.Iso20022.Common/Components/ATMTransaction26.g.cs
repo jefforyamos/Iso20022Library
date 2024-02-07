@@ -7,53 +7,97 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the reconciliation response.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMTransaction26
+     : IIsoXmlSerilizable<ATMTransaction26>
 {
     #nullable enable
     
     /// <summary>
     /// Type of logical or physical operation on the ATM for which the counters are computed.
     /// </summary>
-    [DataMember]
     public ATMOperation1Code? TypeOfOperation { get; init; } 
     /// <summary>
     /// Identification of the reconciliation transaction.
     /// </summary>
-    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period assigned by the ATM.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ReconciliationIdentification { get; init; } 
     /// <summary>
     /// Result of the reconciliation.
     /// </summary>
-    [DataMember]
     public required ResponseType7 TransactionResponse { get; init; } 
     /// <summary>
     /// Current totals of the ATM.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMTotals1> ATMTotals { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMTotals1? ATMTotals { get; init; } 
     /// <summary>
     /// Information on the cassettes of the ATM.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMCassette2> Cassette { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMCassette2? Cassette { get; init; } 
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMCommand7> Command { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMCommand7? Command { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TypeOfOperation is ATMOperation1Code TypeOfOperationValue)
+        {
+            writer.WriteStartElement(null, "TpOfOpr", xmlNamespace );
+            writer.WriteValue(TypeOfOperationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RcncltnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ReconciliationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxRspn", xmlNamespace );
+        TransactionResponse.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ATMTotals is ATMTotals1 ATMTotalsValue)
+        {
+            writer.WriteStartElement(null, "ATMTtls", xmlNamespace );
+            ATMTotalsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Cassette is ATMCassette2 CassetteValue)
+        {
+            writer.WriteStartElement(null, "Csstt", xmlNamespace );
+            CassetteValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Command is ATMCommand7 CommandValue)
+        {
+            writer.WriteStartElement(null, "Cmd", xmlNamespace );
+            CommandValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMTransaction26 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

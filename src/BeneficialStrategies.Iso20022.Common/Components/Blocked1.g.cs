@@ -7,33 +7,59 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies information about blocked accounts.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Blocked1
+     : IIsoXmlSerilizable<Blocked1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the order type for which the account is blocked.
     /// </summary>
-    [DataMember]
-    public ValueList<FundOrderType1Choice_> OrderType { get; init; } = []; // Warning: Don't know multiplicity.
+    public FundOrderType1Choice_? OrderType { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _kTNEgBHCEeKVqeHljBM1MQ
     /// <summary>
     /// Indicates whether the account is blocked.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Blocked { get; init; } 
     /// <summary>
     /// Specifies the reason the account is blocked.
     /// </summary>
-    [DataMember]
     public BlockedReason1Choice_? Reason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize OrderType, multiplicity Unknown
+        writer.WriteStartElement(null, "Blckd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Blocked)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (Reason is BlockedReason1Choice_ ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            ReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Blocked1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

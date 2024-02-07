@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument9Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument9Choice;
 /// Payment instrument between a debtor and a creditor, which flows through one or more financial institutions or systems.
 /// </summary>
 public partial record CreditTransferDetails : PaymentInstrument9Choice_
+     , IIsoXmlSerilizable<CreditTransferDetails>
 {
     #nullable enable
+    
     /// <summary>
     /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts' receivable system.
     /// </summary>
@@ -27,5 +31,38 @@ public partial record CreditTransferDetails : PaymentInstrument9Choice_
     /// Party that owes the cash to the creditor/final party. The debtor is also the debit account owner.
     /// </summary>
     public required Debtor2 DebtorDetails { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Reference is IsoMax35Text ReferenceValue)
+        {
+            writer.WriteStartElement(null, "Ref", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CreditorDetails is Creditor2 CreditorDetailsValue)
+        {
+            writer.WriteStartElement(null, "CdtrDtls", xmlNamespace );
+            CreditorDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DbtrDtls", xmlNamespace );
+        DebtorDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new CreditTransferDetails Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

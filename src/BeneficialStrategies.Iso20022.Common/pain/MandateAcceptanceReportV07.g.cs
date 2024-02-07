@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.pain.MandateAcceptanceReportV07>;
 
 namespace BeneficialStrategies.Iso20022.pain;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.pain;
 /// The MandateAcceptanceReport message can be used in domestic and cross-border scenarios.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The MandateAcceptanceReport message is sent from the agent of the receiver (debtor or creditor) of the MandateRequest message (initiation, amendment or cancellation) to the agent of the initiator of the MandateRequest message (debtor or creditor).|A MandateAcceptanceReport message is used to confirm the acceptance or rejection of a MandateRequest message. Where acceptance is part of the full process flow, a MandateRequest message only becomes valid after a confirmation of acceptance is received through a MandateAcceptanceReport message from the agent of the receiver.|Usage|The MandateAcceptanceReport message can contain one or more confirmation(s) of acceptance or rejection of a specific Mandate Request.|The messages can be exchanged between debtor agent and creditor agent and between debtor agent and debtor and creditor agent and creditor.|The MandateAcceptanceReport message can be used in domestic and cross-border scenarios.")]
-public partial record MandateAcceptanceReportV07 : IOuterRecord
+public partial record MandateAcceptanceReportV07 : IOuterRecord<MandateAcceptanceReportV07,MandateAcceptanceReportV07Document>
+    ,IIsoXmlSerilizable<MandateAcceptanceReportV07>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record MandateAcceptanceReportV07 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MndtAccptncRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => MandateAcceptanceReportV07Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -82,6 +89,35 @@ public partial record MandateAcceptanceReportV07 : IOuterRecord
     {
         return new MandateAcceptanceReportV07Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MndtAccptncRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
+        GroupHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UndrlygAccptncDtls", xmlNamespace );
+        UnderlyingAcceptanceDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MandateAcceptanceReportV07 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -89,9 +125,7 @@ public partial record MandateAcceptanceReportV07 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MandateAcceptanceReportV07"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record MandateAcceptanceReportV07Document : IOuterDocument<MandateAcceptanceReportV07>
+public partial record MandateAcceptanceReportV07Document : IOuterDocument<MandateAcceptanceReportV07>, IXmlSerializable
 {
     
     /// <summary>
@@ -107,5 +141,22 @@ public partial record MandateAcceptanceReportV07Document : IOuterDocument<Mandat
     /// <summary>
     /// The instance of <seealso cref="MandateAcceptanceReportV07"/> is required.
     /// </summary>
+    [DataMember(Name=MandateAcceptanceReportV07.XmlTag)]
     public required MandateAcceptanceReportV07 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(MandateAcceptanceReportV07.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

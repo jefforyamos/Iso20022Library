@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Signed quantity of security formats.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SignedQuantityFormat12
+     : IIsoXmlSerilizable<SignedQuantityFormat12>
 {
     #nullable enable
     
     /// <summary>
     /// Sign of the quantity of security.
     /// </summary>
-    [DataMember]
     public required ShortLong1Code ShortLongPosition { get; init; } 
     /// <summary>
     /// Choice between different quantity of security formats.
     /// </summary>
-    [DataMember]
     public required Quantity53Choice_ QuantityChoice { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ShrtLngPos", xmlNamespace );
+        writer.WriteValue(ShortLongPosition.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "QtyChc", xmlNamespace );
+        QuantityChoice.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SignedQuantityFormat12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

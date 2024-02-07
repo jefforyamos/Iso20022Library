@@ -7,68 +7,115 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information regarding custodian service record.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CustodianDetailsSD1
+     : IIsoXmlSerilizable<CustodianDetailsSD1>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Unique identifier of a custodian corporate action record. Applicable to custodian service only.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text CustodianCorporateActionRecordIdentification { get; init; } 
     /// <summary>
     /// Indicates the state of the agreement of the custodian record when compared to composite record. Applicable to custodian service only.
     /// </summary>
-    [DataMember]
     public required CustodianRecordAgreementType1Code AgreeIndicator { get; init; } 
     /// <summary>
     /// Indicates state of the details of the custodian record on the system. Applicable to custodian service only.
     /// </summary>
-    [DataMember]
     public required CustodianRecordCompletenessType1Code CompletenessIndicator { get; init; } 
     /// <summary>
     /// Represents the status of custodian activity when applicable.
     /// </summary>
-    [DataMember]
     public CustodianAction1Code? CustodianActionIndicator { get; init; } 
     /// <summary>
     /// Indicates what action needs to be taken by the GCA (Global Corporate Action) validation service for this particular record. Applicable to custodian service only.
     /// </summary>
-    [DataMember]
     public GCAActionType1Code? GCAActionIndicator { get; init; } 
     /// <summary>
     /// BIC which is configured as a recipient of the custodian record. Applicable to custodian service only.
     /// </summary>
-    [DataMember]
     public required IsoAnyBICIdentifier ReceivingBIC { get; init; } 
     /// <summary>
     /// BIC which is configured as a sender of the custodian record. Applicable to custodian service only.
     /// </summary>
-    [DataMember]
     public required IsoAnyBICIdentifier OriginatingBIC { get; init; } 
     /// <summary>
     /// Indicates whether the event security of the corresponding composite record is on SOI (security of interest) subscription. Applicable to custodian service only.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator CompositeNotInSubscriptionFlag { get; init; } 
     /// <summary>
     /// Provides selected corporate action events message details extracted from the related custodian messages received. Applicable to custodian service only.
     /// </summary>
-    [DataMember]
-    public ValueList<RelatedCustodianMessageDetailsSD1> RelatedCustodianMessageDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public RelatedCustodianMessageDetailsSD1? RelatedCustodianMessageDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CtdnCorpActnRcrdId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(CustodianCorporateActionRecordIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AgrInd", xmlNamespace );
+        writer.WriteValue(AgreeIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CmpltnsInd", xmlNamespace );
+        writer.WriteValue(CompletenessIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (CustodianActionIndicator is CustodianAction1Code CustodianActionIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CtdnActnInd", xmlNamespace );
+            writer.WriteValue(CustodianActionIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (GCAActionIndicator is GCAActionType1Code GCAActionIndicatorValue)
+        {
+            writer.WriteStartElement(null, "GCAActnInd", xmlNamespace );
+            writer.WriteValue(GCAActionIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RcvgBIC", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(ReceivingBIC)); // data type AnyBICIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgtgBIC", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(OriginatingBIC)); // data type AnyBICIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CmpsitNotInSbcptFlg", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CompositeNotInSubscriptionFlag)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (RelatedCustodianMessageDetails is RelatedCustodianMessageDetailsSD1 RelatedCustodianMessageDetailsValue)
+        {
+            writer.WriteStartElement(null, "RltdCtdnMsgDtls", xmlNamespace );
+            RelatedCustodianMessageDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CustodianDetailsSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

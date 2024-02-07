@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies a document by a unique identification and a date of issue.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DocumentIdentification35
+     : IIsoXmlSerilizable<DocumentIdentification35>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the document.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Date of issuance of the document.
     /// </summary>
-    [DataMember]
     public IsoISODate? DateOfIssue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is IsoMax35Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DateOfIssue is IsoISODate DateOfIssueValue)
+        {
+            writer.WriteStartElement(null, "DtOfIsse", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateOfIssueValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static DocumentIdentification35 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

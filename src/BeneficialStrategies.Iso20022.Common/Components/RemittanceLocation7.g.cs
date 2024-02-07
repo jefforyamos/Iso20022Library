@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information on the remittance advice.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RemittanceLocation7
+     : IIsoXmlSerilizable<RemittanceLocation7>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by the initiating party, to unambiguously identify the remittance information sent separately from the payment instruction, such as a remittance advice.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RemittanceIdentification { get; init; } 
     /// <summary>
     /// Set of elements used to provide information on the location and/or delivery of the remittance information.
     /// </summary>
-    [DataMember]
-    public ValueList<RemittanceLocationData1> RemittanceLocationDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public RemittanceLocationData1? RemittanceLocationDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (RemittanceIdentification is IsoMax35Text RemittanceIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RmtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RemittanceIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RemittanceLocationDetails is RemittanceLocationData1 RemittanceLocationDetailsValue)
+        {
+            writer.WriteStartElement(null, "RmtLctnDtls", xmlNamespace );
+            RemittanceLocationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RemittanceLocation7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

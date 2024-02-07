@@ -7,93 +7,180 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the CA security option.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityOption1
+     : IIsoXmlSerilizable<SecurityOption1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the financial instrument.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentDescription3 SecurityIdentification { get; init; } 
     /// <summary>
     /// Specifies whether the value is a debit or credit.
     /// </summary>
-    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Quantity of financial instrument.
     /// </summary>
-    [DataMember]
     public UnitOrFaceAmount1Choice_? SecuritiesQuantity { get; init; } 
     /// <summary>
     /// Minimum quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
-    [DataMember]
     public UnitOrFaceAmount1Choice_? MinimumExercisableSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Minimum multiple quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
-    [DataMember]
     public UnitOrFaceAmount1Choice_? MinimumExercisableMultipleSecuritiesQuantity { get; init; } 
     /// <summary>
     /// New denomination of the financial instrument following, eg, an increase or decrease in nominal value.
     /// </summary>
-    [DataMember]
     public UnitOrFaceAmount1Choice_? NewDenominationSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Quantity of equity that makes up the new board lot.
     /// </summary>
-    [DataMember]
     public UnitOrFaceAmount1Choice_? NewBoardLotSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Specifies whether the shares are ranking for dividend or pari passu.
     /// </summary>
-    [DataMember]
     public ShareRanking1FormatChoice_? ShareRanking { get; init; } 
     /// <summary>
     /// Quantity of additional intermediate securities/new equities awarded for a given quantity of securities derived from subscription.
     /// </summary>
-    [DataMember]
     public QuantityToQuantityRatio1? AdditionalQuantityForSubscribedResultantSecurities { get; init; } 
     /// <summary>
     /// Provides information about the dates related to a securities movement.
     /// </summary>
-    [DataMember]
     public CorporateActionDate3? DateDetails { get; init; } 
     /// <summary>
     /// Provides information about the prices related to a securities movement.
     /// </summary>
-    [DataMember]
     public CorporateActionPrice4? PriceDetails { get; init; } 
     /// <summary>
     /// Period during which intermediate securities are tradable in a secondary market.
     /// </summary>
-    [DataMember]
     public Period1? TradingPeriod { get; init; } 
     /// <summary>
     /// Quantity of additional securities for a given quantity of underlying securities where underlying securities are not exchanged or debited, eg, 1 for 1: 1 new equity credited for every 1 underlying equity = 2 resulting equities.
     /// </summary>
-    [DataMember]
     public QuantityToQuantityRatio1? AdditionalQuantityForExistingSecurities { get; init; } 
     /// <summary>
     /// Specifies that the security is a temporary security.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? TemporaryFinancialInstrumentIndicator { get; init; } 
     /// <summary>
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
-    [DataMember]
     public FractionDispositionType1FormatChoice_? FractionDisposition { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SctyId", xmlNamespace );
+        SecurityIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (SecuritiesQuantity is UnitOrFaceAmount1Choice_ SecuritiesQuantityValue)
+        {
+            writer.WriteStartElement(null, "SctiesQty", xmlNamespace );
+            SecuritiesQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MinimumExercisableSecuritiesQuantity is UnitOrFaceAmount1Choice_ MinimumExercisableSecuritiesQuantityValue)
+        {
+            writer.WriteStartElement(null, "MinExrcblSctiesQty", xmlNamespace );
+            MinimumExercisableSecuritiesQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MinimumExercisableMultipleSecuritiesQuantity is UnitOrFaceAmount1Choice_ MinimumExercisableMultipleSecuritiesQuantityValue)
+        {
+            writer.WriteStartElement(null, "MinExrcblMltplSctiesQty", xmlNamespace );
+            MinimumExercisableMultipleSecuritiesQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewDenominationSecuritiesQuantity is UnitOrFaceAmount1Choice_ NewDenominationSecuritiesQuantityValue)
+        {
+            writer.WriteStartElement(null, "NewDnmtnSctiesQty", xmlNamespace );
+            NewDenominationSecuritiesQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewBoardLotSecuritiesQuantity is UnitOrFaceAmount1Choice_ NewBoardLotSecuritiesQuantityValue)
+        {
+            writer.WriteStartElement(null, "NewBrdLotSctiesQty", xmlNamespace );
+            NewBoardLotSecuritiesQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ShareRanking is ShareRanking1FormatChoice_ ShareRankingValue)
+        {
+            writer.WriteStartElement(null, "ShrRnkg", xmlNamespace );
+            ShareRankingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalQuantityForSubscribedResultantSecurities is QuantityToQuantityRatio1 AdditionalQuantityForSubscribedResultantSecuritiesValue)
+        {
+            writer.WriteStartElement(null, "AddtlQtyForSbcbdRsltntScties", xmlNamespace );
+            AdditionalQuantityForSubscribedResultantSecuritiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DateDetails is CorporateActionDate3 DateDetailsValue)
+        {
+            writer.WriteStartElement(null, "DtDtls", xmlNamespace );
+            DateDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PriceDetails is CorporateActionPrice4 PriceDetailsValue)
+        {
+            writer.WriteStartElement(null, "PricDtls", xmlNamespace );
+            PriceDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradingPeriod is Period1 TradingPeriodValue)
+        {
+            writer.WriteStartElement(null, "TradgPrd", xmlNamespace );
+            TradingPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalQuantityForExistingSecurities is QuantityToQuantityRatio1 AdditionalQuantityForExistingSecuritiesValue)
+        {
+            writer.WriteStartElement(null, "AddtlQtyForExstgScties", xmlNamespace );
+            AdditionalQuantityForExistingSecuritiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TemporaryFinancialInstrumentIndicator is IsoYesNoIndicator TemporaryFinancialInstrumentIndicatorValue)
+        {
+            writer.WriteStartElement(null, "TempFinInstrmInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(TemporaryFinancialInstrumentIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (FractionDisposition is FractionDispositionType1FormatChoice_ FractionDispositionValue)
+        {
+            writer.WriteStartElement(null, "FrctnDspstn", xmlNamespace );
+            FractionDispositionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecurityOption1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

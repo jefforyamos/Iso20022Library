@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action option securities movement rate details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionRateSD10
+     : IIsoXmlSerilizable<CorporateActionRateSD10>
 {
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Corresponding rate of the security being disbursed as a result of the corporate action as declared by the issuer or offeror on the market.
     /// </summary>
-    [DataMember]
     public CorporateActionRateSD7Choice_? DeclaredSecurityRate { get; init; } 
     /// <summary>
     /// Denotes whether the rate is approximate.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? EstimatedRateFlag { get; init; } 
     /// <summary>
     /// Rate at which the fee will be charged to a DTC participant.
     /// </summary>
-    [DataMember]
     public PriceFormatSD3Choice_? DeclaredFeeRate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (DeclaredSecurityRate is CorporateActionRateSD7Choice_ DeclaredSecurityRateValue)
+        {
+            writer.WriteStartElement(null, "DclrdSctyRate", xmlNamespace );
+            DeclaredSecurityRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EstimatedRateFlag is IsoYesNoIndicator EstimatedRateFlagValue)
+        {
+            writer.WriteStartElement(null, "EstmtdRateFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(EstimatedRateFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (DeclaredFeeRate is PriceFormatSD3Choice_ DeclaredFeeRateValue)
+        {
+            writer.WriteStartElement(null, "DclrdFeeRate", xmlNamespace );
+            DeclaredFeeRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionRateSD10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

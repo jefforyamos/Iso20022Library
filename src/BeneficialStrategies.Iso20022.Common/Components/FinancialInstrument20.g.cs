@@ -7,78 +7,129 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, eg, dividend option or valuation currency.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrument20
+     : IIsoXmlSerilizable<FinancialInstrument20>
 {
     #nullable enable
     
     /// <summary>
     /// Indicate whether or note it is possible to hold bearer units/shares in this class in certified form.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator PhysicalBearerSecurities { get; init; } 
     /// <summary>
     /// Indicate whether or not it is possible to hold bearer units/shares in paperless form.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator DematerialisedBearerSecurities { get; init; } 
     /// <summary>
     /// Indicate whether or not it is possible to hold registered units/shares in this class in paperless form.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator PhysicalRegisteredSecurities { get; init; } 
     /// <summary>
     /// Indicate whether or not it is possible to hold registered units/shares in this class in paperless form.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator DematerialisedRegisteredSecurities { get; init; } 
     /// <summary>
     /// Income policy relating to a class type, ie, if income is paid out or retained in the fund.
     /// </summary>
-    [DataMember]
     public required DistributionPolicy1Code DistributionPolicy { get; init; } 
     /// <summary>
     /// Dividend policy of the fund, eg, cash, units.
     /// </summary>
-    [DataMember]
     public DividendPolicy1Code? DividendPolicy { get; init; } 
     /// <summary>
     /// Frequency with which the income is allocated to investors.
     /// </summary>
-    [DataMember]
     public EventFrequency5Code? DividendFrequency { get; init; } 
     /// <summary>
     /// Frequency with which the reinvestment takes place, This is the same or less than the dividend frequency.
     /// </summary>
-    [DataMember]
     public EventFrequency5Code? ReinvestmentFrequency { get; init; } 
     /// <summary>
     /// Front end charge on subscription orders for this class can be applied.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator FrontEndLoad { get; init; } 
     /// <summary>
     /// Exit charge (eg. CDSC) on redemption orders for this class can be applied.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator BackEndLoad { get; init; } 
     /// <summary>
     /// If a separate fee for switching between sub-funds of the same umbrella can be applied.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator SwitchFee { get; init; } 
     /// <summary>
     /// Indicates whether the investment fund class is subject to the European Union Saving Directive.
     /// </summary>
-    [DataMember]
     public required EUSavingsDirective1Code EUSavingsDirective { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PhysBrScties", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PhysicalBearerSecurities)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DmtrlsdBrScties", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DematerialisedBearerSecurities)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PhysRegdScties", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PhysicalRegisteredSecurities)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DmtrlsdRegdScties", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(DematerialisedRegisteredSecurities)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DstrbtnPlcy", xmlNamespace );
+        writer.WriteValue(DistributionPolicy.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (DividendPolicy is DividendPolicy1Code DividendPolicyValue)
+        {
+            writer.WriteStartElement(null, "DvddPlcy", xmlNamespace );
+            writer.WriteValue(DividendPolicyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DividendFrequency is EventFrequency5Code DividendFrequencyValue)
+        {
+            writer.WriteStartElement(null, "DvddFrqcy", xmlNamespace );
+            writer.WriteValue(DividendFrequencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ReinvestmentFrequency is EventFrequency5Code ReinvestmentFrequencyValue)
+        {
+            writer.WriteStartElement(null, "RinvstmtFrqcy", xmlNamespace );
+            writer.WriteValue(ReinvestmentFrequencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FrntEndLd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(FrontEndLoad)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BckEndLd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(BackEndLoad)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SwtchFee", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SwitchFee)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "EUSvgsDrctv", xmlNamespace );
+        writer.WriteValue(EUSavingsDirective.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static FinancialInstrument20 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

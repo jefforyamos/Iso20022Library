@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of values assigned to a special programme.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SpecialProgrammeDetails1
+     : IIsoXmlSerilizable<SpecialProgrammeDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the special programme detail.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     /// <summary>
     /// Special programme detail value.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Value { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax35Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Value is IsoMax35Text ValueValue)
+        {
+            writer.WriteStartElement(null, "Val", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ValueValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SpecialProgrammeDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.semt.AlternativeFundsAccountingStatementOfHoldingsV01>;
 
 namespace BeneficialStrategies.Iso20022.semt;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// - as a response to a request for statement sent by the account owner.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account servicer, for example, a transfer agent or administrator, sends the AlternativeFundsAccountingStatementOfHoldings message to the account owner, for example, an investment manager, custodian, fund manager or an account owner's designated agent, to provide detailed holdings of the portfolio at a specified moment in time.|There may be one or more parties between the account servicer and the account owner.|The message provides, at a moment in time, valuations of the portfolio together with details of each financial instrument holding.|Usage|The AlternativeFundsAccountingStatementOfHoldings message is sent by the account servicer to the account owner:|- at a frequency agreed bilaterally between the account servicer and the account owner,|- as a response to a request for statement sent by the account owner.")]
-public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterRecord
+public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterRecord<AlternativeFundsAccountingStatementOfHoldingsV01,AlternativeFundsAccountingStatementOfHoldingsV01Document>
+    ,IIsoXmlSerilizable<AlternativeFundsAccountingStatementOfHoldingsV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AltrntvFndsAcctgStmtOfHldgs";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AlternativeFundsAccountingStatementOfHoldingsV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -71,7 +78,7 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     [Description(@"Reference to a linked message that was previously received.")]
     [DataMember(Name="RltdRef")]
     [XmlElement(ElementName="RltdRef")]
-    public required IReadOnlyCollection<AdditionalReference4> RelatedReference { get; init; } = []; // Min=0, Max=2
+    public required ValueList<AdditionalReference4> RelatedReference { get; init; } = []; // Min=0, Max=2
     
     /// <summary>
     /// Pagination of the message.
@@ -110,7 +117,7 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     [Description(@"Party that provides services to investors relating to financial products.")]
     [DataMember(Name="RltdPtyDtls")]
     [XmlElement(ElementName="RltdPtyDtls")]
-    public required IReadOnlyCollection<Intermediary17> RelatedPartyDetails { get; init; } = []; // Min=0, Max=10
+    public required ValueList<Intermediary17> RelatedPartyDetails { get; init; } = []; // Min=0, Max=10
     
     /// <summary>
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
@@ -148,6 +155,65 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     {
         return new AlternativeFundsAccountingStatementOfHoldingsV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AltrntvFndsAcctgStmtOfHldgs");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PreviousReference is AdditionalReference4 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+        RelatedReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MsgPgntn", xmlNamespace );
+        MessagePagination.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InvstmtAcctDtls", xmlNamespace );
+        InvestmentAccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StmtGnlDtls", xmlNamespace );
+        StatementGeneralDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RltdPtyDtls", xmlNamespace );
+        RelatedPartyDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BalanceForAccount is AggregateBalanceInformation5 BalanceForAccountValue)
+        {
+            writer.WriteStartElement(null, "BalForAcct", xmlNamespace );
+            BalanceForAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalValues is TotalValueInPageAndStatement TotalValuesValue)
+        {
+            writer.WriteStartElement(null, "TtlVals", xmlNamespace );
+            TotalValuesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AlternativeFundsAccountingStatementOfHoldingsV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -155,9 +221,7 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AlternativeFundsAccountingStatementOfHoldingsV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AlternativeFundsAccountingStatementOfHoldingsV01Document : IOuterDocument<AlternativeFundsAccountingStatementOfHoldingsV01>
+public partial record AlternativeFundsAccountingStatementOfHoldingsV01Document : IOuterDocument<AlternativeFundsAccountingStatementOfHoldingsV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -173,5 +237,22 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01Document :
     /// <summary>
     /// The instance of <seealso cref="AlternativeFundsAccountingStatementOfHoldingsV01"/> is required.
     /// </summary>
+    [DataMember(Name=AlternativeFundsAccountingStatementOfHoldingsV01.XmlTag)]
     public required AlternativeFundsAccountingStatementOfHoldingsV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AlternativeFundsAccountingStatementOfHoldingsV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

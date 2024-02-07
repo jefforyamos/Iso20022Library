@@ -7,23 +7,46 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional references linked to the quote status request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Reference6
+     : IIsoXmlSerilizable<Reference6>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identifier for quote.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? QuoteIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (QuoteIdentification is IsoMax35Text QuoteIdentificationValue)
+        {
+            writer.WriteStartElement(null, "QtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(QuoteIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Reference6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

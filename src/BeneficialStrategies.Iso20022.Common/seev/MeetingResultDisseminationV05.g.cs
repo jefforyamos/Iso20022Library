@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.MeetingResultDisseminationV05>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// This message definition is intended for use with the Business Application Header.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An issuer, its agent or an intermediary sends the MeetingResultDissemination message to another intermediary, to a party holding the right to vote, to a registered security holder or to a beneficial holder to provide information on the voting results of a shareholders meeting.|Usage|The MeetingResultDissemination message is used to provide the vote results per resolution. It may also provide information on the level of participation.|This message is also used to notify an update or amendment to a previously sent MeetingResultDissemination message.|This message definition is intended for use with the Business Application Header.")]
-public partial record MeetingResultDisseminationV05 : IOuterRecord
+public partial record MeetingResultDisseminationV05 : IOuterRecord<MeetingResultDisseminationV05,MeetingResultDisseminationV05Document>
+    ,IIsoXmlSerilizable<MeetingResultDisseminationV05>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record MeetingResultDisseminationV05 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MtgRsltDssmntn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => MeetingResultDisseminationV05Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -69,7 +76,7 @@ public partial record MeetingResultDisseminationV05 : IOuterRecord
     [Description(@"Identifies the securities for which the meeting is organised.")]
     [DataMember(Name="Scty")]
     [XmlElement(ElementName="Scty")]
-    public required IReadOnlyCollection<SecurityPosition8> Security { get; init; } = []; // Min=1, Max=200
+    public required ValueList<SecurityPosition8> Security { get; init; } = []; // Min=1, Max=200
     
     /// <summary>
     /// Results per resolution.
@@ -78,7 +85,7 @@ public partial record MeetingResultDisseminationV05 : IOuterRecord
     [Description(@"Results per resolution.")]
     [DataMember(Name="VoteRslt")]
     [XmlElement(ElementName="VoteRslt")]
-    public required IReadOnlyCollection<Vote7> VoteResult { get; init; } = []; // Min=1, Max=1000
+    public required ValueList<Vote7> VoteResult { get; init; } = []; // Min=1, Max=1000
     
     /// <summary>
     /// Information about the participation to the voting process.
@@ -116,6 +123,56 @@ public partial record MeetingResultDisseminationV05 : IOuterRecord
     {
         return new MeetingResultDisseminationV05Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MtgRsltDssmntn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Amendment is AmendInformation3 AmendmentValue)
+        {
+            writer.WriteStartElement(null, "Amdmnt", xmlNamespace );
+            AmendmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MtgRef", xmlNamespace );
+        MeetingReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Scty", xmlNamespace );
+        Security.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "VoteRslt", xmlNamespace );
+        VoteResult.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Participation is Participation4 ParticipationValue)
+        {
+            writer.WriteStartElement(null, "Prtcptn", xmlNamespace );
+            ParticipationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is CommunicationAddress4 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MeetingResultDisseminationV05 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -123,9 +180,7 @@ public partial record MeetingResultDisseminationV05 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingResultDisseminationV05"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record MeetingResultDisseminationV05Document : IOuterDocument<MeetingResultDisseminationV05>
+public partial record MeetingResultDisseminationV05Document : IOuterDocument<MeetingResultDisseminationV05>, IXmlSerializable
 {
     
     /// <summary>
@@ -141,5 +196,22 @@ public partial record MeetingResultDisseminationV05Document : IOuterDocument<Mee
     /// <summary>
     /// The instance of <seealso cref="MeetingResultDisseminationV05"/> is required.
     /// </summary>
+    [DataMember(Name=MeetingResultDisseminationV05.XmlTag)]
     public required MeetingResultDisseminationV05 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(MeetingResultDisseminationV05.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Outcome of the authorisation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AuthorisationResult8
+     : IIsoXmlSerilizable<AuthorisationResult8>
 {
     #nullable enable
     
     /// <summary>
     /// Type of party that has delivered or declined the card payment authorisation (the party is not identified).
     /// </summary>
-    [DataMember]
     public GenericIdentification75? AuthorisationEntity { get; init; } 
     /// <summary>
     /// Response to an authorisation request.
     /// </summary>
-    [DataMember]
     public required ResponseType2 TransactionResponse { get; init; } 
     /// <summary>
     /// Set of actions to be performed by the card acceptor.
     /// </summary>
-    [DataMember]
-    public ValueList<Action4> Action { get; init; } = []; // Warning: Don't know multiplicity.
+    public Action4? Action { get; init; } 
     /// <summary>
     /// Value assigned by the authorising party.
     /// </summary>
-    [DataMember]
     public IsoMin6Max8Text? AuthorisationCode { get; init; } 
     /// <summary>
     /// Additional information relevant for the destination.
     /// </summary>
-    [DataMember]
-    public ValueList<ActionMessage3> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public ActionMessage3? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AuthorisationEntity is GenericIdentification75 AuthorisationEntityValue)
+        {
+            writer.WriteStartElement(null, "AuthstnNtty", xmlNamespace );
+            AuthorisationEntityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxRspn", xmlNamespace );
+        TransactionResponse.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Action is Action4 ActionValue)
+        {
+            writer.WriteStartElement(null, "Actn", xmlNamespace );
+            ActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AuthorisationCode is IsoMin6Max8Text AuthorisationCodeValue)
+        {
+            writer.WriteStartElement(null, "AuthstnCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMin6Max8Text(AuthorisationCodeValue)); // data type Min6Max8Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is ActionMessage3 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AuthorisationResult8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

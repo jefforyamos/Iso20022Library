@@ -7,63 +7,123 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account between an investor(s) and a fund manager or a fund. The account can contain holdings in any investment fund or investment fund class managed (or distributed) by the fund manager, within the same fund family.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestmentAccount29
+     : IIsoXmlSerilizable<InvestmentAccount29>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     /// <summary>
     /// Supplementary registration information applying to a specific block of units for dealing and reporting purposes. The supplementary registration information may be used when all the units are registered, for example, to a funds supermarket, but holdings for each investor have to reconciled individually.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Designation { get; init; } 
     /// <summary>
     /// Legal form of the fund, eg, UCITS, SICAV, OEIC, Unit Trust, and FCP.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? FundType { get; init; } 
     /// <summary>
     /// Name of the investment fund family.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? FundFamilyName { get; init; } 
     /// <summary>
     /// Detailed information about the investment fund associated to the account.
     /// </summary>
-    [DataMember]
     public FinancialInstrument10? SecurityDetails { get; init; } 
     /// <summary>
     /// Identification of an individual person whom legally owns the account.
     /// </summary>
-    [DataMember]
     public IndividualPersonIdentificationChoice_? IndividualOwnerIdentification { get; init; } 
     /// <summary>
     /// Identification of an organisation that legally owns the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification5Choice_? OrganisationOwnerIdentification { get; init; } 
     /// <summary>
     /// Party that provides services relating to financial products to investors, eg, advice on products and placement of orders for the investment fund.
     /// </summary>
-    [DataMember]
     public ValueList<Intermediary7> Intermediary { get; init; } = [];
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? AccountServicer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax35Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Designation is IsoMax35Text DesignationValue)
+        {
+            writer.WriteStartElement(null, "Dsgnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DesignationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (FundType is IsoMax35Text FundTypeValue)
+        {
+            writer.WriteStartElement(null, "FndTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(FundTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (FundFamilyName is IsoMax350Text FundFamilyNameValue)
+        {
+            writer.WriteStartElement(null, "FndFmlyNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(FundFamilyNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (SecurityDetails is FinancialInstrument10 SecurityDetailsValue)
+        {
+            writer.WriteStartElement(null, "SctyDtls", xmlNamespace );
+            SecurityDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IndividualOwnerIdentification is IndividualPersonIdentificationChoice_ IndividualOwnerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "IndvOwnrId", xmlNamespace );
+            IndividualOwnerIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OrganisationOwnerIdentification is PartyIdentification5Choice_ OrganisationOwnerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgOwnrId", xmlNamespace );
+            OrganisationOwnerIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Intrmy", xmlNamespace );
+        Intermediary.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountServicer is PartyIdentification2Choice_ AccountServicerValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+            AccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InvestmentAccount29 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

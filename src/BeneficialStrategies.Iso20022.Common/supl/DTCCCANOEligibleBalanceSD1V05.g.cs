@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.supl.DTCCCANOEligibleBalanceSD1V05>;
 
 namespace BeneficialStrategies.Iso20022.supl;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// The DTCCCANOEligibleBalanceSD1 message extends ISO corporate action notification (Eligible Balance market practice) message with DTCC corporate action eligible balance elements not covered in the standard message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The DTCCCANOEligibleBalanceSD1 message extends ISO corporate action notification (Eligible Balance market practice) message with DTCC corporate action eligible balance elements not covered in the standard message.")]
-public partial record DTCCCANOEligibleBalanceSD1V05 : IOuterRecord
+public partial record DTCCCANOEligibleBalanceSD1V05 : IOuterRecord<DTCCCANOEligibleBalanceSD1V05,DTCCCANOEligibleBalanceSD1V05Document>
+    ,IIsoXmlSerilizable<DTCCCANOEligibleBalanceSD1V05>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record DTCCCANOEligibleBalanceSD1V05 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "DTCCCANOElgblBalSD1";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => DTCCCANOEligibleBalanceSD1V05Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -83,6 +90,47 @@ public partial record DTCCCANOEligibleBalanceSD1V05 : IOuterRecord
     {
         return new DTCCCANOEligibleBalanceSD1V05Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("DTCCCANOElgblBalSD1");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CorporateActionGeneralInformation is CorporateActionGeneralInformationSD21 CorporateActionGeneralInformationValue)
+        {
+            writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+            CorporateActionGeneralInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnderlyingSecurity is FinancialInstrumentAttributesSD9 UnderlyingSecurityValue)
+        {
+            writer.WriteStartElement(null, "UndrlygScty", xmlNamespace );
+            UnderlyingSecurityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DistributionAccountBalance is AccountBalanceSD7 DistributionAccountBalanceValue)
+        {
+            writer.WriteStartElement(null, "DstrbtnAcctBal", xmlNamespace );
+            DistributionAccountBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RedemptionAccountBalance is AccountBalanceSD6 RedemptionAccountBalanceValue)
+        {
+            writer.WriteStartElement(null, "RedAcctBal", xmlNamespace );
+            RedemptionAccountBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DTCCCANOEligibleBalanceSD1V05 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -90,9 +138,7 @@ public partial record DTCCCANOEligibleBalanceSD1V05 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCANOEligibleBalanceSD1V05"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record DTCCCANOEligibleBalanceSD1V05Document : IOuterDocument<DTCCCANOEligibleBalanceSD1V05>
+public partial record DTCCCANOEligibleBalanceSD1V05Document : IOuterDocument<DTCCCANOEligibleBalanceSD1V05>, IXmlSerializable
 {
     
     /// <summary>
@@ -108,5 +154,22 @@ public partial record DTCCCANOEligibleBalanceSD1V05Document : IOuterDocument<DTC
     /// <summary>
     /// The instance of <seealso cref="DTCCCANOEligibleBalanceSD1V05"/> is required.
     /// </summary>
+    [DataMember(Name=DTCCCANOEligibleBalanceSD1V05.XmlTag)]
     public required DTCCCANOEligibleBalanceSD1V05 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(DTCCCANOEligibleBalanceSD1V05.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

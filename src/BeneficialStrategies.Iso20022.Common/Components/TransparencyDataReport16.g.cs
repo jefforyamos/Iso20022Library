@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides for reporting details of non-equity instruments as part of transparency calculations.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransparencyDataReport16
+     : IIsoXmlSerilizable<TransparencyDataReport16>
 {
     #nullable enable
     
@@ -24,63 +25,134 @@ public partial record TransparencyDataReport16
     /// Usage:
     /// This identification will be used in the status advice report sent back.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
-    [DataMember]
     public required IsoISINOct2015Identifier Identification { get; init; } 
     /// <summary>
     /// Full name or description of the financial instrument.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? FullName { get; init; } 
     /// <summary>
     /// Segment MIC for the trading venue where applicable, otherwise the operational MIC.
     /// </summary>
-    [DataMember]
     public IsoMICIdentifier? TradingVenue { get; init; } 
     /// <summary>
     /// Date this information is reported in relation to.
     /// </summary>
-    [DataMember]
     public IsoISODate? ReportingDate { get; init; } 
     /// <summary>
     /// Maturity date of the financial instrument. Field applicable for the asset classes of bonds, interest rate derivatives, equity derivatives, commodity derivatives, foreign exchange derivatives, credit derivatives, C10 derivatives and derivatives on emission allowances.
     /// </summary>
-    [DataMember]
     public IsoISODate? MaturityDate { get; init; } 
     /// <summary>
     /// Identification of non-equity financial instruments.
     /// </summary>
-    [DataMember]
     public required NonEquityInstrumentReportingClassification1Code FinancialInstrumentClassification { get; init; } 
     /// <summary>
     /// Details on the type of asset class a non-equity financial instrument can be classified as.
     /// </summary>
-    [DataMember]
     public ProductType5Code? UnderlyingInstrumentAssetClass { get; init; } 
     /// <summary>
     /// Details on the contract type a derivative non-equity financial instrument can be classified as.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentContractType1Code? DerivativeContractType { get; init; } 
     /// <summary>
     /// Details specific to a bond / debt instrument.
     /// </summary>
-    [DataMember]
     public DebtInstrument5? Bond { get; init; } 
     /// <summary>
     /// Details the reporting of the emission allowance sub type.
     /// </summary>
-    [DataMember]
     public EmissionAllowanceProductType2Code? EmissionAllowanceType { get; init; } 
     /// <summary>
     /// Derivative specific details.
     /// </summary>
-    [DataMember]
     public Derivative3Choice_? Derivative { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TechnicalRecordIdentification is IsoMax35Text TechnicalRecordIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TechnicalRecordIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(Identification)); // data type ISINOct2015Identifier System.String
+        writer.WriteEndElement();
+        if (FullName is IsoMax350Text FullNameValue)
+        {
+            writer.WriteStartElement(null, "FullNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(FullNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (TradingVenue is IsoMICIdentifier TradingVenueValue)
+        {
+            writer.WriteStartElement(null, "TradgVn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(TradingVenueValue)); // data type MICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (ReportingDate is IsoISODate ReportingDateValue)
+        {
+            writer.WriteStartElement(null, "RptgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ReportingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (MaturityDate is IsoISODate MaturityDateValue)
+        {
+            writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(MaturityDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FinInstrmClssfctn", xmlNamespace );
+        writer.WriteValue(FinancialInstrumentClassification.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (UnderlyingInstrumentAssetClass is ProductType5Code UnderlyingInstrumentAssetClassValue)
+        {
+            writer.WriteStartElement(null, "UndrlygInstrmAsstClss", xmlNamespace );
+            writer.WriteValue(UnderlyingInstrumentAssetClassValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DerivativeContractType is FinancialInstrumentContractType1Code DerivativeContractTypeValue)
+        {
+            writer.WriteStartElement(null, "DerivCtrctTp", xmlNamespace );
+            writer.WriteValue(DerivativeContractTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Bond is DebtInstrument5 BondValue)
+        {
+            writer.WriteStartElement(null, "Bd", xmlNamespace );
+            BondValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EmissionAllowanceType is EmissionAllowanceProductType2Code EmissionAllowanceTypeValue)
+        {
+            writer.WriteStartElement(null, "EmssnAllwncTp", xmlNamespace );
+            writer.WriteValue(EmissionAllowanceTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Derivative is Derivative3Choice_ DerivativeValue)
+        {
+            writer.WriteStartElement(null, "Deriv", xmlNamespace );
+            DerivativeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransparencyDataReport16 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contact person at the party organising the meeting, at the issuer or at an intermediary.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MeetingContactPerson2
+     : IIsoXmlSerilizable<MeetingContactPerson2>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the contact person by its name, given name and address.
     /// </summary>
-    [DataMember]
     public ContactIdentification1? ContactPerson { get; init; } 
     /// <summary>
     /// Identifies the organisation which is represented by the person or for which the person works.
     /// </summary>
-    [DataMember]
     public PartyIdentification40Choice_? EmployingParty { get; init; } 
     /// <summary>
     /// Identification of the financial market, as stipulated in the norm ISO 10383 'Codes for exchanges and market identifications'.
     /// </summary>
-    [DataMember]
     public IsoMICIdentifier? PlaceOfListing { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ContactPerson is ContactIdentification1 ContactPersonValue)
+        {
+            writer.WriteStartElement(null, "CtctPrsn", xmlNamespace );
+            ContactPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EmployingParty is PartyIdentification40Choice_ EmployingPartyValue)
+        {
+            writer.WriteStartElement(null, "EmplngPty", xmlNamespace );
+            EmployingPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PlaceOfListing is IsoMICIdentifier PlaceOfListingValue)
+        {
+            writer.WriteStartElement(null, "PlcOfListg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(PlaceOfListingValue)); // data type MICIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static MeetingContactPerson2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

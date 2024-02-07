@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the detailed information as provided by a payment tracking system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TrackerData3
+     : IIsoXmlSerilizable<TrackerData3>
 {
     #nullable enable
     
@@ -24,18 +25,44 @@ public partial record TrackerData3
     /// Usage: 
     /// This date can be the point in time when an agent provides a pending status update to the tracking system or when the creditor has been credited and can use the amount of money (as confirmed to the tracking system by the creditor agent).
     /// </summary>
-    [DataMember]
     public required DateTime1 ConfirmedDate { get; init; } 
     /// <summary>
     /// Amount of money confirmed to the tracking system by the agent.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINActiveCurrencyAndAmount ConfirmedAmount { get; init; } 
     /// <summary>
     /// Provides tracker transaction information for a specific agent involved in the transaction chain. 
     /// </summary>
-    [DataMember]
     public TrackerRecord3? TrackerRecord { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ConfdDt", xmlNamespace );
+        ConfirmedDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ConfdAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAndAmount(ConfirmedAmount)); // data type RestrictedFINActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (TrackerRecord is TrackerRecord3 TrackerRecordValue)
+        {
+            writer.WriteStartElement(null, "TrckrRcrd", xmlNamespace );
+            TrackerRecordValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TrackerData3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

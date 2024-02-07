@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the quantity of a product in a trade transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Quantity9
+     : IIsoXmlSerilizable<Quantity9>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies a unit of measure with a code or free text.
     /// </summary>
-    [DataMember]
     public required UnitOfMeasure3Choice_ UnitOfMeasure { get; init; } 
     /// <summary>
     /// Quantity of a product on a line specified by a number. For example, 100 (kgs), 50 (pieces).
     /// </summary>
-    [DataMember]
     public required IsoDecimalNumber Value { get; init; } 
     /// <summary>
     /// Multiplication factor of measurement values. For example: goods that can be ordered by 36 pieces.
     /// </summary>
-    [DataMember]
     public IsoMax15NumericText? Factor { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
+        UnitOfMeasure.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(Value)); // data type DecimalNumber System.UInt64
+        writer.WriteEndElement();
+        if (Factor is IsoMax15NumericText FactorValue)
+        {
+            writer.WriteStartElement(null, "Fctr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(FactorValue)); // data type Max15NumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Quantity9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

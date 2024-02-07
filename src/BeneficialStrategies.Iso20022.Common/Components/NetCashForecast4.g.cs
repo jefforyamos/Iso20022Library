@@ -7,44 +7,81 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Net cash movement to a fund as a result of investment funds transactions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NetCashForecast4
+     : IIsoXmlSerilizable<NetCashForecast4>
 {
     #nullable enable
     
     /// <summary>
     /// Date on which cash is available.
     /// </summary>
-    [DataMember]
     public required IsoISODate CashSettlementDate { get; init; } 
     /// <summary>
     /// Net amount of the cash flow, expressed as an amount of money.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? NetAmount { get; init; } 
     /// <summary>
     /// Net amount, expressed as a number of units.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1? NetUnitsNumber { get; init; } 
     /// <summary>
     /// Specifies the direction of the cash flow from the perspective of the fund.
     /// </summary>
-    [DataMember]
     public required FlowDirectionType1Code FlowDirection { get; init; } 
     /// <summary>
     /// Additional balances for cash amounts and number of units. 
     /// In an estimated report, the total cash derived from orders placed as a number of units is an estimated cash amount and the total number of units derived from orders placed as a cash amount is an estimated number of units.
     /// </summary>
-    [DataMember]
     public FundBalance1? AdditionalBalance { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CshSttlmDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(CashSettlementDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (NetAmount is IsoActiveOrHistoricCurrencyAndAmount NetAmountValue)
+        {
+            writer.WriteStartElement(null, "NetAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(NetAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (NetUnitsNumber is FinancialInstrumentQuantity1 NetUnitsNumberValue)
+        {
+            writer.WriteStartElement(null, "NetUnitsNb", xmlNamespace );
+            NetUnitsNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FlowDrctn", xmlNamespace );
+        writer.WriteValue(FlowDirection.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AdditionalBalance is FundBalance1 AdditionalBalanceValue)
+        {
+            writer.WriteStartElement(null, "AddtlBal", xmlNamespace );
+            AdditionalBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static NetCashForecast4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

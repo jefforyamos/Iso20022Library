@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to an identification, for example, party identification or account identification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GenericOrganisationIdentification2
+     : IIsoXmlSerilizable<GenericOrganisationIdentification2>
 {
     #nullable enable
     
     /// <summary>
     /// Identification assigned by an institution.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINXMax35Text Identification { get; init; } 
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
-    [DataMember]
     public OrganisationIdentificationSchemeName2Choice_? SchemeName { get; init; } 
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax35Text? Issuer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax35Text(Identification)); // data type RestrictedFINXMax35Text System.String
+        writer.WriteEndElement();
+        if (SchemeName is OrganisationIdentificationSchemeName2Choice_ SchemeNameValue)
+        {
+            writer.WriteStartElement(null, "SchmeNm", xmlNamespace );
+            SchemeNameValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Issuer is IsoRestrictedFINXMax35Text IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax35Text(IssuerValue)); // data type RestrictedFINXMax35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static GenericOrganisationIdentification2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

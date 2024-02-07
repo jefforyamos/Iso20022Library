@@ -7,48 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the parameters for an Isabel payment file.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IsabelFile1
+     : IIsoXmlSerilizable<IsabelFile1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification of the file.	.
     /// </summary>
-    [DataMember]
     public required IsoMax14AlphaNumericText Identification { get; init; } 
     /// <summary>
     /// Unique identification of the originator of the file.
     /// </summary>
-    [DataMember]
     public IsoMax14AlphaNumericText? Originator { get; init; } 
     /// <summary>
     /// Size of the file.
     /// </summary>
-    [DataMember]
     public required IsoNumber Size { get; init; } 
     /// <summary>
     /// Format of the file.
     /// </summary>
-    [DataMember]
     public required IsoMax16Text Format { get; init; } 
     /// <summary>
     /// Version of the format of the file.
     /// </summary>
-    [DataMember]
     public IsoMax16Text? FormatVersion { get; init; } 
     /// <summary>
     /// Length of the individual records in the file.
     /// </summary>
-    [DataMember]
     public IsoMax4NumericText? RecordLength { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax14AlphaNumericText(Identification)); // data type Max14AlphaNumericText System.String
+        writer.WriteEndElement();
+        if (Originator is IsoMax14AlphaNumericText OriginatorValue)
+        {
+            writer.WriteStartElement(null, "Orgtr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax14AlphaNumericText(OriginatorValue)); // data type Max14AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Sz", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(Size)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Frmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax16Text(Format)); // data type Max16Text System.String
+        writer.WriteEndElement();
+        if (FormatVersion is IsoMax16Text FormatVersionValue)
+        {
+            writer.WriteStartElement(null, "FrmtVrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax16Text(FormatVersionValue)); // data type Max16Text System.String
+            writer.WriteEndElement();
+        }
+        if (RecordLength is IsoMax4NumericText RecordLengthValue)
+        {
+            writer.WriteStartElement(null, "RcrdLngth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(RecordLengthValue)); // data type Max4NumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static IsabelFile1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

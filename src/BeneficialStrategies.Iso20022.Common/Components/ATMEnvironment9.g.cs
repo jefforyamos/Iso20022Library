@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment of the ATM.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMEnvironment9
+     : IIsoXmlSerilizable<ATMEnvironment9>
 {
     #nullable enable
     
     /// <summary>
     /// Acquirer of the ATM transaction, in charge of the funds settlement with the issuer.
     /// </summary>
-    [DataMember]
     public Acquirer7? Acquirer { get; init; } 
     /// <summary>
     /// Identification of the ATM manager.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ATMManagerIdentification { get; init; } 
     /// <summary>
     /// ATM information.
     /// </summary>
-    [DataMember]
     public required AutomatedTellerMachine7 ATM { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Acquirer is Acquirer7 AcquirerValue)
+        {
+            writer.WriteStartElement(null, "Acqrr", xmlNamespace );
+            AcquirerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ATMManagerIdentification is IsoMax35Text ATMManagerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ATMMgrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ATMManagerIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ATM", xmlNamespace );
+        ATM.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ATMEnvironment9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification6Choice;
 
@@ -13,15 +15,38 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification6Choice;
 /// Identification of the payment instruction by its position in a queue managed by the clearing agent.
 /// </summary>
 public partial record QueueIdentification : PaymentIdentification6Choice_
+     , IIsoXmlSerilizable<QueueIdentification>
 {
     #nullable enable
-    /// <summary>
-    /// Identification of the payment queue where the payment instruction resides.
-    /// </summary>
-    public required IsoMax16Text QueueIdentificationValue { get; init; } 
+    
+    public required IsoMax16Text Value { get; init; } 
     /// <summary>
     /// Position of the payment instruction within the identified queue.
     /// </summary>
     public required IsoMax16Text PositionInQueue { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "QId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax16Text(Value)); // data type Max16Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PosInQ", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax16Text(PositionInQueue)); // data type Max16Text System.String
+        writer.WriteEndElement();
+    }
+    public static new QueueIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

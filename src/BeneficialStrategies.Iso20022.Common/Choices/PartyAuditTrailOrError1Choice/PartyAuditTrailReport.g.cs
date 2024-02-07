@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PartyAuditTrailOrError1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyAuditTrailOrError1Choice;
 /// Report information about party reference data.
 /// </summary>
 public partial record PartyAuditTrailReport : PartyAuditTrailOrError1Choice_
+     , IIsoXmlSerilizable<PartyAuditTrailReport>
 {
     #nullable enable
+    
     /// <summary>
     /// Identifies the returned party reference data or error information.
     /// </summary>
@@ -27,5 +31,35 @@ public partial record PartyAuditTrailReport : PartyAuditTrailOrError1Choice_
     /// Identifies the party for which the audit trail is provided.
     /// </summary>
     public required SystemPartyIdentification8 PartyIdentification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PtyAudtTrlOrErr", xmlNamespace );
+        PartyAuditTrailOrError.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DatePeriod is DatePeriod3Choice_ DatePeriodValue)
+        {
+            writer.WriteStartElement(null, "DtPrd", xmlNamespace );
+            DatePeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PtyId", xmlNamespace );
+        PartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new PartyAuditTrailReport Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

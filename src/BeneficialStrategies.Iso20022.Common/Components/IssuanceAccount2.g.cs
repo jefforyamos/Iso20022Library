@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the account to or from which a securities entry is made and the usage type.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IssuanceAccount2
+     : IIsoXmlSerilizable<IssuanceAccount2>
 {
     #nullable enable
     
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
-    [DataMember]
     public required SecuritiesAccount19 IssuanceAccount { get; init; } 
     /// <summary>
     /// Defines if the related issuance account is the primary account or not.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator PrimaryAccountIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IssncAcct", xmlNamespace );
+        IssuanceAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PmryAcctInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PrimaryAccountIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static IssuanceAccount2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

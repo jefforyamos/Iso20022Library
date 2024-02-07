@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines how the CSD is linked to the security.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityCSDLink7
+     : IIsoXmlSerilizable<SecurityCSDLink7>
 {
     #nullable enable
     
     /// <summary>
     /// Defines the date since when the CSD is linked to the security.
     /// </summary>
-    [DataMember]
     public required DateAndDateTime2Choice_ ValidFrom { get; init; } 
     /// <summary>
     /// Defines the date until when the CSD is linked to the security.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? ValidTo { get; init; } 
     /// <summary>
     /// Specify if the involved CSD (issuer/technical issuer/investor) is also the maintainer of related reference data.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? SecurityMaintenance { get; init; } 
     /// <summary>
     /// CSD Issuer of a security.
     /// </summary>
-    [DataMember]
     public SystemPartyIdentification2Choice_? IssuerCSD { get; init; } 
     /// <summary>
     /// CSD Investor of a security.
     /// </summary>
-    [DataMember]
     public SystemPartyIdentification2Choice_? InvestorCSD { get; init; } 
     /// <summary>
     /// Technical issuer of a security.
     /// </summary>
-    [DataMember]
     public SystemPartyIdentification2Choice_? TechnicalIssuerCSD { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
-    [DataMember]
-    public ValueList<IssuanceAccount2> IssuanceAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    public IssuanceAccount2? IssuanceAccount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "VldFr", xmlNamespace );
+        ValidFrom.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ValidTo is DateAndDateTime2Choice_ ValidToValue)
+        {
+            writer.WriteStartElement(null, "VldTo", xmlNamespace );
+            ValidToValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecurityMaintenance is IsoYesNoIndicator SecurityMaintenanceValue)
+        {
+            writer.WriteStartElement(null, "SctyMntnc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SecurityMaintenanceValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (IssuerCSD is SystemPartyIdentification2Choice_ IssuerCSDValue)
+        {
+            writer.WriteStartElement(null, "IssrCSD", xmlNamespace );
+            IssuerCSDValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestorCSD is SystemPartyIdentification2Choice_ InvestorCSDValue)
+        {
+            writer.WriteStartElement(null, "InvstrCSD", xmlNamespace );
+            InvestorCSDValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TechnicalIssuerCSD is SystemPartyIdentification2Choice_ TechnicalIssuerCSDValue)
+        {
+            writer.WriteStartElement(null, "TechIssrCSD", xmlNamespace );
+            TechnicalIssuerCSDValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssuanceAccount is IssuanceAccount2 IssuanceAccountValue)
+        {
+            writer.WriteStartElement(null, "IssncAcct", xmlNamespace );
+            IssuanceAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecurityCSDLink7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

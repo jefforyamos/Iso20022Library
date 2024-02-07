@@ -7,88 +7,176 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parties used for acting parties that apply either to the whole message or to individual sides.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ConfirmationParties6
+     : IIsoXmlSerilizable<ConfirmationParties6>
 {
     #nullable enable
     
     /// <summary>
     /// Party that buys goods or services, or a financial instrument.
     /// </summary>
-    [DataMember]
     public ConfirmationPartyDetails7? Buyer { get; init; } 
     /// <summary>
     /// Party that has applied, met specific requirements, and received a monetary or securities loan from a lender. The party initiating the request signs a promissory note agreeing to pay the lien holder back during a specified timeframe for the entire loan amount plus any additional fees. The borrower is legally responsible for repayment of the loan and is subject to any penalties for not repaying the loan back based on the lending terms agreed upon.
     /// </summary>
-    [DataMember]
     public ConfirmationPartyDetails7? Borrower { get; init; } 
     /// <summary>
     /// Party that sells goods or services, or a financial instrument.
     /// </summary>
-    [DataMember]
     public ConfirmationPartyDetails7? Seller { get; init; } 
     /// <summary>
     /// A private, public or institutional entity which makes funds available to others to borrow.
     /// </summary>
-    [DataMember]
     public ConfirmationPartyDetails7? Lender { get; init; } 
     /// <summary>
     /// Brokerage firm which is the commissioned broker in a multi-broker trade.
     /// </summary>
-    [DataMember]
     public ConfirmationPartyDetails8? BrokerOfCredit { get; init; } 
     /// <summary>
     /// Broker or other intermediary with the closest association with the investor.
     /// </summary>
-    [DataMember]
     public ConfirmationPartyDetails8? IntroducingFirm { get; init; } 
     /// <summary>
     /// Brokerage firm assigned to take credit on the trade from the step-out brokerage firm.
     /// </summary>
-    [DataMember]
     public ConfirmationPartyDetails8? StepInFirm { get; init; } 
     /// <summary>
     /// Brokerage firm that executes an order, but gives other firms credit and some of the commission for the trade.
     /// </summary>
-    [DataMember]
     public ConfirmationPartyDetails8? StepOutFirm { get; init; } 
     /// <summary>
     /// Party, also know as take up broker, that settles security transactions from another broker for a fee.
     /// </summary>
-    [DataMember]
     public ConfirmationPartyDetails9? ClearingFirm { get; init; } 
     /// <summary>
     /// Party responsible for executing an order (for example, an executing or give-up broker). Usually a commission is charged to the client for executing an order.
     /// </summary>
-    [DataMember]
     public ConfirmationPartyDetails9? ExecutingBroker { get; init; } 
     /// <summary>
     /// Party sending the message to the CMU (Central Matching Utility) to identify the actual business unit as known to the CMU (Central Matching Utility).
     /// </summary>
-    [DataMember]
     public ConfirmationPartyDetails8? CMUParty { get; init; } 
     /// <summary>
     /// Actual business unit of the counterparty to the sender of the message to the CMU (Central Matching Utility) as known to the CMU (Central Matching Utility).
     /// </summary>
-    [DataMember]
     public ConfirmationPartyDetails8? CMUCounterparty { get; init; } 
     /// <summary>
     /// Party (buyer or seller) that positively affirms the details of a previously agreed security trade confirmation.
     /// </summary>
-    [DataMember]
     public ConfirmationPartyDetails8? AffirmingParty { get; init; } 
     /// <summary>
     /// Party involved in a legal proceeding, agreement or other transaction.
     /// </summary>
-    [DataMember]
     public ConfirmationPartyDetails10? TradeBeneficiaryParty { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Buyer is ConfirmationPartyDetails7 BuyerValue)
+        {
+            writer.WriteStartElement(null, "Buyr", xmlNamespace );
+            BuyerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Borrower is ConfirmationPartyDetails7 BorrowerValue)
+        {
+            writer.WriteStartElement(null, "Brrwr", xmlNamespace );
+            BorrowerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Seller is ConfirmationPartyDetails7 SellerValue)
+        {
+            writer.WriteStartElement(null, "Sellr", xmlNamespace );
+            SellerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Lender is ConfirmationPartyDetails7 LenderValue)
+        {
+            writer.WriteStartElement(null, "Lndr", xmlNamespace );
+            LenderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BrokerOfCredit is ConfirmationPartyDetails8 BrokerOfCreditValue)
+        {
+            writer.WriteStartElement(null, "BrkrOfCdt", xmlNamespace );
+            BrokerOfCreditValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntroducingFirm is ConfirmationPartyDetails8 IntroducingFirmValue)
+        {
+            writer.WriteStartElement(null, "IntrdcgFirm", xmlNamespace );
+            IntroducingFirmValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StepInFirm is ConfirmationPartyDetails8 StepInFirmValue)
+        {
+            writer.WriteStartElement(null, "StepInFirm", xmlNamespace );
+            StepInFirmValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StepOutFirm is ConfirmationPartyDetails8 StepOutFirmValue)
+        {
+            writer.WriteStartElement(null, "StepOutFirm", xmlNamespace );
+            StepOutFirmValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClearingFirm is ConfirmationPartyDetails9 ClearingFirmValue)
+        {
+            writer.WriteStartElement(null, "ClrFirm", xmlNamespace );
+            ClearingFirmValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExecutingBroker is ConfirmationPartyDetails9 ExecutingBrokerValue)
+        {
+            writer.WriteStartElement(null, "ExctgBrkr", xmlNamespace );
+            ExecutingBrokerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CMUParty is ConfirmationPartyDetails8 CMUPartyValue)
+        {
+            writer.WriteStartElement(null, "CMUPty", xmlNamespace );
+            CMUPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CMUCounterparty is ConfirmationPartyDetails8 CMUCounterpartyValue)
+        {
+            writer.WriteStartElement(null, "CMUCtrPty", xmlNamespace );
+            CMUCounterpartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AffirmingParty is ConfirmationPartyDetails8 AffirmingPartyValue)
+        {
+            writer.WriteStartElement(null, "AffrmgPty", xmlNamespace );
+            AffirmingPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeBeneficiaryParty is ConfirmationPartyDetails10 TradeBeneficiaryPartyValue)
+        {
+            writer.WriteStartElement(null, "TradBnfcryPty", xmlNamespace );
+            TradeBeneficiaryPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ConfirmationParties6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

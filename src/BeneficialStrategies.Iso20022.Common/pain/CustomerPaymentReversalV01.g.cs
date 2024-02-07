@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.pain.CustomerPaymentReversalV01>;
 
 namespace BeneficialStrategies.Iso20022.pain;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.pain;
 /// The CustomerPaymentReversal message can be used in domestic and cross-border scenarios.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The CustomerPaymentReversal message is sent by the initiating party to the next party in the payment chain. It is used to reverse a payment previously executed.|Usage|The CustomerPaymentReversal message is exchanged between a non-financial institution customer and an agent to reverse a CustomerDirectDebitInitiation message that has been settled. The result will be a credit on the debtor account.|The CustomerPaymentReversal message refers to the original CustomerDirectDebitInitiation message by means of references only or by means of references and a set of elements from the original instruction.|The CustomerPaymentReversal message can be used in domestic and cross-border scenarios.")]
-public partial record CustomerPaymentReversalV01 : IOuterRecord
+public partial record CustomerPaymentReversalV01 : IOuterRecord<CustomerPaymentReversalV01,CustomerPaymentReversalV01Document>
+    ,IIsoXmlSerilizable<CustomerPaymentReversalV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record CustomerPaymentReversalV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "pain.007.001.01";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CustomerPaymentReversalV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -81,6 +88,35 @@ public partial record CustomerPaymentReversalV01 : IOuterRecord
     {
         return new CustomerPaymentReversalV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("pain.007.001.01");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
+        GroupHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgnlGrpInf", xmlNamespace );
+        OriginalGroupInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionInformation is PaymentTransactionInformation4 TransactionInformationValue)
+        {
+            writer.WriteStartElement(null, "TxInf", xmlNamespace );
+            TransactionInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CustomerPaymentReversalV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -88,9 +124,7 @@ public partial record CustomerPaymentReversalV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CustomerPaymentReversalV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CustomerPaymentReversalV01Document : IOuterDocument<CustomerPaymentReversalV01>
+public partial record CustomerPaymentReversalV01Document : IOuterDocument<CustomerPaymentReversalV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -106,5 +140,22 @@ public partial record CustomerPaymentReversalV01Document : IOuterDocument<Custom
     /// <summary>
     /// The instance of <seealso cref="CustomerPaymentReversalV01"/> is required.
     /// </summary>
+    [DataMember(Name=CustomerPaymentReversalV01.XmlTag)]
     public required CustomerPaymentReversalV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CustomerPaymentReversalV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

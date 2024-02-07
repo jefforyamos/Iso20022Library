@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Criterion by which the cash movements are broken down.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashSortingCriterion1
+     : IIsoXmlSerilizable<CashSortingCriterion1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of criterion by which the estimated cash flow is being broken down, ie, country, institution, currency code or a user defined type, such as a region or distribution channel.
     /// </summary>
-    [DataMember]
     public required SortCriteria1Choice_ SortingCriterionType { get; init; } 
     /// <summary>
     /// Parameter for which the cash movements are reported.
     /// </summary>
-    [DataMember]
-    public ValueList<ForecastParameter1> ForecastBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public ForecastParameter1? ForecastBreakdownDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _Uw6IRNp-Ed-ak6NoX_4Aeg_1294908661
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SrtgCritnTp", xmlNamespace );
+        SortingCriterionType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize ForecastBreakdownDetails, multiplicity Unknown
+    }
+    public static CashSortingCriterion1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

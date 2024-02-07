@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.setr.SwitchOrderV02>;
 
 namespace BeneficialStrategies.Iso20022.setr;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// The SwitchOrder message is used when the instructing party, ie, an investor, wants to change its investments within the same fund family, according to the terms of the prospectus.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The SwitchOrder message is sent by an instructing party, eg, an investment manager or its authorised representative, to an executing party, eg, a transfer agent. There may be one or more intermediary parties between the instructing party and the executing party. The intermediary party is, for example, an intermediary or a concentrator.|This message is used to instruct the executing party to switch from a specified amount/quantity of specified financial instruments to a specified amount/quantity of different financial instruments.|Usage|The SwitchOrder message is used when the instructing party, ie, an investor, wants to change its investments within the same fund family, according to the terms of the prospectus.")]
-public partial record SwitchOrderV02 : IOuterRecord
+public partial record SwitchOrderV02 : IOuterRecord<SwitchOrderV02,SwitchOrderV02Document>
+    ,IIsoXmlSerilizable<SwitchOrderV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record SwitchOrderV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "setr.013.001.02";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SwitchOrderV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -86,7 +93,7 @@ public partial record SwitchOrderV02 : IOuterRecord
     [Description(@"The information related to an intermediary.")]
     [DataMember(Name="IntrmyDtls")]
     [XmlElement(ElementName="IntrmyDtls")]
-    public required IReadOnlyCollection<Intermediary4> IntermediaryDetails { get; init; } = []; // Min=0, Max=10
+    public required ValueList<Intermediary4> IntermediaryDetails { get; init; } = []; // Min=0, Max=10
     
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
@@ -115,6 +122,59 @@ public partial record SwitchOrderV02 : IOuterRecord
     {
         return new SwitchOrderV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("setr.013.001.02");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MasterReference is AdditionalReference3 MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            MasterReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PoolReference is AdditionalReference3 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousReference is AdditionalReference3 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SwtchOrdrDtls", xmlNamespace );
+        SwitchOrderDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IntrmyDtls", xmlNamespace );
+        IntermediaryDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CopyDetails is CopyInformation1 CopyDetailsValue)
+        {
+            writer.WriteStartElement(null, "CpyDtls", xmlNamespace );
+            CopyDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SwitchOrderV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -122,9 +182,7 @@ public partial record SwitchOrderV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SwitchOrderV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SwitchOrderV02Document : IOuterDocument<SwitchOrderV02>
+public partial record SwitchOrderV02Document : IOuterDocument<SwitchOrderV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -140,5 +198,22 @@ public partial record SwitchOrderV02Document : IOuterDocument<SwitchOrderV02>
     /// <summary>
     /// The instance of <seealso cref="SwitchOrderV02"/> is required.
     /// </summary>
+    [DataMember(Name=SwitchOrderV02.XmlTag)]
     public required SwitchOrderV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SwitchOrderV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

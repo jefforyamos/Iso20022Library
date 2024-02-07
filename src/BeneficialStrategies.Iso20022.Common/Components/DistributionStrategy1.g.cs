@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Distribution strategy criteria.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DistributionStrategy1
+     : IIsoXmlSerilizable<DistributionStrategy1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies to whom the product can be sold on an execution-only basis. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 06010.
     /// </summary>
-    [DataMember]
     public DistributionStrategy1Choice_? ExecutionOnly { get; init; } 
     /// <summary>
     /// Specifies to whom the product can be sold with an appropriateness test or to a non-advised service. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 06020.
     /// </summary>
-    [DataMember]
     public DistributionStrategy1Choice_? ExecutionWithAppropriatenessTestOrNonAdvisedServices { get; init; } 
     /// <summary>
     /// Specifies to whom the product can be sold if investment advice has been provided. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 06030.
     /// </summary>
-    [DataMember]
     public DistributionStrategy1Choice_? InvestmentAdvice { get; init; } 
     /// <summary>
     /// Specifies to whom the product can be sold if portfolio management has been provided. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 06040.
     /// </summary>
-    [DataMember]
     public DistributionStrategy1Choice_? PortfolioManagement { get; init; } 
     /// <summary>
     /// Other distribution strategy.
     /// </summary>
-    [DataMember]
     public OtherDistributionStrategy1? Other { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ExecutionOnly is DistributionStrategy1Choice_ ExecutionOnlyValue)
+        {
+            writer.WriteStartElement(null, "ExctnOnly", xmlNamespace );
+            ExecutionOnlyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExecutionWithAppropriatenessTestOrNonAdvisedServices is DistributionStrategy1Choice_ ExecutionWithAppropriatenessTestOrNonAdvisedServicesValue)
+        {
+            writer.WriteStartElement(null, "ExctnWthApprprtnssTstOrNonAdvsdSvcs", xmlNamespace );
+            ExecutionWithAppropriatenessTestOrNonAdvisedServicesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestmentAdvice is DistributionStrategy1Choice_ InvestmentAdviceValue)
+        {
+            writer.WriteStartElement(null, "InvstmtAdvc", xmlNamespace );
+            InvestmentAdviceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PortfolioManagement is DistributionStrategy1Choice_ PortfolioManagementValue)
+        {
+            writer.WriteStartElement(null, "PrtflMgmt", xmlNamespace );
+            PortfolioManagementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Other is OtherDistributionStrategy1 OtherValue)
+        {
+            writer.WriteStartElement(null, "Othr", xmlNamespace );
+            OtherValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DistributionStrategy1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,98 +7,166 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the status of a transfer instruction and its reason.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransferStatusAndReason2
+     : IIsoXmlSerilizable<TransferStatusAndReason2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of a transfer, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransferReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of a transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a transfer cancellation, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// Status of the transfer is accepted, sent to next party, matched, already executed, or settled.
     /// </summary>
-    [DataMember]
     public required TransferInstructionStatus2 Status { get; init; } 
     /// <summary>
     /// Status of the transfer is pending settlement.
     /// </summary>
-    [DataMember]
     public required PendingSettlementStatus2 PendingSettlement { get; init; } 
     /// <summary>
     /// Status of the transfer is unmatched.
     /// </summary>
-    [DataMember]
     public required TransferUnmatchedStatus2 Unmatched { get; init; } 
     /// <summary>
     /// Status of the transfer is in repair.
     /// </summary>
-    [DataMember]
     public required InRepairStatus3 InRepair { get; init; } 
     /// <summary>
     /// Status of the transfer is rejected.
     /// </summary>
-    [DataMember]
     public required RejectedStatus8Choice_ Rejected { get; init; } 
     /// <summary>
     /// Status of the transfer is failed settlement, ie, settlement in the International Central Securities Depository (ICSD) or Central Securities Depository (CSD) failed.
     /// </summary>
-    [DataMember]
     public required FailedSettlementStatus1 FailedSettlement { get; init; } 
     /// <summary>
     /// Status of the transfer is cancelled.
     /// </summary>
-    [DataMember]
     public required CancelledStatus3 Cancelled { get; init; } 
     /// <summary>
     /// Status of the transfer is reversed.
     /// </summary>
-    [DataMember]
     public required ReversedStatus1 Reversed { get; init; } 
     /// <summary>
     /// Status of the transfer is cancellation pending.
     /// </summary>
-    [DataMember]
     public required CancellationPendingStatus1 CancellationPending { get; init; } 
     /// <summary>
     /// Date and time at which the transfer was executed.
     /// </summary>
-    [DataMember]
     public IsoISODate? TradeDate { get; init; } 
     /// <summary>
     /// Date on which the document, for example, the application form, was sent.
     /// </summary>
-    [DataMember]
     public IsoISODate? SendOutDate { get; init; } 
     /// <summary>
     /// Party that initiates the status.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? StatusInitiator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TrfRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ClientReference is IsoMax35Text ClientReferenceValue)
+        {
+            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CancellationReference is IsoMax35Text CancellationReferenceValue)
+        {
+            writer.WriteStartElement(null, "CxlRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CancellationReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        Status.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PdgSttlm", xmlNamespace );
+        PendingSettlement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Umtchd", xmlNamespace );
+        Unmatched.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InRpr", xmlNamespace );
+        InRepair.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rjctd", xmlNamespace );
+        Rejected.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FaildSttlm", xmlNamespace );
+        FailedSettlement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Canc", xmlNamespace );
+        Cancelled.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rvsd", xmlNamespace );
+        Reversed.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CxlPdg", xmlNamespace );
+        CancellationPending.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TradeDate is IsoISODate TradeDateValue)
+        {
+            writer.WriteStartElement(null, "TradDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(TradeDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SendOutDate is IsoISODate SendOutDateValue)
+        {
+            writer.WriteStartElement(null, "SndOutDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(SendOutDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (StatusInitiator is PartyIdentification2Choice_ StatusInitiatorValue)
+        {
+            writer.WriteStartElement(null, "StsInitr", xmlNamespace );
+            StatusInitiatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransferStatusAndReason2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

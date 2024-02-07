@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about third party rights.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ThirdPartyRights1
+     : IIsoXmlSerilizable<ThirdPartyRights1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of third party right.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Timestamp for the third party right.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? DateTime { get; init; } 
     /// <summary>
     /// Party that holds the third party right.
     /// </summary>
-    [DataMember]
     public PartyIdentification70Choice_? Holder { get; init; } 
     /// <summary>
     /// Identification of the holder with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>
-    [DataMember]
     public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
     /// <summary>
     /// Amount of the third party right.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Description of the third party right.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? Description { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Type)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (DateTime is IsoISODateTime DateTimeValue)
+        {
+            writer.WriteStartElement(null, "DtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(DateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (Holder is PartyIdentification70Choice_ HolderValue)
+        {
+            writer.WriteStartElement(null, "Hldr", xmlNamespace );
+            HolderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LegalEntityIdentifier is IsoLEIIdentifier LegalEntityIdentifierValue)
+        {
+            writer.WriteStartElement(null, "LglNttyIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LegalEntityIdentifierValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (Amount is IsoActiveCurrencyAndAmount AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Description is IsoMax350Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(DescriptionValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ThirdPartyRights1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

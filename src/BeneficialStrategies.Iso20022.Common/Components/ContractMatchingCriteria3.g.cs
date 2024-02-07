@@ -7,68 +7,136 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Compares information related to both sides of a contract.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ContractMatchingCriteria3
+     : IIsoXmlSerilizable<ContractMatchingCriteria3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the information on the ISINs are matching or not.
     /// </summary>
-    [DataMember]
     public CompareISINIdentifier2? ISIN { get; init; } 
     /// <summary>
     /// Specifies whether the information on the Unique Product Identifiers are matching or not.
     /// </summary>
-    [DataMember]
     public CompareUniqueProductIdentifier2? UniqueProductIdentifier { get; init; } 
     /// <summary>
     /// Specifies whether the information on the AIIs are matching or not.
     /// </summary>
-    [DataMember]
     public CompareText1? AlternativeInstrumentIdentification { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as CFI (Classification of Financial Instruments-ISO 10962) identifier are matching or not.
     /// </summary>
-    [DataMember]
     public CompareCFIIdentifier3? ProductClassification { get; init; } 
     /// <summary>
     /// Specifies whether the information on the contract types are matching or not.
     /// </summary>
-    [DataMember]
     public CompareFinancialInstrumentContractType1? ContractType { get; init; } 
     /// <summary>
     /// Specifies whether the information on the asset classes are matching or not.
     /// </summary>
-    [DataMember]
     public CompareAssetClass1? AssetClass { get; init; } 
     /// <summary>
     /// Specifies whether the information on the derivatives based on crypto assets are matching or not.
     /// </summary>
-    [DataMember]
     public CompareTrueFalseIndicator3? DerivativeBasedOnCryptoAsset { get; init; } 
     /// <summary>
     /// Specifies whether the information on the underlying instruments are matching or not.
     /// </summary>
-    [DataMember]
     public CompareUnderlyingInstrument3? UnderlyingInstrument { get; init; } 
     /// <summary>
     /// Specifies whether the information on the settlement currency are matching or not.
     /// </summary>
-    [DataMember]
     public CompareActiveOrHistoricCurrencyCode1? SettlementCurrency { get; init; } 
     /// <summary>
     /// Specifies whether the information on the settlement currency second legs are matching or not.
     /// </summary>
-    [DataMember]
     public CompareActiveOrHistoricCurrencyCode1? SettlementCurrencySecondLeg { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ISIN is CompareISINIdentifier2 ISINValue)
+        {
+            writer.WriteStartElement(null, "ISIN", xmlNamespace );
+            ISINValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UniqueProductIdentifier is CompareUniqueProductIdentifier2 UniqueProductIdentifierValue)
+        {
+            writer.WriteStartElement(null, "UnqPdctIdr", xmlNamespace );
+            UniqueProductIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AlternativeInstrumentIdentification is CompareText1 AlternativeInstrumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AltrntvInstrmId", xmlNamespace );
+            AlternativeInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProductClassification is CompareCFIIdentifier3 ProductClassificationValue)
+        {
+            writer.WriteStartElement(null, "PdctClssfctn", xmlNamespace );
+            ProductClassificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContractType is CompareFinancialInstrumentContractType1 ContractTypeValue)
+        {
+            writer.WriteStartElement(null, "CtrctTp", xmlNamespace );
+            ContractTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AssetClass is CompareAssetClass1 AssetClassValue)
+        {
+            writer.WriteStartElement(null, "AsstClss", xmlNamespace );
+            AssetClassValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DerivativeBasedOnCryptoAsset is CompareTrueFalseIndicator3 DerivativeBasedOnCryptoAssetValue)
+        {
+            writer.WriteStartElement(null, "DerivBasedOnCrptAsst", xmlNamespace );
+            DerivativeBasedOnCryptoAssetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnderlyingInstrument is CompareUnderlyingInstrument3 UnderlyingInstrumentValue)
+        {
+            writer.WriteStartElement(null, "UndrlygInstrm", xmlNamespace );
+            UnderlyingInstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementCurrency is CompareActiveOrHistoricCurrencyCode1 SettlementCurrencyValue)
+        {
+            writer.WriteStartElement(null, "SttlmCcy", xmlNamespace );
+            SettlementCurrencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementCurrencySecondLeg is CompareActiveOrHistoricCurrencyCode1 SettlementCurrencySecondLegValue)
+        {
+            writer.WriteStartElement(null, "SttlmCcyScndLeg", xmlNamespace );
+            SettlementCurrencySecondLegValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ContractMatchingCriteria3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

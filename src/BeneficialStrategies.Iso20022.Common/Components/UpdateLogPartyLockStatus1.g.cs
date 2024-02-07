@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the old and new values for a party log status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UpdateLogPartyLockStatus1
+     : IIsoXmlSerilizable<UpdateLogPartyLockStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Old value before the update.
     /// </summary>
-    [DataMember]
     public required PartyLockStatus1 Old { get; init; } 
     /// <summary>
     /// New value after the update.
     /// </summary>
-    [DataMember]
     public required PartyLockStatus1 New { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Od", xmlNamespace );
+        Old.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "New", xmlNamespace );
+        New.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static UpdateLogPartyLockStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,60 +7,102 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Cryptographic Key.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CryptographicKey5
+     : IIsoXmlSerilizable<CryptographicKey5>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the cryptographic key.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text Identification { get; init; } 
     /// <summary>
     /// Additional identification of the key.
     /// Usage
     /// For derived unique key per transaction (DUKPT) keys, the key serial number (KSN) with the 21 bits of the transaction counter set to zero.
     /// </summary>
-    [DataMember]
     public IsoMax35Binary? AdditionalIdentification { get; init; } 
     /// <summary>
     /// Version of the cryptographic key.
     /// </summary>
-    [DataMember]
     public required IsoMax256Text Version { get; init; } 
     /// <summary>
     /// Type of algorithm used by the cryptographic key.
     /// </summary>
-    [DataMember]
     public required CryptographicKeyType3Code Type { get; init; } 
     /// <summary>
     /// Allowed usage of the key.
     /// </summary>
-    [DataMember]
-    public ValueList<KeyUsage1Code> Function { get; init; } = []; // Warning: Don't know multiplicity.
+    public KeyUsage1Code? Function { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _o92hqWpLEeSR-ZWLvO-1dg
     /// <summary>
     /// Date and time on which the key must be activated.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ActivationDate { get; init; } 
     /// <summary>
     /// Date and time on which the key must be deactivated.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? DeactivationDate { get; init; } 
     /// <summary>
     /// Encrypted cryptographic key.
     /// </summary>
-    [DataMember]
     public required ContentInformationType10 KeyValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(Identification)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        if (AdditionalIdentification is IsoMax35Binary AdditionalIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AddtlId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Binary(AdditionalIdentificationValue)); // data type Max35Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax256Text(Version)); // data type Max256Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        // Not sure how to serialize Function, multiplicity Unknown
+        if (ActivationDate is IsoISODateTime ActivationDateValue)
+        {
+            writer.WriteStartElement(null, "ActvtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ActivationDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (DeactivationDate is IsoISODateTime DeactivationDateValue)
+        {
+            writer.WriteStartElement(null, "DeactvtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(DeactivationDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "KeyVal", xmlNamespace );
+        KeyValue.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static CryptographicKey5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

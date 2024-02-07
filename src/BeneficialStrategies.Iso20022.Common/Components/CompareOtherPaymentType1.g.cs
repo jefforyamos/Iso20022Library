@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies two values to compare for a other payment type.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CompareOtherPaymentType1
+     : IIsoXmlSerilizable<CompareOtherPaymentType1>
 {
     #nullable enable
     
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
-    [DataMember]
     public PaymentType5Choice_? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
-    [DataMember]
     public PaymentType5Choice_? Value2 { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Value1 is PaymentType5Choice_ Value1Value)
+        {
+            writer.WriteStartElement(null, "Val1", xmlNamespace );
+            Value1Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Value2 is PaymentType5Choice_ Value2Value)
+        {
+            writer.WriteStartElement(null, "Val2", xmlNamespace );
+            Value2Value.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CompareOtherPaymentType1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

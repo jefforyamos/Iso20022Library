@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsmt.BaselineAmendmentRequestV03>;
 
 namespace BeneficialStrategies.Iso20022.tsmt;
 
@@ -31,10 +34,9 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// The matching application amends the baseline according to the BaselineAmendmentRequest message and confirms the execution of the request by sending a DeltaReport and calculated BaselineReport message to the requester of the amendment.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The BaselineAmendmentRequest message is sent by a primary party involved in a transaction to the matching application.|The message is used to request the amendment of an established baseline.|Usage|The BaselineAmendmentRequest message may only be sent if the transaction is in the state Established or Active.|The BaselineAmendmentRequest message can be sent to the matching application by one of the primary parties involved in a transaction established in the push-through mode to request the amendment of an established baseline.|The matching application acknowledges the receipt of the amendment request by sending a DeltaReport message to the submitter of the BaselineAmendmentRequest message. It passes on the newly proposed baseline to the counterparty by sending a FullPushThroughReport message, a DeltaReport message and a pre-calculated BaselineReport message.|The counterparty is expected to either accept or reject the amendment request by submitting an AmendmentAcceptance or AmendmentRejection message.|or|The BaselineAmendmentRequest message can be sent by the party involved in a transaction established in the lodge mode to the matching application to amend an established baseline.|The matching application amends the baseline according to the BaselineAmendmentRequest message and confirms the execution of the request by sending a DeltaReport and calculated BaselineReport message to the requester of the amendment.")]
-public partial record BaselineAmendmentRequestV03 : IOuterRecord
+public partial record BaselineAmendmentRequestV03 : IOuterRecord<BaselineAmendmentRequestV03,BaselineAmendmentRequestV03Document>
+    ,IIsoXmlSerilizable<BaselineAmendmentRequestV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -46,6 +48,11 @@ public partial record BaselineAmendmentRequestV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "BaselnAmdmntReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => BaselineAmendmentRequestV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -141,6 +148,68 @@ public partial record BaselineAmendmentRequestV03 : IOuterRecord
     {
         return new BaselineAmendmentRequestV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("BaselnAmdmntReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ReqId", xmlNamespace );
+        RequestIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SubmitterTransactionReference is SimpleIdentificationInformation SubmitterTransactionReferenceValue)
+        {
+            writer.WriteStartElement(null, "SubmitrTxRef", xmlNamespace );
+            SubmitterTransactionReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Baseln", xmlNamespace );
+        Baseline.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BuyerContactPerson is ContactIdentification1 BuyerContactPersonValue)
+        {
+            writer.WriteStartElement(null, "BuyrCtctPrsn", xmlNamespace );
+            BuyerContactPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SellerContactPerson is ContactIdentification1 SellerContactPersonValue)
+        {
+            writer.WriteStartElement(null, "SellrCtctPrsn", xmlNamespace );
+            SellerContactPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BuyerBankContactPerson is ContactIdentification1 BuyerBankContactPersonValue)
+        {
+            writer.WriteStartElement(null, "BuyrBkCtctPrsn", xmlNamespace );
+            BuyerBankContactPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SellerBankContactPerson is ContactIdentification1 SellerBankContactPersonValue)
+        {
+            writer.WriteStartElement(null, "SellrBkCtctPrsn", xmlNamespace );
+            SellerBankContactPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherBankContactPerson is ContactIdentification3 OtherBankContactPersonValue)
+        {
+            writer.WriteStartElement(null, "OthrBkCtctPrsn", xmlNamespace );
+            OtherBankContactPersonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BaselineAmendmentRequestV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -148,9 +217,7 @@ public partial record BaselineAmendmentRequestV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BaselineAmendmentRequestV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record BaselineAmendmentRequestV03Document : IOuterDocument<BaselineAmendmentRequestV03>
+public partial record BaselineAmendmentRequestV03Document : IOuterDocument<BaselineAmendmentRequestV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -166,5 +233,22 @@ public partial record BaselineAmendmentRequestV03Document : IOuterDocument<Basel
     /// <summary>
     /// The instance of <seealso cref="BaselineAmendmentRequestV03"/> is required.
     /// </summary>
+    [DataMember(Name=BaselineAmendmentRequestV03.XmlTag)]
     public required BaselineAmendmentRequestV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(BaselineAmendmentRequestV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

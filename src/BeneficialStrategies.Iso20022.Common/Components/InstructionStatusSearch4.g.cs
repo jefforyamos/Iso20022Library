@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria which are used to search for the status of the payment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InstructionStatusSearch4
+     : IIsoXmlSerilizable<InstructionStatusSearch4>
 {
     #nullable enable
     
     /// <summary>
     /// Status of a transfer.
     /// </summary>
-    [DataMember]
     public PaymentStatusCodeSearch2Choice_? PaymentInstructionStatus { get; init; } 
     /// <summary>
     /// Date and time at which the status was assigned to the transfer.
     /// </summary>
-    [DataMember]
     public DateTimePeriod1Choice_? PaymentInstructionStatusDateTime { get; init; } 
     /// <summary>
     /// Defines the reason that has been used by the Target2 SSP system to reject the transaction.
     /// </summary>
-    [DataMember]
     public IsoMax4AlphaNumericText? ProprietaryStatusReason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PaymentInstructionStatus is PaymentStatusCodeSearch2Choice_ PaymentInstructionStatusValue)
+        {
+            writer.WriteStartElement(null, "PmtInstrSts", xmlNamespace );
+            PaymentInstructionStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentInstructionStatusDateTime is DateTimePeriod1Choice_ PaymentInstructionStatusDateTimeValue)
+        {
+            writer.WriteStartElement(null, "PmtInstrStsDtTm", xmlNamespace );
+            PaymentInstructionStatusDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProprietaryStatusReason is IsoMax4AlphaNumericText ProprietaryStatusReasonValue)
+        {
+            writer.WriteStartElement(null, "PrtryStsRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(ProprietaryStatusReasonValue)); // data type Max4AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static InstructionStatusSearch4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to contract and transaction details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CommonTradeDataReport37
+     : IIsoXmlSerilizable<CommonTradeDataReport37>
 {
     #nullable enable
     
     /// <summary>
     /// Data related to a trade contract.
     /// </summary>
-    [DataMember]
     public ContractType8? ContractData { get; init; } 
     /// <summary>
     /// Data related specifically to a trade transaction.
     /// </summary>
-    [DataMember]
     public required TradeTransaction25 TransactionData { get; init; } 
     /// <summary>
     /// Details of the other action type.
     /// </summary>
-    [DataMember]
     public IsoMax50Text? ActionTypeDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ContractData is ContractType8 ContractDataValue)
+        {
+            writer.WriteStartElement(null, "CtrctData", xmlNamespace );
+            ContractDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxData", xmlNamespace );
+        TransactionData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ActionTypeDetails is IsoMax50Text ActionTypeDetailsValue)
+        {
+            writer.WriteStartElement(null, "ActnTpDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax50Text(ActionTypeDetailsValue)); // data type Max50Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CommonTradeDataReport37 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

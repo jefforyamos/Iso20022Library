@@ -7,38 +7,64 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// General information about the invoice contained in the original request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OriginalInvoiceInformation1
+     : IIsoXmlSerilizable<OriginalInvoiceInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identifier of the document.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text DocumentNumber { get; init; } 
     /// <summary>
     /// Total amount of the invoice, being the sum of total invoice lines amounts, total invoice additional amounts (allowances and charges) and total tax amounts.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalInvoiceAmount { get; init; } 
     /// <summary>
     /// Issue date of the document.
     /// </summary>
-    [DataMember]
     public required IsoISODate IssueDate { get; init; } 
     /// <summary>
     /// Due date for the payment of the invoice.
     /// </summary>
-    [DataMember]
     public required IsoISODate PaymentDueDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DocNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(DocumentNumber)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlInvcAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalInvoiceAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IsseDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(IssueDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PmtDueDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(PaymentDueDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+    }
+    public static OriginalInvoiceInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

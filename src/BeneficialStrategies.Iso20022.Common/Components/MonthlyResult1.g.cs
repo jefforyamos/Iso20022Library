@@ -7,48 +7,81 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Results of backtesting analysis used to test the performance of a risk model.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MonthlyResult1
+     : IIsoXmlSerilizable<MonthlyResult1>
 {
     #nullable enable
     
     /// <summary>
     /// Total number of accounts subject to backtesting in the month.
     /// </summary>
-    [DataMember]
     public required IsoPositiveNumber NumberOfObservations { get; init; } 
     /// <summary>
     /// Number of times that margin coverage held against any account fell below the marked‐to‐market exposure of that member account, based on the backtesting results.
     /// </summary>
-    [DataMember]
     public required IsoNonNegativeNumber NumberOfExceptions { get; init; } 
     /// <summary>
     /// Achieved coverage level.
     /// </summary>
-    [DataMember]
     public required IsoBaseOneRate Coverage { get; init; } 
     /// <summary>
     /// Largest marked-to-market exposure on any account that exceeds the margin coverage held against that account. The difference between the size of the exposure and the margin held.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount LargestException { get; init; } 
     /// <summary>
     /// Average marked‐to‐market exposure on accounts that exceeds the margin coverage held against those accounts.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount AverageException { get; init; } 
     /// <summary>
     /// Unique internal identifier for the backtested account experiencing the largest exception.
     /// </summary>
-    [DataMember]
     public GenericIdentification165? LargestExceptionIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NbOfObsrvtns", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPositiveNumber(NumberOfObservations)); // data type PositiveNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NbOfXcptns", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNonNegativeNumber(NumberOfExceptions)); // data type NonNegativeNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Cvrg", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBaseOneRate(Coverage)); // data type BaseOneRate System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "LrgstXcptn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(LargestException)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AvrgXcptn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AverageException)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (LargestExceptionIdentification is GenericIdentification165 LargestExceptionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "LrgstXcptnId", xmlNamespace );
+            LargestExceptionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MonthlyResult1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

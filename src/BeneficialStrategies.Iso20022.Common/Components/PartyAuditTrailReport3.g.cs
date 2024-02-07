@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Report information about party reference data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyAuditTrailReport3
+     : IIsoXmlSerilizable<PartyAuditTrailReport3>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the returned party reference data or error information.
     /// </summary>
-    [DataMember]
     public required PartyAuditTrailOrError2Choice_ PartyAuditTrailOrError { get; init; } 
     /// <summary>
     /// Period in dates for which the audit trail is provided.
     /// </summary>
-    [DataMember]
     public DatePeriod3Choice_? DatePeriod { get; init; } 
     /// <summary>
     /// Identifies the party for which the audit trail is provided.
     /// </summary>
-    [DataMember]
     public required SystemPartyIdentification8 PartyIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PtyAudtTrlOrErr", xmlNamespace );
+        PartyAuditTrailOrError.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DatePeriod is DatePeriod3Choice_ DatePeriodValue)
+        {
+            writer.WriteStartElement(null, "DtPrd", xmlNamespace );
+            DatePeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PtyId", xmlNamespace );
+        PartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static PartyAuditTrailReport3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

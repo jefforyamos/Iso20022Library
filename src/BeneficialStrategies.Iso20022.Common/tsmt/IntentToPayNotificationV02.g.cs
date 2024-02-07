@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsmt.IntentToPayNotificationV02>;
 
 namespace BeneficialStrategies.Iso20022.tsmt;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// The message is unsolicited, that is, it is not sent in response to another message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The IntentToPayNotification message is sent by a party to the matching application in order to provide details about a future payment.|This message contains details about an intention to pay a certain amount, on a certain date, in relation to one or several transactions known to the matching application.|Usage|The IntentToPayNotification message can be sent by a party to the transaction at any time as long as the transaction is established and not yet closed.|The message is unsolicited, that is, it is not sent in response to another message.")]
-public partial record IntentToPayNotificationV02 : IOuterRecord
+public partial record IntentToPayNotificationV02 : IOuterRecord<IntentToPayNotificationV02,IntentToPayNotificationV02Document>
+    ,IIsoXmlSerilizable<IntentToPayNotificationV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record IntentToPayNotificationV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "InttToPayNtfctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => IntentToPayNotificationV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -111,6 +118,44 @@ public partial record IntentToPayNotificationV02 : IOuterRecord
     {
         return new IntentToPayNotificationV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("InttToPayNtfctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NtfctnId", xmlNamespace );
+        NotificationIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SubmitterTransactionReference is SimpleIdentificationInformation SubmitterTransactionReferenceValue)
+        {
+            writer.WriteStartElement(null, "SubmitrTxRef", xmlNamespace );
+            SubmitterTransactionReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "BuyrBk", xmlNamespace );
+        BuyerBank.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SellrBk", xmlNamespace );
+        SellerBank.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InttToPay", xmlNamespace );
+        IntentToPay.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static IntentToPayNotificationV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -118,9 +163,7 @@ public partial record IntentToPayNotificationV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IntentToPayNotificationV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record IntentToPayNotificationV02Document : IOuterDocument<IntentToPayNotificationV02>
+public partial record IntentToPayNotificationV02Document : IOuterDocument<IntentToPayNotificationV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -136,5 +179,22 @@ public partial record IntentToPayNotificationV02Document : IOuterDocument<Intent
     /// <summary>
     /// The instance of <seealso cref="IntentToPayNotificationV02"/> is required.
     /// </summary>
+    [DataMember(Name=IntentToPayNotificationV02.XmlTag)]
     public required IntentToPayNotificationV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(IntentToPayNotificationV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

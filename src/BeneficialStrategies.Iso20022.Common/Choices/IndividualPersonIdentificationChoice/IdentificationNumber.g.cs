@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.IndividualPersonIdentificationChoice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.IndividualPersonIdentificationCh
 /// Information related to an identification, eg, party identification or account identification.
 /// </summary>
 public partial record IdentificationNumber : IndividualPersonIdentificationChoice_
+     , IIsoXmlSerilizable<IdentificationNumber>
 {
     #nullable enable
+    
     /// <summary>
     /// Name or number assigned by an entity to enable recognition of that entity, eg, account identifier.
     /// </summary>
@@ -27,5 +31,32 @@ public partial record IdentificationNumber : IndividualPersonIdentificationChoic
     /// Specifies the nature of the identification.
     /// </summary>
     public required IsoExtended350Code ExtendedIdentificationType { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IdTp", xmlNamespace );
+        writer.WriteValue(IdentificationType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtndedIdTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedIdentificationType)); // data type Extended350Code System.String
+        writer.WriteEndElement();
+    }
+    public static new IdentificationNumber Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

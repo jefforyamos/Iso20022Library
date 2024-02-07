@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Quantity46Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity46Choice;
 /// Quantity of delivery.
 /// </summary>
 public partial record Quantity : Quantity46Choice_
+     , IIsoXmlSerilizable<Quantity>
 {
-    public required IsoLongFraction21DecimalNumber Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Number of objects represented as a decimal number, for example 0.75 or 45.6.
+    /// </summary>
+    public required IsoLongFraction21DecimalNumber Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLongFraction21DecimalNumber(Value)); // data type LongFraction21DecimalNumber System.UInt64
+        writer.WriteEndElement();
+    }
+    public static new Quantity Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

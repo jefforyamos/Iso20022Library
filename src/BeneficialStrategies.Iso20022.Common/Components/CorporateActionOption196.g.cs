@@ -7,98 +7,190 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the corporate action option.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionOption196
+     : IIsoXmlSerilizable<CorporateActionOption196>
 {
     #nullable enable
     
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    [DataMember]
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    [DataMember]
     public required CorporateActionOption41Choice_ OptionType { get; init; } 
     /// <summary>
     /// Specifies the features that may apply to a corporate action option.
     /// </summary>
-    [DataMember]
     public OptionFeaturesFormat25Choice_? OptionFeatures { get; init; } 
     /// <summary>
     /// Party that owns the account.
     /// </summary>
-    [DataMember]
     public PartyIdentification127Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? BlockChainAddressOrWallet { get; init; } 
     /// <summary>
     /// Account on which a securities entry is made.
     /// </summary>
-    [DataMember]
     public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
-    [DataMember]
     public SafekeepingPlaceFormat28Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
-    [DataMember]
     public SecurityIdentification19? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Total balance of securities eligible for this corporate action event. The entitlement calculation is based on this balance.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat11? TotalEligibleBalance { get; init; } 
     /// <summary>
     /// Balance of instructed position.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat11? InstructedBalance { get; init; } 
     /// <summary>
     /// Balance of uninstructed position.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat11? UninstructedBalance { get; init; } 
     /// <summary>
     /// Balance of securities which are in protect status in a CSD operating a protect cover service.
     /// </summary>
-    [DataMember]
     public SignedQuantityFormat11? ProtectBalance { get; init; } 
     /// <summary>
     /// Quantity of securities that has been assigned the status indicated.
     /// </summary>
-    [DataMember]
     public Quantity51Choice_? StatusQuantity { get; init; } 
     /// <summary>
     /// Amount of cash subscribed that has been assigned the status indicated.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? StatusCashAmount { get; init; } 
     /// <summary>
     /// Indicates whether there is a solicitation fee on the event. This fee is paid by the soliciting dealer.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? SolicitationDealerFeeIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OptnNb", xmlNamespace );
+        OptionNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+        OptionType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OptionFeatures is OptionFeaturesFormat25Choice_ OptionFeaturesValue)
+        {
+            writer.WriteStartElement(null, "OptnFeatrs", xmlNamespace );
+            OptionFeaturesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountOwner is PartyIdentification127Choice_ AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingAccount is IsoMax35Text SafekeepingAccountValue)
+        {
+            writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SafekeepingAccountValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (BlockChainAddressOrWallet is IsoMax140Text BlockChainAddressOrWalletValue)
+        {
+            writer.WriteStartElement(null, "BlckChainAdrOrWllt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(BlockChainAddressOrWalletValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (CashAccount is CashAccountIdentification5Choice_ CashAccountValue)
+        {
+            writer.WriteStartElement(null, "CshAcct", xmlNamespace );
+            CashAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingPlace is SafekeepingPlaceFormat28Choice_ SafekeepingPlaceValue)
+        {
+            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
+            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentIdentification is SecurityIdentification19 FinancialInstrumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+            FinancialInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalEligibleBalance is SignedQuantityFormat11 TotalEligibleBalanceValue)
+        {
+            writer.WriteStartElement(null, "TtlElgblBal", xmlNamespace );
+            TotalEligibleBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructedBalance is SignedQuantityFormat11 InstructedBalanceValue)
+        {
+            writer.WriteStartElement(null, "InstdBal", xmlNamespace );
+            InstructedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UninstructedBalance is SignedQuantityFormat11 UninstructedBalanceValue)
+        {
+            writer.WriteStartElement(null, "UinstdBal", xmlNamespace );
+            UninstructedBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProtectBalance is SignedQuantityFormat11 ProtectBalanceValue)
+        {
+            writer.WriteStartElement(null, "PrtctBal", xmlNamespace );
+            ProtectBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StatusQuantity is Quantity51Choice_ StatusQuantityValue)
+        {
+            writer.WriteStartElement(null, "StsQty", xmlNamespace );
+            StatusQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StatusCashAmount is IsoActiveCurrencyAndAmount StatusCashAmountValue)
+        {
+            writer.WriteStartElement(null, "StsCshAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(StatusCashAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (SolicitationDealerFeeIndicator is IsoYesNoIndicator SolicitationDealerFeeIndicatorValue)
+        {
+            writer.WriteStartElement(null, "SlctnDealrFeeInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(SolicitationDealerFeeIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionOption196 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

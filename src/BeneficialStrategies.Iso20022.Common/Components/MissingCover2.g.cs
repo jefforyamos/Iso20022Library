@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide additional cover details for the claim non receipt.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MissingCover2
+     : IIsoXmlSerilizable<MissingCover2>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether or not the claim is related to a missing cover.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator MissingCoverIndicator { get; init; } 
     /// <summary>
     /// Set of elements provided to update incorrect settlement information for the cover related to the received payment instruction.
     /// </summary>
-    [DataMember]
     public SettlementInformation15? CoverCorrection { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MssngCoverInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MissingCoverIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (CoverCorrection is SettlementInformation15 CoverCorrectionValue)
+        {
+            writer.WriteStartElement(null, "CoverCrrctn", xmlNamespace );
+            CoverCorrectionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MissingCover2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details of the collateral used in the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralData35
+     : IIsoXmlSerilizable<CollateralData35>
 {
     #nullable enable
     
     /// <summary>
     /// Indication of the type of collateral component.
     /// </summary>
-    [DataMember]
     public CollateralType21? AssetType { get; init; } 
     /// <summary>
     /// Indicates whether the collateral has been provided for a net exposure, rather than for a single transaction.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? NetExposureCollateralisationIndicator { get; init; } 
     /// <summary>
     /// Identification of the collateral basket.
     /// </summary>
-    [DataMember]
     public SecurityIdentification26Choice_? BasketIdentifier { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AssetType is CollateralType21 AssetTypeValue)
+        {
+            writer.WriteStartElement(null, "AsstTp", xmlNamespace );
+            AssetTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NetExposureCollateralisationIndicator is IsoTrueFalseIndicator NetExposureCollateralisationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NetXpsrCollstnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(NetExposureCollateralisationIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (BasketIdentifier is SecurityIdentification26Choice_ BasketIdentifierValue)
+        {
+            writer.WriteStartElement(null, "BsktIdr", xmlNamespace );
+            BasketIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralData35 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

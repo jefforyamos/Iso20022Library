@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CommodityDerivate2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.CommodityDerivate2Choice;
 /// Details specific to freight derivatives.
 /// </summary>
 public partial record Freight : CommodityDerivate2Choice_
+     , IIsoXmlSerilizable<Freight>
 {
     #nullable enable
+    
     /// <summary>
     /// Specification of the size related to the freight sub type. Field to be populated when the base product field is equal to freight.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record Freight : CommodityDerivate2Choice_
     /// Details the specific route or time charter average. Field to be populated when the base product field is equal to freight.
     /// </summary>
     public required IsoMax25Text AverageTimeCharter { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sz", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax25Text(Size)); // data type Max25Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AvrgTmChrtr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax25Text(AverageTimeCharter)); // data type Max25Text System.String
+        writer.WriteEndElement();
+    }
+    public static new Freight Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

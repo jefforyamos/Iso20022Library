@@ -7,22 +7,22 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details of the trade transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeTransaction49
+     : IIsoXmlSerilizable<TradeTransaction49>
 {
     #nullable enable
     
     /// <summary>
     /// Choice between a Unique Transaction Identifier (UTI) or a proprietary identifier as agreed with the counterparty.
     /// </summary>
-    [DataMember]
     public UniqueTransactionIdentifier2Choice_? TransactionIdentification { get; init; } 
     /// <summary>
     /// Choice between a Unique Transaction Identifier (UTI) or a proprietary identifier assigned to the predecessor transaction that has given rise to the reported transaction due to a lifecycle event.
@@ -30,70 +30,57 @@ public partial record TradeTransaction49
     /// Usage: This data element is not applicable when reporting many-to-one and many-to-many relations between transactions (for example, in the case of a compression).
     /// This data element may be applicable when reporting one-to-one and one-to-many relations between transactions (for example, in the case of a clearing).|
     /// </summary>
-    [DataMember]
     public UniqueTransactionIdentifier3Choice_? PriorTransactionIdentification { get; init; } 
     /// <summary>
     /// Choice between a Unique Transaction Identifier (UTI) or a proprietary identifier of the position in which a derivative is included. This field is applicable only for the reports related to the termination of a derivative due to its inclusion in a position. |
     /// </summary>
-    [DataMember]
     public UniqueTransactionIdentifier3Choice_? SubsequentTransactionIdentification { get; init; } 
     /// <summary>
     /// Specifies the unique code assigned by the reporting counterparty to the portfolio if the collateral is posted on a portfolio basis.
     /// </summary>
-    [DataMember]
     public CollateralPortfolioCode5Choice_? CollateralPortfolioCode { get; init; } 
     /// <summary>
     /// Unique number to indicate a group of reports which relate to the same execution.
     /// </summary>
-    [DataMember]
     public IsoMax52Text? ReportTrackingNumber { get; init; } 
     /// <summary>
     /// Identifies the trading platform on which the derivative transaction was executed (for example, exchange, multilateral trading facility, swap execution facility). 
     /// Usage: For transactions where no trading facility was involved, specific predefined codes have to be used.
     /// </summary>
-    [DataMember]
     public IsoMICIdentifier? PlatformIdentifier { get; init; } 
     /// <summary>
     /// Indicates whether the derivative transaction satisfies the definition of mirror transaction or trigger transaction.
     /// Usage: If the element is not present, the MirrorOrTriggerTransaction is False.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? MirrorOrTriggerTransaction { get; init; } 
     /// <summary>
     /// Indicates the price per derivative excluding, where applicable, commission and accrued interest.
     /// </summary>
-    [DataMember]
     public PriceData2? TransactionPrice { get; init; } 
     /// <summary>
     /// Indicates monetary or converted amount for the derivatives transaction.
     /// Usage: In case of partial terminations, and amortisations and in case of contracts where the notional, due to the characteristics of the contract, varies over time, it shall reflect the remaining notional after the change took place.
     /// </summary>
-    [DataMember]
     public NotionalAmountLegs5? NotionalAmount { get; init; } 
     /// <summary>
     /// Indicates for each leg of the transaction the total notional quantity of the underlying asset for the term of the transaction.|
     /// </summary>
-    [DataMember]
     public NotionalQuantityLegs5? NotionalQuantity { get; init; } 
     /// <summary>
     /// Number of units of the financial instrument, that is, the nominal value.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity32Choice_? Quantity { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is settled physically or in cash or decided at expiration time by counterparty.
     /// </summary>
-    [DataMember]
     public PhysicalTransferType4Code? DeliveryType { get; init; } 
     /// <summary>
     /// Indicates the date and time of the execution of the derivative transaction.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ExecutionTimeStamp { get; init; } 
     /// <summary>
     /// Indicates the date when obligations under the contract come into effect.
     /// </summary>
-    [DataMember]
     public IsoISODate? EffectiveDate { get; init; } 
     /// <summary>
     /// Indicates the unadjusted date at which obligations under the derivative transaction stop being effective, as included in the confirmation.
@@ -104,118 +91,329 @@ public partial record TradeTransaction49
     /// Usage: 
     /// An early termination shall not be reported in this field.
     /// </summary>
-    [DataMember]
     public IsoISODate? ExpirationDate { get; init; } 
     /// <summary>
     /// Indicates the effective date of the early termination of the reported derivative transaction.
     /// </summary>
-    [DataMember]
     public IsoISODate? EarlyTerminationDate { get; init; } 
     /// <summary>
     /// Indicates the unadjusted date, as per the contract, by which all transfer of cash or assets should take place and the counterparties should no longer have any outstanding obligations to each other.||
     /// For products that may not have a final contractual settlement date (eg American options), this data element reflects the date by which the transfer of cash or asset would take place if termination were to occur on the expiration date.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoISODate> SettlementDate { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoISODate? SettlementDate { get; init; } 
     /// <summary>
     /// Details related to the master agreement.
     /// </summary>
-    [DataMember]
     public MasterAgreement8? MasterAgreement { get; init; } 
     /// <summary>
     /// Identifies whether the contract results from a compression operation or not.
     /// Usage: If the element is not present, the Compression is False.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? Compression { get; init; } 
     /// <summary>
     /// Indicates whether the contract results from a PTRR operation.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? PostTradeRiskReductionFlag { get; init; } 
     /// <summary>
     /// Identify whether the contract results from a Post Trade Risk Reduction operation. 
     /// </summary>
-    [DataMember]
     public PTRREvent2? PostTradeRiskReductionEvent { get; init; } 
     /// <summary>
     /// Indication of the derivative event of the transaction.
     /// </summary>
-    [DataMember]
     public DerivativeEvent6? DerivativeEvent { get; init; } 
     /// <summary>
     /// Specifies whether the contract was electronically confirmed, non-electronically confirmed or remains unconfirmed.
     /// </summary>
-    [DataMember]
     public TradeConfirmation1Choice_? TradeConfirmation { get; init; } 
     /// <summary>
     /// Indicates whether the derivative transaction has one or more additional terms or provisions that materially affect the price of the transaction.
     /// Usage: If the element is not present, the NonStandardisedTerm is False.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? NonStandardisedTerm { get; init; } 
     /// <summary>
     /// Information related to clearing of the reported contract.
     /// </summary>
-    [DataMember]
     public TradeClearing11? TradeClearing { get; init; } 
     /// <summary>
     /// Indicates whether an election has been made to report the derivative transaction as a block transaction.
     /// Usage: If the element is not present, the BlockTradeElection is False.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? BlockTradeElection { get; init; } 
     /// <summary>
     /// Indicates whether an election has been made to report the derivative transaction as a large notional off-facility transaction.
     /// Usage: If the element is not present, the LargeNotionalOffFacilityElection is False.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? LargeNotionalOffFacilityElection { get; init; } 
     /// <summary>
     /// Information related to interest rate asset class type.
     /// </summary>
-    [DataMember]
     public InterestRateLegs14? InterestRate { get; init; } 
     /// <summary>
     /// Information related to currency asset class type.
     /// </summary>
-    [DataMember]
     public CurrencyExchange22? Currency { get; init; } 
     /// <summary>
     /// Information related to commodity asset class type.
     /// </summary>
-    [DataMember]
     public AssetClassCommodity6Choice_? Commodity { get; init; } 
     /// <summary>
     /// Information related to credit derivative asset class type.
     /// </summary>
-    [DataMember]
     public OptionOrSwaption10? Option { get; init; } 
     /// <summary>
     /// Attributes specific for derivative contracts related to natural gas and electricity.
     /// </summary>
-    [DataMember]
     public EnergySpecificAttribute9? EnergySpecificAttributes { get; init; } 
     /// <summary>
     /// Information related to credit derivative asset class type.
     /// </summary>
-    [DataMember]
     public CreditDerivative4? Credit { get; init; } 
     /// <summary>
     /// Payment related to elements not reported in dedicated fields.
     /// </summary>
-    [DataMember]
-    public ValueList<OtherPayment5> OtherPayment { get; init; } = []; // Warning: Don't know multiplicity.
+    public OtherPayment5? OtherPayment { get; init; } 
     /// <summary>
     /// A combination of two or more transactions that are reported separately but that are negotiated together as the product of a single economic agreement.
     /// </summary>
-    [DataMember]
     public Package4? Package { get; init; } 
     /// <summary>
     /// Specifies whether the trade is a pre-allocation or a post-allocation trade, or whether the trade is unallocated.
     /// </summary>
-    [DataMember]
     public AllocationIndicator1Code? TradeAllocationStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TransactionIdentification is UniqueTransactionIdentifier2Choice_ TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            TransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PriorTransactionIdentification is UniqueTransactionIdentifier3Choice_ PriorTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrrTxId", xmlNamespace );
+            PriorTransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SubsequentTransactionIdentification is UniqueTransactionIdentifier3Choice_ SubsequentTransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SbsqntTxId", xmlNamespace );
+            SubsequentTransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollateralPortfolioCode is CollateralPortfolioCode5Choice_ CollateralPortfolioCodeValue)
+        {
+            writer.WriteStartElement(null, "CollPrtflCd", xmlNamespace );
+            CollateralPortfolioCodeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReportTrackingNumber is IsoMax52Text ReportTrackingNumberValue)
+        {
+            writer.WriteStartElement(null, "RptTrckgNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(ReportTrackingNumberValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+        if (PlatformIdentifier is IsoMICIdentifier PlatformIdentifierValue)
+        {
+            writer.WriteStartElement(null, "PltfmIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(PlatformIdentifierValue)); // data type MICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (MirrorOrTriggerTransaction is IsoTrueFalseIndicator MirrorOrTriggerTransactionValue)
+        {
+            writer.WriteStartElement(null, "MrrrOrTrggrTx", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(MirrorOrTriggerTransactionValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionPrice is PriceData2 TransactionPriceValue)
+        {
+            writer.WriteStartElement(null, "TxPric", xmlNamespace );
+            TransactionPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotionalAmount is NotionalAmountLegs5 NotionalAmountValue)
+        {
+            writer.WriteStartElement(null, "NtnlAmt", xmlNamespace );
+            NotionalAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotionalQuantity is NotionalQuantityLegs5 NotionalQuantityValue)
+        {
+            writer.WriteStartElement(null, "NtnlQty", xmlNamespace );
+            NotionalQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Quantity is FinancialInstrumentQuantity32Choice_ QuantityValue)
+        {
+            writer.WriteStartElement(null, "Qty", xmlNamespace );
+            QuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveryType is PhysicalTransferType4Code DeliveryTypeValue)
+        {
+            writer.WriteStartElement(null, "DlvryTp", xmlNamespace );
+            writer.WriteValue(DeliveryTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExecutionTimeStamp is IsoISODateTime ExecutionTimeStampValue)
+        {
+            writer.WriteStartElement(null, "ExctnTmStmp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ExecutionTimeStampValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (EffectiveDate is IsoISODate EffectiveDateValue)
+        {
+            writer.WriteStartElement(null, "FctvDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(EffectiveDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ExpirationDate is IsoISODate ExpirationDateValue)
+        {
+            writer.WriteStartElement(null, "XprtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExpirationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (EarlyTerminationDate is IsoISODate EarlyTerminationDateValue)
+        {
+            writer.WriteStartElement(null, "EarlyTermntnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(EarlyTerminationDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (SettlementDate is IsoISODate SettlementDateValue)
+        {
+            writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(SettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (MasterAgreement is MasterAgreement8 MasterAgreementValue)
+        {
+            writer.WriteStartElement(null, "MstrAgrmt", xmlNamespace );
+            MasterAgreementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Compression is IsoTrueFalseIndicator CompressionValue)
+        {
+            writer.WriteStartElement(null, "Cmprssn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CompressionValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PostTradeRiskReductionFlag is IsoTrueFalseIndicator PostTradeRiskReductionFlagValue)
+        {
+            writer.WriteStartElement(null, "PstTradRskRdctnFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(PostTradeRiskReductionFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PostTradeRiskReductionEvent is PTRREvent2 PostTradeRiskReductionEventValue)
+        {
+            writer.WriteStartElement(null, "PstTradRskRdctnEvt", xmlNamespace );
+            PostTradeRiskReductionEventValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DerivativeEvent is DerivativeEvent6 DerivativeEventValue)
+        {
+            writer.WriteStartElement(null, "DerivEvt", xmlNamespace );
+            DerivativeEventValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeConfirmation is TradeConfirmation1Choice_ TradeConfirmationValue)
+        {
+            writer.WriteStartElement(null, "TradConf", xmlNamespace );
+            TradeConfirmationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NonStandardisedTerm is IsoTrueFalseIndicator NonStandardisedTermValue)
+        {
+            writer.WriteStartElement(null, "NonStdsdTerm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(NonStandardisedTermValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TradeClearing is TradeClearing11 TradeClearingValue)
+        {
+            writer.WriteStartElement(null, "TradClr", xmlNamespace );
+            TradeClearingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BlockTradeElection is IsoTrueFalseIndicator BlockTradeElectionValue)
+        {
+            writer.WriteStartElement(null, "BlckTradElctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(BlockTradeElectionValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (LargeNotionalOffFacilityElection is IsoTrueFalseIndicator LargeNotionalOffFacilityElectionValue)
+        {
+            writer.WriteStartElement(null, "LrgNtnlOffFcltyElctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(LargeNotionalOffFacilityElectionValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (InterestRate is InterestRateLegs14 InterestRateValue)
+        {
+            writer.WriteStartElement(null, "IntrstRate", xmlNamespace );
+            InterestRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Currency is CurrencyExchange22 CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            CurrencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Commodity is AssetClassCommodity6Choice_ CommodityValue)
+        {
+            writer.WriteStartElement(null, "Cmmdty", xmlNamespace );
+            CommodityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Option is OptionOrSwaption10 OptionValue)
+        {
+            writer.WriteStartElement(null, "Optn", xmlNamespace );
+            OptionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EnergySpecificAttributes is EnergySpecificAttribute9 EnergySpecificAttributesValue)
+        {
+            writer.WriteStartElement(null, "NrgySpcfcAttrbts", xmlNamespace );
+            EnergySpecificAttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Credit is CreditDerivative4 CreditValue)
+        {
+            writer.WriteStartElement(null, "Cdt", xmlNamespace );
+            CreditValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherPayment is OtherPayment5 OtherPaymentValue)
+        {
+            writer.WriteStartElement(null, "OthrPmt", xmlNamespace );
+            OtherPaymentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Package is Package4 PackageValue)
+        {
+            writer.WriteStartElement(null, "Packg", xmlNamespace );
+            PackageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeAllocationStatus is AllocationIndicator1Code TradeAllocationStatusValue)
+        {
+            writer.WriteStartElement(null, "TradAllcnSts", xmlNamespace );
+            writer.WriteValue(TradeAllocationStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeTransaction49 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

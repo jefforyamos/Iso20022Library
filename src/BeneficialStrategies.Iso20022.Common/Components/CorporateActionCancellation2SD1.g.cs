@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Extension to corporate action event cancellation status and reason.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionCancellation2SD1
+     : IIsoXmlSerilizable<CorporateActionCancellation2SD1>
 {
     #nullable enable
     
@@ -23,13 +24,37 @@ public partial record CorporateActionCancellation2SD1
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance. 
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Cancellation reason information in the local language.
     /// </summary>
-    [DataMember]
     public required IsoMax450Text LocalLanguageCancellationReason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "LclLangCxlRsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax450Text(LocalLanguageCancellationReason)); // data type Max450Text System.String
+        writer.WriteEndElement();
+    }
+    public static CorporateActionCancellation2SD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

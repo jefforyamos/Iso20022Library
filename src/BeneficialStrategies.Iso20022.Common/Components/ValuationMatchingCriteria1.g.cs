@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Compares information related to both sides of a contract valuation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ValuationMatchingCriteria1
+     : IIsoXmlSerilizable<ValuationMatchingCriteria1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the information on the contract values are matching or not.
     /// </summary>
-    [DataMember]
     public CompareAmountAndDirection3? ContractValue { get; init; } 
     /// <summary>
     /// Specifies whether the information on the valuation methods are matching or not.
     /// </summary>
-    [DataMember]
     public CompareValuationType1? Type { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ContractValue is CompareAmountAndDirection3 ContractValueValue)
+        {
+            writer.WriteStartElement(null, "CtrctVal", xmlNamespace );
+            ContractValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Type is CompareValuationType1 TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ValuationMatchingCriteria1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// List trading by which the buy-side provides details to the sell-side information about the sector, country, index and potential market impact of the financial instrument to be bought or sold. Using this information, the sell-side firms bid for the trade.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NonDisclosedBid2
+     : IIsoXmlSerilizable<NonDisclosedBid2>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies a type of bid based on a common characteristic (the currency) of all securities of a list.
     /// </summary>
-    [DataMember]
     public CountryCode? BidByCurrency { get; init; } 
     /// <summary>
     /// Identifies a type of bid based on a common characteristic (the sector) of all securities of a list.
     /// </summary>
-    [DataMember]
     public IsoMax128Text? BidBySector { get; init; } 
     /// <summary>
     /// Identifies a type of bid based on a common characteristic (the index) of all securities of a list.
     /// </summary>
-    [DataMember]
     public IsoMax128Text? BidByIndex { get; init; } 
     /// <summary>
     /// Difference between the value of a future and the value of the underlying equities after allowing for the discounted cash flows associated with the underlying stocks.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? FairValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (BidByCurrency is CountryCode BidByCurrencyValue)
+        {
+            writer.WriteStartElement(null, "BidByCcy", xmlNamespace );
+            writer.WriteValue(BidByCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (BidBySector is IsoMax128Text BidBySectorValue)
+        {
+            writer.WriteStartElement(null, "BidBySctr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax128Text(BidBySectorValue)); // data type Max128Text System.String
+            writer.WriteEndElement();
+        }
+        if (BidByIndex is IsoMax128Text BidByIndexValue)
+        {
+            writer.WriteStartElement(null, "BidByIndx", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax128Text(BidByIndexValue)); // data type Max128Text System.String
+            writer.WriteEndElement();
+        }
+        if (FairValue is IsoActiveCurrencyAndAmount FairValueValue)
+        {
+            writer.WriteStartElement(null, "FairVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(FairValueValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static NonDisclosedBid2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

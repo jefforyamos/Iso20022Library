@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.setr.SwitchOrderConfirmationV02>;
 
 namespace BeneficialStrategies.Iso20022.setr;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// The SwitchOrderConfirmation message is sent to confirm that all the legs of the switch have been executed.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The SwitchOrderConfirmation message is sent by an executing party, eg, a transfer agent, to an instruction party, eg, an investment manager or its authorised representative. There may be one or more intermediary parties between the instructing party and the executing party. The intermediary party is, for example, an intermediary or a concentrator.|This message is used to confirm the details of the execution of a SwitchOrder message.|Usage|The SwitchOrderConfirmation message is sent to confirm that all the legs of the switch have been executed.")]
-public partial record SwitchOrderConfirmationV02 : IOuterRecord
+public partial record SwitchOrderConfirmationV02 : IOuterRecord<SwitchOrderConfirmationV02,SwitchOrderConfirmationV02Document>
+    ,IIsoXmlSerilizable<SwitchOrderConfirmationV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record SwitchOrderConfirmationV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "setr.015.001.02";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => SwitchOrderConfirmationV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -96,7 +103,7 @@ public partial record SwitchOrderConfirmationV02 : IOuterRecord
     [Description(@"Confirmation of the information related to an intermediary.")]
     [DataMember(Name="IntrmyDtls")]
     [XmlElement(ElementName="IntrmyDtls")]
-    public required IReadOnlyCollection<Intermediary4> IntermediaryDetails { get; init; } = []; // Min=0, Max=10
+    public required ValueList<Intermediary4> IntermediaryDetails { get; init; } = []; // Min=0, Max=10
     
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
@@ -125,6 +132,62 @@ public partial record SwitchOrderConfirmationV02 : IOuterRecord
     {
         return new SwitchOrderConfirmationV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("setr.015.001.02");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MasterReference is AdditionalReference3 MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            MasterReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PoolReference is AdditionalReference3 PoolReferenceValue)
+        {
+            writer.WriteStartElement(null, "PoolRef", xmlNamespace );
+            PoolReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousReference is AdditionalReference3 PreviousReferenceValue)
+        {
+            writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+            PreviousReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+        RelatedReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SwtchExctnDtls", xmlNamespace );
+        SwitchExecutionDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IntrmyDtls", xmlNamespace );
+        IntermediaryDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CopyDetails is CopyInformation1 CopyDetailsValue)
+        {
+            writer.WriteStartElement(null, "CpyDtls", xmlNamespace );
+            CopyDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SwitchOrderConfirmationV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -132,9 +195,7 @@ public partial record SwitchOrderConfirmationV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SwitchOrderConfirmationV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record SwitchOrderConfirmationV02Document : IOuterDocument<SwitchOrderConfirmationV02>
+public partial record SwitchOrderConfirmationV02Document : IOuterDocument<SwitchOrderConfirmationV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -150,5 +211,22 @@ public partial record SwitchOrderConfirmationV02Document : IOuterDocument<Switch
     /// <summary>
     /// The instance of <seealso cref="SwitchOrderConfirmationV02"/> is required.
     /// </summary>
+    [DataMember(Name=SwitchOrderConfirmationV02.XmlTag)]
     public required SwitchOrderConfirmationV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(SwitchOrderConfirmationV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

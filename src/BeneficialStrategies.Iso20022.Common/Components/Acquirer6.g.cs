@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acquirer of the card transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Acquirer6
+     : IIsoXmlSerilizable<Acquirer6>
 {
     #nullable enable
     
@@ -23,19 +24,48 @@ public partial record Acquirer6
     /// Identification of the acquirer. 
     /// It correspond to the ISO 8583 field number 32.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Identification of the entity assigning the acquirer identification.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     /// <summary>
     /// Country of the acquirer. 
     /// It correspond to the ISO 8583 field number 19.
     /// </summary>
-    [DataMember]
     public ISO3NumericCountryCode? CountryCode { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Issuer is IsoMax35Text IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CountryCode is ISO3NumericCountryCode CountryCodeValue)
+        {
+            writer.WriteStartElement(null, "CtryCd", xmlNamespace );
+            writer.WriteValue(CountryCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static Acquirer6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

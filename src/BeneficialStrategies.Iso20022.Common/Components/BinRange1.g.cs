@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies a set of cards which shares the same functionalities.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BinRange1
+     : IIsoXmlSerilizable<BinRange1>
 {
     #nullable enable
     
     /// <summary>
     /// Lower value of BIN in the range.
     /// </summary>
-    [DataMember]
     public required IsoMax15NumericText LowerBin { get; init; } 
     /// <summary>
     /// Higher value of BIN in the range.
     /// </summary>
-    [DataMember]
     public required IsoMax15NumericText HigherBin { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "LwrBin", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(LowerBin)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "HghrBin", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(HigherBin)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+    }
+    public static BinRange1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

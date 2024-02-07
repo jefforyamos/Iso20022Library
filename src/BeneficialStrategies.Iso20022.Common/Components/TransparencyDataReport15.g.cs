@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides for reporting quantitative data of non-equity instruments for transparency calculations.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransparencyDataReport15
+     : IIsoXmlSerilizable<TransparencyDataReport15>
 {
     #nullable enable
     
@@ -24,38 +25,84 @@ public partial record TransparencyDataReport15
     /// Usage:
     /// This identification will be used in the status advice report sent back.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
-    [DataMember]
     public required IsoISINOct2015Identifier Identification { get; init; } 
     /// <summary>
     /// Date to which the quantitative data fields below relate.
     /// </summary>
-    [DataMember]
     public IsoISODate? ReportingDate { get; init; } 
     /// <summary>
     /// Segment MIC for the trading venue where applicable, otherwise the operational MIC.
     /// </summary>
-    [DataMember]
     public IsoMICIdentifier? TradingVenue { get; init; } 
     /// <summary>
     /// Indicates whether the instrument was suspended for trading on that trading venue on the reporting day.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator Suspension { get; init; } 
     /// <summary>
     /// Total number of transactions executed on the reporting day for the instrument.
     /// </summary>
-    [DataMember]
     public IsoNumber? NumberTransactions { get; init; } 
     /// <summary>
     /// Aggregated quantitative data on the non-equity instrument being reported. Details aggregated against the specific range that is defined. Transactions that have been cancelled should be excluded from the reported figure.
     /// </summary>
-    [DataMember]
-    public ValueList<TransactionsBin2> AggregatedQuantitativeData { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransactionsBin2? AggregatedQuantitativeData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TechnicalRecordIdentification is IsoMax35Text TechnicalRecordIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TechRcrdId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TechnicalRecordIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(Identification)); // data type ISINOct2015Identifier System.String
+        writer.WriteEndElement();
+        if (ReportingDate is IsoISODate ReportingDateValue)
+        {
+            writer.WriteStartElement(null, "RptgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ReportingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (TradingVenue is IsoMICIdentifier TradingVenueValue)
+        {
+            writer.WriteStartElement(null, "TradgVn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(TradingVenueValue)); // data type MICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Sspnsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(Suspension)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        if (NumberTransactions is IsoNumber NumberTransactionsValue)
+        {
+            writer.WriteStartElement(null, "NbTxs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NumberTransactionsValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (AggregatedQuantitativeData is TransactionsBin2 AggregatedQuantitativeDataValue)
+        {
+            writer.WriteStartElement(null, "AggtdQttvData", xmlNamespace );
+            AggregatedQuantitativeDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransparencyDataReport15 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

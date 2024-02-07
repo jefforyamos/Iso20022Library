@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Rebate form to an award.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LoyaltyRebates1
+     : IIsoXmlSerilizable<LoyaltyRebates1>
 {
     #nullable enable
     
     /// <summary>
     /// The global awarded amount that is not attached to an item.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalRebate { get; init; } 
     /// <summary>
     /// Short text to qualify a rebate on an line item.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RebateLabel { get; init; } 
     /// <summary>
     /// Amount of the payment transaction related to the Loyalty.
     /// </summary>
-    [DataMember]
-    public ValueList<SaleItemRebate1> SaleItemRebate { get; init; } = []; // Warning: Don't know multiplicity.
+    public SaleItemRebate1? SaleItemRebate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TotalRebate is IsoImpliedCurrencyAndAmount TotalRebateValue)
+        {
+            writer.WriteStartElement(null, "TtlRbt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(TotalRebateValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (RebateLabel is IsoMax35Text RebateLabelValue)
+        {
+            writer.WriteStartElement(null, "RbtLabl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RebateLabelValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SaleItemRebate is SaleItemRebate1 SaleItemRebateValue)
+        {
+            writer.WriteStartElement(null, "SaleItmRbt", xmlNamespace );
+            SaleItemRebateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LoyaltyRebates1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

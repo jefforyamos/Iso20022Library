@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about a movement that failed the settlement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FailedMovement1
+     : IIsoXmlSerilizable<FailedMovement1>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of cash.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount CashAmount { get; init; } 
     /// <summary>
     /// Quantity of the financial instrument.
     /// </summary>
-    [DataMember]
     public required UnitOrFaceAmount1Choice_ SecuritiesQuantity { get; init; } 
     /// <summary>
     /// Identification of the financial instrument.
     /// </summary>
-    [DataMember]
     public SecurityIdentification7? SecurityIdentification { get; init; } 
     /// <summary>
     /// The reason for the settlement failure.
     /// </summary>
-    [DataMember]
     public required FailedSettlementReason1FormatChoice_ Reason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CshAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CashAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctiesQty", xmlNamespace );
+        SecuritiesQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecurityIdentification is SecurityIdentification7 SecurityIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SctyId", xmlNamespace );
+            SecurityIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Rsn", xmlNamespace );
+        Reason.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static FailedMovement1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Numeric variables calculated on the number of transactions or on market exposures.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record VolumeMetrics5
+     : IIsoXmlSerilizable<VolumeMetrics5>
 {
     #nullable enable
     
     /// <summary>
     /// Count of the number of Unique Trade Identifiers. 
     /// </summary>
-    [DataMember]
     public IsoMax15NumericText? NumberOfTransactions { get; init; } 
     /// <summary>
     /// Sum for each exposure variable and currency.
     /// </summary>
-    [DataMember]
     public ExposureMetrics4? Exposure { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NumberOfTransactions is IsoMax15NumericText NumberOfTransactionsValue)
+        {
+            writer.WriteStartElement(null, "NbOfTxs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(NumberOfTransactionsValue)); // data type Max15NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (Exposure is ExposureMetrics4 ExposureValue)
+        {
+            writer.WriteStartElement(null, "Xpsr", xmlNamespace );
+            ExposureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static VolumeMetrics5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

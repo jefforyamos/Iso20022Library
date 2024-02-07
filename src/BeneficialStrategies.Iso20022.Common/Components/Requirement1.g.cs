@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details about the margin requirements for the variation margin and optionally the segregated independent amount.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Requirement1
+     : IIsoXmlSerilizable<Requirement1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides details about the margin requirements for the variation margin.
     /// </summary>
-    [DataMember]
     public required MarginRequirement1 VariationMarginRequirement { get; init; } 
     /// <summary>
     /// Provides details about the margin requirements for the segregated independent amount.
     /// </summary>
-    [DataMember]
     public MarginRequirement1? SegregatedIndependentAmountRequirement { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "VartnMrgnRqrmnt", xmlNamespace );
+        VariationMarginRequirement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SegregatedIndependentAmountRequirement is MarginRequirement1 SegregatedIndependentAmountRequirementValue)
+        {
+            writer.WriteStartElement(null, "SgrtdIndpdntAmtRqrmnt", xmlNamespace );
+            SegregatedIndependentAmountRequirementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Requirement1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

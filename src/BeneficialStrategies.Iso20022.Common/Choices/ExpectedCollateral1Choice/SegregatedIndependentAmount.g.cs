@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ExpectedCollateral1Choice;
 
@@ -13,15 +15,47 @@ namespace BeneficialStrategies.Iso20022.Choices.ExpectedCollateral1Choice;
 /// Provides the expected collateral type and direction for the segregated independent amount.
 /// </summary>
 public partial record SegregatedIndependentAmount : ExpectedCollateral1Choice_
+     , IIsoXmlSerilizable<SegregatedIndependentAmount>
 {
     #nullable enable
+    
     /// <summary>
     /// Type of collateral that will be delivered.
     /// </summary>
-    public CollateralType1Code? Delivery { get; init;  } // Warning: Don't know multiplicity.
+    public CollateralType1Code? Delivery { get; init; } 
     /// <summary>
     /// Type of collateral that will be returned.
     /// </summary>
-    public CollateralType1Code? Return { get; init;  } // Warning: Don't know multiplicity.
+    public CollateralType1Code? Return { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Delivery is CollateralType1Code DeliveryValue)
+        {
+            writer.WriteStartElement(null, "Dlvry", xmlNamespace );
+            writer.WriteValue(DeliveryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Return is CollateralType1Code ReturnValue)
+        {
+            writer.WriteStartElement(null, "Rtr", xmlNamespace );
+            writer.WriteValue(ReturnValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static new SegregatedIndependentAmount Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

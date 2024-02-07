@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of information identifying the reporting counterparty.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CounterpartyIdentification10
+     : IIsoXmlSerilizable<CounterpartyIdentification10>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the counterparty in the transaction.
     /// </summary>
-    [DataMember]
     public OrganisationIdentification15Choice_? Identification { get; init; } 
     /// <summary>
     /// Identifies whether the reporting counterparty is a collateral provider or a collateral taker.
     /// </summary>
-    [DataMember]
     public CollateralRole1Code? Side { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is OrganisationIdentification15Choice_ IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Side is CollateralRole1Code SideValue)
+        {
+            writer.WriteStartElement(null, "Sd", xmlNamespace );
+            writer.WriteValue(SideValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static CounterpartyIdentification10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

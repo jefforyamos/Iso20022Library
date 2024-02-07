@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies further details of the party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyDetail1
+     : IIsoXmlSerilizable<PartyDetail1>
 {
     #nullable enable
     
     /// <summary>
     /// Full name of the party.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? FullName { get; init; } 
     /// <summary>
     /// Country of the party as recorded in the registration in its legal jurisdiction.
     /// </summary>
-    [DataMember]
     public CountryCode? Country { get; init; } 
     /// <summary>
     /// Code indicating the type of party as per local regulation.
     /// </summary>
-    [DataMember]
     public required IsoMax10Text PartyType { get; init; } 
     /// <summary>
     /// Information detail about the institution supervising the party under the local regulation.
     /// </summary>
-    [DataMember]
     public required SupervisingAuthorityIdentification1Choice_ SupervisingAuthority { get; init; } 
     /// <summary>
     /// Address used to communicate with the party as recorded in the registration in its legal jurisdiction.
     /// </summary>
-    [DataMember]
     public PostalAddress6? PostalAddress { get; init; } 
     /// <summary>
     /// Communication device number or electronic address used for communicating with the party.
     /// </summary>
-    [DataMember]
     public CommunicationAddress7? Contact { get; init; } 
     /// <summary>
     /// Any other additional information about the party.
     /// </summary>
-    [DataMember]
     public IsoMax20000Text? Comment { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FullName is IsoMax350Text FullNameValue)
+        {
+            writer.WriteStartElement(null, "FullNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(FullNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (Country is CountryCode CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(CountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PtyTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax10Text(PartyType)); // data type Max10Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SprvsgAuthrty", xmlNamespace );
+        SupervisingAuthority.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PostalAddress is PostalAddress6 PostalAddressValue)
+        {
+            writer.WriteStartElement(null, "PstlAdr", xmlNamespace );
+            PostalAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Contact is CommunicationAddress7 ContactValue)
+        {
+            writer.WriteStartElement(null, "Ctct", xmlNamespace );
+            ContactValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Comment is IsoMax20000Text CommentValue)
+        {
+            writer.WriteStartElement(null, "Cmnt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax20000Text(CommentValue)); // data type Max20000Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyDetail1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

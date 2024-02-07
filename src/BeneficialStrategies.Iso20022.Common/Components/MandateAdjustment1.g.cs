@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details for the adjustment of the mandate.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MandateAdjustment1
+     : IIsoXmlSerilizable<MandateAdjustment1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether an adjustment is to be applied on pre-agreed collection date or not.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator DateAdjustmentRuleIndicator { get; init; } 
     /// <summary>
     /// Defines the category of adjustment.
     /// </summary>
-    [DataMember]
     public Frequency37Choice_? Category { get; init; } 
     /// <summary>
     /// Pre-agreed amount to increase or decrease the mandate amount as justified per information in the category.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Pre-agreed increase or decrease rate that will be applied to the collection amount.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DtAdjstmntRuleInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DateAdjustmentRuleIndicator)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        if (Category is Frequency37Choice_ CategoryValue)
+        {
+            writer.WriteStartElement(null, "Ctgy", xmlNamespace );
+            CategoryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Amount is IsoActiveCurrencyAndAmount AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(AmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Rate is IsoPercentageRate RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static MandateAdjustment1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

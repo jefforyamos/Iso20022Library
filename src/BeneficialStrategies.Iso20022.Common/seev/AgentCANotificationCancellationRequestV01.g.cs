@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.AgentCANotificationCancellationRequestV01>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// In both cases, the building block notification advice identification must be present to link this cancellation request to the notification advice that was previously sent.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|This message is sent by an issuer (or its agent) to a CSD to request the cancellation of a notification advice message.|Usage|When this message is used to request the cancellation of a notification advice message, the function of the message must be cancellation.|When this message is used to request the withdrawal of a Corporate Action event or option, then the function of the message must be withdrawal.|In both cases, the building block notification advice identification must be present to link this cancellation request to the notification advice that was previously sent.")]
-public partial record AgentCANotificationCancellationRequestV01 : IOuterRecord
+public partial record AgentCANotificationCancellationRequestV01 : IOuterRecord<AgentCANotificationCancellationRequestV01,AgentCANotificationCancellationRequestV01Document>
+    ,IIsoXmlSerilizable<AgentCANotificationCancellationRequestV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record AgentCANotificationCancellationRequestV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AgtCANtfctnCxlReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AgentCANotificationCancellationRequestV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -91,6 +98,38 @@ public partial record AgentCANotificationCancellationRequestV01 : IOuterRecord
     {
         return new AgentCANotificationCancellationRequestV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AgtCANtfctnCxlReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "NtfctnCxlTpAndLkg", xmlNamespace );
+        NotificationCancellationTypeAndLinkage.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+        CorporateActionGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CorporateActionNotificationDetails is CorporateActionNotificationAdvice1 CorporateActionNotificationDetailsValue)
+        {
+            writer.WriteStartElement(null, "CorpActnNtfctnDtls", xmlNamespace );
+            CorporateActionNotificationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AgentCANotificationCancellationRequestV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -98,9 +137,7 @@ public partial record AgentCANotificationCancellationRequestV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCANotificationCancellationRequestV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AgentCANotificationCancellationRequestV01Document : IOuterDocument<AgentCANotificationCancellationRequestV01>
+public partial record AgentCANotificationCancellationRequestV01Document : IOuterDocument<AgentCANotificationCancellationRequestV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -116,5 +153,22 @@ public partial record AgentCANotificationCancellationRequestV01Document : IOuter
     /// <summary>
     /// The instance of <seealso cref="AgentCANotificationCancellationRequestV01"/> is required.
     /// </summary>
+    [DataMember(Name=AgentCANotificationCancellationRequestV01.XmlTag)]
     public required AgentCANotificationCancellationRequestV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AgentCANotificationCancellationRequestV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

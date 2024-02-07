@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Request message to transmit.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DeviceTransmitMessageRequest2
+     : IIsoXmlSerilizable<DeviceTransmitMessageRequest2>
 {
     #nullable enable
     
     /// <summary>
     /// Transport address.
     /// </summary>
-    [DataMember]
     public required NetworkParameters7 DestinationAddress { get; init; } 
     /// <summary>
     /// Maximum time in seconds of transmission.
     /// </summary>
-    [DataMember]
     public required IsoNumber MaximumTransmissionTime { get; init; } 
     /// <summary>
     /// Defines the timeout to receive an answer.
     /// </summary>
-    [DataMember]
     public IsoNumber? MaximumWaitingTime { get; init; } 
     /// <summary>
     /// Content of the message to be transmitted.
     /// </summary>
-    [DataMember]
     public required IsoMax100KBinary MessageToSend { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DstnAdr", xmlNamespace );
+        DestinationAddress.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MaxTrnsmssnTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(MaximumTransmissionTime)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        if (MaximumWaitingTime is IsoNumber MaximumWaitingTimeValue)
+        {
+            writer.WriteStartElement(null, "MaxWtgTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MaximumWaitingTimeValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MsgToSnd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax100KBinary(MessageToSend)); // data type Max100KBinary System.Byte[]
+        writer.WriteEndElement();
+    }
+    public static DeviceTransmitMessageRequest2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

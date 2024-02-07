@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies corporate action date.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionDate68
+     : IIsoXmlSerilizable<CorporateActionDate68>
 {
     #nullable enable
     
     /// <summary>
     /// Date/time at which the account servicer has set as the deadline to respond, with instructions, to an outstanding event. This time is dependent on the reference time zone of the account servicer as specified in a Service Level Agreement (SLA).
     /// </summary>
-    [DataMember]
     public DateFormat49Choice_? ResponseDeadline { get; init; } 
     /// <summary>
     /// Date/time by which cash must be in place in order to take part in the event.
     /// </summary>
-    [DataMember]
     public DateFormat49Choice_? SubscriptionCostDebitDate { get; init; } 
     /// <summary>
     /// Issuer or issuer's agent deadline to respond, with an instruction, to an outstanding offer or privilege.
     /// </summary>
-    [DataMember]
     public DateFormat49Choice_? MarketDeadline { get; init; } 
     /// <summary>
     /// Date/time at which an order expires or on which a privilege or offer terminates.
     /// </summary>
-    [DataMember]
     public DateFormat49Choice_? ExpiryDate { get; init; } 
     /// <summary>
     /// Last day a holder can deliver the securities that it had elected on and/or previously protected.
     /// </summary>
-    [DataMember]
     public DateFormat49Choice_? CoverExpirationDate { get; init; } 
     /// <summary>
     /// Last date/time a holder can request to defer delivery of securities pursuant to a notice of guaranteed delivery or other required documentation.
     /// </summary>
-    [DataMember]
     public DateFormat49Choice_? ProtectDate { get; init; } 
     /// <summary>
     /// Date/time at which the deal (rights) was agreed.
     /// </summary>
-    [DataMember]
     public DateFormat49Choice_? TradingDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ResponseDeadline is DateFormat49Choice_ ResponseDeadlineValue)
+        {
+            writer.WriteStartElement(null, "RspnDdln", xmlNamespace );
+            ResponseDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SubscriptionCostDebitDate is DateFormat49Choice_ SubscriptionCostDebitDateValue)
+        {
+            writer.WriteStartElement(null, "SbcptCostDbtDt", xmlNamespace );
+            SubscriptionCostDebitDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarketDeadline is DateFormat49Choice_ MarketDeadlineValue)
+        {
+            writer.WriteStartElement(null, "MktDdln", xmlNamespace );
+            MarketDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExpiryDate is DateFormat49Choice_ ExpiryDateValue)
+        {
+            writer.WriteStartElement(null, "XpryDt", xmlNamespace );
+            ExpiryDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CoverExpirationDate is DateFormat49Choice_ CoverExpirationDateValue)
+        {
+            writer.WriteStartElement(null, "CoverXprtnDt", xmlNamespace );
+            CoverExpirationDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProtectDate is DateFormat49Choice_ ProtectDateValue)
+        {
+            writer.WriteStartElement(null, "PrtctDt", xmlNamespace );
+            ProtectDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradingDate is DateFormat49Choice_ TradingDateValue)
+        {
+            writer.WriteStartElement(null, "TradgDt", xmlNamespace );
+            TradingDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionDate68 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

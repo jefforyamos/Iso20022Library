@@ -7,68 +7,127 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the intra-position movement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IntraPositionMovementDetails1
+     : IIsoXmlSerilizable<IntraPositionMovementDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifications (account owner and/or account servicer) of the intra-position movement.
     /// </summary>
-    [DataMember]
     public References5Choice_? Identification { get; init; } 
     /// <summary>
     /// Quantity of financial instrument effectively settled.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ SettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument previously settled.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1Choice_? PreviouslySettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument remaining to be settled.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1Choice_? RemainingToBeSettledQuantity { get; init; } 
     /// <summary>
     /// Balance to which the securities were moved.
     /// </summary>
-    [DataMember]
     public required SecuritiesBalanceType3Choice_ BalanceTo { get; init; } 
     /// <summary>
     /// Date and time at which the securities were moved.
     /// </summary>
-    [DataMember]
     public required DateAndDateTimeChoice_ SettlementDate { get; init; } 
     /// <summary>
     /// Date/time securities become available for sale (if securities become unavailable, this specifies the date/time at which they will become available again).
     /// </summary>
-    [DataMember]
     public DateAndDateTimeChoice_? AvailableDate { get; init; } 
     /// <summary>
     /// Specifies the type of corporate event.
     /// </summary>
-    [DataMember]
     public CorporateActionEventType3Choice_? CorporateActionEventType { get; init; } 
     /// <summary>
     /// Provides additional settlement processing information which can not be included within the structured fields of the message.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? InstructionProcessingAdditionalDetails { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<Extension2> Extension { get; init; } = []; // Warning: Don't know multiplicity.
+    public Extension2? Extension { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is References5Choice_ IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SttldQty", xmlNamespace );
+        SettledQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PreviouslySettledQuantity is FinancialInstrumentQuantity1Choice_ PreviouslySettledQuantityValue)
+        {
+            writer.WriteStartElement(null, "PrevslySttldQty", xmlNamespace );
+            PreviouslySettledQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RemainingToBeSettledQuantity is FinancialInstrumentQuantity1Choice_ RemainingToBeSettledQuantityValue)
+        {
+            writer.WriteStartElement(null, "RmngToBeSttldQty", xmlNamespace );
+            RemainingToBeSettledQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "BalTo", xmlNamespace );
+        BalanceTo.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmDt", xmlNamespace );
+        SettlementDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AvailableDate is DateAndDateTimeChoice_ AvailableDateValue)
+        {
+            writer.WriteStartElement(null, "AvlblDt", xmlNamespace );
+            AvailableDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CorporateActionEventType is CorporateActionEventType3Choice_ CorporateActionEventTypeValue)
+        {
+            writer.WriteStartElement(null, "CorpActnEvtTp", xmlNamespace );
+            CorporateActionEventTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructionProcessingAdditionalDetails is IsoMax350Text InstructionProcessingAdditionalDetailsValue)
+        {
+            writer.WriteStartElement(null, "InstrPrcgAddtlDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(InstructionProcessingAdditionalDetailsValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension2 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IntraPositionMovementDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

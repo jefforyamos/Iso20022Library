@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.fxtr.ForeignExchangeTradeCaptureReportV01>;
 
 namespace BeneficialStrategies.Iso20022.fxtr;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.fxtr;
 /// The message may contains trade details and trading parties' information.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The ForeignExchangeTradeCaptureReport message is sent by a trading system to a participant for notification and providing details of a treasury trade.|Usage|The report is sent by the trading system to the two trading parties after their trade has been executed. |The report can also be sent by the trading system to a trading parties to respond their inquiry (TradeCaptureRequest). |Note that multiple reports can be sent to respond one inquiry message.|The message may contains trade details and trading parties' information.")]
-public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord
+public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord<ForeignExchangeTradeCaptureReportV01,ForeignExchangeTradeCaptureReportV01Document>
+    ,IIsoXmlSerilizable<ForeignExchangeTradeCaptureReportV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "FXTradCaptrRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ForeignExchangeTradeCaptureReportV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -163,6 +170,89 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord
     {
         return new ForeignExchangeTradeCaptureReportV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("FXTradCaptrRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ReportIdentification is MessageIdentification1 ReportIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RptId", xmlNamespace );
+            ReportIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradingSideIdentification is TradePartyIdentification7 TradingSideIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TradgSdId", xmlNamespace );
+            TradingSideIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CounterpartySideIdentification is TradePartyIdentification7 CounterpartySideIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CtrPtySdId", xmlNamespace );
+            CounterpartySideIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeDetail is Trade1 TradeDetailValue)
+        {
+            writer.WriteStartElement(null, "TradDtl", xmlNamespace );
+            TradeDetailValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Reference is AdditionalReferences ReferenceValue)
+        {
+            writer.WriteStartElement(null, "Ref", xmlNamespace );
+            ReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ReqRspndr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RequestResponder)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (RequestRejected is IsoYesNoIndicator RequestRejectedValue)
+        {
+            writer.WriteStartElement(null, "ReqRjctd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RequestRejectedValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (QueryRejectReason is IsoMax35Text QueryRejectReasonValue)
+        {
+            writer.WriteStartElement(null, "QryRjctRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(QueryRejectReasonValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TotalNumberTrades is IsoNumber TotalNumberTradesValue)
+        {
+            writer.WriteStartElement(null, "TtlNbTrds", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberTradesValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (LastReportRequested is IsoYesNoIndicator LastReportRequestedValue)
+        {
+            writer.WriteStartElement(null, "LastRptReqd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(LastReportRequestedValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ForeignExchangeTradeCaptureReportV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -170,9 +260,7 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeCaptureReportV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ForeignExchangeTradeCaptureReportV01Document : IOuterDocument<ForeignExchangeTradeCaptureReportV01>
+public partial record ForeignExchangeTradeCaptureReportV01Document : IOuterDocument<ForeignExchangeTradeCaptureReportV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -188,5 +276,22 @@ public partial record ForeignExchangeTradeCaptureReportV01Document : IOuterDocum
     /// <summary>
     /// The instance of <seealso cref="ForeignExchangeTradeCaptureReportV01"/> is required.
     /// </summary>
+    [DataMember(Name=ForeignExchangeTradeCaptureReportV01.XmlTag)]
     public required ForeignExchangeTradeCaptureReportV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ForeignExchangeTradeCaptureReportV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

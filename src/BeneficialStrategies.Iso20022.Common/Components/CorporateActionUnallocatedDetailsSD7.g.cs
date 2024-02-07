@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding the corporate action event.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionUnallocatedDetailsSD7
+     : IIsoXmlSerilizable<CorporateActionUnallocatedDetailsSD7>
 {
     #nullable enable
     
     /// <summary>
     /// Type of Participants positions distribution balance concerned in unallocated payment.
     /// </summary>
-    [DataMember]
     public CorporateActionUnallocatedBalanceSD3Choice_? UnallocatedDistributionBalance { get; init; } 
     /// <summary>
     /// Type of Participants positions redemption balance concerned in unallocated payment.
     /// </summary>
-    [DataMember]
     public CorporateActionUnallocatedBalanceSD3? UnallocatedRedemptionBalance { get; init; } 
     /// <summary>
     /// Type of participants positions reorganisation balance concerned in unallocated payment.
     /// </summary>
-    [DataMember]
     public CorporateActionUnallocatedBalanceSD4? UnallocatedReorganisationBalance { get; init; } 
     /// <summary>
     /// Details of the securities transactions concerned in unallocated payment.
     /// </summary>
-    [DataMember]
-    public ValueList<CorporateActionUnallocatedSecuritiesTransactionDetailsSD8> UnallocatedSecuritiesTransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CorporateActionUnallocatedSecuritiesTransactionDetailsSD8? UnallocatedSecuritiesTransactionDetails { get; init; } 
     /// <summary>
     /// Details of the cash transactions concerned in unallocated payment.
     /// </summary>
-    [DataMember]
-    public ValueList<CorporateActionUnallocatedCashTransactionDetailsSD7> UnallocatedCashTransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CorporateActionUnallocatedCashTransactionDetailsSD7? UnallocatedCashTransactionDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (UnallocatedDistributionBalance is CorporateActionUnallocatedBalanceSD3Choice_ UnallocatedDistributionBalanceValue)
+        {
+            writer.WriteStartElement(null, "UallctdDstrbtnBal", xmlNamespace );
+            UnallocatedDistributionBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnallocatedRedemptionBalance is CorporateActionUnallocatedBalanceSD3 UnallocatedRedemptionBalanceValue)
+        {
+            writer.WriteStartElement(null, "UallctdRedBal", xmlNamespace );
+            UnallocatedRedemptionBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnallocatedReorganisationBalance is CorporateActionUnallocatedBalanceSD4 UnallocatedReorganisationBalanceValue)
+        {
+            writer.WriteStartElement(null, "UallctdReorgBal", xmlNamespace );
+            UnallocatedReorganisationBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnallocatedSecuritiesTransactionDetails is CorporateActionUnallocatedSecuritiesTransactionDetailsSD8 UnallocatedSecuritiesTransactionDetailsValue)
+        {
+            writer.WriteStartElement(null, "UallctdSctiesTxDtls", xmlNamespace );
+            UnallocatedSecuritiesTransactionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnallocatedCashTransactionDetails is CorporateActionUnallocatedCashTransactionDetailsSD7 UnallocatedCashTransactionDetailsValue)
+        {
+            writer.WriteStartElement(null, "UallctdCshTxDtls", xmlNamespace );
+            UnallocatedCashTransactionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionUnallocatedDetailsSD7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

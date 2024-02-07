@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains detailed information from the cancellation request (for example an MT 192 or an MT 199).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CancellationRequest1
+     : IIsoXmlSerilizable<CancellationRequest1>
 {
     #nullable enable
     
     /// <summary>
     /// Contains information on the reason for the cancellation.
     /// </summary>
-    [DataMember]
     public required CancellationReason7Code CancellationReasonInformation { get; init; } 
     /// <summary>
     /// Specifies a contractual obligation of one party (indemnifier) to compensate for any loss occurred to the other party (indemnity holder). 
     /// </summary>
-    [DataMember]
     public PendingPaymentCancellationReason2Code? IndemnityAgreement { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CxlRsnInf", xmlNamespace );
+        writer.WriteValue(CancellationReasonInformation.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (IndemnityAgreement is PendingPaymentCancellationReason2Code IndemnityAgreementValue)
+        {
+            writer.WriteStartElement(null, "IndmntyAgrmt", xmlNamespace );
+            writer.WriteValue(IndemnityAgreementValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static CancellationRequest1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

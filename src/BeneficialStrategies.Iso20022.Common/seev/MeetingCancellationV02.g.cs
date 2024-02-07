@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.MeetingCancellationV02>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// Second, it is used to advise that the meeting is cancelled. In this case, only the MeetingReference and Reason building blocks need to be present.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The MeetingCancellation message is sent by the party that sent the MeetingNotification message to the original receiver. It is sent to cancel the previous MeetingNotification message or to advise the cancellation of a meeting.|Usage|The MeetingCancellation message is used in two different situations.|First, it is used to cancel a previously sent MeetingNotification message. In this case, the MessageCancellation, the MeetingReference and the Reason building blocks need to be present.|Second, it is used to advise that the meeting is cancelled. In this case, only the MeetingReference and Reason building blocks need to be present.")]
-public partial record MeetingCancellationV02 : IOuterRecord
+public partial record MeetingCancellationV02 : IOuterRecord<MeetingCancellationV02,MeetingCancellationV02Document>
+    ,IIsoXmlSerilizable<MeetingCancellationV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record MeetingCancellationV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "MtgCxl";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => MeetingCancellationV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -88,7 +95,7 @@ public partial record MeetingCancellationV02 : IOuterRecord
     [Description(@"Identifies the security for which the meeting was organised.")]
     [DataMember(Name="Scty")]
     [XmlElement(ElementName="Scty")]
-    public required IReadOnlyCollection<SecurityPosition5> Security { get; init; } = []; // Min=0, Max=200
+    public required ValueList<SecurityPosition5> Security { get; init; } = []; // Min=0, Max=200
     
     /// <summary>
     /// Defines the justification for the cancellation.
@@ -109,6 +116,47 @@ public partial record MeetingCancellationV02 : IOuterRecord
     {
         return new MeetingCancellationV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("MtgCxl");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CxlId", xmlNamespace );
+        CancellationIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MessageCancellation is AmendInformation1 MessageCancellationValue)
+        {
+            writer.WriteStartElement(null, "MsgCxl", xmlNamespace );
+            MessageCancellationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MtgRef", xmlNamespace );
+        MeetingReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (NotifyingParty is PartyIdentification9Choice_ NotifyingPartyValue)
+        {
+            writer.WriteStartElement(null, "NtifngPty", xmlNamespace );
+            NotifyingPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Scty", xmlNamespace );
+        Security.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rsn", xmlNamespace );
+        Reason.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static MeetingCancellationV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -116,9 +164,7 @@ public partial record MeetingCancellationV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingCancellationV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record MeetingCancellationV02Document : IOuterDocument<MeetingCancellationV02>
+public partial record MeetingCancellationV02Document : IOuterDocument<MeetingCancellationV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -134,5 +180,22 @@ public partial record MeetingCancellationV02Document : IOuterDocument<MeetingCan
     /// <summary>
     /// The instance of <seealso cref="MeetingCancellationV02"/> is required.
     /// </summary>
+    [DataMember(Name=MeetingCancellationV02.XmlTag)]
     public required MeetingCancellationV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(MeetingCancellationV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contractual details related to the agreement between parties.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeAgreement13
+     : IIsoXmlSerilizable<TradeAgreement13>
 {
     #nullable enable
     
     /// <summary>
     /// Party that is specified as the buyer for this trade agreement.
     /// </summary>
-    [DataMember]
     public required TradeParty3 Buyer { get; init; } 
     /// <summary>
     /// Party that is specified as the seller for this trade agreement.
     /// </summary>
-    [DataMember]
     public required TradeParty3 Seller { get; init; } 
     /// <summary>
     /// Quotation document referenced from this trade agreement.
     /// </summary>
-    [DataMember]
     public DocumentIdentification22? QuotationDocumentIdentification { get; init; } 
     /// <summary>
     /// Contract document referenced from this trade agreement.
     /// </summary>
-    [DataMember]
     public DocumentIdentification22? ContractDocumentIdentification { get; init; } 
     /// <summary>
     /// Buyer order document referenced from this trade agreement.
     /// </summary>
-    [DataMember]
     public DocumentIdentification22? BuyerOrderIdentificationDocument { get; init; } 
     /// <summary>
     /// Additional document referenced from this trade agreement.
     /// </summary>
-    [DataMember]
-    public ValueList<DocumentGeneralInformation2> AdditionalReferenceDocument { get; init; } = []; // Warning: Don't know multiplicity.
+    public DocumentGeneralInformation2? AdditionalReferenceDocument { get; init; } 
     /// <summary>
     /// Specifies the applicable Incoterm and associated location.
     /// </summary>
-    [DataMember]
     public Incoterms3? Incoterms { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Buyr", xmlNamespace );
+        Buyer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sellr", xmlNamespace );
+        Seller.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (QuotationDocumentIdentification is DocumentIdentification22 QuotationDocumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "QtnDocId", xmlNamespace );
+            QuotationDocumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContractDocumentIdentification is DocumentIdentification22 ContractDocumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CtrctDocId", xmlNamespace );
+            ContractDocumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BuyerOrderIdentificationDocument is DocumentIdentification22 BuyerOrderIdentificationDocumentValue)
+        {
+            writer.WriteStartElement(null, "BuyrOrdrIdDoc", xmlNamespace );
+            BuyerOrderIdentificationDocumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalReferenceDocument is DocumentGeneralInformation2 AdditionalReferenceDocumentValue)
+        {
+            writer.WriteStartElement(null, "AddtlRefDoc", xmlNamespace );
+            AdditionalReferenceDocumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Incoterms is Incoterms3 IncotermsValue)
+        {
+            writer.WriteStartElement(null, "Incotrms", xmlNamespace );
+            IncotermsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeAgreement13 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

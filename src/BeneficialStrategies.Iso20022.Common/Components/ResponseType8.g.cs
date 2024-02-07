@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Trace of response by the entities in the path from the issuer to the ATM.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ResponseType8
+     : IIsoXmlSerilizable<ResponseType8>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the responder.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ResponderIdentification { get; init; } 
     /// <summary>
     /// Codification of the response (for instance ISO 8583, IFX).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Codification { get; init; } 
     /// <summary>
     /// Result of the request.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Response { get; init; } 
     /// <summary>
     /// Detail of the response.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ResponseReason { get; init; } 
     /// <summary>
     /// Additional information to be logged for further examination.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AdditionalResponseInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RspndrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ResponderIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Codification is IsoMax35Text CodificationValue)
+        {
+            writer.WriteStartElement(null, "Cdfctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CodificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Rspn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Response)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ResponseReason is IsoMax35Text ResponseReasonValue)
+        {
+            writer.WriteStartElement(null, "RspnRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ResponseReasonValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalResponseInformation is IsoMax35Text AdditionalResponseInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlRspnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdditionalResponseInformationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ResponseType8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

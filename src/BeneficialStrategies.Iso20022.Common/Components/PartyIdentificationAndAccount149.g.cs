@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Party and account details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentificationAndAccount149
+     : IIsoXmlSerilizable<PartyIdentificationAndAccount149>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the party.
     /// </summary>
-    [DataMember]
     public required PartyIdentification117Choice_ Identification { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
-    [DataMember]
     public AlternatePartyIdentification8? AlternateIdentification { get; init; } 
     /// <summary>
     /// Coded list to specify the side of the order.
     /// </summary>
-    [DataMember]
     public ClearingSide1Code? Side { get; init; } 
     /// <summary>
     /// Identifies the clearing member account at the CCP through which the trade must be cleared (sometimes called position account).
     /// </summary>
-    [DataMember]
     public SecuritiesAccount20? ClearingAccount { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction for the party identified.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ProcessingIdentification { get; init; } 
     /// <summary>
     /// Provides additional information regarding the party.
     /// </summary>
-    [DataMember]
     public PartyTextInformation1? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AlternateIdentification is AlternatePartyIdentification8 AlternateIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AltrnId", xmlNamespace );
+            AlternateIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Side is ClearingSide1Code SideValue)
+        {
+            writer.WriteStartElement(null, "Sd", xmlNamespace );
+            writer.WriteValue(SideValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ClearingAccount is SecuritiesAccount20 ClearingAccountValue)
+        {
+            writer.WriteStartElement(null, "ClrAcct", xmlNamespace );
+            ClearingAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProcessingIdentification is IsoMax35Text ProcessingIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrcgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProcessingIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is PartyTextInformation1 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyIdentificationAndAccount149 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

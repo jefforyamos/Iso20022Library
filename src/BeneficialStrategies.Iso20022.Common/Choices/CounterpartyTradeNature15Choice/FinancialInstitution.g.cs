@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature15Choice;
 
@@ -13,16 +15,44 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature15Choice;
 /// Indicates that counterparty is a financial institution.
 /// </summary>
 public partial record FinancialInstitution : CounterpartyTradeNature15Choice_
+     , IIsoXmlSerilizable<FinancialInstitution>
 {
     #nullable enable
+    
     /// <summary>
     /// Specifies the nature of the counterparty business activities. 
     /// </summary>
     public FinancialPartyClassification2Choice_? Sector { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _UgEEwAz2Ee2YoLD-1vFj0g
     /// <summary>
     /// Information whether the counterparty is above the clearing threshold.
     /// Usage: If the element is not present, the ClearingThreshold is False.
     /// </summary>
     public IsoTrueFalseIndicator? ClearingThreshold { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize Sector, multiplicity Unknown
+        if (ClearingThreshold is IsoTrueFalseIndicator ClearingThresholdValue)
+        {
+            writer.WriteStartElement(null, "ClrThrshld", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ClearingThresholdValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new FinancialInstitution Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

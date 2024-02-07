@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Capabilities of the POI performing the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PointOfInteractionCapabilities1
+     : IIsoXmlSerilizable<PointOfInteractionCapabilities1>
 {
     #nullable enable
     
     /// <summary>
     /// Card reading capabilities of the POI performing the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<CardDataReading1Code> CardReadingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardDataReading1Code? CardReadingCapabilities { get; init; } 
     /// <summary>
     /// Cardholder verification capabilities of the POI performing the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<CardholderVerificationCapability1Code> CardholderVerificationCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    public CardholderVerificationCapability1Code? CardholderVerificationCapabilities { get; init; } 
     /// <summary>
     /// On-line and off-line capabilities of the POI.
     /// </summary>
-    [DataMember]
     public OnLineCapability1Code? OnLineCapabilities { get; init; } 
     /// <summary>
     /// Capabilities of the display components performing the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<DisplayCapabilities1> DisplayCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    public DisplayCapabilities1? DisplayCapabilities { get; init; } 
     /// <summary>
     /// Number of columns of the printer component.
     /// </summary>
-    [DataMember]
     public IsoMax3NumericText? PrintLineWidth { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CardReadingCapabilities is CardDataReading1Code CardReadingCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "CardRdngCpblties", xmlNamespace );
+            writer.WriteValue(CardReadingCapabilitiesValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CardholderVerificationCapabilities is CardholderVerificationCapability1Code CardholderVerificationCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrVrfctnCpblties", xmlNamespace );
+            writer.WriteValue(CardholderVerificationCapabilitiesValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OnLineCapabilities is OnLineCapability1Code OnLineCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "OnLineCpblties", xmlNamespace );
+            writer.WriteValue(OnLineCapabilitiesValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DisplayCapabilities is DisplayCapabilities1 DisplayCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "DispCpblties", xmlNamespace );
+            DisplayCapabilitiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PrintLineWidth is IsoMax3NumericText PrintLineWidthValue)
+        {
+            writer.WriteStartElement(null, "PrtLineWidth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(PrintLineWidthValue)); // data type Max3NumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PointOfInteractionCapabilities1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

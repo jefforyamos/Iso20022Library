@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Driver in a car rental party
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DriverInParty2
+     : IIsoXmlSerilizable<DriverInParty2>
 {
     #nullable enable
     
     /// <summary>
     /// Name of vehicle rental driver.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Address of driver in party.
     /// </summary>
-    [DataMember]
     public Address2? Address { get; init; } 
     /// <summary>
     /// Contact details of driver in party.
     /// </summary>
-    [DataMember]
     public Contact6? Contact { get; init; } 
     /// <summary>
     /// Date of birth of vehicle rental driver.
     /// </summary>
-    [DataMember]
     public IsoISODate? DateOfBirth { get; init; } 
     /// <summary>
     /// Age of driver.
     /// </summary>
-    [DataMember]
     public IsoMax2NumericText? Age { get; init; } 
     /// <summary>
     /// Credential used by the driver for identification.
     /// </summary>
-    [DataMember]
-    public ValueList<TravelDocument2> DriverCredential { get; init; } = []; // Warning: Don't know multiplicity.
+    public TravelDocument2? DriverCredential { get; init; } 
     /// <summary>
     /// Driving license details.
     /// </summary>
-    [DataMember]
     public DrivingLicense2? DrivingLicense { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax70Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Address is Address2 AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Contact is Contact6 ContactValue)
+        {
+            writer.WriteStartElement(null, "Ctct", xmlNamespace );
+            ContactValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DateOfBirth is IsoISODate DateOfBirthValue)
+        {
+            writer.WriteStartElement(null, "DtOfBirth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateOfBirthValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Age is IsoMax2NumericText AgeValue)
+        {
+            writer.WriteStartElement(null, "Age", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2NumericText(AgeValue)); // data type Max2NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (DriverCredential is TravelDocument2 DriverCredentialValue)
+        {
+            writer.WriteStartElement(null, "DrvrCrdntl", xmlNamespace );
+            DriverCredentialValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DrivingLicense is DrivingLicense2 DrivingLicenseValue)
+        {
+            writer.WriteStartElement(null, "DrvgLic", xmlNamespace );
+            DrivingLicenseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DriverInParty2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Assumed stress move for a set of financial instruments defined by a common trading strategy.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Strategy1
+     : IIsoXmlSerilizable<Strategy1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identifier for the strategy.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Assumed stress move of the associated stress item under the scenario.
     /// </summary>
-    [DataMember]
     public required StressSize1Choice_ StressSize { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StrssSz", xmlNamespace );
+        StressSize.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static Strategy1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Choice of format for the transfer reason.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransferReason1
+     : IIsoXmlSerilizable<TransferReason1>
 {
     #nullable enable
     
     /// <summary>
     /// Transfer reason expressed as an ISO 20022 code.
     /// </summary>
-    [DataMember]
     public required TransferReason1Code Code { get; init; } 
     /// <summary>
     /// Transfer reason expressed as a proprietary code.
     /// </summary>
-    [DataMember]
     public required GenericIdentification27 Proprietary { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(Code.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Prtry", xmlNamespace );
+        Proprietary.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static TransferReason1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

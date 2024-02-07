@@ -7,22 +7,22 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details of the security pledge as collateral.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Collateral14
+     : IIsoXmlSerilizable<Collateral14>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the values of the security pledged as collateral.
     /// </summary>
-    [DataMember]
     public required SecuredCollateral2Choice_ Valuation { get; init; } 
     /// <summary>
     /// Risk control measure applied to underlying collateral whereby the value of that underlying collateral is calculated as the market value of the assets reduced by a certain percentage. 
@@ -30,7 +30,6 @@ public partial record Collateral14
     /// In the case of multi-collateral repos the haircut will be based on the ratio between the cash borrowed/lent and the market value, including accrued interest of each of the individual collateral pledged. 
     /// Only actual values, as opposed to estimated or default values will be reported for this variable.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Haircut { get; init; } 
     /// <summary>
     /// Identifies all repurchase agreements conducted against general collateral and those conducted against special collateral. 
@@ -39,8 +38,39 @@ public partial record Collateral14
     /// Usage:
     /// This field is optional and it should be provided only in case it is feasible for the reporting agent.
     /// </summary>
-    [DataMember]
     public SpecialCollateral1Code? SpecialCollateralIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Valtn", xmlNamespace );
+        Valuation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Haircut is IsoPercentageRate HaircutValue)
+        {
+            writer.WriteStartElement(null, "Hrcut", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(HaircutValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (SpecialCollateralIndicator is SpecialCollateral1Code SpecialCollateralIndicatorValue)
+        {
+            writer.WriteStartElement(null, "SpclCollInd", xmlNamespace );
+            writer.WriteValue(SpecialCollateralIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static Collateral14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

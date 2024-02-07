@@ -7,88 +7,176 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about an investment fund.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Fund2
+     : IIsoXmlSerilizable<Fund2>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the fund/sub fund.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? Name { get; init; } 
     /// <summary>
     /// Identification of the fund/sub fund with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>
-    [DataMember]
     public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the fund/sub fund, assigned under a formal or proprietary identification scheme.
     /// </summary>
-    [DataMember]
     public OtherIdentification4? Identification { get; init; } 
     /// <summary>
     /// Currency of the fund/sub fund.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Date and, if required, the time, at which the price will be applied.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeChoice_? TradeDateTime { get; init; } 
     /// <summary>
     /// Previous date and time at which the price was applied.
     /// </summary>
-    [DataMember]
     public DateAndDateTimeChoice_? PreviousTradeDateTime { get; init; } 
     /// <summary>
     /// Total value of all the holdings, less the fund's liabilities, of the fund/sub fund.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalNAV { get; init; } 
     /// <summary>
     /// Previous total value of all the holdings, less the fund's liabilities, of the fund/sub fund.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? PreviousTotalNAV { get; init; } 
     /// <summary>
     /// Total number of units of the fund/sub fund.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1? TotalUnitsNumber { get; init; } 
     /// <summary>
     /// Previous total number of units of the fund/sub fund.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1? PreviousTotalUnitsNumber { get; init; } 
     /// <summary>
     /// Consolidated net cash flow expressed as a percentage of the total NAV for the fund/sub fund.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? PercentageOfFundTotalNAV { get; init; } 
     /// <summary>
     /// Cash movement into the fund/sub fund.
     /// </summary>
-    [DataMember]
-    public ValueList<CashInOutForecast7> CashInForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashInOutForecast7? CashInForecastDetails { get; init; } 
     /// <summary>
     /// Cash movement out of the fund/sub fund.
     /// </summary>
-    [DataMember]
-    public ValueList<CashInOutForecast7> CashOutForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashInOutForecast7? CashOutForecastDetails { get; init; } 
     /// <summary>
     /// Net cash as a result of the cash-in and cash-out flows.
     /// </summary>
-    [DataMember]
-    public ValueList<NetCashForecast5> NetCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public NetCashForecast5? NetCashForecastDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax350Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(NameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (LegalEntityIdentifier is IsoLEIIdentifier LegalEntityIdentifierValue)
+        {
+            writer.WriteStartElement(null, "LglNttyIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LegalEntityIdentifierValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (Identification is OtherIdentification4 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveOrHistoricCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TradeDateTime is DateAndDateTimeChoice_ TradeDateTimeValue)
+        {
+            writer.WriteStartElement(null, "TradDtTm", xmlNamespace );
+            TradeDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousTradeDateTime is DateAndDateTimeChoice_ PreviousTradeDateTimeValue)
+        {
+            writer.WriteStartElement(null, "PrvsTradDtTm", xmlNamespace );
+            PreviousTradeDateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalNAV is IsoActiveOrHistoricCurrencyAndAmount TotalNAVValue)
+        {
+            writer.WriteStartElement(null, "TtlNAV", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalNAVValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PreviousTotalNAV is IsoActiveOrHistoricCurrencyAndAmount PreviousTotalNAVValue)
+        {
+            writer.WriteStartElement(null, "PrvsTtlNAV", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(PreviousTotalNAVValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TotalUnitsNumber is FinancialInstrumentQuantity1 TotalUnitsNumberValue)
+        {
+            writer.WriteStartElement(null, "TtlUnitsNb", xmlNamespace );
+            TotalUnitsNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PreviousTotalUnitsNumber is FinancialInstrumentQuantity1 PreviousTotalUnitsNumberValue)
+        {
+            writer.WriteStartElement(null, "PrvsTtlUnitsNb", xmlNamespace );
+            PreviousTotalUnitsNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PercentageOfFundTotalNAV is IsoPercentageRate PercentageOfFundTotalNAVValue)
+        {
+            writer.WriteStartElement(null, "PctgOfFndTtlNAV", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(PercentageOfFundTotalNAVValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CashInForecastDetails is CashInOutForecast7 CashInForecastDetailsValue)
+        {
+            writer.WriteStartElement(null, "CshInFcstDtls", xmlNamespace );
+            CashInForecastDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashOutForecastDetails is CashInOutForecast7 CashOutForecastDetailsValue)
+        {
+            writer.WriteStartElement(null, "CshOutFcstDtls", xmlNamespace );
+            CashOutForecastDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NetCashForecastDetails is NetCashForecast5 NetCashForecastDetailsValue)
+        {
+            writer.WriteStartElement(null, "NetCshFcstDtls", xmlNamespace );
+            NetCashForecastDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Fund2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

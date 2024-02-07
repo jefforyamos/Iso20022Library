@@ -7,68 +7,136 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Summary information about the sale
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvoiceSummary1
+     : IIsoXmlSerilizable<InvoiceSummary1>
 {
     #nullable enable
     
     /// <summary>
     /// Contains the invoice number.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? InvoiceNumber { get; init; } 
     /// <summary>
     /// Supplier or the provider of the goods or services.
     /// </summary>
-    [DataMember]
     public PartyIdentification206? Seller { get; init; } 
     /// <summary>
     /// Buyer or company buying the goods or services.
     /// </summary>
-    [DataMember]
     public PartyIdentification206? Buyer { get; init; } 
     /// <summary>
     /// Effective billing date.
     /// </summary>
-    [DataMember]
     public IsoISODate? InvoiceDate { get; init; } 
     /// <summary>
     /// Contains the date and time the electronic invoice was created.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? InvoiceCreationDateTime { get; init; } 
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     /// <summary>
     /// Contains the freight charges for the entire purchase. 
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? FreightAmount { get; init; } 
     /// <summary>
     /// Contains the total tax amount for the entire purchase. 
     /// </summary>
-    [DataMember]
-    public ValueList<Tax33> TaxTotal { get; init; } = []; // Warning: Don't know multiplicity.
+    public Tax33? TaxTotal { get; init; } 
     /// <summary>
     /// Code that identifies the disposition of the tax reclaim invoice.
     /// </summary>
-    [DataMember]
     public TaxReclaimMethod1Code? TaxReclaimMethod { get; init; } 
     /// <summary>
     /// Contains additional details.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (InvoiceNumber is IsoMax70Text InvoiceNumberValue)
+        {
+            writer.WriteStartElement(null, "InvcNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(InvoiceNumberValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Seller is PartyIdentification206 SellerValue)
+        {
+            writer.WriteStartElement(null, "Sellr", xmlNamespace );
+            SellerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Buyer is PartyIdentification206 BuyerValue)
+        {
+            writer.WriteStartElement(null, "Buyr", xmlNamespace );
+            BuyerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvoiceDate is IsoISODate InvoiceDateValue)
+        {
+            writer.WriteStartElement(null, "InvcDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(InvoiceDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (InvoiceCreationDateTime is IsoISODateTime InvoiceCreationDateTimeValue)
+        {
+            writer.WriteStartElement(null, "InvcCreDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(InvoiceCreationDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (SummaryCommodityIdentification is IsoMax35Text SummaryCommodityIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SummryCmmdtyId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SummaryCommodityIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (FreightAmount is IsoImpliedCurrencyAndAmount FreightAmountValue)
+        {
+            writer.WriteStartElement(null, "FrghtAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(FreightAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TaxTotal is Tax33 TaxTotalValue)
+        {
+            writer.WriteStartElement(null, "TaxTtl", xmlNamespace );
+            TaxTotalValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxReclaimMethod is TaxReclaimMethod1Code TaxReclaimMethodValue)
+        {
+            writer.WriteStartElement(null, "TaxRclmMtd", xmlNamespace );
+            writer.WriteValue(TaxReclaimMethodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is IsoMax350Text AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalDataValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static InvoiceSummary1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

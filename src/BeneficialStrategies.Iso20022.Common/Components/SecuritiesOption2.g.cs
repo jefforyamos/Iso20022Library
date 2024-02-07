@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the security option of a corporate event.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesOption2
+     : IIsoXmlSerilizable<SecuritiesOption2>
 {
     #nullable enable
     
     /// <summary>
     /// Minimum quantity of securities to be accepted (used in the framework of conditional privilege on election). In case of proration, if this minimum quantity is not reached then the instruction is void.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1Choice_? ConditionalQuantity { get; init; } 
     /// <summary>
     /// Quantity instructed to be received over and above normal ensured entitlement.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity1Choice_? OverAndAboveNormalEnsuredEntitlementQuantity { get; init; } 
     /// <summary>
     /// Specifies whether the quantity of financial instrument is a quantity of securities instructed or a quantity to receive.
     /// </summary>
-    [DataMember]
     public required InstructedOrQuantityToReceive1Choice_ InstructedOrQuantityToReceive { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ConditionalQuantity is FinancialInstrumentQuantity1Choice_ ConditionalQuantityValue)
+        {
+            writer.WriteStartElement(null, "CondlQty", xmlNamespace );
+            ConditionalQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OverAndAboveNormalEnsuredEntitlementQuantity is FinancialInstrumentQuantity1Choice_ OverAndAboveNormalEnsuredEntitlementQuantityValue)
+        {
+            writer.WriteStartElement(null, "OverAndAbovNrmlNsrdEntitlmntQty", xmlNamespace );
+            OverAndAboveNormalEnsuredEntitlementQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InstdOrQtyToRcv", xmlNamespace );
+        InstructedOrQuantityToReceive.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SecuritiesOption2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Fix of the penultimate accrual date of the transaction to the final (repurchase) date. Crystallizing the penultimate fixing into a fixed rate for the final business day. This will allow for parties to send timely settlement instructions for the repurchase leg of the transaction. Default value is 1 day.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CrystallisationDay1
+     : IIsoXmlSerilizable<CrystallisationDay1>
 {
     #nullable enable
     
     /// <summary>
     /// Fix of the penultimate accrual date of the transaction to the final (repurchase) date. Crystallizing the penultimate fixing into a fixed rate for the final business day. This will allow for parties to send timely settlement instructions for the repurchase leg of the transaction. Default value is 1 day. If not 1 then crystallization period must be used.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Day { get; init; } 
     /// <summary>
     /// Number of days prior to the accrual date of the transaction to the final (repurchase) date. 
     /// </summary>
-    [DataMember]
     public IsoMax3NumericText? Period { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Day", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Day)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (Period is IsoMax3NumericText PeriodValue)
+        {
+            writer.WriteStartElement(null, "Prd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(PeriodValue)); // data type Max3NumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CrystallisationDay1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

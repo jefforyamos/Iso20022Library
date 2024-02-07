@@ -30,11 +30,19 @@ public partial record OrganisationIdentification : Party38Choice_
     /// <summary>
     /// Unique identification of an organisation, as assigned by an institution, using an identification scheme.
     /// </summary>
-    public GenericOrganisationIdentification1? Other { get; init;  } // Warning: Don't know multiplicity.
+    public GenericOrganisationIdentification1? Other { get; init; } 
     
     #nullable disable
     
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
     public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
     public override void Serialize(XmlWriter writer, string xmlNamespace)
     {
         if (AnyBIC is IsoAnyBICDec2014Identifier AnyBICValue)
@@ -49,7 +57,12 @@ public partial record OrganisationIdentification : Party38Choice_
             writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEIValue)); // data type LEIIdentifier System.String
             writer.WriteEndElement();
         }
-        // Not sure how to serialize Other, multiplicity Unknown
+        if (Other is GenericOrganisationIdentification1 OtherValue)
+        {
+            writer.WriteStartElement(null, "Othr", xmlNamespace );
+            OtherValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
     }
     public static new OrganisationIdentification Deserialize(XElement element)
     {

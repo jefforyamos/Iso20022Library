@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.NotificationOfCaseAssignmentV05>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -36,10 +39,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// When the assignee does not reassign the case to another party (that is responding with a NotificationOfCaseAssignment message with notification MINE - The case is processed by the assignee), the case assignment should contain the case assignment elements as received in the original query.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The NotificationOfCaseAssignment message is sent by a case assignee to a case creator/case assigner.|This message is used to inform the case assigner that:|- the assignee is reassigning the case to the next agent in the transaction processing chain for further action|- the assignee will work on the case himself, without re-assigning it to another party, and therefore indicating that the re-assignment has reached its end-point|Usage|The NotificationOfCaseAssignment message is used to notify the case creator or case assigner of further action undertaken by the case assignee in a:|- request to cancel payment case;|- request to modify payment case;|- unable to apply case;|- claim non receipt case.|The NotificationOfCaseAssignment message:|- covers one and only one case at a time. If the case assignee needs to inform a case creator or case assigner about several cases, then multiple Notification Of Case Assignment messages must be sent;|- except in the case where it is used to indicate that an agent is doing the correction himself, this message must be forwarded by all subsequent case assigner(s) until it reaches the case creator;|- must not be used in place of a Resolution Of Investigation or a Case Status Report message.|When the assignee does not reassign the case to another party (that is responding with a NotificationOfCaseAssignment message with notification MINE - The case is processed by the assignee), the case assignment should contain the case assignment elements as received in the original query.")]
-public partial record NotificationOfCaseAssignmentV05 : IOuterRecord
+public partial record NotificationOfCaseAssignmentV05 : IOuterRecord<NotificationOfCaseAssignmentV05,NotificationOfCaseAssignmentV05Document>
+    ,IIsoXmlSerilizable<NotificationOfCaseAssignmentV05>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -51,6 +53,11 @@ public partial record NotificationOfCaseAssignmentV05 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "NtfctnOfCaseAssgnmt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => NotificationOfCaseAssignmentV05Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -112,6 +119,41 @@ public partial record NotificationOfCaseAssignmentV05 : IOuterRecord
     {
         return new NotificationOfCaseAssignmentV05Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("NtfctnOfCaseAssgnmt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Case", xmlNamespace );
+        Case.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Assgnmt", xmlNamespace );
+        Assignment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Ntfctn", xmlNamespace );
+        Notification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static NotificationOfCaseAssignmentV05 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -119,9 +161,7 @@ public partial record NotificationOfCaseAssignmentV05 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NotificationOfCaseAssignmentV05"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record NotificationOfCaseAssignmentV05Document : IOuterDocument<NotificationOfCaseAssignmentV05>
+public partial record NotificationOfCaseAssignmentV05Document : IOuterDocument<NotificationOfCaseAssignmentV05>, IXmlSerializable
 {
     
     /// <summary>
@@ -137,5 +177,22 @@ public partial record NotificationOfCaseAssignmentV05Document : IOuterDocument<N
     /// <summary>
     /// The instance of <seealso cref="NotificationOfCaseAssignmentV05"/> is required.
     /// </summary>
+    [DataMember(Name=NotificationOfCaseAssignmentV05.XmlTag)]
     public required NotificationOfCaseAssignmentV05 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(NotificationOfCaseAssignmentV05.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

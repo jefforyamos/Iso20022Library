@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements of a cash distribution that will be withheld by a tax authority.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityWithHoldingTax1
+     : IIsoXmlSerilizable<SecurityWithHoldingTax1>
 {
     #nullable enable
     
     /// <summary>
     /// Value of the withholding tax as rate, amount or not specified.
     /// </summary>
-    [DataMember]
     public required RateAndAmountFormat1Choice_ WithholdingTaxValue { get; init; } 
     /// <summary>
     /// Represents the tax authority.
     /// </summary>
-    [DataMember]
     public required CountryCode Country { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "WhldgTaxVal", xmlNamespace );
+        WithholdingTaxValue.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Ctry", xmlNamespace );
+        writer.WriteValue(Country.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static SecurityWithHoldingTax1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

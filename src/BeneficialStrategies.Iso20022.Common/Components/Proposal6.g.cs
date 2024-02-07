@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates the type of proposal and if the proposal is for the variation margin and the segregated independent amount, or the segregated independent amount only.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Proposal6
+     : IIsoXmlSerilizable<Proposal6>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether this is an initial or counter proposal.
     /// </summary>
-    [DataMember]
     public required ProposalType1Code CollateralProposalType { get; init; } 
     /// <summary>
     /// Provides details about the proposal for the variation margin and the segregated independent amount, or the segregated independent amount only.
     /// </summary>
-    [DataMember]
     public required CollateralProposal6Choice_ CollateralProposal { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CollPrpslTp", xmlNamespace );
+        writer.WriteValue(CollateralProposalType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CollPrpsl", xmlNamespace );
+        CollateralProposal.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static Proposal6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

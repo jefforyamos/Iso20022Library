@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Nature of the amount and currency on a document referred to in the remittance section, typically either the original amount due/payable or the amount actually remitted for the referenced document.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RemittanceAmount1
+     : IIsoXmlSerilizable<RemittanceAmount1>
 {
     #nullable enable
     
     /// <summary>
     /// Amount specified is the exact amount due and payable to the creditor.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? DuePayableAmount { get; init; } 
     /// <summary>
     /// Amount of money that results from the application of an agreed discount to the amount due and payable to the creditor.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? DiscountAppliedAmount { get; init; } 
     /// <summary>
     /// Amount specified for the referred document is the amount of a credit note.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? CreditNoteAmount { get; init; } 
     /// <summary>
     /// Quantity of cash resulting from the calculation of the tax.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TaxAmount { get; init; } 
     /// <summary>
     /// Set of elements used to provide information on the amount and reason of the document adjustment.
     /// </summary>
-    [DataMember]
-    public ValueList<DocumentAdjustment1> AdjustmentAmountAndReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public DocumentAdjustment1? AdjustmentAmountAndReason { get; init; } 
     /// <summary>
     /// Amount of money remitted for the referred document.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? RemittedAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DuePayableAmount is IsoActiveOrHistoricCurrencyAndAmount DuePayableAmountValue)
+        {
+            writer.WriteStartElement(null, "DuePyblAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(DuePayableAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (DiscountAppliedAmount is IsoActiveOrHistoricCurrencyAndAmount DiscountAppliedAmountValue)
+        {
+            writer.WriteStartElement(null, "DscntApldAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(DiscountAppliedAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CreditNoteAmount is IsoActiveOrHistoricCurrencyAndAmount CreditNoteAmountValue)
+        {
+            writer.WriteStartElement(null, "CdtNoteAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(CreditNoteAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TaxAmount is IsoActiveOrHistoricCurrencyAndAmount TaxAmountValue)
+        {
+            writer.WriteStartElement(null, "TaxAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TaxAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (AdjustmentAmountAndReason is DocumentAdjustment1 AdjustmentAmountAndReasonValue)
+        {
+            writer.WriteStartElement(null, "AdjstmntAmtAndRsn", xmlNamespace );
+            AdjustmentAmountAndReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RemittedAmount is IsoActiveOrHistoricCurrencyAndAmount RemittedAmountValue)
+        {
+            writer.WriteStartElement(null, "RmtdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(RemittedAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static RemittanceAmount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

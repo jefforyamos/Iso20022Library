@@ -7,98 +7,178 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Formal document used to record a fact and used as proof of the fact, in the context of a commercial trade transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CertificateDataSet2
+     : IIsoXmlSerilizable<CertificateDataSet2>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the certificate data set.
     /// </summary>
-    [DataMember]
     public required DocumentIdentification1 DataSetIdentification { get; init; } 
     /// <summary>
     /// Specifies the type of the certificate.
     /// </summary>
-    [DataMember]
     public required TradeCertificateType1Code CertificateType { get; init; } 
     /// <summary>
     /// Specifies if the certificate data set is required in relation to specific line items, and which line items.
     /// </summary>
-    [DataMember]
-    public ValueList<LineItemAndPOIdentification1> LineItem { get; init; } = []; // Warning: Don't know multiplicity.
+    public LineItemAndPOIdentification1? LineItem { get; init; } 
     /// <summary>
     /// Characteristics of the goods that are certified, in the context of a commercial trade transaction.
     /// </summary>
-    [DataMember]
     public required CertifiedCharacteristics2Choice_ CertifiedCharacteristics { get; init; } 
     /// <summary>
     /// Issue date of the document.
     /// </summary>
-    [DataMember]
     public required IsoISODate IssueDate { get; init; } 
     /// <summary>
     /// Place where the certificate was issued.
     /// </summary>
-    [DataMember]
     public PostalAddress5? PlaceOfIssue { get; init; } 
     /// <summary>
     /// Issuer of the certificate, typically the inspection company or its agent.
     /// </summary>
-    [DataMember]
     public required PartyIdentification26 Issuer { get; init; } 
     /// <summary>
     /// Date(s) at which inspection of the goods took place.
     /// </summary>
-    [DataMember]
     public DatePeriodDetails? InspectionDate { get; init; } 
     /// <summary>
     /// Indicates that the inspection has been performed by an authorised inspector.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? AuthorisedInspectorIndicator { get; init; } 
     /// <summary>
     /// Unique identifier of the document.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text CertificateIdentification { get; init; } 
     /// <summary>
     /// Transport information relative to the goods that are covered by the certificate.
     /// </summary>
-    [DataMember]
     public SingleTransport3? Transport { get; init; } 
     /// <summary>
     /// Information about the goods and/or services of a trade transaction.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? GoodsDescription { get; init; } 
     /// <summary>
     /// Party responsible for dispatching the goods.
     /// </summary>
-    [DataMember]
     public PartyIdentification26? Consignor { get; init; } 
     /// <summary>
     /// Party to whom the goods (which are the subject of the certificate) must be delivered.
     /// </summary>
-    [DataMember]
     public PartyIdentification26? Consignee { get; init; } 
     /// <summary>
     /// Manufacturer of the goods which are the subject of the certificate.
     /// </summary>
-    [DataMember]
     public PartyIdentification26? Manufacturer { get; init; } 
     /// <summary>
     /// Additional and important information that could not be captured by structured fields.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax350Text> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DataSetId", xmlNamespace );
+        DataSetIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CertTp", xmlNamespace );
+        writer.WriteValue(CertificateType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (LineItem is LineItemAndPOIdentification1 LineItemValue)
+        {
+            writer.WriteStartElement(null, "LineItm", xmlNamespace );
+            LineItemValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CertfdChrtcs", xmlNamespace );
+        CertifiedCharacteristics.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IsseDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(IssueDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (PlaceOfIssue is PostalAddress5 PlaceOfIssueValue)
+        {
+            writer.WriteStartElement(null, "PlcOfIsse", xmlNamespace );
+            PlaceOfIssueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Issr", xmlNamespace );
+        Issuer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (InspectionDate is DatePeriodDetails InspectionDateValue)
+        {
+            writer.WriteStartElement(null, "InspctnDt", xmlNamespace );
+            InspectionDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AuthorisedInspectorIndicator is IsoYesNoIndicator AuthorisedInspectorIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AuthrsdInspctrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AuthorisedInspectorIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CertId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(CertificateIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Transport is SingleTransport3 TransportValue)
+        {
+            writer.WriteStartElement(null, "Trnsprt", xmlNamespace );
+            TransportValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GoodsDescription is IsoMax70Text GoodsDescriptionValue)
+        {
+            writer.WriteStartElement(null, "GoodsDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(GoodsDescriptionValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Consignor is PartyIdentification26 ConsignorValue)
+        {
+            writer.WriteStartElement(null, "Consgnr", xmlNamespace );
+            ConsignorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Consignee is PartyIdentification26 ConsigneeValue)
+        {
+            writer.WriteStartElement(null, "Consgn", xmlNamespace );
+            ConsigneeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Manufacturer is PartyIdentification26 ManufacturerValue)
+        {
+            writer.WriteStartElement(null, "Manfctr", xmlNamespace );
+            ManufacturerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CertificateDataSet2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

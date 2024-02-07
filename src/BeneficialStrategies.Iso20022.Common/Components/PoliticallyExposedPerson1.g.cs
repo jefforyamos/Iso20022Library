@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Politically exposed person checks.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PoliticallyExposedPerson1
+     : IIsoXmlSerilizable<PoliticallyExposedPerson1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies if due diligence checks on the political exposure of the investor have been carried out. (A politically exposed person is someone who has been entrusted with a prominent public function, or an individual who is closely related to such a person.)
     /// </summary>
-    [DataMember]
     public required PoliticalExposureType2Choice_ PoliticallyExposedPersonType { get; init; } 
     /// <summary>
     /// Status of the politically exposed person.
     /// </summary>
-    [DataMember]
     public PoliticallyExposedPersonStatus1Choice_? PoliticallyExposedPersonStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PltclyXpsdPrsnTp", xmlNamespace );
+        PoliticallyExposedPersonType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PoliticallyExposedPersonStatus is PoliticallyExposedPersonStatus1Choice_ PoliticallyExposedPersonStatusValue)
+        {
+            writer.WriteStartElement(null, "PltclyXpsdPrsnSts", xmlNamespace );
+            PoliticallyExposedPersonStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PoliticallyExposedPerson1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to a master agreement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MasterAgreement7
+     : IIsoXmlSerilizable<MasterAgreement7>
 {
     #nullable enable
     
     /// <summary>
     /// Reference to any master agreement, if existent (such as ISDA Master Agreement; Master Power Purchase and Sale Agreement; International ForEx Master Agreement; European Master Agreement or any local Master Agreements).
     /// </summary>
-    [DataMember]
     public required AgreementType2Choice_ Type { get; init; } 
     /// <summary>
     /// Reference to the year of the master agreement version used for the reported trade, if applicable (such as 1992, 2002, etc).
     /// </summary>
-    [DataMember]
     public IsoMax50Text? Version { get; init; } 
     /// <summary>
     /// Additional information specifying the other type of the master agreement.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? OtherMasterAgreementDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Version is IsoMax50Text VersionValue)
+        {
+            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax50Text(VersionValue)); // data type Max50Text System.String
+            writer.WriteEndElement();
+        }
+        if (OtherMasterAgreementDetails is IsoMax350Text OtherMasterAgreementDetailsValue)
+        {
+            writer.WriteStartElement(null, "OthrMstrAgrmtDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(OtherMasterAgreementDetailsValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static MasterAgreement7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

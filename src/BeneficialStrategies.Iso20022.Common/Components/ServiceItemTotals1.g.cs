@@ -7,48 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies totals related to the invoice.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ServiceItemTotals1
+     : IIsoXmlSerilizable<ServiceItemTotals1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies a classification for the service items such as query, report, securities account, etc….
     /// </summary>
-    [DataMember]
     public required IsoMax4AlphaNumericText ItemType { get; init; } 
     /// <summary>
     /// Sum of total number units per service item.
     /// </summary>
-    [DataMember]
     public required IsoNumber Quantity { get; init; } 
     /// <summary>
     /// Specifies the unit of the service item.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? UnitPrice { get; init; } 
     /// <summary>
     /// Total amount subject to tax.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalTaxableAmount { get; init; } 
     /// <summary>
     /// Sum of all tax amounts related to the invoice.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalTaxAmount { get; init; } 
     /// <summary>
     /// Total amount of the invoice, being the sum of total invoice lines amounts, total invoice adjustment amount (discounts, allowances and charges) and total tax amounts.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalInvoiceAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ItmTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(ItemType)); // data type Max4AlphaNumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(Quantity)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        if (UnitPrice is IsoActiveCurrencyAndAmount UnitPriceValue)
+        {
+            writer.WriteStartElement(null, "UnitPric", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(UnitPriceValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TotalTaxableAmount is IsoActiveCurrencyAndAmount TotalTaxableAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlTaxblAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalTaxableAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TotalTaxAmount is IsoActiveCurrencyAndAmount TotalTaxAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlTaxAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalTaxAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TtlInvcAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalInvoiceAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static ServiceItemTotals1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

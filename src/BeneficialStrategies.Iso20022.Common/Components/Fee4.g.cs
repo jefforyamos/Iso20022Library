@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money associated with a service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Fee4
+     : IIsoXmlSerilizable<Fee4>
 {
     #nullable enable
     
     /// <summary>
     /// Type of fee.
     /// </summary>
-    [DataMember]
     public required ChargeType6Choice_ Type { get; init; } 
     /// <summary>
     /// Method used to calculate the fee.
     /// </summary>
-    [DataMember]
     public ChargeBasis2Choice_? Basis { get; init; } 
     /// <summary>
     /// Fee amount.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Discount or waiver applied to the fee.
     /// </summary>
-    [DataMember]
     public ChargeOrCommissionDiscount2? DiscountDetails { get; init; } 
     /// <summary>
     /// Party that bears the fee.
     /// </summary>
-    [DataMember]
     public ChargeBearer1Code? ChargeBearer { get; init; } 
     /// <summary>
     /// Party entitled to the amount of money resulting from the fee.
     /// </summary>
-    [DataMember]
     public PartyIdentification113? RecipientIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Basis is ChargeBasis2Choice_ BasisValue)
+        {
+            writer.WriteStartElement(null, "Bsis", xmlNamespace );
+            BasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (DiscountDetails is ChargeOrCommissionDiscount2 DiscountDetailsValue)
+        {
+            writer.WriteStartElement(null, "DscntDtls", xmlNamespace );
+            DiscountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ChargeBearer is ChargeBearer1Code ChargeBearerValue)
+        {
+            writer.WriteStartElement(null, "ChrgBr", xmlNamespace );
+            writer.WriteValue(ChargeBearerValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (RecipientIdentification is PartyIdentification113 RecipientIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcptId", xmlNamespace );
+            RecipientIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Fee4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

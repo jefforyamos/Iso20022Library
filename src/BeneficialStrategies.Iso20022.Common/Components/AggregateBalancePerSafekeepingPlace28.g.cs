@@ -7,98 +7,190 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Net position of a segregated holding, in a single security, within the overall position held in a securities account at a specified place of safekeeping.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AggregateBalancePerSafekeepingPlace28
+     : IIsoXmlSerilizable<AggregateBalancePerSafekeepingPlace28>
 {
     #nullable enable
     
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    [DataMember]
     public required SafeKeepingPlace1 SafekeepingPlace { get; init; } 
     /// <summary>
     /// Market(s) on which the security is listed.
     /// </summary>
-    [DataMember]
     public MarketIdentification3Choice_? PlaceOfListing { get; init; } 
     /// <summary>
     /// Specify the entity to which the financial instruments are pledged.
     /// </summary>
-    [DataMember]
     public Pledgee1? Pledgee { get; init; } 
     /// <summary>
     /// Total quantity of financial instruments of the balance.
     /// </summary>
-    [DataMember]
     public required Balance6 AggregateBalance { get; init; } 
     /// <summary>
     /// Total quantity of financial instruments of the balance that is available.
     /// </summary>
-    [DataMember]
     public Balance8? AvailableBalance { get; init; } 
     /// <summary>
     /// Total quantity of financial instruments of the balance that is not available.
     /// </summary>
-    [DataMember]
     public BalanceQuantity8Choice_? NotAvailableBalance { get; init; } 
     /// <summary>
     /// Price of the financial instrument in one or more currencies.
     /// </summary>
-    [DataMember]
-    public ValueList<PriceInformation12> PriceDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public PriceInformation12? PriceDetails { get; init; } 
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
     /// </summary>
-    [DataMember]
-    public ValueList<ForeignExchangeTerms22> ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public ForeignExchangeTerms22? ForeignExchangeDetails { get; init; } 
     /// <summary>
     /// Specifies the number of days used for calculating the accrued interest amount.
     /// </summary>
-    [DataMember]
     public IsoNumber? DaysAccrued { get; init; } 
     /// <summary>
     /// Valuation amounts provided in the base currency of the account.
     /// </summary>
-    [DataMember]
     public BalanceAmounts3? AccountBaseCurrencyAmounts { get; init; } 
     /// <summary>
     /// Valuation amounts provided in the currency of the financial instrument.
     /// </summary>
-    [DataMember]
     public BalanceAmounts3? InstrumentCurrencyAmounts { get; init; } 
     /// <summary>
     /// Breakdown of the aggregate quantity reported into significant lots, for example, tax lots.
     /// </summary>
-    [DataMember]
-    public ValueList<QuantityBreakdown27> QuantityBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
+    public QuantityBreakdown27? QuantityBreakdown { get; init; } 
     /// <summary>
     /// Specifies the underlying business area/type of trade causing the collateral movement.
     /// </summary>
-    [DataMember]
     public ExposureType16Choice_? ExposureType { get; init; } 
     /// <summary>
     /// Breakdown of the aggregate balance per meaningful sub-balances and availability.
     /// </summary>
-    [DataMember]
-    public ValueList<SubBalanceInformation15> BalanceBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
+    public SubBalanceInformation15? BalanceBreakdown { get; init; } 
     /// <summary>
     /// Provides additional instrument sub-balance information on all or parts of the reported financial instrument (unregistered, tax exempt, etc.).
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalBalanceInformation15> AdditionalBalanceBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalBalanceInformation15? AdditionalBalanceBreakdown { get; init; } 
     /// <summary>
     /// Provides additional information on the holding.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? HoldingAdditionalDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
+        SafekeepingPlace.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PlaceOfListing is MarketIdentification3Choice_ PlaceOfListingValue)
+        {
+            writer.WriteStartElement(null, "PlcOfListg", xmlNamespace );
+            PlaceOfListingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Pledgee is Pledgee1 PledgeeValue)
+        {
+            writer.WriteStartElement(null, "Pldgee", xmlNamespace );
+            PledgeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AggtBal", xmlNamespace );
+        AggregateBalance.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AvailableBalance is Balance8 AvailableBalanceValue)
+        {
+            writer.WriteStartElement(null, "AvlblBal", xmlNamespace );
+            AvailableBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotAvailableBalance is BalanceQuantity8Choice_ NotAvailableBalanceValue)
+        {
+            writer.WriteStartElement(null, "NotAvlblBal", xmlNamespace );
+            NotAvailableBalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PriceDetails is PriceInformation12 PriceDetailsValue)
+        {
+            writer.WriteStartElement(null, "PricDtls", xmlNamespace );
+            PriceDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ForeignExchangeDetails is ForeignExchangeTerms22 ForeignExchangeDetailsValue)
+        {
+            writer.WriteStartElement(null, "FXDtls", xmlNamespace );
+            ForeignExchangeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DaysAccrued is IsoNumber DaysAccruedValue)
+        {
+            writer.WriteStartElement(null, "DaysAcrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(DaysAccruedValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (AccountBaseCurrencyAmounts is BalanceAmounts3 AccountBaseCurrencyAmountsValue)
+        {
+            writer.WriteStartElement(null, "AcctBaseCcyAmts", xmlNamespace );
+            AccountBaseCurrencyAmountsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstrumentCurrencyAmounts is BalanceAmounts3 InstrumentCurrencyAmountsValue)
+        {
+            writer.WriteStartElement(null, "InstrmCcyAmts", xmlNamespace );
+            InstrumentCurrencyAmountsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (QuantityBreakdown is QuantityBreakdown27 QuantityBreakdownValue)
+        {
+            writer.WriteStartElement(null, "QtyBrkdwn", xmlNamespace );
+            QuantityBreakdownValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExposureType is ExposureType16Choice_ ExposureTypeValue)
+        {
+            writer.WriteStartElement(null, "XpsrTp", xmlNamespace );
+            ExposureTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BalanceBreakdown is SubBalanceInformation15 BalanceBreakdownValue)
+        {
+            writer.WriteStartElement(null, "BalBrkdwn", xmlNamespace );
+            BalanceBreakdownValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalBalanceBreakdown is AdditionalBalanceInformation15 AdditionalBalanceBreakdownValue)
+        {
+            writer.WriteStartElement(null, "AddtlBalBrkdwn", xmlNamespace );
+            AdditionalBalanceBreakdownValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (HoldingAdditionalDetails is IsoMax350Text HoldingAdditionalDetailsValue)
+        {
+            writer.WriteStartElement(null, "HldgAddtlDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(HoldingAdditionalDetailsValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AggregateBalancePerSafekeepingPlace28 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

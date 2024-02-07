@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.MemberIdentification2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.MemberIdentification2Choice;
 /// Information used to identify a member within a clearing system.
 /// </summary>
 public partial record ClearingSystemMemberIdentification : MemberIdentification2Choice_
+     , IIsoXmlSerilizable<ClearingSystemMemberIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record ClearingSystemMemberIdentification : MemberIdentification2
     /// Identification of a member of a clearing system.
     /// </summary>
     public required IsoMax35Text MemberIdentification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ClearingSystemIdentification is ClearingSystemIdentification2Choice_ ClearingSystemIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClrSysId", xmlNamespace );
+            ClearingSystemIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MmbId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MemberIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static new ClearingSystemMemberIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

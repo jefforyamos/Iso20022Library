@@ -7,58 +7,110 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Maintenance command the ATM must perform.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMCommand10
+     : IIsoXmlSerilizable<ATMCommand10>
 {
     #nullable enable
     
     /// <summary>
     /// Type of command to be performed by the ATM.
     /// </summary>
-    [DataMember]
     public required ATMCommand6Code Type { get; init; } 
     /// <summary>
     /// Urgency of the command.
     /// </summary>
-    [DataMember]
     public required TMSContactLevel2Code Urgency { get; init; } 
     /// <summary>
     /// Date time on which the command must be performed.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? DateTime { get; init; } 
     /// <summary>
     /// Identification of the entity issuing the command.
     /// </summary>
-    [DataMember]
     public ATMCommandIdentification1? CommandIdentification { get; init; } 
     /// <summary>
     /// Reason for sending the command.
     /// </summary>
-    [DataMember]
     public ATMCommandReason1Code? Reason { get; init; } 
     /// <summary>
     /// Trace of reasons by the entities in the path from the origin of the command to the ATM.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMCommandReason1Code> TraceReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMCommandReason1Code? TraceReason { get; init; } 
     /// <summary>
     /// Additional information about the reason to request this command.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? AdditionalReasonInformation { get; init; } 
     /// <summary>
     /// Specific parameters attached to the command.
     /// </summary>
-    [DataMember]
     public ATMCommandParameters3Choice_? CommandParameters { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Urgcy", xmlNamespace );
+        writer.WriteValue(Urgency.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (DateTime is IsoISODateTime DateTimeValue)
+        {
+            writer.WriteStartElement(null, "DtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(DateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (CommandIdentification is ATMCommandIdentification1 CommandIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CmdId", xmlNamespace );
+            CommandIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Reason is ATMCommandReason1Code ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            writer.WriteValue(ReasonValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TraceReason is ATMCommandReason1Code TraceReasonValue)
+        {
+            writer.WriteStartElement(null, "TracRsn", xmlNamespace );
+            writer.WriteValue(TraceReasonValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AdditionalReasonInformation is IsoMax70Text AdditionalReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlRsnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AdditionalReasonInformationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (CommandParameters is ATMCommandParameters3Choice_ CommandParametersValue)
+        {
+            writer.WriteStartElement(null, "CmdParams", xmlNamespace );
+            CommandParametersValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMCommand10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

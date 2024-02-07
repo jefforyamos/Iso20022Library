@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction7Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction7Choice;
 /// Reference details on the underlying statement cash entry.
 /// </summary>
 public partial record StatementEntry : UnderlyingTransaction7Choice_
+     , IIsoXmlSerilizable<StatementEntry>
 {
     #nullable enable
+    
     /// <summary>
     /// Set of elements used to provide information on the original message.
     /// </summary>
@@ -31,5 +35,47 @@ public partial record StatementEntry : UnderlyingTransaction7Choice_
     /// Universally unique identifier to provide the original end-to-end reference of a payment transaction.
     /// </summary>
     public IsoUUIDv4Identifier? OriginalUETR { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OriginalGroupInformation is OriginalGroupInformation29 OriginalGroupInformationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlGrpInf", xmlNamespace );
+            OriginalGroupInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalStatementIdentification is IsoMax35Text OriginalStatementIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlStmtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalStatementIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalEntryIdentification is IsoMax35Text OriginalEntryIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlNtryId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalEntryIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalUETR is IsoUUIDv4Identifier OriginalUETRValue)
+        {
+            writer.WriteStartElement(null, "OrgnlUETR", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoUUIDv4Identifier(OriginalUETRValue)); // data type UUIDv4Identifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new StatementEntry Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

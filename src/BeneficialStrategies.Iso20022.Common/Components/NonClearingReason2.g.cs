@@ -7,28 +7,52 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates the reason for which the contract has not been cleared.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NonClearingReason2
+     : IIsoXmlSerilizable<NonClearingReason2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the reason for a clearing exemption or exception.
     /// </summary>
-    [DataMember]
-    public ValueList<ClearingExemptionException1Code> ClearingExemptionException { get; init; } = []; // Warning: Don't know multiplicity.
+    public ClearingExemptionException1Code? ClearingExemptionException { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _AmE_sZPuEey0rJ3Gl6WZVA
     /// <summary>
     /// Indicates the reason for which the contract has not been cleared.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? NonClearingReasonInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize ClearingExemptionException, multiplicity Unknown
+        if (NonClearingReasonInformation is IsoMax350Text NonClearingReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "NonClrRsnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(NonClearingReasonInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static NonClearingReason2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

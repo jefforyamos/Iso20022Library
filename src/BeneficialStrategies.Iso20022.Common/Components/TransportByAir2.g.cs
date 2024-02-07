@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the transportation of goods by air.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransportByAir2
+     : IIsoXmlSerilizable<TransportByAir2>
 {
     #nullable enable
     
     /// <summary>
     /// Place from where the goods must leave.
     /// </summary>
-    [DataMember]
     public required AirportName1Choice_ DepartureAirport { get; init; } 
     /// <summary>
     /// Place where the goods must arrive.
     /// </summary>
-    [DataMember]
     public required AirportName1Choice_ DestinationAirport { get; init; } 
     /// <summary>
     /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AirCarrierName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DprtureAirprt", xmlNamespace );
+        DepartureAirport.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DstnAirprt", xmlNamespace );
+        DestinationAirport.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AirCarrierName is IsoMax35Text AirCarrierNameValue)
+        {
+            writer.WriteStartElement(null, "AirCrrierNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AirCarrierNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TransportByAir2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Key that must be created and sent in the response, or that must be verified.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record KEKIdentifier3
+     : IIsoXmlSerilizable<KEKIdentifier3>
 {
     #nullable enable
     
     /// <summary>
     /// Name or label of the key.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Name { get; init; } 
     /// <summary>
     /// Identification of the cryptographic key.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text Identification { get; init; } 
     /// <summary>
     /// Version of the cryptographic key.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Version { get; init; } 
     /// <summary>
     /// Value to check the key, for instance, result of the encryption of the null binary string.
     /// </summary>
-    [DataMember]
     public IsoMax35Binary? KeyCheckValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Name is IsoMax140Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(NameValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(Identification)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        if (Version is IsoMax140Text VersionValue)
+        {
+            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(VersionValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (KeyCheckValue is IsoMax35Binary KeyCheckValueValue)
+        {
+            writer.WriteStartElement(null, "KeyChckVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Binary(KeyCheckValueValue)); // data type Max35Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static KEKIdentifier3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,6 +7,8 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -14,67 +16,129 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies information about a financing relation between two parties represented by a document, for example invoice, credit.
 /// The component may include an external document describing details of the underlying trade object using an external schema.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialItem1
+     : IIsoXmlSerilizable<FinancialItem1>
 {
     #nullable enable
     
     /// <summary>
     /// Parameters identifying the context of the item.
     /// </summary>
-    [DataMember]
     public required FinancialItemParameters1 ItemContext { get; init; } 
     /// <summary>
     /// Identifier of financial document that is the base document for this item, for example an invoice number.
     /// </summary>
-    [DataMember]
-    public ValueList<QualifiedDocumentInformation1> FinancialDocumentReference { get; init; } = []; // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1? FinancialDocumentReference { get; init; } 
     /// <summary>
     /// Indicates whether the value is a debit or credit.
     /// </summary>
-    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Specifies the total amount related to the financial document.
     /// </summary>
-    [DataMember]
     public required InvoiceTotals1 TotalAmount { get; init; } 
     /// <summary>
     /// Specifies the remaining monetary amount.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? DueAmount { get; init; } 
     /// <summary>
     /// Instalment information for payment.
     /// </summary>
-    [DataMember]
-    public ValueList<Instalment2> InstalmentInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public Instalment2? InstalmentInformation { get; init; } 
     /// <summary>
     /// Additional proprietary textual information concerning the item.
     /// </summary>
-    [DataMember]
     public IsoMax2000Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Associated free form document, for example a delivery confirmation.
     /// </summary>
-    [DataMember]
-    public ValueList<QualifiedDocumentInformation1> AssociatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1? AssociatedDocument { get; init; } 
     /// <summary>
     /// Validation status of the item.
     /// </summary>
-    [DataMember]
     public ValidationStatusInformation1? ValidationStatusInformation { get; init; } 
     /// <summary>
     /// Financing status if applicable for the item.
     /// </summary>
-    [DataMember]
     public FinancingInformationAndStatus1? FinancingStatus { get; init; } 
     /// <summary>
     /// Structured proprietary information concerning details of the financial item.
     /// </summary>
-    [DataMember]
     public SupplementaryData1? ProprietaryDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ItmCntxt", xmlNamespace );
+        ItemContext.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FinancialDocumentReference is QualifiedDocumentInformation1 FinancialDocumentReferenceValue)
+        {
+            writer.WriteStartElement(null, "FinDocRef", xmlNamespace );
+            FinancialDocumentReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+        writer.WriteValue(CreditDebitIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
+        TotalAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DueAmount is IsoActiveCurrencyAndAmount DueAmountValue)
+        {
+            writer.WriteStartElement(null, "DueAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(DueAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (InstalmentInformation is Instalment2 InstalmentInformationValue)
+        {
+            writer.WriteStartElement(null, "InstlmtInf", xmlNamespace );
+            InstalmentInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax2000Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2000Text(AdditionalInformationValue)); // data type Max2000Text System.String
+            writer.WriteEndElement();
+        }
+        if (AssociatedDocument is QualifiedDocumentInformation1 AssociatedDocumentValue)
+        {
+            writer.WriteStartElement(null, "AssoctdDoc", xmlNamespace );
+            AssociatedDocumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValidationStatusInformation is ValidationStatusInformation1 ValidationStatusInformationValue)
+        {
+            writer.WriteStartElement(null, "VldtnStsInf", xmlNamespace );
+            ValidationStatusInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FinancingStatus is FinancingInformationAndStatus1 FinancingStatusValue)
+        {
+            writer.WriteStartElement(null, "FincgSts", xmlNamespace );
+            FinancingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProprietaryDetails is SupplementaryData1 ProprietaryDetailsValue)
+        {
+            writer.WriteStartElement(null, "PrtryDtls", xmlNamespace );
+            ProprietaryDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialItem1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

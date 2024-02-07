@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters2Choice;
 /// Parameters to be used to update the configuration or the status security device.
 /// </summary>
 public partial record SecurityDevice : ATMCommandParameters2Choice_
+     , IIsoXmlSerilizable<SecurityDevice>
 {
     #nullable enable
+    
     /// <summary>
     /// Serial number of the device.
     /// </summary>
@@ -27,5 +31,41 @@ public partial record SecurityDevice : ATMCommandParameters2Choice_
     /// New status to apply on the security module of the ATM.
     /// </summary>
     public ATMStatus2Code? RequiredStatus { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SerialNumber is IsoMax35Text SerialNumberValue)
+        {
+            writer.WriteStartElement(null, "SrlNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SerialNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RequiredConfiguration is ATMSecurityConfiguration1 RequiredConfigurationValue)
+        {
+            writer.WriteStartElement(null, "ReqrdCfgtn", xmlNamespace );
+            RequiredConfigurationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RequiredStatus is ATMStatus2Code RequiredStatusValue)
+        {
+            writer.WriteStartElement(null, "ReqrdSts", xmlNamespace );
+            writer.WriteValue(RequiredStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static new SecurityDevice Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

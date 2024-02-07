@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the type of modification to account type.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TypeModification1
+     : IIsoXmlSerilizable<TypeModification1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of change.
     /// </summary>
-    [DataMember]
     public Modification1Code? ModificationCode { get; init; } 
     /// <summary>
     /// Type of the account.
     /// </summary>
-    [DataMember]
     public required CashAccountType2Choice_ Type { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ModificationCode is Modification1Code ModificationCodeValue)
+        {
+            writer.WriteStartElement(null, "ModCd", xmlNamespace );
+            writer.WriteValue(ModificationCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static TypeModification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

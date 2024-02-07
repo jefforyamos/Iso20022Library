@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Number of reports per status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NumberOfReportsPerStatus4
+     : IIsoXmlSerilizable<NumberOfReportsPerStatus4>
 {
     #nullable enable
     
     /// <summary>
     /// Number of individual reports sent / received, detailed per status.
     /// </summary>
-    [DataMember]
     public required IsoMax15NumericText DetailedNumberOfReports { get; init; } 
     /// <summary>
     /// Common report status for all individual reports sent / received.
     /// </summary>
-    [DataMember]
     public required PairedReconciled3Code DetailedStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DtldNbOfRpts", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15NumericText(DetailedNumberOfReports)); // data type Max15NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DtldSts", xmlNamespace );
+        writer.WriteValue(DetailedStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static NumberOfReportsPerStatus4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

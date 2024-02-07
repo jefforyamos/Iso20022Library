@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional amounts from the processor or the issuer without financial impacts on the transaction amount.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DetailedAmount10
+     : IIsoXmlSerilizable<DetailedAmount10>
 {
     #nullable enable
     
     /// <summary>
     /// Type or class of amount.
     /// </summary>
-    [DataMember]
     public required TypeOfAmount6Code Type { get; init; } 
     /// <summary>
     /// Additional information to specify the type of amount.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AdditionalType { get; init; } 
     /// <summary>
     /// Amount value.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Short description of the amount to provide to the cardholder.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Label { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AdditionalType is IsoMax35Text AdditionalTypeValue)
+        {
+            writer.WriteStartElement(null, "AddtlTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdditionalTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(Amount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (Label is IsoMax35Text LabelValue)
+        {
+            writer.WriteStartElement(null, "Labl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(LabelValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static DetailedAmount10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

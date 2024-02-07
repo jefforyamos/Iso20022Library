@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details for a specific date on the daily data on settlement fails instructions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementFailsDailyData3
+     : IIsoXmlSerilizable<SettlementFailsDailyData3>
 {
     #nullable enable
     
     /// <summary>
     /// Date for each reporting day in the month.
     /// </summary>
-    [DataMember]
     public required IsoISODate ReportingDate { get; init; } 
     /// <summary>
     /// Data related to the failed settlement instructions for the reporting date.
     /// </summary>
-    [DataMember]
     public required SettlementFailsDailyInstrument3 DailyRecord { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptgDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ReportingDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DalyRcrd", xmlNamespace );
+        DailyRecord.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SettlementFailsDailyData3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

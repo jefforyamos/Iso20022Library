@@ -7,53 +7,88 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Report of the breakdown of the components for the capital requirement for central counterparty.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CapitalRequirement1
+     : IIsoXmlSerilizable<CapitalRequirement1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the capital necessary to cover the winding down or restructuring of activities.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount WindingDownOrRestructuringRisk { get; init; } 
     /// <summary>
     /// Indicates the capital necessary to cover the overall operational and legal risks.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount OperationalAndLegalRisk { get; init; } 
     /// <summary>
     /// Indicates the capital necessary to cover credit risks not already covered by other financial resources, such as risks stemming from clearing activity.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount CreditRisk { get; init; } 
     /// <summary>
     /// Indicates the capital necessary to cover counterparty credit risks not already covered by other financial resources, such as risks stemming from clearing activity.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount CounterPartyRisk { get; init; } 
     /// <summary>
     /// Indicates the capital necessary to cover counterparty market risks not already covered by other financial resources, such as risks stemming from clearing activity.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount MarketRisk { get; init; } 
     /// <summary>
     /// Indicates the capital necessary to cover business risk.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount BusinessRisk { get; init; } 
     /// <summary>
     /// Indicates the percentage above 100 percent of the CCP’s required capital requiring notification to the CCP’s National Competent Authority threshold.
     /// </summary>
-    [DataMember]
     public IsoBaseOneRate? NotificationBuffer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "WndgDwnOrRstrgRsk", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(WindingDownOrRestructuringRisk)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OprlAndLglRsk", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(OperationalAndLegalRisk)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CdtRsk", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CreditRisk)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CntrPtyRsk", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CounterPartyRisk)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MktRsk", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(MarketRisk)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BizRsk", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(BusinessRisk)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (NotificationBuffer is IsoBaseOneRate NotificationBufferValue)
+        {
+            writer.WriteStartElement(null, "NtfctnBffr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(NotificationBufferValue)); // data type BaseOneRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static CapitalRequirement1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

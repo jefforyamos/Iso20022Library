@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the most common data field that has not passed the validation rule.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TopReasonsForRejections2
+     : IIsoXmlSerilizable<TopReasonsForRejections2>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the most common data field that has not passed the validation rule for all derivatives.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> All { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? All { get; init; } 
     /// <summary>
     /// Identification of the most common data field that has not passed the validation rule for derivatives which have been reported as new.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> New { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? New { get; init; } 
     /// <summary>
     /// Identification of the most common data field that has not passed the validation rule for derivatives which have been reported as modification.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> Modification { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? Modification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (All is IsoMax35Text AllValue)
+        {
+            writer.WriteStartElement(null, "All", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AllValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (New is IsoMax35Text NewValue)
+        {
+            writer.WriteStartElement(null, "New", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NewValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Modification is IsoMax35Text ModificationValue)
+        {
+            writer.WriteStartElement(null, "Mod", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ModificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TopReasonsForRejections2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

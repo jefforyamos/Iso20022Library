@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed amounts associated with the total amount of transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DetailedAmount8
+     : IIsoXmlSerilizable<DetailedAmount8>
 {
     #nullable enable
     
@@ -23,24 +24,55 @@ public partial record DetailedAmount8
     /// Amount after the currency exchange.
     /// It corresponds to ISO 8583 field number 6, completed by the field number 51 for the versions 87 and 93.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Exchange rate to the currency of the amount.
     /// It corresponds to ISO 8583 field number 10.
     /// </summary>
-    [DataMember]
     public required IsoBaseOneRate ExchangeRate { get; init; } 
     /// <summary>
     /// Date and time at which the exchange rate has been quoted.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? QuotationDate { get; init; } 
     /// <summary>
     /// Text to display on the cardholder or to print on the cardholder bank statement.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? Label { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(Amount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XchgRate", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBaseOneRate(ExchangeRate)); // data type BaseOneRate System.Decimal
+        writer.WriteEndElement();
+        if (QuotationDate is IsoISODateTime QuotationDateValue)
+        {
+            writer.WriteStartElement(null, "QtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(QuotationDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (Label is IsoMax140Text LabelValue)
+        {
+            writer.WriteStartElement(null, "Labl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(LabelValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static DetailedAmount8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

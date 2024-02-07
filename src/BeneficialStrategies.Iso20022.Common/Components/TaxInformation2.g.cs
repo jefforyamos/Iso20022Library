@@ -7,58 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details about tax paid, or to be paid, to the government in accordance with the law, including pre-defined parameters such as thresholds and type of account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxInformation2
+     : IIsoXmlSerilizable<TaxInformation2>
 {
     #nullable enable
     
     /// <summary>
     /// Tax Identification Number of the creditor.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CreditorTaxIdentification { get; init; } 
     /// <summary>
     /// Type of tax payer (creditor).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CreditorTaxType { get; init; } 
     /// <summary>
     /// Tax Identification Number of the debtor.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DebtorTaxIdentification { get; init; } 
     /// <summary>
     /// Tax reference information that is specific to a taxing agency.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? TaxReferenceNumber { get; init; } 
     /// <summary>
     /// Total amount of money on which the tax is based.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? TotalTaxableBaseAmount { get; init; } 
     /// <summary>
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? TotalTaxAmount { get; init; } 
     /// <summary>
     /// Date by which tax is due.
     /// </summary>
-    [DataMember]
     public IsoISODate? TaxDate { get; init; } 
     /// <summary>
     /// Set of characteristics defining the type of tax.
     /// </summary>
-    [DataMember]
-    public ValueList<TaxDetails> TaxTypeInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public TaxDetails? TaxTypeInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CreditorTaxIdentification is IsoMax35Text CreditorTaxIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CdtrTaxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CreditorTaxIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CreditorTaxType is IsoMax35Text CreditorTaxTypeValue)
+        {
+            writer.WriteStartElement(null, "CdtrTaxTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CreditorTaxTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DebtorTaxIdentification is IsoMax35Text DebtorTaxIdentificationValue)
+        {
+            writer.WriteStartElement(null, "DbtrTaxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DebtorTaxIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TaxReferenceNumber is IsoMax140Text TaxReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "TaxRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(TaxReferenceNumberValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (TotalTaxableBaseAmount is IsoCurrencyAndAmount TotalTaxableBaseAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlTaxblBaseAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(TotalTaxableBaseAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TotalTaxAmount is IsoCurrencyAndAmount TotalTaxAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlTaxAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(TotalTaxAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TaxDate is IsoISODate TaxDateValue)
+        {
+            writer.WriteStartElement(null, "TaxDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(TaxDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (TaxTypeInformation is TaxDetails TaxTypeInformationValue)
+        {
+            writer.WriteStartElement(null, "TaxTpInf", xmlNamespace );
+            TaxTypeInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TaxInformation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

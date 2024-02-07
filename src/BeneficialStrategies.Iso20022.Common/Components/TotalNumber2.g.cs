@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Settlement transaction numbering information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TotalNumber2
+     : IIsoXmlSerilizable<TotalNumber2>
 {
     #nullable enable
     
     /// <summary>
     /// Sequential number of the instruction in a range of linked settlement instructions.
     /// </summary>
-    [DataMember]
     public required IsoMax6NumericText CurrentInstructionNumber { get; init; } 
     /// <summary>
     /// Total number of settlement instructions that are linked together.
     /// </summary>
-    [DataMember]
     public required IsoMax6NumericText TotalOfLinkedInstructions { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CurInstrNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax6NumericText(CurrentInstructionNumber)); // data type Max6NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlOfLkdInstrs", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax6NumericText(TotalOfLinkedInstructions)); // data type Max6NumericText System.String
+        writer.WriteEndElement();
+    }
+    public static TotalNumber2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

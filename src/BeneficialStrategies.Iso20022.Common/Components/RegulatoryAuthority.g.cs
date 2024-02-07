@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Entity requiring the regulatory reporting information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RegulatoryAuthority
+     : IIsoXmlSerilizable<RegulatoryAuthority>
 {
     #nullable enable
     
     /// <summary>
     /// Name of the entity requiring the regulatory reporting information.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? AuthorityName { get; init; } 
     /// <summary>
     /// Country of the entity requiring the regulatory reporting information.
     /// </summary>
-    [DataMember]
     public CountryCode? AuthorityCountry { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AuthorityName is IsoMax70Text AuthorityNameValue)
+        {
+            writer.WriteStartElement(null, "AuthrtyNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AuthorityNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (AuthorityCountry is CountryCode AuthorityCountryValue)
+        {
+            writer.WriteStartElement(null, "AuthrtyCtry", xmlNamespace );
+            writer.WriteValue(AuthorityCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static RegulatoryAuthority Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

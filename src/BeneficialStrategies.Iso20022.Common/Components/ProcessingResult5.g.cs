@@ -7,51 +7,99 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Outcome of the processing of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProcessingResult5
+     : IIsoXmlSerilizable<ProcessingResult5>
 {
     #nullable enable
     
     /// <summary>
     /// Result of the processing.
     /// </summary>
-    [DataMember]
     public ResultData1? ResultData { get; init; } 
     /// <summary>
     /// Outcome of a previous processing, for example, in response to a duplicate request.
     /// </summary>
-    [DataMember]
     public ResultData1? OriginalResultData { get; init; } 
     /// <summary>
     /// Action required flag.
     /// Default: False: Action Not Required.
     /// True: Action Required.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ActionRequired { get; init; } 
     /// <summary>
     /// Set of actions to be performed.
     /// </summary>
-    [DataMember]
-    public ValueList<Action9> Action { get; init; } = []; // Warning: Don't know multiplicity.
+    public Action9? Action { get; init; } 
     /// <summary>
     /// Additional action to perform.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalAction1> AdditionalAction { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalAction1? AdditionalAction { get; init; } 
     /// <summary>
     /// Additional information relevant for the destination.
     /// ISO 8583 bit 44
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation20> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation20? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ResultData is ResultData1 ResultDataValue)
+        {
+            writer.WriteStartElement(null, "RsltData", xmlNamespace );
+            ResultDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OriginalResultData is ResultData1 OriginalResultDataValue)
+        {
+            writer.WriteStartElement(null, "OrgnlRsltData", xmlNamespace );
+            OriginalResultDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ActionRequired is IsoYesNoIndicator ActionRequiredValue)
+        {
+            writer.WriteStartElement(null, "ActnReqrd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ActionRequiredValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Action is Action9 ActionValue)
+        {
+            writer.WriteStartElement(null, "Actn", xmlNamespace );
+            ActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalAction is AdditionalAction1 AdditionalActionValue)
+        {
+            writer.WriteStartElement(null, "AddtlActn", xmlNamespace );
+            AdditionalActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation20 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ProcessingResult5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

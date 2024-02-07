@@ -7,63 +7,111 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the refusal of a demand.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DemandRefusal1
+     : IIsoXmlSerilizable<DemandRefusal1>
 {
     #nullable enable
     
     /// <summary>
     /// Details related to the identification of the undertaking.
     /// </summary>
-    [DataMember]
     public required Undertaking9 UndertakingIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier assigned by the advising party to the undertaking.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AdvisingPartyReferenceNumber { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier assigned by the second advising party to the undertaking.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SecondAdvisingPartyReferenceNumber { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier assigned by the confirmer to the undertaking.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ConfirmerReferenceNumber { get; init; } 
     /// <summary>
     /// Details related to the demand.
     /// </summary>
-    [DataMember]
     public required Demand2 DemandDetails { get; init; } 
     /// <summary>
     /// Expicit indication of 'REFUSED' as the processing status reported by the issuer.
     /// </summary>
-    [DataMember]
     public required IsoRefused7Text Status { get; init; } 
     /// <summary>
     /// Details related to the discrepancies.
     /// </summary>
-    [DataMember]
-    public ValueList<Discrepancy1> Discrepancy { get; init; } = []; // Warning: Don't know multiplicity.
+    public Discrepancy1? Discrepancy { get; init; } 
     /// <summary>
     /// Indication of how the demand presentation documents will be handled as a consequence of the demand refusal.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax2000Text> DispositionOfDocuments { get; init; } = [];
+    public SimpleValueList<IsoMax2000Text> DispositionOfDocuments { get; init; } = [];
     /// <summary>
     /// Additional information related to the notification.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UdrtkgId", xmlNamespace );
+        UndertakingIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdvisingPartyReferenceNumber is IsoMax35Text AdvisingPartyReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "AdvsgPtyRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdvisingPartyReferenceNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SecondAdvisingPartyReferenceNumber is IsoMax35Text SecondAdvisingPartyReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "ScndAdvsgPtyRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SecondAdvisingPartyReferenceNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ConfirmerReferenceNumber is IsoMax35Text ConfirmerReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "CnfrmrRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ConfirmerReferenceNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DmndDtls", xmlNamespace );
+        DemandDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRefused7Text(Status)); // data type Refused7Text System.String
+        writer.WriteEndElement();
+        if (Discrepancy is Discrepancy1 DiscrepancyValue)
+        {
+            writer.WriteStartElement(null, "Dscrpncy", xmlNamespace );
+            DiscrepancyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DspstnOfDocs", xmlNamespace );
+        DispositionOfDocuments.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+    }
+    public static DemandRefusal1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

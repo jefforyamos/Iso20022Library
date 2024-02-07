@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus72Choice;
 
@@ -13,11 +15,37 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus72Choice;
 /// Instruction has been completed by the executing party.
 /// </summary>
 public partial record Completed : ProcessingStatus72Choice_
+     , IIsoXmlSerilizable<Completed>
 {
     #nullable enable
+    
     /// <summary>
     /// Specifies the reason of the Status.
     /// </summary>
-    public ProprietaryReason4? Reason { get; init;  } // Warning: Don't know multiplicity.
+    public ProprietaryReason4? Reason { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Reason is ProprietaryReason4 ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            ReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new Completed Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

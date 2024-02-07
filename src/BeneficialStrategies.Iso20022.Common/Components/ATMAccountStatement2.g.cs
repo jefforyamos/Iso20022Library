@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Statement information of an account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMAccountStatement2
+     : IIsoXmlSerilizable<ATMAccountStatement2>
 {
     #nullable enable
     
     /// <summary>
     /// Date of the transaction.
     /// </summary>
-    [DataMember]
     public IsoISODate? TransactionDate { get; init; } 
     /// <summary>
     /// Value date of the transaction.
     /// </summary>
-    [DataMember]
     public IsoISODate? ValueDate { get; init; } 
     /// <summary>
     /// Short text to display or print for the statement.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? ShortText { get; init; } 
     /// <summary>
     /// True if credit transaction.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CreditTransaction { get; init; } 
     /// <summary>
     /// Amount of the transaction.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Currency of the amount.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Alternative text of the statement to print or display.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? LongText { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TransactionDate is IsoISODate TransactionDateValue)
+        {
+            writer.WriteStartElement(null, "TxDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(TransactionDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ValueDate is IsoISODate ValueDateValue)
+        {
+            writer.WriteStartElement(null, "ValDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ValueDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ShortText is IsoMax70Text ShortTextValue)
+        {
+            writer.WriteStartElement(null, "ShrtTxt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(ShortTextValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (CreditTransaction is IsoTrueFalseIndicator CreditTransactionValue)
+        {
+            writer.WriteStartElement(null, "CdtTx", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CreditTransactionValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(Amount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (LongText is IsoMax256Text LongTextValue)
+        {
+            writer.WriteStartElement(null, "LngTxt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(LongTextValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMAccountStatement2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

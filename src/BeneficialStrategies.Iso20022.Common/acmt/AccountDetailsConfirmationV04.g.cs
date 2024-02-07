@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.acmt.AccountDetailsConfirmationV04>;
 
 namespace BeneficialStrategies.Iso20022.acmt;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// When the AccountDetailsConfirmation is used to reply to a GetAccountDetails message, it returns the selected subsets of account details that were specified in the GetAccountDetails message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account servicer, for example, a registrar, transfer agent or custodian bank sends the AccountDetailsConfirmation message to the account owner, for example, an investor to confirm the opening of an investment fund account, execution of an AccountModificationInstruction or to return information requested in a GetAccountDetails message.|Usage|The AccountDetailsConfirmation message is used to confirm the opening of an account, modification of an account or the provision of information requested in a previously sent GetAccountDetails message. The message contains detailed information relevant to the opened account.|When the AccountDetailsConfirmation is used to confirm execution of an AccountModificationInstruction message, it contains the modified subsets of account details that were specified in the AccountModificationInstruction.|When the AccountDetailsConfirmation is used to reply to a GetAccountDetails message, it returns the selected subsets of account details that were specified in the GetAccountDetails message.")]
-public partial record AccountDetailsConfirmationV04 : IOuterRecord
+public partial record AccountDetailsConfirmationV04 : IOuterRecord<AccountDetailsConfirmationV04,AccountDetailsConfirmationV04Document>
+    ,IIsoXmlSerilizable<AccountDetailsConfirmationV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record AccountDetailsConfirmationV04 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AcctDtlsConf";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AccountDetailsConfirmationV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -106,7 +113,7 @@ public partial record AccountDetailsConfirmationV04 : IOuterRecord
     [Description(@"Confirmation of information related to intermediaries who are related to a selected investment account.")]
     [DataMember(Name="Intrmies")]
     [XmlElement(ElementName="Intrmies")]
-    public required IReadOnlyCollection<Intermediary24> Intermediaries { get; init; } = []; // Min=0, Max=10
+    public required ValueList<Intermediary24> Intermediaries { get; init; } = []; // Min=0, Max=10
     
     /// <summary>
     /// Placement agent for the hedge fund industry.
@@ -133,7 +140,7 @@ public partial record AccountDetailsConfirmationV04 : IOuterRecord
     [Description(@"Confirmation of the information related to a savings plan that is related to a selected investment account.")]
     [DataMember(Name="SvgsInvstmtPlan")]
     [XmlElement(ElementName="SvgsInvstmtPlan")]
-    public required IReadOnlyCollection<InvestmentPlan9> SavingsInvestmentPlan { get; init; } = []; // Min=0, Max=50
+    public required ValueList<InvestmentPlan9> SavingsInvestmentPlan { get; init; } = []; // Min=0, Max=50
     
     /// <summary>
     /// Confirmation of the information related to a withdrawal plan that is related to a selected investment account.
@@ -142,7 +149,7 @@ public partial record AccountDetailsConfirmationV04 : IOuterRecord
     [Description(@"Confirmation of the information related to a withdrawal plan that is related to a selected investment account.")]
     [DataMember(Name="WdrwlInvstmtPlan")]
     [XmlElement(ElementName="WdrwlInvstmtPlan")]
-    public required IReadOnlyCollection<InvestmentPlan9> WithdrawalInvestmentPlan { get; init; } = []; // Min=0, Max=10
+    public required ValueList<InvestmentPlan9> WithdrawalInvestmentPlan { get; init; } = []; // Min=0, Max=10
     
     /// <summary>
     /// Confirmation of the cash settlement standing instruction associated to the investment fund transaction.
@@ -151,7 +158,7 @@ public partial record AccountDetailsConfirmationV04 : IOuterRecord
     [Description(@"Confirmation of the cash settlement standing instruction associated to the investment fund transaction.")]
     [DataMember(Name="CshSttlm")]
     [XmlElement(ElementName="CshSttlm")]
-    public required IReadOnlyCollection<InvestmentFundCashSettlementInformation7> CashSettlement { get; init; } = []; // Min=0, Max=8
+    public required ValueList<InvestmentFundCashSettlementInformation7> CashSettlement { get; init; } = []; // Min=0, Max=8
     
     /// <summary>
     /// Identifies documents to be provided for the account opening.
@@ -160,7 +167,7 @@ public partial record AccountDetailsConfirmationV04 : IOuterRecord
     [Description(@"Identifies documents to be provided for the account opening.")]
     [DataMember(Name="SvcLvlAgrmt")]
     [XmlElement(ElementName="SvcLvlAgrmt")]
-    public required IReadOnlyCollection<DocumentToSend1> ServiceLevelAgreement { get; init; } = []; // Min=0, Max=30
+    public required ValueList<DocumentToSend1> ServiceLevelAgreement { get; init; } = []; // Min=0, Max=30
     
     /// <summary>
     /// Identifies the market practice to which the message conforms.
@@ -189,6 +196,92 @@ public partial record AccountDetailsConfirmationV04 : IOuterRecord
     {
         return new AccountDetailsConfirmationV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AcctDtlsConf");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OrderReference is InvestmentFundOrder4 OrderReferenceValue)
+        {
+            writer.WriteStartElement(null, "OrdrRef", xmlNamespace );
+            OrderReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is AdditionalReference3 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ConfDtls", xmlNamespace );
+        ConfirmationDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (InvestmentAccount is InvestmentAccount38 InvestmentAccountValue)
+        {
+            writer.WriteStartElement(null, "InvstmtAcct", xmlNamespace );
+            InvestmentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountParties is AccountParties9 AccountPartiesValue)
+        {
+            writer.WriteStartElement(null, "AcctPties", xmlNamespace );
+            AccountPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Intrmies", xmlNamespace );
+        Intermediaries.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Placement is ReferredAgent1 PlacementValue)
+        {
+            writer.WriteStartElement(null, "Plcmnt", xmlNamespace );
+            PlacementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewIssueAllocation is NewIssueAllocation1 NewIssueAllocationValue)
+        {
+            writer.WriteStartElement(null, "NewIsseAllcn", xmlNamespace );
+            NewIssueAllocationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SvgsInvstmtPlan", xmlNamespace );
+        SavingsInvestmentPlan.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "WdrwlInvstmtPlan", xmlNamespace );
+        WithdrawalInvestmentPlan.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CshSttlm", xmlNamespace );
+        CashSettlement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SvcLvlAgrmt", xmlNamespace );
+        ServiceLevelAgreement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (MarketPracticeVersion is MarketPracticeVersion1 MarketPracticeVersionValue)
+        {
+            writer.WriteStartElement(null, "MktPrctcVrsn", xmlNamespace );
+            MarketPracticeVersionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountDetailsConfirmationV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -196,9 +289,7 @@ public partial record AccountDetailsConfirmationV04 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountDetailsConfirmationV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AccountDetailsConfirmationV04Document : IOuterDocument<AccountDetailsConfirmationV04>
+public partial record AccountDetailsConfirmationV04Document : IOuterDocument<AccountDetailsConfirmationV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -214,5 +305,22 @@ public partial record AccountDetailsConfirmationV04Document : IOuterDocument<Acc
     /// <summary>
     /// The instance of <seealso cref="AccountDetailsConfirmationV04"/> is required.
     /// </summary>
+    [DataMember(Name=AccountDetailsConfirmationV04.XmlTag)]
     public required AccountDetailsConfirmationV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AccountDetailsConfirmationV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

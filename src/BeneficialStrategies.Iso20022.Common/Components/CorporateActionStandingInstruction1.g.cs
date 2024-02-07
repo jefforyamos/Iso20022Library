@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the standing instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionStandingInstruction1
+     : IIsoXmlSerilizable<CorporateActionStandingInstruction1>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies whether the account Holders want their income to be paid net or gross of income tax (default is gross).
     /// </summary>
-    [DataMember]
     public required StandingInstructionGrossNet1Code NetOrGross { get; init; } 
     /// <summary>
     /// Provides information about the cash distribution standing instruction.
     /// </summary>
-    [DataMember]
     public required CashAccount17 CashDistributionDetails { get; init; } 
     /// <summary>
     /// Provides information about the securities distribution standing instruction.
     /// </summary>
-    [DataMember]
     public required SecuritiesAccount6 SecuritiesDistributionDetails { get; init; } 
     /// <summary>
     /// Additional information about the standing instruction.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NetOrGrss", xmlNamespace );
+        writer.WriteValue(NetOrGross.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CshDstrbtnDtls", xmlNamespace );
+        CashDistributionDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctiesDstrbtnDtls", xmlNamespace );
+        SecuritiesDistributionDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionStandingInstruction1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

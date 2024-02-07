@@ -7,23 +7,46 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Context in which the card payment transaction is performed.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Context8
+     : IIsoXmlSerilizable<Context8>
 {
     #nullable enable
     
     /// <summary>
     /// Context of the card payment transaction.
     /// </summary>
-    [DataMember]
     public TransactionContext5? TransactionContext { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TransactionContext is TransactionContext5 TransactionContextValue)
+        {
+            writer.WriteStartElement(null, "TxCntxt", xmlNamespace );
+            TransactionContextValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Context8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

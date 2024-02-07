@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of a payment instruction. The information contained in this component is sufficient to retrieve a payment instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentInstructionExtract
+     : IIsoXmlSerilizable<PaymentInstructionExtract>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the payment instruction (eg, field 20 of an MT 103) when meaningful to the case assigner.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AssignerInstructionIdentification { get; init; } 
     /// <summary>
     /// Identification of the payment instruction (eg, field 20 of an MT 103) when meaningful to the case assignee.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AssigneeInstructionIdentification { get; init; } 
     /// <summary>
     /// Amount of the payment. Depending on the context it can be either the amount settled (UnableToApply) or the instructed amount (RequestToCancel, RequestToModify, ClaimNonReceipt).
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? CurrencyAmount { get; init; } 
     /// <summary>
     /// Value date of the payment.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ValueDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AssignerInstructionIdentification is IsoMax35Text AssignerInstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AssgnrInstrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AssignerInstructionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AssigneeInstructionIdentification is IsoMax35Text AssigneeInstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AssgneInstrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AssigneeInstructionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CurrencyAmount is IsoCurrencyAndAmount CurrencyAmountValue)
+        {
+            writer.WriteStartElement(null, "CcyAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(CurrencyAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ValueDate is IsoISODateTime ValueDateValue)
+        {
+            writer.WriteStartElement(null, "ValDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ValueDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentInstructionExtract Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

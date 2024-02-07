@@ -7,33 +7,62 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides document line information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DocumentLineInformation1
+     : IIsoXmlSerilizable<DocumentLineInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides identification of the document line.
     /// </summary>
-    [DataMember]
-    public ValueList<DocumentLineIdentification1> Identification { get; init; } = []; // Warning: Don't know multiplicity.
+    public DocumentLineIdentification1? Identification { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _ULe6IKJpEeKmspP9k_hIRQ
     /// <summary>
     /// Description associated with the document line.
     /// </summary>
-    [DataMember]
     public IsoMax2048Text? Description { get; init; } 
     /// <summary>
     /// Provides details on the amounts of the document line.
     /// </summary>
-    [DataMember]
     public RemittanceAmount3? Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize Identification, multiplicity Unknown
+        if (Description is IsoMax2048Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2048Text(DescriptionValue)); // data type Max2048Text System.String
+            writer.WriteEndElement();
+        }
+        if (Amount is RemittanceAmount3 AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            AmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DocumentLineInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

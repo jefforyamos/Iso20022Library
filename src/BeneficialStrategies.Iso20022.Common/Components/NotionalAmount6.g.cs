@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates the reference amount from which contractual payments are determined and the schedule applicable to the payments.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NotionalAmount6
+     : IIsoXmlSerilizable<NotionalAmount6>
 {
     #nullable enable
     
@@ -23,18 +24,50 @@ public partial record NotionalAmount6
     /// Reference amount from which contractual payments are determined.
     /// Usage: In case of partial terminations, and amortisations and in case of contracts where the notional, due to the characteristics of the contract, varies over time, it shall reflect the remaining notional after the change took place.
     /// </summary>
-    [DataMember]
     public AmountAndDirection106? Amount { get; init; } 
     /// <summary>
     /// Specifies the effective date and end date of the schedule for derivative transactions negotiated in monetary amounts varying throughout the life of the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<Schedule11> SchedulePeriod { get; init; } = []; // Warning: Don't know multiplicity.
+    public Schedule11? SchedulePeriod { get; init; } 
     /// <summary>
     /// Specifies the currency of the notional amount.
     /// </summary>
-    [DataMember]
     public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Amount is AmountAndDirection106 AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            AmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SchedulePeriod is Schedule11 SchedulePeriodValue)
+        {
+            writer.WriteStartElement(null, "SchdlPrd", xmlNamespace );
+            SchedulePeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveOrHistoricCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static NotionalAmount6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

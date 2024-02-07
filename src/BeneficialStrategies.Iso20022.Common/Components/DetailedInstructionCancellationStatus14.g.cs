@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status applying to individual cancellation instructions of a meeting instruction cancellation request message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DetailedInstructionCancellationStatus14
+     : IIsoXmlSerilizable<DetailedInstructionCancellationStatus14>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the specific individual instruction cancellation request from the original meeting instruction cancellation request message identified in InstructionType/ InstructionCancellationIdentification, for which the status is provided.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text SingleInstructionCancellationIdentification { get; init; } 
     /// <summary>
     /// Identification of the securities account.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountIdentification { get; init; } 
     /// <summary>
     /// Identification of the subaccount within the safekeeping account.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SubAccountIdentification { get; init; } 
     /// <summary>
     /// Status of an individual meeting instruction cancellation request.
     /// </summary>
-    [DataMember]
     public required CancellationStatus26Choice_ InstructionCancellationStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SnglInstrCxlId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(SingleInstructionCancellationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (AccountIdentification is IsoMax35Text AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SubAccountIdentification is IsoMax35Text SubAccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SubAcctId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SubAccountIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InstrCxlSts", xmlNamespace );
+        InstructionCancellationStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static DetailedInstructionCancellationStatus14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

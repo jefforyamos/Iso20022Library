@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the securities market transaction report related header details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesMarketReportHeader1
+     : IIsoXmlSerilizable<SecuritiesMarketReportHeader1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the venue which generates the report.
     /// </summary>
-    [DataMember]
     public required TradingVenueIdentification1Choice_ ReportingEntity { get; init; } 
     /// <summary>
     /// Date or date range the report relates to.
     /// </summary>
-    [DataMember]
     public required Period4Choice_ ReportingPeriod { get; init; } 
     /// <summary>
     /// Date and time of the report originally submitted by the reporting entity when the file is generated for submission to their reporting authority.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? SubmissionDateTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptgNtty", xmlNamespace );
+        ReportingEntity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptgPrd", xmlNamespace );
+        ReportingPeriod.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SubmissionDateTime is IsoISODateTime SubmissionDateTimeValue)
+        {
+            writer.WriteStartElement(null, "SubmissnDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(SubmissionDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesMarketReportHeader1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

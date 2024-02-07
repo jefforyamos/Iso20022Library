@@ -7,38 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Detailed description of the differences.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ValidationResult4
+     : IIsoXmlSerilizable<ValidationResult4>
 {
     #nullable enable
     
     /// <summary>
     /// Sequential number assigned to the mismatch.
     /// </summary>
-    [DataMember]
     public required IsoNumber SequenceNumber { get; init; } 
     /// <summary>
     /// Coded identification of the matching rule that is violated by the contents of each baseline.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text RuleIdentification { get; init; } 
     /// <summary>
     /// Detailed description of the rule.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text RuleDescription { get; init; } 
     /// <summary>
     /// Description of the element that creates the mismatch.
     /// </summary>
-    [DataMember]
-    public ValueList<ElementIdentification1> MisMatchedElement { get; init; } = []; // Warning: Don't know multiplicity.
+    public ElementIdentification1? MisMatchedElement { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _UsvZ9dp-Ed-ak6NoX_4Aeg_-1609439383
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SeqNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(SequenceNumber)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RuleId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(RuleIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RuleDesc", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(RuleDescription)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        // Not sure how to serialize MisMatchedElement, multiplicity Unknown
+    }
+    public static ValidationResult4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

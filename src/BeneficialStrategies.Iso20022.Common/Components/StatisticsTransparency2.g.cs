@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Statistics for a financial instrument generated as part of transparency calculations.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StatisticsTransparency2
+     : IIsoXmlSerilizable<StatisticsTransparency2>
 {
     #nullable enable
     
     /// <summary>
     /// Total number of transactions that have been performed on this market.
     /// </summary>
-    [DataMember]
     public required IsoNumber TotalNumberOfTransactionsExecuted { get; init; } 
     /// <summary>
     /// Total volume of transactions that have been performed on this market.
     /// </summary>
-    [DataMember]
     public required IsoDecimalNumber TotalVolumeOfTransactionsExecuted { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TtlNbOfTxsExctd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoNumber(TotalNumberOfTransactionsExecuted)); // data type Number System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlVolOfTxsExctd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(TotalVolumeOfTransactionsExecuted)); // data type DecimalNumber System.UInt64
+        writer.WriteEndElement();
+    }
+    public static StatisticsTransparency2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

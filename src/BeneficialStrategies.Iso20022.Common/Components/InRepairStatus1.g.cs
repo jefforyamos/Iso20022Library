@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status is in repair.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InRepairStatus1
+     : IIsoXmlSerilizable<InRepairStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates that there is no reason available or to report.
     /// </summary>
-    [DataMember]
     public required NoReasonCode NoReason { get; init; } 
     /// <summary>
     /// Reason of an in repair status in the report.
     /// </summary>
-    [DataMember]
     public required InRepairStatusReason1 Reason { get; init; } 
     /// <summary>
     /// Proprietary identification for a reason of a specific status in the report.
     /// </summary>
-    [DataMember]
     public required GenericIdentification1 DataSourceScheme { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NoRsn", xmlNamespace );
+        writer.WriteValue(NoReason.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rsn", xmlNamespace );
+        Reason.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DataSrcSchme", xmlNamespace );
+        DataSourceScheme.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static InRepairStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

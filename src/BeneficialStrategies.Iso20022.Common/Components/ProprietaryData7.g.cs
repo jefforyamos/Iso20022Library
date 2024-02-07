@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Container for proprietary information. Business content of this element is not specified.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProprietaryData7
+     : IIsoXmlSerilizable<ProprietaryData7>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of proprietary document.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Proprietary data content.
     /// </summary>
-    [DataMember]
     public required ProprietaryData6 Data { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Type)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Data", xmlNamespace );
+        Data.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ProprietaryData7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

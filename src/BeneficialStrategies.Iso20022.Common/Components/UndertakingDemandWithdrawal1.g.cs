@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the demand withdrawal notification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UndertakingDemandWithdrawal1
+     : IIsoXmlSerilizable<UndertakingDemandWithdrawal1>
 {
     #nullable enable
     
     /// <summary>
     /// Details related to the identification of the undertaking.
     /// </summary>
-    [DataMember]
     public required Undertaking6 UndertakingIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier assigned by the advising party to the undertaking.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AdvisingPartyReferenceNumber { get; init; } 
     /// <summary>
     /// Details related to the demand.
     /// </summary>
-    [DataMember]
     public required Demand3 DemandDetails { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier assigned by the confirmer to the undertaking.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ConfirmerReferenceNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "UdrtkgId", xmlNamespace );
+        UndertakingIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdvisingPartyReferenceNumber is IsoMax35Text AdvisingPartyReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "AdvsgPtyRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdvisingPartyReferenceNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DmndDtls", xmlNamespace );
+        DemandDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ConfirmerReferenceNumber is IsoMax35Text ConfirmerReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "CnfrmrRefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ConfirmerReferenceNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static UndertakingDemandWithdrawal1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

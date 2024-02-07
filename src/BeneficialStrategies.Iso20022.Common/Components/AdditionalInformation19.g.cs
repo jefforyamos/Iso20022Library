@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional information relevant to the destination.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalInformation19
+     : IIsoXmlSerilizable<AdditionalInformation19>
 {
     #nullable enable
     
     /// <summary>
     /// Key-entered numeric data.
     /// </summary>
-    [DataMember]
     public IsoMax35NumericText? EnteredDataNumeric { get; init; } 
     /// <summary>
     /// Key-entered alphanumeric data.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? EnteredDataAlphaNumeric { get; init; } 
     /// <summary>
     /// Additional fleet summary data. 
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (EnteredDataNumeric is IsoMax35NumericText EnteredDataNumericValue)
+        {
+            writer.WriteStartElement(null, "NtrdDataNmrc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35NumericText(EnteredDataNumericValue)); // data type Max35NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (EnteredDataAlphaNumeric is IsoMax350Text EnteredDataAlphaNumericValue)
+        {
+            writer.WriteStartElement(null, "NtrdDataAlphaNmrc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(EnteredDataAlphaNumericValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is IsoMax350Text AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalDataValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AdditionalInformation19 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

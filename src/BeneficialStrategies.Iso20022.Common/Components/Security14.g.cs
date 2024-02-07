@@ -7,75 +7,148 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of security used as collateral.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Security14
+     : IIsoXmlSerilizable<Security14>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a financial instrument used as a collateral.
     /// </summary>
-    [DataMember]
     public IsoISINOct2015Identifier? Identification { get; init; } 
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, that is common share with voting rights, fully paid, or registered.
     /// </summary>
-    [DataMember]
     public IsoCFIOct2015Identifier? ClassificationType { get; init; } 
     /// <summary>
     /// Information on the securities quantity or bonds nominal amount.
     /// </summary>
-    [DataMember]
     public QuantityNominalValue1Choice_? QuantityOrNominalValue { get; init; } 
     /// <summary>
     /// Price of unit of collateral component, including accrued interest for interest-bearing securities, used to value the security.
     /// </summary>
-    [DataMember]
     public SecuritiesTransactionPrice2Choice_? UnitPrice { get; init; } 
     /// <summary>
     /// Fair value of the individual collateral component expressed in price currency.
     /// </summary>
-    [DataMember]
     public AmountAndDirection53? MarketValue { get; init; } 
     /// <summary>
     /// Collateral haircut, a risk control measure applied to underlying collateral whereby the value of that underlying collateral is calculated as the market value of the assets reduced by a certain percentage. 
     /// In the case of margin lending, collateral haircut or margin requirement, a risk control measure applied to the entire collateral portfolio whereby the value of that underlying collateral is calculated as the market value of the assets reduced by a certain percentage. 
     /// Only actual values, as opposed to estimated or default values are to be reported for this attribute.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? HaircutOrMargin { get; init; } 
     /// <summary>
     /// Risk classification of the security used as collateral.
     /// </summary>
-    [DataMember]
     public CollateralQualityType1Code? Quality { get; init; } 
     /// <summary>
     /// Maturity date of the security used as collateral.
     /// </summary>
-    [DataMember]
     public IsoISODate? Maturity { get; init; } 
     /// <summary>
     /// Data on the securities issuer.
     /// </summary>
-    [DataMember]
     public SecurityIssuer2? Issuer { get; init; } 
     /// <summary>
     /// Type of a security used as collateral.
     /// </summary>
-    [DataMember]
     public SecuritiesLendingType3Choice_? Type { get; init; } 
     /// <summary>
     /// Indication whether the collateral taker can reuse the securities provided as a collateral.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? AvailableForCollateralReuse { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is IsoISINOct2015Identifier IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(IdentificationValue)); // data type ISINOct2015Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (ClassificationType is IsoCFIOct2015Identifier ClassificationTypeValue)
+        {
+            writer.WriteStartElement(null, "ClssfctnTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCFIOct2015Identifier(ClassificationTypeValue)); // data type CFIOct2015Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (QuantityOrNominalValue is QuantityNominalValue1Choice_ QuantityOrNominalValueValue)
+        {
+            writer.WriteStartElement(null, "QtyOrNmnlVal", xmlNamespace );
+            QuantityOrNominalValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnitPrice is SecuritiesTransactionPrice2Choice_ UnitPriceValue)
+        {
+            writer.WriteStartElement(null, "UnitPric", xmlNamespace );
+            UnitPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarketValue is AmountAndDirection53 MarketValueValue)
+        {
+            writer.WriteStartElement(null, "MktVal", xmlNamespace );
+            MarketValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (HaircutOrMargin is IsoPercentageRate HaircutOrMarginValue)
+        {
+            writer.WriteStartElement(null, "HrcutOrMrgn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(HaircutOrMarginValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Quality is CollateralQualityType1Code QualityValue)
+        {
+            writer.WriteStartElement(null, "Qlty", xmlNamespace );
+            writer.WriteValue(QualityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Maturity is IsoISODate MaturityValue)
+        {
+            writer.WriteStartElement(null, "Mtrty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(MaturityValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (Issuer is SecurityIssuer2 IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            IssuerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Type is SecuritiesLendingType3Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AvailableForCollateralReuse is IsoTrueFalseIndicator AvailableForCollateralReuseValue)
+        {
+            writer.WriteStartElement(null, "AvlblForCollReuse", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AvailableForCollateralReuseValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Security14 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

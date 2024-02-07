@@ -7,23 +7,42 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains additional information related to the message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AdditionalInformation5
+     : IIsoXmlSerilizable<AdditionalInformation5>
 {
     #nullable enable
     
     /// <summary>
     /// Contains additional information related to the message.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax256Text> Information { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax256Text? Information { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _Qoao5tp-Ed-ak6NoX_4Aeg_1159536818
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize Information, multiplicity Unknown
+    }
+    public static AdditionalInformation5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

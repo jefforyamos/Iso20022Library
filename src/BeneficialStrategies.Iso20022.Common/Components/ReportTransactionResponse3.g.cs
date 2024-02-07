@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Transaction Report Response message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReportTransactionResponse3
+     : IIsoXmlSerilizable<ReportTransactionResponse3>
 {
     #nullable enable
     
     /// <summary>
     /// The total number of transactions matching the search criteria.
     /// </summary>
-    [DataMember]
     public required IsoPositiveNumber ReportFullSize { get; init; } 
     /// <summary>
     /// Index of the first transaction reported in this message within the list of transactions matching the search criteria.
     /// </summary>
-    [DataMember]
     public required IsoPositiveNumber BlockStart { get; init; } 
     /// <summary>
     /// Index of the last transaction reported in this message.
     /// </summary>
-    [DataMember]
     public required IsoPositiveNumber BlockStop { get; init; } 
     /// <summary>
     /// List of Transaction Report containing one Transaction Report for each transaction matching the Search criteria. This list may be partial according to requested block.
     /// </summary>
-    [DataMember]
-    public ValueList<PointOfInteractionTransactionReport3> TransactionReport { get; init; } = []; // Warning: Don't know multiplicity.
+    public PointOfInteractionTransactionReport3? TransactionReport { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptFullSz", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPositiveNumber(ReportFullSize)); // data type PositiveNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BlckStart", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPositiveNumber(BlockStart)); // data type PositiveNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BlckStop", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPositiveNumber(BlockStop)); // data type PositiveNumber System.UInt64
+        writer.WriteEndElement();
+        if (TransactionReport is PointOfInteractionTransactionReport3 TransactionReportValue)
+        {
+            writer.WriteStartElement(null, "TxRpt", xmlNamespace );
+            TransactionReportValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ReportTransactionResponse3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

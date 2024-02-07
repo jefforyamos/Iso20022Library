@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Cancellation6Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation6Choice;
 /// Reference of the transfer instruction to be cancelled.
 /// </summary>
 public partial record CancellationByReference : Cancellation6Choice_
+     , IIsoXmlSerilizable<CancellationByReference>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
@@ -23,5 +27,31 @@ public partial record CancellationByReference : Cancellation6Choice_
     /// Transfer and cancellation reference.
     /// </summary>
     public TransferReference8? TransferReferences { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _HzyxIy8FEeO59oUFO5eLvw
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize TransferReferences, multiplicity Unknown
+    }
+    public static new CancellationByReference Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

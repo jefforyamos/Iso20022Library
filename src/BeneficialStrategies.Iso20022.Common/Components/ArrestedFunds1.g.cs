@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about funds that have been arrested.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ArrestedFunds1
+     : IIsoXmlSerilizable<ArrestedFunds1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the arrest order assigned by the account servicer.
     /// </summary>
-    [DataMember]
     public IsoMax10Text? ArrestIdentification { get; init; } 
     /// <summary>
     /// Total amount owed subject to arrest.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalAmount { get; init; } 
     /// <summary>
     /// Remaining unpaid amount out of total amount owed subject to arrest.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount RemainingUnpaidAmount { get; init; } 
     /// <summary>
     /// Funds blocked for settlement of the arrest order.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? ArrestedAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ArrestIdentification is IsoMax10Text ArrestIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ArrstId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10Text(ArrestIdentificationValue)); // data type Max10Text System.String
+            writer.WriteEndElement();
+        }
+        if (TotalAmount is IsoActiveCurrencyAndAmount TotalAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TotalAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RmngUnpdAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(RemainingUnpaidAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (ArrestedAmount is IsoActiveCurrencyAndAmount ArrestedAmountValue)
+        {
+            writer.WriteStartElement(null, "ArrstdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ArrestedAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static ArrestedFunds1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

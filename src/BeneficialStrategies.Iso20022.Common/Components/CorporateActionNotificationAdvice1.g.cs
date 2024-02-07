@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides detailed information about an announcement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionNotificationAdvice1
+     : IIsoXmlSerilizable<CorporateActionNotificationAdvice1>
 {
     #nullable enable
     
     /// <summary>
     /// Provides detailed information about the corporate action event.
     /// </summary>
-    [DataMember]
     public required CorporateAction2 CorporateActionDetails { get; init; } 
     /// <summary>
     /// Provides information about an option of a CA event.
     /// </summary>
-    [DataMember]
-    public ValueList<CorporateActionOption1> CorporateActionOptionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CorporateActionOption1? CorporateActionOptionDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CorpActnDtls", xmlNamespace );
+        CorporateActionDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CorporateActionOptionDetails is CorporateActionOption1 CorporateActionOptionDetailsValue)
+        {
+            writer.WriteStartElement(null, "CorpActnOptnDtls", xmlNamespace );
+            CorporateActionOptionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionNotificationAdvice1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

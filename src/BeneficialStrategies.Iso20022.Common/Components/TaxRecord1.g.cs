@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to define the tax record.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxRecord1
+     : IIsoXmlSerilizable<TaxRecord1>
 {
     #nullable enable
     
     /// <summary>
     /// High level code to identify the type of tax details.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Specifies the tax code as published by the tax authority.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Category { get; init; } 
     /// <summary>
     /// Provides further details of the category tax code.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CategoryDetails { get; init; } 
     /// <summary>
     /// Code provided by local authority to identify the status of the party that has drawn up the settlement document.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DebtorStatus { get; init; } 
     /// <summary>
     /// Identification number of the tax report as assigned by the taxing authority.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CertificateIdentification { get; init; } 
     /// <summary>
     /// Identifies, in a coded form, on which template the tax report is to be provided.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? FormsCode { get; init; } 
     /// <summary>
     /// Set of elements used to provide details on the period of time related to the tax payment.
     /// </summary>
-    [DataMember]
     public TaxPeriod1? Period { get; init; } 
     /// <summary>
     /// Set of elements used to provide information on the amount of the tax record.
     /// </summary>
-    [DataMember]
     public TaxAmount1? TaxAmount { get; init; } 
     /// <summary>
     /// Further details of the tax record.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is IsoMax35Text TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Category is IsoMax35Text CategoryValue)
+        {
+            writer.WriteStartElement(null, "Ctgy", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CategoryValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CategoryDetails is IsoMax35Text CategoryDetailsValue)
+        {
+            writer.WriteStartElement(null, "CtgyDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CategoryDetailsValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DebtorStatus is IsoMax35Text DebtorStatusValue)
+        {
+            writer.WriteStartElement(null, "DbtrSts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DebtorStatusValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CertificateIdentification is IsoMax35Text CertificateIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CertId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CertificateIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (FormsCode is IsoMax35Text FormsCodeValue)
+        {
+            writer.WriteStartElement(null, "FrmsCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(FormsCodeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Period is TaxPeriod1 PeriodValue)
+        {
+            writer.WriteStartElement(null, "Prd", xmlNamespace );
+            PeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxAmount is TaxAmount1 TaxAmountValue)
+        {
+            writer.WriteStartElement(null, "TaxAmt", xmlNamespace );
+            TaxAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax140Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalInformationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TaxRecord1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

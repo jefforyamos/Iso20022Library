@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of collateral agreement between counterparties.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeCollateralReport5
+     : IIsoXmlSerilizable<TradeCollateralReport5>
 {
     #nullable enable
     
@@ -24,12 +25,10 @@ public partial record TradeCollateralReport5
     /// Usage:
     /// NoCode is reported if the collateralisation was performed on a transaction level basis, or if there is no collateral agreement or if no collateral is posted or received.
     /// </summary>
-    [DataMember]
     public required PortfolioCode1Choice_ PortfolioCode { get; init; } 
     /// <summary>
     /// Indicates the type of collateral agreement existing between the counterparties.
     /// </summary>
-    [DataMember]
     public CollateralisationType2Code? Collateralisation { get; init; } 
     /// <summary>
     /// Specifies the pre-haircut or post-haircut monetary value of the initial margin posted by the reporting counterparty.
@@ -38,21 +37,18 @@ public partial record TradeCollateralReport5
     /// If the initial margin posted is denominated in more than one currency, those amounts are converted into a single currency chosen by the reporting counterparty and reported as one total value.|
     /// ||
     /// </summary>
-    [DataMember]
     public PrePostHaircut1? InitialMarginPosted { get; init; } 
     /// <summary>
     /// Specifies the pre-haircut or post-haircut monetary value of the initial margin collected by the reporting counterparty.
     /// ||Usage: |Where initial margin is collected on a portfolio basis, this field should include the total value of initial margin collected for the portfolio.
     /// If the initial margin collected is denominated in more than one currency, those amounts are converted into a single currency chosen by the reporting counterparty and reported as one total value.
     /// </summary>
-    [DataMember]
     public PrePostHaircut1? InitialMarginReceived { get; init; } 
     /// <summary>
     /// Specifies the pre-haircut or post-haircut monetary value of the variation margin posted, including cash settled, by the reporting counterparty. 
     /// Usage: Where variation margin is posted on a portfolio basis, this field should include the overall value of variation margin posted for the portfolio.
     /// If the variation margin posted is denominated in more than one currency, those amounts are converted into a single currency chosen by the reporting counterparty and reported as one total value.
     /// </summary>
-    [DataMember]
     public PrePostHaircut1? VariationMarginPosted { get; init; } 
     /// <summary>
     /// Specifies the pre-haircut or post-haircut monetary value of the variation margin collected, including cash-settled, by the reporting counterparty.
@@ -60,33 +56,102 @@ public partial record TradeCollateralReport5
     /// Where variation margin is received on a portfolio basis, this field should include the overall value of variation margin received for the portfolio.
     /// If the variation margin collected is denominated in more than one currency, those amounts are converted into a single currency chosen by the reporting counterparty and reported as one total value.
     /// </summary>
-    [DataMember]
     public PrePostHaircut1? VariationMarginReceived { get; init; } 
     /// <summary>
     /// Specifies the monetary value of additional collateral posted by the reporting counterparty in excess of the required collateral.
     /// |
     /// Usage: Where excess collateral is posted on a portfolio basis, this field should include the overall value of excess collateral posted for the portfolio.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? ExcessCollateralPosted { get; init; } 
     /// <summary>
     /// Specifies the monetary value of additional collateral received by the reporting counterparty in excess of the required collateral.
     /// Usage: Where excess collateral is received on a portfolio basis, this field should include the overall value of excess collateral collected for the portfolio.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? ExcessCollateralReceived { get; init; } 
     /// <summary>
     /// Indicates if a counterparty rating trigger is agreed by the counterparties for the collateral posted by the reporting counterparty.
     /// Usage: If the element is not present, the CounterpartyRatingTrigger is False.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CounterpartyRatingTriggerIndicator { get; init; } 
     /// <summary>
     /// Indicates if a counterparty rating trigger includes a threshold that increases collateral requirements when the counterparty falls below the single-A rating or equivalent.
     /// Usage: If the CounterpartyRatingTrigger indicator is false, this element is omitted.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CounterpartyRatingThresholdIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrtflCd", xmlNamespace );
+        PortfolioCode.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Collateralisation is CollateralisationType2Code CollateralisationValue)
+        {
+            writer.WriteStartElement(null, "Collstn", xmlNamespace );
+            writer.WriteValue(CollateralisationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (InitialMarginPosted is PrePostHaircut1 InitialMarginPostedValue)
+        {
+            writer.WriteStartElement(null, "InitlMrgnPstd", xmlNamespace );
+            InitialMarginPostedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InitialMarginReceived is PrePostHaircut1 InitialMarginReceivedValue)
+        {
+            writer.WriteStartElement(null, "InitlMrgnRcvd", xmlNamespace );
+            InitialMarginReceivedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (VariationMarginPosted is PrePostHaircut1 VariationMarginPostedValue)
+        {
+            writer.WriteStartElement(null, "VartnMrgnPstd", xmlNamespace );
+            VariationMarginPostedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (VariationMarginReceived is PrePostHaircut1 VariationMarginReceivedValue)
+        {
+            writer.WriteStartElement(null, "VartnMrgnRcvd", xmlNamespace );
+            VariationMarginReceivedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExcessCollateralPosted is IsoActiveOrHistoricCurrencyAnd19DecimalAmount ExcessCollateralPostedValue)
+        {
+            writer.WriteStartElement(null, "XcssCollPstd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd19DecimalAmount(ExcessCollateralPostedValue)); // data type ActiveOrHistoricCurrencyAnd19DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExcessCollateralReceived is IsoActiveOrHistoricCurrencyAnd19DecimalAmount ExcessCollateralReceivedValue)
+        {
+            writer.WriteStartElement(null, "XcssCollRcvd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd19DecimalAmount(ExcessCollateralReceivedValue)); // data type ActiveOrHistoricCurrencyAnd19DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CounterpartyRatingTriggerIndicator is IsoTrueFalseIndicator CounterpartyRatingTriggerIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyRatgTrggrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CounterpartyRatingTriggerIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CounterpartyRatingThresholdIndicator is IsoTrueFalseIndicator CounterpartyRatingThresholdIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyRatgThrshldInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CounterpartyRatingThresholdIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeCollateralReport5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

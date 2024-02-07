@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.reda.PartyDeletionRequestV01>;
 
 namespace BeneficialStrategies.Iso20022.reda;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// Processing of the party deletion request message is provided via a party status advice.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope:|The PartyDeletionRequest message is sent by the instructing party to the executing party to request a deletion of a party defined in the executing system.||Usage:|It aims at instructing the deletion of an existing party by providing its identification.|Processing of the party deletion request message is provided via a party status advice.")]
-public partial record PartyDeletionRequestV01 : IOuterRecord
+public partial record PartyDeletionRequestV01 : IOuterRecord<PartyDeletionRequestV01,PartyDeletionRequestV01Document>
+    ,IIsoXmlSerilizable<PartyDeletionRequestV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record PartyDeletionRequestV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "PtyDeltnReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => PartyDeletionRequestV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -80,6 +87,38 @@ public partial record PartyDeletionRequestV01 : IOuterRecord
     {
         return new PartyDeletionRequestV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("PtyDeltnReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MessageHeader is MessageHeader1 MessageHeaderValue)
+        {
+            writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+            MessageHeaderValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SysPtyId", xmlNamespace );
+        SystemPartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyDeletionRequestV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -87,9 +126,7 @@ public partial record PartyDeletionRequestV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyDeletionRequestV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record PartyDeletionRequestV01Document : IOuterDocument<PartyDeletionRequestV01>
+public partial record PartyDeletionRequestV01Document : IOuterDocument<PartyDeletionRequestV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -105,5 +142,22 @@ public partial record PartyDeletionRequestV01Document : IOuterDocument<PartyDele
     /// <summary>
     /// The instance of <seealso cref="PartyDeletionRequestV01"/> is required.
     /// </summary>
+    [DataMember(Name=PartyDeletionRequestV01.XmlTag)]
     public required PartyDeletionRequestV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(PartyDeletionRequestV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

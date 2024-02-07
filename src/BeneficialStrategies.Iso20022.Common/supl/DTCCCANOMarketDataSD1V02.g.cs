@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.supl.DTCCCANOMarketDataSD1V02>;
 
 namespace BeneficialStrategies.Iso20022.supl;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// The DTCCCANOMarketDataSD1 message extends ISO corporate action notification (CANO) market data message (Market Data type) with data elements that are not covered by the standard message, and additionally, with DTC values where issuer/offeror/market corresponding values are mapped to CANO. For example issuer/offeror/market declared cash rate will be mapped to the CANO and DTC announced cash rate will be extended in this message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The DTCCCANOMarketDataSD1 message extends ISO corporate action notification (CANO) market data message (Market Data type) with data elements that are not covered by the standard message, and additionally, with DTC values where issuer/offeror/market corresponding values are mapped to CANO. For example issuer/offeror/market declared cash rate will be mapped to the CANO and DTC announced cash rate will be extended in this message.")]
-public partial record DTCCCANOMarketDataSD1V02 : IOuterRecord
+public partial record DTCCCANOMarketDataSD1V02 : IOuterRecord<DTCCCANOMarketDataSD1V02,DTCCCANOMarketDataSD1V02Document>
+    ,IIsoXmlSerilizable<DTCCCANOMarketDataSD1V02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record DTCCCANOMarketDataSD1V02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "DTCCCANOMktDataSD1";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => DTCCCANOMarketDataSD1V02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -227,6 +234,143 @@ public partial record DTCCCANOMarketDataSD1V02 : IOuterRecord
     {
         return new DTCCCANOMarketDataSD1V02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("DTCCCANOMktDataSD1");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Pagination is Pagination PaginationValue)
+        {
+            writer.WriteStartElement(null, "Pgntn", xmlNamespace );
+            PaginationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NotificationGeneralInformationExtension is CorporateActionNotificationSD3 NotificationGeneralInformationExtensionValue)
+        {
+            writer.WriteStartElement(null, "NtfctnGnlInfXtnsn", xmlNamespace );
+            NotificationGeneralInformationExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CorporateActionGeneralInformationExtension is CorporateActionNotificationSD8 CorporateActionGeneralInformationExtensionValue)
+        {
+            writer.WriteStartElement(null, "CorpActnGnlInfXtnsn", xmlNamespace );
+            CorporateActionGeneralInformationExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnderlyingSecurityExtension is FinancialInstrumentAttributesSD6 UnderlyingSecurityExtensionValue)
+        {
+            writer.WriteStartElement(null, "UndrlygSctyXtnsn", xmlNamespace );
+            UnderlyingSecurityExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CorporateActionDetailsExtension is CorporateActionSD3 CorporateActionDetailsExtensionValue)
+        {
+            writer.WriteStartElement(null, "CorpActnDtlsXtnsn", xmlNamespace );
+            CorporateActionDetailsExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CorporateActionDateDetailsExtension is CorporateActionDateSD3 CorporateActionDateDetailsExtensionValue)
+        {
+            writer.WriteStartElement(null, "CorpActnDtDtlsXtnsn", xmlNamespace );
+            CorporateActionDateDetailsExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CorporateActionPriceDetailsExtension is CorporateActionPriceSD3 CorporateActionPriceDetailsExtensionValue)
+        {
+            writer.WriteStartElement(null, "CorpActnPricDtlsXtnsn", xmlNamespace );
+            CorporateActionPriceDetailsExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CorporateActionPeriodDetailsExtension is CorporateActionPeriodSD1 CorporateActionPeriodDetailsExtensionValue)
+        {
+            writer.WriteStartElement(null, "CorpActnPrdDtlsXtnsn", xmlNamespace );
+            CorporateActionPeriodDetailsExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CorporateActionSecuritiesQuantityExtension is CorporateActionQuantitySD1 CorporateActionSecuritiesQuantityExtensionValue)
+        {
+            writer.WriteStartElement(null, "CorpActnSctiesQtyXtnsn", xmlNamespace );
+            CorporateActionSecuritiesQuantityExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CorporateActionRateAndAmountDetailsExtension is CorporateActionRateSD1 CorporateActionRateAndAmountDetailsExtensionValue)
+        {
+            writer.WriteStartElement(null, "CorpActnRateAndAmtDtlsXtnsn", xmlNamespace );
+            CorporateActionRateAndAmountDetailsExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionDetailsExtension is CorporateActionOptionSD3 OptionDetailsExtensionValue)
+        {
+            writer.WriteStartElement(null, "OptnDtlsXtnsn", xmlNamespace );
+            OptionDetailsExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionSecuritiesQuantityExtension is SecuritiesOptionSD1 OptionSecuritiesQuantityExtensionValue)
+        {
+            writer.WriteStartElement(null, "OptnSctiesQtyXtnsn", xmlNamespace );
+            OptionSecuritiesQuantityExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesMovementDetailsExtension is SecuritiesOptionSD3 SecuritiesMovementDetailsExtensionValue)
+        {
+            writer.WriteStartElement(null, "SctiesMvmntDtlsXtnsn", xmlNamespace );
+            SecuritiesMovementDetailsExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesMovementSecurityDetailsExtension is FinancialInstrumentAttributesSD3 SecuritiesMovementSecurityDetailsExtensionValue)
+        {
+            writer.WriteStartElement(null, "SctiesMvmntSctyDtlsXtnsn", xmlNamespace );
+            SecuritiesMovementSecurityDetailsExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesMovementRateDetailsExtension is CorporateActionRateSD4 SecuritiesMovementRateDetailsExtensionValue)
+        {
+            writer.WriteStartElement(null, "SctiesMvmntRateDtlsXtnsn", xmlNamespace );
+            SecuritiesMovementRateDetailsExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesMovementCashInLieuDetailsExtension is CorporateActionPriceSD2 SecuritiesMovementCashInLieuDetailsExtensionValue)
+        {
+            writer.WriteStartElement(null, "SctiesMvmntCshInLieuDtlsXtnsn", xmlNamespace );
+            SecuritiesMovementCashInLieuDetailsExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesMovementFractionDispositionExtension is FractionDispositionTypeSD1 SecuritiesMovementFractionDispositionExtensionValue)
+        {
+            writer.WriteStartElement(null, "SctiesMvmntFrctnDspstnXtnsn", xmlNamespace );
+            SecuritiesMovementFractionDispositionExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashMovementDetailsExtension is CashOptionSD3 CashMovementDetailsExtensionValue)
+        {
+            writer.WriteStartElement(null, "CshMvmntDtlsXtnsn", xmlNamespace );
+            CashMovementDetailsExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AgentExtension is PartyIdentificationSD2 AgentExtensionValue)
+        {
+            writer.WriteStartElement(null, "AgtXtnsn", xmlNamespace );
+            AgentExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewAgentExtension is PartyIdentificationSD1 NewAgentExtensionValue)
+        {
+            writer.WriteStartElement(null, "NewAgtXtnsn", xmlNamespace );
+            NewAgentExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DTCCCANOMarketDataSD1V02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -234,9 +378,7 @@ public partial record DTCCCANOMarketDataSD1V02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCANOMarketDataSD1V02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record DTCCCANOMarketDataSD1V02Document : IOuterDocument<DTCCCANOMarketDataSD1V02>
+public partial record DTCCCANOMarketDataSD1V02Document : IOuterDocument<DTCCCANOMarketDataSD1V02>, IXmlSerializable
 {
     
     /// <summary>
@@ -252,5 +394,22 @@ public partial record DTCCCANOMarketDataSD1V02Document : IOuterDocument<DTCCCANO
     /// <summary>
     /// The instance of <seealso cref="DTCCCANOMarketDataSD1V02"/> is required.
     /// </summary>
+    [DataMember(Name=DTCCCANOMarketDataSD1V02.XmlTag)]
     public required DTCCCANOMarketDataSD1V02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(DTCCCANOMarketDataSD1V02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

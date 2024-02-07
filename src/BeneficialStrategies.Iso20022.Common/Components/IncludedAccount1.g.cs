@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the account that is impacted or not by the standing instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IncludedAccount1
+     : IIsoXmlSerilizable<IncludedAccount1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the securities account.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text SecuritiesAccountIdentification { get; init; } 
     /// <summary>
     /// Indicates whether the account is impacted or not by the standing instruction.||Yes = The account is impacted by the standing instruction.|No = The account is not impacted by the standing instruction.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator IncludedIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SctiesAcctId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(SecuritiesAccountIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InclInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(IncludedIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static IncludedAccount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

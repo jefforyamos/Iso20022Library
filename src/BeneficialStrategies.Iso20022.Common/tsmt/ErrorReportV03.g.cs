@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsmt.ErrorReportV03>;
 
 namespace BeneficialStrategies.Iso20022.tsmt;
 
@@ -28,10 +31,9 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// - according to the workflow implemented in the matching application, it did not expect the received message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The ErrorReport message is sent by the matching application to the party from which it received a message.|This message is used to inform about the inability of the matching application to process a received message.|Usage|The ErrorReport message can be sent to a party from which the matching application received a message to inform about its inability to process the received message because|- the syntax of the message is incorrect,or|- the message content is inconsistent,or|- according to the workflow implemented in the matching application, it did not expect the received message.")]
-public partial record ErrorReportV03 : IOuterRecord
+public partial record ErrorReportV03 : IOuterRecord<ErrorReportV03,ErrorReportV03Document>
+    ,IIsoXmlSerilizable<ErrorReportV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -43,6 +45,11 @@ public partial record ErrorReportV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "ErrRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ErrorReportV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -138,6 +145,68 @@ public partial record ErrorReportV03 : IOuterRecord
     {
         return new ErrorReportV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("ErrRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptId", xmlNamespace );
+        ReportIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionIdentification is SimpleIdentificationInformation TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            TransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EstablishedBaselineIdentification is DocumentIdentification3 EstablishedBaselineIdentificationValue)
+        {
+            writer.WriteStartElement(null, "EstblishdBaselnId", xmlNamespace );
+            EstablishedBaselineIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionStatus is TransactionStatus4 TransactionStatusValue)
+        {
+            writer.WriteStartElement(null, "TxSts", xmlNamespace );
+            TransactionStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UserTransactionReference is DocumentIdentification5 UserTransactionReferenceValue)
+        {
+            writer.WriteStartElement(null, "UsrTxRef", xmlNamespace );
+            UserTransactionReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RejectedMessageReference is MessageIdentification1 RejectedMessageReferenceValue)
+        {
+            writer.WriteStartElement(null, "RjctdMsgRef", xmlNamespace );
+            RejectedMessageReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "NbOfErrs", xmlNamespace );
+        NumberOfErrors.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ErrDesc", xmlNamespace );
+        ErrorDescription.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RequestForAction is PendingActivity2 RequestForActionValue)
+        {
+            writer.WriteStartElement(null, "ReqForActn", xmlNamespace );
+            RequestForActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ErrorReportV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -145,9 +214,7 @@ public partial record ErrorReportV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ErrorReportV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ErrorReportV03Document : IOuterDocument<ErrorReportV03>
+public partial record ErrorReportV03Document : IOuterDocument<ErrorReportV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -163,5 +230,22 @@ public partial record ErrorReportV03Document : IOuterDocument<ErrorReportV03>
     /// <summary>
     /// The instance of <seealso cref="ErrorReportV03"/> is required.
     /// </summary>
+    [DataMember(Name=ErrorReportV03.XmlTag)]
     public required ErrorReportV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ErrorReportV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

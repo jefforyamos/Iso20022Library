@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to search for a limit.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LimitUtilisationJournalSearchCriteria1
+     : IIsoXmlSerilizable<LimitUtilisationJournalSearchCriteria1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of limit applied by the system at the present time.
     /// </summary>
-    [DataMember]
-    public ValueList<LimitType4Code> LimitType { get; init; } = []; // Warning: Don't know multiplicity.
+    public LimitType4Code? LimitType { get; init; } 
     /// <summary>
     /// Date upon which journal activity takes place.
     /// </summary>
-    [DataMember]
     public required IsoISODate JournalActivityDate { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public AccountIdentification4Choice_? AccountIdentification { get; init; } 
     /// <summary>
     /// Currency unit used to specify the limit amount.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? LimitCurrency { get; init; } 
     /// <summary>
     /// Owner of the account which is being queried.
     /// </summary>
-    [DataMember]
     public IsoBICFIIdentifier? AccountOwner { get; init; } 
     /// <summary>
     /// Identification of the system member for which the limit is established.
     /// </summary>
-    [DataMember]
     public required SystemPartyIdentification4 BilateralLimitCounterpartyIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (LimitType is LimitType4Code LimitTypeValue)
+        {
+            writer.WriteStartElement(null, "LmtTp", xmlNamespace );
+            writer.WriteValue(LimitTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "JrnlActvtyDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(JournalActivityDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (AccountIdentification is AccountIdentification4Choice_ AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            AccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LimitCurrency is ActiveCurrencyCode LimitCurrencyValue)
+        {
+            writer.WriteStartElement(null, "LmtCcy", xmlNamespace );
+            writer.WriteValue(LimitCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AccountOwner is IsoBICFIIdentifier AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBICFIIdentifier(AccountOwnerValue)); // data type BICFIIdentifier System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "BilLmtCtrPtyId", xmlNamespace );
+        BilateralLimitCounterpartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static LimitUtilisationJournalSearchCriteria1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

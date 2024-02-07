@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to define the balance type and sub-type.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BalanceType12
+     : IIsoXmlSerilizable<BalanceType12>
 {
     #nullable enable
     
     /// <summary>
     /// Coded or proprietary format balance type.
     /// </summary>
-    [DataMember]
     public required BalanceType5Choice_ CodeOrProprietary { get; init; } 
     /// <summary>
     /// Specifies the balance sub-type.
     /// </summary>
-    [DataMember]
     public BalanceSubType1Choice_? SubType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CdOrPrtry", xmlNamespace );
+        CodeOrProprietary.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SubType is BalanceSubType1Choice_ SubTypeValue)
+        {
+            writer.WriteStartElement(null, "SubTp", xmlNamespace );
+            SubTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BalanceType12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

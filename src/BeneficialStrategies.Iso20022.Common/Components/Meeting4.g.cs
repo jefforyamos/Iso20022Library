@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the physical parameters of a shareholders meeting. Several dates and places can be defined for a meeting.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Meeting4
+     : IIsoXmlSerilizable<Meeting4>
 {
     #nullable enable
     
     /// <summary>
     /// Date and time at which the meeting will take place.
     /// </summary>
-    [DataMember]
     public required DateFormat29Choice_ DateAndTime { get; init; } 
     /// <summary>
     /// Indicates the status of the meeting date.
     /// </summary>
-    [DataMember]
     public MeetingDateStatus1Code? DateStatus { get; init; } 
     /// <summary>
     /// Specifies whether a minimum number of security representation is required to hold a meeting.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator QuorumRequired { get; init; } 
     /// <summary>
     /// Specifies the location where meeting will take place.
     /// </summary>
-    [DataMember]
     public ValueList<LocationFormat1Choice_> Location { get; init; } = [];
     /// <summary>
     /// Minimum quantity of securities required to hold a meeting.
     /// </summary>
-    [DataMember]
     public QuorumQuantity1Choice_? QuorumQuantity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DtAndTm", xmlNamespace );
+        DateAndTime.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DateStatus is MeetingDateStatus1Code DateStatusValue)
+        {
+            writer.WriteStartElement(null, "DtSts", xmlNamespace );
+            writer.WriteValue(DateStatusValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "QrmReqrd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(QuorumRequired)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Lctn", xmlNamespace );
+        Location.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (QuorumQuantity is QuorumQuantity1Choice_ QuorumQuantityValue)
+        {
+            writer.WriteStartElement(null, "QrmQty", xmlNamespace );
+            QuorumQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Meeting4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

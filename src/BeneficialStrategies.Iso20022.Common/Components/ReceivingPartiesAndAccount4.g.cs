@@ -7,48 +7,90 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Chain of parties involved in the settlement of a transaction, including receipts and deliveries, book transfers, treasury deals, or other activities, resulting in the movement of a security or amount of money from one account to another.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReceivingPartiesAndAccount4
+     : IIsoXmlSerilizable<ReceivingPartiesAndAccount4>
 {
     #nullable enable
     
     /// <summary>
     /// Party that buys goods or services, or a financial instrument.
     /// </summary>
-    [DataMember]
     public InvestmentAccount24? ReceiverDetails { get; init; } 
     /// <summary>
     /// Party that acts on behalf of the buyer of securities when the buyer does not have a direct relationship with the receiving agent.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount5? ReceiversCustodianDetails { get; init; } 
     /// <summary>
     /// Party that the Receiver's custodian uses to effect the receipt of a security, when the Receiver's custodian does not have a direct relationship with the Receiver agent.
     /// </summary>
-    [DataMember]
     public PartyIdentificationAndAccount5? ReceiversIntermediaryDetails { get; init; } 
     /// <summary>
     /// Party that receives securities from the delivering agent via the place of settlement, eg, securities central depository.
     /// </summary>
-    [DataMember]
     public required PartyIdentificationAndAccount4 ReceivingAgentDetails { get; init; } 
     /// <summary>
     /// Identifies the securities settlement system to be used.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SecuritiesSettlementSystem { get; init; } 
     /// <summary>
     /// Place where settlement of the securities takes place.
     /// </summary>
-    [DataMember]
     public required PartyIdentification21 PlaceOfSettlementDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReceiverDetails is InvestmentAccount24 ReceiverDetailsValue)
+        {
+            writer.WriteStartElement(null, "RcvrDtls", xmlNamespace );
+            ReceiverDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReceiversCustodianDetails is PartyIdentificationAndAccount5 ReceiversCustodianDetailsValue)
+        {
+            writer.WriteStartElement(null, "RcvrsCtdnDtls", xmlNamespace );
+            ReceiversCustodianDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReceiversIntermediaryDetails is PartyIdentificationAndAccount5 ReceiversIntermediaryDetailsValue)
+        {
+            writer.WriteStartElement(null, "RcvrsIntrmyDtls", xmlNamespace );
+            ReceiversIntermediaryDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RcvgAgtDtls", xmlNamespace );
+        ReceivingAgentDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecuritiesSettlementSystem is IsoMax35Text SecuritiesSettlementSystemValue)
+        {
+            writer.WriteStartElement(null, "SctiesSttlmSys", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SecuritiesSettlementSystemValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "PlcOfSttlmDtls", xmlNamespace );
+        PlaceOfSettlementDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ReceivingPartiesAndAccount4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

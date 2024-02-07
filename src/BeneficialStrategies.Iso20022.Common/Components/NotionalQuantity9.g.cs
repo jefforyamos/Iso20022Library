@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates the reference quantity of the transaction and the schedule applicable to the quantity computation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NotionalQuantity9
+     : IIsoXmlSerilizable<NotionalQuantity9>
 {
     #nullable enable
     
     /// <summary>
     /// Number of units of the financial instrument, that is, the nominal value.
     /// </summary>
-    [DataMember]
     public IsoLongFraction19DecimalNumber? TotalQuantity { get; init; } 
     /// <summary>
     /// Indicates the unit of measure in which the total notional quantity and notional quantity schedules are expressed.
     /// </summary>
-    [DataMember]
     public UnitOfMeasure8Choice_? UnitOfMeasure { get; init; } 
     /// <summary>
     /// Indicates the schedule or frequency of the derivative transactions.
     /// </summary>
-    [DataMember]
     public QuantityOrTerm1Choice_? Details { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TotalQuantity is IsoLongFraction19DecimalNumber TotalQuantityValue)
+        {
+            writer.WriteStartElement(null, "TtlQty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLongFraction19DecimalNumber(TotalQuantityValue)); // data type LongFraction19DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (UnitOfMeasure is UnitOfMeasure8Choice_ UnitOfMeasureValue)
+        {
+            writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
+            UnitOfMeasureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Details is QuantityOrTerm1Choice_ DetailsValue)
+        {
+            writer.WriteStartElement(null, "Dtls", xmlNamespace );
+            DetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static NotionalQuantity9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

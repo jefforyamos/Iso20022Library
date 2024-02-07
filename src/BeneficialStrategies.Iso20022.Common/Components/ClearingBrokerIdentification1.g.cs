@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the reference number assigned by the clearing broker. A distinction can be made between the reference for the Central Counterparty (CCP) leg and the reference for the client leg of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ClearingBrokerIdentification1
+     : IIsoXmlSerilizable<ClearingBrokerIdentification1>
 {
     #nullable enable
     
     /// <summary>
     /// Distinguishes the client leg from the central counterparty (CCP) leg in the clearing broker identification.
     /// </summary>
-    [DataMember]
     public required SideIndicator1Code SideIndicator { get; init; } 
     /// <summary>
     /// Specifies the identification assigned to the clearing broker.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ClearingBrokerIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SdInd", xmlNamespace );
+        writer.WriteValue(SideIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClrBrkrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ClearingBrokerIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static ClearingBrokerIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

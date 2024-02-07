@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of breakdown of a market value.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralTransactionAmountBreakdown2
+     : IIsoXmlSerilizable<CollateralTransactionAmountBreakdown2>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the underlying transaction (exposure split).
     /// </summary>
-    [DataMember]
     public required GenericIdentification178 LotNumber { get; init; } 
     /// <summary>
     /// Split amount of the aggregate transaction amount (exposure).
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TransactionAmount { get; init; } 
     /// <summary>
     /// Period that applies to the aggregate transation amount (exposure).
     /// </summary>
-    [DataMember]
     public Period4Choice_? Period { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "LotNb", xmlNamespace );
+        LotNumber.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TransactionAmount is IsoActiveOrHistoricCurrencyAndAmount TransactionAmountValue)
+        {
+            writer.WriteStartElement(null, "TxAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TransactionAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Period is Period4Choice_ PeriodValue)
+        {
+            writer.WriteStartElement(null, "Prd", xmlNamespace );
+            PeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralTransactionAmountBreakdown2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

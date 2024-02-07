@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Number used to sequence pages when it is not possible for data to be conveyed in a single message and the data has to be split across several pages (messages).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Pagination1
+     : IIsoXmlSerilizable<Pagination1>
 {
     #nullable enable
     
     /// <summary>
     /// Page number.
     /// </summary>
-    [DataMember]
     public required IsoMax5NumericText PageNumber { get; init; } 
     /// <summary>
     /// Indicates the last page.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator LastPageIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PgNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax5NumericText(PageNumber)); // data type Max5NumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "LastPgInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(LastPageIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static Pagination1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the compensation data of an incorrect billing.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BillingCompensation1
+     : IIsoXmlSerilizable<BillingCompensation1>
 {
     #nullable enable
     
     /// <summary>
     /// Defines the type of billing compensation.
     /// </summary>
-    [DataMember]
     public required BillingCompensationType1Choice_ Type { get; init; } 
     /// <summary>
     /// Defines the value of compensation.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection34 Value { get; init; } 
     /// <summary>
     /// Identifies the currency type used to report the value or total, in a coded form, such as Settlement (STLM).
     /// </summary>
-    [DataMember]
     public BillingCurrencyType2Code? CurrencyType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        Value.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CurrencyType is BillingCurrencyType2Code CurrencyTypeValue)
+        {
+            writer.WriteStartElement(null, "CcyTp", xmlNamespace );
+            writer.WriteValue(CurrencyTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static BillingCompensation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

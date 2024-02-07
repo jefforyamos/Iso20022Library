@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional references linked to the quote request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Reference1
+     : IIsoXmlSerilizable<Reference1>
 {
     #nullable enable
     
     /// <summary>
     /// Reference assigned by a sending party to unambiguously identify the request for quote.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RequestForQuoteRequestIdentification { get; init; } 
     /// <summary>
     /// Unique identifier of the order as assigned by institution or by the intermediary with closest association with the investor.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClientOrderIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (RequestForQuoteRequestIdentification is IsoMax35Text RequestForQuoteRequestIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ReqForQtReqId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RequestForQuoteRequestIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClientOrderIdentification is IsoMax35Text ClientOrderIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClntOrdrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientOrderIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Reference1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

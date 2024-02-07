@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Period of time details related to the tax payment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxPeriod3
+     : IIsoXmlSerilizable<TaxPeriod3>
 {
     #nullable enable
     
     /// <summary>
     /// Year related to the tax payment.
     /// </summary>
-    [DataMember]
     public IsoISOYear? Year { get; init; } 
     /// <summary>
     /// Identification of the period related to the tax payment.
     /// </summary>
-    [DataMember]
     public TaxRecordPeriod1Code? Type { get; init; } 
     /// <summary>
     /// Range of time between a start date and an end date for which the tax report is provided.
     /// </summary>
-    [DataMember]
     public DatePeriod2? FromToDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Year is IsoISOYear YearValue)
+        {
+            writer.WriteStartElement(null, "Yr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOYear(YearValue)); // data type ISOYear System.UInt16
+            writer.WriteEndElement();
+        }
+        if (Type is TaxRecordPeriod1Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (FromToDate is DatePeriod2 FromToDateValue)
+        {
+            writer.WriteStartElement(null, "FrToDt", xmlNamespace );
+            FromToDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TaxPeriod3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

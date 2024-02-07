@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the status and optionally the sub status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StatusAndSubStatus2
+     : IIsoXmlSerilizable<StatusAndSubStatus2>
 {
     #nullable enable
     
     /// <summary>
     /// Status expressed as a code.
     /// </summary>
-    [DataMember]
     public required Status27Choice_ StatusCode { get; init; } 
     /// <summary>
     /// Sub status expressed as a code.
     /// </summary>
-    [DataMember]
     public IsoExact4AlphaNumericText? SubStatusCode { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "StsCd", xmlNamespace );
+        StatusCode.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SubStatusCode is IsoExact4AlphaNumericText SubStatusCodeValue)
+        {
+            writer.WriteStartElement(null, "SubStsCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(SubStatusCodeValue)); // data type Exact4AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static StatusAndSubStatus2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

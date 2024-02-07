@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique identification to unambiguously identify the party within the system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SystemPartyIdentification3
+     : IIsoXmlSerilizable<SystemPartyIdentification3>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification to unambiguously identify the party within the system.
     /// </summary>
-    [DataMember]
     public required IsoBICFIIdentifier RelatedPartyIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the party responsible for the maintenance of the party reference data.
     /// </summary>
-    [DataMember]
     public required IsoBICFIIdentifier ResponsiblePartyIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RltdPtyId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBICFIIdentifier(RelatedPartyIdentification)); // data type BICFIIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RspnsblPtyId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBICFIIdentifier(ResponsiblePartyIdentification)); // data type BICFIIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static SystemPartyIdentification3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

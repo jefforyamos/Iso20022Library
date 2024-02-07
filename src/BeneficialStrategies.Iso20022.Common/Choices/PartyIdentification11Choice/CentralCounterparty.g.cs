@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification11Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification11Choice;
 /// An infrastructure that is very often a component of a clearinghouse, and facilitates clearing and settlement for its members by standing between the buyer and the seller of a trade. It may net transactions, and substitutes itself as a settlement counterparty to each position.
 /// </summary>
 public partial record CentralCounterparty : PartyIdentification11Choice_
+     , IIsoXmlSerilizable<CentralCounterparty>
 {
-    public required IsoMICIdentifier Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Market Identifier Code. The identification of a financial market, as stipulated in the norm ISO 10383 'Codes for exchanges and market identifications'.
+    /// </summary>
+    public required IsoMICIdentifier Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CntrlCtrPty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMICIdentifier(Value)); // data type MICIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static new CentralCounterparty Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

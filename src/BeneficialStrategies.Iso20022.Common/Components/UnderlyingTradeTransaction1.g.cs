@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UnderlyingTradeTransaction1
+     : IIsoXmlSerilizable<UnderlyingTradeTransaction1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of underlying transaction such as a tender, order, contract.
     /// </summary>
-    [DataMember]
     public required UnderlyingTradeTransactionType1Choice_ Type { get; init; } 
     /// <summary>
     /// Identification of the underlying transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Date the underlying transaction was issued or awarded.
     /// </summary>
-    [DataMember]
     public IsoISODate? TransactionDate { get; init; } 
     /// <summary>
     /// Date the tender closes.
     /// </summary>
-    [DataMember]
     public IsoISODate? TenderClosingDate { get; init; } 
     /// <summary>
     /// Amount of the underlying transaction.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? TransactionAmount { get; init; } 
     /// <summary>
     /// Percentage of the underlying contract covered by the undertaking.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? ContractAmountPercentage { get; init; } 
     /// <summary>
     /// Additional information related to the underlying transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Identification is IsoMax35Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionDate is IsoISODate TransactionDateValue)
+        {
+            writer.WriteStartElement(null, "TxDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(TransactionDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (TenderClosingDate is IsoISODate TenderClosingDateValue)
+        {
+            writer.WriteStartElement(null, "TndrClsgDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(TenderClosingDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (TransactionAmount is IsoActiveCurrencyAndAmount TransactionAmountValue)
+        {
+            writer.WriteStartElement(null, "TxAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(TransactionAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ContractAmountPercentage is IsoPercentageRate ContractAmountPercentageValue)
+        {
+            writer.WriteStartElement(null, "CtrctAmtPctg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(ContractAmountPercentageValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+    }
+    public static UnderlyingTradeTransaction1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

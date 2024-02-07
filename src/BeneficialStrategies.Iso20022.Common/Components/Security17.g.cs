@@ -7,90 +7,178 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data specific to securities being subject to the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Security17
+     : IIsoXmlSerilizable<Security17>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies whether the values defined as ISIN identifier are matching or not.
     /// </summary>
-    [DataMember]
     public CompareISINIdentifier2? Identification { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as CFI identifier are matching or not.
     /// </summary>
-    [DataMember]
     public CompareCFIIdentifier2? ClassificationType { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as decimal number are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDecimalNumber2? Quantity { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
-    [DataMember]
     public CompareAmountAndDirection1? NominalValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as collateral quality type code are matching or not.
     /// </summary>
-    [DataMember]
     public CompareCollateralQualityType2? Quality { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as ISO date are matching or not.
     /// </summary>
-    [DataMember]
     public CompareDate2? Maturity { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as LEI identifier are matching or not.
     /// </summary>
-    [DataMember]
     public CompareOrganisationIdentification1? IssuerIdentifier { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as country code are matching or not.
     /// </summary>
-    [DataMember]
     public CompareCountryCode2? IssuerCountry { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as securities lending type are matching or not.
     /// </summary>
-    [DataMember]
-    public ValueList<CompareSecuritiesLendingType2> Type { get; init; } = []; // Warning: Don't know multiplicity.
+    public CompareSecuritiesLendingType2? Type { get; init; } 
     /// <summary>
     /// Specifies whether the the unit prices are matching or not.
     /// </summary>
-    [DataMember]
     public CompareUnitPrice3? UnitPrice { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as true/false indicator are matching or not.
     /// </summary>
-    [DataMember]
     public CompareTrueFalseIndicator2? ExclusiveArrangement { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
-    [DataMember]
     public CompareActiveOrHistoricCurrencyAndAmount2? MarketValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as true/false indicator are matching or not.
     /// </summary>
-    [DataMember]
     public CompareTrueFalseIndicator2? AvailableForReuse { get; init; } 
     /// <summary>
     /// Collateral haircut, a risk control measure applied to underlying collateral whereby the value of that underlying collateral is calculated as the market value of the assets reduced by a certain percentage. 
     /// In the case of margin lending, collateral haircut or margin requirement, a risk control measure applied to the entire collateral portfolio whereby the value of that underlying collateral is calculated as the market value of the assets reduced by a certain percentage. 
     /// Only actual values, as opposed to estimated or default values are to be reported for this attribute.
     /// </summary>
-    [DataMember]
     public ComparePercentageRate2? HaircutOrMargin { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is CompareISINIdentifier2 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClassificationType is CompareCFIIdentifier2 ClassificationTypeValue)
+        {
+            writer.WriteStartElement(null, "ClssfctnTp", xmlNamespace );
+            ClassificationTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Quantity is CompareDecimalNumber2 QuantityValue)
+        {
+            writer.WriteStartElement(null, "Qty", xmlNamespace );
+            QuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NominalValue is CompareAmountAndDirection1 NominalValueValue)
+        {
+            writer.WriteStartElement(null, "NmnlVal", xmlNamespace );
+            NominalValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Quality is CompareCollateralQualityType2 QualityValue)
+        {
+            writer.WriteStartElement(null, "Qlty", xmlNamespace );
+            QualityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Maturity is CompareDate2 MaturityValue)
+        {
+            writer.WriteStartElement(null, "Mtrty", xmlNamespace );
+            MaturityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssuerIdentifier is CompareOrganisationIdentification1 IssuerIdentifierValue)
+        {
+            writer.WriteStartElement(null, "IssrIdr", xmlNamespace );
+            IssuerIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssuerCountry is CompareCountryCode2 IssuerCountryValue)
+        {
+            writer.WriteStartElement(null, "IssrCtry", xmlNamespace );
+            IssuerCountryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Type is CompareSecuritiesLendingType2 TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnitPrice is CompareUnitPrice3 UnitPriceValue)
+        {
+            writer.WriteStartElement(null, "UnitPric", xmlNamespace );
+            UnitPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExclusiveArrangement is CompareTrueFalseIndicator2 ExclusiveArrangementValue)
+        {
+            writer.WriteStartElement(null, "ExclsvArrgmnt", xmlNamespace );
+            ExclusiveArrangementValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarketValue is CompareActiveOrHistoricCurrencyAndAmount2 MarketValueValue)
+        {
+            writer.WriteStartElement(null, "MktVal", xmlNamespace );
+            MarketValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AvailableForReuse is CompareTrueFalseIndicator2 AvailableForReuseValue)
+        {
+            writer.WriteStartElement(null, "AvlblForReuse", xmlNamespace );
+            AvailableForReuseValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (HaircutOrMargin is ComparePercentageRate2 HaircutOrMarginValue)
+        {
+            writer.WriteStartElement(null, "HrcutOrMrgn", xmlNamespace );
+            HaircutOrMarginValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Security17 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

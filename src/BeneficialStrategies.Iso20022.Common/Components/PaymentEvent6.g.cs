@@ -7,6 +7,8 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
@@ -15,9 +17,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Usage:
 /// It is repeated as many times as there are events to be returned.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentEvent6
+     : IIsoXmlSerilizable<PaymentEvent6>
 {
     #nullable enable
     
@@ -25,29 +26,68 @@ public partial record PaymentEvent6
     /// Specifies the sending MessagingEndpoint that has created this Business Message for the receiving MessagingEndpoint that will process this Business Message.
     /// Usage: The sending MessagingEndpoint might be different from the sending address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
-    [DataMember]
     public required IsoAnyBICIdentifier From { get; init; } 
     /// <summary>
     /// Specifies the MessagingEndpoint designated by the sending MessagingEndpoint to be the recipient who will ultimately process this Business Message.
     /// Usage: The receiving MessagingEndpoint might be different from the receiving address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
-    [DataMember]
     public IsoAnyBICIdentifier? To { get; init; } 
     /// <summary>
     /// Specifies which party/parties will bear the charges associated with the processing of the payment transaction.
     /// </summary>
-    [DataMember]
     public ChargeBearerType3Code? ChargeBearer { get; init; } 
     /// <summary>
     /// Specifies the amount of money asked or paid for the charge.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ChargeAmount { get; init; } 
     /// <summary>
     /// Specifies the exchange rate details between two currencies.
     /// </summary>
-    [DataMember]
     public CurrencyExchange12? ForeignExchangeDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Fr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(From)); // data type AnyBICIdentifier System.String
+        writer.WriteEndElement();
+        if (To is IsoAnyBICIdentifier ToValue)
+        {
+            writer.WriteStartElement(null, "To", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(ToValue)); // data type AnyBICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (ChargeBearer is ChargeBearerType3Code ChargeBearerValue)
+        {
+            writer.WriteStartElement(null, "ChrgBr", xmlNamespace );
+            writer.WriteValue(ChargeBearerValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ChargeAmount is IsoActiveOrHistoricCurrencyAndAmount ChargeAmountValue)
+        {
+            writer.WriteStartElement(null, "ChrgAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ChargeAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ForeignExchangeDetails is CurrencyExchange12 ForeignExchangeDetailsValue)
+        {
+            writer.WriteStartElement(null, "FXDtls", xmlNamespace );
+            ForeignExchangeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentEvent6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

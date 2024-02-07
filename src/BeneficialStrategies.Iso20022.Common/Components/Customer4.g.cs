@@ -7,59 +7,117 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to a consumer or a company.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Customer4
+     : IIsoXmlSerilizable<Customer4>
 {
     #nullable enable
     
     /// <summary>
     /// Type of customer.
     /// </summary>
-    [DataMember]
     public CustomerType2Code? Type { get; init; } 
     /// <summary>
     /// Reference number provided by a cardholder or customer to card acceptor to facilitate communication and record keeping.  The value may be a reference number, code, or generic number.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReferenceNumber { get; init; } 
     /// <summary>
     /// Identification of the customer recognized by the taxation authority.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax70Text> TaxRegistrationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax70Text? TaxRegistrationIdentification { get; init; } 
     /// <summary>
     /// Contact at the company.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? AuthorisedContactCompany { get; init; } 
     /// <summary>
     /// Corporate individual or company (cardholder or their company) to be contacted for authorised purchases.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? AuthorisedContactName { get; init; } 
     /// <summary>
     /// Phone number of an individual or
     /// company contacted for company authorised purchases.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? AuthorisedContactPhoneNumber { get; init; } 
     /// <summary>
     /// Very Important Person indicator. 
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? VIPIndicator { get; init; } 
     /// <summary>
     /// Customer relationship identifier.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CustomerRelationship { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is CustomerType2Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ReferenceNumber is IsoMax35Text ReferenceNumberValue)
+        {
+            writer.WriteStartElement(null, "RefNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReferenceNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TaxRegistrationIdentification is IsoMax70Text TaxRegistrationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TaxRegnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(TaxRegistrationIdentificationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (AuthorisedContactCompany is IsoMax70Text AuthorisedContactCompanyValue)
+        {
+            writer.WriteStartElement(null, "AuthrsdCtctCpny", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AuthorisedContactCompanyValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (AuthorisedContactName is IsoMax70Text AuthorisedContactNameValue)
+        {
+            writer.WriteStartElement(null, "AuthrsdCtctNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(AuthorisedContactNameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (AuthorisedContactPhoneNumber is IsoPhoneNumber AuthorisedContactPhoneNumberValue)
+        {
+            writer.WriteStartElement(null, "AuthrsdCtctPhneNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(AuthorisedContactPhoneNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (VIPIndicator is IsoTrueFalseIndicator VIPIndicatorValue)
+        {
+            writer.WriteStartElement(null, "VIPInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(VIPIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CustomerRelationship is IsoMax35Text CustomerRelationshipValue)
+        {
+            writer.WriteStartElement(null, "CstmrRltsh", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CustomerRelationshipValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Customer4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

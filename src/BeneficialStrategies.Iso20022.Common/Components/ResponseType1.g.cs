@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Response of a requested service.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ResponseType1
+     : IIsoXmlSerilizable<ResponseType1>
 {
     #nullable enable
     
     /// <summary>
     /// Result of the transaction.
     /// </summary>
-    [DataMember]
     public required Response1Code Response { get; init; } 
     /// <summary>
     /// Detailed result of the transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ResponseReason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Rspn", xmlNamespace );
+        writer.WriteValue(Response.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ResponseReason is IsoMax35Text ResponseReasonValue)
+        {
+            writer.WriteStartElement(null, "RspnRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ResponseReasonValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ResponseType1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

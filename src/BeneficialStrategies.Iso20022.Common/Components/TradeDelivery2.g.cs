@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies how the supply chain shipping arrangements and the delivery of products and/or services as well as related documentation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeDelivery2
+     : IIsoXmlSerilizable<TradeDelivery2>
 {
     #nullable enable
     
     /// <summary>
     /// Actual delivery period of the products and/or services.
     /// </summary>
-    [DataMember]
     public Period1? DeliveryPeriod { get; init; } 
     /// <summary>
     /// Actual delivery date/time of the products and/or services.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? DeliveryDateTime { get; init; } 
     /// <summary>
     /// Party from whom the goods are dispatched.
     /// </summary>
-    [DataMember]
     public TradeParty3? ShipFrom { get; init; } 
     /// <summary>
     /// Party to whom the goods are dispatched.
     /// </summary>
-    [DataMember]
     public TradeParty3? ShipTo { get; init; } 
     /// <summary>
     /// Final party to whom the goods are dispatched.
     /// </summary>
-    [DataMember]
     public TradeParty3? UltimateShipTo { get; init; } 
     /// <summary>
     /// Delivery note related to the delivery of the products and/or services.
     /// </summary>
-    [DataMember]
     public DocumentIdentification22? DeliveryNote { get; init; } 
     /// <summary>
     /// Physical consolidation of goods for transport.
     /// </summary>
-    [DataMember]
-    public ValueList<Consignment4> Consignment { get; init; } = []; // Warning: Don't know multiplicity.
+    public Consignment4? Consignment { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DeliveryPeriod is Period1 DeliveryPeriodValue)
+        {
+            writer.WriteStartElement(null, "DlvryPrd", xmlNamespace );
+            DeliveryPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveryDateTime is IsoISODateTime DeliveryDateTimeValue)
+        {
+            writer.WriteStartElement(null, "DlvryDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(DeliveryDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ShipFrom is TradeParty3 ShipFromValue)
+        {
+            writer.WriteStartElement(null, "ShipFr", xmlNamespace );
+            ShipFromValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ShipTo is TradeParty3 ShipToValue)
+        {
+            writer.WriteStartElement(null, "ShipTo", xmlNamespace );
+            ShipToValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UltimateShipTo is TradeParty3 UltimateShipToValue)
+        {
+            writer.WriteStartElement(null, "UltmtShipTo", xmlNamespace );
+            UltimateShipToValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveryNote is DocumentIdentification22 DeliveryNoteValue)
+        {
+            writer.WriteStartElement(null, "DlvryNote", xmlNamespace );
+            DeliveryNoteValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Consignment is Consignment4 ConsignmentValue)
+        {
+            writer.WriteStartElement(null, "Consgnmt", xmlNamespace );
+            ConsignmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeDelivery2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

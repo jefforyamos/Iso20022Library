@@ -7,58 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to energy derivatives attributes.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record EnergyDeliveryAttribute5
+     : IIsoXmlSerilizable<EnergyDeliveryAttribute5>
 {
     #nullable enable
     
     /// <summary>
     /// Time interval for each block or shape.
     /// </summary>
-    [DataMember]
     public IsoISOTime? DeliveryInterval { get; init; } 
     /// <summary>
     /// Definition of delivery start datetime and end datetime.
     /// </summary>
-    [DataMember]
     public DateTimePeriod1? DeliveryPeriod { get; init; } 
     /// <summary>
     /// Start time and end time for each block or shape.
     /// </summary>
-    [DataMember]
-    public ValueList<TimePeriodDetails1> DeliveryTime { get; init; } = []; // Warning: Don't know multiplicity.
+    public TimePeriodDetails1? DeliveryTime { get; init; } 
     /// <summary>
     /// Duration of the delivery period.
     /// </summary>
-    [DataMember]
     public DurationType1Code? Duration { get; init; } 
     /// <summary>
     /// Days of the week of the delivery.
     /// </summary>
-    [DataMember]
-    public ValueList<WeekDay3Code> WeekDay { get; init; } = []; // Warning: Don't know multiplicity.
+    public WeekDay3Code? WeekDay { get; init; } 
     /// <summary>
     /// Delivery capacity for each delivery interval specified.
     /// </summary>
-    [DataMember]
     public Quantity47Choice_? DeliveryCapacity { get; init; } 
     /// <summary>
     /// Daily or hourly quantity in MWh or kWh/d which corresponds to the underlying commodity.
     /// </summary>
-    [DataMember]
     public EnergyQuantityUnit2Choice_? QuantityUnit { get; init; } 
     /// <summary>
     /// Indicates if applicable the price per quantity per delivery time interval.
     /// </summary>
-    [DataMember]
     public IsoLongFraction19DecimalNumber? PriceTimeIntervalQuantity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DeliveryInterval is IsoISOTime DeliveryIntervalValue)
+        {
+            writer.WriteStartElement(null, "DlvryIntrvl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(DeliveryIntervalValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+        if (DeliveryPeriod is DateTimePeriod1 DeliveryPeriodValue)
+        {
+            writer.WriteStartElement(null, "DlvryPrd", xmlNamespace );
+            DeliveryPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeliveryTime is TimePeriodDetails1 DeliveryTimeValue)
+        {
+            writer.WriteStartElement(null, "DlvryTm", xmlNamespace );
+            DeliveryTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Duration is DurationType1Code DurationValue)
+        {
+            writer.WriteStartElement(null, "Drtn", xmlNamespace );
+            writer.WriteValue(DurationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (WeekDay is WeekDay3Code WeekDayValue)
+        {
+            writer.WriteStartElement(null, "WkDay", xmlNamespace );
+            writer.WriteValue(WeekDayValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DeliveryCapacity is Quantity47Choice_ DeliveryCapacityValue)
+        {
+            writer.WriteStartElement(null, "DlvryCpcty", xmlNamespace );
+            DeliveryCapacityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (QuantityUnit is EnergyQuantityUnit2Choice_ QuantityUnitValue)
+        {
+            writer.WriteStartElement(null, "QtyUnit", xmlNamespace );
+            QuantityUnitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PriceTimeIntervalQuantity is IsoLongFraction19DecimalNumber PriceTimeIntervalQuantityValue)
+        {
+            writer.WriteStartElement(null, "PricTmIntrvlQty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLongFraction19DecimalNumber(PriceTimeIntervalQuantityValue)); // data type LongFraction19DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static EnergyDeliveryAttribute5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

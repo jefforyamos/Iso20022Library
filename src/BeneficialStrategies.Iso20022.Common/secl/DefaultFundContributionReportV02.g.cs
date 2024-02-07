@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.secl.DefaultFundContributionReportV02>;
 
 namespace BeneficialStrategies.Iso20022.secl;
 
@@ -27,10 +30,9 @@ namespace BeneficialStrategies.Iso20022.secl;
 /// CCPs require participants to post assets in a clearing fund that can be used in the event of a default by a participant, to compensate non-defaulting participants for losses they suffer due to this default. The CCP evaluates each participant risk level based on their positions (monthly or daily) and calculate the excess of deficit of the default fund contribution. The DefaultFundContributionReport is usually sent on a monthly basis.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The DefaultFundContributionReport message is sent by the central counterparty (CCP) to a Clearing member to report on the calculation of the default fund contribution and the potential net excess or deficit.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|CCPs require participants to post assets in a clearing fund that can be used in the event of a default by a participant, to compensate non-defaulting participants for losses they suffer due to this default. The CCP evaluates each participant risk level based on their positions (monthly or daily) and calculate the excess of deficit of the default fund contribution. The DefaultFundContributionReport is usually sent on a monthly basis.")]
-public partial record DefaultFundContributionReportV02 : IOuterRecord
+public partial record DefaultFundContributionReportV02 : IOuterRecord<DefaultFundContributionReportV02,DefaultFundContributionReportV02Document>
+    ,IIsoXmlSerilizable<DefaultFundContributionReportV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -42,6 +44,11 @@ public partial record DefaultFundContributionReportV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "DfltFndCntrbtnRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => DefaultFundContributionReportV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -92,6 +99,38 @@ public partial record DefaultFundContributionReportV02 : IOuterRecord
     {
         return new DefaultFundContributionReportV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("DfltFndCntrbtnRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptParams", xmlNamespace );
+        ReportParameters.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClrMmb", xmlNamespace );
+        ClearingMember.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptDtls", xmlNamespace );
+        ReportDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DefaultFundContributionReportV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -99,9 +138,7 @@ public partial record DefaultFundContributionReportV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DefaultFundContributionReportV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record DefaultFundContributionReportV02Document : IOuterDocument<DefaultFundContributionReportV02>
+public partial record DefaultFundContributionReportV02Document : IOuterDocument<DefaultFundContributionReportV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -117,5 +154,22 @@ public partial record DefaultFundContributionReportV02Document : IOuterDocument<
     /// <summary>
     /// The instance of <seealso cref="DefaultFundContributionReportV02"/> is required.
     /// </summary>
+    [DataMember(Name=DefaultFundContributionReportV02.XmlTag)]
     public required DefaultFundContributionReportV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(DefaultFundContributionReportV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -7,55 +7,102 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Card account balance.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Balance28
+     : IIsoXmlSerilizable<Balance28>
 {
     #nullable enable
     
     /// <summary>
     /// Type of card account balance.
     /// </summary>
-    [DataMember]
     public required BalanceType15Code Type { get; init; } 
     /// <summary>
     /// Other card account balance type.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Amount value.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Currency of the account.
     /// </summary>
-    [DataMember]
     public ISO3NumericCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Indicates whether the value of the balance id positive or negative.
     /// </summary>
-    [DataMember]
     public CreditDebit3Code? CreditDebit { get; init; } 
     /// <summary>
     /// Indicates whether the value of balance is expressed in the currency of the cardholder or not.
     /// True: Balance is expressed in the currency of the cardholder
     /// False: Balance is expressed in a different currency.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CardholderCurrencyIndicator { get; init; } 
     /// <summary>
     /// Date of the balance.
     /// </summary>
-    [DataMember]
     public IsoISODate? BalanceDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherType is IsoMax35Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(Amount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (Currency is ISO3NumericCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CreditDebit is CreditDebit3Code CreditDebitValue)
+        {
+            writer.WriteStartElement(null, "CdtDbt", xmlNamespace );
+            writer.WriteValue(CreditDebitValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CardholderCurrencyIndicator is IsoTrueFalseIndicator CardholderCurrencyIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrCcyInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CardholderCurrencyIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (BalanceDate is IsoISODate BalanceDateValue)
+        {
+            writer.WriteStartElement(null, "BalDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(BalanceDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static Balance28 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

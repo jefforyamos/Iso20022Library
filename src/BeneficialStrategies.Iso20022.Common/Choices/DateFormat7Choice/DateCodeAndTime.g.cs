@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.DateFormat7Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat7Choice;
 /// Specifies a date code and a time.
 /// </summary>
 public partial record DateCodeAndTime : DateFormat7Choice_
+     , IIsoXmlSerilizable<DateCodeAndTime>
 {
     #nullable enable
+    
     /// <summary>
     /// Specifies the type of date.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record DateCodeAndTime : DateFormat7Choice_
     /// Specifies the time.
     /// </summary>
     public required IsoISOTime Time { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "DtCd", xmlNamespace );
+        DateCode.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISOTime(Time)); // data type ISOTime System.TimeOnly
+        writer.WriteEndElement();
+    }
+    public static new DateCodeAndTime Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

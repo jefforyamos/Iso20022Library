@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data captured from on board diagnostic systems
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OnBoardDiagnostics1
+     : IIsoXmlSerilizable<OnBoardDiagnostics1>
 {
     #nullable enable
     
@@ -23,100 +24,212 @@ public partial record OnBoardDiagnostics1
     /// Current amount of time the vehicle engine has run idle (under no load) as determined by the vehicle monitoring system. 
     /// Expressed in hours
     /// </summary>
-    [DataMember]
     public IsoMax10NumberFraction2? EngineIdleTime { get; init; } 
     /// <summary>
     /// Total amount of time the vehicle engine has run idle (under no load) since the last reset, as determined by the vehicle monitoring system.
     /// Expressed in hours
     /// </summary>
-    [DataMember]
     public IsoMax10NumberFraction2? EngineTotalIdleTime { get; init; } 
     /// <summary>
     /// Number of hours the engine has been running (including idle time) as determined by the vehicle monitoring system.
     /// </summary>
-    [DataMember]
     public IsoMax10NumberFraction2? EngineHours { get; init; } 
     /// <summary>
     /// Amount of time elapsed since the previous reset as determined by the vehicle monitoring system.
     /// Expressed in hours
     /// </summary>
-    [DataMember]
     public IsoMax6NumberFraction2? EngineTotalTime { get; init; } 
     /// <summary>
     /// Engine load measured as determined by the vehicle monitoring system.
     /// </summary>
-    [DataMember]
     public IsoMax12NumericText? EngineLoad { get; init; } 
     /// <summary>
     /// Maximum revolutions per minute experienced by the crankshaft of the vehicle engine as determined by the vehicle monitoring system.
     /// </summary>
-    [DataMember]
     public IsoMax5NumericText? EngineRPM { get; init; } 
     /// <summary>
     /// Temperature of the engine oil as determined by the vehicle monitoring system.
     /// </summary>
-    [DataMember]
     public IsoMax6NumberFraction2? EngineOilTemperature { get; init; } 
     /// <summary>
     /// Pressure of the engine oil as determined by the vehicle monitoring system.
     /// </summary>
-    [DataMember]
     public IsoMax3NumericText? EngineOilPressure { get; init; } 
     /// <summary>
     /// Time remaining before next oil change expressed as a percentage, as determined by the vehicle monitoring system.
     /// </summary>
-    [DataMember]
     public IsoMax3NumericText? EngineOilLifeRemaining { get; init; } 
     /// <summary>
     /// Check engine status as determined by the vehicle monitoring system.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CheckEngineWarningStatus { get; init; } 
     /// <summary>
     /// Fuel tank start level reading as determined by the vehicle monitoring system.
     /// </summary>
-    [DataMember]
     public IsoMax4NumericText? FuelTankLevelStart { get; init; } 
     /// <summary>
     /// Current fuel tank gauge level reading as determined by the vehicle monitoring system.
     /// </summary>
-    [DataMember]
     public IsoMax4NumericText? FuelGaugeLevel { get; init; } 
     /// <summary>
     /// Fuel economy expressed in terms of the amount of fuel consumed per unit of travel as determined by the vehicle monitoring system.
     /// </summary>
-    [DataMember]
     public IsoMax6NumberFraction2? FuelEconomy { get; init; } 
     /// <summary>
     /// Number of hours the refrigeration unit has been in operation.
     /// </summary>
-    [DataMember]
     public IsoMax10NumberFraction2? RefrigerationHours { get; init; } 
     /// <summary>
     /// Temperature of the refrigeration unit/trailer as determined by the vehicle monitoring system.
     /// </summary>
-    [DataMember]
     public IsoMax6NumberFraction2? RefrigerationTemperature { get; init; } 
     /// <summary>
     /// Temperature of the coolant as determined by the vehicle monitoring system.
     /// </summary>
-    [DataMember]
     public IsoMax6NumberFraction2? CoolantTemperature { get; init; } 
     /// <summary>
     /// Voltage of the vehicle battery as determined by the vehicle monitoring system.
     /// </summary>
-    [DataMember]
     public IsoMax4NumericText? BatteryVoltage { get; init; } 
     /// <summary>
     /// Number of occurrences of hard breaking as determined by the vehicle monitoring system.
     /// </summary>
-    [DataMember]
     public IsoMax4NumericText? HardBraking { get; init; } 
     /// <summary>
     /// Number of occurrences of hard acceleration as determined by the vehicle monitoring system.
     /// </summary>
-    [DataMember]
     public IsoMax4NumericText? HardAcceleration { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (EngineIdleTime is IsoMax10NumberFraction2 EngineIdleTimeValue)
+        {
+            writer.WriteStartElement(null, "NgnIdleTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10NumberFraction2(EngineIdleTimeValue)); // data type Max10NumberFraction2 System.UInt64
+            writer.WriteEndElement();
+        }
+        if (EngineTotalIdleTime is IsoMax10NumberFraction2 EngineTotalIdleTimeValue)
+        {
+            writer.WriteStartElement(null, "NgnTtlIdleTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10NumberFraction2(EngineTotalIdleTimeValue)); // data type Max10NumberFraction2 System.UInt64
+            writer.WriteEndElement();
+        }
+        if (EngineHours is IsoMax10NumberFraction2 EngineHoursValue)
+        {
+            writer.WriteStartElement(null, "NgnHrs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10NumberFraction2(EngineHoursValue)); // data type Max10NumberFraction2 System.UInt64
+            writer.WriteEndElement();
+        }
+        if (EngineTotalTime is IsoMax6NumberFraction2 EngineTotalTimeValue)
+        {
+            writer.WriteStartElement(null, "NgnTtlTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax6NumberFraction2(EngineTotalTimeValue)); // data type Max6NumberFraction2 System.UInt64
+            writer.WriteEndElement();
+        }
+        if (EngineLoad is IsoMax12NumericText EngineLoadValue)
+        {
+            writer.WriteStartElement(null, "NgnLd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax12NumericText(EngineLoadValue)); // data type Max12NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (EngineRPM is IsoMax5NumericText EngineRPMValue)
+        {
+            writer.WriteStartElement(null, "NgnRPM", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax5NumericText(EngineRPMValue)); // data type Max5NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (EngineOilTemperature is IsoMax6NumberFraction2 EngineOilTemperatureValue)
+        {
+            writer.WriteStartElement(null, "NgnOilTmprtr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax6NumberFraction2(EngineOilTemperatureValue)); // data type Max6NumberFraction2 System.UInt64
+            writer.WriteEndElement();
+        }
+        if (EngineOilPressure is IsoMax3NumericText EngineOilPressureValue)
+        {
+            writer.WriteStartElement(null, "NgnOilPrssr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(EngineOilPressureValue)); // data type Max3NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (EngineOilLifeRemaining is IsoMax3NumericText EngineOilLifeRemainingValue)
+        {
+            writer.WriteStartElement(null, "NgnOilLifeRmng", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3NumericText(EngineOilLifeRemainingValue)); // data type Max3NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (CheckEngineWarningStatus is IsoMax35Text CheckEngineWarningStatusValue)
+        {
+            writer.WriteStartElement(null, "ChckNgnWrngSts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CheckEngineWarningStatusValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (FuelTankLevelStart is IsoMax4NumericText FuelTankLevelStartValue)
+        {
+            writer.WriteStartElement(null, "FuelTankLvlStart", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(FuelTankLevelStartValue)); // data type Max4NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (FuelGaugeLevel is IsoMax4NumericText FuelGaugeLevelValue)
+        {
+            writer.WriteStartElement(null, "FuelGaugeLvl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(FuelGaugeLevelValue)); // data type Max4NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (FuelEconomy is IsoMax6NumberFraction2 FuelEconomyValue)
+        {
+            writer.WriteStartElement(null, "FuelEcnmy", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax6NumberFraction2(FuelEconomyValue)); // data type Max6NumberFraction2 System.UInt64
+            writer.WriteEndElement();
+        }
+        if (RefrigerationHours is IsoMax10NumberFraction2 RefrigerationHoursValue)
+        {
+            writer.WriteStartElement(null, "RfrgrtnHrs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10NumberFraction2(RefrigerationHoursValue)); // data type Max10NumberFraction2 System.UInt64
+            writer.WriteEndElement();
+        }
+        if (RefrigerationTemperature is IsoMax6NumberFraction2 RefrigerationTemperatureValue)
+        {
+            writer.WriteStartElement(null, "RfrgrtnTmprtr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax6NumberFraction2(RefrigerationTemperatureValue)); // data type Max6NumberFraction2 System.UInt64
+            writer.WriteEndElement();
+        }
+        if (CoolantTemperature is IsoMax6NumberFraction2 CoolantTemperatureValue)
+        {
+            writer.WriteStartElement(null, "CoolntTmprtr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax6NumberFraction2(CoolantTemperatureValue)); // data type Max6NumberFraction2 System.UInt64
+            writer.WriteEndElement();
+        }
+        if (BatteryVoltage is IsoMax4NumericText BatteryVoltageValue)
+        {
+            writer.WriteStartElement(null, "BttryVltg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(BatteryVoltageValue)); // data type Max4NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (HardBraking is IsoMax4NumericText HardBrakingValue)
+        {
+            writer.WriteStartElement(null, "HardBrakg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(HardBrakingValue)); // data type Max4NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (HardAcceleration is IsoMax4NumericText HardAccelerationValue)
+        {
+            writer.WriteStartElement(null, "HardAcclrtn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4NumericText(HardAccelerationValue)); // data type Max4NumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static OnBoardDiagnostics1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

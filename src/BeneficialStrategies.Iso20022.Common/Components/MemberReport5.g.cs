@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reports either on a member or a business error.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MemberReport5
+     : IIsoXmlSerilizable<MemberReport5>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of a member within a system, assigned using the member identification scheme of the system.
     /// </summary>
-    [DataMember]
     public required MemberIdentification3Choice_ MemberIdentification { get; init; } 
     /// <summary>
     /// Reports either on a member or a business error.
     /// </summary>
-    [DataMember]
     public required MemberReportOrError6Choice_ MemberOrError { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MmbId", xmlNamespace );
+        MemberIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MmbOrErr", xmlNamespace );
+        MemberOrError.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static MemberReport5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

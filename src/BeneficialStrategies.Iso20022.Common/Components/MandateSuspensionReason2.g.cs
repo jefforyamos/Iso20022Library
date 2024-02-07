@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides detailed information on the suspension reason.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MandateSuspensionReason2
+     : IIsoXmlSerilizable<MandateSuspensionReason2>
 {
     #nullable enable
     
     /// <summary>
     /// Party that issues the suspension request.
     /// </summary>
-    [DataMember]
     public PartyIdentification135? Originator { get; init; } 
     /// <summary>
     /// Specifies the reason for the suspension request.
     /// </summary>
-    [DataMember]
     public required MandateSuspensionReason1Choice_ Reason { get; init; } 
     /// <summary>
     /// Further details on the suspension request reason.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax105Text> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax105Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Originator is PartyIdentification135 OriginatorValue)
+        {
+            writer.WriteStartElement(null, "Orgtr", xmlNamespace );
+            OriginatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Rsn", xmlNamespace );
+        Reason.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax105Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax105Text(AdditionalInformationValue)); // data type Max105Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static MandateSuspensionReason2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.NotificationToReceiveStatusReportV02>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -24,10 +27,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// The NotificationToReceiveStatusReport message is sent in response to a NotificationToReceive message and can be used in either a direct or a relay scenario. It is used to advise the account owner of receipt of the funds as expected. It is also used to notify the account owner of non-receipt of funds or of discrepancies in the funds received.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The NotificationToReceiveStatusReport message is sent by an account servicing institution to an account owner or to a party acting on the account owner's behalf. It is used to notify the account owner about the status of one or more expected payments that were advised in a previous NotificationToReceive message.|Usage|The NotificationToReceiveStatusReport message is sent in response to a NotificationToReceive message and can be used in either a direct or a relay scenario. It is used to advise the account owner of receipt of the funds as expected. It is also used to notify the account owner of non-receipt of funds or of discrepancies in the funds received.")]
-public partial record NotificationToReceiveStatusReportV02 : IOuterRecord
+public partial record NotificationToReceiveStatusReportV02 : IOuterRecord<NotificationToReceiveStatusReportV02,NotificationToReceiveStatusReportV02Document>
+    ,IIsoXmlSerilizable<NotificationToReceiveStatusReportV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -39,6 +41,11 @@ public partial record NotificationToReceiveStatusReportV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "NtfctnToRcvStsRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => NotificationToReceiveStatusReportV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -70,6 +77,29 @@ public partial record NotificationToReceiveStatusReportV02 : IOuterRecord
     {
         return new NotificationToReceiveStatusReportV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("NtfctnToRcvStsRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GrpHdr", xmlNamespace );
+        GroupHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgnlNtfctnAndSts", xmlNamespace );
+        OriginalNotificationAndStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static NotificationToReceiveStatusReportV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -77,9 +107,7 @@ public partial record NotificationToReceiveStatusReportV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NotificationToReceiveStatusReportV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record NotificationToReceiveStatusReportV02Document : IOuterDocument<NotificationToReceiveStatusReportV02>
+public partial record NotificationToReceiveStatusReportV02Document : IOuterDocument<NotificationToReceiveStatusReportV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -95,5 +123,22 @@ public partial record NotificationToReceiveStatusReportV02Document : IOuterDocum
     /// <summary>
     /// The instance of <seealso cref="NotificationToReceiveStatusReportV02"/> is required.
     /// </summary>
+    [DataMember(Name=NotificationToReceiveStatusReportV02.XmlTag)]
     public required NotificationToReceiveStatusReportV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(NotificationToReceiveStatusReportV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

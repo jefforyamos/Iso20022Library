@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the competent authority which supervises the reporting counterparty.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CompetentAuthority1
+     : IIsoXmlSerilizable<CompetentAuthority1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification field for the competent authority.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text Identification { get; init; } 
     /// <summary>
     /// Information on the onboarding status of the competent authority.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator OnboardingStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(Identification)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OnbrdgSts", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(OnboardingStatus)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static CompetentAuthority1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

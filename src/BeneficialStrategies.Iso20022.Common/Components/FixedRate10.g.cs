@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Fixed rate related information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FixedRate10
+     : IIsoXmlSerilizable<FixedRate10>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the per annum rate of the fixed leg(s) of an interest rate contract.
     /// </summary>
-    [DataMember]
     public SecuritiesTransactionPrice14Choice_? Rate { get; init; } 
     /// <summary>
     /// Identifies the computation method that determines how interest payments are calculated. It is used to compute the year fraction of the calculation period, and indicates the number of days in the calculation period divided by the number of days in the year.
     /// </summary>
-    [DataMember]
     public InterestComputationMethodFormat7? DayCount { get; init; } 
     /// <summary>
     /// Specifies the time unit associated with the frequency of payments.
     /// </summary>
-    [DataMember]
     public InterestRateFrequency3Choice_? PaymentFrequency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Rate is SecuritiesTransactionPrice14Choice_ RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            RateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DayCount is InterestComputationMethodFormat7 DayCountValue)
+        {
+            writer.WriteStartElement(null, "DayCnt", xmlNamespace );
+            DayCountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentFrequency is InterestRateFrequency3Choice_ PaymentFrequencyValue)
+        {
+            writer.WriteStartElement(null, "PmtFrqcy", xmlNamespace );
+            PaymentFrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FixedRate10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

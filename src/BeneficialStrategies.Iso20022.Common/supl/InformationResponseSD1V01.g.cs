@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.supl.InformationResponseSD1V01>;
 
 namespace BeneficialStrategies.Iso20022.supl;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// This extends the message InformationRequestResponse.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"This extends the message InformationRequestResponse.")]
-public partial record InformationResponseSD1V01 : IOuterRecord
+public partial record InformationResponseSD1V01 : IOuterRecord<InformationResponseSD1V01,InformationResponseSD1V01Document>
+    ,IIsoXmlSerilizable<InformationResponseSD1V01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record InformationResponseSD1V01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "InfRspnSD1";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => InformationResponseSD1V01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -87,6 +94,35 @@ public partial record InformationResponseSD1V01 : IOuterRecord
     {
         return new InformationResponseSD1V01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("InfRspnSD1");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "InvstgtnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(InvestigationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CreDtTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(CreationDateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctSvcrId", xmlNamespace );
+        AccountServicerIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctAndPties", xmlNamespace );
+        AccountAndParties.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static InformationResponseSD1V01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -94,9 +130,7 @@ public partial record InformationResponseSD1V01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InformationResponseSD1V01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record InformationResponseSD1V01Document : IOuterDocument<InformationResponseSD1V01>
+public partial record InformationResponseSD1V01Document : IOuterDocument<InformationResponseSD1V01>, IXmlSerializable
 {
     
     /// <summary>
@@ -112,5 +146,22 @@ public partial record InformationResponseSD1V01Document : IOuterDocument<Informa
     /// <summary>
     /// The instance of <seealso cref="InformationResponseSD1V01"/> is required.
     /// </summary>
+    [DataMember(Name=InformationResponseSD1V01.XmlTag)]
     public required InformationResponseSD1V01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(InformationResponseSD1V01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

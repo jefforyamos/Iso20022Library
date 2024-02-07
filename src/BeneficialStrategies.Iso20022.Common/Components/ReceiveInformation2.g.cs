@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Completion of a securities settlement instruction, wherein securities are delivered/debited from a securities account and received/credited to the designated securities account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReceiveInformation2
+     : IIsoXmlSerilizable<ReceiveInformation2>
 {
     #nullable enable
     
     /// <summary>
     /// Charge related to the transfer of a financial instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<Charge4> ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Charge4? ChargeDetails { get; init; } 
     /// <summary>
     /// Tax related to the transfer of a financial instrument.
     /// </summary>
-    [DataMember]
-    public ValueList<Tax3> TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Tax3? TaxDetails { get; init; } 
     /// <summary>
     /// Chain of parties involved in the settlement of a transaction.
     /// </summary>
-    [DataMember]
     public required ReceivingPartiesAndAccount1 SettlementPartiesDetails { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator PhysicalTransferIndicator { get; init; } 
     /// <summary>
     /// Parameters of a physical delivery.
     /// </summary>
-    [DataMember]
     public DeliveryParameters2? PhysicalTransferDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ChargeDetails is Charge4 ChargeDetailsValue)
+        {
+            writer.WriteStartElement(null, "ChrgDtls", xmlNamespace );
+            ChargeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxDetails is Tax3 TaxDetailsValue)
+        {
+            writer.WriteStartElement(null, "TaxDtls", xmlNamespace );
+            TaxDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SttlmPtiesDtls", xmlNamespace );
+        SettlementPartiesDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PhysTrfInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PhysicalTransferIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (PhysicalTransferDetails is DeliveryParameters2 PhysicalTransferDetailsValue)
+        {
+            writer.WriteStartElement(null, "PhysTrfDtls", xmlNamespace );
+            PhysicalTransferDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ReceiveInformation2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

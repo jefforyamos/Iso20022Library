@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Geographic location specified by geographic or UTM coordinates.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Geolocation1
+     : IIsoXmlSerilizable<Geolocation1>
 {
     #nullable enable
     
     /// <summary>
     /// Geographic location specified by geographic coordinates.
     /// </summary>
-    [DataMember]
     public GeolocationGeographicCoordinates1? GeographicCoordinates { get; init; } 
     /// <summary>
     /// Geographic location specified by UTM coordinates.
     /// </summary>
-    [DataMember]
     public GeolocationUTMCoordinates1? UTMCoordinates { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (GeographicCoordinates is GeolocationGeographicCoordinates1 GeographicCoordinatesValue)
+        {
+            writer.WriteStartElement(null, "GeogcCordints", xmlNamespace );
+            GeographicCoordinatesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UTMCoordinates is GeolocationUTMCoordinates1 UTMCoordinatesValue)
+        {
+            writer.WriteStartElement(null, "UTMCordints", xmlNamespace );
+            UTMCoordinatesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Geolocation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

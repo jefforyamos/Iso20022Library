@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsmt.DataSetSubmissionV05>;
 
 namespace BeneficialStrategies.Iso20022.tsmt;
 
@@ -31,10 +34,9 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// The DataSetSubmission message consists of data reflecting trade information related to the purchasing agreement covered by the transaction(s), for example shipment date, invoice amount.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The DataSetSubmission message is sent by a party involved in the transaction to the matching application.|This message is used to trigger either a match or a pre-match of the information submitted with the message.|Usage|The DataSetSubmission message can be sent by either party with the instruction pre-match. In the outlined scenario, the matching application will compare the data set(s) conveyed by the DataSetSubmission message with the established baseline and report the matching result to the requester of the data set pre-match by sending a DataSetMatchReport message.|or|The DataSetSubmission message can be sent by the party specified in the baseline as data set submitter with the instruction match. In the outlined scenario, the matching application will compare the data set(s) conveyed by the DataSetSubmission message with the established baseline and report the matching result to|- the parties involved in a transaction established in the push-through mode, or|- the initiator of a transaction established in the lodge mode.|The DataSetSubmission message can be used to submit multiple data sets for multiple transactions (baselines) at the same time. However, all transactions (baselines) covered by the message must be for the same parties, that is transaction initiator and counterparty, as well as for the same buyer and seller.|The DataSetSubmission message consists of data reflecting trade information related to the purchasing agreement covered by the transaction(s), for example shipment date, invoice amount.")]
-public partial record DataSetSubmissionV05 : IOuterRecord
+public partial record DataSetSubmissionV05 : IOuterRecord<DataSetSubmissionV05,DataSetSubmissionV05Document>
+    ,IIsoXmlSerilizable<DataSetSubmissionV05>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -46,6 +48,11 @@ public partial record DataSetSubmissionV05 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "DataSetSubmissn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => DataSetSubmissionV05Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -162,6 +169,71 @@ public partial record DataSetSubmissionV05 : IOuterRecord
     {
         return new DataSetSubmissionV05Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("DataSetSubmissn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SubmissnId", xmlNamespace );
+        SubmissionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RltdTxRefs", xmlNamespace );
+        RelatedTransactionReferences.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CmonSubmissnRef", xmlNamespace );
+        CommonSubmissionReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Instr", xmlNamespace );
+        Instruction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "BuyrBk", xmlNamespace );
+        BuyerBank.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SellrBk", xmlNamespace );
+        SellerBank.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CommercialDataSet is CommercialDataSet5 CommercialDataSetValue)
+        {
+            writer.WriteStartElement(null, "ComrclDataSet", xmlNamespace );
+            CommercialDataSetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransportDataSet is TransportDataSet5 TransportDataSetValue)
+        {
+            writer.WriteStartElement(null, "TrnsprtDataSet", xmlNamespace );
+            TransportDataSetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InsuranceDataSet is InsuranceDataSet1 InsuranceDataSetValue)
+        {
+            writer.WriteStartElement(null, "InsrncDataSet", xmlNamespace );
+            InsuranceDataSetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CertificateDataSet is CertificateDataSet2 CertificateDataSetValue)
+        {
+            writer.WriteStartElement(null, "CertDataSet", xmlNamespace );
+            CertificateDataSetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherCertificateDataSet is OtherCertificateDataSet2 OtherCertificateDataSetValue)
+        {
+            writer.WriteStartElement(null, "OthrCertDataSet", xmlNamespace );
+            OtherCertificateDataSetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static DataSetSubmissionV05 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -169,9 +241,7 @@ public partial record DataSetSubmissionV05 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DataSetSubmissionV05"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record DataSetSubmissionV05Document : IOuterDocument<DataSetSubmissionV05>
+public partial record DataSetSubmissionV05Document : IOuterDocument<DataSetSubmissionV05>, IXmlSerializable
 {
     
     /// <summary>
@@ -187,5 +257,22 @@ public partial record DataSetSubmissionV05Document : IOuterDocument<DataSetSubmi
     /// <summary>
     /// The instance of <seealso cref="DataSetSubmissionV05"/> is required.
     /// </summary>
+    [DataMember(Name=DataSetSubmissionV05.XmlTag)]
     public required DataSetSubmissionV05 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(DataSetSubmissionV05.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

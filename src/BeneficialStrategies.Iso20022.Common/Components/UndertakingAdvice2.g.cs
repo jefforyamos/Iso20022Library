@@ -7,48 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of the advice for the issuance of an undertaking.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UndertakingAdvice2
+     : IIsoXmlSerilizable<UndertakingAdvice2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier assigned by the applicant to the undertaking.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ApplicantReferenceNumber { get; init; } 
     /// <summary>
     /// Party obligated to reimburse the issuer.
     /// </summary>
-    [DataMember]
     public PartyIdentification43? Obligor { get; init; } 
     /// <summary>
     /// Contents of the related UndertakingIssuance message.
     /// </summary>
-    [DataMember]
     public required UndertakingIssuanceMessage UndertakingIssuanceMessage { get; init; } 
     /// <summary>
     /// Medium used to issue the original undertaking.
     /// </summary>
-    [DataMember]
     public PresentationMedium1Code? OriginalIssuedMedium { get; init; } 
     /// <summary>
     /// Document or template enclosed in the notification.
     /// </summary>
-    [DataMember]
-    public ValueList<Document9> EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
+    public Document9? EnclosedFile { get; init; } 
     /// <summary>
     /// Additional information related to the undertaking notification.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ApplcntRefNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ApplicantReferenceNumber)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (Obligor is PartyIdentification43 ObligorValue)
+        {
+            writer.WriteStartElement(null, "Oblgr", xmlNamespace );
+            ObligorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "UdrtkgIssncMsg", xmlNamespace );
+        UndertakingIssuanceMessage.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (OriginalIssuedMedium is PresentationMedium1Code OriginalIssuedMediumValue)
+        {
+            writer.WriteStartElement(null, "OrgnlIssdMdm", xmlNamespace );
+            writer.WriteValue(OriginalIssuedMediumValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (EnclosedFile is Document9 EnclosedFileValue)
+        {
+            writer.WriteStartElement(null, "NclsdFile", xmlNamespace );
+            EnclosedFileValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+    }
+    public static UndertakingAdvice2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

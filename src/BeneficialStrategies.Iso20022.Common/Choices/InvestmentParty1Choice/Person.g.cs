@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.InvestmentParty1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestmentParty1Choice;
 /// Identification of a person.
 /// </summary>
 public partial record Person : InvestmentParty1Choice_
+     , IIsoXmlSerilizable<Person>
 {
     #nullable enable
+    
     /// <summary>
     /// Branch where the trader is located.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record Person : InvestmentParty1Choice_
     /// Unique identification of a person, as assigned by an institution, using an identification scheme.
     /// </summary>
     public required GenericPersonIdentification1 Other { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CtryOfBrnch", xmlNamespace );
+        writer.WriteValue(CountryOfBranch.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Othr", xmlNamespace );
+        Other.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new Person Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

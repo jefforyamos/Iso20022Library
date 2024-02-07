@@ -7,73 +7,146 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies other amounts pertaining to the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OtherAmounts32
+     : IIsoXmlSerilizable<OtherAmounts32>
 {
     #nullable enable
     
     /// <summary>
     /// Interest amount that has accrued in between coupon payment periods.
     /// </summary>
-    [DataMember]
     public AmountAndDirection47? AccruedInterestAmount { get; init; } 
     /// <summary>
     /// Amount of money paid for the provision of financial services that cannot be categorised by another qualifier.
     /// </summary>
-    [DataMember]
     public AmountAndDirection47? ChargesFees { get; init; } 
     /// <summary>
     /// Principal amount of a trade (price multiplied by quantity).
     /// </summary>
-    [DataMember]
     public AmountAndDirection47? TradeAmount { get; init; } 
     /// <summary>
     /// Amount of money paid to an executing broker as a commission.
     /// </summary>
-    [DataMember]
     public AmountAndDirection47? ExecutingBrokerAmount { get; init; } 
     /// <summary>
     /// Tax charged by the jurisdiction in which the financial instrument settles.
     /// </summary>
-    [DataMember]
     public AmountAndDirection47? LocalTax { get; init; } 
     /// <summary>
     /// Amount of commission paid to a local broker.
     /// </summary>
-    [DataMember]
     public AmountAndDirection47? LocalBrokerCommission { get; init; } 
     /// <summary>
     /// An amount that is not indicated by a known business denomination.
     /// </summary>
-    [DataMember]
     public AmountAndDirection47? Other { get; init; } 
     /// <summary>
     /// Amount of stamp duty.
     /// </summary>
-    [DataMember]
     public AmountAndDirection47? StampDuty { get; init; } 
     /// <summary>
     /// Amount of transaction tax.
     /// </summary>
-    [DataMember]
     public AmountAndDirection47? TransactionTax { get; init; } 
     /// <summary>
     /// Amount of money that will be withheld by a tax authority.
     /// </summary>
-    [DataMember]
     public AmountAndDirection47? WithholdingTax { get; init; } 
     /// <summary>
     /// Amount of consumption tax.
     /// </summary>
-    [DataMember]
     public AmountAndDirection47? ConsumptionTax { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccruedInterestAmount is AmountAndDirection47 AccruedInterestAmountValue)
+        {
+            writer.WriteStartElement(null, "AcrdIntrstAmt", xmlNamespace );
+            AccruedInterestAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ChargesFees is AmountAndDirection47 ChargesFeesValue)
+        {
+            writer.WriteStartElement(null, "ChrgsFees", xmlNamespace );
+            ChargesFeesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TradeAmount is AmountAndDirection47 TradeAmountValue)
+        {
+            writer.WriteStartElement(null, "TradAmt", xmlNamespace );
+            TradeAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExecutingBrokerAmount is AmountAndDirection47 ExecutingBrokerAmountValue)
+        {
+            writer.WriteStartElement(null, "ExctgBrkrAmt", xmlNamespace );
+            ExecutingBrokerAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LocalTax is AmountAndDirection47 LocalTaxValue)
+        {
+            writer.WriteStartElement(null, "LclTax", xmlNamespace );
+            LocalTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LocalBrokerCommission is AmountAndDirection47 LocalBrokerCommissionValue)
+        {
+            writer.WriteStartElement(null, "LclBrkrComssn", xmlNamespace );
+            LocalBrokerCommissionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Other is AmountAndDirection47 OtherValue)
+        {
+            writer.WriteStartElement(null, "Othr", xmlNamespace );
+            OtherValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StampDuty is AmountAndDirection47 StampDutyValue)
+        {
+            writer.WriteStartElement(null, "StmpDty", xmlNamespace );
+            StampDutyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionTax is AmountAndDirection47 TransactionTaxValue)
+        {
+            writer.WriteStartElement(null, "TxTax", xmlNamespace );
+            TransactionTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (WithholdingTax is AmountAndDirection47 WithholdingTaxValue)
+        {
+            writer.WriteStartElement(null, "WhldgTax", xmlNamespace );
+            WithholdingTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ConsumptionTax is AmountAndDirection47 ConsumptionTaxValue)
+        {
+            writer.WriteStartElement(null, "CsmptnTax", xmlNamespace );
+            ConsumptionTaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OtherAmounts32 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

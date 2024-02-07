@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the amount in the reporting currency and optionally in the original currency.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Amount3
+     : IIsoXmlSerilizable<Amount3>
 {
     #nullable enable
     
     /// <summary>
     /// Amount expressed in the original currency.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? OriginalAmount { get; init; } 
     /// <summary>
     /// Amount expressed in the reporting currency.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount ReportingAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OriginalAmount is IsoActiveCurrencyAndAmount OriginalAmountValue)
+        {
+            writer.WriteStartElement(null, "OrgnlAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(OriginalAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RptgAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ReportingAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static Amount3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

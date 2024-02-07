@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information on the charges related to the payment transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ChargesInformation3
+     : IIsoXmlSerilizable<ChargesInformation3>
 {
     #nullable enable
     
     /// <summary>
     /// Total of all charges and taxes applied to the entry.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? TotalChargesAndTaxAmount { get; init; } 
     /// <summary>
     /// Transaction charges to be paid by the charge bearer.
     /// </summary>
-    [DataMember]
     public required IsoCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Identifies the type of charge.
     /// </summary>
-    [DataMember]
     public ChargeTypeChoice_? Type { get; init; } 
     /// <summary>
     /// Rate used to calculate the amount of the charge or fee.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     /// <summary>
     /// Specifies which party/parties will bear the charges associated with the processing of the payment transaction.
     /// </summary>
-    [DataMember]
     public ChargeBearerType1Code? Bearer { get; init; } 
     /// <summary>
     /// Party that takes the transaction charges or to which the transaction charges are due.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? Party { get; init; } 
     /// <summary>
     /// Specifies tax details applied to charges.
     /// </summary>
-    [DataMember]
     public TaxCharges1? Tax { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TotalChargesAndTaxAmount is IsoCurrencyAndAmount TotalChargesAndTaxAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlChrgsAndTaxAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(TotalChargesAndTaxAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(Amount)); // data type CurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (Type is ChargeTypeChoice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Rate is IsoPercentageRate RateValue)
+        {
+            writer.WriteStartElement(null, "Rate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(RateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Bearer is ChargeBearerType1Code BearerValue)
+        {
+            writer.WriteStartElement(null, "Br", xmlNamespace );
+            writer.WriteValue(BearerValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Party is BranchAndFinancialInstitutionIdentification3 PartyValue)
+        {
+            writer.WriteStartElement(null, "Pty", xmlNamespace );
+            PartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Tax is TaxCharges1 TaxValue)
+        {
+            writer.WriteStartElement(null, "Tax", xmlNamespace );
+            TaxValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ChargesInformation3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

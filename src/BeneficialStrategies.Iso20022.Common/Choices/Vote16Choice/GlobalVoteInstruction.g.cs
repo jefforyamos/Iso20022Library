@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Vote16Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote16Choice;
 /// Instruction specifying a vote instruction per resolution for the entire entitlement.
 /// </summary>
 public partial record GlobalVoteInstruction : Vote16Choice_
+     , IIsoXmlSerilizable<GlobalVoteInstruction>
 {
     #nullable enable
+    
     /// <summary>
     /// Number of the resolution as specified by the issuer or its agent.
     /// </summary>
@@ -23,5 +27,29 @@ public partial record GlobalVoteInstruction : Vote16Choice_
     /// Vote instructed.
     /// </summary>
     public required VoteInstructionType2Choice_ VoteOption { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IssrLabl", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerLabel)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "VoteOptn", xmlNamespace );
+        VoteOption.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new GlobalVoteInstruction Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

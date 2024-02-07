@@ -7,68 +7,133 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Type of product and assets to be transferred.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PortfolioTransfer2
+     : IIsoXmlSerilizable<PortfolioTransfer2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Identification assigned to the transfer of assets.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransferIdentification { get; init; } 
     /// <summary>
     /// Identification of the confirmation assigned by the transferor to the transfer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TransferConfirmationIdentification { get; init; } 
     /// <summary>
     /// Choice of tax efficient product, general investment or pension.
     /// </summary>
-    [DataMember]
     public FundPortfolio2Choice_? Portfolio { get; init; } 
     /// <summary>
     /// Specifies whether all remaining assets in the portfolio not listed for transfer should be liquidated and transferred as cash. 
     /// </summary>
-    [DataMember]
     public AllOtherCash1Code? AllOtherCash { get; init; } 
     /// <summary>
     /// Specifies whether all assets in the portfolio should be liquidated and transferred as cash.
     /// </summary>
-    [DataMember]
     public CashAll1Code? CashAll { get; init; } 
     /// <summary>
     /// Specifies what must be done with cash in the account that is awaiting investment.
     /// </summary>
-    [DataMember]
     public ResidualCash1Code? ResidualCash { get; init; } 
     /// <summary>
     /// Tax date applicable to all the assets.
     /// </summary>
-    [DataMember]
     public IsoISODate? TaxDate { get; init; } 
     /// <summary>
     /// Asset to be transferred.
     /// </summary>
-    [DataMember]
-    public ValueList<FinancialInstrument68> FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
+    public FinancialInstrument68? FinancialInstrumentAssetForTransfer { get; init; } 
     /// <summary>
     /// Additional information about the product transfer.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MasterReference is IsoMax35Text MasterReferenceValue)
+        {
+            writer.WriteStartElement(null, "MstrRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MasterReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TrfId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (TransferConfirmationIdentification is IsoMax35Text TransferConfirmationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TrfConfId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransferConfirmationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Portfolio is FundPortfolio2Choice_ PortfolioValue)
+        {
+            writer.WriteStartElement(null, "Prtfl", xmlNamespace );
+            PortfolioValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AllOtherCash is AllOtherCash1Code AllOtherCashValue)
+        {
+            writer.WriteStartElement(null, "AllOthrCsh", xmlNamespace );
+            writer.WriteValue(AllOtherCashValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CashAll is CashAll1Code CashAllValue)
+        {
+            writer.WriteStartElement(null, "CshAll", xmlNamespace );
+            writer.WriteValue(CashAllValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ResidualCash is ResidualCash1Code ResidualCashValue)
+        {
+            writer.WriteStartElement(null, "RsdlCsh", xmlNamespace );
+            writer.WriteValue(ResidualCashValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TaxDate is IsoISODate TaxDateValue)
+        {
+            writer.WriteStartElement(null, "TaxDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(TaxDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (FinancialInstrumentAssetForTransfer is FinancialInstrument68 FinancialInstrumentAssetForTransferValue)
+        {
+            writer.WriteStartElement(null, "FinInstrmAsstForTrf", xmlNamespace );
+            FinancialInstrumentAssetForTransferValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PortfolioTransfer2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

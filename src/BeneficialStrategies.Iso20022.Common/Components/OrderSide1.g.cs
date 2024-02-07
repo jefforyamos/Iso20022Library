@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates in which direction the intention is to transfer the ownership of a financial instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OrderSide1
+     : IIsoXmlSerilizable<OrderSide1>
 {
     #nullable enable
     
     /// <summary>
     /// Coded list to specify the side of the order.
     /// </summary>
-    [DataMember]
     public Side1Code? Side { get; init; } 
     /// <summary>
     /// Indicates whether the status request is applicable for all orders.|Yes = all orders|No = status for orders matching certain criteria further specified in this message.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? AllOrdersIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Side is Side1Code SideValue)
+        {
+            writer.WriteStartElement(null, "Sd", xmlNamespace );
+            writer.WriteValue(SideValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AllOrdersIndicator is IsoYesNoIndicator AllOrdersIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AllOrdrsInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AllOrdersIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static OrderSide1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

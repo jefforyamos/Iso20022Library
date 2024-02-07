@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.TransactionIdentification1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionIdentification1Choice
 /// Provides identification of the marfin reporting.
 /// </summary>
 public partial record MarginReporting : TransactionIdentification1Choice_
+     , IIsoXmlSerilizable<MarginReporting>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique code identifying the reporting counterparty.
     /// </summary>
@@ -27,5 +31,32 @@ public partial record MarginReporting : TransactionIdentification1Choice_
     /// Unique and unambiguous identification of the collateral portfolio.
     /// </summary>
     public required IsoMax52Text CollateralPortfolioIdentification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptgCtrPty", xmlNamespace );
+        ReportingCounterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrCtrPty", xmlNamespace );
+        OtherCounterparty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CollPrtflId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax52Text(CollateralPortfolioIdentification)); // data type Max52Text System.String
+        writer.WriteEndElement();
+    }
+    public static new MarginReporting Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

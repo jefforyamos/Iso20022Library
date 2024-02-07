@@ -7,23 +7,42 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// List of centralised branch identifiers.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstitutionIdentificationList1
+     : IIsoXmlSerilizable<FinancialInstitutionIdentificationList1>
 {
     #nullable enable
     
     /// <summary>
     /// Repeated identifiers.
     /// </summary>
-    [DataMember]
-    public ValueList<FinancialInstitutionIdentification9> List { get; init; } = []; // Warning: Don't know multiplicity.
+    public FinancialInstitutionIdentification9? List { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _Bwxs8CD1Eeav65mEytrgaA
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize List, multiplicity Unknown
+    }
+    public static FinancialInstitutionIdentificationList1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

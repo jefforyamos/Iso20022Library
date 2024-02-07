@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Ability of a financial instrument to be easily traded and converted to cash, at conditions that do not affect its price.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Liquidity1
+     : IIsoXmlSerilizable<Liquidity1>
 {
     #nullable enable
     
     /// <summary>
     /// Market value of the securities position for which liquidity details are provided.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? Value { get; init; } 
     /// <summary>
     /// Number of securities for which liquidity range details are provided.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? NumberOfSecurities { get; init; } 
     /// <summary>
     /// Upper liquidity indicator, represented as a percentage of the average trade daily volume.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Upper { get; init; } 
     /// <summary>
     /// Lower liquidity indicator, represented as a percentage of the average trade daily volume.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? Lower { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Value is IsoActiveCurrencyAndAmount ValueValue)
+        {
+            writer.WriteStartElement(null, "Val", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(ValueValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (NumberOfSecurities is IsoDecimalNumber NumberOfSecuritiesValue)
+        {
+            writer.WriteStartElement(null, "NbOfScties", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(NumberOfSecuritiesValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Upper is IsoPercentageRate UpperValue)
+        {
+            writer.WriteStartElement(null, "Upper", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(UpperValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Lower is IsoPercentageRate LowerValue)
+        {
+            writer.WriteStartElement(null, "Lwr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(LowerValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static Liquidity1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

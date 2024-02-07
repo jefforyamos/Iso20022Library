@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.ShareholdersIdentificationDisclosureRequestV04>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -21,10 +24,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// The ShareholdersIdentificationDisclosureRequest message is sent by an issuer or by a third party nominated by the issuer (such as an issuer's agent) to the first intermediaries in a custody chain or is sent by any intermediaries in a custody chain to the next intermediary down the chain of intermediaries (towards the investor side of the chain) in order to request the disclosure of shareholders identity and provides information on the receiving party to whom responses must be sent, on the financial instrument concerned and on the deadline to respond.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The ShareholdersIdentificationDisclosureRequest message is sent by an issuer or by a third party nominated by the issuer (such as an issuer's agent) to the first intermediaries in a custody chain or is sent by any intermediaries in a custody chain to the next intermediary down the chain of intermediaries (towards the investor side of the chain) in order to request the disclosure of shareholders identity and provides information on the receiving party to whom responses must be sent, on the financial instrument concerned and on the deadline to respond.")]
-public partial record ShareholdersIdentificationDisclosureRequestV04 : IOuterRecord
+public partial record ShareholdersIdentificationDisclosureRequestV04 : IOuterRecord<ShareholdersIdentificationDisclosureRequestV04,ShareholdersIdentificationDisclosureRequestV04Document>
+    ,IIsoXmlSerilizable<ShareholdersIdentificationDisclosureRequestV04>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -36,6 +38,11 @@ public partial record ShareholdersIdentificationDisclosureRequestV04 : IOuterRec
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "ShrhldrsIdDsclsrReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ShareholdersIdentificationDisclosureRequestV04Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -208,6 +215,107 @@ public partial record ShareholdersIdentificationDisclosureRequestV04 : IOuterRec
     {
         return new ShareholdersIdentificationDisclosureRequestV04Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("ShrhldrsIdDsclsrReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "IssrDsclsrReqId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(IssuerDisclosureRequestIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DsclsrReqTp", xmlNamespace );
+        writer.WriteValue(DisclosureRequestType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (PreviousDisclosureRequestIdentification is IsoMax35Text PreviousDisclosureRequestIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrvsDsclsrReqId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PreviousDisclosureRequestIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ForwardRequestIndicator is IsoYesNoIndicator ForwardRequestIndicatorValue)
+        {
+            writer.WriteStartElement(null, "FwdReqInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ForwardRequestIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ResponseThroughChainIndicator is IsoYesNoIndicator ResponseThroughChainIndicatorValue)
+        {
+            writer.WriteStartElement(null, "RspnThrghChainInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ResponseThroughChainIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ShareholderRightsDirectiveIndicator is IsoYesNoIndicator ShareholderRightsDirectiveIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ShrhldrRghtsDrctvInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ShareholderRightsDirectiveIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PlaceOfJurisdiction is CountryCode PlaceOfJurisdictionValue)
+        {
+            writer.WriteStartElement(null, "PlcOfJursdctn", xmlNamespace );
+            writer.WriteValue(PlaceOfJurisdictionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ApplicableLaw is IsoMax140Text ApplicableLawValue)
+        {
+            writer.WriteStartElement(null, "AplblLaw", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(ApplicableLawValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FinInstrmId", xmlNamespace );
+        FinancialInstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ShrhldrsDsclsrRcrdDt", xmlNamespace );
+        ShareholdersDisclosureRecordDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SharesQuantityThreshold is IsoDecimalNumber SharesQuantityThresholdValue)
+        {
+            writer.WriteStartElement(null, "ShrsQtyThrshld", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(SharesQuantityThresholdValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (RequestShareHeldDate is RequestShareHeldDate1Choice_ RequestShareHeldDateValue)
+        {
+            writer.WriteStartElement(null, "ReqShrHeldDt", xmlNamespace );
+            RequestShareHeldDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DsclsrRspnRcpt", xmlNamespace );
+        DisclosureResponseRecipient.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IssrDsclsrDdln", xmlNamespace );
+        IssuerDisclosureDeadline.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DisclosureResponseDeadline is DateFormat46Choice_ DisclosureResponseDeadlineValue)
+        {
+            writer.WriteStartElement(null, "DsclsrRspnDdln", xmlNamespace );
+            DisclosureResponseDeadlineValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Issuer is PartyIdentification129Choice_ IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            IssuerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ShareholdersIdentificationDisclosureRequestV04 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -215,9 +323,7 @@ public partial record ShareholdersIdentificationDisclosureRequestV04 : IOuterRec
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ShareholdersIdentificationDisclosureRequestV04"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ShareholdersIdentificationDisclosureRequestV04Document : IOuterDocument<ShareholdersIdentificationDisclosureRequestV04>
+public partial record ShareholdersIdentificationDisclosureRequestV04Document : IOuterDocument<ShareholdersIdentificationDisclosureRequestV04>, IXmlSerializable
 {
     
     /// <summary>
@@ -233,5 +339,22 @@ public partial record ShareholdersIdentificationDisclosureRequestV04Document : I
     /// <summary>
     /// The instance of <seealso cref="ShareholdersIdentificationDisclosureRequestV04"/> is required.
     /// </summary>
+    [DataMember(Name=ShareholdersIdentificationDisclosureRequestV04.XmlTag)]
     public required ShareholdersIdentificationDisclosureRequestV04 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ShareholdersIdentificationDisclosureRequestV04.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

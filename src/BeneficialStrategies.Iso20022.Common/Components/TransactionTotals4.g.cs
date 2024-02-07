@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Totals of the reconciliation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionTotals4
+     : IIsoXmlSerilizable<TransactionTotals4>
 {
     #nullable enable
     
     /// <summary>
     /// Total of credit transactions.
     /// </summary>
-    [DataMember]
     public required TransactionTotals5 TotalCredit { get; init; } 
     /// <summary>
     /// Total of debit transactions.
     /// </summary>
-    [DataMember]
     public required TransactionTotals5 TotalDebit { get; init; } 
     /// <summary>
     /// Additional count which may be utilised for reconciliation.
     /// </summary>
-    [DataMember]
     public TransactionTotals6? TotalNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TtlCdt", xmlNamespace );
+        TotalCredit.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TtlDbt", xmlNamespace );
+        TotalDebit.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TotalNumber is TransactionTotals6 TotalNumberValue)
+        {
+            writer.WriteStartElement(null, "TtlNb", xmlNamespace );
+            TotalNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionTotals4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

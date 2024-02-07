@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information such as the information to comply with.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionNarrative32
+     : IIsoXmlSerilizable<CorporateActionNarrative32>
 {
     #nullable enable
     
     /// <summary>
     /// Provides information conditions to the account owner that are to be complied with, for example, not open to US/Canadian residents, Qualified Institutional Buyers (QIB) or Sophisticated Investor Letter (SIL) to be provided.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax350Text> InformationToComplyWith { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax350Text? InformationToComplyWith { get; init; } 
     /// <summary>
     /// Provides additional information on the delivery details of the outturned (derived) securities. This narrative is only to be used in case the securities are not eligible at the agent/custodian, and may not be used for settlement instructions.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax350Text> DeliveryDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax350Text? DeliveryDetails { get; init; } 
     /// <summary>
     /// Provides additional details pertaining to foreign exchange instructions.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax350Text> ForeignExchangeInstructionsAdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax350Text? ForeignExchangeInstructionsAdditionalInformation { get; init; } 
     /// <summary>
     /// Provides additional details pertaining to the corporate action instruction.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax350Text> InstructionAdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax350Text? InstructionAdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (InformationToComplyWith is IsoMax350Text InformationToComplyWithValue)
+        {
+            writer.WriteStartElement(null, "InfToCmplyWth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(InformationToComplyWithValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (DeliveryDetails is IsoMax350Text DeliveryDetailsValue)
+        {
+            writer.WriteStartElement(null, "DlvryDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(DeliveryDetailsValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (ForeignExchangeInstructionsAdditionalInformation is IsoMax350Text ForeignExchangeInstructionsAdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "FXInstrsAddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(ForeignExchangeInstructionsAdditionalInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (InstructionAdditionalInformation is IsoMax350Text InstructionAdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "InstrAddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(InstructionAdditionalInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionNarrative32 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

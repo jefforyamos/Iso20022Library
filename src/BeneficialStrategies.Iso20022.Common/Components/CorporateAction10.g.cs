@@ -7,160 +7,318 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the corporate action event.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateAction10
+     : IIsoXmlSerilizable<CorporateAction10>
 {
     #nullable enable
     
     /// <summary>
     /// Provides information about the dates related to a corporate action event.
     /// </summary>
-    [DataMember]
     public CorporateActionDate27? DateDetails { get; init; } 
     /// <summary>
     /// Provides information about the periods related to a corporate action event.
     /// </summary>
-    [DataMember]
     public CorporateActionPeriod8? PeriodDetails { get; init; } 
     /// <summary>
     /// Provides information about rates and amounts related to a corporate action event.
     /// </summary>
-    [DataMember]
     public CorporateActionRate35? RateAndAmountDetails { get; init; } 
     /// <summary>
     /// Provides information about the prices related to a corporate action event.
     /// </summary>
-    [DataMember]
     public CorporateActionPrice17? PriceDetails { get; init; } 
     /// <summary>
     /// Provides information about securities quantity linked to a corporate action.
     /// </summary>
-    [DataMember]
     public CorporateActionQuantity5? SecuritiesQuantity { get; init; } 
     /// <summary>
     /// Number of days used for calculating the accrued interest amount.
     /// </summary>
-    [DataMember]
     public IsoMax3Number? InterestAccruedNumberOfDays { get; init; } 
     /// <summary>
     /// Number of the coupon attached/associated with a security.
     /// </summary>
-    [DataMember]
-    public ValueList<IdentificationFormat1Choice_> CouponNumber { get; init; } = []; // Warning: Don't know multiplicity.
+    public IdentificationFormat1Choice_? CouponNumber { get; init; } 
     /// <summary>
     /// Indicates whether certification/breakdown is required. 
     /// Yes = certification required.
     /// No = no certification required.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? CertificationBreakdownIndicator { get; init; } 
     /// <summary>
     /// Indicates whether charges apply to the holder, for instance redemption charges.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ChargesAppliedIndicator { get; init; } 
     /// <summary>
     /// Indicates whether there is restrictions apply to the corporate action event or not.|Yes = There is restrictions.|No = There is no restrictions.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? RestrictionIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the holder is entitled to accrued interest.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? AccruedInterestIndicator { get; init; } 
     /// <summary>
     /// Indicates whether a letter of guaranteed delivery can be submitted in order to participate in the offer on full eligible position. It is not intended for use in situations arising from failed or late trades.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? LetterOfGuaranteedDeliveryIndicator { get; init; } 
     /// <summary>
     /// Specifies the conditions in which a dividend is paid.
     /// </summary>
-    [DataMember]
     public DividendTypeFormat3Choice_? DividendType { get; init; } 
     /// <summary>
     /// Specifies the conversion type of an instrument.
     /// </summary>
-    [DataMember]
     public ConversionTypeFormat1Choice_? ConversionType { get; init; } 
     /// <summary>
     /// Specifies the conditions in which the payment of the proceeds occurs.
     /// </summary>
-    [DataMember]
     public DistributionTypeFormat3Choice_? PaymentOccurrenceType { get; init; } 
     /// <summary>
     /// Specifies the conditions that apply to the offer.
     /// </summary>
-    [DataMember]
-    public ValueList<OfferTypeFormat3Choice_> OfferType { get; init; } = []; // Warning: Don't know multiplicity.
+    public OfferTypeFormat3Choice_? OfferType { get; init; } 
     /// <summary>
     /// Specifies whether terms of the event allow resale of the rights.
     /// </summary>
-    [DataMember]
     public RenounceableEntitlementStatusTypeFormat1Choice_? RenounceableEntitlementStatusType { get; init; } 
     /// <summary>
     /// Stage in the corporate action event life cycle.
     /// </summary>
-    [DataMember]
-    public ValueList<CorporateActionEventStageFormat3Choice_> EventStage { get; init; } = []; // Warning: Don't know multiplicity.
+    public CorporateActionEventStageFormat3Choice_? EventStage { get; init; } 
     /// <summary>
     /// Specifies the type of the additional business process linked to a corporate action event such as a claim compensation or tax refund.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalBusinessProcessFormat1Choice_> AdditionalBusinessProcessIndicator { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalBusinessProcessFormat1Choice_? AdditionalBusinessProcessIndicator { get; init; } 
     /// <summary>
     /// Specifies the type of change announced.
     /// </summary>
-    [DataMember]
-    public ValueList<CorporateActionChangeTypeFormat1Choice_> ChangeType { get; init; } = []; // Warning: Don't know multiplicity.
+    public CorporateActionChangeTypeFormat1Choice_? ChangeType { get; init; } 
     /// <summary>
     /// Type of intermediates securities distribution.
     /// </summary>
-    [DataMember]
     public IntermediateSecuritiesDistributionTypeFormat9Choice_? IntermediateSecuritiesDistributionType { get; init; } 
     /// <summary>
     /// Specifies whether the capital gain is in the scope of the EU Savings directive for the income realised upon the sale, refund or redemption of shares and units (.) (Article 6(1d)).
     /// </summary>
-    [DataMember]
     public CapitalGainFormat1Choice_? CapitalGainInOutIndicator { get; init; } 
     /// <summary>
     /// Specifies whether the financial instrument calculates the taxable income per dividend/taxable income per share.
     /// </summary>
-    [DataMember]
     public TaxableIncomePerShareCalculatedFormat1Choice_? TaxableIncomePerShareCalculated { get; init; } 
     /// <summary>
     /// Specifies the effect on the holdings of electing a corporate action option.
     /// </summary>
-    [DataMember]
     public ElectionTypeFormat1Choice_? ElectionType { get; init; } 
     /// <summary>
     /// Specifies the type of lottery announced.
     /// </summary>
-    [DataMember]
     public LotteryTypeFormat1Choice_? LotteryType { get; init; } 
     /// <summary>
     /// Specifies the certification format required, this is, physical or electronic format.
     /// </summary>
-    [DataMember]
     public CertificationTypeFormat1Choice_? CertificationType { get; init; } 
     /// <summary>
     /// New company's place of incorporation.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? NewPlaceOfIncorporation { get; init; } 
     /// <summary>
     /// Provides additional information. This field may only be used when the information to be transmitted, cannot be coded.
     /// </summary>
-    [DataMember]
     public CorporateActionNarrative24? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DateDetails is CorporateActionDate27 DateDetailsValue)
+        {
+            writer.WriteStartElement(null, "DtDtls", xmlNamespace );
+            DateDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PeriodDetails is CorporateActionPeriod8 PeriodDetailsValue)
+        {
+            writer.WriteStartElement(null, "PrdDtls", xmlNamespace );
+            PeriodDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RateAndAmountDetails is CorporateActionRate35 RateAndAmountDetailsValue)
+        {
+            writer.WriteStartElement(null, "RateAndAmtDtls", xmlNamespace );
+            RateAndAmountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PriceDetails is CorporateActionPrice17 PriceDetailsValue)
+        {
+            writer.WriteStartElement(null, "PricDtls", xmlNamespace );
+            PriceDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesQuantity is CorporateActionQuantity5 SecuritiesQuantityValue)
+        {
+            writer.WriteStartElement(null, "SctiesQty", xmlNamespace );
+            SecuritiesQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestAccruedNumberOfDays is IsoMax3Number InterestAccruedNumberOfDaysValue)
+        {
+            writer.WriteStartElement(null, "IntrstAcrdNbOfDays", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3Number(InterestAccruedNumberOfDaysValue)); // data type Max3Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (CouponNumber is IdentificationFormat1Choice_ CouponNumberValue)
+        {
+            writer.WriteStartElement(null, "CpnNb", xmlNamespace );
+            CouponNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CertificationBreakdownIndicator is IsoYesNoIndicator CertificationBreakdownIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CertfctnBrkdwnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CertificationBreakdownIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ChargesAppliedIndicator is IsoYesNoIndicator ChargesAppliedIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ChrgsApldInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ChargesAppliedIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (RestrictionIndicator is IsoYesNoIndicator RestrictionIndicatorValue)
+        {
+            writer.WriteStartElement(null, "RstrctnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(RestrictionIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AccruedInterestIndicator is IsoYesNoIndicator AccruedInterestIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AcrdIntrstInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AccruedInterestIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (LetterOfGuaranteedDeliveryIndicator is IsoYesNoIndicator LetterOfGuaranteedDeliveryIndicatorValue)
+        {
+            writer.WriteStartElement(null, "LttrOfGrntedDlvryInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(LetterOfGuaranteedDeliveryIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (DividendType is DividendTypeFormat3Choice_ DividendTypeValue)
+        {
+            writer.WriteStartElement(null, "DvddTp", xmlNamespace );
+            DividendTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ConversionType is ConversionTypeFormat1Choice_ ConversionTypeValue)
+        {
+            writer.WriteStartElement(null, "ConvsTp", xmlNamespace );
+            ConversionTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentOccurrenceType is DistributionTypeFormat3Choice_ PaymentOccurrenceTypeValue)
+        {
+            writer.WriteStartElement(null, "PmtOcrncTp", xmlNamespace );
+            PaymentOccurrenceTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OfferType is OfferTypeFormat3Choice_ OfferTypeValue)
+        {
+            writer.WriteStartElement(null, "OfferTp", xmlNamespace );
+            OfferTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RenounceableEntitlementStatusType is RenounceableEntitlementStatusTypeFormat1Choice_ RenounceableEntitlementStatusTypeValue)
+        {
+            writer.WriteStartElement(null, "RnncblEntitlmntStsTp", xmlNamespace );
+            RenounceableEntitlementStatusTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EventStage is CorporateActionEventStageFormat3Choice_ EventStageValue)
+        {
+            writer.WriteStartElement(null, "EvtStag", xmlNamespace );
+            EventStageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalBusinessProcessIndicator is AdditionalBusinessProcessFormat1Choice_ AdditionalBusinessProcessIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AddtlBizPrcInd", xmlNamespace );
+            AdditionalBusinessProcessIndicatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ChangeType is CorporateActionChangeTypeFormat1Choice_ ChangeTypeValue)
+        {
+            writer.WriteStartElement(null, "ChngTp", xmlNamespace );
+            ChangeTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IntermediateSecuritiesDistributionType is IntermediateSecuritiesDistributionTypeFormat9Choice_ IntermediateSecuritiesDistributionTypeValue)
+        {
+            writer.WriteStartElement(null, "IntrmdtSctiesDstrbtnTp", xmlNamespace );
+            IntermediateSecuritiesDistributionTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CapitalGainInOutIndicator is CapitalGainFormat1Choice_ CapitalGainInOutIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CptlGnInOutInd", xmlNamespace );
+            CapitalGainInOutIndicatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxableIncomePerShareCalculated is TaxableIncomePerShareCalculatedFormat1Choice_ TaxableIncomePerShareCalculatedValue)
+        {
+            writer.WriteStartElement(null, "TaxblIncmPerShrClctd", xmlNamespace );
+            TaxableIncomePerShareCalculatedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ElectionType is ElectionTypeFormat1Choice_ ElectionTypeValue)
+        {
+            writer.WriteStartElement(null, "ElctnTp", xmlNamespace );
+            ElectionTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LotteryType is LotteryTypeFormat1Choice_ LotteryTypeValue)
+        {
+            writer.WriteStartElement(null, "LtryTp", xmlNamespace );
+            LotteryTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CertificationType is CertificationTypeFormat1Choice_ CertificationTypeValue)
+        {
+            writer.WriteStartElement(null, "CertfctnTp", xmlNamespace );
+            CertificationTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewPlaceOfIncorporation is IsoMax350Text NewPlaceOfIncorporationValue)
+        {
+            writer.WriteStartElement(null, "NewPlcOfIncorprtn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(NewPlaceOfIncorporationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is CorporateActionNarrative24 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateAction10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

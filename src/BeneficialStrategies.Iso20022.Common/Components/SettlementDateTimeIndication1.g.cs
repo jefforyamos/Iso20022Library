@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information on the occurred settlement time(s) of the payment transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementDateTimeIndication1
+     : IIsoXmlSerilizable<SettlementDateTimeIndication1>
 {
     #nullable enable
     
     /// <summary>
     /// Date and time at which a payment has been debited at the transaction administrator. In the case of TARGET, the date and time at which the payment has been debited at the central bank, expressed in Central European Time (CET).
     /// </summary>
-    [DataMember]
     public IsoISODateTime? DebitDateTime { get; init; } 
     /// <summary>
     /// Date and time at which a payment has been credited at the transaction administrator. In the case of TARGET, the date and time at which the payment has been credited at the receiving central bank, expressed in Central European Time (CET).
     /// </summary>
-    [DataMember]
     public IsoISODateTime? CreditDateTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DebitDateTime is IsoISODateTime DebitDateTimeValue)
+        {
+            writer.WriteStartElement(null, "DbtDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(DebitDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (CreditDateTime is IsoISODateTime CreditDateTimeValue)
+        {
+            writer.WriteStartElement(null, "CdtDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(CreditDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementDateTimeIndication1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

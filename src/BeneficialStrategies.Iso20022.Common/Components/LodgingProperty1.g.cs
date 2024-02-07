@@ -7,71 +7,136 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Company in charge of a lodging establishment
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LodgingProperty1
+     : IIsoXmlSerilizable<LodgingProperty1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of accommodations.
     /// </summary>
-    [DataMember]
     public LodgingActivity1Code? Type { get; init; } 
     /// <summary>
     /// Other type of lodging establishment when Other National or Other Private is selected as a type code. 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Identifier that describes the lodging establishment as a prestigious property. 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? PrestigiousProperty { get; init; } 
     /// <summary>
     /// Name of the property.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     /// <summary>
     /// Identification of the lodging company.
     /// </summary>
-    [DataMember]
     public required PartyIdentification197 Identification { get; init; } 
     /// <summary>
     /// Address of the property.
     /// </summary>
-    [DataMember]
     public Location3? Location { get; init; } 
     /// <summary>
     /// Party in charge of assigning the identification.
     /// </summary>
-    [DataMember]
     public CompanyAssigner2Code? Assigner { get; init; } 
     /// <summary>
     /// Contact details at property.
     /// </summary>
-    [DataMember]
     public Contact3? Contact { get; init; } 
     /// <summary>
     /// Country of the property.
     /// ISO 3166
     /// </summary>
-    [DataMember]
     public IsoMin2Max3AlphaText? Country { get; init; } 
     /// <summary>
     /// Indicates whether or not the lodging facility complies with the US Hotel and Motel Fire Safety Act of 1990 (PL101-391) or similar legislation.
     /// True = in compliance
     /// False = not in compliance
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? FireSafetyActIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is LodgingActivity1Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherType is IsoMax35Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (PrestigiousProperty is IsoMax35Text PrestigiousPropertyValue)
+        {
+            writer.WriteStartElement(null, "PrstgsPrprty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(PrestigiousPropertyValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Name is IsoMax35Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Location is Location3 LocationValue)
+        {
+            writer.WriteStartElement(null, "Lctn", xmlNamespace );
+            LocationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Assigner is CompanyAssigner2Code AssignerValue)
+        {
+            writer.WriteStartElement(null, "Assgnr", xmlNamespace );
+            writer.WriteValue(AssignerValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Contact is Contact3 ContactValue)
+        {
+            writer.WriteStartElement(null, "Ctct", xmlNamespace );
+            ContactValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Country is IsoMin2Max3AlphaText CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMin2Max3AlphaText(CountryValue)); // data type Min2Max3AlphaText System.String
+            writer.WriteEndElement();
+        }
+        if (FireSafetyActIndicator is IsoTrueFalseIndicator FireSafetyActIndicatorValue)
+        {
+            writer.WriteStartElement(null, "FireSftyActInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(FireSafetyActIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static LodgingProperty1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

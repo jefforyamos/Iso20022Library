@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the request of a withdrawal from an ATM.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMWithdrawalRequest2
+     : IIsoXmlSerilizable<ATMWithdrawalRequest2>
 {
     #nullable enable
     
     /// <summary>
     /// Environment of the withdrawal transaction.
     /// </summary>
-    [DataMember]
     public required ATMEnvironment11 Environment { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed.
     /// </summary>
-    [DataMember]
     public required ATMContext8 Context { get; init; } 
     /// <summary>
     /// Withdrawal transaction for which the authorisation is requested.
     /// </summary>
-    [DataMember]
     public required ATMTransaction13 Transaction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Envt", xmlNamespace );
+        Environment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Cntxt", xmlNamespace );
+        Context.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Tx", xmlNamespace );
+        Transaction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ATMWithdrawalRequest2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

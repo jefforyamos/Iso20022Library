@@ -7,34 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Environment common to a collection of transactions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardPaymentEnvironment13
+     : IIsoXmlSerilizable<CardPaymentEnvironment13>
 {
     #nullable enable
     
     /// <summary>
     /// Acquirer involved in the card payment transactions.
     /// </summary>
-    [DataMember]
     public Acquirer3? Acquirer { get; init; } 
     /// <summary>
     /// Merchant performing the card payment transactions.
     /// Usage: In some cases, merchant and acceptor may be regarded as the same entity.
     /// </summary>
-    [DataMember]
     public Organisation9? Merchant { get; init; } 
     /// <summary>
     /// Point of interaction (POI) performing the transaction.
     /// </summary>
-    [DataMember]
     public PointOfInteraction2? POI { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Acquirer is Acquirer3 AcquirerValue)
+        {
+            writer.WriteStartElement(null, "Acqrr", xmlNamespace );
+            AcquirerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Merchant is Organisation9 MerchantValue)
+        {
+            writer.WriteStartElement(null, "Mrchnt", xmlNamespace );
+            MerchantValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (POI is PointOfInteraction2 POIValue)
+        {
+            writer.WriteStartElement(null, "POI", xmlNamespace );
+            POIValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardPaymentEnvironment13 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

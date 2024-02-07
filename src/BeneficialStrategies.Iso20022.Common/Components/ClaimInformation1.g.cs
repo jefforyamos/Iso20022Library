@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information provided to claim funds
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ClaimInformation1
+     : IIsoXmlSerilizable<ClaimInformation1>
 {
     #nullable enable
     
     /// <summary>
     /// Code presented by the customer to claim funds.
     /// </summary>
-    [DataMember]
     public IsoMax500Text? ClaimCredentials { get; init; } 
     /// <summary>
     /// Entity issuing the claim credential.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Assigner { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ClaimCredentials is IsoMax500Text ClaimCredentialsValue)
+        {
+            writer.WriteStartElement(null, "ClmCrdntls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Text(ClaimCredentialsValue)); // data type Max500Text System.String
+            writer.WriteEndElement();
+        }
+        if (Assigner is IsoMax35Text AssignerValue)
+        {
+            writer.WriteStartElement(null, "Assgnr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AssignerValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ClaimInformation1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

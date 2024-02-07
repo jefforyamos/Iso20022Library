@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to provide further means of referencing a payment transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentIdentification8
+     : IIsoXmlSerilizable<PaymentIdentification8>
 {
     #nullable enable
     
@@ -23,24 +24,58 @@ public partial record PaymentIdentification8
     /// Unique identification as assigned by an instructing party for an instructed party to unambiguously identify the instruction.
     /// Usage: The instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? InstructionIdentification { get; init; } 
     /// <summary>
     /// Unique identification assigned by the initiating party to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain.
     /// Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction. It can be included in several messages related to the transaction.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text EndToEndIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain. |Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. |Usage: The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TransactionIdentification { get; init; } 
     /// <summary>
     /// Universally unique identifier to provide an end-to-end reference of a payment transaction.
     /// </summary>
-    [DataMember]
     public IsoUUIDv4Identifier? UETR { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (InstructionIdentification is IsoMax35Text InstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "InstrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(InstructionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "EndToEndId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(EndToEndIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (TransactionIdentification is IsoMax35Text TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (UETR is IsoUUIDv4Identifier UETRValue)
+        {
+            writer.WriteStartElement(null, "UETR", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoUUIDv4Identifier(UETRValue)); // data type UUIDv4Identifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentIdentification8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

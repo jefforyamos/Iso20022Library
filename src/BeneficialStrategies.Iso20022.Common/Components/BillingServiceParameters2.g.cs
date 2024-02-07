@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the detailed parameters a service to be billed.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BillingServiceParameters2
+     : IIsoXmlSerilizable<BillingServiceParameters2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the details to fully identify the bank service.
     /// </summary>
-    [DataMember]
     public required BillingServiceIdentification2 BankService { get; init; } 
     /// <summary>
     /// Count or number of items (volume) involved in the charge.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? Volume { get; init; } 
     /// <summary>
     /// Price per item or unit used to calculate the charge expressed in the pricing currency.
     /// </summary>
-    [DataMember]
     public AmountAndDirection34? UnitPrice { get; init; } 
     /// <summary>
     /// Amount of the calculated charge expressed in the pricing currency, exclusive of any tax.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection34 ServiceChargeAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BkSvc", xmlNamespace );
+        BankService.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Volume is IsoDecimalNumber VolumeValue)
+        {
+            writer.WriteStartElement(null, "Vol", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(VolumeValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (UnitPrice is AmountAndDirection34 UnitPriceValue)
+        {
+            writer.WriteStartElement(null, "UnitPric", xmlNamespace );
+            UnitPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SvcChrgAmt", xmlNamespace );
+        ServiceChargeAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static BillingServiceParameters2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

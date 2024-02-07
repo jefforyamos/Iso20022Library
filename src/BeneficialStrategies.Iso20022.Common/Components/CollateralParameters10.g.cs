@@ -7,84 +7,158 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters which explicitly state the conditions that must be fulfilled before a particular triparty collateral instruction/transaction  can be confirmed. These parameters are defined by the instructing party in compliance with triparty collateral rules in the market the instruction/transaction will take place.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralParameters10
+     : IIsoXmlSerilizable<CollateralParameters10>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of collateral instruction.
     /// </summary>
-    [DataMember]
     public required CollateralTransactionType1Choice_ CollateralInstructionType { get; init; } 
     /// <summary>
     /// Specifies the underlying business area/type of trade causing the exposure.
     /// </summary>
-    [DataMember]
     public required ExposureType23Choice_ ExposureType { get; init; } 
     /// <summary>
     /// Specifies whether the client is the collateral taker or giver.
     /// </summary>
-    [DataMember]
     public required CollateralRole1Code CollateralSide { get; init; } 
     /// <summary>
     /// Percentage by which the collateral value sought is increased, in selecting securities for a collateral basket, to reflect the taker's margin requirements.
     /// Margin or haircut to be applied on the exposure amount, expressed  as a percentage.
     /// </summary>
-    [DataMember]
     public RateOrType1Choice_? ValueSoughtMarginRate { get; init; } 
     /// <summary>
     /// Change of title for the collateral. If N then collateral is pledged.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? TransferTitle { get; init; } 
     /// <summary>
     /// Specifies the settlement process in which the collateral will be settled.
     /// </summary>
-    [DataMember]
     public GenericIdentification30? SettlementProcess { get; init; } 
     /// <summary>
     /// Specifies the priority with which the instruction needs to be executed.
     /// </summary>
-    [DataMember]
     public GenericIdentification30? Priority { get; init; } 
     /// <summary>
     /// Specifies whether the allocation of the collateral is manual or automatic.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? AutomaticAllocation { get; init; } 
     /// <summary>
     /// Specifies whether the taker is allowed to solve the failing settlement by proposing other collateral movements.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? FailedSettlementSalvation { get; init; } 
     /// <summary>
     /// Specifies if the main trading account  is included in the pool of securities positions available for collateralisation. It is used in case of re-use of collateral to specify the account from which the securities collateral is taken from.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? MainTradingAccountCollateralisation { get; init; } 
     /// <summary>
     /// Provides information on the baskets identification and the Eligibility Set Profile.
     /// </summary>
-    [DataMember]
     public BasketIdentificationAndEligibilitySetProfile1? BasketIdentificationAndEligibilitySetProfile { get; init; } 
     /// <summary>
     /// Collateral taker's answer to the collateral giver instruction.
     /// </summary>
-    [DataMember]
     public ResponseStatus9Choice_? ResponseStatus { get; init; } 
     /// <summary>
     /// Provides additional information to a collateral instruction.
     /// </summary>
-    [DataMember]
     public AdditionalInformation24? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CollInstrTp", xmlNamespace );
+        CollateralInstructionType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XpsrTp", xmlNamespace );
+        ExposureType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CollSd", xmlNamespace );
+        writer.WriteValue(CollateralSide.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (ValueSoughtMarginRate is RateOrType1Choice_ ValueSoughtMarginRateValue)
+        {
+            writer.WriteStartElement(null, "ValSghtMrgnRate", xmlNamespace );
+            ValueSoughtMarginRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransferTitle is IsoYesNoIndicator TransferTitleValue)
+        {
+            writer.WriteStartElement(null, "TrfTitl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(TransferTitleValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SettlementProcess is GenericIdentification30 SettlementProcessValue)
+        {
+            writer.WriteStartElement(null, "SttlmPrc", xmlNamespace );
+            SettlementProcessValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Priority is GenericIdentification30 PriorityValue)
+        {
+            writer.WriteStartElement(null, "Prty", xmlNamespace );
+            PriorityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AutomaticAllocation is IsoYesNoIndicator AutomaticAllocationValue)
+        {
+            writer.WriteStartElement(null, "AutomtcAllcn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AutomaticAllocationValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (FailedSettlementSalvation is IsoYesNoIndicator FailedSettlementSalvationValue)
+        {
+            writer.WriteStartElement(null, "FaildSttlmSlvtn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(FailedSettlementSalvationValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (MainTradingAccountCollateralisation is IsoYesNoIndicator MainTradingAccountCollateralisationValue)
+        {
+            writer.WriteStartElement(null, "MainTradgAcctCollstn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MainTradingAccountCollateralisationValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (BasketIdentificationAndEligibilitySetProfile is BasketIdentificationAndEligibilitySetProfile1 BasketIdentificationAndEligibilitySetProfileValue)
+        {
+            writer.WriteStartElement(null, "BsktIdAndElgbltySetPrfl", xmlNamespace );
+            BasketIdentificationAndEligibilitySetProfileValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ResponseStatus is ResponseStatus9Choice_ ResponseStatusValue)
+        {
+            writer.WriteStartElement(null, "RspnSts", xmlNamespace );
+            ResponseStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation24 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralParameters10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

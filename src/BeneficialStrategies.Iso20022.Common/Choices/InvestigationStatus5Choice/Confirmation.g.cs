@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatus5Choice;
 
@@ -13,6 +15,36 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatus5Choice;
 /// Specifies the status of the investigation, in a coded form.
 /// </summary>
 public partial record Confirmation : InvestigationStatus5Choice_
+     , IIsoXmlSerilizable<Confirmation>
 {
-    public required ExternalInvestigationExecutionConfirmation1Code Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies the result of an investigation, as published in an external investigation execution confirmation code set.
+    /// External code sets can be downloaded from www.iso20022.org.
+    /// </summary>
+    public required ExternalInvestigationExecutionConfirmation1Code Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Conf", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new Confirmation Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

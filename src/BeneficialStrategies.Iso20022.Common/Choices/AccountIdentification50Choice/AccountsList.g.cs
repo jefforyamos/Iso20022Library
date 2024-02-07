@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification50Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification50Choice;
 /// Selected safekeeping accounts list to which the corporate action event applies.
 /// </summary>
 public partial record AccountsList : AccountIdentification50Choice_
+     , IIsoXmlSerilizable<AccountsList>
 {
     #nullable enable
+    
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
@@ -31,5 +35,47 @@ public partial record AccountsList : AccountIdentification50Choice_
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
     public SafekeepingPlaceFormat32Choice_? SafekeepingPlace { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (SafekeepingAccount is IsoRestrictedFINXMax35Text SafekeepingAccountValue)
+        {
+            writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax35Text(SafekeepingAccountValue)); // data type RestrictedFINXMax35Text System.String
+            writer.WriteEndElement();
+        }
+        if (BlockChainAddressOrWallet is IsoRestrictedFINXMax140Text BlockChainAddressOrWalletValue)
+        {
+            writer.WriteStartElement(null, "BlckChainAdrOrWllt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax140Text(BlockChainAddressOrWalletValue)); // data type RestrictedFINXMax140Text System.String
+            writer.WriteEndElement();
+        }
+        if (AccountOwner is PartyIdentification136Choice_ AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SafekeepingPlace is SafekeepingPlaceFormat32Choice_ SafekeepingPlaceValue)
+        {
+            writer.WriteStartElement(null, "SfkpgPlc", xmlNamespace );
+            SafekeepingPlaceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new AccountsList Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

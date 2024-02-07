@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria which are used to report on the payment status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InstructionStatusReturnCriteria1
+     : IIsoXmlSerilizable<InstructionStatusReturnCriteria1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates if the instruction status is requested.
     /// </summary>
-    [DataMember]
     public required IsoRequestedIndicator PaymentInstructionStatusIndicator { get; init; } 
     /// <summary>
     /// Indicates if the status date and time are requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? PaymentInstructionStatusDateTimeIndicator { get; init; } 
     /// <summary>
     /// Indicates if the status reason is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? PaymentInstructionStatusReasonIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PmtInstrStsInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(PaymentInstructionStatusIndicator)); // data type RequestedIndicator System.String
+        writer.WriteEndElement();
+        if (PaymentInstructionStatusDateTimeIndicator is IsoRequestedIndicator PaymentInstructionStatusDateTimeIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PmtInstrStsDtTmInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(PaymentInstructionStatusDateTimeIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PaymentInstructionStatusReasonIndicator is IsoRequestedIndicator PaymentInstructionStatusReasonIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PmtInstrStsRsnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(PaymentInstructionStatusReasonIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static InstructionStatusReturnCriteria1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

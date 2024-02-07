@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action general information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionGeneralInformationSD26
+     : IIsoXmlSerilizable<CorporateActionGeneralInformationSD26>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification15 SecurityIdentification { get; init; } 
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINXMax35Text SafekeepingAccount { get; init; } 
     /// <summary>
     /// Additional information about the corporate action event.
     /// </summary>
-    [DataMember]
-    public ValueList<CorporateActionUnallocatedDetailsSD5> UnallocatedDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CorporateActionUnallocatedDetailsSD5? UnallocatedDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctyId", xmlNamespace );
+        SecurityIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax35Text(SafekeepingAccount)); // data type RestrictedFINXMax35Text System.String
+        writer.WriteEndElement();
+        if (UnallocatedDetails is CorporateActionUnallocatedDetailsSD5 UnallocatedDetailsValue)
+        {
+            writer.WriteStartElement(null, "UallctdDtls", xmlNamespace );
+            UnallocatedDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionGeneralInformationSD26 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

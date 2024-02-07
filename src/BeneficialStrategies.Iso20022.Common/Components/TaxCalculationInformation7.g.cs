@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information used to calculate the tax.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxCalculationInformation7
+     : IIsoXmlSerilizable<TaxCalculationInformation7>
 {
     #nullable enable
     
     /// <summary>
     /// Calculation basis.
     /// </summary>
-    [DataMember]
     public TaxCalculationBasisType1Choice_? TaxCalculationBasis { get; init; } 
     /// <summary>
     /// Amount of money that it is to be taxed.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? TaxableAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TaxCalculationBasis is TaxCalculationBasisType1Choice_ TaxCalculationBasisValue)
+        {
+            writer.WriteStartElement(null, "TaxClctnBsis", xmlNamespace );
+            TaxCalculationBasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxableAmount is IsoActiveCurrencyAnd13DecimalAmount TaxableAmountValue)
+        {
+            writer.WriteStartElement(null, "TaxblAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(TaxableAmountValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static TaxCalculationInformation7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

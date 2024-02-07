@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.DocumentNumber6Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.DocumentNumber6Choice;
 /// Message type number of the document referenced.
 /// </summary>
 public partial record ShortNumber : DocumentNumber6Choice_
+     , IIsoXmlSerilizable<ShortNumber>
 {
-    public required IsoExact3NumericText Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a numeric string with an exact length of 3 digits.
+    /// </summary>
+    public required IsoExact3NumericText Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ShrtNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact3NumericText(Value)); // data type Exact3NumericText System.String
+        writer.WriteEndElement();
+    }
+    public static new ShortNumber Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

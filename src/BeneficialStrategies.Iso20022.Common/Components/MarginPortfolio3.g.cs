@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the unique codes.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MarginPortfolio3
+     : IIsoXmlSerilizable<MarginPortfolio3>
 {
     #nullable enable
     
@@ -24,15 +25,39 @@ public partial record MarginPortfolio3
     /// Usage:
     /// NoCode is reported if the collateralisation was performed on a transaction level basis, or if there is no collateral agreement or if no collateral is posted or received.
     /// </summary>
-    [DataMember]
     public required PortfolioCode5Choice_ InitialMarginPortfolioCode { get; init; } 
     /// <summary>
     /// Specifies the unique code assigned by the reporting counterparty to the portfolio if the collateral is posted on a portfolio basis.
     /// Usage:
     /// NoCode is reported if the collateralisation was performed on a transaction level basis, or if there is no collateral agreement or if no collateral is posted or received.
     /// </summary>
-    [DataMember]
     public PortfolioCode5Choice_? VariationMarginPortfolioCode { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "InitlMrgnPrtflCd", xmlNamespace );
+        InitialMarginPortfolioCode.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (VariationMarginPortfolioCode is PortfolioCode5Choice_ VariationMarginPortfolioCodeValue)
+        {
+            writer.WriteStartElement(null, "VartnMrgnPrtflCd", xmlNamespace );
+            VariationMarginPortfolioCodeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MarginPortfolio3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

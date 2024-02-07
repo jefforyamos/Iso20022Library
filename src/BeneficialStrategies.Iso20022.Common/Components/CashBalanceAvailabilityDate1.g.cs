@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indicates when the amount of money will become available.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashBalanceAvailabilityDate1
+     : IIsoXmlSerilizable<CashBalanceAvailabilityDate1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the number of float days attached to the balance.
     /// </summary>
-    [DataMember]
     public required IsoMax15PlusSignedNumericText NumberOfDays { get; init; } 
     /// <summary>
     /// Identifies the actual availability date.
     /// </summary>
-    [DataMember]
     public required IsoISODate ActualDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NbOfDays", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax15PlusSignedNumericText(NumberOfDays)); // data type Max15PlusSignedNumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ActlDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ActualDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+    }
+    public static CashBalanceAvailabilityDate1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

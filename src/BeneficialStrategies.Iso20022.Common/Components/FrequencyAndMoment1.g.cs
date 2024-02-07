@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines a frequency in terms a specific moment within a specified period type.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FrequencyAndMoment1
+     : IIsoXmlSerilizable<FrequencyAndMoment1>
 {
     #nullable enable
     
     /// <summary>
     /// Period for which the number of instructions are to be created and processed.
     /// </summary>
-    [DataMember]
     public required Frequency6Code Type { get; init; } 
     /// <summary>
     /// Further information on the exact point in time the event should take place.
     /// </summary>
-    [DataMember]
     public required IsoExact2NumericText PointInTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PtInTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact2NumericText(PointInTime)); // data type Exact2NumericText System.String
+        writer.WriteEndElement();
+    }
+    public static FrequencyAndMoment1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

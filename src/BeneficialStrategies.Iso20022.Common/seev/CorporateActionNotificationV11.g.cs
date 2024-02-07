@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.CorporateActionNotificationV11>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -29,10 +32,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// - re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate), using the relevant elements in the business application header (BAH).
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The CorporateActionNotification message is sent by an account servicer to an account owner or its designated agent to notify details of a corporate action event and optionally account information, eligible balance and entitlements.||It may also include possible elections or choices available to the account owner. The account servicer can initially send the CorporateActionNotification message as a preliminary advice, subsequently replaced by another CorporateActionNotification message with complete or confirmed information.||It may also be sent to an account owner or its designated agent, to remind of event details and/or of missing or incomplete instructions for a corporate action event.|Usage|The message may also be used to:|- re-send a message previously sent (the sub-function of the message is Duplicate),|- provide a third party with a copy of a message for information (the sub-function of the message is Copy),|- re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate), using the relevant elements in the business application header (BAH).")]
-public partial record CorporateActionNotificationV11 : IOuterRecord
+public partial record CorporateActionNotificationV11 : IOuterRecord<CorporateActionNotificationV11,CorporateActionNotificationV11Document>
+    ,IIsoXmlSerilizable<CorporateActionNotificationV11>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -44,6 +46,11 @@ public partial record CorporateActionNotificationV11 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "CorpActnNtfctn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => CorporateActionNotificationV11Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -283,6 +290,164 @@ public partial record CorporateActionNotificationV11 : IOuterRecord
     {
         return new CorporateActionNotificationV11Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("CorpActnNtfctn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Pagination is Pagination1 PaginationValue)
+        {
+            writer.WriteStartElement(null, "Pgntn", xmlNamespace );
+            PaginationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "NtfctnGnlInf", xmlNamespace );
+        NotificationGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PreviousNotificationIdentification is DocumentIdentification31 PreviousNotificationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrvsNtfctnId", xmlNamespace );
+            PreviousNotificationIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructionIdentification is DocumentIdentification9 InstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "InstrId", xmlNamespace );
+            InstructionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherDocumentIdentification is DocumentIdentification32 OtherDocumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OthrDocId", xmlNamespace );
+            OtherDocumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EventsLinkage is CorporateActionEventReference3 EventsLinkageValue)
+        {
+            writer.WriteStartElement(null, "EvtsLkg", xmlNamespace );
+            EventsLinkageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CorpActnGnlInf", xmlNamespace );
+        CorporateActionGeneralInformation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
+        AccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (IntermediateSecurity is FinancialInstrumentAttributes93 IntermediateSecurityValue)
+        {
+            writer.WriteStartElement(null, "IntrmdtScty", xmlNamespace );
+            IntermediateSecurityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CorporateActionDetails is CorporateAction57 CorporateActionDetailsValue)
+        {
+            writer.WriteStartElement(null, "CorpActnDtls", xmlNamespace );
+            CorporateActionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CorporateActionOptionDetails is CorporateActionOption177 CorporateActionOptionDetailsValue)
+        {
+            writer.WriteStartElement(null, "CorpActnOptnDtls", xmlNamespace );
+            CorporateActionOptionDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is CorporateActionNarrative46 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssuerAgent is PartyIdentification129Choice_ IssuerAgentValue)
+        {
+            writer.WriteStartElement(null, "IssrAgt", xmlNamespace );
+            IssuerAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PayingAgent is PartyIdentification120Choice_ PayingAgentValue)
+        {
+            writer.WriteStartElement(null, "PngAgt", xmlNamespace );
+            PayingAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SubPayingAgent is PartyIdentification120Choice_ SubPayingAgentValue)
+        {
+            writer.WriteStartElement(null, "SubPngAgt", xmlNamespace );
+            SubPayingAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Registrar is PartyIdentification120Choice_ RegistrarValue)
+        {
+            writer.WriteStartElement(null, "Regar", xmlNamespace );
+            RegistrarValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ResellingAgent is PartyIdentification120Choice_ ResellingAgentValue)
+        {
+            writer.WriteStartElement(null, "RsellngAgt", xmlNamespace );
+            ResellingAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PhysicalSecuritiesAgent is PartyIdentification120Choice_ PhysicalSecuritiesAgentValue)
+        {
+            writer.WriteStartElement(null, "PhysSctiesAgt", xmlNamespace );
+            PhysicalSecuritiesAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DropAgent is PartyIdentification120Choice_ DropAgentValue)
+        {
+            writer.WriteStartElement(null, "DrpAgt", xmlNamespace );
+            DropAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SolicitationAgent is PartyIdentification120Choice_ SolicitationAgentValue)
+        {
+            writer.WriteStartElement(null, "SlctnAgt", xmlNamespace );
+            SolicitationAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InformationAgent is PartyIdentification120Choice_ InformationAgentValue)
+        {
+            writer.WriteStartElement(null, "InfAgt", xmlNamespace );
+            InformationAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Issuer is PartyIdentification129Choice_ IssuerValue)
+        {
+            writer.WriteStartElement(null, "Issr", xmlNamespace );
+            IssuerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Offeror is PartyIdentification129Choice_ OfferorValue)
+        {
+            writer.WriteStartElement(null, "Offerr", xmlNamespace );
+            OfferorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransferAgent is PartyIdentification129Choice_ TransferAgentValue)
+        {
+            writer.WriteStartElement(null, "TrfAgt", xmlNamespace );
+            TransferAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionNotificationV11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -290,9 +455,7 @@ public partial record CorporateActionNotificationV11 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CorporateActionNotificationV11"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record CorporateActionNotificationV11Document : IOuterDocument<CorporateActionNotificationV11>
+public partial record CorporateActionNotificationV11Document : IOuterDocument<CorporateActionNotificationV11>, IXmlSerializable
 {
     
     /// <summary>
@@ -308,5 +471,22 @@ public partial record CorporateActionNotificationV11Document : IOuterDocument<Co
     /// <summary>
     /// The instance of <seealso cref="CorporateActionNotificationV11"/> is required.
     /// </summary>
+    [DataMember(Name=CorporateActionNotificationV11.XmlTag)]
     public required CorporateActionNotificationV11 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(CorporateActionNotificationV11.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

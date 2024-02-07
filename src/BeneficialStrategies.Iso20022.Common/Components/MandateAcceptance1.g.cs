@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the mandate, which is being accepted.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MandateAcceptance1
+     : IIsoXmlSerilizable<MandateAcceptance1>
 {
     #nullable enable
     
     /// <summary>
     /// Set of elements used to provide information on the original messsage.
     /// </summary>
-    [DataMember]
     public OriginalMessageInformation1? OriginalMessageInformation { get; init; } 
     /// <summary>
     /// Set of elements used to provide detailed information on the acceptance result.
     /// </summary>
-    [DataMember]
     public required AcceptanceResult6 AcceptanceResult { get; init; } 
     /// <summary>
     /// Set of elements used to provide the original mandate data.
     /// </summary>
-    [DataMember]
     public required OriginalMandate1Choice_ OriginalMandate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OriginalMessageInformation is OriginalMessageInformation1 OriginalMessageInformationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlMsgInf", xmlNamespace );
+            OriginalMessageInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AccptncRslt", xmlNamespace );
+        AcceptanceResult.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgnlMndt", xmlNamespace );
+        OriginalMandate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static MandateAcceptance1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

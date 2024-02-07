@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentIdentification5Choice;
 
@@ -13,15 +15,47 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentIdentificatio
 /// Instrument consists of multiple instruments.
 /// </summary>
 public partial record Basket : FinancialInstrumentIdentification5Choice_
+     , IIsoXmlSerilizable<Basket>
 {
     #nullable enable
+    
     /// <summary>
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
-    public IsoISINOct2015Identifier? ISIN { get; init;  } // Warning: Don't know multiplicity.
+    public IsoISINOct2015Identifier? ISIN { get; init; } 
     /// <summary>
     /// The LEI code of the issuer where the instrument is referring to an issuer rather than one single instrument.
     /// </summary>
-    public IsoLEIIdentifier? LEI { get; init;  } // Warning: Don't know multiplicity.
+    public IsoLEIIdentifier? LEI { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ISIN is IsoISINOct2015Identifier ISINValue)
+        {
+            writer.WriteStartElement(null, "ISIN", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(ISINValue)); // data type ISINOct2015Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (LEI is IsoLEIIdentifier LEIValue)
+        {
+            writer.WriteStartElement(null, "LEI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEIValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new Basket Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

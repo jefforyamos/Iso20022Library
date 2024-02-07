@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details for the trading under waiver of the instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradingUnderWaiversPercentage1
+     : IIsoXmlSerilizable<TradingUnderWaiversPercentage1>
 {
     #nullable enable
     
     /// <summary>
     /// Total percentage of trading under waiver of the instrument in this specific reporting period on this trading venue.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate TradingUnderWaiverPercentage { get; init; } 
     /// <summary>
     /// The venue this trading under waiver percentage is in relation to.
     /// </summary>
-    [DataMember]
     public required IsoMICIdentifier TradingVenue { get; init; } 
     /// <summary>
     /// Information for interpreting the result.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? Disclaimer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TradgUdrWvrPctg", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(TradingUnderWaiverPercentage)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradgVn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMICIdentifier(TradingVenue)); // data type MICIdentifier System.String
+        writer.WriteEndElement();
+        if (Disclaimer is IsoMax350Text DisclaimerValue)
+        {
+            writer.WriteStartElement(null, "Dsclmr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(DisclaimerValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TradingUnderWaiversPercentage1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

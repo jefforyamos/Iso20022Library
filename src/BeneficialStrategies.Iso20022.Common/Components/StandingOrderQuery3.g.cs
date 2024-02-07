@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specification of the query criteria.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StandingOrderQuery3
+     : IIsoXmlSerilizable<StandingOrderQuery3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of matching items to be returned in the response to the query.
     /// </summary>
-    [DataMember]
     public QueryType2Code? QueryType { get; init; } 
     /// <summary>
     /// Definition of the standing order query criteria.
     /// </summary>
-    [DataMember]
     public StandingOrderCriteria3Choice_? StandingOrderCriteria { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (QueryType is QueryType2Code QueryTypeValue)
+        {
+            writer.WriteStartElement(null, "QryTp", xmlNamespace );
+            writer.WriteValue(QueryTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (StandingOrderCriteria is StandingOrderCriteria3Choice_ StandingOrderCriteriaValue)
+        {
+            writer.WriteStartElement(null, "StgOrdrCrit", xmlNamespace );
+            StandingOrderCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static StandingOrderQuery3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

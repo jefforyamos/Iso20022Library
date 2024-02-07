@@ -7,58 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status of an account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountStatus2
+     : IIsoXmlSerilizable<AccountStatus2>
 {
     #nullable enable
     
     /// <summary>
     /// Account can be used for its intended purpose.
     /// </summary>
-    [DataMember]
     public EnabledStatusReason1Choice_? Enabled { get; init; } 
     /// <summary>
     /// Account cannot temporarily be used for its intended purpose.
     /// </summary>
-    [DataMember]
     public DisabledStatusReason1Choice_? Disabled { get; init; } 
     /// <summary>
     /// Account change is pending approval.
     /// </summary>
-    [DataMember]
     public PendingStatusReason1Choice_? Pending { get; init; } 
     /// <summary>
     /// Account opening is pending.
     /// </summary>
-    [DataMember]
     public PendingOpeningStatusReason1Choice_? PendingOpening { get; init; } 
     /// <summary>
     /// Account is temporary and can be partially used for its intended purpose. The account will be fully available for use when the account servicer has received all relevant documents.
     /// </summary>
-    [DataMember]
     public ProformaStatusReason1Choice_? Proforma { get; init; } 
     /// <summary>
     /// Account is closed.
     /// </summary>
-    [DataMember]
     public ClosedStatusReason1Choice_? Closed { get; init; } 
     /// <summary>
     /// Account closure is pending.
     /// </summary>
-    [DataMember]
     public ClosurePendingStatusReason1Choice_? ClosurePending { get; init; } 
     /// <summary>
     /// Status is a bilaterally agreed status.
     /// </summary>
-    [DataMember]
-    public ValueList<OtherAccountStatus1> Other { get; init; } = []; // Warning: Don't know multiplicity.
+    public OtherAccountStatus1? Other { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Enabled is EnabledStatusReason1Choice_ EnabledValue)
+        {
+            writer.WriteStartElement(null, "Nbld", xmlNamespace );
+            EnabledValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Disabled is DisabledStatusReason1Choice_ DisabledValue)
+        {
+            writer.WriteStartElement(null, "Dsbld", xmlNamespace );
+            DisabledValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Pending is PendingStatusReason1Choice_ PendingValue)
+        {
+            writer.WriteStartElement(null, "Pdg", xmlNamespace );
+            PendingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PendingOpening is PendingOpeningStatusReason1Choice_ PendingOpeningValue)
+        {
+            writer.WriteStartElement(null, "PdgOpng", xmlNamespace );
+            PendingOpeningValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Proforma is ProformaStatusReason1Choice_ ProformaValue)
+        {
+            writer.WriteStartElement(null, "Profrm", xmlNamespace );
+            ProformaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Closed is ClosedStatusReason1Choice_ ClosedValue)
+        {
+            writer.WriteStartElement(null, "Clsd", xmlNamespace );
+            ClosedValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ClosurePending is ClosurePendingStatusReason1Choice_ ClosurePendingValue)
+        {
+            writer.WriteStartElement(null, "ClsrPdg", xmlNamespace );
+            ClosurePendingValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Other is OtherAccountStatus1 OtherValue)
+        {
+            writer.WriteStartElement(null, "Othr", xmlNamespace );
+            OtherValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountStatus2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

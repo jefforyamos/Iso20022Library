@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Assessment of securities credit and investment risk.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Rating1
+     : IIsoXmlSerilizable<Rating1>
 {
     #nullable enable
     
     /// <summary>
     /// Information regarding the entity that assigns the rating.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text RatingScheme { get; init; } 
     /// <summary>
     /// Date/time as from which the rating is valid.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime ValueDate { get; init; } 
     /// <summary>
     /// Specifies the rating, which has been assigned to a security by a rating agency.
     /// </summary>
-    [DataMember]
     public required IsoRatingValueIdentifier ValueIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RatgSchme", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(RatingScheme)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ValDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(ValueDate)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ValId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRatingValueIdentifier(ValueIdentification)); // data type RatingValueIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static Rating1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

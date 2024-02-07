@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Limit for an amount range.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AmountRangeBoundary1
+     : IIsoXmlSerilizable<AmountRangeBoundary1>
 {
     #nullable enable
     
     /// <summary>
     /// Amount value of the range limit.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount BoundaryAmount { get; init; } 
     /// <summary>
     /// Indicates whether the boundary amount is included in the range of amount values.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Included { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BdryAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(BoundaryAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Incl", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Included)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+    }
+    public static AmountRangeBoundary1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

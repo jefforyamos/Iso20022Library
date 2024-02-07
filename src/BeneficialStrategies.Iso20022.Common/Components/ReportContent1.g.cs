@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains the content of a report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReportContent1
+     : IIsoXmlSerilizable<ReportContent1>
 {
     #nullable enable
     
     /// <summary>
     /// Sequence number of the report line in the report.
     /// </summary>
-    [DataMember]
     public IsoMax10NumericText? ReportLineSequence { get; init; } 
     /// <summary>
     /// Formatted or unformatted report content.
     /// </summary>
-    [DataMember]
     public required ReportContent1Choice_ FormattedContent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReportLineSequence is IsoMax10NumericText ReportLineSequenceValue)
+        {
+            writer.WriteStartElement(null, "RptLineSeq", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10NumericText(ReportLineSequenceValue)); // data type Max10NumericText System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FrmtdCntt", xmlNamespace );
+        FormattedContent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ReportContent1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

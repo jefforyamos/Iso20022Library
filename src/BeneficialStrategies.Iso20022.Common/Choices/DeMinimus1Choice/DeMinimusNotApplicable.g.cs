@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.DeMinimus1Choice;
 
@@ -13,11 +15,34 @@ namespace BeneficialStrategies.Iso20022.Choices.DeMinimus1Choice;
 /// Conditions applicable when the investor is not covered by the "de minimis" exemption.
 /// </summary>
 public partial record DeMinimusNotApplicable : DeMinimus1Choice_
+     , IIsoXmlSerilizable<DeMinimusNotApplicable>
 {
     #nullable enable
+    
     /// <summary>
     /// Reason for the restricted person.
     /// </summary>
     public required IsoMax350Text RestrictedPersonReason { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RstrctdPrsnRsn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(RestrictedPersonReason)); // data type Max350Text System.String
+        writer.WriteEndElement();
+    }
+    public static new DeMinimusNotApplicable Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

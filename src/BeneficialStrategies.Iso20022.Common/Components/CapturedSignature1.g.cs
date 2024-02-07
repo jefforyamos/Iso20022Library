@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides all information related to a handwritten signature capture.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CapturedSignature1
+     : IIsoXmlSerilizable<CapturedSignature1>
 {
     #nullable enable
     
     /// <summary>
     /// Format of the image.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ImageFormat { get; init; } 
     /// <summary>
     /// Data of the image.
     /// </summary>
-    [DataMember]
     public IsoMax2MBBinary? ImageData { get; init; } 
     /// <summary>
     /// URL or name of the image.
     /// </summary>
-    [DataMember]
     public IsoMax500Text? ImageReference { get; init; } 
     /// <summary>
     /// Additional information for the image.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ImgFrmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ImageFormat)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ImageData is IsoMax2MBBinary ImageDataValue)
+        {
+            writer.WriteStartElement(null, "ImgData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2MBBinary(ImageDataValue)); // data type Max2MBBinary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (ImageReference is IsoMax500Text ImageReferenceValue)
+        {
+            writer.WriteStartElement(null, "ImgRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Text(ImageReferenceValue)); // data type Max500Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is IsoMax140Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalInformationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CapturedSignature1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

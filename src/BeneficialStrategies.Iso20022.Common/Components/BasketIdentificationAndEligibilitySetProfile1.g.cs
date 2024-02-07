@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information on the baskets identification and the Eligibility Set Profile.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BasketIdentificationAndEligibilitySetProfile1
+     : IIsoXmlSerilizable<BasketIdentificationAndEligibilitySetProfile1>
 {
     #nullable enable
     
     /// <summary>
     /// Number identifying the preferred collateral basket.
     /// </summary>
-    [DataMember]
     public GenericIdentification1? PreferentialBasketIdentificationNumber { get; init; } 
     /// <summary>
     /// Number identifying the fallback starting collateral basket.
     /// </summary>
-    [DataMember]
     public GenericIdentification1? FallbackStartingBasketIdentification { get; init; } 
     /// <summary>
     /// Number identifying the collateral basket to be excluded.
     /// </summary>
-    [DataMember]
     public GenericIdentification1? ExclusionBasketIdentification { get; init; } 
     /// <summary>
     /// Number identifying the collateral eligibility set profile of the counterparty.
     /// </summary>
-    [DataMember]
     public GenericIdentification1? EligibilitySetProfile { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PreferentialBasketIdentificationNumber is GenericIdentification1 PreferentialBasketIdentificationNumberValue)
+        {
+            writer.WriteStartElement(null, "PrfrntlBsktIdNb", xmlNamespace );
+            PreferentialBasketIdentificationNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FallbackStartingBasketIdentification is GenericIdentification1 FallbackStartingBasketIdentificationValue)
+        {
+            writer.WriteStartElement(null, "FllbckStartgBsktId", xmlNamespace );
+            FallbackStartingBasketIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExclusionBasketIdentification is GenericIdentification1 ExclusionBasketIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ExclsnBsktId", xmlNamespace );
+            ExclusionBasketIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EligibilitySetProfile is GenericIdentification1 EligibilitySetProfileValue)
+        {
+            writer.WriteStartElement(null, "ElgbltySetPrfl", xmlNamespace );
+            EligibilitySetProfileValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BasketIdentificationAndEligibilitySetProfile1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

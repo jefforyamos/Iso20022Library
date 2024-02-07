@@ -7,68 +7,136 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides detailed information about the travel package, excluding specific itinerary data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TravelAgencyPackage1
+     : IIsoXmlSerilizable<TravelAgencyPackage1>
 {
     #nullable enable
     
     /// <summary>
     /// Reservation number or identifier. 
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReservationNumber { get; init; } 
     /// <summary>
     /// Describes the type of travel offering provided by the travel agency or partner.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? TravelPackageType { get; init; } 
     /// <summary>
     /// Number of people included in the travel arrangements. 
     /// </summary>
-    [DataMember]
     public IsoMax10NumericText? NumberInParty { get; init; } 
     /// <summary>
     /// Contains Customer Reference Values provided for this transaction and used for various reference processing at the customer site. These values represent information most prevalently provided by travel agencies for transactions booked against a lodged account or central travel account.
     /// </summary>
-    [DataMember]
-    public ValueList<CustomerReference1> CustomerReference { get; init; } = []; // Warning: Don't know multiplicity.
+    public CustomerReference1? CustomerReference { get; init; } 
     /// <summary>
     /// Indicates the source of enhanced data that is matched to the transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DataSource { get; init; } 
     /// <summary>
     /// Contains a customer invoice number for a rail sale to a corporate account.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? DeliveryOrderNumber { get; init; } 
     /// <summary>
     /// Contains a slip number from the credit card slip.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CreditCardSlipNumber { get; init; } 
     /// <summary>
     /// Indicates whether or not insurance was purchased. 
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? InsuranceIndicator { get; init; } 
     /// <summary>
     /// Cost of the insurance purchased.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? InsuranceAmount { get; init; } 
     /// <summary>
     /// Travel agency fee amount.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? Fee { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReservationNumber is IsoMax35Text ReservationNumberValue)
+        {
+            writer.WriteStartElement(null, "RsvatnNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReservationNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TravelPackageType is IsoMax70Text TravelPackageTypeValue)
+        {
+            writer.WriteStartElement(null, "TrvlPackgTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(TravelPackageTypeValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (NumberInParty is IsoMax10NumericText NumberInPartyValue)
+        {
+            writer.WriteStartElement(null, "NbInPty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10NumericText(NumberInPartyValue)); // data type Max10NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (CustomerReference is CustomerReference1 CustomerReferenceValue)
+        {
+            writer.WriteStartElement(null, "CstmrRef", xmlNamespace );
+            CustomerReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DataSource is IsoMax35Text DataSourceValue)
+        {
+            writer.WriteStartElement(null, "DataSrc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DataSourceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DeliveryOrderNumber is IsoMax35Text DeliveryOrderNumberValue)
+        {
+            writer.WriteStartElement(null, "DlvryOrdrNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(DeliveryOrderNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CreditCardSlipNumber is IsoMax35Text CreditCardSlipNumberValue)
+        {
+            writer.WriteStartElement(null, "CdtCardSlipNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CreditCardSlipNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (InsuranceIndicator is IsoTrueFalseIndicator InsuranceIndicatorValue)
+        {
+            writer.WriteStartElement(null, "InsrncInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(InsuranceIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (InsuranceAmount is IsoImpliedCurrencyAndAmount InsuranceAmountValue)
+        {
+            writer.WriteStartElement(null, "InsrncAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(InsuranceAmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Fee is IsoImpliedCurrencyAndAmount FeeValue)
+        {
+            writer.WriteStartElement(null, "Fee", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(FeeValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static TravelAgencyPackage1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

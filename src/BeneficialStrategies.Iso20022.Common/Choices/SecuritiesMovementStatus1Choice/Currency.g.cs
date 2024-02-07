@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecuritiesMovementStatus1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesMovementStatus1Choice;
 /// At least one security in the message does not have the same currency as the transaction and this is a requirement in the triparty agreement or in the eligibility sets of this transaction.
 /// </summary>
 public partial record Currency : SecuritiesMovementStatus1Choice_
+     , IIsoXmlSerilizable<Currency>
 {
     #nullable enable
+    
     /// <summary>
     /// Proprietary identification of the reason related to a status.
     /// </summary>
@@ -23,5 +27,35 @@ public partial record Currency : SecuritiesMovementStatus1Choice_
     /// Provides additional information about the processed instruction.
     /// </summary>
     public IsoMax210Text? AdditionalReasonInformation { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Reason is GenericIdentification30 ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            ReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalReasonInformation is IsoMax210Text AdditionalReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlRsnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax210Text(AdditionalReasonInformationValue)); // data type Max210Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new Currency Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

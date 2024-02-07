@@ -7,43 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Describes the events that occurred for one transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ActivityReportItems2
+     : IIsoXmlSerilizable<ActivityReportItems2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Reference to the transaction for each financial institution which is a party to the transaction.
     /// </summary>
-    [DataMember]
     public ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = [];
     /// <summary>
     /// Entity for which the activity is reported.
     /// </summary>
-    [DataMember]
     public required BICIdentification1 ReportedEntity { get; init; } 
     /// <summary>
     /// Describes an activity that took place during a period.
     /// </summary>
-    [DataMember]
-    public ValueList<ActivityDetails1> ReportedItem { get; init; } = []; // Warning: Don't know multiplicity.
+    public ActivityDetails1? ReportedItem { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _RaCTEdp-Ed-ak6NoX_4Aeg_-990880169
     /// <summary>
     /// Next processing step required.
     /// </summary>
-    [DataMember]
-    public ValueList<PendingActivity2> PendingRequestForAction { get; init; } = []; // Warning: Don't know multiplicity.
+    public PendingActivity2? PendingRequestForAction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UsrTxRef", xmlNamespace );
+        UserTransactionReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RptdNtty", xmlNamespace );
+        ReportedEntity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize ReportedItem, multiplicity Unknown
+        if (PendingRequestForAction is PendingActivity2 PendingRequestForActionValue)
+        {
+            writer.WriteStartElement(null, "PdgReqForActn", xmlNamespace );
+            PendingRequestForActionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ActivityReportItems2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

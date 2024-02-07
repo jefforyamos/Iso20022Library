@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Transaction has an origin and a destination in the same country and is made in the currency of that country.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CreditLine1
+     : IIsoXmlSerilizable<CreditLine1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the credit line is included or not.||Usage: if not present, credit line is not included in the balance amount.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator Included { get; init; } 
     /// <summary>
     /// Amount of money of the credit line.
     /// </summary>
-    [DataMember]
     public IsoCurrencyAndAmount? Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Incl", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(Included)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        if (Amount is IsoCurrencyAndAmount AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(AmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static CreditLine1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

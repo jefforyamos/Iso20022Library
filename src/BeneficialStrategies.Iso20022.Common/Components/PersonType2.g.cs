@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the type of customer identification requested for a person.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PersonType2
+     : IIsoXmlSerilizable<PersonType2>
 {
     #nullable enable
     
@@ -23,19 +24,51 @@ public partial record PersonType2
     /// Date and place of birth of a person is requested.
     /// Usage: When absent (default value), the identification is not requested. 
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? DateAndPlaceOfBirth { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail) is requested.
     /// Usage: When absent (default value), the identification is not requested. 
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? EmailAddress { get; init; } 
     /// <summary>
     /// Unique identification of a person, as assigned by an institution, using an identification scheme is requested.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericPersonType1> Other { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericPersonType1? Other { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DateAndPlaceOfBirth is IsoRequestedIndicator DateAndPlaceOfBirthValue)
+        {
+            writer.WriteStartElement(null, "DtAndPlcOfBirth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(DateAndPlaceOfBirthValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (EmailAddress is IsoRequestedIndicator EmailAddressValue)
+        {
+            writer.WriteStartElement(null, "EmailAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(EmailAddressValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Other is GenericPersonType1 OtherValue)
+        {
+            writer.WriteStartElement(null, "Othr", xmlNamespace );
+            OtherValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PersonType2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

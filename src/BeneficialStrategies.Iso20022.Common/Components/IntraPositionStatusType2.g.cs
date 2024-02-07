@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Choice of the intra-position movement status type.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IntraPositionStatusType2
+     : IIsoXmlSerilizable<IntraPositionStatusType2>
 {
     #nullable enable
     
     /// <summary>
     /// Provides details on the processing status of the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<ProcessingStatus68Choice_> ProcessingStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProcessingStatus68Choice_? ProcessingStatus { get; init; } 
     /// <summary>
     /// Provides the settlement status of a transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<SettlementStatus26Choice_> SettlementStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    public SettlementStatus26Choice_? SettlementStatus { get; init; } 
     /// <summary>
     /// Specifies the state or the condition.
     /// </summary>
-    [DataMember]
     public ProprietaryReason4? Settled { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ProcessingStatus is ProcessingStatus68Choice_ ProcessingStatusValue)
+        {
+            writer.WriteStartElement(null, "PrcgSts", xmlNamespace );
+            ProcessingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementStatus is SettlementStatus26Choice_ SettlementStatusValue)
+        {
+            writer.WriteStartElement(null, "SttlmSts", xmlNamespace );
+            SettlementStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Settled is ProprietaryReason4 SettledValue)
+        {
+            writer.WriteStartElement(null, "Sttld", xmlNamespace );
+            SettledValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IntraPositionStatusType2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// General cryptographic message syntax (CMS) containing protected data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ContentInformationType4
+     : IIsoXmlSerilizable<ContentInformationType4>
 {
     #nullable enable
     
     /// <summary>
     /// Type of data protection.
     /// </summary>
-    [DataMember]
     public required ContentType1Code ContentType { get; init; } 
     /// <summary>
     /// Data protection by encryption, with a session key.
     /// </summary>
-    [DataMember]
     public EnvelopedData2? EnvelopedData { get; init; } 
     /// <summary>
     /// Data protection by a message authentication code (MAC).
     /// </summary>
-    [DataMember]
     public AuthenticatedData2? AuthenticatedData { get; init; } 
     /// <summary>
     /// Data protected by digital signatures.
     /// </summary>
-    [DataMember]
     public SignedData2? SignedData { get; init; } 
     /// <summary>
     /// Data protected by a digest.
     /// </summary>
-    [DataMember]
     public DigestedData2? DigestedData { get; init; } 
     /// <summary>
     /// Data protection by encryption with a previously exchanged key identified by a name.
     /// </summary>
-    [DataMember]
     public NamedKeyEncryptedData2? NamedKeyEncryptedData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CnttTp", xmlNamespace );
+        writer.WriteValue(ContentType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (EnvelopedData is EnvelopedData2 EnvelopedDataValue)
+        {
+            writer.WriteStartElement(null, "EnvlpdData", xmlNamespace );
+            EnvelopedDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AuthenticatedData is AuthenticatedData2 AuthenticatedDataValue)
+        {
+            writer.WriteStartElement(null, "AuthntcdData", xmlNamespace );
+            AuthenticatedDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SignedData is SignedData2 SignedDataValue)
+        {
+            writer.WriteStartElement(null, "SgndData", xmlNamespace );
+            SignedDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DigestedData is DigestedData2 DigestedDataValue)
+        {
+            writer.WriteStartElement(null, "DgstdData", xmlNamespace );
+            DigestedDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NamedKeyEncryptedData is NamedKeyEncryptedData2 NamedKeyEncryptedDataValue)
+        {
+            writer.WriteStartElement(null, "NmdKeyNcrptdData", xmlNamespace );
+            NamedKeyEncryptedDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ContentInformationType4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

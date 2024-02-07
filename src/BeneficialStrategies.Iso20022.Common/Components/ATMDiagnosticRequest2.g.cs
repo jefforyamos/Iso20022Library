@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the request of a diagnostic from an ATM.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMDiagnosticRequest2
+     : IIsoXmlSerilizable<ATMDiagnosticRequest2>
 {
     #nullable enable
     
     /// <summary>
     /// Environment of the ATM.
     /// </summary>
-    [DataMember]
     public required ATMEnvironment9 Environment { get; init; } 
     /// <summary>
     /// Global status of the ATM.
     /// </summary>
-    [DataMember]
     public required ATMStatus1 ATMGlobalStatus { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Envt", xmlNamespace );
+        Environment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ATMGblSts", xmlNamespace );
+        ATMGlobalStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ATMDiagnosticRequest2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

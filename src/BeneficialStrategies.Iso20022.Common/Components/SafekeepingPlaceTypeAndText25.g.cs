@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the place of safekeeping expressed as a code and a narrative description.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SafekeepingPlaceTypeAndText25
+     : IIsoXmlSerilizable<SafekeepingPlaceTypeAndText25>
 {
     #nullable enable
     
     /// <summary>
     /// Place of safekeeping as a code.
     /// </summary>
-    [DataMember]
     public required SafekeepingPlace2Code SafekeepingPlaceType { get; init; } 
     /// <summary>
     /// Additional information about the place of safekeeping.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINXMax30Text? Identification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SfkpgPlcTp", xmlNamespace );
+        writer.WriteValue(SafekeepingPlaceType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Identification is IsoRestrictedFINXMax30Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax30Text(IdentificationValue)); // data type RestrictedFINXMax30Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SafekeepingPlaceTypeAndText25 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Corporate action option information for the custodian record.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CustodianOptionDateDetailsSD1
+     : IIsoXmlSerilizable<CustodianOptionDateDetailsSD1>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Custodian deadline date for the option instructions. Applicable to custodian service only.
     /// </summary>
-    [DataMember]
     public IsoISODate? AgentDeadlineDate { get; init; } 
     /// <summary>
     /// Custodian deadline time for the option instructions. Applicable to custodian service only.
     /// </summary>
-    [DataMember]
     public IsoISOTime? AgentDeadlineTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (AgentDeadlineDate is IsoISODate AgentDeadlineDateValue)
+        {
+            writer.WriteStartElement(null, "AgtDdlnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(AgentDeadlineDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (AgentDeadlineTime is IsoISOTime AgentDeadlineTimeValue)
+        {
+            writer.WriteStartElement(null, "AgtDdlnTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOTime(AgentDeadlineTimeValue)); // data type ISOTime System.TimeOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static CustodianOptionDateDetailsSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

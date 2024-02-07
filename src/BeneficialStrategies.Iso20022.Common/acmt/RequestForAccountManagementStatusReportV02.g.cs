@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.acmt.RequestForAccountManagementStatusReportV02>;
 
 namespace BeneficialStrategies.Iso20022.acmt;
 
@@ -24,10 +27,9 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// The RequestForAccountManagementStatusReport message is used to request the processing status of a previously sent AccountOpeningInstruction message or AccountModificationInstruction message for which a AccountDetailsConfirmation message has not yet been received.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|An account owner, for example, an investor or its designated agent, sends the RequestForAccountManagementStatusReport message to the account servicer, for example, a registrar, transfer agent or custodian bank to request the status of an AccountOpeningInstruction or an AccountModificationInstruction.|Usage|The RequestForAccountManagementStatusReport message is used to request the processing status of a previously sent AccountOpeningInstruction message or AccountModificationInstruction message for which a AccountDetailsConfirmation message has not yet been received.")]
-public partial record RequestForAccountManagementStatusReportV02 : IOuterRecord
+public partial record RequestForAccountManagementStatusReportV02 : IOuterRecord<RequestForAccountManagementStatusReportV02,RequestForAccountManagementStatusReportV02Document>
+    ,IIsoXmlSerilizable<RequestForAccountManagementStatusReportV02>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -39,6 +41,11 @@ public partial record RequestForAccountManagementStatusReportV02 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "ReqForAcctMgmtStsRptV02";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => RequestForAccountManagementStatusReportV02Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -70,6 +77,29 @@ public partial record RequestForAccountManagementStatusReportV02 : IOuterRecord
     {
         return new RequestForAccountManagementStatusReportV02Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("ReqForAcctMgmtStsRptV02");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ReqDtls", xmlNamespace );
+        RequestDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static RequestForAccountManagementStatusReportV02 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -77,9 +107,7 @@ public partial record RequestForAccountManagementStatusReportV02 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestForAccountManagementStatusReportV02"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record RequestForAccountManagementStatusReportV02Document : IOuterDocument<RequestForAccountManagementStatusReportV02>
+public partial record RequestForAccountManagementStatusReportV02Document : IOuterDocument<RequestForAccountManagementStatusReportV02>, IXmlSerializable
 {
     
     /// <summary>
@@ -95,5 +123,22 @@ public partial record RequestForAccountManagementStatusReportV02Document : IOute
     /// <summary>
     /// The instance of <seealso cref="RequestForAccountManagementStatusReportV02"/> is required.
     /// </summary>
+    [DataMember(Name=RequestForAccountManagementStatusReportV02.XmlTag)]
     public required RequestForAccountManagementStatusReportV02 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(RequestForAccountManagementStatusReportV02.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

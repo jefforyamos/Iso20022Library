@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements used to report information about securities account reference data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesAccountReport2
+     : IIsoXmlSerilizable<SecuritiesAccountReport2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public required SecuritiesAccount19 SecuritiesAccountIdentification { get; init; } 
     /// <summary>
     /// Identifies the returned securities account reference data or error information.
     /// </summary>
-    [DataMember]
     public required SecuritiesAccountOrBusinessError2Choice_ SecuritiesAccountOrError { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SctiesAcctId", xmlNamespace );
+        SecuritiesAccountIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctiesAcctOrErr", xmlNamespace );
+        SecuritiesAccountOrError.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static SecuritiesAccountReport2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Batch management transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Transaction95
+     : IIsoXmlSerilizable<Transaction95>
 {
     #nullable enable
     
@@ -24,53 +25,44 @@ public partial record Transaction95
     /// ISO 8583:87/93 bit 24
     /// ISO 8583:2003 bit 68-1
     /// </summary>
-    [DataMember]
     public required BatchManagementType1Code BatchManagementType { get; init; } 
     /// <summary>
     /// Other type of batch management activity.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherBatchManagementType { get; init; } 
     /// <summary>
     /// Identification of the batch management transaction.
     /// </summary>
-    [DataMember]
     public TransactionIdentification10? TransactionIdentification { get; init; } 
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalFee1> AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalFee1? AdditionalFees { get; init; } 
     /// <summary>
     /// Identification of a collection.
     /// Mandatory for start or end of a collection and their acknowledgements if the batch is included in a collection.
     /// All the messages included within the collection will have the same collection identification value.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? CollectionIdentification { get; init; } 
     /// <summary>
     /// Identification of a batch.
     /// All the messages included within the batch will have the same batch identification value.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? BatchIdentification { get; init; } 
     /// <summary>
     /// Total length in bytes of the collection to be transferred. 
     /// ISO 8583:2003 bit 70-2
     /// </summary>
-    [DataMember]
     public IsoNumber? CollectionSize { get; init; } 
     /// <summary>
     /// Identification of the original collection.
     /// Mandatory when the collection containing the batch response has not the same identification as the collection containing the original batch.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? OriginalCollectionIdentification { get; init; } 
     /// <summary>
     /// Identification of the original batch to answer.
     /// Mandatory when the batch response has not the same identification as the batch initiation.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? OriginalBatchIdentification { get; init; } 
     /// <summary>
     /// Number of batches in the collection.
@@ -79,7 +71,6 @@ public partial record Transaction95
     /// For an end of collection, this is the number of batches sent in the closing collection.
     /// For an end of collection acknowledgement, this is the number of batches received in the collection.
     /// </summary>
-    [DataMember]
     public IsoNumber? NumberOfBatchesInCollection { get; init; } 
     /// <summary>
     /// Number of messages.
@@ -93,13 +84,11 @@ public partial record Transaction95
     /// For an end of collection, this is the number of received messages in the collection.
     /// Note: Batch management messages are excluded from the count.
     /// </summary>
-    [DataMember]
     public IsoNumber? NumberOfMessages { get; init; } 
     /// <summary>
     /// Number of remaining messages in the collection.
     /// ISO 8583:2003 bit 70-3
     /// </summary>
-    [DataMember]
     public IsoNumber? RemainingMessagesInCollection { get; init; } 
     /// <summary>
     /// For a start of collection, sequence number of first expected message of the collection. 
@@ -109,7 +98,6 @@ public partial record Transaction95
     /// For an end of batch, sequence number of last message of the batch.
     /// For an end of collection, sequence number of last message of the collection.
     /// </summary>
-    [DataMember]
     public IsoMax15NumericText? MessageSequenceNumber { get; init; } 
     /// <summary>
     /// List of batch identifications of the collection.
@@ -117,42 +105,169 @@ public partial record Transaction95
     /// For an end of collection, this is the identification of batches sent in the closing collection.
     /// For an end of collection acknowledgement, this is the identification of batches received in the collection.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax70Text> BatchIdentificationList { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax70Text? BatchIdentificationList { get; init; } 
     /// <summary>
     /// Identification of a specific checkpoint.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? CheckpointIdentification { get; init; } 
     /// <summary>
     /// Checksum of the series of messages in the batch or until a checkpoint.
     /// </summary>
-    [DataMember]
     public IsoMax35Binary? BatchChecksum { get; init; } 
     /// <summary>
     /// Indicator to request acknowledgement.
     /// True: Acknowledgement requested
     /// False: Acknowledgement not requested.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? RequestAcknowledgement { get; init; } 
     /// <summary>
     /// Maximum number of messages to be sent before acknowledgement. The receiver will send an acknowledgement response every time the indicated number of messages is reached.
     /// </summary>
-    [DataMember]
     public IsoNumber? MessagesBeforeAcknowledgement { get; init; } 
     /// <summary>
     /// Indicate whether the acknowledgement is positive or not.
     /// True: Positive acknowledgement.
     /// False: Negative acknowledgement.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? PositiveAcknowledgement { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BtchMgmtTp", xmlNamespace );
+        writer.WriteValue(BatchManagementType.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherBatchManagementType is IsoMax35Text OtherBatchManagementTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrBtchMgmtTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherBatchManagementTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionIdentification is TransactionIdentification10 TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            TransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalFees is AdditionalFee1 AdditionalFeesValue)
+        {
+            writer.WriteStartElement(null, "AddtlFees", xmlNamespace );
+            AdditionalFeesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollectionIdentification is IsoMax70Text CollectionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ColltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(CollectionIdentificationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (BatchIdentification is IsoMax70Text BatchIdentificationValue)
+        {
+            writer.WriteStartElement(null, "BtchId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(BatchIdentificationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (CollectionSize is IsoNumber CollectionSizeValue)
+        {
+            writer.WriteStartElement(null, "ColltnSz", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(CollectionSizeValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (OriginalCollectionIdentification is IsoMax70Text OriginalCollectionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlColltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(OriginalCollectionIdentificationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalBatchIdentification is IsoMax70Text OriginalBatchIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlBtchId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(OriginalBatchIdentificationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (NumberOfBatchesInCollection is IsoNumber NumberOfBatchesInCollectionValue)
+        {
+            writer.WriteStartElement(null, "NbOfBtchsInColltn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfBatchesInCollectionValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (NumberOfMessages is IsoNumber NumberOfMessagesValue)
+        {
+            writer.WriteStartElement(null, "NbOfMsgs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfMessagesValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (RemainingMessagesInCollection is IsoNumber RemainingMessagesInCollectionValue)
+        {
+            writer.WriteStartElement(null, "RmngMsgsInColltn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(RemainingMessagesInCollectionValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (MessageSequenceNumber is IsoMax15NumericText MessageSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "MsgSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(MessageSequenceNumberValue)); // data type Max15NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (BatchIdentificationList is IsoMax70Text BatchIdentificationListValue)
+        {
+            writer.WriteStartElement(null, "BtchIdList", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(BatchIdentificationListValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (CheckpointIdentification is IsoMax70Text CheckpointIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ChckptId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(CheckpointIdentificationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (BatchChecksum is IsoMax35Binary BatchChecksumValue)
+        {
+            writer.WriteStartElement(null, "BtchChcksm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Binary(BatchChecksumValue)); // data type Max35Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (RequestAcknowledgement is IsoTrueFalseIndicator RequestAcknowledgementValue)
+        {
+            writer.WriteStartElement(null, "ReqAck", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(RequestAcknowledgementValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (MessagesBeforeAcknowledgement is IsoNumber MessagesBeforeAcknowledgementValue)
+        {
+            writer.WriteStartElement(null, "MsgsBfrAck", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(MessagesBeforeAcknowledgementValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (PositiveAcknowledgement is IsoTrueFalseIndicator PositiveAcknowledgementValue)
+        {
+            writer.WriteStartElement(null, "PostvAck", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(PositiveAcknowledgementValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Transaction95 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

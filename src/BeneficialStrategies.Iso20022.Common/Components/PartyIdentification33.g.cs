@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the beneficial owner of the securities.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PartyIdentification33
+     : IIsoXmlSerilizable<PartyIdentification33>
 {
     #nullable enable
     
     /// <summary>
     /// Party that is the beneficial owner of the specified quantity of securities.
     /// </summary>
-    [DataMember]
     public required PartyIdentification10Choice_ OwnerIdentification { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
-    [DataMember]
-    public ValueList<AlternatePartyIdentification2> AlternateIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public AlternatePartyIdentification2? AlternateIdentification { get; init; } 
     /// <summary>
     /// Country in which a person is permanently domiciled (the place of a persons permanent home).
     /// </summary>
-    [DataMember]
     public CountryCode? DomicileCountry { get; init; } 
     /// <summary>
     /// Holder of the security certifies, in line with the terms of the corporate action, that it is not domiciled in the country indicated.
     /// </summary>
-    [DataMember]
-    public ValueList<CountryCode> NonDomicileCountry { get; init; } = []; // Warning: Don't know multiplicity.
+    public CountryCode? NonDomicileCountry { get; init; } 
     /// <summary>
     /// Quantity of securities belonging to the beneficial owner specified.
     /// </summary>
-    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ OwnedSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Type of certification which is required.
     /// </summary>
-    [DataMember]
-    public ValueList<BeneficiaryCertificationType2Choice_> CertificationType { get; init; } = []; // Warning: Don't know multiplicity.
+    public BeneficiaryCertificationType2Choice_? CertificationType { get; init; } 
     /// <summary>
     /// Provides details relative to the beneficial owner not included within structured fields of this message.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? DeclarationDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OwnrId", xmlNamespace );
+        OwnerIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AlternateIdentification is AlternatePartyIdentification2 AlternateIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AltrnId", xmlNamespace );
+            AlternateIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DomicileCountry is CountryCode DomicileCountryValue)
+        {
+            writer.WriteStartElement(null, "DmclCtry", xmlNamespace );
+            writer.WriteValue(DomicileCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (NonDomicileCountry is CountryCode NonDomicileCountryValue)
+        {
+            writer.WriteStartElement(null, "NonDmclCtry", xmlNamespace );
+            writer.WriteValue(NonDomicileCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OwndSctiesQty", xmlNamespace );
+        OwnedSecuritiesQuantity.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CertificationType is BeneficiaryCertificationType2Choice_ CertificationTypeValue)
+        {
+            writer.WriteStartElement(null, "CertfctnTp", xmlNamespace );
+            CertificationTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeclarationDetails is IsoMax350Text DeclarationDetailsValue)
+        {
+            writer.WriteStartElement(null, "DclrtnDtls", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(DeclarationDetailsValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PartyIdentification33 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

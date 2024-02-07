@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.VoteThroughNetwork1Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.VoteThroughNetwork1Choice;
 /// Voting is performed via message sent through an alternate network channel, that is, either via the chain of intermediaries or via the channel as described in the processing text for next intermediary information field.
 /// </summary>
 public partial record VoteChannel : VoteThroughNetwork1Choice_
+     , IIsoXmlSerilizable<VoteChannel>
 {
-    public required VoteChannel1Code Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies the network channel through which the vote should be sent.
+    /// </summary>
+    public required VoteChannel1Code Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "VoteChanl", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new VoteChannel Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Attributes of non-financial instrument of type foreign exchange as underlying.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DerivativeForeignExchange2
+     : IIsoXmlSerilizable<DerivativeForeignExchange2>
 {
     #nullable enable
     
     /// <summary>
     /// Underlying currency 2 of the currency pair (the currency 1 will be populated in the notional currency).
     /// </summary>
-    [DataMember]
     public required ActiveOrHistoricCurrencyCode OtherNotionalCurrency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "OthrNtnlCcy", xmlNamespace );
+        writer.WriteValue(OtherNotionalCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static DerivativeForeignExchange2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

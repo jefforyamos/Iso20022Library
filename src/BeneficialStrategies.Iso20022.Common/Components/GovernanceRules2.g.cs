@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies rules governing an undertaking such as a guarantee or standby letter of credit.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GovernanceRules2
+     : IIsoXmlSerilizable<GovernanceRules2>
 {
     #nullable enable
     
     /// <summary>
     /// Local identification to be used in IDREFs.
     /// </summary>
-    [DataMember]
     public required IsoID Identification { get; init; } 
     /// <summary>
     /// Identification of the governance rules.
     /// </summary>
-    [DataMember]
     public required GovernanceIdentification1Choice_ RuleIdentification { get; init; } 
     /// <summary>
     /// Law applicable to the undertaking.
     /// </summary>
-    [DataMember]
     public Location1? ApplicableLaw { get; init; } 
     /// <summary>
     /// Place at or system under which any dispute related to the undertaking is to be resolved, such as court or arbitration. This is also known as 'forum'.
     /// </summary>
-    [DataMember]
-    public ValueList<Location1> Jurisdiction { get; init; } = []; // Warning: Don't know multiplicity.
+    public Location1? Jurisdiction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoID(Identification)); // data type ID System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RuleId", xmlNamespace );
+        RuleIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ApplicableLaw is Location1 ApplicableLawValue)
+        {
+            writer.WriteStartElement(null, "AplblLaw", xmlNamespace );
+            ApplicableLawValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Jurisdiction is Location1 JurisdictionValue)
+        {
+            writer.WriteStartElement(null, "Jursdctn", xmlNamespace );
+            JurisdictionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static GovernanceRules2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

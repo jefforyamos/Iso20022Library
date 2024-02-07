@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.FinancialInstitutionIdentification5Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstitutionIdentificati
 /// Unique and unambiguous identification of a financial institution, through a combimation of globally recognised or proprietary identification scheme.
 /// </summary>
 public partial record CombinedIdentification : FinancialInstitutionIdentification5Choice_
+     , IIsoXmlSerilizable<CombinedIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
     /// </summary>
@@ -35,5 +39,53 @@ public partial record CombinedIdentification : FinancialInstitutionIdentificatio
     /// Unique and unambiguous identifier, as assigned to a financial institution using a proprietary identification scheme.
     /// </summary>
     public GenericIdentification3? ProprietaryIdentification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (BIC is IsoBICIdentifier BICValue)
+        {
+            writer.WriteStartElement(null, "BIC", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBICIdentifier(BICValue)); // data type BICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (ClearingSystemMemberIdentification is ClearingSystemMemberIdentification3Choice_ ClearingSystemMemberIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClrSysMmbId", xmlNamespace );
+            ClearingSystemMemberIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Name is IsoMax70Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (PostalAddress is PostalAddress1 PostalAddressValue)
+        {
+            writer.WriteStartElement(null, "PstlAdr", xmlNamespace );
+            PostalAddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProprietaryIdentification is GenericIdentification3 ProprietaryIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PrtryId", xmlNamespace );
+            ProprietaryIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new CombinedIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

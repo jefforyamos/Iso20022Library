@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the index used to define the rate and the basis point spread.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FloatingInterestRate22
+     : IIsoXmlSerilizable<FloatingInterestRate22>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the reference index for the debt instrument.
     /// </summary>
-    [DataMember]
     public BenchmarkCurveName10Choice_? ReferenceRate { get; init; } 
     /// <summary>
     /// Term of the reference rate of the floating rate bond. The term shall be expressed in days, weeks, months or years.
     /// </summary>
-    [DataMember]
     public InterestRateContractTerm2? Term { get; init; } 
     /// <summary>
     /// Information related to payment frequency.
     /// </summary>
-    [DataMember]
     public InterestRateContractTerm2? PaymentFrequency { get; init; } 
     /// <summary>
     /// Information related to the reset of payment frequency.
     /// </summary>
-    [DataMember]
     public InterestRateContractTerm2? ResetFrequency { get; init; } 
     /// <summary>
     /// Indicates a margin, over or under an index, which determines a price or a rate for each leg of a derivative transaction with periodic payments; or a difference between two floating leg indexes.
     /// </summary>
-    [DataMember]
     public SecuritiesTransactionPrice18Choice_? Spread { get; init; } 
     /// <summary>
     /// Specifies the rate adjustments as determined by the rate schedule.
     /// </summary>
-    [DataMember]
-    public ValueList<RateAdjustment1> RateAdjustment { get; init; } = []; // Warning: Don't know multiplicity.
+    public RateAdjustment1? RateAdjustment { get; init; } 
     /// <summary>
     /// Method for calculating the accrued interest on the principal amount for a fixed rate.
     /// </summary>
-    [DataMember]
     public InterestComputationMethodFormat6Choice_? DayCountBasis { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ReferenceRate is BenchmarkCurveName10Choice_ ReferenceRateValue)
+        {
+            writer.WriteStartElement(null, "RefRate", xmlNamespace );
+            ReferenceRateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Term is InterestRateContractTerm2 TermValue)
+        {
+            writer.WriteStartElement(null, "Term", xmlNamespace );
+            TermValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentFrequency is InterestRateContractTerm2 PaymentFrequencyValue)
+        {
+            writer.WriteStartElement(null, "PmtFrqcy", xmlNamespace );
+            PaymentFrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ResetFrequency is InterestRateContractTerm2 ResetFrequencyValue)
+        {
+            writer.WriteStartElement(null, "RstFrqcy", xmlNamespace );
+            ResetFrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Spread is SecuritiesTransactionPrice18Choice_ SpreadValue)
+        {
+            writer.WriteStartElement(null, "Sprd", xmlNamespace );
+            SpreadValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (RateAdjustment is RateAdjustment1 RateAdjustmentValue)
+        {
+            writer.WriteStartElement(null, "RateAdjstmnt", xmlNamespace );
+            RateAdjustmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DayCountBasis is InterestComputationMethodFormat6Choice_ DayCountBasisValue)
+        {
+            writer.WriteStartElement(null, "DayCntBsis", xmlNamespace );
+            DayCountBasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FloatingInterestRate22 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,58 +7,92 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Clearing circuits information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ClearingCircuits1
+     : IIsoXmlSerilizable<ClearingCircuits1>
 {
     #nullable enable
     
     /// <summary>
     /// Clearing scheme used.
     /// </summary>
-    [DataMember]
     public required ClearingScheme1Choice_ ClearingCircuit { get; init; } 
     /// <summary>
     /// Indicates whether the limits can be set for the external payment system.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator ClaimLimitIndicator { get; init; } 
     /// <summary>
     /// Short name of the clearing scheme.
     /// </summary>
-    [DataMember]
     public required IsoMax40Text ClearingSchemeShortName { get; init; } 
     /// <summary>
     /// Long name of the clearing scheme.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text ClearingSchemeLongName { get; init; } 
     /// <summary>
     /// Indicates whether all or nothing rule is in effect.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator AllOrNothingIndicator { get; init; } 
     /// <summary>
     /// Guarantee funds details.
     /// </summary>
-    [DataMember]
     public required GuaranteeFunds1 GuaranteeFunds { get; init; } 
     /// <summary>
     /// Clearing account identifier.
     /// </summary>
-    [DataMember]
     public required CashAccount24 ClearingAccount { get; init; } 
     /// <summary>
     /// Identification of the clearing account owner.
     /// </summary>
-    [DataMember]
     public required FinancialInstitutionIdentification9 ClearingAccountOwner { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ClrCrct", xmlNamespace );
+        ClearingCircuit.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClmLmtInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ClaimLimitIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClrSchmeShrtNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax40Text(ClearingSchemeShortName)); // data type Max40Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClrSchmeLngNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(ClearingSchemeLongName)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AllOrNthgInd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AllOrNothingIndicator)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "GrntFnds", xmlNamespace );
+        GuaranteeFunds.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClrAcct", xmlNamespace );
+        ClearingAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ClrAcctOwnr", xmlNamespace );
+        ClearingAccountOwner.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ClearingCircuits1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,43 +7,74 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the confirmation of a transfer out transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransferOut1
+     : IIsoXmlSerilizable<TransferOut1>
 {
     #nullable enable
     
     /// <summary>
     /// General information related to the transfer of a financial instrument.
     /// </summary>
-    [DataMember]
     public required Transfer2 TransferDetails { get; init; } 
     /// <summary>
     /// Information related to the financial instrument withdrawn.
     /// </summary>
-    [DataMember]
     public required FinancialInstrument3 FinancialInstrumentDetails { get; init; } 
     /// <summary>
     /// Information related to the account from which the financial instrument was withdrawn.
     /// </summary>
-    [DataMember]
     public required InvestmentAccount10 AccountDetails { get; init; } 
     /// <summary>
     /// Information related to the receiving side of the transfer.
     /// </summary>
-    [DataMember]
     public required ReceiveInformation2 SettlementDetails { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<Extension1> Extension { get; init; } = []; // Warning: Don't know multiplicity.
+    public Extension1? Extension { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TrfDtls", xmlNamespace );
+        TransferDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FinInstrmDtls", xmlNamespace );
+        FinancialInstrumentDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
+        AccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmDtls", xmlNamespace );
+        SettlementDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Extension is Extension1 ExtensionValue)
+        {
+            writer.WriteStartElement(null, "Xtnsn", xmlNamespace );
+            ExtensionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransferOut1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

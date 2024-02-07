@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the query criteria related to securities.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeSecurityIdentificationQueryCriteria3
+     : IIsoXmlSerilizable<TradeSecurityIdentificationQueryCriteria3>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the AND/OR operators as query criteria.
     /// </summary>
-    [DataMember]
     public required Operation3Code Operator { get; init; } 
     /// <summary>
     /// Identification of the product through ISIN or AII.
     /// </summary>
-    [DataMember]
-    public ValueList<SecurityIdentificationQueryCriteria1> Identification { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecurityIdentificationQueryCriteria1? Identification { get; init; } 
     /// <summary>
     /// Classification of information according to contract type.
     /// </summary>
-    [DataMember]
-    public ValueList<FinancialInstrumentContractType2Code> ContractType { get; init; } = []; // Warning: Don't know multiplicity.
+    public FinancialInstrumentContractType2Code? ContractType { get; init; } 
     /// <summary>
     /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation's International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
     /// </summary>
-    [DataMember]
-    public ValueList<ISINQueryCriteria1> ISIN { get; init; } = []; // Warning: Don't know multiplicity.
+    public ISINQueryCriteria1? ISIN { get; init; } 
     /// <summary>
     /// Identification of the product through a unique product identifier.
     /// </summary>
-    [DataMember]
-    public ValueList<UPIQueryCriteria1> UniqueProductIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
+    public UPIQueryCriteria1? UniqueProductIdentifier { get; init; } 
     /// <summary>
     /// Unique identification to identify the direct underlying instrument based on its type. 
     /// </summary>
-    [DataMember]
-    public ValueList<SecurityIdentificationQuery4Choice_> UnderlyingInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public SecurityIdentificationQuery4Choice_? UnderlyingInstrumentIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Oprtr", xmlNamespace );
+        writer.WriteValue(Operator.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Identification is SecurityIdentificationQueryCriteria1 IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContractType is FinancialInstrumentContractType2Code ContractTypeValue)
+        {
+            writer.WriteStartElement(null, "CtrctTp", xmlNamespace );
+            writer.WriteValue(ContractTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ISIN is ISINQueryCriteria1 ISINValue)
+        {
+            writer.WriteStartElement(null, "ISIN", xmlNamespace );
+            ISINValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UniqueProductIdentifier is UPIQueryCriteria1 UniqueProductIdentifierValue)
+        {
+            writer.WriteStartElement(null, "UnqPdctIdr", xmlNamespace );
+            UniqueProductIdentifierValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnderlyingInstrumentIdentification is SecurityIdentificationQuery4Choice_ UnderlyingInstrumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "UndrlygInstrmId", xmlNamespace );
+            UnderlyingInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeSecurityIdentificationQueryCriteria3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

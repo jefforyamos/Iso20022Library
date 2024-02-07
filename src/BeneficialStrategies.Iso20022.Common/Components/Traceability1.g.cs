@@ -7,33 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of partners involved in exchange from the merchant to the issuer, with the relative timestamp of their exchanges.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Traceability1
+     : IIsoXmlSerilizable<Traceability1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of a partner of a message exchange.
     /// </summary>
-    [DataMember]
     public required GenericIdentification31 RelayIdentification { get; init; } 
     /// <summary>
     /// Date and time of incoming data exchange for relaying or processing.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime TraceDateTimeIn { get; init; } 
     /// <summary>
     /// Date and time of the outgoing exchange for relaying or processing.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime TraceDateTimeOut { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RlayId", xmlNamespace );
+        RelayIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TracDtTmIn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(TraceDateTimeIn)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TracDtTmOut", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(TraceDateTimeOut)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+    }
+    public static Traceability1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

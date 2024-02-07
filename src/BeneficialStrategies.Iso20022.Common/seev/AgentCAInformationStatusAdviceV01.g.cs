@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.seev.AgentCAInformationStatusAdviceV01>;
 
 namespace BeneficialStrategies.Iso20022.seev;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// The information advice identification must be present to link this message to the information advice for which the status is provided.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|This message is sent by an issuer (or its agent) to a CSD to report the status, or change in status, of an information advice.|Usage|This message must be used in response to an Agent Corporate Action Information Advice in the case of a rejection. However, it may also be used to report other statuses.|The information advice identification must be present to link this message to the information advice for which the status is provided.")]
-public partial record AgentCAInformationStatusAdviceV01 : IOuterRecord
+public partial record AgentCAInformationStatusAdviceV01 : IOuterRecord<AgentCAInformationStatusAdviceV01,AgentCAInformationStatusAdviceV01Document>
+    ,IIsoXmlSerilizable<AgentCAInformationStatusAdviceV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record AgentCAInformationStatusAdviceV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AgtCAInfStsAdvc";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AgentCAInformationStatusAdviceV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -90,6 +97,38 @@ public partial record AgentCAInformationStatusAdviceV01 : IOuterRecord
     {
         return new AgentCAInformationStatusAdviceV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AgtCAInfStsAdvc");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AgtCAInfAdvcId", xmlNamespace );
+        AgentCAInformationAdviceIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CorporateActionAdditionalInformation is CorporateActionAdditionalInformation1 CorporateActionAdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "CorpActnAddtlInf", xmlNamespace );
+            CorporateActionAdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InfStsDtls", xmlNamespace );
+        InformationStatusDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static AgentCAInformationStatusAdviceV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -97,9 +136,7 @@ public partial record AgentCAInformationStatusAdviceV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAInformationStatusAdviceV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AgentCAInformationStatusAdviceV01Document : IOuterDocument<AgentCAInformationStatusAdviceV01>
+public partial record AgentCAInformationStatusAdviceV01Document : IOuterDocument<AgentCAInformationStatusAdviceV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -115,5 +152,22 @@ public partial record AgentCAInformationStatusAdviceV01Document : IOuterDocument
     /// <summary>
     /// The instance of <seealso cref="AgentCAInformationStatusAdviceV01"/> is required.
     /// </summary>
+    [DataMember(Name=AgentCAInformationStatusAdviceV01.XmlTag)]
     public required AgentCAInformationStatusAdviceV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AgentCAInformationStatusAdviceV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

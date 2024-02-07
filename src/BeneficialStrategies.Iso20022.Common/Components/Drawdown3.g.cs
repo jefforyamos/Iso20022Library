@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a drawdown.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Drawdown3
+     : IIsoXmlSerilizable<Drawdown3>
 {
     #nullable enable
     
     /// <summary>
     /// Previous employment information.
     /// </summary>
-    [DataMember]
     public EmploymentDetails1? EmploymentDetails { get; init; } 
     /// <summary>
     /// Additional information about the drawdown.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (EmploymentDetails is EmploymentDetails1 EmploymentDetailsValue)
+        {
+            writer.WriteStartElement(null, "MplymntDtls", xmlNamespace );
+            EmploymentDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Drawdown3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

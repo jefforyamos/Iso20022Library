@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about securities quantity linked to a corporate action option.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesQuantitySD7
+     : IIsoXmlSerilizable<SecuritiesQuantitySD7>
 {
     #nullable enable
     
     /// <summary>
     /// Total oversubscription quantity of all transaction sequence instructions.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity4? TotalOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Quantity covered but transactions not in "MADE" status.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity31Choice_? InterimCoveredQuantity { get; init; } 
     /// <summary>
     /// Minimum quantity of securities to be accepted (used in the framework of conditional privilege on election). In case of proration, if this minimum quantity is not reached then the instruction is void.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentQuantity15Choice_? ConditionalQuantity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TotalOversubscriptionQuantity is FinancialInstrumentQuantity4 TotalOversubscriptionQuantityValue)
+        {
+            writer.WriteStartElement(null, "TtlOvrsbcptQty", xmlNamespace );
+            TotalOversubscriptionQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterimCoveredQuantity is FinancialInstrumentQuantity31Choice_ InterimCoveredQuantityValue)
+        {
+            writer.WriteStartElement(null, "IntrmCvrdQty", xmlNamespace );
+            InterimCoveredQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ConditionalQuantity is FinancialInstrumentQuantity15Choice_ ConditionalQuantityValue)
+        {
+            writer.WriteStartElement(null, "CondlQty", xmlNamespace );
+            ConditionalQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesQuantitySD7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

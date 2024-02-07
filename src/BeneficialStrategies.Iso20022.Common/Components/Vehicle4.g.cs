@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Attributes of vehicle.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Vehicle4
+     : IIsoXmlSerilizable<Vehicle4>
 {
     #nullable enable
     
     /// <summary>
     /// Contains the classification of the vehicle (for example, economy, intermediate, luxury, etc.)
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Class { get; init; } 
     /// <summary>
     /// Brand or manufacturer of the vehicle.
     /// </summary>
-    [DataMember]
     public IsoMax35NumericText? Make { get; init; } 
     /// <summary>
     /// Product line of vehicle within the make. 
     /// </summary>
-    [DataMember]
     public IsoMax35NumericText? Model { get; init; } 
     /// <summary>
     /// Registration number of vehicle.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RegistrationNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Class is IsoMax35Text ClassValue)
+        {
+            writer.WriteStartElement(null, "Clss", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClassValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Make is IsoMax35NumericText MakeValue)
+        {
+            writer.WriteStartElement(null, "Make", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35NumericText(MakeValue)); // data type Max35NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (Model is IsoMax35NumericText ModelValue)
+        {
+            writer.WriteStartElement(null, "Mdl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35NumericText(ModelValue)); // data type Max35NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (RegistrationNumber is IsoMax35Text RegistrationNumberValue)
+        {
+            writer.WriteStartElement(null, "RegnNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RegistrationNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Vehicle4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

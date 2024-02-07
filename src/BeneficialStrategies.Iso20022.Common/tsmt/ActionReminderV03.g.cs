@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsmt.ActionReminderV03>;
 
 namespace BeneficialStrategies.Iso20022.tsmt;
 
@@ -36,10 +39,9 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// - the acceptance or rejection of a request to accept role and baseline (RoleAndBaselineAcceptance or RoleAndBaselineRejection message).
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The ActionReminder message is sent by the matching application to a party involved in a transaction that it is expecting to take an action.|This message is used to remind a party of an action that it is expected to take.|Usage|The ActionReminder message can be sent by the matching application to remind a party that it is waiting for|- the submission of a transaction initiation message (BaselineReSubmission message),|or|- the acceptance or rejection of mis-matched data sets (MisMatchAcceptance or MisMatchRejection message),|or|- the acceptance or rejection of an amendment request (AmendmentAcceptance or AmendmentRejection message),|or|- the acceptance or rejection of a status change request (StatusChangeRequestAcceptance or StatusChangeRequestRejection message),|or|- the acceptance or rejection of a status extension request (StatusExtensionAcceptance or StatusExtensionRejection message).|- or|- the acceptance or rejection of a request to accept role and baseline (RoleAndBaselineAcceptance or RoleAndBaselineRejection message).")]
-public partial record ActionReminderV03 : IOuterRecord
+public partial record ActionReminderV03 : IOuterRecord<ActionReminderV03,ActionReminderV03Document>
+    ,IIsoXmlSerilizable<ActionReminderV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -51,6 +53,11 @@ public partial record ActionReminderV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "ActnRmndr";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => ActionReminderV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -99,7 +106,7 @@ public partial record ActionReminderV03 : IOuterRecord
     [Description(@"Reference to the transaction for each financial institution which is a party to the transaction.")]
     [DataMember(Name="UsrTxRef")]
     [XmlElement(ElementName="UsrTxRef")]
-    public required IReadOnlyCollection<DocumentIdentification5> UserTransactionReference { get; init; } = []; // Min=0, Max=2
+    public required ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = []; // Min=0, Max=2
     
     /// <summary>
     /// Identifies the message for which an action is required.
@@ -130,6 +137,47 @@ public partial record ActionReminderV03 : IOuterRecord
     {
         return new ActionReminderV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("ActnRmndr");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RmndrId", xmlNamespace );
+        ReminderIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (EstablishedBaselineIdentification is DocumentIdentification3 EstablishedBaselineIdentificationValue)
+        {
+            writer.WriteStartElement(null, "EstblishdBaselnId", xmlNamespace );
+            EstablishedBaselineIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TxSts", xmlNamespace );
+        TransactionStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UsrTxRef", xmlNamespace );
+        UserTransactionReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MsgReqrngActn", xmlNamespace );
+        MessageRequiringAction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PdgReqForActn", xmlNamespace );
+        PendingRequestForAction.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ActionReminderV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -137,9 +185,7 @@ public partial record ActionReminderV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ActionReminderV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record ActionReminderV03Document : IOuterDocument<ActionReminderV03>
+public partial record ActionReminderV03Document : IOuterDocument<ActionReminderV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -155,5 +201,22 @@ public partial record ActionReminderV03Document : IOuterDocument<ActionReminderV
     /// <summary>
     /// The instance of <seealso cref="ActionReminderV03"/> is required.
     /// </summary>
+    [DataMember(Name=ActionReminderV03.XmlTag)]
     public required ActionReminderV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(ActionReminderV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.InvestmentAccountOrFinancialInstrument1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestmentAccountOrFinancialInst
 /// Instrument that has intrinsic monetary value, and may transfer value, the price of which may be obtained from a financial market, eg, a bond or a cheque.
 /// </summary>
 public partial record FinancialInstrument : InvestmentAccountOrFinancialInstrument1Choice_
+     , IIsoXmlSerilizable<FinancialInstrument>
 {
     #nullable enable
+    
     /// <summary>
     /// Identification of a security by an ISIN.
     /// </summary>
@@ -43,5 +47,62 @@ public partial record FinancialInstrument : InvestmentAccountOrFinancialInstrume
     /// Company specific description of a group of funds.
     /// </summary>
     public IsoMax140Text? ProductGroup { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Name is IsoMax350Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(NameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (SupplementaryIdentification is IsoMax35Text SupplementaryIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SplmtryId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SupplementaryIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClassType is IsoMax35Text ClassTypeValue)
+        {
+            writer.WriteStartElement(null, "ClssTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClassTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SecuritiesForm is FormOfSecurity1Code SecuritiesFormValue)
+        {
+            writer.WriteStartElement(null, "SctiesForm", xmlNamespace );
+            writer.WriteValue(SecuritiesFormValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (DistributionPolicy is DistributionPolicy1Code DistributionPolicyValue)
+        {
+            writer.WriteStartElement(null, "DstrbtnPlcy", xmlNamespace );
+            writer.WriteValue(DistributionPolicyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ProductGroup is IsoMax140Text ProductGroupValue)
+        {
+            writer.WriteStartElement(null, "PdctGrp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(ProductGroupValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new FinancialInstrument Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

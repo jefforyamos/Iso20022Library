@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Parameters used to report cash movements,eg, country code, currency code, BIC or a user defined parameter.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ForecastParameter1
+     : IIsoXmlSerilizable<ForecastParameter1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of parameter used for grouping the information in a report, eg, country code, currency code, BIC or a user defined parameter.
     /// </summary>
-    [DataMember]
     public required ReportParameter2Choice_ ReportParameter { get; init; } 
     /// <summary>
     /// Cash movements into a fund as a result of investment funds transactions, eg, subscriptions or switch-in.
     /// </summary>
-    [DataMember]
-    public ValueList<CashInForecast1> EstimatedCashInForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashInForecast1? EstimatedCashInForecastDetails { get; init; } 
     /// <summary>
     /// Cash movements out of a fund as a result of investment funds transactions, eg, redemptions or switch-out.
     /// </summary>
-    [DataMember]
-    public ValueList<CashOutForecast1> EstimatedCashOutForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashOutForecast1? EstimatedCashOutForecastDetails { get; init; } 
     /// <summary>
     /// Net cash movements to a fund as a result of investment funds transactions.
     /// </summary>
-    [DataMember]
-    public ValueList<NetCashForecast1> EstimatedNetCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public NetCashForecast1? EstimatedNetCashForecastDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptParam", xmlNamespace );
+        ReportParameter.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (EstimatedCashInForecastDetails is CashInForecast1 EstimatedCashInForecastDetailsValue)
+        {
+            writer.WriteStartElement(null, "EstmtdCshInFcstDtls", xmlNamespace );
+            EstimatedCashInForecastDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EstimatedCashOutForecastDetails is CashOutForecast1 EstimatedCashOutForecastDetailsValue)
+        {
+            writer.WriteStartElement(null, "EstmtdCshOutFcstDtls", xmlNamespace );
+            EstimatedCashOutForecastDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EstimatedNetCashForecastDetails is NetCashForecast1 EstimatedNetCashForecastDetailsValue)
+        {
+            writer.WriteStartElement(null, "EstmtdNetCshFcstDtls", xmlNamespace );
+            EstimatedNetCashForecastDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ForecastParameter1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

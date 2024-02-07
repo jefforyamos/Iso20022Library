@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusType2Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusType2Choice;
 /// Contains the status of the payment taken from field 79 of the MT 199.
 /// </summary>
 public partial record RawStatus : PaymentStatusType2Choice_
+     , IIsoXmlSerilizable<RawStatus>
 {
-    public required IsoMax1850Text Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a character string with a maximum length of 1850 characters.
+    /// </summary>
+    public required IsoMax1850Text Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RawSts", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax1850Text(Value)); // data type Max1850Text System.String
+        writer.WriteEndElement();
+    }
+    public static new RawStatus Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

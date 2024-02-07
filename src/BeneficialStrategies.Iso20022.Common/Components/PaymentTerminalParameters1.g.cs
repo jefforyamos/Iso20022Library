@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Manufacturer configuration parameters of the point of interaction (POI).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentTerminalParameters1
+     : IIsoXmlSerilizable<PaymentTerminalParameters1>
 {
     #nullable enable
     
     /// <summary>
     /// Parameters to synchronise the real time clock of the POI (Point Of Interaction).
     /// </summary>
-    [DataMember]
     public ClockSynchronisation1? ClockSynchronisation { get; init; } 
     /// <summary>
     /// Time zone line to update in the time zone data base subset stored in the POI (Point Of Interaction). The format of the line is conform to the IANA (Internet Assigned Number Authority) time zone data base.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax70Text> TimeZoneLine { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax70Text? TimeZoneLine { get; init; } 
     /// <summary>
     /// Others manufacturer configuration parameters of the point of interaction.
     /// </summary>
-    [DataMember]
     public IsoMax10000Binary? OtherParameters { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ClockSynchronisation is ClockSynchronisation1 ClockSynchronisationValue)
+        {
+            writer.WriteStartElement(null, "ClckSynctn", xmlNamespace );
+            ClockSynchronisationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TimeZoneLine is IsoMax70Text TimeZoneLineValue)
+        {
+            writer.WriteStartElement(null, "TmZoneLine", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(TimeZoneLineValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (OtherParameters is IsoMax10000Binary OtherParametersValue)
+        {
+            writer.WriteStartElement(null, "OthrParams", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(OtherParametersValue)); // data type Max10000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentTerminalParameters1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

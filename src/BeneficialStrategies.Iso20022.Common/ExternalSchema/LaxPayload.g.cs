@@ -5,6 +5,8 @@
 //
 
 using BeneficialStrategies.Iso20022.Components;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.ExternalSchema;
 
@@ -12,11 +14,13 @@ namespace BeneficialStrategies.Iso20022.ExternalSchema;
 /// Specifies a data structure that allows to include any valid XML Structure (e.g. through an XML Schema). The property namespace is set to 'any'.
 /// The processContents value is 'lax' which according to the above specification and to Iso20022:2013 means: If the item has a uniquely determined declaration available, it must be ·valid· with respect to that definition, that is, ·validate· if you can, don't worry if you can't, i.e. it MAY be validated or not.
 /// </summary>
-[DataContract]
-public partial record LaxPayload
+[DataContract(Namespace = "")]
+public partial record LaxPayload // : IIsoXmlSerilizable<LaxPayload>
 {
     #nullable enable
     
     
     #nullable disable
+    
+    public void Serialize(XmlWriter writer, string xmlNamespace) {} 
 }

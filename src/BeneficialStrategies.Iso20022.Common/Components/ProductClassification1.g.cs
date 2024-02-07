@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies attributes of a derivative based on Final ISDA Taxonomy v1.0 and Final ISDA Taxonomy v2.0 (https://www.isda.org/2018/02/20/final-isda-taxonomy-v1-0-and-final-isda-taxonomy-v2-0/).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ProductClassification1
+     : IIsoXmlSerilizable<ProductClassification1>
 {
     #nullable enable
     
     /// <summary>
     /// Asset class of the underlying of the derivative (e.g. Interest Rate, Commodity, Equity).
     /// </summary>
-    [DataMember]
     public required IsoMax35Text AssetClass { get; init; } 
     /// <summary>
     /// Market of the underlying product (IR Swap, Freight, Precious/Non Precious).
     /// </summary>
-    [DataMember]
     public IsoMax35Text? BaseProduct { get; init; } 
     /// <summary>
     /// Further details of the product type.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SubProduct { get; init; } 
     /// <summary>
     /// Further details if the asset class is commodity.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SubCommodity { get; init; } 
     /// <summary>
     /// Type of the transaction, for example, option, spot forward or exotic.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? TransactionType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AsstClss", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(AssetClass)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (BaseProduct is IsoMax35Text BaseProductValue)
+        {
+            writer.WriteStartElement(null, "BasePdct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(BaseProductValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SubProduct is IsoMax35Text SubProductValue)
+        {
+            writer.WriteStartElement(null, "SubPdct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SubProductValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SubCommodity is IsoMax35Text SubCommodityValue)
+        {
+            writer.WriteStartElement(null, "SubCmmdty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SubCommodityValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionType is IsoMax35Text TransactionTypeValue)
+        {
+            writer.WriteStartElement(null, "TxTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ProductClassification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

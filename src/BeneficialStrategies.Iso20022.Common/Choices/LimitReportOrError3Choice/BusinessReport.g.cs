@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.LimitReportOrError3Choice;
 
@@ -13,15 +15,47 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitReportOrError3Choice;
 /// Reports on limits.
 /// </summary>
 public partial record BusinessReport : LimitReportOrError3Choice_
+     , IIsoXmlSerilizable<BusinessReport>
 {
     #nullable enable
+    
     /// <summary>
     /// Report is given for a current risk management type limit.
     /// </summary>
-    public LimitReport6? CurrentLimit { get; init;  } // Warning: Don't know multiplicity.
+    public LimitReport6? CurrentLimit { get; init; } 
     /// <summary>
     /// Report is given for a default risk management type limit.
     /// </summary>
-    public LimitReport6? DefaultLimit { get; init;  } // Warning: Don't know multiplicity.
+    public LimitReport6? DefaultLimit { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CurrentLimit is LimitReport6 CurrentLimitValue)
+        {
+            writer.WriteStartElement(null, "CurLmt", xmlNamespace );
+            CurrentLimitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DefaultLimit is LimitReport6 DefaultLimitValue)
+        {
+            writer.WriteStartElement(null, "DfltLmt", xmlNamespace );
+            DefaultLimitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new BusinessReport Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

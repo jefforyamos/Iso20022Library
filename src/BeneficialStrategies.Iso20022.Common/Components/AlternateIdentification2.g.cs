@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Alternate identification of a security.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AlternateIdentification2
+     : IIsoXmlSerilizable<AlternateIdentification2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier of a security.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINXMax31Text Identification { get; init; } 
     /// <summary>
     /// Source of the security identification.
     /// </summary>
-    [DataMember]
     public required IdentificationSource2Choice_ IdentificationSource { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax31Text(Identification)); // data type RestrictedFINXMax31Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IdSrc", xmlNamespace );
+        IdentificationSource.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static AlternateIdentification2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

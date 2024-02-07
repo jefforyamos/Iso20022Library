@@ -7,28 +7,52 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Group of software packages related to a group of POIComponent of the POI System.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TerminalPackageType2
+     : IIsoXmlSerilizable<TerminalPackageType2>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the POI (Point Of Interaction) component.
     /// </summary>
-    [DataMember]
-    public ValueList<PointOfInteractionComponentIdentification2> POIComponentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public PointOfInteractionComponentIdentification2? POIComponentIdentification { get; init; } 
     /// <summary>
     /// Chunk of a software package.
     /// </summary>
-    [DataMember]
-    public ValueList<PackageType2> Package { get; init; } = []; // Warning: Don't know multiplicity.
+    public PackageType2? Package { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _xgNkgy8SEeu125Ip9zFcsQ
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (POIComponentIdentification is PointOfInteractionComponentIdentification2 POIComponentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "POICmpntId", xmlNamespace );
+            POIComponentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize Package, multiplicity Unknown
+    }
+    public static TerminalPackageType2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

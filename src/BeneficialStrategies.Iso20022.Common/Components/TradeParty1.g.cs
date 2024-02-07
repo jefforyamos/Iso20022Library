@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies an entity involved in a trade activity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeParty1
+     : IIsoXmlSerilizable<TradeParty1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification, as assigned by an organisation, to unambiguously identify a party.
     /// </summary>
-    [DataMember]
     public required PartyIdentification45 PartyIdentification { get; init; } 
     /// <summary>
     /// Legally constituted organization specified for this trade party.
     /// </summary>
-    [DataMember]
     public LegalOrganisation1? LegalOrganisation { get; init; } 
     /// <summary>
     /// Entity involved in an activity.
     /// </summary>
-    [DataMember]
-    public ValueList<TaxParty3> TaxParty { get; init; } = []; // Warning: Don't know multiplicity.
+    public TaxParty3? TaxParty { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PtyId", xmlNamespace );
+        PartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LegalOrganisation is LegalOrganisation1 LegalOrganisationValue)
+        {
+            writer.WriteStartElement(null, "LglOrg", xmlNamespace );
+            LegalOrganisationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxParty is TaxParty3 TaxPartyValue)
+        {
+            writer.WriteStartElement(null, "TaxPty", xmlNamespace );
+            TaxPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TradeParty1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

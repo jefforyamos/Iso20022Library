@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Indication of the cash values to be settled as of the start and maturity date of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PrincipalAmount2
+     : IIsoXmlSerilizable<PrincipalAmount2>
 {
     #nullable enable
     
     /// <summary>
     /// Cash value to be settled as of the start date of the transaction.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ValueDateAmount { get; init; } 
     /// <summary>
     /// Cash value to be settled as of the maturity date of the transaction.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? MaturityDateAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ValueDateAmount is IsoActiveOrHistoricCurrencyAndAmount ValueDateAmountValue)
+        {
+            writer.WriteStartElement(null, "ValDtAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ValueDateAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (MaturityDateAmount is IsoActiveOrHistoricCurrencyAndAmount MaturityDateAmountValue)
+        {
+            writer.WriteStartElement(null, "MtrtyDtAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(MaturityDateAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static PrincipalAmount2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

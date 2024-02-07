@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies ranged amounts, for a specific currency and type of amount.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AmountType1
+     : IIsoXmlSerilizable<AmountType1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of amount.
     /// </summary>
-    [DataMember]
     public required TypeOfAmount9Code Type { get; init; } 
     /// <summary>
     /// Specifies the currency code of the ranged amount.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Specifies the lowest amount value.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount FromAmount { get; init; } 
     /// <summary>
     /// Specifies the highest amount value.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount ToAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FrAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(FromAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ToAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(ToAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static AmountType1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to an account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentAccount3
+     : IIsoXmlSerilizable<PaymentAccount3>
 {
     #nullable enable
     
     /// <summary>
     /// Currency of a Payment Account.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Balance of a Payment Account
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? CurrentBalance { get; init; } 
     /// <summary>
     /// Detail of Acquirer.
     /// </summary>
-    [DataMember]
     public Acquirer10? PaymentAcquirerData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CurrentBalance is IsoImpliedCurrencyAndAmount CurrentBalanceValue)
+        {
+            writer.WriteStartElement(null, "CurBal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(CurrentBalanceValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PaymentAcquirerData is Acquirer10 PaymentAcquirerDataValue)
+        {
+            writer.WriteStartElement(null, "PmtAcqrrData", xmlNamespace );
+            PaymentAcquirerDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentAccount3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

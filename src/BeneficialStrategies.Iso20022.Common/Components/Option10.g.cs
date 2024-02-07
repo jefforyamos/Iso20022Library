@@ -7,103 +7,155 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// List of elements which provide the parameters of an option trade.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Option10
+     : IIsoXmlSerilizable<Option10>
 {
     #nullable enable
     
     /// <summary>
     /// Type of data to indicate whether a trade is an option or resulted by an option exercise.
     /// </summary>
-    [DataMember]
     public required DataType1Code Data { get; init; } 
     /// <summary>
     /// Specifies the exercise status of the option.
     /// </summary>
-    [DataMember]
     public required DerivativeExerciseStatus1Code ExerciseStatus { get; init; } 
     /// <summary>
     /// Defines how an option can be exercised.
     /// </summary>
-    [DataMember]
     public required OptionStyle2Code ExerciseStyle { get; init; } 
     /// <summary>
     /// Choice of format for option type.
     /// </summary>
-    [DataMember]
     public required OptionType1Code OptionType { get; init; } 
     /// <summary>
     /// Identifies the derivative option.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text DerivativeOptionIdentification { get; init; } 
     /// <summary>
     /// Indicates the type of payout that will result from an in-the-money option.
     /// </summary>
-    [DataMember]
     public required OptionPayoutType1Code OptionPayoutType { get; init; } 
     /// <summary>
     /// Specifies the valuation rate used for the trade.
     /// </summary>
-    [DataMember]
     public required AgreedRate3 ValuationRate { get; init; } 
     /// <summary>
     /// Specifies the rate of exchange at which the foreign exchange option has been struck.
     /// </summary>
-    [DataMember]
     public required AgreedRate3 StrikePrice { get; init; } 
     /// <summary>
     /// Annualized volatility for option model calculations.
     /// </summary>
-    [DataMember]
     public required IsoPercentageRate VolatilityMargin { get; init; } 
     /// <summary>
     /// Measurement of the amount of the trade values converted in the US dollars.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount RiskAmount { get; init; } 
     /// <summary>
     /// Date on which a privilege (for example, option, right, warrant.) expires. If it is an European option, the option holder can only exercise the right or let it lapse on expiry date. If it is an American option, the option holder can exercise the right up to the expiry date.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime ExpiryDateAndTime { get; init; } 
     /// <summary>
     /// Financial center where option expires.
     /// </summary>
-    [DataMember]
     public required IsoMax4AlphaNumericText ExpiryLocation { get; init; } 
     /// <summary>
     /// Specifies the settlment period of the option trade.
     /// </summary>
-    [DataMember]
     public required SettlementDateCode SettlementType { get; init; } 
     /// <summary>
     /// Specifies the call and the put amount of the underlying foreign exchange trade.
     /// </summary>
-    [DataMember]
     public required AmountsAndValueDate4 OptionAmounts { get; init; } 
     /// <summary>
     /// Specifies the amount of the premium of a foreign exchange option trade and its settlement place.
     /// </summary>
-    [DataMember]
     public required PremiumAmount3 Premium { get; init; } 
     /// <summary>
     /// Indicates whether the trade is to be settled as principal or netted off against another trade.
     /// </summary>
-    [DataMember]
     public required SettlementType1Code SettlementAmountType { get; init; } 
     /// <summary>
     /// Free format text that may contain information on the option.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text AdditionalOptionInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Data", xmlNamespace );
+        writer.WriteValue(Data.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ExrcSts", xmlNamespace );
+        writer.WriteValue(ExerciseStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ExrcStyle", xmlNamespace );
+        writer.WriteValue(ExerciseStyle.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+        writer.WriteValue(OptionType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DerivOptnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(DerivativeOptionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OptnPyoutTp", xmlNamespace );
+        writer.WriteValue(OptionPayoutType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ValtnRate", xmlNamespace );
+        ValuationRate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StrkPric", xmlNamespace );
+        StrikePrice.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "VoltlyMrgn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoPercentageRate(VolatilityMargin)); // data type PercentageRate System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RskAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(RiskAmount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XpryDtAndTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(ExpiryDateAndTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XpryLctn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(ExpiryLocation)); // data type Max4AlphaNumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmTp", xmlNamespace );
+        writer.WriteValue(SettlementType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OptnAmts", xmlNamespace );
+        OptionAmounts.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Prm", xmlNamespace );
+        Premium.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SttlmAmtTp", xmlNamespace );
+        writer.WriteValue(SettlementAmountType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AddtlOptnInf", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalOptionInformation)); // data type Max140Text System.String
+        writer.WriteEndElement();
+    }
+    public static Option10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

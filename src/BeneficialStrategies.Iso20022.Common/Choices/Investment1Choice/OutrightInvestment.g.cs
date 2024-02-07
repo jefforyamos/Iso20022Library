@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Investment1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Investment1Choice;
 /// Indicates that the investment was an outright purchase of a financial instrument or security as an investment.
 /// </summary>
 public partial record OutrightInvestment : Investment1Choice_
+     , IIsoXmlSerilizable<OutrightInvestment>
 {
     #nullable enable
+    
     /// <summary>
     /// ISIN of the outright investment.
     /// </summary>
@@ -27,5 +31,32 @@ public partial record OutrightInvestment : Investment1Choice_
     /// Type of a financial instrument: an equity, bond or other.
     /// </summary>
     public required ProductType7Code FinancialInstrumentType { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISINOct2015Identifier(Identification)); // data type ISINOct2015Identifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MktVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd24Amount(MarketValue)); // data type ActiveCurrencyAnd24Amount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FinInstrmTp", xmlNamespace );
+        writer.WriteValue(FinancialInstrumentType.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new OutrightInvestment Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

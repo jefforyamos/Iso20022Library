@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to report on business information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record GeneralBusinessInformationReturnCriteria1
+     : IIsoXmlSerilizable<GeneralBusinessInformationReturnCriteria1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the qualifier is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? QualifierIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the subject is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? SubjectIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the subject details are requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? SubjectDetailsIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (QualifierIndicator is IsoRequestedIndicator QualifierIndicatorValue)
+        {
+            writer.WriteStartElement(null, "QlfrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(QualifierIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SubjectIndicator is IsoRequestedIndicator SubjectIndicatorValue)
+        {
+            writer.WriteStartElement(null, "SbjtInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SubjectIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (SubjectDetailsIndicator is IsoRequestedIndicator SubjectDetailsIndicatorValue)
+        {
+            writer.WriteStartElement(null, "SbjtDtlsInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(SubjectDetailsIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static GeneralBusinessInformationReturnCriteria1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

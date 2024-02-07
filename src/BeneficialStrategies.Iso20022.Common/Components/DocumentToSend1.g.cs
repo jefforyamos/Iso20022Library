@@ -7,38 +7,64 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Determine the type of document and the type of communication method to be used to notify a Party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DocumentToSend1
+     : IIsoXmlSerilizable<DocumentToSend1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of document.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text Type { get; init; } 
     /// <summary>
     /// Party that should receive the document.
     /// </summary>
-    [DataMember]
     public required PartyIdentification2Choice_ Recipient { get; init; } 
     /// <summary>
     /// Communication method to be used.
     /// </summary>
-    [DataMember]
     public required CommunicationMethod1Code MethodOfTransmission { get; init; } 
     /// <summary>
     /// Communication means used to send information.
     /// </summary>
-    [DataMember]
     public required IsoExtended350Code ExtendedMethodOfTransmission { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(Type)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rcpt", xmlNamespace );
+        Recipient.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MtdOfTrnsmssn", xmlNamespace );
+        writer.WriteValue(MethodOfTransmission.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "XtndedMtdOfTrnsmssn", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedMethodOfTransmission)); // data type Extended350Code System.String
+        writer.WriteEndElement();
+    }
+    public static DocumentToSend1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

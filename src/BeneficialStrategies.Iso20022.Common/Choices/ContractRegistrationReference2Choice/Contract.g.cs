@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ContractRegistrationReference2Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.ContractRegistrationReference2Ch
 /// Identification of the contract.
 /// </summary>
 public partial record Contract : ContractRegistrationReference2Choice_
+     , IIsoXmlSerilizable<Contract>
 {
     #nullable enable
+    
     /// <summary>
     /// Identifies the document.
     /// </summary>
@@ -23,5 +27,35 @@ public partial record Contract : ContractRegistrationReference2Choice_
     /// Date of issuance of the document.
     /// </summary>
     public IsoISODate? DateOfIssue { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is IsoMax35Text IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(IdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (DateOfIssue is IsoISODate DateOfIssueValue)
+        {
+            writer.WriteStartElement(null, "DtOfIsse", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateOfIssueValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static new Contract Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

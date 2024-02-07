@@ -7,28 +7,52 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the rejection of a movement cancellation request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionMovementRejectionStatus2
+     : IIsoXmlSerilizable<CorporateActionMovementRejectionStatus2>
 {
     #nullable enable
     
     /// <summary>
     /// The rejection reason.
     /// </summary>
-    [DataMember]
-    public ValueList<RejectionReason14FormatChoice_> Reason { get; init; } = []; // Warning: Don't know multiplicity.
+    public RejectionReason14FormatChoice_? Reason { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _RlNoVtp-Ed-ak6NoX_4Aeg_1616278160
     /// <summary>
     /// Additional information about the status.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize Reason, multiplicity Unknown
+        if (AdditionalInformation is IsoMax350Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(AdditionalInformationValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionMovementRejectionStatus2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Credit default swap derivative specific for reporting on a single name credit default swap.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CreditDefaultSwapSingleName2
+     : IIsoXmlSerilizable<CreditDefaultSwapSingleName2>
 {
     #nullable enable
     
     /// <summary>
     /// Reference entity of a single name credit default swap (CDS) or a derivative on single name CDS.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator SovereignIssuer { get; init; } 
     /// <summary>
     /// Reference entity of a single name credit default swap (CDS) or a derivative on single name credit default swap (CDS).
     /// </summary>
-    [DataMember]
     public DerivativePartyIdentification1Choice_? ReferenceParty { get; init; } 
     /// <summary>
     /// Currency in which the notional is denominated.
     /// </summary>
-    [DataMember]
     public required ActiveOrHistoricCurrencyCode NotionalCurrency { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SvrgnIssr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(SovereignIssuer)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        if (ReferenceParty is DerivativePartyIdentification1Choice_ ReferencePartyValue)
+        {
+            writer.WriteStartElement(null, "RefPty", xmlNamespace );
+            ReferencePartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "NtnlCcy", xmlNamespace );
+        writer.WriteValue(NotionalCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static CreditDefaultSwapSingleName2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data related to the authentication of the card and the cardholder.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CardholderAuthentication8
+     : IIsoXmlSerilizable<CardholderAuthentication8>
 {
     #nullable enable
     
     /// <summary>
     /// Method and data intended to be used for this transaction to authenticate the customer or its card.
     /// </summary>
-    [DataMember]
     public required AuthenticationMethod7Code AuthenticationMethod { get; init; } 
     /// <summary>
     /// True if an authentication token is requested to the host. This token will be provided to the ATM for further authentication.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? TokenRequested { get; init; } 
     /// <summary>
     /// Value or token to be used for customer or card authentication.
     /// </summary>
-    [DataMember]
     public IsoMax5000Binary? AuthenticationValue { get; init; } 
     /// <summary>
     /// Protection of the authentication value.
     /// </summary>
-    [DataMember]
     public ContentInformationType10? ProtectedAuthenticationValue { get; init; } 
     /// <summary>
     /// Encrypted personal identification number (PIN) and related information.
     /// </summary>
-    [DataMember]
     public OnLinePIN5? CardholderOnLinePIN { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AuthntcnMtd", xmlNamespace );
+        writer.WriteValue(AuthenticationMethod.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (TokenRequested is IsoTrueFalseIndicator TokenRequestedValue)
+        {
+            writer.WriteStartElement(null, "TknReqd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(TokenRequestedValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AuthenticationValue is IsoMax5000Binary AuthenticationValueValue)
+        {
+            writer.WriteStartElement(null, "AuthntcnVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax5000Binary(AuthenticationValueValue)); // data type Max5000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (ProtectedAuthenticationValue is ContentInformationType10 ProtectedAuthenticationValueValue)
+        {
+            writer.WriteStartElement(null, "PrtctdAuthntcnVal", xmlNamespace );
+            ProtectedAuthenticationValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CardholderOnLinePIN is OnLinePIN5 CardholderOnLinePINValue)
+        {
+            writer.WriteStartElement(null, "CrdhldrOnLinePIN", xmlNamespace );
+            CardholderOnLinePINValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CardholderAuthentication8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

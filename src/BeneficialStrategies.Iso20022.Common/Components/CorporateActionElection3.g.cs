@@ -7,58 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about a corporate action election.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionElection3
+     : IIsoXmlSerilizable<CorporateActionElection3>
 {
     #nullable enable
     
     /// <summary>
     /// Provides information about the account.
     /// </summary>
-    [DataMember]
     public SecuritiesAccount7? AccountDetails { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    [DataMember]
     public CorporateActionOption1FormatChoice_? OptionType { get; init; } 
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    [DataMember]
     public IsoExact3NumericText? OptionNumber { get; init; } 
     /// <summary>
     /// Quantity of underlying securities to which this instruction applies.
     /// </summary>
-    [DataMember]
     public UnitOrFaceAmount1Choice_? InstructedUnderlyingSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Quantity of the benefits that the account owner wants to receive, eg, as a result of dividend reinvestment.
     /// </summary>
-    [DataMember]
     public UnitOrFaceAmount1Choice_? InstructedSecuritiesQuantityToReceive { get; init; } 
     /// <summary>
     /// Rate proposed in a remarketing of variable rate notes.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? ProposedRate { get; init; } 
     /// <summary>
     /// Provides information about the cash movement resulting from the election instruction.
     /// </summary>
-    [DataMember]
-    public ValueList<CorporateActionCashMovements2> CashMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CorporateActionCashMovements2? CashMovementDetails { get; init; } 
     /// <summary>
     /// Provides information about the securities movement resulting from the election instruction.
     /// </summary>
-    [DataMember]
-    public ValueList<CorporateActionSecuritiesMovement2> SecuritiesMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CorporateActionSecuritiesMovement2? SecuritiesMovementDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountDetails is SecuritiesAccount7 AccountDetailsValue)
+        {
+            writer.WriteStartElement(null, "AcctDtls", xmlNamespace );
+            AccountDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionType is CorporateActionOption1FormatChoice_ OptionTypeValue)
+        {
+            writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+            OptionTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OptionNumber is IsoExact3NumericText OptionNumberValue)
+        {
+            writer.WriteStartElement(null, "OptnNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact3NumericText(OptionNumberValue)); // data type Exact3NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (InstructedUnderlyingSecuritiesQuantity is UnitOrFaceAmount1Choice_ InstructedUnderlyingSecuritiesQuantityValue)
+        {
+            writer.WriteStartElement(null, "InstdUndrlygSctiesQty", xmlNamespace );
+            InstructedUnderlyingSecuritiesQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructedSecuritiesQuantityToReceive is UnitOrFaceAmount1Choice_ InstructedSecuritiesQuantityToReceiveValue)
+        {
+            writer.WriteStartElement(null, "InstdSctiesQtyToRcv", xmlNamespace );
+            InstructedSecuritiesQuantityToReceiveValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProposedRate is IsoPercentageRate ProposedRateValue)
+        {
+            writer.WriteStartElement(null, "PropsdRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(ProposedRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CashMovementDetails is CorporateActionCashMovements2 CashMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "CshMvmntDtls", xmlNamespace );
+            CashMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesMovementDetails is CorporateActionSecuritiesMovement2 SecuritiesMovementDetailsValue)
+        {
+            writer.WriteStartElement(null, "SctiesMvmntDtls", xmlNamespace );
+            SecuritiesMovementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionElection3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

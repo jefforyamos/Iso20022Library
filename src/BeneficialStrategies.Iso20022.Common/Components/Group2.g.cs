@@ -7,33 +7,59 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Group of parties with their related security certificate.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Group2
+     : IIsoXmlSerilizable<Group2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of change.
     /// </summary>
-    [DataMember]
     public Modification1Code? ModificationCode { get; init; } 
     /// <summary>
     /// Specifies the identification of the group.
     /// </summary>
-    [DataMember]
     public required IsoMax4AlphaNumericText GroupIdentification { get; init; } 
     /// <summary>
     /// Specifies a party and related certificate.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyAndCertificate3> Party { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyAndCertificate3? Party { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _wipmXBg4EeKnW4lR85q-0A
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ModificationCode is Modification1Code ModificationCodeValue)
+        {
+            writer.WriteStartElement(null, "ModCd", xmlNamespace );
+            writer.WriteValue(ModificationCodeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "GrpId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax4AlphaNumericText(GroupIdentification)); // data type Max4AlphaNumericText System.String
+        writer.WriteEndElement();
+        // Not sure how to serialize Party, multiplicity Unknown
+    }
+    public static Group2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

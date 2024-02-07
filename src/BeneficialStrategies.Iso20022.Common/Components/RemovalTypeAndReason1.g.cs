@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the removal type, the reason, the exclusion period, the extension date and the termination date.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RemovalTypeAndReason1
+     : IIsoXmlSerilizable<RemovalTypeAndReason1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the removal processing change requested.
     /// </summary>
-    [DataMember]
     public required Removal1Choice_ RemovalType { get; init; } 
     /// <summary>
     /// Identifies the reason for the removal, the extension of the removal or the termination of the removal.
     /// </summary>
-    [DataMember]
     public GenericIdentification30? Reason { get; init; } 
     /// <summary>
     /// Identifies the period, the start date or the end date of the exclusion period.
     /// </summary>
-    [DataMember]
     public DateOrDateTimePeriod3Choice_? ExclusionPeriod { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RmvlTp", xmlNamespace );
+        RemovalType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Reason is GenericIdentification30 ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            ReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExclusionPeriod is DateOrDateTimePeriod3Choice_ ExclusionPeriodValue)
+        {
+            writer.WriteStartElement(null, "ExclsnPrd", xmlNamespace );
+            ExclusionPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RemovalTypeAndReason1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding security that will being distributed as part of entitlement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrumentAttributesSD4
+     : IIsoXmlSerilizable<FinancialInstrumentAttributesSD4>
 {
     #nullable enable
     
     /// <summary>
     /// Security identification that a CSD (for example in the US - DTC, The Depository Trust Corporation) will distribute as part of the entitlement. This can be the DTC contra CUSIP in cases where the payout security is a contra CUSIP.
     /// </summary>
-    [DataMember]
     public SecurityIdentification15? CSDDisbursedSecurityIdentification { get; init; } 
     /// <summary>
     /// DTC (The Depository Trust Corporation) disbursed security description.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? CSDDisbursedSecurityDescription { get; init; } 
     /// <summary>
     /// Security identification of the security that will be distributed in fractions by the CSD (for example in the US - DTC, The Depository Trust Corporation) DTC (The Depository Trust Corporation) as a result of a corporate action.
     /// </summary>
-    [DataMember]
     public SecurityIdentification15? CSDDisbursedFractionalSecurityIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CSDDisbursedSecurityIdentification is SecurityIdentification15 CSDDisbursedSecurityIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CSDDsbrsdSctyId", xmlNamespace );
+            CSDDisbursedSecurityIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CSDDisbursedSecurityDescription is IsoMax140Text CSDDisbursedSecurityDescriptionValue)
+        {
+            writer.WriteStartElement(null, "CSDDsbrsdSctyDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(CSDDisbursedSecurityDescriptionValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (CSDDisbursedFractionalSecurityIdentification is SecurityIdentification15 CSDDisbursedFractionalSecurityIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CSDDsbrsdFrctnlSctyId", xmlNamespace );
+            CSDDisbursedFractionalSecurityIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstrumentAttributesSD4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

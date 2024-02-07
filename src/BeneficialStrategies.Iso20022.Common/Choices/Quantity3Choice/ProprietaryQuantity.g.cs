@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Quantity3Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity3Choice;
 /// Proprietary quantity of security format.
 /// </summary>
 public partial record ProprietaryQuantity : Quantity3Choice_
+     , IIsoXmlSerilizable<ProprietaryQuantity>
 {
     #nullable enable
+    
     /// <summary>
     /// Sign of the quantity of security.
     /// </summary>
@@ -35,5 +39,44 @@ public partial record ProprietaryQuantity : Quantity3Choice_
     /// Name of the identification scheme.
     /// </summary>
     public IsoMax35Text? SchemeName { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ShortLongPosition is ShortLong1Code ShortLongPositionValue)
+        {
+            writer.WriteStartElement(null, "ShrtLngPos", xmlNamespace );
+            writer.WriteValue(ShortLongPositionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Qty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoDecimalNumber(Quantity)); // data type DecimalNumber System.UInt64
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "QtyTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoExact4AlphaNumericText(QuantityType)); // data type Exact4AlphaNumericText System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Issr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Issuer)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (SchemeName is IsoMax35Text SchemeNameValue)
+        {
+            writer.WriteStartElement(null, "SchmeNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SchemeNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new ProprietaryQuantity Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

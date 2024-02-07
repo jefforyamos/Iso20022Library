@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Acknowledgement information relative to corporate action reorganisation instructions.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionAcknowledgementSD1
+     : IIsoXmlSerilizable<CorporateActionAcknowledgementSD1>
 {
     #nullable enable
     
@@ -24,78 +25,150 @@ public partial record CorporateActionAcknowledgementSD1
     /// Yes: the participant agrees.
     /// No: the participant does not agree.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? TermsAcknowledgementIndicator { get; init; } 
     /// <summary>
     /// Indicates whether condition 1 of this tender offer is being accepted.
     /// Yes: accept.
     /// No: decline.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? Condition1Indicator { get; init; } 
     /// <summary>
     /// Indicates whether condition 2 of this tender offer is being accepted.
     /// Yes: accept.
     /// No: decline.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? Condition2Indicator { get; init; } 
     /// <summary>
     /// Indicates whether condition 3 of this tender offer is being accepted.
     /// Yes: accept.
     /// No: decline.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? Condition3Indicator { get; init; } 
     /// <summary>
     /// Indicates whether condition 4 of this tender offer is being accepted.
     /// Yes: accept.
     /// No: decline.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? Condition4Indicator { get; init; } 
     /// <summary>
     /// Indicates whether condition 5 of this tender offer is being accepted.
     /// Yes: accept.
     /// No: decline.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? Condition5Indicator { get; init; } 
     /// <summary>
     /// Indicates whether condition 6 of this tender offer is being accepted.
     /// Yes: accept.
     /// No: decline.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? Condition6Indicator { get; init; } 
     /// <summary>
     /// Indicates whether there is an acknowledgement that the beneficial owner has been deemed incompetent. Acknowledgement is related to CD early redemption instructions.
     /// Yes: acknowledged.
     /// No: not acknowledged.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? AdjudicationOfIncompetencyAcknowledgementIndicator { get; init; } 
     /// <summary>
     /// Indicates whether there is an acknowledgement that this CD Early Redemption request is an exempt request, that the identification of the beneficial owner and required legal documentation is correct and that you agree to maintain such documentation for at least 30 months following payment of the request and will make it available to the CD Issuer upon request. 
     /// Yes: acknowledged.
     /// No: not acknowledged.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? LegalDocumentationThirtyMonthsRetentionAcknowledgementIndicator { get; init; } 
     /// <summary>
     /// Indicates whether there is an acknowledgement that this CD Early Redemption instruction will automatically be deleted by the close of the fifth business day subsequent to submission if the appropriate legal documents, for example, death certificate, affidavit of domicile, are not received by DTC at that time. 
     /// Yes: acknowledged.
     /// No: not acknowledged.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? InstructionDeletionAcknowledgementIndicator { get; init; } 
     /// <summary>
     /// Indicates whether there is an acknowledgement that the warrant or conversion instruction being sent could lead to a potential loss due to pricing factors.
     /// Yes: acknowledged.
     /// No: not acknowledged.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? PotentialLossAcknowledgementIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TermsAcknowledgementIndicator is IsoYesNoIndicator TermsAcknowledgementIndicatorValue)
+        {
+            writer.WriteStartElement(null, "TermsAckInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(TermsAcknowledgementIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Condition1Indicator is IsoYesNoIndicator Condition1IndicatorValue)
+        {
+            writer.WriteStartElement(null, "Cond1Ind", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Condition1IndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Condition2Indicator is IsoYesNoIndicator Condition2IndicatorValue)
+        {
+            writer.WriteStartElement(null, "Cond2Ind", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Condition2IndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Condition3Indicator is IsoYesNoIndicator Condition3IndicatorValue)
+        {
+            writer.WriteStartElement(null, "Cond3Ind", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Condition3IndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Condition4Indicator is IsoYesNoIndicator Condition4IndicatorValue)
+        {
+            writer.WriteStartElement(null, "Cond4Ind", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Condition4IndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Condition5Indicator is IsoYesNoIndicator Condition5IndicatorValue)
+        {
+            writer.WriteStartElement(null, "Cond5Ind", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Condition5IndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (Condition6Indicator is IsoYesNoIndicator Condition6IndicatorValue)
+        {
+            writer.WriteStartElement(null, "Cond6Ind", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Condition6IndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AdjudicationOfIncompetencyAcknowledgementIndicator is IsoYesNoIndicator AdjudicationOfIncompetencyAcknowledgementIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AdjdctnOfIncmptncyAckInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(AdjudicationOfIncompetencyAcknowledgementIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (LegalDocumentationThirtyMonthsRetentionAcknowledgementIndicator is IsoYesNoIndicator LegalDocumentationThirtyMonthsRetentionAcknowledgementIndicatorValue)
+        {
+            writer.WriteStartElement(null, "LglDcmnttnThrtyMnthsRtntnAckInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(LegalDocumentationThirtyMonthsRetentionAcknowledgementIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (InstructionDeletionAcknowledgementIndicator is IsoYesNoIndicator InstructionDeletionAcknowledgementIndicatorValue)
+        {
+            writer.WriteStartElement(null, "InstrDeltnAckInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(InstructionDeletionAcknowledgementIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (PotentialLossAcknowledgementIndicator is IsoYesNoIndicator PotentialLossAcknowledgementIndicatorValue)
+        {
+            writer.WriteStartElement(null, "PotntlLossAckInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(PotentialLossAcknowledgementIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionAcknowledgementSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

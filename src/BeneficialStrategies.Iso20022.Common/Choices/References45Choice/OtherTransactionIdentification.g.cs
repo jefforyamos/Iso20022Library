@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.References45Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.References45Choice;
 /// Reference to a transaction that cannot be identified using a standard reference element present in the message.
 /// </summary>
 public partial record OtherTransactionIdentification : References45Choice_
+     , IIsoXmlSerilizable<OtherTransactionIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Message type number/message identifier of the message referenced in the linkage sequence.
     /// </summary>
@@ -23,5 +27,32 @@ public partial record OtherTransactionIdentification : References45Choice_
     /// Identification of the document.
     /// </summary>
     public required IsoMax35Text Identification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MessageNumber is DocumentNumber5Choice_ MessageNumberValue)
+        {
+            writer.WriteStartElement(null, "MsgNb", xmlNamespace );
+            MessageNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Identification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static new OtherTransactionIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

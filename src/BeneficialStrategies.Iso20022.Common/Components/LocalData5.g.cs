@@ -7,48 +7,93 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains text fields in the local language.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LocalData5
+     : IIsoXmlSerilizable<LocalData5>
 {
     #nullable enable
     
     /// <summary>
     /// The language code conforming to ISO 639-1 that identifies the language in which the fields are expressed in this component.
     /// </summary>
-    [DataMember]
     public required ISOMax3ALanguageCode Language { get; init; } 
     /// <summary>
     /// Contains the full name of the sponsored merchant in the local language.
     /// </summary>
-    [DataMember]
     public IsoMax280Text? CommonName { get; init; } 
     /// <summary>
     /// Legal Corporate Name of the party
     /// </summary>
-    [DataMember]
     public IsoMax210Text? LegalCorporateName { get; init; } 
     /// <summary>
     /// Structured postal address in the local language.
     /// </summary>
-    [DataMember]
     public Address3? Address { get; init; } 
     /// <summary>
     /// Additional information used when card acceptor street address is insufficient.
     /// </summary>
-    [DataMember]
     public IsoMax512Text? AdditionalAddressInformation { get; init; } 
     /// <summary>
     /// Additional local language data
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Lang", xmlNamespace );
+        writer.WriteValue(Language.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (CommonName is IsoMax280Text CommonNameValue)
+        {
+            writer.WriteStartElement(null, "CmonNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax280Text(CommonNameValue)); // data type Max280Text System.String
+            writer.WriteEndElement();
+        }
+        if (LegalCorporateName is IsoMax210Text LegalCorporateNameValue)
+        {
+            writer.WriteStartElement(null, "LglCorpNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax210Text(LegalCorporateNameValue)); // data type Max210Text System.String
+            writer.WriteEndElement();
+        }
+        if (Address is Address3 AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalAddressInformation is IsoMax512Text AdditionalAddressInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlAdrInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax512Text(AdditionalAddressInformationValue)); // data type Max512Text System.String
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LocalData5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

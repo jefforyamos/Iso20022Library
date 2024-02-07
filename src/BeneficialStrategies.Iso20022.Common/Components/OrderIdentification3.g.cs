@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides identifications related to the order processing.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OrderIdentification3
+     : IIsoXmlSerilizable<OrderIdentification3>
 {
     #nullable enable
     
     /// <summary>
     /// Information related to an identification, eg, party identification or account identification.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OrderIdentification { get; init; } 
     /// <summary>
     /// Unique identifier for the order as assigned by the buyside. Uniqueness must be guaranteed within a single trading day. Firms, particularly those that electronically submit multi-day orders, trade globally or throughout market close periods, should ensure uniqueness across days, for example by embedding a date within the ClientOrderIdentification element.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ClientOrderIdentification { get; init; } 
     /// <summary>
     /// Assigned by the party that originates the order. Can be used to provide the ClientOrderIdentification used by an exchange or executing system.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SecondaryClientOrderIdentification { get; init; } 
     /// <summary>
     /// Coded list to specify the side of the order.
     /// </summary>
-    [DataMember]
     public Side1Code? Side { get; init; } 
     /// <summary>
     /// Permits order originators to tie together groups of orders in which trades resulting from orders are associated for a specific purpose, for example the calculation of average execution price for a customer or to associate lists submitted to a broker as waves of a larger program trade.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClientOrderLinkIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OrderIdentification is IsoMax35Text OrderIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrdrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OrderIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ClntOrdrId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientOrderIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (SecondaryClientOrderIdentification is IsoMax35Text SecondaryClientOrderIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ScndryClntOrdrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SecondaryClientOrderIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Side is Side1Code SideValue)
+        {
+            writer.WriteStartElement(null, "Sd", xmlNamespace );
+            writer.WriteValue(SideValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ClientOrderLinkIdentification is IsoMax35Text ClientOrderLinkIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClntOrdrLkId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientOrderLinkIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static OrderIdentification3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

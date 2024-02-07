@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.caaa.AcceptorAuthorisationRequestV01>;
 
 namespace BeneficialStrategies.Iso20022.caaa;
 
@@ -24,10 +27,9 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// The AcceptorAuthorisationRequest message may embed the information required for transferring to the acquirer the data needed to perform the financial settlement of the transaction (capture). An intermediary agent may act on behalf of the card acceptor or of the acquirer in providing additional functionality such as: switching to different acquirers, loyalty processing or management of the acceptor system.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The AcceptorAuthorisationRequest message is sent by the card acceptor to the acquirer or its agent when an online authorisation is required for the card payment transaction.|Usage|The AcceptorAuthorisationRequest message may embed the information required for transferring to the acquirer the data needed to perform the financial settlement of the transaction (capture). An intermediary agent may act on behalf of the card acceptor or of the acquirer in providing additional functionality such as: switching to different acquirers, loyalty processing or management of the acceptor system.")]
-public partial record AcceptorAuthorisationRequestV01 : IOuterRecord
+public partial record AcceptorAuthorisationRequestV01 : IOuterRecord<AcceptorAuthorisationRequestV01,AcceptorAuthorisationRequestV01Document>
+    ,IIsoXmlSerilizable<AcceptorAuthorisationRequestV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -39,6 +41,11 @@ public partial record AcceptorAuthorisationRequestV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "AccptrAuthstnReq";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => AcceptorAuthorisationRequestV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -80,6 +87,32 @@ public partial record AcceptorAuthorisationRequestV01 : IOuterRecord
     {
         return new AcceptorAuthorisationRequestV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("AccptrAuthstnReq");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AuthstnReq", xmlNamespace );
+        AuthorisationRequest.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+        SecurityTrailer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static AcceptorAuthorisationRequestV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -87,9 +120,7 @@ public partial record AcceptorAuthorisationRequestV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorAuthorisationRequestV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record AcceptorAuthorisationRequestV01Document : IOuterDocument<AcceptorAuthorisationRequestV01>
+public partial record AcceptorAuthorisationRequestV01Document : IOuterDocument<AcceptorAuthorisationRequestV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -105,5 +136,22 @@ public partial record AcceptorAuthorisationRequestV01Document : IOuterDocument<A
     /// <summary>
     /// The instance of <seealso cref="AcceptorAuthorisationRequestV01"/> is required.
     /// </summary>
+    [DataMember(Name=AcceptorAuthorisationRequestV01.XmlTag)]
     public required AcceptorAuthorisationRequestV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(AcceptorAuthorisationRequestV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

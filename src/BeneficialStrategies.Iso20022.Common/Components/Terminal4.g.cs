@@ -7,54 +7,48 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment terminal or ATM performing the transaction
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Terminal4
+     : IIsoXmlSerilizable<Terminal4>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the terminal performing the transaction.
     /// </summary>
-    [DataMember]
     public required TerminalIdentification3 TerminalIdentification { get; init; } 
     /// <summary>
     /// Type of terminal.
     /// </summary>
-    [DataMember]
     public TerminalType1Code? Type { get; init; } 
     /// <summary>
     /// Other type of terminal.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Capabilities of the terminal
     /// </summary>
-    [DataMember]
     public Capabilities2? Capabilities { get; init; } 
     /// <summary>
     /// Type of terminal integration at a point of service location.
     /// </summary>
-    [DataMember]
     public TerminalIntegrationCategory1Code? TerminalIntegration { get; init; } 
     /// <summary>
     /// Geographic location of the terminal.
     /// </summary>
-    [DataMember]
     public IsoGeographicPointInDecimalDegrees? GeographicLocation { get; init; } 
     /// <summary>
     /// Indicates whether the terminal is operated outdoor or indoor at the point of service.
     /// True: The terminal is operated outdoor
     /// False: The terminal is operated indoor
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? OutdoorIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the terminal is operated on- or off-premises at the point of service.
@@ -62,20 +56,91 @@ public partial record Terminal4
     /// False: The terminal is operated on premises.
     /// ISO 8583:93 bit 22-4, ISO 8583:2003 bit 22-3.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? OffPremisesIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the transaction was performed on board.
     /// True: The terminal is located on board.
     /// False: The terminal is not located on board.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? OnBoardIndicator { get; init; } 
     /// <summary>
     /// Data related to the components of the POI (Point Of Interaction) performing the transactions.
     /// </summary>
-    [DataMember]
-    public ValueList<PointOfInteractionComponent13> POIComponent { get; init; } = []; // Warning: Don't know multiplicity.
+    public PointOfInteractionComponent13? POIComponent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TermnlId", xmlNamespace );
+        TerminalIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Type is TerminalType1Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherType is IsoMax35Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Capabilities is Capabilities2 CapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "Cpblties", xmlNamespace );
+            CapabilitiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TerminalIntegration is TerminalIntegrationCategory1Code TerminalIntegrationValue)
+        {
+            writer.WriteStartElement(null, "TermnlIntgtn", xmlNamespace );
+            writer.WriteValue(TerminalIntegrationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (GeographicLocation is IsoGeographicPointInDecimalDegrees GeographicLocationValue)
+        {
+            writer.WriteStartElement(null, "GeogcLctn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoGeographicPointInDecimalDegrees(GeographicLocationValue)); // data type GeographicPointInDecimalDegrees System.String
+            writer.WriteEndElement();
+        }
+        if (OutdoorIndicator is IsoTrueFalseIndicator OutdoorIndicatorValue)
+        {
+            writer.WriteStartElement(null, "OutdrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(OutdoorIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (OffPremisesIndicator is IsoTrueFalseIndicator OffPremisesIndicatorValue)
+        {
+            writer.WriteStartElement(null, "OffPrmissInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(OffPremisesIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (OnBoardIndicator is IsoTrueFalseIndicator OnBoardIndicatorValue)
+        {
+            writer.WriteStartElement(null, "OnBrdInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(OnBoardIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (POIComponent is PointOfInteractionComponent13 POIComponentValue)
+        {
+            writer.WriteStartElement(null, "POICmpnt", xmlNamespace );
+            POIComponentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Terminal4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

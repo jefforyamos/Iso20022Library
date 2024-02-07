@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to search for an account.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashAccountSearchCriteria6
+     : IIsoXmlSerilizable<CashAccountSearchCriteria6>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
-    public ValueList<AccountIdentificationSearchCriteria2Choice_> AccountIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public AccountIdentificationSearchCriteria2Choice_? AccountIdentification { get; init; } 
     /// <summary>
     /// Specifies the nature, or use, of the cash account.
     /// </summary>
-    [DataMember]
-    public ValueList<CashAccountType2Choice_> Type { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashAccountType2Choice_? Type { get; init; } 
     /// <summary>
     /// Specifies the currency of the cash account.
     /// </summary>
-    [DataMember]
-    public ValueList<ActiveOrHistoricCurrencyCode> Currency { get; init; } = []; // Warning: Don't know multiplicity.
+    public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Balance of the account which is being queried.
     /// </summary>
-    [DataMember]
-    public ValueList<CashBalance9> Balance { get; init; } = []; // Warning: Don't know multiplicity.
+    public CashBalance9? Balance { get; init; } 
     /// <summary>
     /// Owner of the account which is being queried.
     /// </summary>
-    [DataMember]
     public PartyIdentification125? AccountOwner { get; init; } 
     /// <summary>
     /// Servicer of the account which is being queried.
     /// </summary>
-    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? AccountServicer { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountIdentification is AccountIdentificationSearchCriteria2Choice_ AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            AccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Type is CashAccountType2Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveOrHistoricCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Balance is CashBalance9 BalanceValue)
+        {
+            writer.WriteStartElement(null, "Bal", xmlNamespace );
+            BalanceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountOwner is PartyIdentification125 AccountOwnerValue)
+        {
+            writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+            AccountOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AccountServicer is BranchAndFinancialInstitutionIdentification5 AccountServicerValue)
+        {
+            writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+            AccountServicerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CashAccountSearchCriteria6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

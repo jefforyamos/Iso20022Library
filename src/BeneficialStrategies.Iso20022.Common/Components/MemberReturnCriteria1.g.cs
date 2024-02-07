@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to report on a member.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MemberReturnCriteria1
+     : IIsoXmlSerilizable<MemberReturnCriteria1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the member name is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? NameIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the member return address is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? MemberReturnAddressIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the member account is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? AccountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the member type is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? TypeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the member status is requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? StatusIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the contact references are requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? ContactReferenceIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the communication addresses are requested.
     /// </summary>
-    [DataMember]
     public IsoRequestedIndicator? CommunicationAddressIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NameIndicator is IsoRequestedIndicator NameIndicatorValue)
+        {
+            writer.WriteStartElement(null, "NmInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(NameIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (MemberReturnAddressIndicator is IsoRequestedIndicator MemberReturnAddressIndicatorValue)
+        {
+            writer.WriteStartElement(null, "MmbRtrAdrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(MemberReturnAddressIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AccountIndicator is IsoRequestedIndicator AccountIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AcctInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(AccountIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (TypeIndicator is IsoRequestedIndicator TypeIndicatorValue)
+        {
+            writer.WriteStartElement(null, "TpInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(TypeIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (StatusIndicator is IsoRequestedIndicator StatusIndicatorValue)
+        {
+            writer.WriteStartElement(null, "StsInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(StatusIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ContactReferenceIndicator is IsoRequestedIndicator ContactReferenceIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CtctRefInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(ContactReferenceIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CommunicationAddressIndicator is IsoRequestedIndicator CommunicationAddressIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ComAdrInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRequestedIndicator(CommunicationAddressIndicatorValue)); // data type RequestedIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static MemberReturnCriteria1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

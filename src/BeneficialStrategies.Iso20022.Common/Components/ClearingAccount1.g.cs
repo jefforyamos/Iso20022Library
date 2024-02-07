@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Operational construct of a central counterparty that defines the relationship between collateral, margin and position accounts and upon default of a clearing member defines the segregation of losses on positions and assets held in such accounts.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ClearingAccount1
+     : IIsoXmlSerilizable<ClearingAccount1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the type of clearing account.
     /// </summary>
-    [DataMember]
     public required ClearingAccountType3Code AccountType { get; init; } 
     /// <summary>
     /// Operational construct used by a central counterparty to record ownership of assets posted as collateral by clearing members to meet their obligations at the central counterparty.
     /// </summary>
-    [DataMember]
-    public ValueList<CollateralAccount5> CollateralAccountOwner { get; init; } = []; // Warning: Don't know multiplicity.
+    public CollateralAccount5? CollateralAccountOwner { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _fXQ-0HX_Eee_qcLXasnA4g
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AcctTp", xmlNamespace );
+        writer.WriteValue(AccountType.ToString()); // Enum value
+        writer.WriteEndElement();
+        // Not sure how to serialize CollateralAccountOwner, multiplicity Unknown
+    }
+    public static ClearingAccount1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

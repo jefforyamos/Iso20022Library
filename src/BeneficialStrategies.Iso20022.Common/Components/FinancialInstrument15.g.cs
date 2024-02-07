@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the financial instrument.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrument15
+     : IIsoXmlSerilizable<FinancialInstrument15>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the financial instrument using a choice of either ISIN, local code, or a description of the instrument. ISIN is the preferred format.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification6Choice_ Identification { get; init; } 
     /// <summary>
     /// Provides the ability to describe the instrument through a description and main characteristics.
     /// </summary>
-    [DataMember]
     public SecurityInstrumentDescription2? InstrumentDescription { get; init; } 
     /// <summary>
     /// Provides details of the underlying financial instrument for which the transaction report is being sent. If there is more than one underlying financial instrument then it is the dominant/ultimate instrument that should be identified here.
     /// </summary>
-    [DataMember]
     public SecurityIdentification6Choice_? UnderlyingInstrumentIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (InstrumentDescription is SecurityInstrumentDescription2 InstrumentDescriptionValue)
+        {
+            writer.WriteStartElement(null, "InstrmDesc", xmlNamespace );
+            InstrumentDescriptionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnderlyingInstrumentIdentification is SecurityIdentification6Choice_ UnderlyingInstrumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "UndrlygInstrmId", xmlNamespace );
+            UnderlyingInstrumentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstrument15 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

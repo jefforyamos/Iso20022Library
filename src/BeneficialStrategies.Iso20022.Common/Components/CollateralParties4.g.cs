@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the collateral counterparty(ies) of Party A with his eligibility set profile.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralParties4
+     : IIsoXmlSerilizable<CollateralParties4>
 {
     #nullable enable
     
     /// <summary>
     /// Counterparty of party A. 
     /// </summary>
-    [DataMember]
     public required PartyIdentification232 PartyB { get; init; } 
     /// <summary>
     /// Party that instructs party B to settle the instruction on its behalf.
     /// </summary>
-    [DataMember]
     public PartyIdentification232? ClientPartyB { get; init; } 
     /// <summary>
     /// Number identifying the collateral eligibility set profile of the counterparty.
     /// </summary>
-    [DataMember]
     public GenericIdentification37? EligibilitySetProfile { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PtyB", xmlNamespace );
+        PartyB.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ClientPartyB is PartyIdentification232 ClientPartyBValue)
+        {
+            writer.WriteStartElement(null, "ClntPtyB", xmlNamespace );
+            ClientPartyBValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EligibilitySetProfile is GenericIdentification37 EligibilitySetProfileValue)
+        {
+            writer.WriteStartElement(null, "ElgbltySetPrfl", xmlNamespace );
+            EligibilitySetProfileValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralParties4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

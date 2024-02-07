@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on an event occurring in a system, whether planned or unplanned as stipulated in the specifications of the system.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SystemEvent2
+     : IIsoXmlSerilizable<SystemEvent2>
 {
     #nullable enable
     
     /// <summary>
     /// Nature of the event that has occurred.
     /// </summary>
-    [DataMember]
     public required SystemEventType2Choice_ Type { get; init; } 
     /// <summary>
     /// Date and time at which the event is foreseen to occur.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime ScheduledTime { get; init; } 
     /// <summary>
     /// Date and time at which the event effectively takes place.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? EffectiveTime { get; init; } 
     /// <summary>
     /// Time at which the event starts.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? StartTime { get; init; } 
     /// <summary>
     /// Time at which the event ends.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? EndTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        Type.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SchdldTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(ScheduledTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (EffectiveTime is IsoISODateTime EffectiveTimeValue)
+        {
+            writer.WriteStartElement(null, "FctvTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(EffectiveTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (StartTime is IsoISODateTime StartTimeValue)
+        {
+            writer.WriteStartElement(null, "StartTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(StartTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (EndTime is IsoISODateTime EndTimeValue)
+        {
+            writer.WriteStartElement(null, "EndTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(EndTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static SystemEvent2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

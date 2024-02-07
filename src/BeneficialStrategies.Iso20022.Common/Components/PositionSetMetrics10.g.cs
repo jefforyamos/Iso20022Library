@@ -7,23 +7,46 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Variables used to quantify the different calculations for position sets.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PositionSetMetrics10
+     : IIsoXmlSerilizable<PositionSetMetrics10>
 {
     #nullable enable
     
     /// <summary>
     /// Numeric variables calculated on the number of transactions or on market exposures.
     /// </summary>
-    [DataMember]
     public ExposureMetrics6? VolumeMetrics { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (VolumeMetrics is ExposureMetrics6 VolumeMetricsValue)
+        {
+            writer.WriteStartElement(null, "VolMtrcs", xmlNamespace );
+            VolumeMetricsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PositionSetMetrics10 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

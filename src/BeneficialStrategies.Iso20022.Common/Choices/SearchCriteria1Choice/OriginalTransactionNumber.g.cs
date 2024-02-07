@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SearchCriteria1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SearchCriteria1Choice;
 /// Specifies the original transaction number.
 /// </summary>
 public partial record OriginalTransactionNumber : SearchCriteria1Choice_
+     , IIsoXmlSerilizable<OriginalTransactionNumber>
 {
     #nullable enable
+    
     /// <summary>
     /// Idetifies the transaction number.
     /// </summary>
@@ -23,9 +27,38 @@ public partial record OriginalTransactionNumber : SearchCriteria1Choice_
     /// Identifies the type of information request related to an original transaction number as a code.
     /// </summary>
     public TransactionRequestType1Code? Type { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _wc1usWHgEeGrBqfAqyy96Q
     /// <summary>
     /// Additional information, in free text form, to complement the requested information.
     /// </summary>
     public IsoMax500Text? AdditionalInformation { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Number)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        // Not sure how to serialize Type, multiplicity Unknown
+        if (AdditionalInformation is IsoMax500Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Text(AdditionalInformationValue)); // data type Max500Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new OriginalTransactionNumber Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

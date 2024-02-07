@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reports on limits.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Limits7
+     : IIsoXmlSerilizable<Limits7>
 {
     #nullable enable
     
     /// <summary>
     /// Report is given for a current risk management type limit.
     /// </summary>
-    [DataMember]
-    public ValueList<LimitReport7> CurrentLimit { get; init; } = []; // Warning: Don't know multiplicity.
+    public LimitReport7? CurrentLimit { get; init; } 
     /// <summary>
     /// Report is given for a default risk management type limit.
     /// </summary>
-    [DataMember]
-    public ValueList<LimitReport7> DefaultLimit { get; init; } = []; // Warning: Don't know multiplicity.
+    public LimitReport7? DefaultLimit { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CurrentLimit is LimitReport7 CurrentLimitValue)
+        {
+            writer.WriteStartElement(null, "CurLmt", xmlNamespace );
+            CurrentLimitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DefaultLimit is LimitReport7 DefaultLimitValue)
+        {
+            writer.WriteStartElement(null, "DfltLmt", xmlNamespace );
+            DefaultLimitValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Limits7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

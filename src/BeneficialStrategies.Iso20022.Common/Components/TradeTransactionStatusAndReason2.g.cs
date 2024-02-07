@@ -7,38 +7,64 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the transaction with a trade reference and provides its status. If the status is rejected, a reason for this status must be given.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradeTransactionStatusAndReason2
+     : IIsoXmlSerilizable<TradeTransactionStatusAndReason2>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the identification of the RegulatoryTransactionReportCancellationRequest document that was previously sent by the reporting institution.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text RelatedReference { get; init; } 
     /// <summary>
     /// Unique identification assigned to a trade once it is received or matched by an executing system.
     /// </summary>
-    [DataMember]
     public required IsoMax70Text TradeReference { get; init; } 
     /// <summary>
     /// Indicates the status of an instruction, request or report message.
     /// </summary>
-    [DataMember]
     public required Status2Code Status { get; init; } 
     /// <summary>
     /// Indicates that the cancellation is rejected and provides a reason why.
     /// </summary>
-    [DataMember]
     public ValueList<RejectedCancellationStatusReason1Choice_> Rejected { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(RelatedReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax70Text(TradeReference)); // data type Max70Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rjctd", xmlNamespace );
+        Rejected.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static TradeTransactionStatusAndReason2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

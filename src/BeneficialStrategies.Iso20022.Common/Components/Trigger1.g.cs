@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Trigger parameters.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Trigger1
+     : IIsoXmlSerilizable<Trigger1>
 {
     #nullable enable
     
     /// <summary>
     /// Details related to the date on which a variation is effective.
     /// </summary>
-    [DataMember]
     public FixedOrRecurrentDate1Choice_? DateChoice { get; init; } 
     /// <summary>
     /// Details related to the documentary event on which a variation is triggered.
     /// </summary>
-    [DataMember]
-    public ValueList<Document10> DocumentaryEvent { get; init; } = []; // Warning: Don't know multiplicity.
+    public Document10? DocumentaryEvent { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DateChoice is FixedOrRecurrentDate1Choice_ DateChoiceValue)
+        {
+            writer.WriteStartElement(null, "DtChc", xmlNamespace );
+            DateChoiceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DocumentaryEvent is Document10 DocumentaryEventValue)
+        {
+            writer.WriteStartElement(null, "DcmntryEvt", xmlNamespace );
+            DocumentaryEventValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Trigger1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

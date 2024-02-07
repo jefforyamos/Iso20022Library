@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Characteristics of the statement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Statement16
+     : IIsoXmlSerilizable<Statement16>
 {
     #nullable enable
     
     /// <summary>
     /// Date or period of the statement.
     /// </summary>
-    [DataMember]
     public DateAndPeriod1Choice_? StatementDateOrPeriod { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
-    [DataMember]
     public Frequency4Choice_? Frequency { get; init; } 
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>
-    [DataMember]
     public UpdateType2Choice_? UpdateType { get; init; } 
     /// <summary>
     /// Type of balance on which the statement is prepared.
     /// </summary>
-    [DataMember]
     public StatementBasis3Choice_? StatementBasis { get; init; } 
     /// <summary>
     /// Type of balance on which the statement is prepared.
     /// </summary>
-    [DataMember]
     public StatementType2Choice_? StatementType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (StatementDateOrPeriod is DateAndPeriod1Choice_ StatementDateOrPeriodValue)
+        {
+            writer.WriteStartElement(null, "StmtDtOrPrd", xmlNamespace );
+            StatementDateOrPeriodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Frequency is Frequency4Choice_ FrequencyValue)
+        {
+            writer.WriteStartElement(null, "Frqcy", xmlNamespace );
+            FrequencyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UpdateType is UpdateType2Choice_ UpdateTypeValue)
+        {
+            writer.WriteStartElement(null, "UpdTp", xmlNamespace );
+            UpdateTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StatementBasis is StatementBasis3Choice_ StatementBasisValue)
+        {
+            writer.WriteStartElement(null, "StmtBsis", xmlNamespace );
+            StatementBasisValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StatementType is StatementType2Choice_ StatementTypeValue)
+        {
+            writer.WriteStartElement(null, "StmtTp", xmlNamespace );
+            StatementTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Statement16 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

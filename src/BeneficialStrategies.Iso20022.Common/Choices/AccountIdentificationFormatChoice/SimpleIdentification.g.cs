@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AccountIdentificationFormatChoice;
 
@@ -13,11 +15,34 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentificationFormatChoic
 /// Unique and unambiguous identification for the account between the account owner and the account servicer.
 /// </summary>
 public partial record SimpleIdentification : AccountIdentificationFormatChoice_
+     , IIsoXmlSerilizable<SimpleIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Unique identifier for an account. It is assigned by the account servicer using a proprietary identification scheme.
     /// </summary>
     public required SimpleIdentificationInformation Proprietary { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Prtry", xmlNamespace );
+        Proprietary.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new SimpleIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding security that will be distributed as part of entitlement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrumentAttributesSD2
+     : IIsoXmlSerilizable<FinancialInstrumentAttributesSD2>
 {
     #nullable enable
     
     /// <summary>
     /// Security identification of the security that is being distributed as a result of a corporate action as declared by the issuer or offeror on the market.
     /// </summary>
-    [DataMember]
     public SecurityIdentification15? DeclaredDisbursedSecurityIdentification { get; init; } 
     /// <summary>
     /// Declared disbursed security description.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? DeclaredDisbursedSecurityDescription { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DeclaredDisbursedSecurityIdentification is SecurityIdentification15 DeclaredDisbursedSecurityIdentificationValue)
+        {
+            writer.WriteStartElement(null, "DclrdDsbrsdSctyId", xmlNamespace );
+            DeclaredDisbursedSecurityIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DeclaredDisbursedSecurityDescription is IsoMax140Text DeclaredDisbursedSecurityDescriptionValue)
+        {
+            writer.WriteStartElement(null, "DclrdDsbrsdSctyDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(DeclaredDisbursedSecurityDescriptionValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstrumentAttributesSD2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

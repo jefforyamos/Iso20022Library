@@ -7,70 +7,138 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Option or swaption related attributes.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OptionOrSwaption7
+     : IIsoXmlSerilizable<OptionOrSwaption7>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the type of the Option whether it is a call option (right to purchase a specific underlying asset) or a put option (right to sell a specific underlying asset).
     /// </summary>
-    [DataMember]
     public OptionType2Code? Type { get; init; } 
     /// <summary>
     /// Indication as to whether the option may be exercised only at a fixed date (European, and Asian style), a series of pre-specified dates (Bermudan) or at any time during the life of the contract (American style). This field does not have to be populated for ISIN instruments.
     /// </summary>
-    [DataMember]
-    public ValueList<OptionStyle6Code> ExerciseStyle { get; init; } = []; // Warning: Don't know multiplicity.
+    public OptionStyle6Code? ExerciseStyle { get; init; } 
     /// <summary>
     /// Specifies the earliest unadjusted date during the exercise period on which an option can be exercised.
     /// </summary>
-    [DataMember]
     public ExerciseDate1Choice_? ExerciseDate { get; init; } 
     /// <summary>
     /// Specifies the predetermined price at which the owner of the option can buy or sell the underlying instrument.
     /// Usage: For foreign exchange options, specifies the exchange rate at which the option can be exercised as the rate of exchange from converting the unit currency into the quoted currency.
     /// For volatility and variance swaps, specify the volatility strike price.
     /// </summary>
-    [DataMember]
     public SecuritiesTransactionPrice17Choice_? StrikePrice { get; init; } 
     /// <summary>
     /// Specifies the effective date and end date of the schedule for derivative transactions with strike prices varying throughout the life of the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<Schedule4> StrikePriceSchedule { get; init; } = []; // Warning: Don't know multiplicity.
+    public Schedule4? StrikePriceSchedule { get; init; } 
     /// <summary>
     /// Indicates the amount and currency of a foreign exchange option that the option holder has the right to buy.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? CallAmount { get; init; } 
     /// <summary>
     /// Indicates the amount and currency of a foreign exchange option that the option holder has the right to sell.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? PutAmount { get; init; } 
     /// <summary>
     /// Specifies the monetary amount of the premium paid by the buyer of the option.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? PremiumAmount { get; init; } 
     /// <summary>
     /// Specifies the date on which the option premium is paid.
     /// </summary>
-    [DataMember]
     public IsoISODate? PremiumPaymentDate { get; init; } 
     /// <summary>
     /// In case of swaptions, maturity date of the underlying swap.
     /// </summary>
-    [DataMember]
     public IsoISODate? MaturityDateOfUnderlying { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is OptionType2Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExerciseStyle is OptionStyle6Code ExerciseStyleValue)
+        {
+            writer.WriteStartElement(null, "ExrcStyle", xmlNamespace );
+            writer.WriteValue(ExerciseStyleValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExerciseDate is ExerciseDate1Choice_ ExerciseDateValue)
+        {
+            writer.WriteStartElement(null, "ExrcDt", xmlNamespace );
+            ExerciseDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StrikePrice is SecuritiesTransactionPrice17Choice_ StrikePriceValue)
+        {
+            writer.WriteStartElement(null, "StrkPric", xmlNamespace );
+            StrikePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (StrikePriceSchedule is Schedule4 StrikePriceScheduleValue)
+        {
+            writer.WriteStartElement(null, "StrkPricSchdl", xmlNamespace );
+            StrikePriceScheduleValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CallAmount is IsoActiveOrHistoricCurrencyAnd19DecimalAmount CallAmountValue)
+        {
+            writer.WriteStartElement(null, "CallAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd19DecimalAmount(CallAmountValue)); // data type ActiveOrHistoricCurrencyAnd19DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PutAmount is IsoActiveOrHistoricCurrencyAnd19DecimalAmount PutAmountValue)
+        {
+            writer.WriteStartElement(null, "PutAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd19DecimalAmount(PutAmountValue)); // data type ActiveOrHistoricCurrencyAnd19DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PremiumAmount is IsoActiveOrHistoricCurrencyAnd19DecimalAmount PremiumAmountValue)
+        {
+            writer.WriteStartElement(null, "PrmAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd19DecimalAmount(PremiumAmountValue)); // data type ActiveOrHistoricCurrencyAnd19DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PremiumPaymentDate is IsoISODate PremiumPaymentDateValue)
+        {
+            writer.WriteStartElement(null, "PrmPmtDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(PremiumPaymentDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (MaturityDateOfUnderlying is IsoISODate MaturityDateOfUnderlyingValue)
+        {
+            writer.WriteStartElement(null, "MtrtyDtOfUndrlyg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(MaturityDateOfUnderlyingValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static OptionOrSwaption7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

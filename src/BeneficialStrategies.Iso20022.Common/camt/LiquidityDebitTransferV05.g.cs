@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.camt.LiquidityDebitTransferV05>;
 
 namespace BeneficialStrategies.Iso20022.camt;
 
@@ -31,10 +34,9 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// In principle, the transaction administrator may send a Receipt message as a reply to the liquidity transfer request. To verify the outcome of the request, the member may submit a GetTransaction or GetAccount message with the appropriate search criteria.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The LiquidityDebitTransfer message is sent by a member to the transaction administrator.|It is used to request a transfer of funds between two accounts belonging to the same member or the same group of accounts, and being held at the transaction administrator.|Usage|At any time during the operating hours of the system, and to perform the appropriate liquidity management, the member can request the transaction administrator to execute the transfer of funds between two accounts that the transaction administrator maintains for the member. For instance, this may be an action resulting from a Get/Return Account pair of messages.|The LiquidityDebitTransfer message can be used when the transactions to/from the member are unbalanced in value for the business day, or to unlock pending transactions at the end of day.|The member can request the transfer by identifying the accounts stored at the transaction administrator:|- If the accounts involved in the requested transfer are known without doubt to the transaction administrator, it is possible to indicate only the type of the account to be credited.|- If, on the contrary, more clarity is desired, it is possible to identify the accounts from and to which the funds should be transferred.|Note that transfers are processed only when the balance in the account to be debited is sufficient to pass the liquidity transfer instruction and remain positive. Based on the criteria received within the LiquidityDebitTransfer message, the transaction administrator will execute or reject the requested transfer.|In principle, the transaction administrator may send a Receipt message as a reply to the liquidity transfer request. To verify the outcome of the request, the member may submit a GetTransaction or GetAccount message with the appropriate search criteria.")]
-public partial record LiquidityDebitTransferV05 : IOuterRecord
+public partial record LiquidityDebitTransferV05 : IOuterRecord<LiquidityDebitTransferV05,LiquidityDebitTransferV05Document>
+    ,IIsoXmlSerilizable<LiquidityDebitTransferV05>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -46,6 +48,11 @@ public partial record LiquidityDebitTransferV05 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "LqdtyDbtTrf";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => LiquidityDebitTransferV05Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -86,6 +93,35 @@ public partial record LiquidityDebitTransferV05 : IOuterRecord
     {
         return new LiquidityDebitTransferV05Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("LqdtyDbtTrf");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgHdr", xmlNamespace );
+        MessageHeader.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "LqdtyDbtTrf", xmlNamespace );
+        LiquidityDebitTransfer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static LiquidityDebitTransferV05 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -93,9 +129,7 @@ public partial record LiquidityDebitTransferV05 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="LiquidityDebitTransferV05"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record LiquidityDebitTransferV05Document : IOuterDocument<LiquidityDebitTransferV05>
+public partial record LiquidityDebitTransferV05Document : IOuterDocument<LiquidityDebitTransferV05>, IXmlSerializable
 {
     
     /// <summary>
@@ -111,5 +145,22 @@ public partial record LiquidityDebitTransferV05Document : IOuterDocument<Liquidi
     /// <summary>
     /// The instance of <seealso cref="LiquidityDebitTransferV05"/> is required.
     /// </summary>
+    [DataMember(Name=LiquidityDebitTransferV05.XmlTag)]
     public required LiquidityDebitTransferV05 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(LiquidityDebitTransferV05.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

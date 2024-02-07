@@ -7,58 +7,101 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies a payment instruction by a set of characteristics (as per EBA system requirements) which provides an unambiguous identification of the instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentInstructionReferenceDetails4
+     : IIsoXmlSerilizable<PaymentInstructionReferenceDetails4>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identifier for a payment instruction, as assigned by the clearing agent or the initiating party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text PaymentInstructionReference { get; init; } 
     /// <summary>
     /// Amount of money moved between the instructing agent and the instructed agent.
     /// </summary>
-    [DataMember]
     public required IsoImpliedCurrencyAndAmount InterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
-    [DataMember]
     public required IsoISODate InterbankValueDate { get; init; } 
     /// <summary>
     /// The message type with which the instruction has been initiated.
     /// </summary>
-    [DataMember]
     public PaymentOrigin1Choice_? PaymentMethod { get; init; } 
     /// <summary>
     /// The identification of the instructing agent that transmitted the payment instruction.
     /// </summary>
-    [DataMember]
     public required IsoBICIdentifier InstructingAgentIdentification { get; init; } 
     /// <summary>
     /// The identification of the instructed agent in the payment instruction.
     /// </summary>
-    [DataMember]
     public required IsoBICIdentifier InstructedAgentIdentification { get; init; } 
     /// <summary>
     /// An optional qualifier providing additional system specific information about the entry.||Usage:
     /// </summary>
-    [DataMember]
     public IsoEntryTypeIdentifier? EntryType { get; init; } 
     /// <summary>
     /// The related reference as stipulated in the payment instruction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RelatedReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PmtInstrRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(PaymentInstructionReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IntrBkSttlmAmt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(InterbankSettlementAmount)); // data type ImpliedCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "IntrBkValDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(InterbankValueDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (PaymentMethod is PaymentOrigin1Choice_ PaymentMethodValue)
+        {
+            writer.WriteStartElement(null, "PmtMtd", xmlNamespace );
+            PaymentMethodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "InstgAgtId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBICIdentifier(InstructingAgentIdentification)); // data type BICIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InstdAgtId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoBICIdentifier(InstructedAgentIdentification)); // data type BICIdentifier System.String
+        writer.WriteEndElement();
+        if (EntryType is IsoEntryTypeIdentifier EntryTypeValue)
+        {
+            writer.WriteStartElement(null, "NtryTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoEntryTypeIdentifier(EntryTypeValue)); // data type EntryTypeIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is IsoMax35Text RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RelatedReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentInstructionReferenceDetails4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

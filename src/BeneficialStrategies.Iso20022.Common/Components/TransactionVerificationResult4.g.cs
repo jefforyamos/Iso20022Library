@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Result of performed verifications for the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionVerificationResult4
+     : IIsoXmlSerilizable<TransactionVerificationResult4>
 {
     #nullable enable
     
     /// <summary>
     /// Method of verification that has been performed.
     /// </summary>
-    [DataMember]
     public required AuthenticationMethod6Code Method { get; init; } 
     /// <summary>
     /// Entity or device that has performed the verification.
     /// </summary>
-    [DataMember]
     public AuthenticationEntity2Code? VerificationEntity { get; init; } 
     /// <summary>
     /// Result of the verification.
     /// </summary>
-    [DataMember]
     public Verification1Code? Result { get; init; } 
     /// <summary>
     /// Additional result of the verification.
     /// </summary>
-    [DataMember]
     public IsoMax500Text? AdditionalResult { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Mtd", xmlNamespace );
+        writer.WriteValue(Method.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (VerificationEntity is AuthenticationEntity2Code VerificationEntityValue)
+        {
+            writer.WriteStartElement(null, "VrfctnNtty", xmlNamespace );
+            writer.WriteValue(VerificationEntityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Result is Verification1Code ResultValue)
+        {
+            writer.WriteStartElement(null, "Rslt", xmlNamespace );
+            writer.WriteValue(ResultValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AdditionalResult is IsoMax500Text AdditionalResultValue)
+        {
+            writer.WriteStartElement(null, "AddtlRslt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Text(AdditionalResultValue)); // data type Max500Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionVerificationResult4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

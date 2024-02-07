@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Requirement for a clearing member to post collateral at a central counterparty with respect to a default fund.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DefaultFundRequirement1
+     : IIsoXmlSerilizable<DefaultFundRequirement1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the clearing member.
     /// </summary>
-    [DataMember]
     public required GenericIdentification165 ClearingMemberIdentification { get; init; } 
     /// <summary>
     /// Central counterparty's identification of the service where default fund contributions are made at the service level.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ServiceIdentification { get; init; } 
     /// <summary>
     /// Clearing member's pre-funded default fund requirement for the default fund at the central counterparty.
     /// </summary>
-    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ClrMmbId", xmlNamespace );
+        ClearingMemberIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ServiceIdentification is IsoMax35Text ServiceIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SvcId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ServiceIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(Amount)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+    }
+    public static DefaultFundRequirement1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

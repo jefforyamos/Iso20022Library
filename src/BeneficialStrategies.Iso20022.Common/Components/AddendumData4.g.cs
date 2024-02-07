@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Addendum data structure is applicable to certain merchant verticals that require industry-specific data within transaction messages. 
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AddendumData4
+     : IIsoXmlSerilizable<AddendumData4>
 {
     #nullable enable
     
     /// <summary>
     /// Fleet data pertaining to the payment transaction.
     /// </summary>
-    [DataMember]
     public FleetData5? Fleet { get; init; } 
     /// <summary>
     /// Data exclusively related to a card issuer financial loan of the payment transaction, or instalment.
     /// </summary>
-    [DataMember]
     public Instalment4? Instalment { get; init; } 
     /// <summary>
     /// Contains additional data for the addendum.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Fleet is FleetData5 FleetValue)
+        {
+            writer.WriteStartElement(null, "Fleet", xmlNamespace );
+            FleetValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Instalment is Instalment4 InstalmentValue)
+        {
+            writer.WriteStartElement(null, "Instlmt", xmlNamespace );
+            InstalmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AddendumData4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

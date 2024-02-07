@@ -7,43 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Assessments for the component of the point of interaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PointOfInteractionComponentAssessment1
+     : IIsoXmlSerilizable<PointOfInteractionComponentAssessment1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of assessment of the component.
     /// </summary>
-    [DataMember]
     public required POIComponentAssessment1Code Type { get; init; } 
     /// <summary>
     /// Body which has delivered the assessment.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> Assigner { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? Assigner { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _L3GT4AyREeKa_56Jbsi1RQ
     /// <summary>
     /// Date when the assessment has been delivered.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? DeliveryDate { get; init; } 
     /// <summary>
     /// Date when the assessment will expire.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ExpirationDate { get; init; } 
     /// <summary>
     /// Unique assessment number for the component.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Number { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        // Not sure how to serialize Assigner, multiplicity Unknown
+        if (DeliveryDate is IsoISODateTime DeliveryDateValue)
+        {
+            writer.WriteStartElement(null, "DlvryDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(DeliveryDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (ExpirationDate is IsoISODateTime ExpirationDateValue)
+        {
+            writer.WriteStartElement(null, "XprtnDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ExpirationDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Nb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Number)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static PointOfInteractionComponentAssessment1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

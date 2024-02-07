@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification6Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification6Choice;
 /// Provides the ability to describe the instrument through a description and main characteristics.
 /// </summary>
 public partial record InstrumentDescription : SecurityIdentification6Choice_
+     , IIsoXmlSerilizable<InstrumentDescription>
 {
     #nullable enable
+    
     /// <summary>
     /// Description of the security.
     /// </summary>
@@ -47,5 +51,71 @@ public partial record InstrumentDescription : SecurityIdentification6Choice_
     /// Indicates the ratio or multiplying factor used to convert one contract into a quantity. In the case of an equity or a bond, the price multiplier is 1.
     /// </summary>
     public IsoBaseOneRate? Multiplier { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Description is IsoMax350Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(DescriptionValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClassificationType is SecurityClassificationType1Choice_ ClassificationTypeValue)
+        {
+            writer.WriteStartElement(null, "ClssfctnTp", xmlNamespace );
+            ClassificationTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PlaceOfListing is IsoMICIdentifier PlaceOfListingValue)
+        {
+            writer.WriteStartElement(null, "PlcOfListg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMICIdentifier(PlaceOfListingValue)); // data type MICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (ExerciseDate is IsoISODate ExerciseDateValue)
+        {
+            writer.WriteStartElement(null, "ExrcDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(ExerciseDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (MaturityDate is IsoISODate MaturityDateValue)
+        {
+            writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(MaturityDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (OptionType is OptionTypeCode OptionTypeValue)
+        {
+            writer.WriteStartElement(null, "OptnTp", xmlNamespace );
+            writer.WriteValue(OptionTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (StrikePrice is PriceRateOrAmountChoice_ StrikePriceValue)
+        {
+            writer.WriteStartElement(null, "StrkPric", xmlNamespace );
+            StrikePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Multiplier is IsoBaseOneRate MultiplierValue)
+        {
+            writer.WriteStartElement(null, "Mltplr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBaseOneRate(MultiplierValue)); // data type BaseOneRate System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static new InstrumentDescription Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

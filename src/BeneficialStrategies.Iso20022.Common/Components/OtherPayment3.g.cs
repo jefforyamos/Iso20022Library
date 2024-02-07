@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment related to elements not reported in dedicated fields.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OtherPayment3
+     : IIsoXmlSerilizable<OtherPayment3>
 {
     #nullable enable
     
@@ -23,28 +24,67 @@ public partial record OtherPayment3
     /// Amount of money of any payment the reporting counterparty made or received.
     /// Usage: The negative symbol to be used to indicate that the payment was made, not received.
     /// </summary>
-    [DataMember]
     public required AmountAndDirection106 PaymentAmount { get; init; } 
     /// <summary>
     /// Indicates the type of other payment.
     /// </summary>
-    [DataMember]
     public PaymentType5Choice_? PaymentType { get; init; } 
     /// <summary>
     /// Indicates the unadjusted date on which the other payment is paid.
     /// </summary>
-    [DataMember]
     public IsoISODate? PaymentDate { get; init; } 
     /// <summary>
     /// Identifies the payer of the other payment amount.
     /// </summary>
-    [DataMember]
     public PartyIdentification235Choice_? PaymentPayer { get; init; } 
     /// <summary>
     /// Identifies the receiver of the other payment amount.
     /// </summary>
-    [DataMember]
     public PartyIdentification235Choice_? PaymentReceiver { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PmtAmt", xmlNamespace );
+        PaymentAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PaymentType is PaymentType5Choice_ PaymentTypeValue)
+        {
+            writer.WriteStartElement(null, "PmtTp", xmlNamespace );
+            PaymentTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentDate is IsoISODate PaymentDateValue)
+        {
+            writer.WriteStartElement(null, "PmtDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(PaymentDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (PaymentPayer is PartyIdentification235Choice_ PaymentPayerValue)
+        {
+            writer.WriteStartElement(null, "PmtPyer", xmlNamespace );
+            PaymentPayerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentReceiver is PartyIdentification235Choice_ PaymentReceiverValue)
+        {
+            writer.WriteStartElement(null, "PmtRcvr", xmlNamespace );
+            PaymentReceiverValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OtherPayment3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

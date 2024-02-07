@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Price8
+     : IIsoXmlSerilizable<Price8>
 {
     #nullable enable
     
     /// <summary>
     /// Type of value in which the price is expressed.
     /// </summary>
-    [DataMember]
     public PriceValueType3Code? ValueType { get; init; } 
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
-    [DataMember]
     public required PriceRateOrAmount3Choice_ Value { get; init; } 
     /// <summary>
     /// Type and information about a price.
     /// </summary>
-    [DataMember]
     public TypeOfPrice1Code? PriceType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ValueType is PriceValueType3Code ValueTypeValue)
+        {
+            writer.WriteStartElement(null, "ValTp", xmlNamespace );
+            writer.WriteValue(ValueTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        Value.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PriceType is TypeOfPrice1Code PriceTypeValue)
+        {
+            writer.WriteStartElement(null, "PricTp", xmlNamespace );
+            writer.WriteValue(PriceTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static Price8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

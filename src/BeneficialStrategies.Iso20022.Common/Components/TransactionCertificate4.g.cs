@@ -7,53 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Certificate against which all currency control transactions are registered.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionCertificate4
+     : IIsoXmlSerilizable<TransactionCertificate4>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the transaction.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Reference of the transaction certificate.
     /// </summary>
-    [DataMember]
     public required DocumentIdentification28 Certificate { get; init; } 
     /// <summary>
     /// Cash account, linked to the registered contract, on which the cash entry is made.
     /// </summary>
-    [DataMember]
     public CashAccount40? Account { get; init; } 
     /// <summary>
     /// Country in which the bank account is located, when the bank which services the account is located in another country.
     /// </summary>
-    [DataMember]
     public CountryCode? BankAccountDomiciliationCountry { get; init; } 
     /// <summary>
     /// Amendment indicator details.
     /// </summary>
-    [DataMember]
     public DocumentAmendment1? Amendment { get; init; } 
     /// <summary>
     /// Record of the transaction certificate.
     /// </summary>
-    [DataMember]
-    public ValueList<TransactionCertificateRecord2> CertificateRecord { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransactionCertificateRecord2? CertificateRecord { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _bLb-a7GJEeuSTr8k0UEM8A
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Cert", xmlNamespace );
+        Certificate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Account is CashAccount40 AccountValue)
+        {
+            writer.WriteStartElement(null, "Acct", xmlNamespace );
+            AccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BankAccountDomiciliationCountry is CountryCode BankAccountDomiciliationCountryValue)
+        {
+            writer.WriteStartElement(null, "BkAcctDmcltnCtry", xmlNamespace );
+            writer.WriteValue(BankAccountDomiciliationCountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Amendment is DocumentAmendment1 AmendmentValue)
+        {
+            writer.WriteStartElement(null, "Amdmnt", xmlNamespace );
+            AmendmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize CertificateRecord, multiplicity Unknown
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionCertificate4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

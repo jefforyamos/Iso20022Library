@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account between an investor(s) and a fund manager or a fund. The account can contain holdings in any investment fund or investment fund class managed (or distributed) by the fund manager, within the same fund family.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestmentAccount20
+     : IIsoXmlSerilizable<InvestmentAccount20>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public AccountIdentification1? AccountIdentification { get; init; } 
     /// <summary>
     /// Account type.
     /// </summary>
-    [DataMember]
     public FundCashAccount2Code? Type { get; init; } 
     /// <summary>
     /// Purpose of the account/source fund type. This is typically linked to an investment product, eg, wrapper, PEP, ISA.
     /// </summary>
-    [DataMember]
     public IsoExtended350Code? ExtendedType { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AccountIdentification is AccountIdentification1 AccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctId", xmlNamespace );
+            AccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Type is FundCashAccount2Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ExtendedType is IsoExtended350Code ExtendedTypeValue)
+        {
+            writer.WriteStartElement(null, "XtndedTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExtended350Code(ExtendedTypeValue)); // data type Extended350Code System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static InvestmentAccount20 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

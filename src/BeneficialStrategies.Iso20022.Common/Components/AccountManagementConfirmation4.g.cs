@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the type of request or instruction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountManagementConfirmation4
+     : IIsoXmlSerilizable<AccountManagementConfirmation4>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the confirmation type.
     /// </summary>
-    [DataMember]
     public required ConfirmationType1Choice_ ConfirmationType { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of the account opening or modification instruction at application level.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AccountApplicationIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of a transaction, for example, a transfer, as assigned by the investor or account owner.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction, for example, a transfer, as allocated by the counterparty.
     /// </summary>
-    [DataMember]
     public AdditionalReference6? CounterpartyReference { get; init; } 
     /// <summary>
     /// Account to which the account opening is related.
     /// </summary>
-    [DataMember]
-    public ValueList<Account23> ExistingAccountIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public Account23? ExistingAccountIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "ConfTp", xmlNamespace );
+        ConfirmationType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AccountApplicationIdentification is IsoMax35Text AccountApplicationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AcctApplId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AccountApplicationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ClientReference is IsoMax35Text ClientReferenceValue)
+        {
+            writer.WriteStartElement(null, "ClntRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ClientReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CounterpartyReference is AdditionalReference6 CounterpartyReferenceValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyRef", xmlNamespace );
+            CounterpartyReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ExistingAccountIdentification is Account23 ExistingAccountIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ExstgAcctId", xmlNamespace );
+            ExistingAccountIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountManagementConfirmation4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

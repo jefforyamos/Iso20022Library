@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.DefinedAttributes1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.DefinedAttributes1Choice;
 /// Shares or some other fixed amount of derivative (such an ERIS future or swaption), or a fixed quantity of commodities.
 /// </summary>
 public partial record QuantityDefinedAttributes : DefinedAttributes1Choice_
+     , IIsoXmlSerilizable<QuantityDefinedAttributes>
 {
     #nullable enable
+    
     /// <summary>
     /// Quantity of product defined in the contract.
     /// </summary>
@@ -31,5 +35,35 @@ public partial record QuantityDefinedAttributes : DefinedAttributes1Choice_
     /// Specifies the currency of price of underlying.
     /// </summary>
     public required ActiveCurrencyCode PriceCurrency { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CtrctSz", xmlNamespace );
+        ContractSize.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DlvryTp", xmlNamespace );
+        writer.WriteValue(DeliveryType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "UndrlygId", xmlNamespace );
+        UnderlyingIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PricCcy", xmlNamespace );
+        writer.WriteValue(PriceCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new QuantityDefinedAttributes Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

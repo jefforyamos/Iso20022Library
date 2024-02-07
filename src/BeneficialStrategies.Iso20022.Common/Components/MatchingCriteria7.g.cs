@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides details on loan and collateral matching criteria.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MatchingCriteria7
+     : IIsoXmlSerilizable<MatchingCriteria7>
 {
     #nullable enable
     
     /// <summary>
     /// Compares information related to both sides of a loan.
     /// </summary>
-    [DataMember]
     public CounterpartyMatchingCriteria1? CounterpartyMatchingCriteria { get; init; } 
     /// <summary>
     /// Compares information related to both sides of a loan.
     /// </summary>
-    [DataMember]
     public LoanMatchingCriteria6? LoanMatchingCriteria { get; init; } 
     /// <summary>
     /// Compares information related to both sides of a collateral.
     /// </summary>
-    [DataMember]
     public CollateralMatchingCriteria3? CollateralMatchingCriteria { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CounterpartyMatchingCriteria is CounterpartyMatchingCriteria1 CounterpartyMatchingCriteriaValue)
+        {
+            writer.WriteStartElement(null, "CtrPtyMtchgCrit", xmlNamespace );
+            CounterpartyMatchingCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LoanMatchingCriteria is LoanMatchingCriteria6 LoanMatchingCriteriaValue)
+        {
+            writer.WriteStartElement(null, "LnMtchgCrit", xmlNamespace );
+            LoanMatchingCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollateralMatchingCriteria is CollateralMatchingCriteria3 CollateralMatchingCriteriaValue)
+        {
+            writer.WriteStartElement(null, "CollMtchgCrit", xmlNamespace );
+            CollateralMatchingCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static MatchingCriteria7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

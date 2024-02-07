@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Risk tolerance of an investor for which a financial instrument is targeted.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RiskTolerance1
+     : IIsoXmlSerilizable<RiskTolerance1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the Summary Risk Indicator (SRI). When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 04010.
     /// </summary>
-    [DataMember]
     public IsoMax1Number? RiskTolerancePRIIPSMethodology { get; init; } 
     /// <summary>
     /// Specifies the Synthetic Risk and Reward Indicator (SRRI). When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 04020.
     /// </summary>
-    [DataMember]
     public IsoMax1Number? RiskToleranceUCITSMethodology { get; init; } 
     /// <summary>
     /// Specifies the risk tolerance for non-PRIIPs and non-UCITS instructions. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 04030.
     /// </summary>
-    [DataMember]
     public RiskLevel1Code? RiskToleranceInternal { get; init; } 
     /// <summary>
     /// Specifies the Summary Risk Indicator (SRI) for a Spanish product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 04040.
     /// </summary>
-    [DataMember]
     public IsoMax1Number? RiskToleranceForNonPRIIPSAndNonUCITSSpain { get; init; } 
     /// <summary>
     /// Specifies the risk tolerance for a German product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 04050.
     /// </summary>
-    [DataMember]
     public TargetMarket2Code? NotForInvestorsWithTheLowestRiskToleranceGermany { get; init; } 
     /// <summary>
     /// Specifies another type of risk tolerance.
     /// </summary>
-    [DataMember]
-    public ValueList<OtherTargetMarketRiskTolerance1> Other { get; init; } = []; // Warning: Don't know multiplicity.
+    public OtherTargetMarketRiskTolerance1? Other { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (RiskTolerancePRIIPSMethodology is IsoMax1Number RiskTolerancePRIIPSMethodologyValue)
+        {
+            writer.WriteStartElement(null, "RskTlrncePRIIPSMthdlgy", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1Number(RiskTolerancePRIIPSMethodologyValue)); // data type Max1Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (RiskToleranceUCITSMethodology is IsoMax1Number RiskToleranceUCITSMethodologyValue)
+        {
+            writer.WriteStartElement(null, "RskTlrnceUCITSMthdlgy", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1Number(RiskToleranceUCITSMethodologyValue)); // data type Max1Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (RiskToleranceInternal is RiskLevel1Code RiskToleranceInternalValue)
+        {
+            writer.WriteStartElement(null, "RskTlrnceIntl", xmlNamespace );
+            writer.WriteValue(RiskToleranceInternalValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (RiskToleranceForNonPRIIPSAndNonUCITSSpain is IsoMax1Number RiskToleranceForNonPRIIPSAndNonUCITSSpainValue)
+        {
+            writer.WriteStartElement(null, "RskTlrnceForNonPRIIPSAndNonUCITSES", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1Number(RiskToleranceForNonPRIIPSAndNonUCITSSpainValue)); // data type Max1Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (NotForInvestorsWithTheLowestRiskToleranceGermany is TargetMarket2Code NotForInvestorsWithTheLowestRiskToleranceGermanyValue)
+        {
+            writer.WriteStartElement(null, "NotForInvstrsWthTheLwstRskTlrnceDE", xmlNamespace );
+            writer.WriteValue(NotForInvestorsWithTheLowestRiskToleranceGermanyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Other is OtherTargetMarketRiskTolerance1 OtherValue)
+        {
+            writer.WriteStartElement(null, "Othr", xmlNamespace );
+            OtherValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static RiskTolerance1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

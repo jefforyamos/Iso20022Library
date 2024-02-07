@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.MemberCriteriaDefinition1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.MemberCriteriaDefinition1Choice;
 /// Defines the criteria based on which the information is extracted.
 /// </summary>
 public partial record NewCriteria : MemberCriteriaDefinition1Choice_
+     , IIsoXmlSerilizable<NewCriteria>
 {
     #nullable enable
+    
     /// <summary>
     /// Name of the query defined by the search criteria and return criteria.
     /// </summary>
@@ -22,10 +26,46 @@ public partial record NewCriteria : MemberCriteriaDefinition1Choice_
     /// <summary>
     /// Defines the criteria based on which the information is extracted.
     /// </summary>
-    public MemberSearchCriteria2? SearchCriteria { get; init;  } // Warning: Don't know multiplicity.
+    public MemberSearchCriteria2? SearchCriteria { get; init; } 
     /// <summary>
     /// Defines the expected report.
     /// </summary>
     public MemberReturnCriteria1? ReturnCriteria { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NewQueryName is IsoMax35Text NewQueryNameValue)
+        {
+            writer.WriteStartElement(null, "NewQryNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(NewQueryNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SearchCriteria is MemberSearchCriteria2 SearchCriteriaValue)
+        {
+            writer.WriteStartElement(null, "SchCrit", xmlNamespace );
+            SearchCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReturnCriteria is MemberReturnCriteria1 ReturnCriteriaValue)
+        {
+            writer.WriteStartElement(null, "RtrCrit", xmlNamespace );
+            ReturnCriteriaValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static new NewCriteria Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

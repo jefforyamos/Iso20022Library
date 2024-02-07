@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reference of the PayInSchedule being confirmed. This is the Message Identification element from the Report Data sequence of the Pay In Schedule message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ConfirmationDetails1
+     : IIsoXmlSerilizable<ConfirmationDetails1>
 {
     #nullable enable
     
     /// <summary>
     /// Reference to the pay in schedule confirmed.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text PayInScheduleReference { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PayInSchdlRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(PayInScheduleReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static ConfirmationDetails1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

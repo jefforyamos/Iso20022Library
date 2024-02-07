@@ -7,28 +7,52 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Total amount of commissions related to a specific order.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TotalCommissions2
+     : IIsoXmlSerilizable<TotalCommissions2>
 {
     #nullable enable
     
     /// <summary>
     /// Total value of the commissions for a specific order.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? TotalAmountOfCommissions { get; init; } 
     /// <summary>
     /// Information related to a specific commission.
     /// </summary>
-    [DataMember]
-    public ValueList<Commission6> CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public Commission6? CommissionDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _VPm2eNp-Ed-ak6NoX_4Aeg_-1105185977
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (TotalAmountOfCommissions is IsoActiveCurrencyAnd13DecimalAmount TotalAmountOfCommissionsValue)
+        {
+            writer.WriteStartElement(null, "TtlAmtOfComssns", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAnd13DecimalAmount(TotalAmountOfCommissionsValue)); // data type ActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize CommissionDetails, multiplicity Unknown
+    }
+    public static TotalCommissions2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

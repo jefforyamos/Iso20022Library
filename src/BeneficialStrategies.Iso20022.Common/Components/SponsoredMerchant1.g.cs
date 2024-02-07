@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Merchant using the payment services of the card acceptor. The sponsored merchant is not acting as the card acceptor; the latter remaining the only party liable for the transaction vis-à-vis the acquirer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SponsoredMerchant1
+     : IIsoXmlSerilizable<SponsoredMerchant1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the sponsored merchant.
     /// </summary>
-    [DataMember]
     public required PartyIdentification197 Identification { get; init; } 
     /// <summary>
     /// Additional identification information pertaining to the sponsored merchant.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AdditionalIdentification { get; init; } 
     /// <summary>
     /// Contains the full name of the sponsored merchant.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? CommonName { get; init; } 
     /// <summary>
     /// Address of the sponsored merchant. 
     /// </summary>
-    [DataMember]
     public Address1? Address { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalIdentification is IsoMax35Text AdditionalIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AddtlId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdditionalIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CommonName is IsoMax140Text CommonNameValue)
+        {
+            writer.WriteStartElement(null, "CmonNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(CommonNameValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (Address is Address1 AddressValue)
+        {
+            writer.WriteStartElement(null, "Adr", xmlNamespace );
+            AddressValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SponsoredMerchant1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

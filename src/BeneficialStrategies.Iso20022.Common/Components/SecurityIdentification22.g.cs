@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Choice between ISIN and an alternative format for the identification of a financial instrument. ISIN is the preferred format.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecurityIdentification22
+     : IIsoXmlSerilizable<SecurityIdentification22>
 {
     #nullable enable
     
     /// <summary>
     /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation's International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
     /// </summary>
-    [DataMember]
     public IsoISIN2021Identifier? ISIN { get; init; } 
     /// <summary>
     /// Identification through a unique product identifier.
     /// </summary>
-    [DataMember]
     public IsoMax52Text? UniqueProductIdentifier { get; init; } 
     /// <summary>
     /// Proprietary identification of a security assigned by an institution or organisation.
     /// </summary>
-    [DataMember]
     public IsoMax52Text? AlternativeInstrumentIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ISIN is IsoISIN2021Identifier ISINValue)
+        {
+            writer.WriteStartElement(null, "ISIN", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISIN2021Identifier(ISINValue)); // data type ISIN2021Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (UniqueProductIdentifier is IsoMax52Text UniqueProductIdentifierValue)
+        {
+            writer.WriteStartElement(null, "UnqPdctIdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(UniqueProductIdentifierValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+        if (AlternativeInstrumentIdentification is IsoMax52Text AlternativeInstrumentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AltrntvInstrmId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax52Text(AlternativeInstrumentIdentificationValue)); // data type Max52Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SecurityIdentification22 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

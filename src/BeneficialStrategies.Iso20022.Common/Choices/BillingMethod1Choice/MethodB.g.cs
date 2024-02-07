@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.BillingMethod1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.BillingMethod1Choice;
 /// Tax values are based on tax calculation method B.
 /// </summary>
 public partial record MethodB : BillingMethod1Choice_
+     , IIsoXmlSerilizable<MethodB>
 {
     #nullable enable
+    
     /// <summary>
     /// Amount of the original charge expressed in the host currency.
     /// </summary>
@@ -27,6 +31,33 @@ public partial record MethodB : BillingMethod1Choice_
     /// Provides for the specific tax identification within the same tax region. 
     /// Usage: This element allows for a maximum of three regional taxes on the same service.
     /// </summary>
-    public IReadOnlyCollection<BillingServicesTax1> TaxIdentification { get; init; } = [];
+    public ValueList<BillingServicesTax1> TaxIdentification { get; init; } = [];
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SvcChrgHstAmt", xmlNamespace );
+        ServiceChargeHostAmount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SvcTax", xmlNamespace );
+        ServiceTax.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TaxId", xmlNamespace );
+        TaxIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new MethodB Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

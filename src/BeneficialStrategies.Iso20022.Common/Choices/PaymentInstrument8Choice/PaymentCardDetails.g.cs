@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument8Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument8Choice;
 /// Electronic money product that provides the cardholder with a portable and specialised computer device, which typically contains a microprocessor.
 /// </summary>
 public partial record PaymentCardDetails : PaymentInstrument8Choice_
+     , IIsoXmlSerilizable<PaymentCardDetails>
 {
     #nullable enable
+    
     /// <summary>
     /// Type of card, eg, credit card.
     /// </summary>
@@ -51,5 +55,65 @@ public partial record PaymentCardDetails : PaymentInstrument8Choice_
     /// Number distinguishing two or more payment cards with the same account number.
     /// </summary>
     public IsoMax3Text? SequenceNumber { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Nb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Number)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "HldrNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(HolderName)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (StartDate is IsoISOYearMonth StartDateValue)
+        {
+            writer.WriteStartElement(null, "StartDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOYearMonth(StartDateValue)); // data type ISOYearMonth System.UInt16
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "XpryDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISOYearMonth(ExpiryDate)); // data type ISOYearMonth System.UInt16
+        writer.WriteEndElement();
+        if (CardIssuerName is IsoMax35Text CardIssuerNameValue)
+        {
+            writer.WriteStartElement(null, "CardIssrNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CardIssuerNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CardIssuerIdentification is PartyIdentification2Choice_ CardIssuerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CardIssrId", xmlNamespace );
+            CardIssuerIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecurityCode is IsoMax35Text SecurityCodeValue)
+        {
+            writer.WriteStartElement(null, "SctyCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SecurityCodeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SequenceNumber is IsoMax3Text SequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "SeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax3Text(SequenceNumberValue)); // data type Max3Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new PaymentCardDetails Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

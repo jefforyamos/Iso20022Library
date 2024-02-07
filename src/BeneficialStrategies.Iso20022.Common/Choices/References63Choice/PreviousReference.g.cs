@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.References63Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.References63Choice;
 /// Reference to a linked message that was previously sent.
 /// </summary>
 public partial record PreviousReference : References63Choice_
+     , IIsoXmlSerilizable<PreviousReference>
 {
     #nullable enable
+    
     /// <summary>
     /// Reference issued by a party to identify an instruction, transaction or a message.
     /// </summary>
@@ -27,5 +31,38 @@ public partial record PreviousReference : References63Choice_
     /// Name of the message.
     /// </summary>
     public IsoMax35Text? MessageName { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ref", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Reference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (ReferenceIssuer is PartyIdentification113 ReferenceIssuerValue)
+        {
+            writer.WriteStartElement(null, "RefIssr", xmlNamespace );
+            ReferenceIssuerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageName is IsoMax35Text MessageNameValue)
+        {
+            writer.WriteStartElement(null, "MsgNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new PreviousReference Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

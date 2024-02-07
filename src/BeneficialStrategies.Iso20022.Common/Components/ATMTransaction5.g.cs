@@ -7,68 +7,130 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Withdrawal transaction for which the completion is sent.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMTransaction5
+     : IIsoXmlSerilizable<ATMTransaction5>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
-    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Outcome of the financial transaction for the customer.
     /// </summary>
-    [DataMember]
     public required ATMTransactionStatus1Code TransactionStatus { get; init; } 
     /// <summary>
     /// Incident occurring during the processing of the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<FailureReason4Code> Incident { get; init; } = []; // Warning: Don't know multiplicity.
+    public FailureReason4Code? Incident { get; init; } 
     /// <summary>
     /// Explanation of the incident.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax70Text> IncidentDetail { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax70Text? IncidentDetail { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period assigned by the ATM.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     /// <summary>
     /// True if the customer has requested a receipt.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? RequestedReceipt { get; init; } 
     /// <summary>
     /// True if a receipt has been printed and presented to the customer.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ReceiptPrinted { get; init; } 
     /// <summary>
     /// True when the card was captured by the ATM.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? CapturedCard { get; init; } 
     /// <summary>
     /// Outcome of the withdrawal authorisation.
     /// </summary>
-    [DataMember]
     public AuthorisationResult9? AuthorisationResult { get; init; } 
     /// <summary>
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
-    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        TransactionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TxSts", xmlNamespace );
+        writer.WriteValue(TransactionStatus.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (Incident is FailureReason4Code IncidentValue)
+        {
+            writer.WriteStartElement(null, "Incdnt", xmlNamespace );
+            writer.WriteValue(IncidentValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (IncidentDetail is IsoMax70Text IncidentDetailValue)
+        {
+            writer.WriteStartElement(null, "IncdntDtl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(IncidentDetailValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (ReconciliationIdentification is IsoMax35Text ReconciliationIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RcncltnId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ReconciliationIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RequestedReceipt is IsoTrueFalseIndicator RequestedReceiptValue)
+        {
+            writer.WriteStartElement(null, "ReqdRct", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(RequestedReceiptValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (ReceiptPrinted is IsoTrueFalseIndicator ReceiptPrintedValue)
+        {
+            writer.WriteStartElement(null, "RctPrtd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ReceiptPrintedValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CapturedCard is IsoTrueFalseIndicator CapturedCardValue)
+        {
+            writer.WriteStartElement(null, "CaptrdCard", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(CapturedCardValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (AuthorisationResult is AuthorisationResult9 AuthorisationResultValue)
+        {
+            writer.WriteStartElement(null, "AuthstnRslt", xmlNamespace );
+            AuthorisationResultValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ICCRelatedData is IsoMax10000Binary ICCRelatedDataValue)
+        {
+            writer.WriteStartElement(null, "ICCRltdData", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax10000Binary(ICCRelatedDataValue)); // data type Max10000Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMTransaction5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

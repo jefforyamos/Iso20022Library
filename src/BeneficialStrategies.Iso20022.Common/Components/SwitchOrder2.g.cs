@@ -7,83 +7,152 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Transfer from one investment fund/fund class to another investment fund or investment fund class by the investor. A switch is composed of one or several subscription legs, and one or several redemption legs.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SwitchOrder2
+     : IIsoXmlSerilizable<SwitchOrder2>
 {
     #nullable enable
     
     /// <summary>
     /// Date and time at which the order was placed by the investor.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? OrderDateTime { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OrderReference { get; init; } 
     /// <summary>
     /// Account between an investor(s) and a fund manager or a fund. The account can contain holdings in any investment fund or investment fund class managed (or distributed) by the fund manager, within the same fund family.
     /// </summary>
-    [DataMember]
     public required InvestmentAccount13 InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Amount of money used to derive the quantity of investment fund units to be redeemed.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalRedemptionAmount { get; init; } 
     /// <summary>
     /// Amount of money used to derive the quantity of investment fund units to be subscribed.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalSubscriptionAmount { get; init; } 
     /// <summary>
     /// Date on which the order expires.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ExpiryDateTime { get; init; } 
     /// <summary>
     /// Additional amount of money paid by the investor in addition to the switch redemption amount.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? AdditionalCashIn { get; init; } 
     /// <summary>
     /// Amount of money that results from a switch-out, that is not reinvested in another investment fund, and is repaid to the investor.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ResultingCashOut { get; init; } 
     /// <summary>
     /// Cancellation right of an investor with respect to an investment fund order.
     /// </summary>
-    [DataMember]
     public CancellationRight1? CancellationRight { get; init; } 
     /// <summary>
     /// Part of an investment fund switch order that is a redemption.
     /// </summary>
-    [DataMember]
-    public ValueList<SwitchRedemptionLegOrder2> RedemptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public SwitchRedemptionLegOrder2? RedemptionLegDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _VV3Pd9p-Ed-ak6NoX_4Aeg_-1360535454
     /// <summary>
     /// Part of an investment fund switch order that is a subscription.
     /// </summary>
-    [DataMember]
-    public ValueList<SwitchSubscriptionLegOrder2> SubscriptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public SwitchSubscriptionLegOrder2? SubscriptionLegDetails { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _VWBAcNp-Ed-ak6NoX_4Aeg_-1360535181
     /// <summary>
     /// Payment transaction resulting from the investment fund order execution.
     /// </summary>
-    [DataMember]
     public PaymentTransaction20? CashSettlementDetails { get; init; } 
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
     /// </summary>
-    [DataMember]
     public ForeignExchangeTerms5? ForeignExchangeDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OrderDateTime is IsoISODateTime OrderDateTimeValue)
+        {
+            writer.WriteStartElement(null, "OrdrDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(OrderDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "OrdrRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OrderReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InvstmtAcctDtls", xmlNamespace );
+        InvestmentAccountDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TotalRedemptionAmount is IsoActiveOrHistoricCurrencyAndAmount TotalRedemptionAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlRedAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalRedemptionAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TotalSubscriptionAmount is IsoActiveOrHistoricCurrencyAndAmount TotalSubscriptionAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlSbcptAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(TotalSubscriptionAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExpiryDateTime is IsoISODateTime ExpiryDateTimeValue)
+        {
+            writer.WriteStartElement(null, "XpryDtTm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ExpiryDateTimeValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (AdditionalCashIn is IsoActiveOrHistoricCurrencyAndAmount AdditionalCashInValue)
+        {
+            writer.WriteStartElement(null, "AddtlCshIn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(AdditionalCashInValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ResultingCashOut is IsoActiveOrHistoricCurrencyAndAmount ResultingCashOutValue)
+        {
+            writer.WriteStartElement(null, "RsltgCshOut", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ResultingCashOutValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CancellationRight is CancellationRight1 CancellationRightValue)
+        {
+            writer.WriteStartElement(null, "CxlRght", xmlNamespace );
+            CancellationRightValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize RedemptionLegDetails, multiplicity Unknown
+        // Not sure how to serialize SubscriptionLegDetails, multiplicity Unknown
+        if (CashSettlementDetails is PaymentTransaction20 CashSettlementDetailsValue)
+        {
+            writer.WriteStartElement(null, "CshSttlmDtls", xmlNamespace );
+            CashSettlementDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ForeignExchangeDetails is ForeignExchangeTerms5 ForeignExchangeDetailsValue)
+        {
+            writer.WriteStartElement(null, "FXDtls", xmlNamespace );
+            ForeignExchangeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SwitchOrder2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

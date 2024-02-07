@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the notification of the termination of an undertaking.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UndertakingTermination3
+     : IIsoXmlSerilizable<UndertakingTermination3>
 {
     #nullable enable
     
     /// <summary>
     /// Date on which the termination is effective.
     /// </summary>
-    [DataMember]
     public required IsoISODate EffectiveDate { get; init; } 
     /// <summary>
     /// Reason for the termination.
     /// </summary>
-    [DataMember]
     public TerminationReason1Choice_? Reason { get; init; } 
     /// <summary>
     /// Additional information related to the termination.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public SimpleValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FctvDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(EffectiveDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (Reason is TerminationReason1Choice_ ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            ReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+        AdditionalInformation.Serialize(writer, xmlNamespace, "Max2000Text", SerializationFormatter.IsoMax2000Text );
+        writer.WriteEndElement();
+    }
+    public static UndertakingTermination3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

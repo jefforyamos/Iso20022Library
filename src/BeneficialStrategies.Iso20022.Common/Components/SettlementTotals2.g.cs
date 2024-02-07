@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Settlement totals or the report.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementTotals2
+     : IIsoXmlSerilizable<SettlementTotals2>
 {
     #nullable enable
     
     /// <summary>
     /// Settlement totals for the acquirer.
     /// </summary>
-    [DataMember]
     public SettlementCategoryTotal2? AcquirerTotals { get; init; } 
     /// <summary>
     /// Settlement totals for the issuer.
     /// </summary>
-    [DataMember]
     public SettlementCategoryTotal2? IssuerTotals { get; init; } 
     /// <summary>
     /// Other settlement totals.
     /// </summary>
-    [DataMember]
     public SettlementCategoryTotal2? OtherTotals { get; init; } 
     /// <summary>
     /// Total amount settled.
     /// </summary>
-    [DataMember]
     public SettlementCategoryTotal2? TotalSettlementAmount { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AcquirerTotals is SettlementCategoryTotal2 AcquirerTotalsValue)
+        {
+            writer.WriteStartElement(null, "AcqrrTtls", xmlNamespace );
+            AcquirerTotalsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssuerTotals is SettlementCategoryTotal2 IssuerTotalsValue)
+        {
+            writer.WriteStartElement(null, "IssrTtls", xmlNamespace );
+            IssuerTotalsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OtherTotals is SettlementCategoryTotal2 OtherTotalsValue)
+        {
+            writer.WriteStartElement(null, "OthrTtls", xmlNamespace );
+            OtherTotalsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TotalSettlementAmount is SettlementCategoryTotal2 TotalSettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "TtlSttlmAmt", xmlNamespace );
+            TotalSettlementAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementTotals2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

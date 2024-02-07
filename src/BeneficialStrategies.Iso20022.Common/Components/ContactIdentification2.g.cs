@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information needed to contact a physical person.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ContactIdentification2
+     : IIsoXmlSerilizable<ContactIdentification2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the terms used to formally address a person.
     /// </summary>
-    [DataMember]
     public NamePrefix1Code? NamePrefix { get; init; } 
     /// <summary>
     /// First name of a person.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? GivenName { get; init; } 
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Name { get; init; } 
     /// <summary>
     /// Collection of information that identifies a phone number, as defined by telecom services.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? PhoneNumber { get; init; } 
     /// <summary>
     /// Collection of information that identifies a mobile phone number, as defined by telecom services.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? MobileNumber { get; init; } 
     /// <summary>
     /// Collection of information that identifies a FAX number, as defined by telecom services.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? FaxNumber { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
-    [DataMember]
     public IsoMax256Text? EmailAddress { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NamePrefix is NamePrefix1Code NamePrefixValue)
+        {
+            writer.WriteStartElement(null, "NmPrfx", xmlNamespace );
+            writer.WriteValue(NamePrefixValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (GivenName is IsoMax35Text GivenNameValue)
+        {
+            writer.WriteStartElement(null, "GvnNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(GivenNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Nm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Name)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (PhoneNumber is IsoPhoneNumber PhoneNumberValue)
+        {
+            writer.WriteStartElement(null, "PhneNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(PhoneNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (MobileNumber is IsoPhoneNumber MobileNumberValue)
+        {
+            writer.WriteStartElement(null, "MobNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(MobileNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (FaxNumber is IsoPhoneNumber FaxNumberValue)
+        {
+            writer.WriteStartElement(null, "FaxNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(FaxNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (EmailAddress is IsoMax256Text EmailAddressValue)
+        {
+            writer.WriteStartElement(null, "EmailAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(EmailAddressValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ContactIdentification2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

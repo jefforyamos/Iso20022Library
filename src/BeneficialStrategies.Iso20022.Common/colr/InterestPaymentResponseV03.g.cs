@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.colr.InterestPaymentResponseV03>;
 
 namespace BeneficialStrategies.Iso20022.colr;
 
@@ -30,10 +33,9 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// The InterestPaymentResponse message is sent in response to the InterestPaymentRequest in order to accept or reject the amount of interest requested or advised. A rejection reason and information can be provide if the InterestPaymentRequest is being rejected.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|This InterestPaymentResponse message is sent by either;|- the collateral taker or its collateral manager to the collateral giver or its collateral manager, or|- the collateral giver or its collateral manager to the collateral taker or its collateral manager|This is a response to the InterestPaymentRequest message and the amount of interest requested or advised can be accepted or rejected.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|The InterestPaymentResponse message is sent in response to the InterestPaymentRequest in order to accept or reject the amount of interest requested or advised. A rejection reason and information can be provide if the InterestPaymentRequest is being rejected.")]
-public partial record InterestPaymentResponseV03 : IOuterRecord
+public partial record InterestPaymentResponseV03 : IOuterRecord<InterestPaymentResponseV03,InterestPaymentResponseV03Document>
+    ,IIsoXmlSerilizable<InterestPaymentResponseV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -45,6 +47,11 @@ public partial record InterestPaymentResponseV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "IntrstPmtRspn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => InterestPaymentResponseV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -123,6 +130,53 @@ public partial record InterestPaymentResponseV03 : IOuterRecord
     {
         return new InterestPaymentResponseV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("IntrstPmtRspn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Oblgtn", xmlNamespace );
+        Obligation.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Agrmt", xmlNamespace );
+        Agreement.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (InterestDueToA is InterestAmount2 InterestDueToAValue)
+        {
+            writer.WriteStartElement(null, "IntrstDueToA", xmlNamespace );
+            InterestDueToAValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterestDueToB is InterestAmount2 InterestDueToBValue)
+        {
+            writer.WriteStartElement(null, "IntrstDueToB", xmlNamespace );
+            InterestDueToBValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "IntrstRspn", xmlNamespace );
+        InterestResponse.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static InterestPaymentResponseV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -130,9 +184,7 @@ public partial record InterestPaymentResponseV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InterestPaymentResponseV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record InterestPaymentResponseV03Document : IOuterDocument<InterestPaymentResponseV03>
+public partial record InterestPaymentResponseV03Document : IOuterDocument<InterestPaymentResponseV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -148,5 +200,22 @@ public partial record InterestPaymentResponseV03Document : IOuterDocument<Intere
     /// <summary>
     /// The instance of <seealso cref="InterestPaymentResponseV03"/> is required.
     /// </summary>
+    [DataMember(Name=InterestPaymentResponseV03.XmlTag)]
     public required InterestPaymentResponseV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(InterestPaymentResponseV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

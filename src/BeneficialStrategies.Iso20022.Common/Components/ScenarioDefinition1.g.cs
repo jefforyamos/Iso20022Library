@@ -7,43 +7,74 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Characteristics used to describe a hypothetical scenario designed to test the value of a portfolio of financial instruments under such hypothetical scenario.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ScenarioDefinition1
+     : IIsoXmlSerilizable<ScenarioDefinition1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the stress scenario.
     /// </summary>
-    [DataMember]
     public required GenericIdentification165 Identification { get; init; } 
     /// <summary>
     /// Indicates whether the scenario is based on a historical event or a hypothetical scenario.
     /// </summary>
-    [DataMember]
     public required ScenarioType1Code ScenarioType { get; init; } 
     /// <summary>
     /// Indicates how the scenario stresses the curve.
     /// </summary>
-    [DataMember]
     public required StrategyStressType1Code StrategyStressType { get; init; } 
     /// <summary>
     /// Information relating to the one / two major representative product(s).
     /// </summary>
-    [DataMember]
     public ValueList<StressItem1> StressItem { get; init; } = [];
     /// <summary>
     /// Long description of the scenario.
     /// </summary>
-    [DataMember]
     public IsoMax2000Text? Description { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ScnroTp", xmlNamespace );
+        writer.WriteValue(ScenarioType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StrtgyStrssTp", xmlNamespace );
+        writer.WriteValue(StrategyStressType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "StrssItm", xmlNamespace );
+        StressItem.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Description is IsoMax2000Text DescriptionValue)
+        {
+            writer.WriteStartElement(null, "Desc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2000Text(DescriptionValue)); // data type Max2000Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ScenarioDefinition1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

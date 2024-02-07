@@ -7,43 +7,80 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details to identify a creditor enrolment to be amended and the new amended data.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CreditorEnrolmentAmendment3
+     : IIsoXmlSerilizable<CreditorEnrolmentAmendment3>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification of the original instruction.
     /// </summary>
-    [DataMember]
     public OriginalBusinessInstruction1? OriginalBusinessInstruction { get; init; } 
     /// <summary>
     /// Provides detailed information on the amendment reason.
     /// </summary>
-    [DataMember]
     public CreditorEnrolmentAmendmentReason2? AmendmentReason { get; init; } 
     /// <summary>
     /// Provides the amended enrolment data.
     /// </summary>
-    [DataMember]
     public required CreditorEnrolmentAmendment4 Amendment { get; init; } 
     /// <summary>
     /// Provides the original enrolment data.
     /// </summary>
-    [DataMember]
     public required OriginalEnrolment2Choice_ OriginalEnrolment { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OriginalBusinessInstruction is OriginalBusinessInstruction1 OriginalBusinessInstructionValue)
+        {
+            writer.WriteStartElement(null, "OrgnlBizInstr", xmlNamespace );
+            OriginalBusinessInstructionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AmendmentReason is CreditorEnrolmentAmendmentReason2 AmendmentReasonValue)
+        {
+            writer.WriteStartElement(null, "AmdmntRsn", xmlNamespace );
+            AmendmentReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Amdmnt", xmlNamespace );
+        Amendment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrgnlEnrlmnt", xmlNamespace );
+        OriginalEnrolment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CreditorEnrolmentAmendment3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

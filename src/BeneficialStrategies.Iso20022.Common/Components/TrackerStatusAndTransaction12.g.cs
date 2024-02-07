@@ -7,28 +7,49 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides detailed information on the transaction and it's status to be updated in the tracker.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TrackerStatusAndTransaction12
+     : IIsoXmlSerilizable<TrackerStatusAndTransaction12>
 {
     #nullable enable
     
     /// <summary>
     /// Provides detailed information on the transaction status to be updated in the tracker.
     /// </summary>
-    [DataMember]
     public required TrackerStatus1 TransactionStatus { get; init; } 
     /// <summary>
     /// Key elements used to identify the original transaction(s) that is being referred to.
     /// </summary>
-    [DataMember]
-    public ValueList<TrackerPaymentTransaction10> Transaction { get; init; } = []; // Warning: Don't know multiplicity.
+    public TrackerPaymentTransaction10? Transaction { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _uwA3pVc8EeunQrLahSRvvA
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TxSts", xmlNamespace );
+        TransactionStatus.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize Transaction, multiplicity Unknown
+    }
+    public static TrackerStatusAndTransaction12 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

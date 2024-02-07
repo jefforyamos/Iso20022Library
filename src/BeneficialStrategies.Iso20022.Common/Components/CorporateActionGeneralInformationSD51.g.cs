@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action general information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionGeneralInformationSD51
+     : IIsoXmlSerilizable<CorporateActionGeneralInformationSD51>
 {
     #nullable enable
     
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// DTC processing domain/ category for event types.
     /// </summary>
-    [DataMember]
     public EventGroup2Code? EventGroup { get; init; } 
     /// <summary>
     /// DTCC (The Depository Trust and Clearing Corporation) native corporate action event type name. Used in place for the events that cannot be classified by ISO code and mapped to OTHR or when two or more distinct events (in DTCC model) use same ISO code and there are no additional data elements that distinguish those two or more events.
     /// </summary>
-    [DataMember]
     public ExtendedEventType6Code? EventType { get; init; } 
     /// <summary>
     /// DTCC (The Depository Trust and Clearing Corporation) native corporate action sub event type name further defines the event type.
     /// </summary>
-    [DataMember]
     public DTCCSubEventType10Code? SubEventType { get; init; } 
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification20 SecurityIdentification { get; init; } 
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
-    [DataMember]
     public required IsoRestrictedFINXMax35Text SafekeepingAccount { get; init; } 
     /// <summary>
     /// Additional information about the corporate action event.
     /// </summary>
-    [DataMember]
-    public ValueList<CorporateActionUnallocatedDetailsSD7> UnallocatedDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public CorporateActionUnallocatedDetailsSD7? UnallocatedDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PlaceAndName is IsoMax350Text PlaceAndNameValue)
+        {
+            writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndNameValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (EventGroup is EventGroup2Code EventGroupValue)
+        {
+            writer.WriteStartElement(null, "EvtGrp", xmlNamespace );
+            writer.WriteValue(EventGroupValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (EventType is ExtendedEventType6Code EventTypeValue)
+        {
+            writer.WriteStartElement(null, "EvtTp", xmlNamespace );
+            writer.WriteValue(EventTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SubEventType is DTCCSubEventType10Code SubEventTypeValue)
+        {
+            writer.WriteStartElement(null, "SubEvtTp", xmlNamespace );
+            writer.WriteValue(SubEventTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SctyId", xmlNamespace );
+        SecurityIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SfkpgAcct", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoRestrictedFINXMax35Text(SafekeepingAccount)); // data type RestrictedFINXMax35Text System.String
+        writer.WriteEndElement();
+        if (UnallocatedDetails is CorporateActionUnallocatedDetailsSD7 UnallocatedDetailsValue)
+        {
+            writer.WriteStartElement(null, "UallctdDtls", xmlNamespace );
+            UnallocatedDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionGeneralInformationSD51 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SearchCriteria1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SearchCriteria1Choice;
 /// Identifies a payment instrument as the search criteria for the financial institution to do the investigation.
 /// </summary>
 public partial record PaymentInstrument : SearchCriteria1Choice_
+     , IIsoXmlSerilizable<PaymentInstrument>
 {
     #nullable enable
+    
     /// <summary>
     /// Provides the card number.
     /// </summary>
@@ -23,9 +27,38 @@ public partial record PaymentInstrument : SearchCriteria1Choice_
     /// Identifies the authority request type as a code.
     /// </summary>
     public AuthorityRequestType1? AuthorityRequestType { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _PgYUYU1KEeGAs6v-iSb2RQ
     /// <summary>
     /// Additional information, in free text form, to complement the requested information.
     /// </summary>
     public IsoMax500Text? AdditionalInformation { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CardNb", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMin8Max28NumericText(CardNumber)); // data type Min8Max28NumericText System.String
+        writer.WriteEndElement();
+        // Not sure how to serialize AuthorityRequestType, multiplicity Unknown
+        if (AdditionalInformation is IsoMax500Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Text(AdditionalInformationValue)); // data type Max500Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new PaymentInstrument Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

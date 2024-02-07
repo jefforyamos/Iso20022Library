@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of elements providing the total sum of entries.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NumberAndSumOfTransactions1
+     : IIsoXmlSerilizable<NumberAndSumOfTransactions1>
 {
     #nullable enable
     
     /// <summary>
     /// Number of individual entries included in the report.
     /// </summary>
-    [DataMember]
     public IsoMax15NumericText? NumberOfEntries { get; init; } 
     /// <summary>
     /// Total of all individual entries included in the report.
     /// </summary>
-    [DataMember]
     public IsoDecimalNumber? Sum { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NumberOfEntries is IsoMax15NumericText NumberOfEntriesValue)
+        {
+            writer.WriteStartElement(null, "NbOfNtries", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(NumberOfEntriesValue)); // data type Max15NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (Sum is IsoDecimalNumber SumValue)
+        {
+            writer.WriteStartElement(null, "Sum", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(SumValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static NumberAndSumOfTransactions1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

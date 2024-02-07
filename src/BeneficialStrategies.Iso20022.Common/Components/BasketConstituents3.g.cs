@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Choice between ISIN and an alternative format for the identification of a financial instrument. ISIN is the preferred format.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record BasketConstituents3
+     : IIsoXmlSerilizable<BasketConstituents3>
 {
     #nullable enable
     
     /// <summary>
     /// Proprietary identification of a security assigned by an institution or organisation.
     /// </summary>
-    [DataMember]
     public required InstrumentIdentification6Choice_ InstrumentIdentification { get; init; } 
     /// <summary>
     /// Indicates the number of units of a particular constituent in a custom basket.
     /// </summary>
-    [DataMember]
     public IsoLongFraction19DecimalNumber? Quantity { get; init; } 
     /// <summary>
     /// Specifies the unit of measure in which the number of units of a particular custom basket constituent is expressed.
     /// </summary>
-    [DataMember]
     public UnitOfMeasure8Choice_? UnitOfMeasure { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "InstrmId", xmlNamespace );
+        InstrumentIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Quantity is IsoLongFraction19DecimalNumber QuantityValue)
+        {
+            writer.WriteStartElement(null, "Qty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLongFraction19DecimalNumber(QuantityValue)); // data type LongFraction19DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (UnitOfMeasure is UnitOfMeasure8Choice_ UnitOfMeasureValue)
+        {
+            writer.WriteStartElement(null, "UnitOfMeasr", xmlNamespace );
+            UnitOfMeasureValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BasketConstituents3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Investment1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.Investment1Choice;
 /// Indicates that the investment was made in a repurchase agreement.
 /// </summary>
 public partial record RepurchaseAgreement : Investment1Choice_
+     , IIsoXmlSerilizable<RepurchaseAgreement>
 {
     #nullable enable
+    
     /// <summary>
     /// Date on which the repurchase agreement matures.
     /// </summary>
@@ -39,5 +43,44 @@ public partial record RepurchaseAgreement : Investment1Choice_
     /// Identifies the triparty repurchase agent.
     /// </summary>
     public IsoLEIIdentifier? TripartyAgentIdentification { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MtrtyDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(MaturityDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ScndLegPric", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(SecondLegPrice)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CollMktVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(CollateralMarketValue)); // data type ActiveCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CtrPty", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(Counterparty)); // data type LEIIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RpAgrmtTp", xmlNamespace );
+        RepurchaseAgreementType.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (TripartyAgentIdentification is IsoLEIIdentifier TripartyAgentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TrptyAgtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(TripartyAgentIdentificationValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new RepurchaseAgreement Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

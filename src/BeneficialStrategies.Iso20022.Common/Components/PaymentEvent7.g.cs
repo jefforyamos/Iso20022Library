@@ -7,206 +7,375 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Contains information coming from the related payment instruction (specified for example in the related MT 199 or MT 103), or the StatusConfirmationUpdate.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentEvent7
+     : IIsoXmlSerilizable<PaymentEvent7>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the reference assigned by the network when sending the payment.
     /// </summary>
-    [DataMember]
     public required IsoMax50Text NetworkReference { get; init; } 
     /// <summary>
     /// Identifies the original message name identifier to which the message refers.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MessageNameIdentification { get; init; } 
     /// <summary>
     /// Specifies the business service agreed between the two MessagingEndpoints under which rules this Business Message is exchanged.
     /// Usage:
     /// To be used when there is a choice of processing services or processing service levels.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? BusinessService { get; init; } 
     /// <summary>
     /// Specifies the type of payment event.
     /// </summary>
-    [DataMember]
     public required TrackerEventType1Code TrackerEventType { get; init; } 
     /// <summary>
     /// Indicates if a payment is consistent (YES) or isn't (NO).
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Valid { get; init; } 
     /// <summary>
     /// Contains a coded reason as to why the event is not a valid component of a payments transaction.
     /// </summary>
-    [DataMember]
     public ExternalInvalidPaymentsEvent1Code? InvalidityReason { get; init; } 
     /// <summary>
     /// Contains a textual description as to why the event is not a valid component of a payments transaction.
     /// </summary>
-    [DataMember]
     public IsoMax350Text? InvalidityDescription { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by an instructing party for an instructed party, to unambiguously identify the instruction.||Usage: The instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? InstructionIdentification { get; init; } 
     /// <summary>
     /// Identification referring to the underlying payment transaction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RelatedReference { get; init; } 
     /// <summary>
     /// Uniquely identifies the case.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CaseIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original instructing party for the original instructed party, to unambiguously identify the original instruction.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalInstructionIdentification { get; init; } 
     /// <summary>
     /// Uniquely identifies the case assignment.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AssignmentIdentification { get; init; } 
     /// <summary>
     /// Uniquely identifies the case.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ResolvedCaseIdentification { get; init; } 
     /// <summary>
     /// Specifies the status of a transaction, in a coded form.
     /// </summary>
-    [DataMember]
     public PaymentStatus5? TransactionStatus { get; init; } 
     /// <summary>
     /// Provides further information with regards to the cancellation of the payments event.
     /// </summary>
-    [DataMember]
     public UnderlyingCancellationDetails2? UnderlyingCancellationDetails { get; init; } 
     /// <summary>
     /// Identifies the entity to which the entity reporting the status has forwarded the payment transaction.
     /// Usage:
     /// This element can only be used in case the status is ACSP and the reason is G000 or G001.
     /// </summary>
-    [DataMember]
     public IsoAnyBICIdentifier? ForwardedToAgent { get; init; } 
     /// <summary>
     /// Specifies the date and time at which the funds are available,  as reported in the ACSC status update.
     /// Usage:
     /// Must only be used when TransactionStatus is "ACSC".
     /// </summary>
-    [DataMember]
     public IsoISODateTime? FundsAvailable { get; init; } 
     /// <summary>
     /// Specifies the sending MessagingEndpoint that has created this business message for the receiving MessagingEndpoint that will process this business message.
     /// Usage:
     /// The sending MessagingEndpoint might be different from the sending address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
-    [DataMember]
     public required IsoAnyBICIdentifier From { get; init; } 
     /// <summary>
     /// Specifies the MessagingEndpoint designated by the sending MessagingEndpoint to be the recipient who will ultimately process this business message.
     /// Usage:
     /// The receiving MessagingEndpoint might be different from the receiving address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
-    [DataMember]
     public required IsoAnyBICIdentifier To { get; init; } 
     /// <summary>
     /// Party that issues the status.
     /// </summary>
-    [DataMember]
     public IsoAnyBICIdentifier? Originator { get; init; } 
     /// <summary>
     /// Identifies the parties involved in a serial payment scenario.
     /// </summary>
-    [DataMember]
     public CustomerCreditTransferTransactionParties1? SerialParties { get; init; } 
     /// <summary>
     /// Identifies the parties involved in a cover payment scenario.
     /// </summary>
-    [DataMember]
     public CreditTransferTransactionParties1? CoverParties { get; init; } 
     /// <summary>
     /// Date and time at which the sender was acknowledged receipt of the message.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime SenderAcknowledgementReceipt { get; init; } 
     /// <summary>
     /// Date and time at which the message was acknowledged by the receiver.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? ReceivedDate { get; init; } 
     /// <summary>
     /// Amount of money to be moved between the debtor (ordering customer) and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// Usage: This amount has to be transported unchanged through the transaction chain.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? InstructedAmount { get; init; } 
     /// <summary>
     /// Specifies the amount confirmed by the originator. Depending on the transaction status, this amount can be the credited amount, pending amount, rejected amount or transferred amount.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ConfirmedAmount { get; init; } 
     /// <summary>
     /// Specifies the amount of money moved between the instructing agent and the instructed agent.
     /// </summary>
-    [DataMember]
     public IsoActiveCurrencyAndAmount? InterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Specifies the date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
-    [DataMember]
     public IsoISODate? InterbankSettlementDate { get; init; } 
     /// <summary>
     /// Specifies which party/parties will bear the charges associated with the processing of the payment transaction.
     /// </summary>
-    [DataMember]
     public ChargeBearerType3Code? ChargeBearer { get; init; } 
     /// <summary>
     /// Specifies the amount of money asked or paid for the charge.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoActiveOrHistoricCurrencyAndAmount> ChargeAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoActiveOrHistoricCurrencyAndAmount? ChargeAmount { get; init; } 
     /// <summary>
     /// Specifies the exchange rate details between two currencies.
     /// </summary>
-    [DataMember]
     public CurrencyExchange12? ForeignExchangeDetails { get; init; } 
     /// <summary>
     /// Contains the network reference of the payment for which the status confirmation was applicable.
     /// Usage:
     /// Implements the correlation between a payment message and a status update on it.
     /// </summary>
-    [DataMember]
     public IsoMax50Text? UpdatePayment { get; init; } 
     /// <summary>
     /// Network reference of the original recorded payment.
     /// </summary>
-    [DataMember]
     public IsoMax50Text? DuplicateMessageReference { get; init; } 
     /// <summary>
     /// Specifies the copied business service of the market infrastructure.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CopiedBusinessService { get; init; } 
     /// <summary>
     /// Last date and time at which the status of this payment event was updated.
     /// </summary>
-    [DataMember]
     public required IsoISODateTime LastUpdateTime { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NtwkRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax50Text(NetworkReference)); // data type Max50Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MsgNmId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageNameIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (BusinessService is IsoMax35Text BusinessServiceValue)
+        {
+            writer.WriteStartElement(null, "BizSvc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(BusinessServiceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "TrckrEvtTp", xmlNamespace );
+        writer.WriteValue(TrackerEventType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Vld", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Valid)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (InvalidityReason is ExternalInvalidPaymentsEvent1Code InvalidityReasonValue)
+        {
+            writer.WriteStartElement(null, "InvldtyRsn", xmlNamespace );
+            writer.WriteValue(InvalidityReasonValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (InvalidityDescription is IsoMax350Text InvalidityDescriptionValue)
+        {
+            writer.WriteStartElement(null, "InvldtyDesc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax350Text(InvalidityDescriptionValue)); // data type Max350Text System.String
+            writer.WriteEndElement();
+        }
+        if (InstructionIdentification is IsoMax35Text InstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "InstrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(InstructionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RelatedReference is IsoMax35Text RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RelatedReferenceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (CaseIdentification is IsoMax35Text CaseIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CaseId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CaseIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (OriginalInstructionIdentification is IsoMax35Text OriginalInstructionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlInstrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalInstructionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (AssignmentIdentification is IsoMax35Text AssignmentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "AssgnmtId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AssignmentIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ResolvedCaseIdentification is IsoMax35Text ResolvedCaseIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RslvdCaseId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ResolvedCaseIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionStatus is PaymentStatus5 TransactionStatusValue)
+        {
+            writer.WriteStartElement(null, "TxSts", xmlNamespace );
+            TransactionStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UnderlyingCancellationDetails is UnderlyingCancellationDetails2 UnderlyingCancellationDetailsValue)
+        {
+            writer.WriteStartElement(null, "UndrlygCxlDtls", xmlNamespace );
+            UnderlyingCancellationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ForwardedToAgent is IsoAnyBICIdentifier ForwardedToAgentValue)
+        {
+            writer.WriteStartElement(null, "FwddToAgt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(ForwardedToAgentValue)); // data type AnyBICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (FundsAvailable is IsoISODateTime FundsAvailableValue)
+        {
+            writer.WriteStartElement(null, "FndsAvlbl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(FundsAvailableValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Fr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(From)); // data type AnyBICIdentifier System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "To", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(To)); // data type AnyBICIdentifier System.String
+        writer.WriteEndElement();
+        if (Originator is IsoAnyBICIdentifier OriginatorValue)
+        {
+            writer.WriteStartElement(null, "Orgtr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICIdentifier(OriginatorValue)); // data type AnyBICIdentifier System.String
+            writer.WriteEndElement();
+        }
+        if (SerialParties is CustomerCreditTransferTransactionParties1 SerialPartiesValue)
+        {
+            writer.WriteStartElement(null, "SrlPties", xmlNamespace );
+            SerialPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CoverParties is CreditTransferTransactionParties1 CoverPartiesValue)
+        {
+            writer.WriteStartElement(null, "CoverPties", xmlNamespace );
+            CoverPartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "SndrAckRct", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(SenderAcknowledgementReceipt)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+        if (ReceivedDate is IsoISODateTime ReceivedDateValue)
+        {
+            writer.WriteStartElement(null, "RcvdDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(ReceivedDateValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+        if (InstructedAmount is IsoActiveOrHistoricCurrencyAndAmount InstructedAmountValue)
+        {
+            writer.WriteStartElement(null, "InstdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(InstructedAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ConfirmedAmount is IsoActiveOrHistoricCurrencyAndAmount ConfirmedAmountValue)
+        {
+            writer.WriteStartElement(null, "ConfdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ConfirmedAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (InterbankSettlementAmount is IsoActiveCurrencyAndAmount InterbankSettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "IntrBkSttlmAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveCurrencyAndAmount(InterbankSettlementAmountValue)); // data type ActiveCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (InterbankSettlementDate is IsoISODate InterbankSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "IntrBkSttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(InterbankSettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (ChargeBearer is ChargeBearerType3Code ChargeBearerValue)
+        {
+            writer.WriteStartElement(null, "ChrgBr", xmlNamespace );
+            writer.WriteValue(ChargeBearerValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ChargeAmount is IsoActiveOrHistoricCurrencyAndAmount ChargeAmountValue)
+        {
+            writer.WriteStartElement(null, "ChrgAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(ChargeAmountValue)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ForeignExchangeDetails is CurrencyExchange12 ForeignExchangeDetailsValue)
+        {
+            writer.WriteStartElement(null, "FXDtls", xmlNamespace );
+            ForeignExchangeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (UpdatePayment is IsoMax50Text UpdatePaymentValue)
+        {
+            writer.WriteStartElement(null, "UpdPmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax50Text(UpdatePaymentValue)); // data type Max50Text System.String
+            writer.WriteEndElement();
+        }
+        if (DuplicateMessageReference is IsoMax50Text DuplicateMessageReferenceValue)
+        {
+            writer.WriteStartElement(null, "DplctMsgRef", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax50Text(DuplicateMessageReferenceValue)); // data type Max50Text System.String
+            writer.WriteEndElement();
+        }
+        if (CopiedBusinessService is IsoMax35Text CopiedBusinessServiceValue)
+        {
+            writer.WriteStartElement(null, "CpdBizSvc", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CopiedBusinessServiceValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "LastUpdTm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODateTime(LastUpdateTime)); // data type ISODateTime System.DateTime
+        writer.WriteEndElement();
+    }
+    public static PaymentEvent7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

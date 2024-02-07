@@ -7,63 +7,126 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Additional count which may be utilised for reconciliation.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransactionTotals6
+     : IIsoXmlSerilizable<TransactionTotals6>
 {
     #nullable enable
     
     /// <summary>
     /// Sum number of all authorisation transactions.
     /// </summary>
-    [DataMember]
     public IsoNumber? Authorisation { get; init; } 
     /// <summary>
     /// Sum number of all reversed authorisation transactions.
     /// </summary>
-    [DataMember]
     public IsoNumber? AuthorisationReversal { get; init; } 
     /// <summary>
     /// Sum number of all inquiry transactions.
     /// </summary>
-    [DataMember]
     public IsoNumber? Inquiry { get; init; } 
     /// <summary>
     /// Sum number of all reversed inquiry transactions.
     /// </summary>
-    [DataMember]
     public IsoNumber? InquiryReversal { get; init; } 
     /// <summary>
     /// Sum number of all financial presentment payment transactions processed.
     /// </summary>
-    [DataMember]
     public IsoNumber? Payments { get; init; } 
     /// <summary>
     /// Sum number of all financial presentment payment transactions which have been reversed.
     /// </summary>
-    [DataMember]
     public IsoNumber? PaymentReversal { get; init; } 
     /// <summary>
     /// Sum number of all financial presentment transactions processed.
     /// </summary>
-    [DataMember]
     public IsoNumber? Transfer { get; init; } 
     /// <summary>
     /// Sum number of all reversal transactions processed.
     /// </summary>
-    [DataMember]
     public IsoNumber? TransferReversal { get; init; } 
     /// <summary>
     /// Sum number of all fee collection transactions.
     /// </summary>
-    [DataMember]
     public IsoNumber? FeeCollection { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Authorisation is IsoNumber AuthorisationValue)
+        {
+            writer.WriteStartElement(null, "Authstn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(AuthorisationValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (AuthorisationReversal is IsoNumber AuthorisationReversalValue)
+        {
+            writer.WriteStartElement(null, "AuthstnRvsl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(AuthorisationReversalValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Inquiry is IsoNumber InquiryValue)
+        {
+            writer.WriteStartElement(null, "Nqry", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(InquiryValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (InquiryReversal is IsoNumber InquiryReversalValue)
+        {
+            writer.WriteStartElement(null, "NqryRvsl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(InquiryReversalValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Payments is IsoNumber PaymentsValue)
+        {
+            writer.WriteStartElement(null, "Pmts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(PaymentsValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (PaymentReversal is IsoNumber PaymentReversalValue)
+        {
+            writer.WriteStartElement(null, "PmtRvsl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(PaymentReversalValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (Transfer is IsoNumber TransferValue)
+        {
+            writer.WriteStartElement(null, "Trf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(TransferValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (TransferReversal is IsoNumber TransferReversalValue)
+        {
+            writer.WriteStartElement(null, "TrfRvsl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(TransferReversalValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (FeeCollection is IsoNumber FeeCollectionValue)
+        {
+            writer.WriteStartElement(null, "FeeColltn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(FeeCollectionValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionTotals6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,43 +7,74 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Entity involved in an activity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TradePartyIdentification7
+     : IIsoXmlSerilizable<TradePartyIdentification7>
 {
     #nullable enable
     
     /// <summary>
     /// Identifies the fund which is one of the parties in a treasury trade.
     /// </summary>
-    [DataMember]
     public FundIdentification3? FundInformation { get; init; } 
     /// <summary>
     /// Specifies the party which is the buyer or the seller.
     /// </summary>
-    [DataMember]
     public required OptionParty1Code BuyerOrSellerIndicator { get; init; } 
     /// <summary>
     /// Specifies if a trade party is a taker or a maker.
     /// </summary>
-    [DataMember]
     public required OptionParty3Code InitiatorIndicator { get; init; } 
     /// <summary>
     /// Identification of the party.
     /// </summary>
-    [DataMember]
     public required PartyIdentification78 TradePartyIdentification { get; init; } 
     /// <summary>
     /// Specifies the party which submits a treasury trade to a matching system or to a settlement system or to a counterparty.
     /// </summary>
-    [DataMember]
     public required PartyIdentificationAndAccount119 SubmittingParty { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (FundInformation is FundIdentification3 FundInformationValue)
+        {
+            writer.WriteStartElement(null, "FndInf", xmlNamespace );
+            FundInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "BuyrOrSellrInd", xmlNamespace );
+        writer.WriteValue(BuyerOrSellerIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InitrInd", xmlNamespace );
+        writer.WriteValue(InitiatorIndicator.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "TradPtyId", xmlNamespace );
+        TradePartyIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SubmitgPty", xmlNamespace );
+        SubmittingParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static TradePartyIdentification7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

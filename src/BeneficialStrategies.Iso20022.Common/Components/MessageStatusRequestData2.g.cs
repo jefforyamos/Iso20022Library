@@ -7,38 +7,67 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of the Message TransactionStatus Request message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MessageStatusRequestData2
+     : IIsoXmlSerilizable<MessageStatusRequestData2>
 {
     #nullable enable
     
     /// <summary>
     /// Transaction identification.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text ExchangeIdentification { get; init; } 
     /// <summary>
     /// Initiating Party information.
     /// </summary>
-    [DataMember]
     public required GenericIdentification177 InitiatingParty { get; init; } 
     /// <summary>
     /// Request to reprint the POI receipt(s).
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ReceiptReprintFlag { get; init; } 
     /// <summary>
     /// Customer or Cashier Receipt.
     /// </summary>
-    [DataMember]
-    public ValueList<DocumentType7Code> DocumentQualifier { get; init; } = [];
+    public SimpleValueList<DocumentType7Code> DocumentQualifier { get; init; } = [];
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "XchgId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(ExchangeIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InitgPty", xmlNamespace );
+        InitiatingParty.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ReceiptReprintFlag is IsoTrueFalseIndicator ReceiptReprintFlagValue)
+        {
+            writer.WriteStartElement(null, "RctRprntFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ReceiptReprintFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DocQlfr", xmlNamespace );
+        writer.WriteValue(DocumentQualifier.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static MessageStatusRequestData2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

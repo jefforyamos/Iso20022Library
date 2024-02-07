@@ -7,44 +7,84 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the reject of a message from an ATM or an ATM manager.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMReject1
+     : IIsoXmlSerilizable<ATMReject1>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the entity sending the reject message.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? RejectInitiatorIdentification { get; init; } 
     /// <summary>
     /// High level information allowing the sender of a request or an advice to know the types of error, and handle them accordingly.
     /// </summary>
-    [DataMember]
     public required RejectReason1Code RejectReason { get; init; } 
     /// <summary>
     /// Additional information related to the sending of a reject message in response to a request or an advice.
     /// For logging purpose, in order to allow further analysis, statistics and deferred processing on the success or the failure of the request processing.
     /// </summary>
-    [DataMember]
     public IsoMax500Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMCommand1> Command { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMCommand1? Command { get; init; } 
     /// <summary>
     /// Received message that has been rejected.
     /// </summary>
-    [DataMember]
     public IsoMax100KBinary? MessageInError { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (RejectInitiatorIdentification is IsoMax35Text RejectInitiatorIdentificationValue)
+        {
+            writer.WriteStartElement(null, "RjctInitrId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(RejectInitiatorIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RjctRsn", xmlNamespace );
+        writer.WriteValue(RejectReason.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax500Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Text(AdditionalInformationValue)); // data type Max500Text System.String
+            writer.WriteEndElement();
+        }
+        if (Command is ATMCommand1 CommandValue)
+        {
+            writer.WriteStartElement(null, "Cmd", xmlNamespace );
+            CommandValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MessageInError is IsoMax100KBinary MessageInErrorValue)
+        {
+            writer.WriteStartElement(null, "MsgInErr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax100KBinary(MessageInErrorValue)); // data type Max100KBinary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMReject1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

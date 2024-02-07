@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of collateral calculated pre-haircut and/or post-haircut.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PrePostHaircut1
+     : IIsoXmlSerilizable<PrePostHaircut1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates the amount of collateral calculated pre-haircut.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? PreHaircut { get; init; } 
     /// <summary>
     /// Indicates the amount of collateral calculated post-haircut.
     /// </summary>
-    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? PostHaircut { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PreHaircut is IsoActiveOrHistoricCurrencyAnd19DecimalAmount PreHaircutValue)
+        {
+            writer.WriteStartElement(null, "PreHrcut", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd19DecimalAmount(PreHaircutValue)); // data type ActiveOrHistoricCurrencyAnd19DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (PostHaircut is IsoActiveOrHistoricCurrencyAnd19DecimalAmount PostHaircutValue)
+        {
+            writer.WriteStartElement(null, "PstHrcut", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAnd19DecimalAmount(PostHaircutValue)); // data type ActiveOrHistoricCurrencyAnd19DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+    }
+    public static PrePostHaircut1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

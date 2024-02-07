@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of transaction for a file action.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Transaction157
+     : IIsoXmlSerilizable<Transaction157>
 {
     #nullable enable
     
@@ -23,59 +24,128 @@ public partial record Transaction157
     /// Reason or purpose to send the message.
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    [DataMember]
-    public ValueList<ISO8583MessageReasonCode> MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public ISO8583MessageReasonCode? MessageReason { get; init; } 
     /// <summary>
     /// Supports message reason codes that are not defined in external code list. 
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax256Text> AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax256Text? AlternateMessageReason { get; init; } 
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
-    [DataMember]
     public TransactionIdentification12? TransactionIdentification { get; init; } 
     /// <summary>
     /// Scope of file action.
     /// </summary>
-    [DataMember]
     public FileActionScope1Code? FileActionScope { get; init; } 
     /// <summary>
     /// Type of file action.
     /// ISO 8583:87 bit 91
     /// </summary>
-    [DataMember]
     public FileActionType2Code? FileActionType { get; init; } 
     /// <summary>
     /// Other file action type in free text.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherFileActionType { get; init; } 
     /// <summary>
     /// Details pertaining to the file action.
     /// </summary>
-    [DataMember]
     public required FileActionDetails2 FileActionDetails { get; init; } 
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalFee2> AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalFee2? AdditionalFee { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    [DataMember]
-    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    public AdditionalData1? AdditionalData { get; init; } 
     /// <summary>
     /// Identifies that this batch or collection is a corrected version of a batch or collection that was previously sent.
     /// </summary>
-    [DataMember]
     public CorrectionIdentification1? Correction { get; init; } 
     /// <summary>
     /// Indicates that batch or collection is not complete.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ContinuationIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MessageReason is ISO8583MessageReasonCode MessageReasonValue)
+        {
+            writer.WriteStartElement(null, "MsgRsn", xmlNamespace );
+            writer.WriteValue(MessageReasonValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (AlternateMessageReason is IsoMax256Text AlternateMessageReasonValue)
+        {
+            writer.WriteStartElement(null, "AltrnMsgRsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(AlternateMessageReasonValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+        if (TransactionIdentification is TransactionIdentification12 TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            TransactionIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FileActionScope is FileActionScope1Code FileActionScopeValue)
+        {
+            writer.WriteStartElement(null, "FileActnScp", xmlNamespace );
+            writer.WriteValue(FileActionScopeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (FileActionType is FileActionType2Code FileActionTypeValue)
+        {
+            writer.WriteStartElement(null, "FileActnTp", xmlNamespace );
+            writer.WriteValue(FileActionTypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (OtherFileActionType is IsoMax35Text OtherFileActionTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrFileActnTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherFileActionTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "FileActnDtls", xmlNamespace );
+        FileActionDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (AdditionalFee is AdditionalFee2 AdditionalFeeValue)
+        {
+            writer.WriteStartElement(null, "AddtlFee", xmlNamespace );
+            AdditionalFeeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalData is AdditionalData1 AdditionalDataValue)
+        {
+            writer.WriteStartElement(null, "AddtlData", xmlNamespace );
+            AdditionalDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Correction is CorrectionIdentification1 CorrectionValue)
+        {
+            writer.WriteStartElement(null, "Crrctn", xmlNamespace );
+            CorrectionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ContinuationIndicator is IsoTrueFalseIndicator ContinuationIndicatorValue)
+        {
+            writer.WriteStartElement(null, "ConttnInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ContinuationIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Transaction157 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

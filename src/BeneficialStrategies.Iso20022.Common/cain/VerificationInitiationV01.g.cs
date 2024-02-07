@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.cain.VerificationInitiationV01>;
 
 namespace BeneficialStrategies.Iso20022.cain;
 
@@ -23,10 +26,9 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// Examples of usages are: authentication of certificates, assurance levels of tokens, certificate management, address verification, account verification and cheque verification. It is also used to inform the receiver of a verification that has been completed on its behalf.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"The VerificationInitiation message can be initiated by any party and received by any party (acquirer, agent or issuer). It conveys information to a receiver requiring verification or authentication. ||||Examples of usages are: authentication of certificates, assurance levels of tokens, certificate management, address verification, account verification and cheque verification. It is also used to inform the receiver of a verification that has been completed on its behalf.")]
-public partial record VerificationInitiationV01 : IOuterRecord
+public partial record VerificationInitiationV01 : IOuterRecord<VerificationInitiationV01,VerificationInitiationV01Document>
+    ,IIsoXmlSerilizable<VerificationInitiationV01>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -38,6 +40,11 @@ public partial record VerificationInitiationV01 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "VrfctnInitn";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => VerificationInitiationV01Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -78,6 +85,35 @@ public partial record VerificationInitiationV01 : IOuterRecord
     {
         return new VerificationInitiationV01Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("VrfctnInitn");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Hdr", xmlNamespace );
+        Header.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Body", xmlNamespace );
+        Body.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (SecurityTrailer is ContentInformationType20 SecurityTrailerValue)
+        {
+            writer.WriteStartElement(null, "SctyTrlr", xmlNamespace );
+            SecurityTrailerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static VerificationInitiationV01 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -85,9 +121,7 @@ public partial record VerificationInitiationV01 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="VerificationInitiationV01"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record VerificationInitiationV01Document : IOuterDocument<VerificationInitiationV01>
+public partial record VerificationInitiationV01Document : IOuterDocument<VerificationInitiationV01>, IXmlSerializable
 {
     
     /// <summary>
@@ -103,5 +137,22 @@ public partial record VerificationInitiationV01Document : IOuterDocument<Verific
     /// <summary>
     /// The instance of <seealso cref="VerificationInitiationV01"/> is required.
     /// </summary>
+    [DataMember(Name=VerificationInitiationV01.XmlTag)]
     public required VerificationInitiationV01 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(VerificationInitiationV01.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

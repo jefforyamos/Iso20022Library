@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentification2Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// Hellenic Bank Identification Code - identifies Hellenic financial institutions on the Hellenic national clearing system.
 /// </summary>
 public partial record HellenicBankIdentificationCode : ClearingSystemMemberIdentification2Choice_
+     , IIsoXmlSerilizable<HellenicBankIdentificationCode>
 {
-    public required IsoHellenicBankIdentificationCodeIdentifier Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Hellenic Bank Identification Code Identifier. Identifies Greek financial institutions on the Greek national clearing system.
+    /// </summary>
+    public required IsoHellenicBankIdentificationCodeIdentifier Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "GRHEBIC", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoHellenicBankIdentificationCodeIdentifier(Value)); // data type HellenicBankIdentificationCodeIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static new HellenicBankIdentificationCode Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

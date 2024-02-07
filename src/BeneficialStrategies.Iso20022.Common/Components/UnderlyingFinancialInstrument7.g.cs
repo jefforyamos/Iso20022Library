@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Underlying financial instrument to which an trade confirmation is related.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record UnderlyingFinancialInstrument7
+     : IIsoXmlSerilizable<UnderlyingFinancialInstrument7>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the underlying security by an ISIN.
     /// </summary>
-    [DataMember]
     public required SecurityIdentification19 Identification { get; init; } 
     /// <summary>
     /// Underlying financial instrument attributes to which an trade confirmation is related.
     /// </summary>
-    [DataMember]
     public FinancialInstrumentAttributes124? Attributes { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Attributes is FinancialInstrumentAttributes124 AttributesValue)
+        {
+            writer.WriteStartElement(null, "Attrbts", xmlNamespace );
+            AttributesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static UnderlyingFinancialInstrument7 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

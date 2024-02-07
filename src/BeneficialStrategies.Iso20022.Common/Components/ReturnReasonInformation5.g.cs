@@ -7,38 +7,76 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Further information on the return reason of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ReturnReasonInformation5
+     : IIsoXmlSerilizable<ReturnReasonInformation5>
 {
     #nullable enable
     
     /// <summary>
     /// Bank transaction code included in the original entry for the transaction.
     /// </summary>
-    [DataMember]
     public BankTransactionCodeStructure1? OriginalBankTransactionCode { get; init; } 
     /// <summary>
     /// Party issuing the return.
     /// </summary>
-    [DataMember]
     public PartyIdentification8? ReturnOriginator { get; init; } 
     /// <summary>
     /// Specifies the reason for the return.
     /// </summary>
-    [DataMember]
     public ReturnReason1Choice_? ReturnReason { get; init; } 
     /// <summary>
     /// Further details on the return reason.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax105Text> AdditionalReturnReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax105Text? AdditionalReturnReasonInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (OriginalBankTransactionCode is BankTransactionCodeStructure1 OriginalBankTransactionCodeValue)
+        {
+            writer.WriteStartElement(null, "OrgnlBkTxCd", xmlNamespace );
+            OriginalBankTransactionCodeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReturnOriginator is PartyIdentification8 ReturnOriginatorValue)
+        {
+            writer.WriteStartElement(null, "RtrOrgtr", xmlNamespace );
+            ReturnOriginatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ReturnReason is ReturnReason1Choice_ ReturnReasonValue)
+        {
+            writer.WriteStartElement(null, "RtrRsn", xmlNamespace );
+            ReturnReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalReturnReasonInformation is IsoMax105Text AdditionalReturnReasonInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlRtrRsnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax105Text(AdditionalReturnReasonInformationValue)); // data type Max105Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ReturnReasonInformation5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

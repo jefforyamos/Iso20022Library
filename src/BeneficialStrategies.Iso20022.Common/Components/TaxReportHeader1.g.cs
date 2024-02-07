@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines message level identification, number of individual tax reports and tax authority.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TaxReportHeader1
+     : IIsoXmlSerilizable<TaxReportHeader1>
 {
     #nullable enable
     
     /// <summary>
     /// Unique message identification.
     /// </summary>
-    [DataMember]
     public required MessageIdentification1 MessageIdentification { get; init; } 
     /// <summary>
     /// Number of TaxReports in this message. Seller can send all TaxReports in the same file.
     /// </summary>
-    [DataMember]
     public IsoNumber? NumberOfTaxReports { get; init; } 
     /// <summary>
     /// Party to which the TaxReport is delivered. This message block contains party details for a specific tax authority.
     /// </summary>
-    [DataMember]
-    public ValueList<TaxOrganisationIdentification1> TaxAuthority { get; init; } = []; // Warning: Don't know multiplicity.
+    public TaxOrganisationIdentification1? TaxAuthority { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgId", xmlNamespace );
+        MessageIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (NumberOfTaxReports is IsoNumber NumberOfTaxReportsValue)
+        {
+            writer.WriteStartElement(null, "NbOfTaxRpts", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(NumberOfTaxReportsValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (TaxAuthority is TaxOrganisationIdentification1 TaxAuthorityValue)
+        {
+            writer.WriteStartElement(null, "TaxAuthrty", xmlNamespace );
+            TaxAuthorityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TaxReportHeader1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

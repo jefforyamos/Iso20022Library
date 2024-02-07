@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Replacement of an existing content by a different one.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Replacement1
+     : IIsoXmlSerilizable<Replacement1>
 {
     #nullable enable
     
     /// <summary>
     /// Content of the current element.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text CurrentValue { get; init; } 
     /// <summary>
     /// Content of the new element.
     /// </summary>
-    [DataMember]
     public required IsoMax140Text ProposedValue { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CurVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(CurrentValue)); // data type Max140Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PropsdVal", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax140Text(ProposedValue)); // data type Max140Text System.String
+        writer.WriteEndElement();
+    }
+    public static Replacement1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

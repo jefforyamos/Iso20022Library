@@ -7,58 +7,116 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// ATM terminal equipment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMEquipment1
+     : IIsoXmlSerilizable<ATMEquipment1>
 {
     #nullable enable
     
     /// <summary>
     /// ATM Manufacturer.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Manufacturer { get; init; } 
     /// <summary>
     /// Model of ATM.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Model { get; init; } 
     /// <summary>
     /// Serial number of the ATM.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SerialNumber { get; init; } 
     /// <summary>
     /// Provider of the ATM application software.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ApplicationProvider { get; init; } 
     /// <summary>
     /// Name of the software product.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ApplicationName { get; init; } 
     /// <summary>
     /// Current version of the software that might include the release number.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ApplicationVersion { get; init; } 
     /// <summary>
     /// Unique assessment number for the component.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? ApprovalNumber { get; init; } 
     /// <summary>
     /// Configuration parameter version.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMConfigurationParameter1> ConfigurationParameter { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMConfigurationParameter1? ConfigurationParameter { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Manufacturer is IsoMax35Text ManufacturerValue)
+        {
+            writer.WriteStartElement(null, "Manfctr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ManufacturerValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Model is IsoMax35Text ModelValue)
+        {
+            writer.WriteStartElement(null, "Mdl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ModelValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (SerialNumber is IsoMax35Text SerialNumberValue)
+        {
+            writer.WriteStartElement(null, "SrlNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(SerialNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ApplicationProvider is IsoMax35Text ApplicationProviderValue)
+        {
+            writer.WriteStartElement(null, "ApplPrvdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ApplicationProviderValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ApplicationName is IsoMax35Text ApplicationNameValue)
+        {
+            writer.WriteStartElement(null, "ApplNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ApplicationNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ApplicationVersion is IsoMax35Text ApplicationVersionValue)
+        {
+            writer.WriteStartElement(null, "ApplVrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ApplicationVersionValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ApprovalNumber is IsoMax35Text ApprovalNumberValue)
+        {
+            writer.WriteStartElement(null, "ApprvlNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ApprovalNumberValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (ConfigurationParameter is ATMConfigurationParameter1 ConfigurationParameterValue)
+        {
+            writer.WriteStartElement(null, "CfgtnParam", xmlNamespace );
+            ConfigurationParameterValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMEquipment1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

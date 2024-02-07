@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature15Choice;
 
@@ -13,12 +15,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature15Choice;
 /// Indicates that counterparty is a non financial institution.
 /// </summary>
 public partial record NonFinancialInstitution : CounterpartyTradeNature15Choice_
+     , IIsoXmlSerilizable<NonFinancialInstitution>
 {
     #nullable enable
+    
     /// <summary>
     /// Taxonomy for non-financial counterparties. The categories correspond to the main sections of NACE classification as defined in the regulation.
     /// </summary>
     public GenericIdentification175? Sector { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _ygiOwQz2Ee2YoLD-1vFj0g
     /// <summary>
     /// Information whether the counterparty is above the clearing threshold.
     /// Usage: If the element is not present, the ClearingThreshold is False.
@@ -34,5 +39,42 @@ public partial record NonFinancialInstitution : CounterpartyTradeNature15Choice_
     /// Usage: If the element is not present, the FederalInstitution is False.
     /// </summary>
     public IsoTrueFalseIndicator? FederalInstitution { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize Sector, multiplicity Unknown
+        if (ClearingThreshold is IsoTrueFalseIndicator ClearingThresholdValue)
+        {
+            writer.WriteStartElement(null, "ClrThrshld", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ClearingThresholdValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (DirectlyLinkedActivity is IsoTrueFalseIndicator DirectlyLinkedActivityValue)
+        {
+            writer.WriteStartElement(null, "DrctlyLkdActvty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(DirectlyLinkedActivityValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (FederalInstitution is IsoTrueFalseIndicator FederalInstitutionValue)
+        {
+            writer.WriteStartElement(null, "FdrlInstn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(FederalInstitutionValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static new NonFinancialInstitution Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

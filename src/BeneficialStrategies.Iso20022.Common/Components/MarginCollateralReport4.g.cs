@@ -7,15 +7,16 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details of margin collateral agreement between counterparties.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MarginCollateralReport4
+     : IIsoXmlSerilizable<MarginCollateralReport4>
 {
     #nullable enable
     
@@ -24,18 +25,44 @@ public partial record MarginCollateralReport4
     /// Usage:
     /// NoCode is reported if the collateralisation was performed on a transaction level basis, or if there is no collateral agreement or if no collateral is posted or received.
     /// </summary>
-    [DataMember]
     public required CollateralPortfolioCode5Choice_ CollateralPortfolioCode { get; init; } 
     /// <summary>
     /// Indicates the type of collateral agreement existing between the counterparties.
     /// </summary>
-    [DataMember]
     public required CollateralisationType3Code CollateralisationCategory { get; init; } 
     /// <summary>
     /// Indicates the date and time of the last collateral amount determination or calculation.
     /// </summary>
-    [DataMember]
     public IsoISODateTime? TimeStamp { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CollPrtflCd", xmlNamespace );
+        CollateralPortfolioCode.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CollstnCtgy", xmlNamespace );
+        writer.WriteValue(CollateralisationCategory.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (TimeStamp is IsoISODateTime TimeStampValue)
+        {
+            writer.WriteStartElement(null, "TmStmp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODateTime(TimeStampValue)); // data type ISODateTime System.DateTime
+            writer.WriteEndElement();
+        }
+    }
+    public static MarginCollateralReport4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

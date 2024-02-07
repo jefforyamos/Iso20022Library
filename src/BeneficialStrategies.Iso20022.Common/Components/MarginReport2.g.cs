@@ -7,48 +7,89 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details on the margin report per margin account, and optionally per non-clearing member.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MarginReport2
+     : IIsoXmlSerilizable<MarginReport2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies if the margin is related to equities or fixed income.
     /// </summary>
-    [DataMember]
-    public ValueList<MarginProductType1Choice_> MarginProduct { get; init; } = []; // Warning: Don't know multiplicity.
+    public MarginProductType1Choice_? MarginProduct { get; init; } 
     /// <summary>
     /// Identifies the clearing member's account.
     /// </summary>
-    [DataMember]
     public required SecuritiesAccount18 MarginAccount { get; init; } 
     /// <summary>
     /// Used to indicate whether the reported margin account is collateralised or not. If not collateralised, the account is configured for informational reporting.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? CollateralisedMarginAccountIndicator { get; init; } 
     /// <summary>
     /// Provides details about the non clearing member identification and account.
     /// </summary>
-    [DataMember]
-    public ValueList<PartyIdentificationAndAccount31> NonClearingMember { get; init; } = []; // Warning: Don't know multiplicity.
+    public PartyIdentificationAndAccount31? NonClearingMember { get; init; } 
     /// <summary>
     /// Provides the margin calculation summary per margin account.
     /// </summary>
-    [DataMember]
     public MarginCalculation1? MarginCalculationSummary { get; init; } 
     /// <summary>
     /// Provides the margin details such as the exposure amount and the initial margin.
     /// </summary>
-    [DataMember]
-    public ValueList<MarginCalculation2> MarginCalculation { get; init; } = []; // Warning: Don't know multiplicity.
+    public MarginCalculation2? MarginCalculation { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _-eMvA6MOEeCojJW5vEuTEQ_538722488
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MarginProduct is MarginProductType1Choice_ MarginProductValue)
+        {
+            writer.WriteStartElement(null, "MrgnPdct", xmlNamespace );
+            MarginProductValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MrgnAcct", xmlNamespace );
+        MarginAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CollateralisedMarginAccountIndicator is IsoYesNoIndicator CollateralisedMarginAccountIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CollsdMrgnAcctInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CollateralisedMarginAccountIndicatorValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (NonClearingMember is PartyIdentificationAndAccount31 NonClearingMemberValue)
+        {
+            writer.WriteStartElement(null, "NonClrMmb", xmlNamespace );
+            NonClearingMemberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MarginCalculationSummary is MarginCalculation1 MarginCalculationSummaryValue)
+        {
+            writer.WriteStartElement(null, "MrgnClctnSummry", xmlNamespace );
+            MarginCalculationSummaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize MarginCalculation, multiplicity Unknown
+    }
+    public static MarginReport2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

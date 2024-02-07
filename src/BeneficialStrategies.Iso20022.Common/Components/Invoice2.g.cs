@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Invoice data pertaining to the payment transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Invoice2
+     : IIsoXmlSerilizable<Invoice2>
 {
     #nullable enable
     
     /// <summary>
     /// Invoice summary information.
     /// </summary>
-    [DataMember]
     public InvoiceSummary2? Summary { get; init; } 
     /// <summary>
     /// Line item information.
     /// </summary>
-    [DataMember]
-    public ValueList<InvoiceLineItem2> LineItem { get; init; } = []; // Warning: Don't know multiplicity.
+    public InvoiceLineItem2? LineItem { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Summary is InvoiceSummary2 SummaryValue)
+        {
+            writer.WriteStartElement(null, "Summry", xmlNamespace );
+            SummaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LineItem is InvoiceLineItem2 LineItemValue)
+        {
+            writer.WriteStartElement(null, "LineItm", xmlNamespace );
+            LineItemValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static Invoice2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

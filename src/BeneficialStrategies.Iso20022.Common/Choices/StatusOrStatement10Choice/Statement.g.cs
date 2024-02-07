@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.StatusOrStatement10Choice;
 
@@ -13,11 +15,34 @@ namespace BeneficialStrategies.Iso20022.Choices.StatusOrStatement10Choice;
 /// Identifies the statement/report that was requested.
 /// </summary>
 public partial record Statement : StatusOrStatement10Choice_
+     , IIsoXmlSerilizable<Statement>
 {
     #nullable enable
+    
     /// <summary>
     /// Number used to identify a message or document.
     /// </summary>
     public required DocumentNumber6Choice_ Number { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Nb", xmlNamespace );
+        Number.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new Statement Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

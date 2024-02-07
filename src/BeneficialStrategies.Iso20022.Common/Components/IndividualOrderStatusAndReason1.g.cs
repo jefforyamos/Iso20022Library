@@ -7,73 +7,122 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Status report of the individual orders of a bulk or multiple order that was previously received.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IndividualOrderStatusAndReason1
+     : IIsoXmlSerilizable<IndividualOrderStatusAndReason1>
 {
     #nullable enable
     
     /// <summary>
     /// Status of the order is accepted or already executed or sent to next party or received. There is no reason attached.
     /// </summary>
-    [DataMember]
     public required OrderStatus2Code Status { get; init; } 
     /// <summary>
     /// Status of the individual order details is cancelled.
     /// </summary>
-    [DataMember]
     public required CancelledStatus1 Cancelled { get; init; } 
     /// <summary>
     /// Status of the individual order details is conditionally accepted.
     /// </summary>
-    [DataMember]
     public required ConditionallyAcceptedStatus1 ConditionallyAccepted { get; init; } 
     /// <summary>
     /// Status of the individual order details is in repair.
     /// </summary>
-    [DataMember]
     public required InRepairStatus1 InRepair { get; init; } 
     /// <summary>
     /// Status of the individual order details is rejected.
     /// </summary>
-    [DataMember]
     public required RejectedStatus3 Rejected { get; init; } 
     /// <summary>
     /// Status of the individual order details is suspended.
     /// </summary>
-    [DataMember]
     public required SuspendedStatus1 Suspended { get; init; } 
     /// <summary>
     /// Elements from the original individual order details that have been repaired so that the order can be accepted.
     /// </summary>
-    [DataMember]
     public required RepairedConditions2 RepairedConditions { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text OrderReference { get; init; } 
     /// <summary>
     /// Party that initiates the status of the order.
     /// </summary>
-    [DataMember]
     public PartyIdentification2Choice_? StatusInitiator { get; init; } 
     /// <summary>
     /// Choice between the investment account and the financial instrument.
     /// </summary>
-    [DataMember]
     public InvestmentAccountOrFinancialInstrument1Choice_? InvestmentAccountOrFinancialInstrument { get; init; } 
     /// <summary>
     /// Information that has been added to the original order.
     /// </summary>
-    [DataMember]
     public ExpectedExecutionDetails1? NewDetails { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sts", xmlNamespace );
+        writer.WriteValue(Status.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Canc", xmlNamespace );
+        Cancelled.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CondlyAccptd", xmlNamespace );
+        ConditionallyAccepted.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "InRpr", xmlNamespace );
+        InRepair.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Rjctd", xmlNamespace );
+        Rejected.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sspd", xmlNamespace );
+        Suspended.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RprdConds", xmlNamespace );
+        RepairedConditions.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OrdrRef", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(OrderReference)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (StatusInitiator is PartyIdentification2Choice_ StatusInitiatorValue)
+        {
+            writer.WriteStartElement(null, "StsInitr", xmlNamespace );
+            StatusInitiatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InvestmentAccountOrFinancialInstrument is InvestmentAccountOrFinancialInstrument1Choice_ InvestmentAccountOrFinancialInstrumentValue)
+        {
+            writer.WriteStartElement(null, "InvstmtAcctOrFinInstrm", xmlNamespace );
+            InvestmentAccountOrFinancialInstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (NewDetails is ExpectedExecutionDetails1 NewDetailsValue)
+        {
+            writer.WriteStartElement(null, "NewDtls", xmlNamespace );
+            NewDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static IndividualOrderStatusAndReason1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

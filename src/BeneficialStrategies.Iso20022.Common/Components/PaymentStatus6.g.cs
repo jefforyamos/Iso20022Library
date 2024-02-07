@@ -7,33 +7,66 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Payment status details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentStatus6
+     : IIsoXmlSerilizable<PaymentStatus6>
 {
     #nullable enable
     
     /// <summary>
     /// Status of a transfer, in coded form, as assigned by the transaction administrator.
     /// </summary>
-    [DataMember]
     public PaymentStatusCode6Choice_? Code { get; init; } 
     /// <summary>
     /// Date and time at which the status was assigned to the transfer.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? DateTime { get; init; } 
     /// <summary>
     /// Reason provided for the status of a transfer.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentStatusReason1Choice_> Reason { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentStatusReason1Choice_? Reason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Code is PaymentStatusCode6Choice_ CodeValue)
+        {
+            writer.WriteStartElement(null, "Cd", xmlNamespace );
+            CodeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DateTime is DateAndDateTime2Choice_ DateTimeValue)
+        {
+            writer.WriteStartElement(null, "DtTm", xmlNamespace );
+            DateTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Reason is PaymentStatusReason1Choice_ ReasonValue)
+        {
+            writer.WriteStartElement(null, "Rsn", xmlNamespace );
+            ReasonValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentStatus6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

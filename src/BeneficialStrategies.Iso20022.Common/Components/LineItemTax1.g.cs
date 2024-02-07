@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Amount of money due to the government or tax authority, according to various pre-defined parameters such as thresholds or income.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record LineItemTax1
+     : IIsoXmlSerilizable<LineItemTax1>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoCurrencyAndAmount> CalculatedAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount? CalculatedAmount { get; init; } 
     /// <summary>
     /// Type of tax applied.
     /// </summary>
-    [DataMember]
     public TaxTypeFormat1Choice_? TypeCode { get; init; } 
     /// <summary>
     /// Date of the tax point date when this tax, levy or duty becomes applicable.
     /// </summary>
-    [DataMember]
     public IsoISODate? TaxPointDate { get; init; } 
     /// <summary>
     /// Rate used to calculate the amount of this tax, levy or duty.
     /// </summary>
-    [DataMember]
     public IsoPercentageRate? CalculatedRate { get; init; } 
     /// <summary>
     /// Code specifying the category to which this tax, levy or duty applies, such as codes for 'exempt from tax', 'standard rate', "free export item - tax not charged'.
     /// </summary>
-    [DataMember]
     public IsoMax4Text? CategoryCode { get; init; } 
     /// <summary>
     /// Category name, expressed as text, of the tax, levy or duty.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> CategoryName { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? CategoryName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CalculatedAmount is IsoCurrencyAndAmount CalculatedAmountValue)
+        {
+            writer.WriteStartElement(null, "ClctdAmt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoCurrencyAndAmount(CalculatedAmountValue)); // data type CurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (TypeCode is TaxTypeFormat1Choice_ TypeCodeValue)
+        {
+            writer.WriteStartElement(null, "TpCd", xmlNamespace );
+            TypeCodeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxPointDate is IsoISODate TaxPointDateValue)
+        {
+            writer.WriteStartElement(null, "TaxPtDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(TaxPointDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (CalculatedRate is IsoPercentageRate CalculatedRateValue)
+        {
+            writer.WriteStartElement(null, "ClctdRate", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPercentageRate(CalculatedRateValue)); // data type PercentageRate System.Decimal
+            writer.WriteEndElement();
+        }
+        if (CategoryCode is IsoMax4Text CategoryCodeValue)
+        {
+            writer.WriteStartElement(null, "CtgyCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax4Text(CategoryCodeValue)); // data type Max4Text System.String
+            writer.WriteEndElement();
+        }
+        if (CategoryName is IsoMax35Text CategoryNameValue)
+        {
+            writer.WriteStartElement(null, "CtgyNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CategoryNameValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static LineItemTax1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

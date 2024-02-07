@@ -7,33 +7,59 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of the account and the role of the party.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountAndParties2
+     : IIsoXmlSerilizable<AccountAndParties2>
 {
     #nullable enable
     
     /// <summary>
     /// Description of the account.
     /// </summary>
-    [DataMember]
     public required CustomerAccount1 Account { get; init; } 
     /// <summary>
     /// Specifies the role related to the account.
     /// </summary>
-    [DataMember]
-    public ValueList<AccountRole1> Role { get; init; } = []; // Warning: Don't know multiplicity.
+    public AccountRole1? Role { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _clKesC__EeOKib24wnHaFg
     /// <summary>
     /// Additional information.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax256Text> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax256Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Acct", xmlNamespace );
+        Account.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize Role, multiplicity Unknown
+        if (AdditionalInformation is IsoMax256Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(AdditionalInformationValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountAndParties2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

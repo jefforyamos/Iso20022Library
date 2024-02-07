@@ -7,38 +7,73 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data container to exchange data elements defined by another standard.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ExternallyDefinedData4
+     : IIsoXmlSerilizable<ExternallyDefinedData4>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the set of data to exchange.
     /// </summary>
-    [DataMember]
     public required IsoMax1025Text Identification { get; init; } 
     /// <summary>
     /// Data to exchange according to an external standard.
     /// </summary>
-    [DataMember]
     public IsoMax100KBinary? Value { get; init; } 
     /// <summary>
     /// Protection of the values to exchange.
     /// </summary>
-    [DataMember]
     public ContentInformationType34? ProtectedValue { get; init; } 
     /// <summary>
     /// Identification of the standard used to encode the values to exchange.
     /// </summary>
-    [DataMember]
     public IsoMax1025Text? Type { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax1025Text(Identification)); // data type Max1025Text System.String
+        writer.WriteEndElement();
+        if (Value is IsoMax100KBinary ValueValue)
+        {
+            writer.WriteStartElement(null, "Val", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax100KBinary(ValueValue)); // data type Max100KBinary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (ProtectedValue is ContentInformationType34 ProtectedValueValue)
+        {
+            writer.WriteStartElement(null, "PrtctdVal", xmlNamespace );
+            ProtectedValueValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Type is IsoMax1025Text TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1025Text(TypeValue)); // data type Max1025Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ExternallyDefinedData4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

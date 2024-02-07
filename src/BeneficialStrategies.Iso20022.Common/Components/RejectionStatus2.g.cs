@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides a rejection reason and additional information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record RejectionStatus2
+     : IIsoXmlSerilizable<RejectionStatus2>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the rejection reason using a code.
     /// </summary>
-    [DataMember]
     public required RejectionReasonV021Code RejectedReason { get; init; } 
     /// <summary>
     /// Allows to provides additional information to the rejection reason code.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RjctdRsn", xmlNamespace );
+        writer.WriteValue(RejectedReason.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax35Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(AdditionalInformationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static RejectionStatus2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

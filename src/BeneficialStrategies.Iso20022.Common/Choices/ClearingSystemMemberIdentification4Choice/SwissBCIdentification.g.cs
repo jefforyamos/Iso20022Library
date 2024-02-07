@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentification4Choice;
 
@@ -13,6 +15,35 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// Swiss Bank Code - identifies Swiss institutions on the Swiss national clearing system.
 /// </summary>
 public partial record SwissBCIdentification : ClearingSystemMemberIdentification4Choice_
+     , IIsoXmlSerilizable<SwissBCIdentification>
 {
-    public required IsoSwissBCIdentifier Value { get; init; }
+    #nullable enable
+    
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Swiss Bank Code. Identifies Swiss institutions on the Swiss national clearing system.
+    /// </summary>
+    public required IsoSwissBCIdentifier Value { get; init; } 
+    
+    #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CHBC", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoSwissBCIdentifier(Value)); // data type SwissBCIdentifier System.String
+        writer.WriteEndElement();
+    }
+    public static new SwissBCIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

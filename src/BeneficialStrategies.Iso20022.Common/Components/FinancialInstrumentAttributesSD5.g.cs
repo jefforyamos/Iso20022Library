@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action option securities movement security details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record FinancialInstrumentAttributesSD5
+     : IIsoXmlSerilizable<FinancialInstrumentAttributesSD5>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Matching security identifier for the disbursed security that is used to match the customer's SOI (Security of Interest) to the GCA VS Security Cross Reference.
     /// </summary>
-    [DataMember]
     public SecurityIdentification15? SecurityOfInterestMatchingSecurity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (SecurityOfInterestMatchingSecurity is SecurityIdentification15 SecurityOfInterestMatchingSecurityValue)
+        {
+            writer.WriteStartElement(null, "SctyOfIntrstMtchgScty", xmlNamespace );
+            SecurityOfInterestMatchingSecurityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static FinancialInstrumentAttributesSD5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,50 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Choice between a unique account identification and a set of account selection criteria.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record InvestmentAccountSelection2
+     : IIsoXmlSerilizable<InvestmentAccountSelection2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public required AccountIdentification1 AccountIdentification { get; init; } 
     /// <summary>
     /// Various investment account information used to select a specific account.
     /// </summary>
-    [DataMember]
     public required InvestmentAccount29 OtherAccountSelectionData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AcctId", xmlNamespace );
+        AccountIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "OthrAcctSelctnData", xmlNamespace );
+        OtherAccountSelectionData.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static InvestmentAccountSelection2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

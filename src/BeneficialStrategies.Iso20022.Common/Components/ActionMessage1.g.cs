@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Message to be displayed to the cardholder or the cashier.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ActionMessage1
+     : IIsoXmlSerilizable<ActionMessage1>
 {
     #nullable enable
     
     /// <summary>
     /// Destination of the message to be displayed or printed.
     /// </summary>
-    [DataMember]
     public required UserInterface1Code MessageDestination { get; init; } 
     /// <summary>
     /// Text or graphic data to be display or printed to the cardholder or the cashier.
     /// </summary>
-    [DataMember]
     public required IsoMax256Text MessageContent { get; init; } 
     /// <summary>
     /// Electronic signature of the message to display or print.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? MessageContentSignature { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgDstn", xmlNamespace );
+        writer.WriteValue(MessageDestination.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "MsgCntt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax256Text(MessageContent)); // data type Max256Text System.String
+        writer.WriteEndElement();
+        if (MessageContentSignature is IsoMax70Text MessageContentSignatureValue)
+        {
+            writer.WriteStartElement(null, "MsgCnttSgntr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(MessageContentSignatureValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ActionMessage1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

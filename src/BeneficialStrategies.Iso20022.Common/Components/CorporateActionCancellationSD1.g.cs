@@ -7,43 +7,74 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding linkage details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionCancellationSD1
+     : IIsoXmlSerilizable<CorporateActionCancellationSD1>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Reference assigned by the account servicer to unambiguously identify a related corporate action event.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text LinkedCorporateActionIdentification { get; init; } 
     /// <summary>
     /// Indicates the reason why two or more events are related.
     /// </summary>
-    [DataMember]
     public required DTCCLinkType1Code LinkageType { get; init; } 
     /// <summary>
     /// Events can be linked together. This date represents the date on which the link was established.
     /// </summary>
-    [DataMember]
     public required IsoISODate LinkAddedDate { get; init; } 
     /// <summary>
     /// Events can be linked together. This date represents the date on which the link was modified.
     /// </summary>
-    [DataMember]
     public IsoISODate? LinkModifiedDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "LkdCorpActnId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(LinkedCorporateActionIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "LkgTp", xmlNamespace );
+        writer.WriteValue(LinkageType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "LkAddedDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(LinkAddedDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (LinkModifiedDate is IsoISODate LinkModifiedDateValue)
+        {
+            writer.WriteStartElement(null, "LkModfdDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(LinkModifiedDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionCancellationSD1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Cash details for amount  assigned as collateral position.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CashBalance15
+     : IIsoXmlSerilizable<CashBalance15>
 {
     #nullable enable
     
     /// <summary>
     /// Amount of money of the cash balance.
     /// </summary>
-    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
     /// </summary>
-    [DataMember]
     public ForeignExchangeTerms19? ForeignExchangeDetails { get; init; } 
     /// <summary>
     /// Account in which cash is maintained.
     /// </summary>
-    [DataMember]
     public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Valuation details for the securities position.
     /// </summary>
-    [DataMember]
     public ValuationsDetails2? ValuationDetails { get; init; } 
     /// <summary>
     /// Identification of the underlying market value lots based on the term of the underlying trades. The issuer defines the lot identification.
     /// </summary>
-    [DataMember]
-    public ValueList<GenericIdentification178> TransactionLotNumber { get; init; } = []; // Warning: Don't know multiplicity.
+    public GenericIdentification178? TransactionLotNumber { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Amt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoActiveOrHistoricCurrencyAndAmount(Amount)); // data type ActiveOrHistoricCurrencyAndAmount System.Decimal
+        writer.WriteEndElement();
+        if (ForeignExchangeDetails is ForeignExchangeTerms19 ForeignExchangeDetailsValue)
+        {
+            writer.WriteStartElement(null, "FXDtls", xmlNamespace );
+            ForeignExchangeDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashAccount is CashAccountIdentification5Choice_ CashAccountValue)
+        {
+            writer.WriteStartElement(null, "CshAcct", xmlNamespace );
+            CashAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ValuationDetails is ValuationsDetails2 ValuationDetailsValue)
+        {
+            writer.WriteStartElement(null, "ValtnDtls", xmlNamespace );
+            ValuationDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TransactionLotNumber is GenericIdentification178 TransactionLotNumberValue)
+        {
+            writer.WriteStartElement(null, "TxLotNb", xmlNamespace );
+            TransactionLotNumberValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CashBalance15 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

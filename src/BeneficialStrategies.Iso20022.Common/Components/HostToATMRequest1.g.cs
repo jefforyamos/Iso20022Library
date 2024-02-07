@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to the request to an ATM to contact the ATM manager.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record HostToATMRequest1
+     : IIsoXmlSerilizable<HostToATMRequest1>
 {
     #nullable enable
     
     /// <summary>
     /// Environment of the ATM.
     /// </summary>
-    [DataMember]
     public required ATMEnvironment9 Environment { get; init; } 
     /// <summary>
     /// Identification of the entity issuing the command.
     /// </summary>
-    [DataMember]
     public ATMCommandIdentification1? CommandIdentification { get; init; } 
     /// <summary>
     /// Message that have to be sent by the ATM.
     /// </summary>
-    [DataMember]
     public required MessageFunction8Code ExpectedMessageFunction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Envt", xmlNamespace );
+        Environment.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (CommandIdentification is ATMCommandIdentification1 CommandIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CmdId", xmlNamespace );
+            CommandIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "XpctdMsgFctn", xmlNamespace );
+        writer.WriteValue(ExpectedMessageFunction.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static HostToATMRequest1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

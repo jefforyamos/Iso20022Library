@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reject of an exchange.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AcceptorRejection2
+     : IIsoXmlSerilizable<AcceptorRejection2>
 {
     #nullable enable
     
     /// <summary>
     /// Reject reason of the request or the advice.
     /// </summary>
-    [DataMember]
     public required RejectReason1Code RejectReason { get; init; } 
     /// <summary>
     /// Additional information related to the reject of the exchange.
     /// </summary>
-    [DataMember]
     public IsoMax500Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Original request that caused the recipient party to reject it.
     /// </summary>
-    [DataMember]
     public IsoMax100KBinary? MessageInError { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RjctRsn", xmlNamespace );
+        writer.WriteValue(RejectReason.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (AdditionalInformation is IsoMax500Text AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax500Text(AdditionalInformationValue)); // data type Max500Text System.String
+            writer.WriteEndElement();
+        }
+        if (MessageInError is IsoMax100KBinary MessageInErrorValue)
+        {
+            writer.WriteStartElement(null, "MsgInErr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax100KBinary(MessageInErrorValue)); // data type Max100KBinary System.Byte[]
+            writer.WriteEndElement();
+        }
+    }
+    public static AcceptorRejection2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

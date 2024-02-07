@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Choice between a reason or no reason for the corporate action instruction processing accepted status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AcceptedStatus1
+     : IIsoXmlSerilizable<AcceptedStatus1>
 {
     #nullable enable
     
     /// <summary>
     /// Reason not specified.
     /// </summary>
-    [DataMember]
     public required NoReasonCode NoSpecifiedReason { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "NoSpcfdRsn", xmlNamespace );
+        writer.WriteValue(NoSpecifiedReason.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static AcceptedStatus1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

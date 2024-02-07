@@ -7,33 +7,63 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Content of or reference to the content of a message.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Content1
+     : IIsoXmlSerilizable<Content1>
 {
     #nullable enable
     
     /// <summary>
     /// Value of the content of or the reference to the message.
     /// </summary>
-    [DataMember]
     public required IsoMax20KText Value { get; init; } 
     /// <summary>
     /// Digital signature of the content of or the reference to the message.
     /// </summary>
-    [DataMember]
     public IsoMax140Binary? Signature { get; init; } 
     /// <summary>
     /// Signing certificate identification.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? CertificateIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Val", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax20KText(Value)); // data type Max20KText System.String
+        writer.WriteEndElement();
+        if (Signature is IsoMax140Binary SignatureValue)
+        {
+            writer.WriteStartElement(null, "Sgntr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Binary(SignatureValue)); // data type Max140Binary System.Byte[]
+            writer.WriteEndElement();
+        }
+        if (CertificateIdentification is IsoMax70Text CertificateIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CertId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(CertificateIdentificationValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Content1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

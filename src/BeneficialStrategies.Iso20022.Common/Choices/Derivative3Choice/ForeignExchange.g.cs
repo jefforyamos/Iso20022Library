@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Derivative3Choice;
 
@@ -13,11 +15,34 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative3Choice;
 /// Details specific for Foreign exchange.
 /// </summary>
 public partial record ForeignExchange : Derivative3Choice_
+     , IIsoXmlSerilizable<ForeignExchange>
 {
     #nullable enable
+    
     /// <summary>
     /// Type of deliverable and non-deliverable forwards, options and swaps contract.	.
     /// </summary>
     public required AssetClassSubProductType19Code ContractSubType { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "CtrctSubTp", xmlNamespace );
+        writer.WriteValue(ContractSubType.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static new ForeignExchange Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

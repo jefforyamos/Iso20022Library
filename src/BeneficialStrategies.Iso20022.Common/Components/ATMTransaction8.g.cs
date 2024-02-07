@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Preferred withdrawal transaction chosen by the the customer.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMTransaction8
+     : IIsoXmlSerilizable<ATMTransaction8>
 {
     #nullable enable
     
     /// <summary>
     /// Amount to dispense.
     /// </summary>
-    [DataMember]
     public IsoImpliedCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Currency.
     /// </summary>
-    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// True if a receipt has to be printed by the ATM for the customer.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? ReceiptFlag { get; init; } 
     /// <summary>
     /// True if a balance has to be printed by the ATM on the customer receipt.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? BalancePrintFlag { get; init; } 
     /// <summary>
     /// Media mix algorithm, the identification of the algorithm is an agreement between the ATM and the ATM manager.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? MixType { get; init; } 
     /// <summary>
     /// Media mix to select.
     /// </summary>
-    [DataMember]
-    public ValueList<ATMMediaMix2> Mix { get; init; } = []; // Warning: Don't know multiplicity.
+    public ATMMediaMix2? Mix { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Amount is IsoImpliedCurrencyAndAmount AmountValue)
+        {
+            writer.WriteStartElement(null, "Amt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoImpliedCurrencyAndAmount(AmountValue)); // data type ImpliedCurrencyAndAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ReceiptFlag is IsoTrueFalseIndicator ReceiptFlagValue)
+        {
+            writer.WriteStartElement(null, "RctFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(ReceiptFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (BalancePrintFlag is IsoTrueFalseIndicator BalancePrintFlagValue)
+        {
+            writer.WriteStartElement(null, "BalPrtFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(BalancePrintFlagValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (MixType is IsoMax35Text MixTypeValue)
+        {
+            writer.WriteStartElement(null, "MixTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MixTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Mix is ATMMediaMix2 MixValue)
+        {
+            writer.WriteStartElement(null, "Mix", xmlNamespace );
+            MixValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMTransaction8 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

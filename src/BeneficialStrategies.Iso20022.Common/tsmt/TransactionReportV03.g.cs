@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.tsmt.TransactionReportV03>;
 
 namespace BeneficialStrategies.Iso20022.tsmt;
 
@@ -25,10 +28,9 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// The TransactionReport message can be sent by the matching application to report on various details of transactions that the requester of the report asked for. The message is sent in response to a TransactionReportRequest message.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The TransactionReport message is sent by the matching application to the requester of a transaction report.|This message is used to report on various details of transactions registered in the matching application.|Usage|The TransactionReport message can be sent by the matching application to report on various details of transactions that the requester of the report asked for. The message is sent in response to a TransactionReportRequest message.")]
-public partial record TransactionReportV03 : IOuterRecord
+public partial record TransactionReportV03 : IOuterRecord<TransactionReportV03,TransactionReportV03Document>
+    ,IIsoXmlSerilizable<TransactionReportV03>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -40,6 +42,11 @@ public partial record TransactionReportV03 : IOuterRecord
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "TxRpt";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => TransactionReportV03Document.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -80,6 +87,35 @@ public partial record TransactionReportV03 : IOuterRecord
     {
         return new TransactionReportV03Document { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("TxRpt");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "RptId", xmlNamespace );
+        ReportIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "RltdMsgRef", xmlNamespace );
+        RelatedMessageReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ReportedItems is TransactionReportItems3 ReportedItemsValue)
+        {
+            writer.WriteStartElement(null, "RptdItms", xmlNamespace );
+            ReportedItemsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransactionReportV03 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -87,9 +123,7 @@ public partial record TransactionReportV03 : IOuterRecord
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransactionReportV03"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record TransactionReportV03Document : IOuterDocument<TransactionReportV03>
+public partial record TransactionReportV03Document : IOuterDocument<TransactionReportV03>, IXmlSerializable
 {
     
     /// <summary>
@@ -105,5 +139,22 @@ public partial record TransactionReportV03Document : IOuterDocument<TransactionR
     /// <summary>
     /// The instance of <seealso cref="TransactionReportV03"/> is required.
     /// </summary>
+    [DataMember(Name=TransactionReportV03.XmlTag)]
     public required TransactionReportV03 Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(TransactionReportV03.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

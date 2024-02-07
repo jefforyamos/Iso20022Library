@@ -7,48 +7,87 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Account and holding of the next sub-level (Level 9).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AccountSubLevel19
+     : IIsoXmlSerilizable<AccountSubLevel19>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification for the sub-account between the account owner and the account servicer.
     /// </summary>
-    [DataMember]
     public required SecuritiesAccount19 AccountIdentification { get; init; } 
     /// <summary>
     /// Party that legally owns the sub-account.
     /// </summary>
-    [DataMember]
     public required PartyIdentification100 AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the sub-account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    [DataMember]
     public required PartyIdentification100 AccountServicer { get; init; } 
     /// <summary>
     /// Individual or entity that is ultimately entitled to the benefit of income and rights in a financial instrument, as opposed to a nominal or legal owner.
     /// </summary>
-    [DataMember]
-    public ValueList<BeneficialOwner2> BeneficialOwner { get; init; } = []; // Warning: Don't know multiplicity.
+    public BeneficialOwner2? BeneficialOwner { get; init; } 
     /// <summary>
     /// Report on the net position of a financial instrument on the sub-account (sub-account level 9), for a certain date. The agent, for example, a trade intermediary, may also be specified.
     /// </summary>
-    [DataMember]
-    public ValueList<AggregateHoldingBalance3> BalanceDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    public AggregateHoldingBalance3? BalanceDetails { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "AcctId", xmlNamespace );
+        AccountIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+        AccountOwner.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+        AccountServicer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BeneficialOwner is BeneficialOwner2 BeneficialOwnerValue)
+        {
+            writer.WriteStartElement(null, "BnfclOwnr", xmlNamespace );
+            BeneficialOwnerValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BalanceDetails is AggregateHoldingBalance3 BalanceDetailsValue)
+        {
+            writer.WriteStartElement(null, "BalDtls", xmlNamespace );
+            BalanceDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AccountSubLevel19 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

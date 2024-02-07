@@ -7,53 +7,106 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies prices.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionPrice1
+     : IIsoXmlSerilizable<CorporateActionPrice1>
 {
     #nullable enable
     
     /// <summary>
     /// 1. Price at which security will be purchased/sold if warrant is exercised, either as an actual amount or a percentage.|2. Price at which a bond is converted to underlying security either as an actual amount or a percentage.|3. Strike price of an option, represented either as an actual amount, a percentage or or a number of points above an index.
     /// </summary>
-    [DataMember]
     public PriceFormat4Choice_? ExercisePrice { get; init; } 
     /// <summary>
     /// Initial issue price of a financial instrument.
     /// </summary>
-    [DataMember]
     public PriceFormat2Choice_? IssuePrice { get; init; } 
     /// <summary>
     /// Cash disbursement in lieu of equities; usually in lieu of fractional quantity.
     /// </summary>
-    [DataMember]
     public PriceFormat2Choice_? CashInLieuOfSharePrice { get; init; } 
     /// <summary>
     /// Amount included in the dividend/NAV that is identified as gains directly or indirectly derived from interest payments within the scope of the EU Savings directive.
     /// </summary>
-    [DataMember]
     public AmountPrice1? TaxableIncomePerDividendShare { get; init; } 
     /// <summary>
     /// Generic cash price received per product by the underlying security holder either as a percentage or an amount, eg, redemption price.
     /// </summary>
-    [DataMember]
     public PriceFormat1Choice_? GenericCashPriceReceivedPerProduct { get; init; } 
     /// <summary>
     /// Generic cash price paid per product by the underlying security holder either as a percentage or an amount, eg, reinvestment price.
     /// </summary>
-    [DataMember]
     public PriceFormat2Choice_? GenericCashPricePaidPerProduct { get; init; } 
     /// <summary>
     /// Amount of money required per over-subscribed equity as defined by the issuer.
     /// </summary>
-    [DataMember]
     public PriceFormat2Choice_? OverSubscriptionDepositPrice { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ExercisePrice is PriceFormat4Choice_ ExercisePriceValue)
+        {
+            writer.WriteStartElement(null, "ExrcPric", xmlNamespace );
+            ExercisePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IssuePrice is PriceFormat2Choice_ IssuePriceValue)
+        {
+            writer.WriteStartElement(null, "IssePric", xmlNamespace );
+            IssuePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CashInLieuOfSharePrice is PriceFormat2Choice_ CashInLieuOfSharePriceValue)
+        {
+            writer.WriteStartElement(null, "CshInLieuOfShrPric", xmlNamespace );
+            CashInLieuOfSharePriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TaxableIncomePerDividendShare is AmountPrice1 TaxableIncomePerDividendShareValue)
+        {
+            writer.WriteStartElement(null, "TaxblIncmPerDvddShr", xmlNamespace );
+            TaxableIncomePerDividendShareValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GenericCashPriceReceivedPerProduct is PriceFormat1Choice_ GenericCashPriceReceivedPerProductValue)
+        {
+            writer.WriteStartElement(null, "GncCshPricRcvdPerPdct", xmlNamespace );
+            GenericCashPriceReceivedPerProductValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (GenericCashPricePaidPerProduct is PriceFormat2Choice_ GenericCashPricePaidPerProductValue)
+        {
+            writer.WriteStartElement(null, "GncCshPricPdPerPdct", xmlNamespace );
+            GenericCashPricePaidPerProductValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (OverSubscriptionDepositPrice is PriceFormat2Choice_ OverSubscriptionDepositPriceValue)
+        {
+            writer.WriteStartElement(null, "OverSbcptDpstPric", xmlNamespace );
+            OverSubscriptionDepositPriceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionPrice1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

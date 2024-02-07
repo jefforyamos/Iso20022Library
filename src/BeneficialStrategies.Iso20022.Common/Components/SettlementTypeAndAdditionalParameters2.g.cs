@@ -7,33 +7,60 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides transaction type and identification information.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementTypeAndAdditionalParameters2
+     : IIsoXmlSerilizable<SettlementTypeAndAdditionalParameters2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies if the movement on a securities account results from a deliver or a receive instruction.
     /// </summary>
-    [DataMember]
     public required ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
     /// <summary>
     /// Specifies how the transaction is to be settled, for example, against payment.
     /// </summary>
-    [DataMember]
     public required DeliveryReceiptType2Code Payment { get; init; } 
     /// <summary>
     /// Unique reference agreed upon by the two trade counterparties to identify the trade.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? CommonIdentification { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SctiesMvmntTp", xmlNamespace );
+        writer.WriteValue(SecuritiesMovementType.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Pmt", xmlNamespace );
+        writer.WriteValue(Payment.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (CommonIdentification is IsoMax35Text CommonIdentificationValue)
+        {
+            writer.WriteStartElement(null, "CmonId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(CommonIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementTypeAndAdditionalParameters2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

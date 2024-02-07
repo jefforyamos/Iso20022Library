@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Other target market parameter.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record OtherTargetMarket1
+     : IIsoXmlSerilizable<OtherTargetMarket1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of target market parameter.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text TargetMarketType { get; init; } 
     /// <summary>
     /// Additional information about the target market.
     /// </summary>
-    [DataMember]
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "TrgtMktTp", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(TargetMarketType)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (AdditionalInformation is AdditionalInformation15 AdditionalInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlInf", xmlNamespace );
+            AdditionalInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static OtherTargetMarket1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

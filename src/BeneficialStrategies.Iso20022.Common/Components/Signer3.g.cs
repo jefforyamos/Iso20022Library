@@ -7,43 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Entity who has signed the data and its digital signature.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Signer3
+     : IIsoXmlSerilizable<Signer3>
 {
     #nullable enable
     
     /// <summary>
     /// Version of the Cryptographic Message Syntax (CMS) data structure.
     /// </summary>
-    [DataMember]
     public IsoNumber? Version { get; init; } 
     /// <summary>
     /// Identification of the entity who has signed the data.
     /// </summary>
-    [DataMember]
     public Recipient5Choice_? SignerIdentification { get; init; } 
     /// <summary>
     /// Identification of a digest algorithm to apply before signature.
     /// </summary>
-    [DataMember]
     public required AlgorithmIdentification16 DigestAlgorithm { get; init; } 
     /// <summary>
     /// Cryptographic digital signature algorithm.
     /// </summary>
-    [DataMember]
     public required AlgorithmIdentification17 SignatureAlgorithm { get; init; } 
     /// <summary>
     /// Digital signature.
     /// </summary>
-    [DataMember]
     public required IsoMax3000Binary Signature { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Version is IsoNumber VersionValue)
+        {
+            writer.WriteStartElement(null, "Vrsn", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(VersionValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+        if (SignerIdentification is Recipient5Choice_ SignerIdentificationValue)
+        {
+            writer.WriteStartElement(null, "SgnrId", xmlNamespace );
+            SignerIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "DgstAlgo", xmlNamespace );
+        DigestAlgorithm.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "SgntrAlgo", xmlNamespace );
+        SignatureAlgorithm.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Sgntr", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax3000Binary(Signature)); // data type Max3000Binary System.Byte[]
+        writer.WriteEndElement();
+    }
+    public static Signer3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,53 +7,100 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Sensible data associated with the payment card performing the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PlainCardData1
+     : IIsoXmlSerilizable<PlainCardData1>
 {
     #nullable enable
     
     /// <summary>
     /// Primary Account Number (PAN) of the card, or card number.
     /// </summary>
-    [DataMember]
     public required IsoMin8Max28NumericText PAN { get; init; } 
     /// <summary>
     /// Identify a card inside a set of cards with the same card number (PAN).
     /// </summary>
-    [DataMember]
     public IsoMin2Max3NumericText? CardSequenceNumber { get; init; } 
     /// <summary>
     /// Date as from which the card can be used.
     /// </summary>
-    [DataMember]
     public IsoISOYearMonth? EffectiveDate { get; init; } 
     /// <summary>
     /// Expiry date of the card.
     /// </summary>
-    [DataMember]
     public required IsoISOYearMonth ExpiryDate { get; init; } 
     /// <summary>
     /// Services attached to the card, as defined in ISO 7813.
     /// </summary>
-    [DataMember]
     public IsoExact3NumericText? ServiceCode { get; init; } 
     /// <summary>
     /// Magnetic track or equivalent payment card data.
     /// </summary>
-    [DataMember]
-    public ValueList<TrackData1> TrackData { get; init; } = []; // Warning: Don't know multiplicity.
+    public TrackData1? TrackData { get; init; } 
     /// <summary>
     /// Card security code (CSC) associated with the card performing the transaction.
     /// </summary>
-    [DataMember]
     public CardSecurityInformation1? CardSecurityCode { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PAN", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMin8Max28NumericText(PAN)); // data type Min8Max28NumericText System.String
+        writer.WriteEndElement();
+        if (CardSequenceNumber is IsoMin2Max3NumericText CardSequenceNumberValue)
+        {
+            writer.WriteStartElement(null, "CardSeqNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMin2Max3NumericText(CardSequenceNumberValue)); // data type Min2Max3NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (EffectiveDate is IsoISOYearMonth EffectiveDateValue)
+        {
+            writer.WriteStartElement(null, "FctvDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISOYearMonth(EffectiveDateValue)); // data type ISOYearMonth System.UInt16
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "XpryDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISOYearMonth(ExpiryDate)); // data type ISOYearMonth System.UInt16
+        writer.WriteEndElement();
+        if (ServiceCode is IsoExact3NumericText ServiceCodeValue)
+        {
+            writer.WriteStartElement(null, "SvcCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact3NumericText(ServiceCodeValue)); // data type Exact3NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (TrackData is TrackData1 TrackDataValue)
+        {
+            writer.WriteStartElement(null, "TrckData", xmlNamespace );
+            TrackDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CardSecurityCode is CardSecurityInformation1 CardSecurityCodeValue)
+        {
+            writer.WriteStartElement(null, "CardSctyCd", xmlNamespace );
+            CardSecurityCodeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PlainCardData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

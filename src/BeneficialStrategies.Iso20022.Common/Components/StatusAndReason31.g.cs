@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Choice of status.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record StatusAndReason31
+     : IIsoXmlSerilizable<StatusAndReason31>
 {
     #nullable enable
     
     /// <summary>
     /// Provides the matching status of an instruction as known by the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).
     /// </summary>
-    [DataMember]
     public MatchingStatus24Choice_? InferredMatchingStatus { get; init; } 
     /// <summary>
     /// Provides the matching status of the instruction.
     /// </summary>
-    [DataMember]
     public MatchingStatus24Choice_? MatchingStatus { get; init; } 
     /// <summary>
     /// Provides the status of settlement of a transaction.
     /// </summary>
-    [DataMember]
     public SettlementStatus17Choice_? SettlementStatus { get; init; } 
     /// <summary>
     /// Provides the status of an instruction.
     /// </summary>
-    [DataMember]
     public InstructionProcessingStatus22Choice_? InstructionProcessingStatus { get; init; } 
     /// <summary>
     /// Specifies the state or the condition.
     /// </summary>
-    [DataMember]
     public ProprietaryReason4? Settled { get; init; } 
     /// <summary>
     /// Proprietary status.
     /// </summary>
-    [DataMember]
     public ProprietaryStatusAndReason6? Proprietary { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (InferredMatchingStatus is MatchingStatus24Choice_ InferredMatchingStatusValue)
+        {
+            writer.WriteStartElement(null, "IfrrdMtchgSts", xmlNamespace );
+            InferredMatchingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MatchingStatus is MatchingStatus24Choice_ MatchingStatusValue)
+        {
+            writer.WriteStartElement(null, "MtchgSts", xmlNamespace );
+            MatchingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementStatus is SettlementStatus17Choice_ SettlementStatusValue)
+        {
+            writer.WriteStartElement(null, "SttlmSts", xmlNamespace );
+            SettlementStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructionProcessingStatus is InstructionProcessingStatus22Choice_ InstructionProcessingStatusValue)
+        {
+            writer.WriteStartElement(null, "InstrPrcgSts", xmlNamespace );
+            InstructionProcessingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Settled is ProprietaryReason4 SettledValue)
+        {
+            writer.WriteStartElement(null, "Sttld", xmlNamespace );
+            SettledValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Proprietary is ProprietaryStatusAndReason6 ProprietaryValue)
+        {
+            writer.WriteStartElement(null, "Prtry", xmlNamespace );
+            ProprietaryValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static StatusAndReason31 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

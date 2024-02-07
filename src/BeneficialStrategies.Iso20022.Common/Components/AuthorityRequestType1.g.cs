@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the authority request type.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record AuthorityRequestType1
+     : IIsoXmlSerilizable<AuthorityRequestType1>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the requested message name identifier.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text MessageNameIdentification { get; init; } 
     /// <summary>
     /// Specifies the message name.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? MessageName { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "MsgNmId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageNameIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (MessageName is IsoMax140Text MessageNameValue)
+        {
+            writer.WriteStartElement(null, "MsgNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(MessageNameValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static AuthorityRequestType1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

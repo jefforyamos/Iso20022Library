@@ -11,6 +11,9 @@ using System.Collections.ObjectModel;
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.semt.StatementOfInvestmentFundTransactionsCancellation>;
 
 namespace BeneficialStrategies.Iso20022.semt;
 
@@ -26,10 +29,9 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// This message must contain the reference of the message to be cancelled. This message may also contain all the details of the message to be cancelled, but this is not recommended.
 /// </summary>
 [Serializable]
-[DataContract(Name = XmlTag)]
-[XmlType(TypeName = XmlTag)]
 [Description(@"Scope|The StatementOfInvestmentFundTransactionsCancellation message is sent by an account servicer to the account owner or the account owner's designated agent. The account servicer may be a fund administrator or fund intermediary, trustee or registrar, etc.|This message is used to cancel a previously sent StatementOfInvestmentFundTransactions message.|Usage|The StatementOfInvestmentFundTransactionsCancellation message is sent by an account servicer to the account owner to cancel a previously sent StatementOfInvestmentFundTransactions message.|This message must contain the reference of the message to be cancelled. This message may also contain all the details of the message to be cancelled, but this is not recommended.")]
-public partial record StatementOfInvestmentFundTransactionsCancellation : IOuterRecord
+public partial record StatementOfInvestmentFundTransactionsCancellation : IOuterRecord<StatementOfInvestmentFundTransactionsCancellation,StatementOfInvestmentFundTransactionsCancellationDocument>
+    ,IIsoXmlSerilizable<StatementOfInvestmentFundTransactionsCancellation>, ISerializeInsideARootElement
 {
     
     /// <summary>
@@ -41,6 +43,11 @@ public partial record StatementOfInvestmentFundTransactionsCancellation : IOuter
     /// The ISO specified XML tag that should be used for standardized serialization of this message.
     /// </summary>
     public const string XmlTag = "semt.007.001.01";
+    
+    /// <summary>
+    /// The XML namespace in which this message is delivered.
+    /// </summary>
+    public static string IsoXmlNamspace => StatementOfInvestmentFundTransactionsCancellationDocument.DocumentNamespace;
     
     #nullable enable
     /// <summary>
@@ -90,6 +97,41 @@ public partial record StatementOfInvestmentFundTransactionsCancellation : IOuter
     {
         return new StatementOfInvestmentFundTransactionsCancellationDocument { Message = this };
     }
+    public static XName RootElement => Helper.CreateXName("semt.007.001.01");
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PrvsRef", xmlNamespace );
+        PreviousReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (RelatedReference is AdditionalReference2 RelatedReferenceValue)
+        {
+            writer.WriteStartElement(null, "RltdRef", xmlNamespace );
+            RelatedReferenceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MsgPgntn", xmlNamespace );
+        MessagePagination.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (StatementToBeCancelled is StatementOfInvestmentFundTransactions1 StatementToBeCancelledValue)
+        {
+            writer.WriteStartElement(null, "StmtToBeCanc", xmlNamespace );
+            StatementToBeCancelledValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static StatementOfInvestmentFundTransactionsCancellation Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>
@@ -97,9 +139,7 @@ public partial record StatementOfInvestmentFundTransactionsCancellation : IOuter
 /// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatementOfInvestmentFundTransactionsCancellation"/>.
 /// </summary>
 [Serializable]
-[DataContract(Name = DocumentElementName, Namespace = DocumentNamespace )]
-[XmlRoot(ElementName = DocumentElementName, Namespace = DocumentNamespace )]
-public partial record StatementOfInvestmentFundTransactionsCancellationDocument : IOuterDocument<StatementOfInvestmentFundTransactionsCancellation>
+public partial record StatementOfInvestmentFundTransactionsCancellationDocument : IOuterDocument<StatementOfInvestmentFundTransactionsCancellation>, IXmlSerializable
 {
     
     /// <summary>
@@ -115,5 +155,22 @@ public partial record StatementOfInvestmentFundTransactionsCancellationDocument 
     /// <summary>
     /// The instance of <seealso cref="StatementOfInvestmentFundTransactionsCancellation"/> is required.
     /// </summary>
+    [DataMember(Name=StatementOfInvestmentFundTransactionsCancellation.XmlTag)]
     public required StatementOfInvestmentFundTransactionsCancellation Message { get; init; }
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement(null, DocumentElementName, DocumentNamespace );
+        writer.WriteStartElement(StatementOfInvestmentFundTransactionsCancellation.XmlTag);
+        Message.Serialize(writer, DocumentNamespace);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+    }
+    
+    public void ReadXml(XmlReader reader)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public System.Xml.Schema.XmlSchema GetSchema() => null;
 }

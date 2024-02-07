@@ -7,113 +7,226 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Defines the criteria used to search for a payment.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record PaymentSearch9
+     : IIsoXmlSerilizable<PaymentSearch9>
 {
     #nullable enable
     
     /// <summary>
     /// Point to point reference, as assigned by the original initiating party, to unambiguously identify the original payment transaction message. |Usage: this is the former transaction reference.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> MessageIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the cash is at the disposal of the credit account owner, or ceases to be at the disposal of the debit account owner.
     /// </summary>
-    [DataMember]
-    public ValueList<DateAndDateTimeSearch3Choice_> RequestedExecutionDate { get; init; } = []; // Warning: Don't know multiplicity.
+    public DateAndDateTimeSearch3Choice_? RequestedExecutionDate { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a payment instruction, as assigned by the clearing agent or the initiating party.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentIdentification7Choice_> PaymentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentIdentification7Choice_? PaymentIdentification { get; init; } 
     /// <summary>
     /// Detailed information about the status of a transfer.
     /// </summary>
-    [DataMember]
-    public ValueList<InstructionStatusSearch5> Status { get; init; } = []; // Warning: Don't know multiplicity.
+    public InstructionStatusSearch5? Status { get; init; } 
     /// <summary>
     /// Specifies the instructed amount(s) on which the query is performed.
     /// </summary>
-    [DataMember]
-    public ValueList<ActiveOrHistoricAmountRange2Choice_> InstructedAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public ActiveOrHistoricAmountRange2Choice_? InstructedAmount { get; init; } 
     /// <summary>
     /// Currency in which the instructed amount is expressed.
     /// </summary>
-    [DataMember]
-    public ValueList<ActiveOrHistoricCurrencyCode> InstructedAmountCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    public ActiveOrHistoricCurrencyCode? InstructedAmountCurrency { get; init; } 
     /// <summary>
     /// Indicates whether the payment instruction is a debit or a credit.
     /// </summary>
-    [DataMember]
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Specifies the interbank settlement amount(s) on which the query is performed.
     /// </summary>
-    [DataMember]
-    public ValueList<ActiveAmountRange3Choice_> InterbankSettlementAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    public ActiveAmountRange3Choice_? InterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Currency in which the interbank settlement amount is expressed.
     /// </summary>
-    [DataMember]
-    public ValueList<ActiveCurrencyCode> InterbankSettlementAmountCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    public ActiveCurrencyCode? InterbankSettlementAmountCurrency { get; init; } 
     /// <summary>
     /// Indicates the message or event from which an instruction has been initiated.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentOrigin1Choice_> PaymentMethod { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentOrigin1Choice_? PaymentMethod { get; init; } 
     /// <summary>
     /// Instruction to pay an amount of money to an ultimate beneficiary, on behalf of an originator. This instruction may have to be forwarded several times to complete the settlement chain.
     /// </summary>
-    [DataMember]
-    public ValueList<PaymentType4Choice_> PaymentType { get; init; } = []; // Warning: Don't know multiplicity.
+    public PaymentType4Choice_? PaymentType { get; init; } 
     /// <summary>
     /// Urgency or order of importance that the originator would like the recipient of the payment instruction to apply to the processing of the payment instruction.
     /// </summary>
-    [DataMember]
-    public ValueList<Priority1Choice_> Priority { get; init; } = []; // Warning: Don't know multiplicity.
+    public Priority1Choice_? Priority { get; init; } 
     /// <summary>
     /// Date and time range within which the payment instruction must be processed.
     /// </summary>
-    [DataMember]
-    public ValueList<DateTimePeriod1Choice_> ProcessingValidityTime { get; init; } = []; // Warning: Don't know multiplicity.
+    public DateTimePeriod1Choice_? ProcessingValidityTime { get; init; } 
     /// <summary>
     /// Further information related to the processing of the payment instruction. The instruction can relate to a level of service between the bank and the customer, or give instructions to and for specific parties in the payment chain.
     /// </summary>
-    [DataMember]
-    public ValueList<Instruction1Code> Instruction { get; init; } = []; // Warning: Don't know multiplicity.
+    public Instruction1Code? Instruction { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain.|Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period.|Usage: this is the former PaymentInstructionReference.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> TransactionIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? TransactionIdentification { get; init; } 
     /// <summary>
     /// Universally unique identifier to provide an end-to-end reference of a payment transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoUUIDv4Identifier> UETR { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoUUIDv4Identifier? UETR { get; init; } 
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.|Usage: this is the former InterbankValueDate.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoISODate> InterbankSettlementDate { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoISODate? InterbankSettlementDate { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the initiating party, to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain.|Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction.|It can be included in several messages related to the transaction.|Usage: this is the former RelatedReference.
     /// </summary>
-    [DataMember]
-    public ValueList<IsoMax35Text> EndToEndIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    public IsoMax35Text? EndToEndIdentification { get; init; } 
     /// <summary>
     /// Defines the party fields used to search for a payment.
     /// </summary>
-    [DataMember]
     public PaymentTransactionParty3? Parties { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (MessageIdentification is IsoMax35Text MessageIdentificationValue)
+        {
+            writer.WriteStartElement(null, "MsgId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(MessageIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (RequestedExecutionDate is DateAndDateTimeSearch3Choice_ RequestedExecutionDateValue)
+        {
+            writer.WriteStartElement(null, "ReqdExctnDt", xmlNamespace );
+            RequestedExecutionDateValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentIdentification is PaymentIdentification7Choice_ PaymentIdentificationValue)
+        {
+            writer.WriteStartElement(null, "PmtId", xmlNamespace );
+            PaymentIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Status is InstructionStatusSearch5 StatusValue)
+        {
+            writer.WriteStartElement(null, "Sts", xmlNamespace );
+            StatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructedAmount is ActiveOrHistoricAmountRange2Choice_ InstructedAmountValue)
+        {
+            writer.WriteStartElement(null, "InstdAmt", xmlNamespace );
+            InstructedAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructedAmountCurrency is ActiveOrHistoricCurrencyCode InstructedAmountCurrencyValue)
+        {
+            writer.WriteStartElement(null, "InstdAmtCcy", xmlNamespace );
+            writer.WriteValue(InstructedAmountCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CreditDebitIndicator is CreditDebitCode CreditDebitIndicatorValue)
+        {
+            writer.WriteStartElement(null, "CdtDbtInd", xmlNamespace );
+            writer.WriteValue(CreditDebitIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (InterbankSettlementAmount is ActiveAmountRange3Choice_ InterbankSettlementAmountValue)
+        {
+            writer.WriteStartElement(null, "IntrBkSttlmAmt", xmlNamespace );
+            InterbankSettlementAmountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InterbankSettlementAmountCurrency is ActiveCurrencyCode InterbankSettlementAmountCurrencyValue)
+        {
+            writer.WriteStartElement(null, "IntrBkSttlmAmtCcy", xmlNamespace );
+            writer.WriteValue(InterbankSettlementAmountCurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PaymentMethod is PaymentOrigin1Choice_ PaymentMethodValue)
+        {
+            writer.WriteStartElement(null, "PmtMtd", xmlNamespace );
+            PaymentMethodValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (PaymentType is PaymentType4Choice_ PaymentTypeValue)
+        {
+            writer.WriteStartElement(null, "PmtTp", xmlNamespace );
+            PaymentTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Priority is Priority1Choice_ PriorityValue)
+        {
+            writer.WriteStartElement(null, "Prty", xmlNamespace );
+            PriorityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ProcessingValidityTime is DateTimePeriod1Choice_ ProcessingValidityTimeValue)
+        {
+            writer.WriteStartElement(null, "PrcgVldtyTm", xmlNamespace );
+            ProcessingValidityTimeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Instruction is Instruction1Code InstructionValue)
+        {
+            writer.WriteStartElement(null, "Instr", xmlNamespace );
+            writer.WriteValue(InstructionValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (TransactionIdentification is IsoMax35Text TransactionIdentificationValue)
+        {
+            writer.WriteStartElement(null, "TxId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(TransactionIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (UETR is IsoUUIDv4Identifier UETRValue)
+        {
+            writer.WriteStartElement(null, "UETR", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoUUIDv4Identifier(UETRValue)); // data type UUIDv4Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (InterbankSettlementDate is IsoISODate InterbankSettlementDateValue)
+        {
+            writer.WriteStartElement(null, "IntrBkSttlmDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(InterbankSettlementDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        if (EndToEndIdentification is IsoMax35Text EndToEndIdentificationValue)
+        {
+            writer.WriteStartElement(null, "EndToEndId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(EndToEndIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Parties is PaymentTransactionParty3 PartiesValue)
+        {
+            writer.WriteStartElement(null, "Pties", xmlNamespace );
+            PartiesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentSearch9 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

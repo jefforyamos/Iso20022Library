@@ -7,48 +7,96 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about the authority entity.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Authority1
+     : IIsoXmlSerilizable<Authority1>
 {
     #nullable enable
     
     /// <summary>
     /// Country code of the authority.
     /// </summary>
-    [DataMember]
     public ISO3NumericCountryCode? Country { get; init; } 
     /// <summary>
     /// Code that identifies a major subdivision of a country, for instance state, province.
     /// </summary>
-    [DataMember]
     public ISOCountrySubDivisionCode? CountrySubDivisionMajor { get; init; } 
     /// <summary>
     /// Code that identifies a minor subdivision of a country, for instance county, prefecture.
     /// </summary>
-    [DataMember]
     public ISOCountrySubDivisionCode? CountrySubDivisionMinor { get; init; } 
     /// <summary>
     /// Name of a major subdivision of a country, for instance county, prefecture.
     /// </summary>
-    [DataMember]
     public IsoMax50Text? CountrySubDivisionMajorName { get; init; } 
     /// <summary>
     /// Name of a minor subdivision of a country, for instance county, prefecture.
     /// </summary>
-    [DataMember]
     public IsoMax50Text? CountrySubDivisionMinorName { get; init; } 
     /// <summary>
     /// City name
     /// </summary>
-    [DataMember]
     public IsoMax50Text? Name { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Country is ISO3NumericCountryCode CountryValue)
+        {
+            writer.WriteStartElement(null, "Ctry", xmlNamespace );
+            writer.WriteValue(CountryValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CountrySubDivisionMajor is ISOCountrySubDivisionCode CountrySubDivisionMajorValue)
+        {
+            writer.WriteStartElement(null, "CtrySubDvsnMjr", xmlNamespace );
+            writer.WriteValue(CountrySubDivisionMajorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CountrySubDivisionMinor is ISOCountrySubDivisionCode CountrySubDivisionMinorValue)
+        {
+            writer.WriteStartElement(null, "CtrySubDvsnMnr", xmlNamespace );
+            writer.WriteValue(CountrySubDivisionMinorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (CountrySubDivisionMajorName is IsoMax50Text CountrySubDivisionMajorNameValue)
+        {
+            writer.WriteStartElement(null, "CtrySubDvsnMjrNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax50Text(CountrySubDivisionMajorNameValue)); // data type Max50Text System.String
+            writer.WriteEndElement();
+        }
+        if (CountrySubDivisionMinorName is IsoMax50Text CountrySubDivisionMinorNameValue)
+        {
+            writer.WriteStartElement(null, "CtrySubDvsnMnrNm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax50Text(CountrySubDivisionMinorNameValue)); // data type Max50Text System.String
+            writer.WriteEndElement();
+        }
+        if (Name is IsoMax50Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax50Text(NameValue)); // data type Max50Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Authority1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

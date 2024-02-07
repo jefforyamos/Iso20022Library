@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides information about the corporate action event.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateAction42
+     : IIsoXmlSerilizable<CorporateAction42>
 {
     #nullable enable
     
     /// <summary>
     /// Provides information about the dates related to a corporate action event.
     /// </summary>
-    [DataMember]
     public CorporateActionDate63? DateDetails { get; init; } 
     /// <summary>
     /// Stage in the corporate action event life cycle.
     /// </summary>
-    [DataMember]
     public CorporateActionEventStageFormat14Choice_? EventStage { get; init; } 
     /// <summary>
     /// Indicates whether the message is related to a claim on the associated corporate action event.
     /// </summary>
-    [DataMember]
     public AdditionalBusinessProcessFormat10Choice_? AdditionalBusinessProcessIndicator { get; init; } 
     /// <summary>
     /// Specifies the type of lottery announced.
     /// </summary>
-    [DataMember]
     public LotteryTypeFormat4Choice_? LotteryType { get; init; } 
     /// <summary>
     /// Provides information about securities quantity linked to a corporate action.
     /// </summary>
-    [DataMember]
     public CorporateActionQuantity9? SecuritiesQuantity { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (DateDetails is CorporateActionDate63 DateDetailsValue)
+        {
+            writer.WriteStartElement(null, "DtDtls", xmlNamespace );
+            DateDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (EventStage is CorporateActionEventStageFormat14Choice_ EventStageValue)
+        {
+            writer.WriteStartElement(null, "EvtStag", xmlNamespace );
+            EventStageValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AdditionalBusinessProcessIndicator is AdditionalBusinessProcessFormat10Choice_ AdditionalBusinessProcessIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AddtlBizPrcInd", xmlNamespace );
+            AdditionalBusinessProcessIndicatorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (LotteryType is LotteryTypeFormat4Choice_ LotteryTypeValue)
+        {
+            writer.WriteStartElement(null, "LtryTp", xmlNamespace );
+            LotteryTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SecuritiesQuantity is CorporateActionQuantity9 SecuritiesQuantityValue)
+        {
+            writer.WriteStartElement(null, "SctiesQty", xmlNamespace );
+            SecuritiesQuantityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateAction42 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

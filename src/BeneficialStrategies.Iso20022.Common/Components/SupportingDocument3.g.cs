@@ -7,63 +7,107 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Currency control document supporting the contract registration.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SupportingDocument3
+     : IIsoXmlSerilizable<SupportingDocument3>
 {
     #nullable enable
     
     /// <summary>
     /// Unique and unambiguous identification of the supporting document.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text SupportingDocumentIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the original query message.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OriginalRequestIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the certificate for which the supporting document is provided.
     /// </summary>
-    [DataMember]
     public required DocumentIdentification28 Certificate { get; init; } 
     /// <summary>
     /// Party that legally owns the cash account.
     /// </summary>
-    [DataMember]
     public required PartyIdentification135 AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    [DataMember]
     public required BranchAndFinancialInstitutionIdentification6 AccountServicer { get; init; } 
     /// <summary>
     /// Amendment indicator details.
     /// </summary>
-    [DataMember]
     public DocumentAmendment1? Amendment { get; init; } 
     /// <summary>
     /// Reference of the registered contract or the underlying contract for the supporting documents.
     /// </summary>
-    [DataMember]
     public required ContractRegistrationReference2Choice_ ContractReference { get; init; } 
     /// <summary>
     /// Individual entry of the supporting document.
     /// </summary>
-    [DataMember]
-    public ValueList<SupportingDocumentEntry2> Entry { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupportingDocumentEntry2? Entry { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _jFVS37GJEeuSTr8k0UEM8A
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    [DataMember]
-    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    public SupplementaryData1? SupplementaryData { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SpprtgDocId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(SupportingDocumentIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        if (OriginalRequestIdentification is IsoMax35Text OriginalRequestIdentificationValue)
+        {
+            writer.WriteStartElement(null, "OrgnlReqId", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OriginalRequestIdentificationValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Cert", xmlNamespace );
+        Certificate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctOwnr", xmlNamespace );
+        AccountOwner.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "AcctSvcr", xmlNamespace );
+        AccountServicer.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Amendment is DocumentAmendment1 AmendmentValue)
+        {
+            writer.WriteStartElement(null, "Amdmnt", xmlNamespace );
+            AmendmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CtrctRef", xmlNamespace );
+        ContractReference.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        // Not sure how to serialize Entry, multiplicity Unknown
+        if (SupplementaryData is SupplementaryData1 SupplementaryDataValue)
+        {
+            writer.WriteStartElement(null, "SplmtryData", xmlNamespace );
+            SupplementaryDataValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SupportingDocument3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

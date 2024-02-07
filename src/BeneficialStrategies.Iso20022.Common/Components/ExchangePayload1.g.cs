@@ -7,23 +7,43 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// This component includes the exchanged ISO20022 documents.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ExchangePayload1
+     : IIsoXmlSerilizable<ExchangePayload1>
 {
     #nullable enable
     
     /// <summary>
     /// The respective ISO 20022 standard document.
     /// </summary>
-    [DataMember]
     public required LaxProcessing Any { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Any", xmlNamespace );
+        Any.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static ExchangePayload1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

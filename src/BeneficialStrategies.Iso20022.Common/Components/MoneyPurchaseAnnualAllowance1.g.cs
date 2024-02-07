@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information about a Money Purchase Annual Allowance (MPAA).
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record MoneyPurchaseAnnualAllowance1
+     : IIsoXmlSerilizable<MoneyPurchaseAnnualAllowance1>
 {
     #nullable enable
     
     /// <summary>
     /// Indicates whether the annual allowance has been triggered.
     /// </summary>
-    [DataMember]
     public required IsoYesNoIndicator Triggered { get; init; } 
     /// <summary>
     /// Date the annual allowance is taken.
     /// </summary>
-    [DataMember]
     public IsoISODate? TriggeredDate { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Trggrd", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(Triggered)); // data type YesNoIndicator System.String
+        writer.WriteEndElement();
+        if (TriggeredDate is IsoISODate TriggeredDateValue)
+        {
+            writer.WriteStartElement(null, "TrggrdDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(TriggeredDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static MoneyPurchaseAnnualAllowance1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

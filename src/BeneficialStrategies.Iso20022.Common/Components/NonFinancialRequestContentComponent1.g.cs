@@ -7,28 +7,52 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Aim of the non financial request.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NonFinancialRequestContentComponent1
+     : IIsoXmlSerilizable<NonFinancialRequestContentComponent1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of non financial request that the Acceptor wants to be processed.
     /// </summary>
-    [DataMember]
-    public ValueList<NonFinancialRequestType1Code> NonFinancialRequestType { get; init; } = []; // Warning: Don't know multiplicity.
+    public NonFinancialRequestType1Code? NonFinancialRequestType { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _yZV_UC_rEeugIJ3Gvoevmg
     /// <summary>
     /// Card payment transaction between an acceptor and an acquirer.
     /// </summary>
-    [DataMember]
     public CardPaymentTransaction107? Transaction { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize NonFinancialRequestType, multiplicity Unknown
+        if (Transaction is CardPaymentTransaction107 TransactionValue)
+        {
+            writer.WriteStartElement(null, "Tx", xmlNamespace );
+            TransactionValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static NonFinancialRequestContentComponent1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

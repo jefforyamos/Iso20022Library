@@ -7,28 +7,56 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Configuration of the PIN online verification.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ATMSecurityConfiguration5
+     : IIsoXmlSerilizable<ATMSecurityConfiguration5>
 {
     #nullable enable
     
     /// <summary>
     /// PIN block format the security module is able to manage for online verification of the PIN.
     /// </summary>
-    [DataMember]
-    public ValueList<PINFormat4Code> PINFormat { get; init; } = []; // Warning: Don't know multiplicity.
+    public PINFormat4Code? PINFormat { get; init; } 
     /// <summary>
     /// Maximum number of digits the security module is able to accept when the cardholder enters its PIN.
     /// </summary>
-    [DataMember]
     public IsoNumber? PINLengthCapabilities { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (PINFormat is PINFormat4Code PINFormatValue)
+        {
+            writer.WriteStartElement(null, "PINFrmt", xmlNamespace );
+            writer.WriteValue(PINFormatValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PINLengthCapabilities is IsoNumber PINLengthCapabilitiesValue)
+        {
+            writer.WriteStartElement(null, "PINLngthCpblties", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoNumber(PINLengthCapabilitiesValue)); // data type Number System.UInt64
+            writer.WriteEndElement();
+        }
+    }
+    public static ATMSecurityConfiguration5 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

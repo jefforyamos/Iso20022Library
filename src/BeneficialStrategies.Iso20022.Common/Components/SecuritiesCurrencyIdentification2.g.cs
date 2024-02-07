@@ -7,53 +7,94 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Details an individual currency including details on which country trades the currency.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SecuritiesCurrencyIdentification2
+     : IIsoXmlSerilizable<SecuritiesCurrencyIdentification2>
 {
     #nullable enable
     
     /// <summary>
     /// Details the currency name and ISO 4217 currency code.
     /// </summary>
-    [DataMember]
     public required CurrencyCodeAndName1 Currency { get; init; } 
     /// <summary>
     /// Fractional digit for the currency, that is, the number of decimals to use.
     /// </summary>
-    [DataMember]
     public IsoMax1Number? FractionalDigit { get; init; } 
     /// <summary>
     /// Details the country name and ISO 3166 country code.
     /// </summary>
-    [DataMember]
     public required CountryCodeAndName3 CountryDetails { get; init; } 
     /// <summary>
     /// Specifies if a currency is a pre Euro currency or not.
     /// </summary>
-    [DataMember]
     public required IsoTrueFalseIndicator PreEuro { get; init; } 
     /// <summary>
     /// Modification status for the record compared to the previous report.
     /// </summary>
-    [DataMember]
     public Modification1Code? Modification { get; init; } 
     /// <summary>
     /// Details the validity of the specific record.
     /// </summary>
-    [DataMember]
     public required Period4Choice_ ValidityPeriod { get; init; } 
     /// <summary>
     /// Date when this record was last modified.
     /// </summary>
-    [DataMember]
     public IsoISODate? LastUpdated { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Ccy", xmlNamespace );
+        Currency.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (FractionalDigit is IsoMax1Number FractionalDigitValue)
+        {
+            writer.WriteStartElement(null, "FrctnlDgt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax1Number(FractionalDigitValue)); // data type Max1Number System.UInt64
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CtryDtls", xmlNamespace );
+        CountryDetails.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PreEuro", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(PreEuro)); // data type TrueFalseIndicator System.String
+        writer.WriteEndElement();
+        if (Modification is Modification1Code ModificationValue)
+        {
+            writer.WriteStartElement(null, "Mod", xmlNamespace );
+            writer.WriteValue(ModificationValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "VldtyPrd", xmlNamespace );
+        ValidityPeriod.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (LastUpdated is IsoISODate LastUpdatedValue)
+        {
+            writer.WriteStartElement(null, "LastUpdtd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(LastUpdatedValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static SecuritiesCurrencyIdentification2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,6 +6,8 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.SettlementTotalData1Choice;
 
@@ -13,8 +15,10 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementTotalData1Choice;
 /// Aggregated data of settlement instructions.
 /// </summary>
 public partial record Data : SettlementTotalData1Choice_
+     , IIsoXmlSerilizable<Data>
 {
     #nullable enable
+    
     /// <summary>
     /// Aggregated volume and value of settlement instructions settled during the period covered by the report, for financial Instruments, types of transactions, types of clients and cash transfers.
     /// </summary>
@@ -31,5 +35,35 @@ public partial record Data : SettlementTotalData1Choice_
     /// Rate of failed settlement instructions compared to the total volume and value, of settlement instructions performed (settled and failed) during the period covered by the report.
     /// </summary>
     public required SettlementDataRate2 FailedRate { get; init; } 
+    
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Sttld", xmlNamespace );
+        Settled.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Faild", xmlNamespace );
+        Failed.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "Ttl", xmlNamespace );
+        Total.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "FaildRate", xmlNamespace );
+        FailedRate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+    }
+    public static new Data Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

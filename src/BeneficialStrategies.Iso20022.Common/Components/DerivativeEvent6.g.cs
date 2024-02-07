@@ -7,39 +7,77 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to derivative details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record DerivativeEvent6
+     : IIsoXmlSerilizable<DerivativeEvent6>
 {
     #nullable enable
     
     /// <summary>
     /// Classification of derivative event type.
     /// </summary>
-    [DataMember]
     public DerivativeEventType3Code? Type { get; init; } 
     /// <summary>
     /// Indicates means of identification of a derivative event.
     /// </summary>
-    [DataMember]
     public EventIdentifier1Choice_? Identification { get; init; } 
     /// <summary>
     /// Indicates the time stamp of a derivative event.
     /// </summary>
-    [DataMember]
     public DateAndDateTime2Choice_? TimeStamp { get; init; } 
     /// <summary>
     /// Indicator of whether the modification of the swap transaction reflects newly agreed upon term(s) from the previously negotiated terms resulting in price forming event.
     /// Usage: When absent, meaning of AmendmentIndicator is False.
     /// </summary>
-    [DataMember]
     public IsoTrueFalseIndicator? AmendmentIndicator { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is DerivativeEventType3Code TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            writer.WriteValue(TypeValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Identification is EventIdentifier1Choice_ IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TimeStamp is DateAndDateTime2Choice_ TimeStampValue)
+        {
+            writer.WriteStartElement(null, "TmStmp", xmlNamespace );
+            TimeStampValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (AmendmentIndicator is IsoTrueFalseIndicator AmendmentIndicatorValue)
+        {
+            writer.WriteStartElement(null, "AmdmntInd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoTrueFalseIndicator(AmendmentIndicatorValue)); // data type TrueFalseIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static DerivativeEvent6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

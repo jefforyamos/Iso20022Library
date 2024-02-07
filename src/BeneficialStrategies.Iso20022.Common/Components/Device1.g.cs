@@ -7,53 +7,103 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the customer device.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record Device1
+     : IIsoXmlSerilizable<Device1>
 {
     #nullable enable
     
     /// <summary>
     /// Type of customer device.
     /// </summary>
-    [DataMember]
     public required CustomerDeviceType1Code Type { get; init; } 
     /// <summary>
     /// Other type of customer device in free text.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Preferred language set on the device
     /// </summary>
-    [DataMember]
     public LanguageCode? Language { get; init; } 
     /// <summary>
     /// Phone number associated with the device.
     /// </summary>
-    [DataMember]
     public IsoPhoneNumber? PhoneNumber { get; init; } 
     /// <summary>
     /// Geographical location of the device.
     /// </summary>
-    [DataMember]
     public GeographicCoordinates1? Location { get; init; } 
     /// <summary>
     /// Internet Protocol address associated with the device.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? IPAddress { get; init; } 
     /// <summary>
     /// Electronic mail address associated with the device.
     /// </summary>
-    [DataMember]
     public IsoMax256Text? Email { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Tp", xmlNamespace );
+        writer.WriteValue(Type.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (OtherType is IsoMax35Text OtherTypeValue)
+        {
+            writer.WriteStartElement(null, "OthrTp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(OtherTypeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Language is LanguageCode LanguageValue)
+        {
+            writer.WriteStartElement(null, "Lang", xmlNamespace );
+            writer.WriteValue(LanguageValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (PhoneNumber is IsoPhoneNumber PhoneNumberValue)
+        {
+            writer.WriteStartElement(null, "PhneNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(PhoneNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (Location is GeographicCoordinates1 LocationValue)
+        {
+            writer.WriteStartElement(null, "Lctn", xmlNamespace );
+            LocationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (IPAddress is IsoMax70Text IPAddressValue)
+        {
+            writer.WriteStartElement(null, "IPAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(IPAddressValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Email is IsoMax256Text EmailValue)
+        {
+            writer.WriteStartElement(null, "Email", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax256Text(EmailValue)); // data type Max256Text System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static Device1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

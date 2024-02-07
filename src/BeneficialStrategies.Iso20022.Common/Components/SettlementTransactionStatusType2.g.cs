@@ -7,43 +7,86 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Choice of the securities settlement instruction status type.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record SettlementTransactionStatusType2
+     : IIsoXmlSerilizable<SettlementTransactionStatusType2>
 {
     #nullable enable
     
     /// <summary>
     /// Provides details on the processing status of the transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<ProcessingStatus70Choice_> ProcessingStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    public ProcessingStatus70Choice_? ProcessingStatus { get; init; } 
     /// <summary>
     /// Provides the matching status of an instruction as known by the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).
     /// </summary>
-    [DataMember]
-    public ValueList<MatchingStatus27Choice_> InferredMatchingStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    public MatchingStatus27Choice_? InferredMatchingStatus { get; init; } 
     /// <summary>
     /// Provides the matching status of the instruction.
     /// </summary>
-    [DataMember]
-    public ValueList<MatchingStatus27Choice_> MatchingStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    public MatchingStatus27Choice_? MatchingStatus { get; init; } 
     /// <summary>
     /// Provides the settlement status of a transaction.
     /// </summary>
-    [DataMember]
-    public ValueList<SettlementStatus26Choice_> SettlementStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    public SettlementStatus26Choice_? SettlementStatus { get; init; } 
     /// <summary>
     /// Defines that the transaction has been settled.
     /// </summary>
-    [DataMember]
     public ProprietaryReason4? Settled { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ProcessingStatus is ProcessingStatus70Choice_ ProcessingStatusValue)
+        {
+            writer.WriteStartElement(null, "PrcgSts", xmlNamespace );
+            ProcessingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InferredMatchingStatus is MatchingStatus27Choice_ InferredMatchingStatusValue)
+        {
+            writer.WriteStartElement(null, "IfrrdMtchgSts", xmlNamespace );
+            InferredMatchingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (MatchingStatus is MatchingStatus27Choice_ MatchingStatusValue)
+        {
+            writer.WriteStartElement(null, "MtchgSts", xmlNamespace );
+            MatchingStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (SettlementStatus is SettlementStatus26Choice_ SettlementStatusValue)
+        {
+            writer.WriteStartElement(null, "SttlmSts", xmlNamespace );
+            SettlementStatusValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Settled is ProprietaryReason4 SettledValue)
+        {
+            writer.WriteStartElement(null, "Sttld", xmlNamespace );
+            SettledValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static SettlementTransactionStatusType2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

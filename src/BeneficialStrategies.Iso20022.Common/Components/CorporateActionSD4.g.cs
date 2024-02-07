@@ -7,68 +7,133 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides additional information regarding corporate action details.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CorporateActionSD4
+     : IIsoXmlSerilizable<CorporateActionSD4>
 {
     #nullable enable
     
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
-    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// New par value of a security.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? NewParValue { get; init; } 
     /// <summary>
     /// Old par value of the event security represents the previously established par value that has changed in par value event. Used in combination with new par value element to represent the difference.
     /// </summary>
-    [DataMember]
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? OldParValue { get; init; } 
     /// <summary>
     /// Indicates whether the event agent is charging a cancellation and or issuance fee upon the exchange of securities.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ExchangeFeeRequiredFlag { get; init; } 
     /// <summary>
     /// GCA VS-specific flag that indicates whether a composite record has been generated as a result of custodian information that has not yet been confirmed in the market.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? CustodianShellFlag { get; init; } 
     /// <summary>
     /// Indicates whether the issuer requires a holder to present the entire account balance in order to be eligible for the offer.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? MustAllSharesBeSubmittedFlag { get; init; } 
     /// <summary>
     /// Provides details about the lottery that has been drawn as a part of the corporate action event.
     /// </summary>
-    [DataMember]
     public CorporateActionSD6? LotteryDetails { get; init; } 
     /// <summary>
     /// Indicates whether the dividend as whole or in part qualifies for lower/ favourable tax rate.
     /// </summary>
-    [DataMember]
     public QualifiedDividendTax1Code? QualifiedDividendTaxIndicator { get; init; } 
     /// <summary>
     /// Name of the company that will remain (possibly a new name), usually designated after a merger.
     /// </summary>
-    [DataMember]
     public IsoMax70Text? SurvivingCompany { get; init; } 
     /// <summary>
     /// Indicates when all or part of the distribution is paid from foreign sourced income of the issuer.
     /// </summary>
-    [DataMember]
     public IsoYesNoIndicator? ForeignIncomeSourceFlag { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PlcAndNm", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax350Text(PlaceAndName)); // data type Max350Text System.String
+        writer.WriteEndElement();
+        if (NewParValue is IsoRestrictedFINActiveCurrencyAnd13DecimalAmount NewParValueValue)
+        {
+            writer.WriteStartElement(null, "NewParVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAnd13DecimalAmount(NewParValueValue)); // data type RestrictedFINActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (OldParValue is IsoRestrictedFINActiveCurrencyAnd13DecimalAmount OldParValueValue)
+        {
+            writer.WriteStartElement(null, "OdParVal", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoRestrictedFINActiveCurrencyAnd13DecimalAmount(OldParValueValue)); // data type RestrictedFINActiveCurrencyAnd13DecimalAmount System.Decimal
+            writer.WriteEndElement();
+        }
+        if (ExchangeFeeRequiredFlag is IsoYesNoIndicator ExchangeFeeRequiredFlagValue)
+        {
+            writer.WriteStartElement(null, "XchgFeeReqrdFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ExchangeFeeRequiredFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (CustodianShellFlag is IsoYesNoIndicator CustodianShellFlagValue)
+        {
+            writer.WriteStartElement(null, "CtdnShellFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(CustodianShellFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (MustAllSharesBeSubmittedFlag is IsoYesNoIndicator MustAllSharesBeSubmittedFlagValue)
+        {
+            writer.WriteStartElement(null, "MustAllShrsBeSubmittdFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(MustAllSharesBeSubmittedFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (LotteryDetails is CorporateActionSD6 LotteryDetailsValue)
+        {
+            writer.WriteStartElement(null, "LtryDtls", xmlNamespace );
+            LotteryDetailsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (QualifiedDividendTaxIndicator is QualifiedDividendTax1Code QualifiedDividendTaxIndicatorValue)
+        {
+            writer.WriteStartElement(null, "QlfdDvddTaxInd", xmlNamespace );
+            writer.WriteValue(QualifiedDividendTaxIndicatorValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (SurvivingCompany is IsoMax70Text SurvivingCompanyValue)
+        {
+            writer.WriteStartElement(null, "SrvvgCpny", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(SurvivingCompanyValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (ForeignIncomeSourceFlag is IsoYesNoIndicator ForeignIncomeSourceFlagValue)
+        {
+            writer.WriteStartElement(null, "FrgnIncmSrcFlg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoYesNoIndicator(ForeignIncomeSourceFlagValue)); // data type YesNoIndicator System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static CorporateActionSD4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

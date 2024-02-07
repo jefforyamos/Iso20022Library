@@ -7,58 +7,99 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information on the shipment date, the charges, the routing and the goods described in the transport document.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record TransportDetails2
+     : IIsoXmlSerilizable<TransportDetails2>
 {
     #nullable enable
     
     /// <summary>
     /// Reference to the identification of the underlying transport document.
     /// </summary>
-    [DataMember]
-    public ValueList<DocumentIdentification7> TransportDocumentReference { get; init; } = []; // Warning: Don't know multiplicity.
+    public DocumentIdentification7? TransportDocumentReference { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _Ste399p-Ed-ak6NoX_4Aeg_-1923970514
     /// <summary>
     /// Goods that are transported.
     /// </summary>
-    [DataMember]
-    public ValueList<TransportedGoods1> TransportedGoods { get; init; } = []; // Warning: Don't know multiplicity.
+    public TransportedGoods1? TransportedGoods { get; init;  } // Warning: Don't know multiplicity.
+    // ID for the above is _Ste3-Np-Ed-ak6NoX_4Aeg_-1923969895
     /// <summary>
     /// Physical packaging of goods for transport.
     /// </summary>
-    [DataMember]
     public Consignment1? Consignment { get; init; } 
     /// <summary>
     /// Information related to the conveyance of goods.
     /// </summary>
-    [DataMember]
     public required TransportMeans2 RoutingSummary { get; init; } 
     /// <summary>
     /// Proposed date on which the goods should be shipped.
     /// </summary>
-    [DataMember]
     public required IsoISODate ProposedShipmentDate { get; init; } 
     /// <summary>
     /// Actual date whereby the goods were shipped.
     /// </summary>
-    [DataMember]
     public required IsoISODate ActualShipmentDate { get; init; } 
     /// <summary>
     /// Specifies the applicable Incoterm and associated location.
     /// </summary>
-    [DataMember]
     public Incoterms2? Incoterms { get; init; } 
     /// <summary>
     /// Charges related to the conveyance of goods.
     /// </summary>
-    [DataMember]
     public Charge13? FreightCharges { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        // Not sure how to serialize TransportDocumentReference, multiplicity Unknown
+        // Not sure how to serialize TransportedGoods, multiplicity Unknown
+        if (Consignment is Consignment1 ConsignmentValue)
+        {
+            writer.WriteStartElement(null, "Consgnmt", xmlNamespace );
+            ConsignmentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "RtgSummry", xmlNamespace );
+        RoutingSummary.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PropsdShipmntDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ProposedShipmentDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ActlShipmntDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ActualShipmentDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (Incoterms is Incoterms2 IncotermsValue)
+        {
+            writer.WriteStartElement(null, "Incotrms", xmlNamespace );
+            IncotermsValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (FreightCharges is Charge13 FreightChargesValue)
+        {
+            writer.WriteStartElement(null, "FrghtChrgs", xmlNamespace );
+            FreightChargesValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static TransportDetails2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

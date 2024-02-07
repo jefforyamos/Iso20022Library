@@ -7,29 +7,57 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Data pertaining to the approval of the transaction.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record ApprovalData1
+     : IIsoXmlSerilizable<ApprovalData1>
 {
     #nullable enable
     
     /// <summary>
     /// Entity that has delivered or declined the card payment authorisation (the party may be unidentified).
     /// </summary>
-    [DataMember]
     public ApprovalEntity1? ApprovalEntity { get; init; } 
     /// <summary>
     /// Value assigned by the approval entity indicating approval.
     /// ISO 8583:93/2003 bit 38
     /// </summary>
-    [DataMember]
     public IsoExact6AlphaNumericText? ApprovalCode { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ApprovalEntity is ApprovalEntity1 ApprovalEntityValue)
+        {
+            writer.WriteStartElement(null, "ApprvlNtty", xmlNamespace );
+            ApprovalEntityValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ApprovalCode is IsoExact6AlphaNumericText ApprovalCodeValue)
+        {
+            writer.WriteStartElement(null, "ApprvlCd", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoExact6AlphaNumericText(ApprovalCodeValue)); // data type Exact6AlphaNumericText System.String
+            writer.WriteEndElement();
+        }
+    }
+    public static ApprovalData1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identification of the issuer and its role.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record IssuerAgent3
+     : IIsoXmlSerilizable<IssuerAgent3>
 {
     #nullable enable
     
     /// <summary>
     /// Identification of the issuer agent.
     /// </summary>
-    [DataMember]
     public required PartyIdentification129Choice_ Identification { get; init; } 
     /// <summary>
     /// Role of the issuer agent.
     /// </summary>
-    [DataMember]
     public AgentRole1Code? Role { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Role is AgentRole1Code RoleValue)
+        {
+            writer.WriteStartElement(null, "Role", xmlNamespace );
+            writer.WriteValue(RoleValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static IssuerAgent3 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

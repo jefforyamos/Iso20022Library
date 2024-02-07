@@ -7,28 +7,53 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Reference of the transaction, that is the underlying payment instruction or statement entry.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CertificateReference2
+     : IIsoXmlSerilizable<CertificateReference2>
 {
     #nullable enable
     
     /// <summary>
     /// Unique identification of the underlying payment instruction or statement entry.
     /// </summary>
-    [DataMember]
     public required CertificateIdentification1 Identification { get; init; } 
     /// <summary>
     /// Date of the underlying payment instruction or statement entry.
     /// </summary>
-    [DataMember]
     public IsoISODate? Date { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        Identification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (Date is IsoISODate DateValue)
+        {
+            writer.WriteStartElement(null, "Dt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(DateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+    }
+    public static CertificateReference2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,43 +7,83 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Identifies the chain of collateral parties of counterparty of Party A.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record CollateralParties11
+     : IIsoXmlSerilizable<CollateralParties11>
 {
     #nullable enable
     
     /// <summary>
     /// Counterparty of party A. 
     /// </summary>
-    [DataMember]
     public required PartyIdentification232 PartyB { get; init; } 
     /// <summary>
     /// Party that instructs party B to settle the instruction on its behalf.
     /// </summary>
-    [DataMember]
     public PartyIdentification232? ClientPartyB { get; init; } 
     /// <summary>
     /// Party that handles tri-party transactions.
     /// </summary>
-    [DataMember]
     public PartyIdentification136? TripartyAgent { get; init; } 
     /// <summary>
     /// Account where the collateral is held during the lifecycle  of the transaction.
     /// </summary>
-    [DataMember]
     public SecuritiesAccount19? CollateralAccount { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
-    [DataMember]
     public BlockChainAddressWallet3? BlockChainAddressOrWallet { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PtyB", xmlNamespace );
+        PartyB.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (ClientPartyB is PartyIdentification232 ClientPartyBValue)
+        {
+            writer.WriteStartElement(null, "ClntPtyB", xmlNamespace );
+            ClientPartyBValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (TripartyAgent is PartyIdentification136 TripartyAgentValue)
+        {
+            writer.WriteStartElement(null, "TrptyAgt", xmlNamespace );
+            TripartyAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CollateralAccount is SecuritiesAccount19 CollateralAccountValue)
+        {
+            writer.WriteStartElement(null, "CollAcct", xmlNamespace );
+            CollateralAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BlockChainAddressOrWallet is BlockChainAddressWallet3 BlockChainAddressOrWalletValue)
+        {
+            writer.WriteStartElement(null, "BlckChainAdrOrWllt", xmlNamespace );
+            BlockChainAddressOrWalletValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CollateralParties11 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

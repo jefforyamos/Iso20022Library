@@ -7,38 +7,70 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Set of parameters used to calculate the fixing rate to be applied to a non-deliverable agreement.
 /// </summary>
-[DataContract]
-[XmlType]
 public partial record NonDeliverableForwardValuationConditions2
+     : IIsoXmlSerilizable<NonDeliverableForwardValuationConditions2>
 {
     #nullable enable
     
     /// <summary>
     /// Specifies the currency in which the non deliverable trade has to be settled ie the deliverable currency.
     /// </summary>
-    [DataMember]
     public required ActiveOrHistoricCurrencyCode SettlementCurrency { get; init; } 
     /// <summary>
     /// Date at which the rate used for calculating the net amount to be settled is observed.
     /// </summary>
-    [DataMember]
     public required IsoISODate ValuationDate { get; init; } 
     /// <summary>
     /// Free format text that may contain valuation information such as the place, the time or the source of the rate.
     /// </summary>
-    [DataMember]
     public IsoMax140Text? AdditionalValuationInformation { get; init; } 
     /// <summary>
     /// Party through which the settlement will take place. It may contain the BIC of a central settlement system eg CLSBUS33.
     /// </summary>
-    [DataMember]
     public PartyIdentification8Choice_? SettlementParty { get; init; } 
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "SttlmCcy", xmlNamespace );
+        writer.WriteValue(SettlementCurrency.ToString()); // Enum value
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "ValtnDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(ValuationDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (AdditionalValuationInformation is IsoMax140Text AdditionalValuationInformationValue)
+        {
+            writer.WriteStartElement(null, "AddtlValtnInf", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(AdditionalValuationInformationValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (SettlementParty is PartyIdentification8Choice_ SettlementPartyValue)
+        {
+            writer.WriteStartElement(null, "SttlmPty", xmlNamespace );
+            SettlementPartyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static NonDeliverableForwardValuationConditions2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
